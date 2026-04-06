@@ -1,7 +1,7 @@
 # Tanvir Hussain
 
 Focused on Red Teaming, Digital Forensics, and High-Performance Systems Management. 
-Currently pursuing a B.S. in Cybersecurity at UAlbany and specializing in automated system hardening.
+Currently pursuing a A.S. in Cybersecurity at Hudson Valley Community College and specializing in automated system hardening.
 
 ## Technical Core
 OS Platforms: Kali Linux, Ubuntu Server, WSL2
