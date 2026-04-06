@@ -2,10 +2,257 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tanvir Hussain | Home Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvir Hussain | Security & Systems</title>
+    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Terminal Layout - Light Mode Adaptation */
+            --bg-page: #fcfcfd;        /* Pristine off-white */
+            --bg-header: #f8fafc;      /* Soft grey for header */
+            --bg-card: #ffffff;        /* Pure white for cards */
+            
+            --accent: #8e44ad;         /* Signature Purple */
+            --text-primary: #0f172a;   /* Deep charcoal/slate */
+            --text-secondary: #475569; /* Muted slate */
+            --terminal-green: #059669; /* Darker green for visibility on light bg */
+            --border: #e2e8f0;         /* Soft light border */
+            
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .terminal-header {
+            border-bottom: 1px solid var(--border);
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #fff 0%, var(--bg-header) 100%);
+        }
+
+        .terminal-prompt {
+            font-family: var(--font-mono);
+            color: var(--terminal-green);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--text-primary);
+        }
+
+        .typing-effect {
+            border-right: 3px solid var(--accent);
+            padding-right: 5px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink { 50% { border-color: transparent } }
+
+        .container {
+            max-width: 850px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.75rem;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-primary);
+        }
+
+        h2::before {
+            content: "> ";
+            color: var(--terminal-green);
+            margin-right: 10px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(142, 68, 173, 0.1);
+        }
+
+        .card h3 {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 0 0 1rem 0;
+            color: var(--text-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #cbd5e1; /* Visible slate border */
+        }
+
+        .cert-item:last-child {
+            border-bottom: none;
+        }
+
+        .cert-item:hover {
+            background: rgba(142, 68, 173, 0.02);
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .cert-date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: rgba(142, 68, 173, 0.08);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 5rem 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem; /* Reduced for professional subtlety */
+            color: #94a3b8;
+            border-top: 1px solid var(--border);
+            opacity: 0.8; /* Subtle transparency */
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin: 2rem auto; }
+            section { margin-bottom: 3rem; }
+            .cert-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+        }
+    </style>
 </head>
-<body style="background: #8e44ad; color: white; text-align: center; font-family: sans-serif; padding-top: 50px;">
-    <h1>System Online</h1>
-    <p>If you see a purple background, your hosting is finally working!</p>
+<body>
+
+    <header class="terminal-header">
+        <nav style="margin-bottom: 2rem; font-family: var(--font-mono); font-size: 0.85rem;">
+            <a href="/" style="color: var(--accent); text-decoration: none; margin: 0 1rem;">[ HOME ]</a>
+            <a href="/Blog/" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem;">[ BLOG ]</a>
+            <a href="/Tutorials/" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem;">[ TUTORIALS ]</a>
+            <a href="https://github.com/shadowpbx" style="color: var(--text-secondary); text-decoration: none; margin: 0 1rem;" target="_blank">[ GITHUB ]</a>
+        </nav>
+        <div class="terminal-prompt">user@shadowpbx:~$ whoami</div>
+        <h1>Tanvir <span class="typing-effect">Hussain</span></h1>
+        <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary);">[ Information Security | Digital Forensics | Infrastructure Hardening ]</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="profile">
+            <span class="section-label">01 // Background</span>
+            <h2>Professional Profile</h2>
+            <p>Focused on Red Teaming, Digital Forensics, and High-Performance Systems Management. Currently pursuing an A.S. in Cybersecurity at Hudson Valley Community College and specializing in automated system hardening.</p>
+        </section>
+
+        <section id="tech-core">
+            <span class="section-label">02 // Technical Core</span>
+            <h2>Capabilities</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>OS Platforms</h3>
+                    <div class="card-content">Kali Linux, Ubuntu Server, WSL2, Enterprise Windows</div>
+                </div>
+                <div class="card">
+                    <h3>Languages</h3>
+                    <div class="card-content">Python, Bash Scripting, SQL, JavaScript (Node.js)</div>
+                </div>
+                <div class="card">
+                    <h3>Specializations</h3>
+                    <div class="card-content">Penetration Testing, Automated Hardening, Network Analysis</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certs">
+            <span class="section-label">03 // Verified Credentials</span>
+            <h2>Certifications</h2>
+            <div class="cert-item">
+                <span class="cert-name">Google Professional Cybersecurity Certificate</span>
+                <span class="cert-date">COMPLETED FEB 2026</span>
+            </div>
+            <div class="cert-item">
+                <span class="cert-name">CompTIA A+</span>
+                <span class="cert-date">CANDIDATE 2026</span>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>SYSTEM STATUS: SECURE // &copy; 2026 TANVIR HUSSAIN // AUTH_LEVEL: PUBLIC</p>
+    </footer>
+
 </body>
 </html>
