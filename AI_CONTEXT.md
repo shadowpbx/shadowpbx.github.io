@@ -81,8 +81,11 @@ The site uses a **Refined Light Mode** developer aesthetic.
 ---
 
 ## 4. Blog & Post Generation Tooling
-The sub-sites (`Blog`, `Cybersecurity`, and `Tutorials`) utilize a local Python script to compile markdown files:
-*   **Compiler Script:** `generate_index.py`
+The sub-sites (`Blog`, `Cybersecurity`, `Tutorials`, and `Cybersecurity_Study`) utilize local Python scripts to compile markdown files:
+*   **Compiler Script:** `generate_index.py` in each folder.
 *   **Process:** Lists files in `_posts/`, parses Jekyll-style YAML front-matter, parses Markdown content into HTML, and injects it into `post_template.html` to generate files in `posts/`.
-*   **Updating Index:** The script updates `index.html` by finding the `<!-- POSTS_START -->` and `<!-- POSTS_END -->` markers, swapping only the list content. It does **not** overwrite styles, layout grid, or navigation changes in the rest of `index.html`.
-*   **Post Headers:** Headings within generated posts are formatted via `post_template.html` (which has been updated to use `Inter` headings for consistency).
+*   **Updating Index:** 
+    *   For `Blog`, `Cybersecurity`, and `Tutorials`: The script swaps contents between `<!-- POSTS_START -->` and `<!-- POSTS_END -->`.
+    *   For `Cybersecurity_Study`: The script reads the `track` front-matter (`Certification` or `Academic`) and separates compiles between `<!-- CERTS_START -->`/`<!-- CERTS_END -->` and `<!-- ACADEMIC_START -->`/`<!-- ACADEMIC_END -->` to maintain the dual-column grid index.
+    *   The scripts do **not** overwrite page layouts, style rules, or navigation menus in `index.html`.
+*   **Post Headers:** Headings within generated posts are formatted via `post_template.html` (using `Inter` headings for design system cohesion).
