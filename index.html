@@ -99,7 +99,18 @@
             min-width: 180px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
             z-index: 10;
-            margin-top: 0.5rem;
+            margin-top: 6px;
+        }
+
+        /* Bridge the hover gap */
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: transparent;
         }
 
         .dropdown-menu a {
