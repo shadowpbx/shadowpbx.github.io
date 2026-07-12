@@ -40,9 +40,9 @@ The header is left-aligned to align perfectly with the grid containers. The navi
 ### Link Structure
 *   `[ HOME ]` -> `/`
 *   `[ CYBERSECURITY ]` -> `/Cybersecurity/`
-    *   `Cybersecurity Tutorials` -> `/Cybersecurity_Tutorials/`
-    *   `Study Materials` -> `/Cybersecurity_Study/`
-    *   `Security Tools` -> `/Cybersecurity_Tools/`
+    *   `Security Tutorials` -> `/Cybersecurity_Tutorials/`
+    *   `Certifications & Coursework` -> `/Cybersecurity_Study/`
+    *   `Tools & Scripts` -> `/Cybersecurity_Tools/`
 *   `[ TUTORIALS ]` -> `/Tutorials/`
 *   `[ BLOG ]` -> `/Blog/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx`
@@ -52,9 +52,9 @@ When viewport is `< 768px`, the menu automatically stacks and renders as a direc
 ```text
 [ HOME ]
 [ CYBERSECURITY ]
-  ↳ Cybersecurity Tutorials
-  ↳ Study Materials
-  ↳ Security Tools
+  ↳ Security Tutorials
+  ↳ Certifications & Coursework
+  ↳ Tools & Scripts
 [ TUTORIALS ]
 [ BLOG ]
 [ GITHUB ]
