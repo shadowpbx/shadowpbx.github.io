@@ -25,9 +25,12 @@ All repositories are checked out inside the parent directory (`/home/shad/Applic
 5.  **`Blog`** (General Blog)
     *   **URL:** `https://shadowpbx.github.io/Blog/`
     *   **Role:** General thought pieces, non-cybersecurity guides, and systems logs.
-6.  **`Tutorials`** (Systems & Bare-Metal Tutorials)
+6.  **`Tutorials`** (General Systems & Programming Tutorials)
     *   **URL:** `https://shadowpbx.github.io/Tutorials/`
-    *   **Role:** Technical guides, such as bare-metal hardware development or Raspberry Pi guides.
+    *   **Role:** Technical guides on systems programming, hardware, bare-metal development, etc.
+7.  **`Cybersecurity_Tutorials`** (Cybersecurity Writeups & Tutorials)
+    *   **URL:** `https://shadowpbx.github.io/Cybersecurity_Tutorials/`
+    *   **Role:** Technical cybersecurity guides, walk-throughs, and CTF/pentesting writeups.
 
 ---
 
@@ -37,20 +40,22 @@ The header is left-aligned to align perfectly with the grid containers. The navi
 ### Link Structure
 *   `[ HOME ]` -> `/`
 *   `[ CYBERSECURITY ]` -> `/Cybersecurity/`
-    *   `_tutorials/` -> `/Tutorials/`
-    *   `_study-guide/` -> `/Cybersecurity_Study/`
-    *   `_security-tools/` -> `/Cybersecurity_Tools/`
+    *   `Cybersecurity Tutorials` -> `/Cybersecurity_Tutorials/`
+    *   `Study Materials` -> `/Cybersecurity_Study/`
+    *   `Security Tools` -> `/Cybersecurity_Tools/`
+*   `[ TUTORIALS ]` -> `/Tutorials/`
 *   `[ BLOG ]` -> `/Blog/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx`
 
 ### Responsive Mobile Tree Layout
-When viewport is `< 768px`, the menu automatically stacks and renders as a directory tree structure to fit touch interfaces without overlapping:
+When viewport is `< 768px`, the menu automatically stacks and renders as a directory tree structure with clean elbow indicators:
 ```text
 [ HOME ]
 [ CYBERSECURITY ]
-  ├── _tutorials/
-  ├── _study-guide/
-  └── _security-tools/
+  ↳ Cybersecurity Tutorials
+  ↳ Study Materials
+  ↳ Security Tools
+[ TUTORIALS ]
 [ BLOG ]
 [ GITHUB ]
 ```

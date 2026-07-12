@@ -154,13 +154,9 @@
             }
             
             .dropdown-menu a::before {
-                content: "├── ";
-                color: #cbd5e1;
-            }
-            
-            .dropdown-menu a:last-child::before {
-                content: "└── ";
-                color: #cbd5e1;
+                content: "↳ ";
+                color: var(--accent);
+                margin-right: 0.5rem;
             }
         }
 
@@ -311,11 +307,12 @@
                 <div class="dropdown">
                     <a href="/Cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
-                        <a href="/Tutorials/">_tutorials/</a>
-                        <a href="/Cybersecurity_Study/">_study-guide/</a>
-                        <a href="/Cybersecurity_Tools/">_security-tools/</a>
+                        <a href="/Cybersecurity_Tutorials/">Cybersecurity Tutorials</a>
+                        <a href="/Cybersecurity_Study/">Study Materials</a>
+                        <a href="/Cybersecurity_Tools/">Security Tools</a>
                     </div>
                 </div>
+                <a href="/Tutorials/" class="nav-link">[ TUTORIALS ]</a>
                 <a href="/Blog/" class="nav-link">[ BLOG ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
