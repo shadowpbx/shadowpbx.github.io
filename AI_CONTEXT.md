@@ -47,9 +47,10 @@ The header is left-aligned to align perfectly with the grid containers. The navi
 *   `[ BLOG ]` -> `/Blog/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx`
 
-### Responsive Mobile Tree Layout
-When viewport is `< 768px`, the menu automatically stacks and renders as a directory tree structure with clean elbow indicators:
+### Responsive Mobile Layout
+When viewport is `< 768px`, the navigation links are hidden by default and replaced by a toggle button: `[ ☰ menu --list ]` (which changes to `[ ✕ close ]` when open). Tapping this toggles a slide-down menu styled as a terminal-bordered directory tree with clean elbow indicators:
 ```text
+user@shadowpbx:~$ menu --list
 [ HOME ]
 [ CYBERSECURITY ]
   ↳ Security Tutorials

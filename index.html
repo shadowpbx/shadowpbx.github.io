@@ -132,11 +132,36 @@
             display: block;
         }
 
+        .mobile-menu-toggle {
+            display: none;
+        }
+
         @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: inline-block;
+                font-family: var(--font-mono);
+                background: none;
+                border: none;
+                color: var(--accent);
+                cursor: pointer;
+                padding: 0;
+                font-size: 0.85rem;
+                font-weight: 700;
+                margin-bottom: 1.5rem;
+                outline: none;
+            }
+
             .nav-container {
+                display: none;
                 flex-direction: column;
                 gap: 0.75rem;
                 margin-bottom: 2rem;
+                border-left: 2px solid var(--border);
+                padding-left: 1.25rem;
+            }
+
+            .nav-container.show {
+                display: flex;
             }
 
             .dropdown-menu {
@@ -302,6 +327,7 @@
 
     <header class="terminal-header">
         <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
             <nav class="nav-container">
                 <a href="/" class="nav-link active">[ HOME ]</a>
                 <div class="dropdown">
@@ -367,6 +393,22 @@
     <footer>
         <p>SYSTEM STATUS: SECURE // &copy; 2026 TANVIR HUSSAIN // AUTH_LEVEL: PUBLIC</p>
     </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
 
 </body>
 </html>
