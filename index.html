@@ -37,7 +37,7 @@
 
         .terminal-header {
             border-bottom: 1px solid var(--border);
-            padding: 4rem 1.5rem;
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
             background: linear-gradient(to bottom, #fff 0%, var(--bg-header) 100%);
         }
 
@@ -70,7 +70,7 @@
             gap: 1.5rem;
             font-family: var(--font-mono);
             font-size: 0.85rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .nav-link {
@@ -145,9 +145,9 @@
                 color: var(--accent);
                 cursor: pointer;
                 padding: 0;
-                font-size: 0.85rem;
+                font-size: 0.95rem;
                 font-weight: 700;
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
                 outline: none;
             }
 
@@ -183,6 +183,14 @@
                 color: var(--accent);
                 margin-right: 0.5rem;
             }
+
+            .terminal-header {
+                padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+            }
+
+            .container {
+                margin: 1.5rem auto;
+            }
         }
 
         .typing-effect {
@@ -195,7 +203,7 @@
 
         .container {
             max-width: 850px;
-            margin: 4rem auto;
+            margin: 2.5rem auto;
             padding: 0 1.5rem;
         }
 
@@ -317,7 +325,6 @@
         }
 
         @media (max-width: 600px) {
-            .container { margin: 2rem auto; }
             section { margin-bottom: 3rem; }
             .cert-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
         }
