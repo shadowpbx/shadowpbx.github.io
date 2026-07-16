@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics & Certifications | Tanvir Hussain</title>
+    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/Cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/Cybersecurity_Tutorials/">Security Tutorials</a>
+                        <a href="/Cybersecurity_Study/">Certifications & Coursework</a>
+                        <a href="/Cybersecurity_Tools/">Tools & Scripts</a>
+                    </div>
+                </div>
+                <a href="/Tutorials/" class="nav-link">[ TUTORIALS ]</a>
+                <a href="/Blog/" class="nav-link">[ BLOG ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx:~$ study --show-dashboard</div>
+            <h1>Certifications & Coursework</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="study-cards-grid">
+            
+            <!-- Card 1: Certifications -->
+            <a href="certifications.html" class="study-card">
+                <div>
+                    <h3>01 // Certifications</h3>
+                    <div class="study-card-title">Professional Credentials</div>
+                    <p class="study-card-desc">IT and Information Security credential study guides, flashcards, and port reference lists.</p>
+                </div>
+                <div class="study-card-meta"><!-- CERTS_COUNT -->1<!-- CERTS_COUNT_END --> FILES</div>
+            </a>
+
+            <!-- Card 2: Cybersecurity Coursework -->
+            <a href="cybersecurity_coursework.html" class="study-card">
+                <div>
+                    <h3>02 // Cybersecurity</h3>
+                    <div class="study-card-title">Security Coursework</div>
+                    <p class="study-card-desc">Technical coursework notes, lab writeups, and coding exercises from my core cybersecurity curriculum.</p>
+                </div>
+                <div class="study-card-meta"><!-- CYBER_COUNT -->1<!-- CYBER_COUNT_END --> FILES</div>
+            </a>
+
+            <!-- Card 3: All Coursework -->
+            <a href="all_coursework.html" class="study-card">
+                <div>
+                    <h3>03 // Transcript</h3>
+                    <div class="study-card-title">All Coursework & CLEPs</div>
+                    <p class="study-card-desc">Comprehensive log of general education classes, CLEP exam guides, and foundational credits.</p>
+                </div>
+                <div class="study-card-meta"><!-- ALL_COUNT -->2<!-- ALL_COUNT_END --> FILES</div>
+            </a>
+
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+</html>

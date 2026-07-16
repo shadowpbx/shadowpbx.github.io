@@ -3,339 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanvir Hussain | Security & Systems</title>
-    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
+    <title>Tanvir Hussain | Security & Systems Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
     <style>
-        :root {
-            /* Terminal Layout - Light Mode Adaptation */
-            --bg-page: #fcfcfd;        /* Pristine off-white */
-            --bg-header: #f8fafc;      /* Soft grey for header */
-            --bg-card: #ffffff;        /* Pure white for cards */
-            
-            --accent: #8e44ad;         /* Signature Purple */
-            --text-primary: #0f172a;   /* Deep charcoal/slate */
-            --text-secondary: #475569; /* Muted slate */
-            --terminal-green: #059669; /* Darker green for visibility on light bg */
-            --border: #e2e8f0;         /* Soft light border */
-            
-            --font-main: 'Inter', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-        }
-
-        html {
-            scrollbar-gutter: stable;
-        }
-
-        body {
-            background-color: var(--bg-page);
-            color: var(--text-primary);
-            font-family: var(--font-main);
+        /* Homepage-specific heading override to keep "Tanvir Hussain" large */
+        .homepage-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .terminal-header {
-            border-bottom: 1px solid var(--border);
-            padding: 2.5rem 1.5rem 2rem 1.5rem;
-            background: linear-gradient(to bottom, #fff 0%, var(--bg-header) 100%);
-        }
-
-        .header-container {
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .terminal-prompt {
-            font-family: var(--font-mono);
-            color: var(--terminal-green);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        h1 {
-            font-family: var(--font-main);
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: -0.03em;
             color: var(--text-primary);
         }
 
-        /* Navigation Styles */
-        .nav-container {
-            display: flex;
-            gap: 1.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            margin-bottom: 2rem;
-        }
-
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 0.5rem 0;
-            min-width: 180px;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-            z-index: 10;
-            margin-top: 6px;
-        }
-
-        /* Bridge the hover gap */
-        .dropdown-menu::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: transparent;
-        }
-
-        .dropdown-menu a {
-            color: var(--text-secondary);
-            padding: 0.5rem 1.25rem;
-            text-decoration: none;
-            display: block;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            transition: all 0.2s ease;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(142, 68, 173, 0.05);
-            color: var(--accent);
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: inline-block;
-                font-family: var(--font-mono);
-                background: none;
-                border: none;
-                color: var(--accent);
-                cursor: pointer;
-                padding: 0;
-                font-size: 0.95rem;
-                font-weight: 700;
-                margin-bottom: 1rem;
-                outline: none;
-            }
-
-            .nav-container {
-                display: none;
-                flex-direction: column;
-                gap: 0.75rem;
-                margin-bottom: 2rem;
-                border-left: 2px solid var(--border);
-                padding-left: 1.25rem;
-            }
-
-            .nav-container.show {
-                display: flex;
-            }
-
-            .dropdown-menu {
-                display: block;
-                position: static;
-                border: none;
-                box-shadow: none;
-                background: transparent;
-                padding: 0 0 0 1.25rem;
-                margin-top: 0.25rem;
-            }
-
-            .dropdown-menu a {
-                padding: 0.25rem 0;
-            }
-            
-            .dropdown-menu a::before {
-                content: "↳ ";
-                color: var(--accent);
-                margin-right: 0.5rem;
-            }
-
-            .terminal-header {
-                padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-            }
-
-            .container {
-                margin: 1.5rem auto;
-            }
-        }
-
-        .typing-effect {
-            border-right: 3px solid var(--accent);
-            padding-right: 5px;
-            animation: blink 0.8s infinite;
-        }
-
-        @keyframes blink { 50% { border-color: transparent } }
-
-        .container {
-            max-width: 850px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        section {
-            margin-bottom: 5rem;
-        }
-
-        .section-label {
-            font-family: var(--font-mono);
-            color: var(--accent);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: block;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        h2 {
-            font-family: var(--font-main);
-            font-size: 1.75rem;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            color: var(--text-primary);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        h2::before {
-            content: "> ";
-            font-family: var(--font-mono);
-            color: var(--terminal-green);
-            margin-right: 10px;
-        }
-
-        p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px -5px rgba(142, 68, 173, 0.1);
-        }
-
-        .card h3 {
+        .homepage-header p {
+            margin-top: 1rem;
             font-family: var(--font-mono);
             font-size: 0.9rem;
-            margin: 0 0 1rem 0;
-            color: var(--text-primary);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card-content {
-            font-size: 1rem;
             color: var(--text-secondary);
-        }
-
-        .cert-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #cbd5e1; /* Visible slate border */
-        }
-
-        .cert-item:last-child {
-            border-bottom: none;
-        }
-
-        .cert-item:hover {
-            background: rgba(142, 68, 173, 0.02);
-        }
-
-        .cert-name {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .cert-date {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent);
-            background: rgba(142, 68, 173, 0.08);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1.5rem 2.5rem 1.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border);
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 600px) {
-            section { margin-bottom: 3rem; }
-            .cert-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="terminal-header">
+    <header class="terminal-header homepage-header">
         <div class="header-container">
             <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
             <nav class="nav-container">
@@ -350,59 +41,64 @@
                 </div>
                 <a href="/Tutorials/" class="nav-link">[ TUTORIALS ]</a>
                 <a href="/Blog/" class="nav-link">[ BLOG ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx:~$ whoami</div>
+            <div class="terminal-prompt">user@hexdef:~$ whoami</div>
             <h1>Tanvir <span class="typing-effect">Hussain</span></h1>
-            <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary);">[ Information Security | Digital Forensics | Infrastructure Hardening ]</p>
+            <p>[ Information Security | Digital Forensics | Infrastructure Hardening ]</p>
         </div>
     </header>
 
     <div class="container">
-        
-        <section id="profile">
-            <span class="section-label">01 // Background</span>
-            <h2>Professional Profile</h2>
-            <p>Focused on Red Teaming, Digital Forensics, and High-Performance Systems Management. Currently pursuing an A.S. in Cybersecurity at Hudson Valley Community College and specializing in automated system hardening.</p>
-        </section>
-
-        <section id="tech-core">
-            <span class="section-label">02 // Technical Core</span>
-            <h2>Capabilities</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>OS Platforms</h3>
-                    <div class="card-content">Kali Linux, Ubuntu Server, WSL2, Enterprise Windows</div>
+        <div class="study-cards-grid">
+            
+            <!-- Card 1: Cybersecurity Study -->
+            <a href="/Cybersecurity_Study/" class="study-card">
+                <div>
+                    <h3>01 // Security Writeups</h3>
+                    <div class="study-card-title">Certifications & Coursework</div>
+                    <p class="study-card-desc">Active study guides, CompTIA certifications logs, academic notes, and CLEP transcript records.</p>
                 </div>
-                <div class="card">
-                    <h3>Languages</h3>
-                    <div class="card-content">Python, Bash Scripting, SQL, JavaScript (Node.js)</div>
-                </div>
-                <div class="card">
-                    <h3>Specializations</h3>
-                    <div class="card-content">Penetration Testing, Automated Hardening, Network Analysis</div>
-                </div>
-            </div>
-        </section>
+                <div class="study-card-meta">VIEW CLASSROOM LOGS &rarr;</div>
+            </a>
 
-        <section id="certs">
-            <span class="section-label">03 // Verified Credentials</span>
-            <h2>Certifications</h2>
-            <div class="cert-item">
-                <span class="cert-name">Google Professional Cybersecurity Certificate</span>
-                <span class="cert-date">COMPLETED FEB 2026</span>
-            </div>
-            <div class="cert-item">
-                <span class="cert-name">CompTIA A+</span>
-                <span class="cert-date">CANDIDATE 2026</span>
-            </div>
-        </section>
+            <!-- Card 2: Tools & Scripts -->
+            <a href="/Cybersecurity_Tools/" class="study-card">
+                <div>
+                    <h3>02 // Tools & Scripts</h3>
+                    <div class="study-card-title">Security & Dev Tools</div>
+                    <p class="study-card-desc">Custom Python payloads, automated bash logs, network scanners, and system utility scripts.</p>
+                </div>
+                <div class="study-card-meta">VIEW REPOSITORY &rarr;</div>
+            </a>
 
+            <!-- Card 3: Tutorials -->
+            <a href="/Tutorials/" class="study-card">
+                <div>
+                    <h3>03 // Tech Tutorials</h3>
+                    <div class="study-card-title">Tutorials & Guides</div>
+                    <p class="study-card-desc">Technical walk-throughs, bare-metal boot guides, virtualization setups, and server configurations.</p>
+                </div>
+                <div class="study-card-meta">VIEW INSTRUCTIONS &rarr;</div>
+            </a>
+
+            <!-- Card 4: Blog -->
+            <a href="/Blog/" class="study-card">
+                <div>
+                    <h3>04 // Logs & Writeups</h3>
+                    <div class="study-card-title">Systems Log / Blog</div>
+                    <p class="study-card-desc">Thoughts on infrastructure design, systems forensics, browser debugging, and technical writeups.</p>
+                </div>
+                <div class="study-card-meta">VIEW JOURNAL &rarr;</div>
+            </a>
+
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
+        </footer>
     </div>
-
-    <footer>
-        &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
-    </footer>
 
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
@@ -419,6 +115,5 @@
             }
         });
     </script>
-
 </body>
 </html>
