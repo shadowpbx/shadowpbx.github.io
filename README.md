@@ -1,15 +1,99 @@
-# Tanvir Hussain
+# HexDef — Security & Systems Portal
 
-Focused on Red Teaming, Digital Forensics, and High-Performance Systems Management. 
-Currently pursuing a A.S. in Cybersecurity at Hudson Valley Community College and specializing in automated system hardening.
+This repository contains the source code for the **[hexdef.com](https://hexdef.com/)** web ecosystem (hosted via GitHub Pages at `shadowpbx.github.io`). It is designed as a unified Monorepo containing a central dashboard and modular sub-portals for cybersecurity writeups, custom developer tools, academic guides, tutorials, journals, and interactive graphing labs.
 
-## Technical Core
-OS Platforms: Kali Linux, Ubuntu Server, WSL2
-Languages: Python, Bash, SQL, JavaScript
-Specializations: Penetration Testing, System Automation, Network Security
+---
 
-## Professional Certifications
-Credential: Google Professional Cybersecurity Certificate.
-Status: Completed February 2026
-Credential: CompTIA A+
-Status: Candidate 2026
+## 🚀 Getting Started: Local Development & Server Setup
+
+Since this is a static site powered by HTML5, Vanilla CSS, and lightweight client-side JavaScript, you do not need complex toolchains or databases to test it locally.
+
+### 1. Serve the Website Locally (Fast & Zero Setup)
+Python has a built-in web server module that allows you to preview the site instantly on your local computer.
+
+1.  Open your terminal.
+2.  Navigate to the repository root directory:
+    ```bash
+    cd /home/shad/Application/Github/shadowpbx.github.io
+    ```
+3.  Launch the local development server:
+    ```bash
+    python3 -m http.server 8000
+    ```
+4.  Open your web browser and navigate to:
+    ```text
+    http://localhost:8000/
+    ```
+
+*Any local edits you make to index files, CSS layouts, or compiled posts will be visible **instantly** by refreshing your browser.*
+
+---
+
+## 🛠️ Build & Compilation Pipeline
+
+The website compiles Markdown articles (`.md`) into themed static HTML files (`.html`) using specialized Python generator scripts.
+
+### How to Compile the Portal:
+Whenever you add or edit study notes, tools list, or blog posts, execute the master build script in the root directory:
+
+```bash
+python3 build_all.py
+```
+
+This single command will:
+1.  Scan the source directories (`Blog/`, `Cybersecurity/`, `Tutorials/`, `Cybersecurity_Study/`, `Cybersecurity_Tools/`, `Cybersecurity_Tutorials/`).
+2.  Process all front-matter Markdown files in their respective `_posts/` directories.
+3.  Generate responsive, Prism-highlighted HTML pages in their respective `posts/` directories.
+4.  Infect dashboard cards with live file counts.
+5.  Compile CLEP syllabus documentation (`README.md` files) into beautiful static `readme.html` pages under the `/CLEP/` directory.
+
+---
+
+## 📊 Building the Economic Graph Lab (Vite + React)
+
+The Principles of Macroeconomics study guide features an interactive economic graphing utility written in **React + TypeScript + TailwindCSS** located under `/CLEP/Macroeconomics_Graphs/`.
+
+To build or modify the Graph Lab locally:
+
+1.  Navigate to the Graph Lab workspace:
+    ```bash
+    cd CLEP/Macroeconomics_Graphs/
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the local development server (with hot module replacement):
+    ```bash
+    npm run dev
+    ```
+4.  Compile for production:
+    ```bash
+    npm run build
+    ```
+    *Note: The production static output is written to `/CLEP/Macroeconomics_Graphs/dist/` which is tracked in Git to allow hosting on GitHub Pages.*
+
+---
+
+## 📦 Deployment Protocol
+
+To deploy your local changes to the live domain `hexdef.com`:
+
+1.  Compile all static posts and CLEP readmes:
+    ```bash
+    python3 build_all.py
+    ```
+2.  Stage your modifications and additions:
+    ```bash
+    git add .
+    ```
+3.  Commit your updates:
+    ```bash
+    git commit -m "Your descriptive commit message"
+    ```
+4.  Push to GitHub (triggers automated Pages deploy actions):
+    ```bash
+    git push origin main
+    ```
+
+*Your changes will be live on [hexdef.com](https://hexdef.com/) in approximately 1 to 2 minutes.*
