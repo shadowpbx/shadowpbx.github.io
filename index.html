@@ -8,21 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
-    <style>
-        /* Homepage-specific heading override to keep "Tanvir Hussain" large */
-        .homepage-header h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin: 0;
-            color: var(--text-primary);
-        }
-
-        .homepage-header p {
-            margin-top: 1rem;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-    </style>
 </head>
 <body>
 
@@ -30,13 +15,21 @@
         <div class="header-container">
             <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
             <nav class="nav-container">
-                <a href="/" class="nav-link active">[ HOME ]</a>
+                <a href="/" class="nav-link">[ HOME ]</a>
                 <div class="dropdown">
                     <a href="/Cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/Cybersecurity_Tutorials/">Security Tutorials</a>
-                        <a href="/Cybersecurity_Study/">Certifications & Coursework</a>
                         <a href="/Cybersecurity_Tools/">Tools & Scripts</a>
+                        <a href="/Cybersecurity_Study/certifications.html">Security Credentials</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/CLEP/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/CLEP/">CLEP Exam Registry</a>
+                        <a href="/Cybersecurity_Study/cybersecurity_coursework.html">HVCC Coursework</a>
+                        <a href="/Cybersecurity_Study/all_coursework.html">All Academic Log</a>
                     </div>
                 </div>
                 <a href="/Tutorials/" class="nav-link">[ TUTORIALS ]</a>
@@ -45,31 +38,30 @@
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
             <div class="terminal-prompt">user@hexdef:~$ portal --show-dashboard</div>
-            <h1>Hex<span class="typing-effect">Def</span></h1>
         </div>
     </header>
 
     <div class="container">
         <div class="study-cards-grid">
             
-            <!-- Card 1: Cybersecurity Study -->
-            <a href="/Cybersecurity_Study/" class="study-card">
+            <!-- Card 1: Cybersecurity -->
+            <a href="/Cybersecurity/" class="study-card">
                 <div>
-                    <h3>01 // Security Writeups</h3>
-                    <div class="study-card-title">Certifications & Coursework</div>
-                    <p class="study-card-desc">Active study guides, CompTIA certifications logs, academic notes, and CLEP transcript records.</p>
+                    <h3>01 // Cybersecurity</h3>
+                    <div class="study-card-title">Cybersecurity Portal</div>
+                    <p class="study-card-desc">Red Teaming projects, custom tools & scripts, vulnerability research, and security credentials.</p>
                 </div>
-                <div class="study-card-meta">VIEW CLASSROOM LOGS &rarr;</div>
+                <div class="study-card-meta">VIEW SECURITY PORTAL &rarr;</div>
             </a>
 
-            <!-- Card 2: Tools & Scripts -->
-            <a href="/Cybersecurity_Tools/" class="study-card">
+            <!-- Card 2: Academics & CLEPs -->
+            <a href="/CLEP/" class="study-card">
                 <div>
-                    <h3>02 // Tools & Scripts</h3>
-                    <div class="study-card-title">Security & Dev Tools</div>
-                    <p class="study-card-desc">Custom Python payloads, automated bash logs, network scanners, and system utility scripts.</p>
+                    <h3>02 // Academics</h3>
+                    <div class="study-card-title">Academics & CLEPs</div>
+                    <p class="study-card-desc">Introductory Sociology, Principles of Macroeconomics, American Government study logs, and college coursework.</p>
                 </div>
-                <div class="study-card-meta">VIEW REPOSITORY &rarr;</div>
+                <div class="study-card-meta">VIEW ACADEMICS &rarr;</div>
             </a>
 
             <!-- Card 3: Tutorials -->
@@ -85,8 +77,8 @@
             <!-- Card 4: Blog -->
             <a href="/Blog/" class="study-card">
                 <div>
-                    <h3>04 // Logs & Writeups</h3>
-                    <div class="study-card-title">Systems Log / Blog</div>
+                    <h3>04 // Systems Journal</h3>
+                    <div class="study-card-title">Logs & Writeups</div>
                     <p class="study-card-desc">Thoughts on infrastructure design, systems forensics, browser debugging, and technical writeups.</p>
                 </div>
                 <div class="study-card-meta">VIEW JOURNAL &rarr;</div>
