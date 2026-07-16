@@ -40,6 +40,20 @@ def build_all():
         else:
             logging.warning(f"No compiler script found in {folder} (expected: generate_index.py)")
             
+    # Build CLEP READMEs
+    clep_compiler = os.path.join(root_dir, "CLEP", "compile_readmes.py")
+    if os.path.exists(clep_compiler):
+        logging.info("Compiling CLEP README files...")
+        try:
+            subprocess.run(
+                ["python3", "compile_readmes.py"],
+                cwd=os.path.join(root_dir, "CLEP"),
+                check=True
+            )
+            logging.info("Successfully compiled CLEP READMEs.")
+        except subprocess.CalledProcessError as e:
+            logging.error(f"Error compiling CLEP READMEs: {e}")
+
     logging.info("Global Website Build Complete!")
 
 if __name__ == "__main__":
