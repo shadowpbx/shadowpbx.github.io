@@ -1,0 +1,6 @@
+{
+  "name": "Economics Graph Lab",
+  "description": "An interactive learning lab and simulator for the 11 essential economic graphs and models.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
