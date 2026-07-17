@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import sys
 import re
 import yaml
 import markdown
@@ -539,12 +540,30 @@ def compile_academics_readmes(folder_path):
             print(f"README.md not found in {sub_folder_path}.")
 
 def build_all():
-    logging.info("Starting Global Website Build...")
     root_dir = os.path.dirname(os.path.abspath(__file__))
     
-    for folder, config in FOLDER_CONFIGS.items():
+    # Parse command line arguments to check for targeted compile
+    args = sys.argv[1:]
+    if args:
+        target_folders = []
+        for arg in args:
+            if arg in FOLDER_CONFIGS:
+                target_folders.append(arg)
+            else:
+                logging.warning(f"Target folder '{arg}' is not configured in build pipeline. Ignoring.")
+        if not target_folders:
+            logging.error("No valid target folders specified. Exiting build.")
+            return
+        logging.info(f"Starting Targeted Website Build for: {', '.join(target_folders)}")
+        active_folders = [(f, FOLDER_CONFIGS[f]) for f in target_folders]
+    else:
+        logging.info("Starting Global Website Build...")
+        active_folders = FOLDER_CONFIGS.items()
+    
+    for folder, config in active_folders:
         folder_path = os.path.join(root_dir, folder)
         if not os.path.exists(folder_path):
+            logging.warning(f"Folder directory {folder_path} does not exist. Skipping.")
             continue
             
         logging.info(f"Compiling section: {folder}...")
@@ -559,7 +578,7 @@ def build_all():
             compile_academics_readmes(folder_path)
             logging.info(f"Successfully compiled academics READMEs section: {folder}")
             
-    logging.info("Global Website Build Complete!")
+    logging.info("Website Build Complete!")
 
 if __name__ == "__main__":
     build_all()
