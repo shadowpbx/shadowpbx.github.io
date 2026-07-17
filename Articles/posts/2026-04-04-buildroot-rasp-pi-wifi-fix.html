@@ -76,7 +76,6 @@
         }
     
         
-        
         /* Premium Breadcrumb Widget styling */
         .breadcrumb-nav {
             display: flex;
@@ -91,28 +90,11 @@
             margin-bottom: 2.5rem;
         }
 
-        .breadcrumb-left {
-            display: flex;
-            align-items: center;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none; /* Hide scrollbar Firefox */
-            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
-            padding-right: 1rem;
-            margin-right: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .breadcrumb-left::-webkit-scrollbar {
-            display: none; /* Hide scrollbar Chrome/Safari */
-        }
-
         .breadcrumb-left a, .breadcrumb-right a {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
-            white-space: nowrap;
         }
 
         .breadcrumb-left a:hover, .breadcrumb-right a:hover {
@@ -123,19 +105,22 @@
         .bc-sep {
             color: #cbd5e1;
             margin: 0 0.4rem;
-            flex-shrink: 0;
         }
 
         .breadcrumb-curr {
             color: var(--text-primary);
             font-weight: 600;
-            flex-shrink: 0;
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: bottom;
         }
 
         .breadcrumb-right {
             display: flex;
             gap: 1rem;
-            flex-shrink: 0;
         }
 
         /* Fix mobile horizontal scrolling overflow issues */
@@ -149,7 +134,13 @@
 
         @media (max-width: 768px) {
             .breadcrumb-nav {
-                padding: 0.5rem 0.75rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 0.6rem 0.85rem;
+            }
+            .breadcrumb-curr {
+                max-width: 150px;
             }
             :not(pre) > code {
                 white-space: normal !important;
@@ -165,7 +156,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">~</a> <span class="bc-sep">/</span> <a href="/Articles/">articles</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
+        <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> <span class="bc-sep">/</span> <a href="/Articles/">articles</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
         <header><h1>Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</h1><p class="post-date">PUBLISHED // 2026.04.04</p></header>
         <main><p>In a standard OS, massive background daemons like <code>systemd</code>, <code>udev</code>, and <code>NetworkManager</code> handle the complex timing required to wake up hardware. In Buildroot, these services do not exist unless you explicitly build them. This leads to a common, frustrating scenario: <strong>Your Raspberry Pi Zero 2 W connects to Wi-Fi perfectly when you type commands manually, but refuses to connect automatically on boot.</strong></p>
 <p>If you are experiencing this, you haven't necessarily misconfigured your credentials. Instead, you have encountered the "Gears of the Machine"—the internal timing conflicts known as <strong>Race Conditions</strong>. This article serves as a comprehensive guide to diagnosing and defeating these architectural hurdles to achieve a 100% reliable, zero-touch headless boot.</p>

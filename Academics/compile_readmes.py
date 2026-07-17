@@ -219,7 +219,6 @@ template = """<!DOCTYPE html>
         }}
     
         
-        
         /* Premium Breadcrumb Widget styling */
         .breadcrumb-nav {{
             display: flex;
@@ -234,28 +233,11 @@ template = """<!DOCTYPE html>
             margin-bottom: 2.5rem;
         }}
 
-        .breadcrumb-left {{
-            display: flex;
-            align-items: center;
-            overflow-x: auto;
-            white-space: nowrap;
-            scrollbar-width: none; /* Hide scrollbar Firefox */
-            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
-            padding-right: 1rem;
-            margin-right: 0.5rem;
-            color: var(--text-secondary);
-        }}
-
-        .breadcrumb-left::-webkit-scrollbar {{
-            display: none; /* Hide scrollbar Chrome/Safari */
-        }}
-
         .breadcrumb-left a, .breadcrumb-right a {{
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s ease;
-            white-space: nowrap;
         }}
 
         .breadcrumb-left a:hover, .breadcrumb-right a:hover {{
@@ -266,19 +248,22 @@ template = """<!DOCTYPE html>
         .bc-sep {{
             color: #cbd5e1;
             margin: 0 0.4rem;
-            flex-shrink: 0;
         }}
 
         .breadcrumb-curr {{
             color: var(--text-primary);
             font-weight: 600;
-            flex-shrink: 0;
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: bottom;
         }}
 
         .breadcrumb-right {{
             display: flex;
             gap: 1rem;
-            flex-shrink: 0;
         }}
 
         /* Fix mobile horizontal scrolling overflow issues */
@@ -292,7 +277,13 @@ template = """<!DOCTYPE html>
 
         @media (max-width: 768px) {{
             .breadcrumb-nav {{
-                padding: 0.5rem 0.75rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 0.6rem 0.85rem;
+            }}
+            .breadcrumb-curr {{
+                max-width: 150px;
             }}
             :not(pre) > code {{
                 white-space: normal !important;
@@ -310,7 +301,7 @@ template = """<!DOCTYPE html>
 
     <header class="terminal-header">
         <div class="header-container">
-            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">~</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
+            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
             <div class="terminal-prompt">user@hexdef:~$ cat README.md</div>
             <h1>{title}</h1>
         </div>
