@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanvir Hussain | Security & Systems Architect</title>
+    <title>Blog | Tanvir Hussain</title>
+    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-    <header class="terminal-header homepage-header">
+    <header class="terminal-header">
         <div class="header-container">
             <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
             <nav class="nav-container">
@@ -31,57 +32,42 @@
                         <a href="/academics/coursework.html">Coursework</a>
                     </div>
                 </div>
-                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/articles/" class="nav-link active">[ ARTICLES ]</a>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ portal --show-dashboard</div>
+            <div class="terminal-prompt">user@hexdef:~$ articles --show-all</div>
+            <h1>Articles & Guides</h1>
         </div>
     </header>
 
     <div class="container">
-        <div class="study-cards-grid">
-            
-            <!-- Card 1: Cybersecurity -->
-            <a href="/cybersecurity/" class="study-card">
-                <div>
-                    <h3>01 // Cybersecurity</h3>
-                    <div class="study-card-title">Cybersecurity Portal</div>
-                    <p class="study-card-desc">Red Teaming projects, vulnerability research, and security credentials.</p>
+        <span class="section-label">01 // Technical Publications</span>
+        
+        <div class="post-list" id="dynamic-posts">
+            <!-- POSTS_START -->
+            <a href="posts/2026-04-04-buildroot-rasp-pi-wifi-fix.html" class="post-entry">
+                <h3>Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</h3>
+                <p class="post-summary">In a standard OS, massive background daemons like systemd, udev, and NetworkManager handle the complex timing required to wake up hardware. In Buildro...</p>
+                <div class="post-meta">
+                    <span class="meta-tag">SYSTEMS</span>
                 </div>
-                <div class="study-card-meta">VIEW SECURITY PORTAL &rarr;</div>
             </a>
-
-            <!-- Card 2: Tools & Scripts -->
-            <a href="/cybersecurity_tools/" class="study-card">
-                <div>
-                    <h3>02 // Tools & Scripts</h3>
-                    <div class="study-card-title">Security & Dev Tools</div>
-                    <p class="study-card-desc">Custom Python payloads, automated bash logs, network scanners, and system utilities.</p>
+            <a href="posts/2026-03-31-pi-zero-2-w-boot-process.html" class="post-entry">
+                <h3>Raspberry Pi Zero 2 W Boot Process: A Bare Metal Guide</h3>
+                <p class="post-summary">If you have ever built a custom operating system or dug into low-level digital forensics, you know that understanding how a device wakes up is just as...</p>
+                <div class="post-meta">
+                    <span class="meta-tag">SYSTEMS</span>
                 </div>
-                <div class="study-card-meta">VIEW TOOLS &rarr;</div>
             </a>
-
-            <!-- Card 3: Academics & CLEPs -->
-            <a href="/academics/" class="study-card">
-                <div>
-                    <h3>03 // Academics</h3>
-                    <div class="study-card-title">Academics & CLEPs</div>
-                    <p class="study-card-desc">Introductory Sociology, Principles of Macroeconomics, American Government study logs, and coursework.</p>
+            <a href="posts/2026-03-27-Chrome-Crash-Fix.html" class="post-entry">
+                <h3>How a BIOS Fix Ended My Chrome Crashes and System-Wide Instability (Intel 13th/14th Gen)</h3>
+                <p class="post-summary">The Short Version: If you are running a high-end Intel processor (like the i7-13700K) on Linux with a massive 128GB RAM configuration, you have likely...</p>
+                <div class="post-meta">
+                    <span class="meta-tag">SYSTEMS</span>
                 </div>
-                <div class="study-card-meta">VIEW ACADEMICS &rarr;</div>
             </a>
-
-            <!-- Card 4: Articles & Guides -->
-            <a href="/articles/" class="study-card">
-                <div>
-                    <h3>04 // Articles & Guides</h3>
-                    <div class="study-card-title">Articles & Guides</div>
-                    <p class="study-card-desc">Thoughts on infrastructure design, systems forensics, hardware automation, and tutorials.</p>
-                </div>
-                <div class="study-card-meta">VIEW ARTICLES &rarr;</div>
-            </a>
-
+            <!-- POSTS_END -->
         </div>
 
         <footer>
@@ -104,5 +90,6 @@
             }
         });
     </script>
+
 </body>
 </html>

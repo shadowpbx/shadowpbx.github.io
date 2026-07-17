@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanvir Hussain | Security & Systems Architect</title>
+    <title>Tutorials | Tanvir Hussain</title>
+    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -11,13 +12,13 @@
 </head>
 <body>
 
-    <header class="terminal-header homepage-header">
+    <header class="terminal-header">
         <div class="header-container">
             <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
             <nav class="nav-container">
                 <a href="/" class="nav-link">[ HOME ]</a>
                 <div class="dropdown">
-                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/cybersecurity_tutorials/">Security Tutorials</a>
                         <a href="/cybersecurity_tools/">Tools & Scripts</a>
@@ -35,53 +36,35 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ portal --show-dashboard</div>
+            <div class="terminal-prompt">user@hexdef:~$ tutorials --list-security</div>
+            <h1>Security Tutorials</h1>
         </div>
     </header>
 
     <div class="container">
-        <div class="study-cards-grid">
-            
-            <!-- Card 1: Cybersecurity -->
-            <a href="/cybersecurity/" class="study-card">
+        
+        <!-- Cybersecurity Concise Featured Suite -->
+        <div style="margin-bottom: 3rem;">
+            <span class="section-label">Featured Study Suite</span>
+            <div class="study-card" style="min-height: auto; padding: 1.5rem;">
                 <div>
-                    <h3>01 // Cybersecurity</h3>
-                    <div class="study-card-title">Cybersecurity Portal</div>
-                    <p class="study-card-desc">Red Teaming projects, vulnerability research, and security credentials.</p>
+                    <h3>Interactive Audio Suite</h3>
+                    <div class="study-card-title">Cybersecurity Concise</div>
+                    <p class="study-card-desc" style="margin-top: 0.5rem; margin-bottom: 0;">Cybersecurity Master Index Audio Study Suite and integrated companion study guide.</p>
                 </div>
-                <div class="study-card-meta">VIEW SECURITY PORTAL &rarr;</div>
-            </a>
-
-            <!-- Card 2: Tools & Scripts -->
-            <a href="/cybersecurity_tools/" class="study-card">
-                <div>
-                    <h3>02 // Tools & Scripts</h3>
-                    <div class="study-card-title">Security & Dev Tools</div>
-                    <p class="study-card-desc">Custom Python payloads, automated bash logs, network scanners, and system utilities.</p>
+                <div style="display: flex; gap: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; margin-top: 1.5rem; border-top: 1px dashed var(--border); padding-top: 0.75rem;">
+                    <a href="Cybersecurity_Concise/index.html" style="color: var(--accent); text-decoration: none;">AUDIO SUITE &rarr;</a>
+                    <a href="Cybersecurity_Concise/companion.html" style="color: var(--accent); text-decoration: none;">COMPANION NOTES &rarr;</a>
                 </div>
-                <div class="study-card-meta">VIEW TOOLS &rarr;</div>
-            </a>
+            </div>
+        </div>
 
-            <!-- Card 3: Academics & CLEPs -->
-            <a href="/academics/" class="study-card">
-                <div>
-                    <h3>03 // Academics</h3>
-                    <div class="study-card-title">Academics & CLEPs</div>
-                    <p class="study-card-desc">Introductory Sociology, Principles of Macroeconomics, American Government study logs, and coursework.</p>
-                </div>
-                <div class="study-card-meta">VIEW ACADEMICS &rarr;</div>
-            </a>
+        <span class="section-label">01 // Technical Tutorials</span>
+        
+        <div class="post-list" id="dynamic-posts">
+            <!-- POSTS_START -->
 
-            <!-- Card 4: Articles & Guides -->
-            <a href="/articles/" class="study-card">
-                <div>
-                    <h3>04 // Articles & Guides</h3>
-                    <div class="study-card-title">Articles & Guides</div>
-                    <p class="study-card-desc">Thoughts on infrastructure design, systems forensics, hardware automation, and tutorials.</p>
-                </div>
-                <div class="study-card-meta">VIEW ARTICLES &rarr;</div>
-            </a>
-
+            <!-- POSTS_END -->
         </div>
 
         <footer>
@@ -104,5 +87,6 @@
             }
         });
     </script>
+
 </body>
 </html>

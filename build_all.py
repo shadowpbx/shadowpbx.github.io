@@ -13,13 +13,13 @@ logging.basicConfig(
 
 # Configuration map for all monorepo sections
 FOLDER_CONFIGS = {
-    "Cybersecurity": {"type": "standard", "default_tag": "PENTEST"},
-    "Articles": {"type": "standard", "default_tag": "SYSTEMS"},
-    "Cybersecurity_Certifications": {"type": "standard", "default_tag": "CERT"},
-    "Cybersecurity_Study": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
-    "Cybersecurity_Tutorials": {"type": "standard", "default_tag": "TUTORIAL"},
-    "Cybersecurity_Tools": {"type": "tools"},
-    "Academics": {"type": "academics_readmes"}
+    "cybersecurity": {"type": "standard", "default_tag": "PENTEST"},
+    "articles": {"type": "standard", "default_tag": "SYSTEMS"},
+    "cybersecurity_certifications": {"type": "standard", "default_tag": "CERT"},
+    "cybersecurity_study": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
+    "cybersecurity_tutorials": {"type": "standard", "default_tag": "TUTORIAL"},
+    "cybersecurity_tools": {"type": "tools"},
+    "academics": {"type": "academics_readmes"}
 }
 
 # Inlined template for Academics README files
@@ -153,7 +153,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
 
     <header class="terminal-header">
         <div class="header-container">
-            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">~</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
+            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">~</a> <span class="bc-sep">/</span> <a href="/academics/">academics</a> <span class="bc-sep">/</span> <a href="/academics/coursework.html">coursework</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
             <div class="terminal-prompt">user@hexdef:~$ cat README.md</div>
             <h1>{title}</h1>
         </div>
@@ -510,7 +510,7 @@ def compile_tools_section(folder_path):
 
 def compile_academics_readmes(folder_path):
     """Specialized compiler for Academics course README files."""
-    folders = ["Sociology", "Macroeconomics", "Macroeconomics_Graphs", "American_Government"]
+    folders = ["sociology", "macroeconomics", "macroeconomics_graphs", "american_government"]
     print("Compiling README.md files into HTML...")
     
     for folder in folders:

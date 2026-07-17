@@ -19,22 +19,22 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 ├── resume/
 │   └── index.html          # Detailed CV (large Tanvir Hussain /whoami branding)
 │
-├── Cybersecurity/
+├── cybersecurity/
 │   ├── index.html          # Core cybersecurity blog logs
 │   ├── _posts/             # Source markdown articles
 │   └── posts/              # Compiled HTML articles
 │
-├── Cybersecurity_Certifications/
+├── cybersecurity_certifications/
 │   ├── index.html          # Professional Credentials / certifications listing
 │   ├── _posts/             # Source markdown certifications
 │   └── posts/              # Compiled HTML certification posts (like CompTIA A+)
 │
-├── Cybersecurity_Study/
+├── cybersecurity_study/
 │   ├── index.html          # Cybersecurity Curriculum / training programs listing
 │   ├── _posts/             # Source markdown syllabi (like Comprehensive Attack Vector Taxonomy)
 │   └── posts/              # Compiled HTML syllabus posts
 │
-├── Cybersecurity_Tools/
+├── cybersecurity_tools/
 │   ├── index.html          # Dashboard index for tools & scripts
 │   ├── cybersecurity_scripts.html
 │   ├── cybersecurity_tools.html
@@ -42,11 +42,11 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── all_tools.html
 │   └── posts/              # Compiled HTML tool profiles
 │
-├── Cybersecurity_Tutorials/
+├── cybersecurity_tutorials/
 │   ├── index.html          # Security tutorials & walkthroughs log
 │   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
 │
-├── Academics/
+├── academics/
 │   ├── index.html          # Coursework & CLEPs dashboard
 │   ├── _posts/             # Source coursework notes (like CISS 100)
 │   ├── posts/              # Compiled HTML coursework notes
@@ -56,7 +56,7 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── Macroeconomics_Graphs/ # React + TS + Tailwind graphing lab workspace (compiled under dist/)
 │   └── American_Government/ # CLEP American Government audio player and readme
 │
-└── Articles/
+└── articles/
     ├── index.html          # Articles & Guides log (merged Blog + Tutorials)
     ├── _posts/             # Source blog and tutorial markdown files
     └── posts/              # Compiled HTML articles
@@ -70,12 +70,12 @@ Navigation is flat and clean, with dropdown lists reserved only for sub-categori
 ### Navigation Hierarchy
 *   `[ HOME ]` -> `/`
 *   `[ CYBERSECURITY ]` (Dropdown):
-    *   `Security Tutorials` -> `/Cybersecurity_Tutorials/`
-    *   `Tools & Scripts` -> `/Cybersecurity_Tools/`
-    *   `Certifications` -> `/Cybersecurity_Certifications/`
-    *   `Cybersecurity Curriculum` -> `/Cybersecurity_Study/` (study syllabi)
-*   `[ COURSEWORK ]` -> `/Academics/` (unified page listing CLEPs and general academic coursework logs)
-*   `[ ARTICLES ]` -> `/Articles/` (merged timeline of all tutorials and blog articles)
+    *   `Security Tutorials` -> `/cybersecurity_tutorials/`
+    *   `Tools & Scripts` -> `/cybersecurity_tools/`
+    *   `Certifications` -> `/cybersecurity_certifications/`
+    *   `Cybersecurity Curriculum` -> `/cybersecurity_study/` (study syllabi)
+*   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
+*   `[ ARTICLES ]` -> `/articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx` (new tab)
 

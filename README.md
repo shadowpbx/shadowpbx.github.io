@@ -49,19 +49,19 @@ This command will:
 2.  Process all front-matter Markdown files in their respective `_posts/` directories.
 3.  Generate responsive, Prism-highlighted HTML pages in their respective `posts/` directories.
 4.  Update index pages and dashboard card counters.
-5.  Compile Academics syllabus documentation (`README.md` files) into static `readme.html` pages under `/Academics/`.
+5.  Compile Academics syllabus documentation (`README.md` files) into static `readme.html` pages under `/academics/`.
 
 ---
 
 ## 📊 Building the Economic Graph Lab (Vite + React)
 
-The Principles of Macroeconomics study guide features an interactive economic graphing utility written in **React + TypeScript + TailwindCSS** located under `/Academics/Macroeconomics_Graphs/`.
+The Principles of Macroeconomics study guide features an interactive economic graphing utility written in **React + TypeScript + TailwindCSS** located under `/academics/macroeconomics_Graphs/`.
 
 To build or modify the Graph Lab locally:
 
 1.  Navigate to the Graph Lab workspace:
     ```bash
-    cd Academics/Macroeconomics_Graphs/
+    cd academics/macroeconomics_Graphs/
     ```
 2.  Install dependencies:
     ```bash
@@ -75,7 +75,7 @@ To build or modify the Graph Lab locally:
     ```bash
     npm run build
     ```
-    *Note: The production static output is written to `/Academics/Macroeconomics_Graphs/dist/` which is tracked in Git to allow hosting on GitHub Pages.*
+    *Note: The production static output is written to `/academics/macroeconomics_Graphs/dist/` which is tracked in Git to allow hosting on GitHub Pages.*
 
 ---
 
