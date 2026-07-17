@@ -175,7 +175,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx:~$ academics --read-notes</div>
+            <div class="terminal-prompt">user@shadowpbx:~/academics/{folder_lowercase}$ cat README.md</div>
             <h1>{title}</h1>
         </div>
     </header>
@@ -336,7 +336,7 @@ def compile_standard_section(folder_path, folder_name, config):
                 post_href = f"posts/{out_fn}"
                 
                 # Replace content in templates
-                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date)
+                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date).replace("{{ filename }}", fn)
                 with open(out_fp, "w", encoding="utf-8") as f:
                     f.write(post_html)
                 logging.info(f"Generated HTML post: {post_href}")
@@ -498,7 +498,7 @@ def compile_tools_section(folder_path):
                 out_fp = os.path.join(output_dir, out_fn)
                 post_href = f"posts/{out_fn}"
                 
-                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date)
+                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date).replace("{{ filename }}", fn)
                 with open(out_fp, "w", encoding="utf-8") as f:
                     f.write(post_html)
                     
@@ -568,7 +568,7 @@ def compile_academics_readmes(folder_path):
             parsed_html = markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
             clean_title = folder.replace("_", " ").title()
             
-            html_page = ACADEMICS_README_TEMPLATE.replace("{title}", clean_title).replace("{body}", parsed_html)
+            html_page = ACADEMICS_README_TEMPLATE.replace("{title}", clean_title).replace("{body}", parsed_html).replace("{folder_lowercase}", folder)
             with open(dest_html, "w", encoding="utf-8") as f:
                 f.write(html_page)
             print("-> Generated.")
