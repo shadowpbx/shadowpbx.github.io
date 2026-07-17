@@ -114,13 +114,68 @@
                 margin-bottom: 1rem;
             }
         }
+    
+        /* Compact Breadcrumb Header styling */
+        .breadcrumb-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-left {
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-curr {
+            color: var(--text-secondary);
+            font-weight: normal;
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .breadcrumb-right {
+            display: flex;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding-bottom: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+            .breadcrumb-curr {
+                max-width: 150px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header class="terminal-header">
         <div class="header-container">
-            <a href="/Academics/" class="back-link">[ &larr; BACK TO COURSEWORK ]</a>
+            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> &gt; <a href="/Academics/">academics</a> &gt; <a href="/Academics/coursework.html">coursework</a> &gt; <span class="breadcrumb-curr">Macroeconomics</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
             <div class="terminal-prompt">user@hexdef:~$ cat README.md</div>
             <h1>Macroeconomics</h1>
         </div>
