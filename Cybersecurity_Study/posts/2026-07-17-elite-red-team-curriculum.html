@@ -167,200 +167,204 @@
     <div class="container">
         <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">~</a> <span class="bc-sep">/</span> <a href="/Cybersecurity/">cybersecurity</a> <span class="bc-sep">/</span> <a href="/Cybersecurity_Study/">curriculum</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">Progressive Elite Red Team Curriculum</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
         <header><h1>Progressive Elite Red Team Curriculum</h1><p class="post-date">PUBLISHED // 2026.07.17</p></header>
-        <main>
-
-
-
-<h1>Progressive Elite Red Team Curriculum (Easy to Hard)</h1>
-
-<h2>Phase 1: Operational Foundations & Entry Points (Easy)</h2>
-*Focuses on non-intrusive operations, standard toolsets, human factors, and physical security. These concepts have lower entry barriers and rely heavily on pre-built tooling.*
-
-<h3>Module 1: Reconnaissance, OSINT, & Information Gathering</h3>
+        <main><h1>Progressive Elite Red Team Curriculum (Easy to Hard)</h1>
+<h2>Phase 1: Operational Foundations &amp; Entry Points (Easy)</h2>
+<p><em>Focuses on non-intrusive operations, standard toolsets, human factors, and physical security. These concepts have lower entry barriers and rely heavily on pre-built tooling.</em></p>
+<h3>Module 1: Reconnaissance, OSINT, &amp; Information Gathering</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Passive data collection without touching target defenses.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Advanced OSINT automation (Shodan, Censys, Maltego).</li>
-<li>  Parsing public credential leaks and automated metadata harvesting.</li>
-<li>  Mapping corporate cloud footprints (identifying S3 buckets, Azure blobs, Entra ID tenants).</li>
-<li>  <strong>Lab Scenario:</strong> Target profiling and passive network mapping of a simulated corporation using only public datasets.</li>
+<li><strong>Operational Focus:</strong> Passive data collection without touching target defenses.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Advanced OSINT automation (Shodan, Censys, Maltego).</li>
+<li>Parsing public credential leaks and automated metadata harvesting.</li>
+<li>Mapping corporate cloud footprints (identifying S3 buckets, Azure blobs, Entra ID tenants).</li>
 </ul>
-
-<h3>Module 2: Physical Red Teaming & Social Engineering</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Target profiling and passive network mapping of a simulated corporation using only public datasets.</li>
+</ul>
+<h3>Module 2: Physical Red Teaming &amp; Social Engineering</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Bypassing physical and human boundaries using social mechanics and standard hardware.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Lockpicking, shimming, lock bypassing, and under-door tool deployments.</li>
-<li>  RFID/Badge Cloning (using Proxmark3 and Flipper Zero devices).</li>
-<li>  Tailgating and physical site evasion.</li>
-<li>  Phishing infrastructure setup, smishing (SMS), and vishing (voice).</li>
-<li>  USB drop campaigns (using Rubber Ducky or O.MG cables).</li>
-<li>  <strong>Lab Scenario:</strong> Executing a multi-channel social engineering campaign to harvest credentials using an Adversary-in-the-Middle (AiTM) proxy (e.g., Evilginx).</li>
+<li><strong>Operational Focus:</strong> Bypassing physical and human boundaries using social mechanics and standard hardware.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Lockpicking, shimming, lock bypassing, and under-door tool deployments.</li>
+<li>RFID/Badge Cloning (using Proxmark3 and Flipper Zero devices).</li>
+<li>Tailgating and physical site evasion.</li>
+<li>Phishing infrastructure setup, smishing (SMS), and vishing (voice).</li>
+<li>USB drop campaigns (using Rubber Ducky or O.MG cables).</li>
 </ul>
-
-<h3>Module 3: Network Layer & Infrastructure Attacks</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Executing a multi-channel social engineering campaign to harvest credentials using an Adversary-in-the-Middle (AiTM) proxy (e.g., Evilginx).</li>
+</ul>
+<h3>Module 3: Network Layer &amp; Infrastructure Attacks</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Exploiting classic local network trust and misconfigured protocols using established toolsets.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Spoofing & Poisoning: ARP cache poisoning, DNS spoofing, LLMNR/NBT-NS/mDNS poisoning (using Responder).</li>
-<li>  Layer 2 Vulnerabilities: VLAN hopping (double tagging), MAC flooding, and DHCP starvation.</li>
-<li>  On-Path / Man-in-the-Middle (MitM) attacks, SSL/TLS stripping, and session hijacking.</li>
-<li>  Exploiting perimeter appliances (legacy VPNs, firewalls, and routers).</li>
-<li>  <strong>Lab Scenario:</strong> Hijacking network authentication over a local segment to capture NetNTLMv2 hashes.</li>
+<li><strong>Operational Focus:</strong> Exploiting classic local network trust and misconfigured protocols using established toolsets.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Spoofing &amp; Poisoning: ARP cache poisoning, DNS spoofing, LLMNR/NBT-NS/mDNS poisoning (using Responder).</li>
+<li>Layer 2 Vulnerabilities: VLAN hopping (double tagging), MAC flooding, and DHCP starvation.</li>
+<li>On-Path / Man-in-the-Middle (MitM) attacks, SSL/TLS stripping, and session hijacking.</li>
+<li>Exploiting perimeter appliances (legacy VPNs, firewalls, and routers).</li>
 </ul>
-
-<p>---</p>
-
-<h2>Phase 2: Platform & Application Exploitation (Medium)</h2>
-*Requires an understanding of code logic, application flow, and system architecture. This phase focuses on standard penetration testing targets.*
-
-<h3>Module 4: Web Application & API Penetration Testing</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Hijacking network authentication over a local segment to capture NetNTLMv2 hashes.</li>
+</ul>
+<hr />
+<h2>Phase 2: Platform &amp; Application Exploitation (Medium)</h2>
+<p><em>Requires an understanding of code logic, application flow, and system architecture. This phase focuses on standard penetration testing targets.</em></p>
+<h3>Module 4: Web Application &amp; API Penetration Testing</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Exploiting standard logical and code-level flaws in web assets to gain remote execution.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Advanced Injection: SQL Injection (SQLi), NoSQL Injection (NoSQLi), OS Command Injection, and LDAP Injection.</li>
-<li>  Server-Side Request Forgery (SSRF) and Cross-Site Request Forgery (CSRF).</li>
-<li>  XML External Entity (XXE) processing for local file disclosure and SSRF.</li>
-<li>  Broken Authentication & Session Management (fixation, hijacking).</li>
-<li>  Insecure Direct Object References (IDOR) / Broken Object Level Authorization (BOLA).</li>
-<li>  Insecure Deserialization (Java, .NET, PHP) to achieve Remote Code Execution (RCE).</li>
-<li>  <strong>Lab Scenario:</strong> Discovering a blind SSRF on a target API and leveraging it to access internal metadata services.</li>
+<li><strong>Operational Focus:</strong> Exploiting standard logical and code-level flaws in web assets to gain remote execution.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Advanced Injection: SQL Injection (SQLi), NoSQL Injection (NoSQLi), OS Command Injection, and LDAP Injection.</li>
+<li>Server-Side Request Forgery (SSRF) and Cross-Site Request Forgery (CSRF).</li>
+<li>XML External Entity (XXE) processing for local file disclosure and SSRF.</li>
+<li>Broken Authentication &amp; Session Management (fixation, hijacking).</li>
+<li>Insecure Direct Object References (IDOR) / Broken Object Level Authorization (BOLA).</li>
+<li>Insecure Deserialization (Java, .NET, PHP) to achieve Remote Code Execution (RCE).</li>
 </ul>
-
-<h3>Module 5: Host-Level Auditing & Local Privilege Escalation</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Discovering a blind SSRF on a target API and leveraging it to access internal metadata services.</li>
+</ul>
+<h3>Module 5: Host-Level Auditing &amp; Local Privilege Escalation</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Navigating individual operating systems and elevating privileges post-compromise.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  <strong>Windows PrivEsc:</strong> Token manipulation, abusing service permissions, token hijacking, and UAC bypasses.</li>
-<li>  <strong>Linux/macOS PrivEsc:</strong> Abusing SUID binaries, misconfigured sudoers, and macOS Transparency, Consent, and Control (TCC) bypasses.</li>
-<li>  Living off the Land (LotL): Command execution and automation utilizing native tools like PowerShell, WMI, bash, and native scripting engines.</li>
-<li>  <strong>Lab Scenario:</strong> Escalating from a low-privileged shell on a hardened Windows host by finding and exploiting misconfigured service DACLs.</li>
+<li><strong>Operational Focus:</strong> Navigating individual operating systems and elevating privileges post-compromise.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li><strong>Windows PrivEsc:</strong> Token manipulation, abusing service permissions, token hijacking, and UAC bypasses.</li>
+<li><strong>Linux/macOS PrivEsc:</strong> Abusing SUID binaries, misconfigured sudoers, and macOS Transparency, Consent, and Control (TCC) bypasses.</li>
+<li>Living off the Land (LotL): Command execution and automation utilizing native tools like PowerShell, WMI, bash, and native scripting engines.</li>
 </ul>
-
-<h3>Module 6: Mobile Application Security (Android & iOS)</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Escalating from a low-privileged shell on a hardened Windows host by finding and exploiting misconfigured service DACLs.</li>
+</ul>
+<h3>Module 6: Mobile Application Security (Android &amp; iOS)</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Auditing compiled client-side applications to find API flaws and extract secrets.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Decompiling and reversing Android applications (JADX, Apktool) and iOS applications (Ghidra, Hopper).</li>
-<li>  Analyzing the <code>AndroidManifest.xml</code> (Android) and <code>Info.plist</code> (iOS) for misconfigured permissions.</li>
-<li>  Injecting runtime hooks using Frida and Objection [1].</li>
-<li>  Bypassing client-side security controls: SSL Pinning, Root/Jailbreak detection, and emulator check bypasses [1].</li>
-<li>  Exploiting Inter-Process Communication (IPC) and insecure local data storage.</li>
-<li>  <strong>Lab Scenario:</strong> Decompiling an Android APK, injecting a Frida script to bypass certificate pinning, and intercepting backend API traffic [1].</li>
+<li><strong>Operational Focus:</strong> Auditing compiled client-side applications to find API flaws and extract secrets.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Decompiling and reversing Android applications (JADX, Apktool) and iOS applications (Ghidra, Hopper).</li>
+<li>Analyzing the <code>AndroidManifest.xml</code> (Android) and <code>Info.plist</code> (iOS) for misconfigured permissions.</li>
+<li>Injecting runtime hooks using Frida and Objection [1].</li>
+<li>Bypassing client-side security controls: SSL Pinning, Root/Jailbreak detection, and emulator check bypasses [1].</li>
+<li>Exploiting Inter-Process Communication (IPC) and insecure local data storage.</li>
 </ul>
-
-<p>---</p>
-
-<h2>Phase 3: Enterprise & Architecture Scale Attacks (Medium-Hard)</h2>
-*Moves beyond single endpoints to targeting complex enterprise authentication structures and modern cloud/pipeline architectures.*
-
-<h3>Module 7: Enterprise Active Directory & Identity Red Teaming</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Decompiling an Android APK, injecting a Frida script to bypass certificate pinning, and intercepting backend API traffic [1].</li>
+</ul>
+<hr />
+<h2>Phase 3: Enterprise &amp; Architecture Scale Attacks (Medium-Hard)</h2>
+<p><em>Moves beyond single endpoints to targeting complex enterprise authentication structures and modern cloud/pipeline architectures.</em></p>
+<h3>Module 7: Enterprise Active Directory &amp; Identity Red Teaming</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Navigating and compromising corporate domain environments.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Active Directory (AD) Core Exploitation: Kerberoasting, AS-REP roasting, Golden/Silver Tickets.</li>
-<li>  Lateral Movement: Pass-the-Hash (PtH), Pass-the-Ticket (PtT), and Overpass-the-Hash.</li>
-<li>  Advanced AD Trusts & Configurations: Active Directory Certificate Services (ADCS) abuse (ESC1 through ESC13), Resource-Based Constrained Delegation (RBCD), and Shadow Credentials.</li>
-<li>  Group Policy Object (GPO) abuse, ACL/ACE manipulation, and domain-trust hopping.</li>
-<li>  <strong>Lab Scenario:</strong> Compiling BloodHound data to identify a path to Domain Admin via ADCS configuration abuse.</li>
+<li><strong>Operational Focus:</strong> Navigating and compromising corporate domain environments.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Active Directory (AD) Core Exploitation: Kerberoasting, AS-REP roasting, Golden/Silver Tickets.</li>
+<li>Lateral Movement: Pass-the-Hash (PtH), Pass-the-Ticket (PtT), and Overpass-the-Hash.</li>
+<li>Advanced AD Trusts &amp; Configurations: Active Directory Certificate Services (ADCS) abuse (ESC1 through ESC13), Resource-Based Constrained Delegation (RBCD), and Shadow Credentials.</li>
+<li>Group Policy Object (GPO) abuse, ACL/ACE manipulation, and domain-trust hopping.</li>
 </ul>
-
-<h3>Module 8: Cloud Platforms, Containers, & DevOps (CI/CD) Security</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Compiling BloodHound data to identify a path to Domain Admin via ADCS configuration abuse.</li>
+</ul>
+<h3>Module 8: Cloud Platforms, Containers, &amp; DevOps (CI/CD) Security</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Exploiting virtualized cloud infrastructure and modern automated build pipelines.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Cloud Privilege Escalation: Exploiting overly permissive IAM roles and metadata services (IMDSv2).</li>
-<li>  Container Breakouts: Escaping Docker/LXC isolation to access the host OS (via privileged containers or dirty sockets).</li>
-<li>  Kubernetes (K8s) cluster compromise: Abusing API Server configurations and token exposure.</li>
-<li>  CI/CD Pipeline Exploitation: Dependency Confusion / Typosquatting in public registries, compromising GitHub/GitLab runners, and stealing secrets (Vault, AWS keys).</li>
-<li>  <strong>Lab Scenario:</strong> Compromising a CI/CD runner to steal AWS IAM credentials, followed by performing an IAM privilege escalation.</li>
+<li><strong>Operational Focus:</strong> Exploiting virtualized cloud infrastructure and modern automated build pipelines.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Cloud Privilege Escalation: Exploiting overly permissive IAM roles and metadata services (IMDSv2).</li>
+<li>Container Breakouts: Escaping Docker/LXC isolation to access the host OS (via privileged containers or dirty sockets).</li>
+<li>Kubernetes (K8s) cluster compromise: Abusing API Server configurations and token exposure.</li>
+<li>CI/CD Pipeline Exploitation: Dependency Confusion / Typosquatting in public registries, compromising GitHub/GitLab runners, and stealing secrets (Vault, AWS keys).</li>
 </ul>
-
-<p>---</p>
-
-<h2>Phase 4: Evasion, Custom Engineering & Specialized Targets (Hard-Elite)</h2>
-*The most technically demanding phase. Requires custom programming, low-level memory analysis, advanced security bypasses, and specialized target environments.*
-
-<h3>Module 9: Red Team Infrastructure Design & Command & Control (C2)</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Compromising a CI/CD runner to steal AWS IAM credentials, followed by performing an IAM privilege escalation.</li>
+</ul>
+<hr />
+<h2>Phase 4: Evasion, Custom Engineering &amp; Specialized Targets (Hard-Elite)</h2>
+<p><em>The most technically demanding phase. Requires custom programming, low-level memory analysis, advanced security bypasses, and specialized target environments.</em></p>
+<h3>Module 9: Red Team Infrastructure Design &amp; Command &amp; Control (C2)</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Designing automated, resilient, and non-attributable infrastructure for stealthy persistence.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Multi-tiered C2 redirection (front-line, mid-tier, and backend C2) utilizing Terraform and Ansible.</li>
-<li>  Malleable C2 profile customization (HTTP/S profiles, DNS-over-HTTPS).</li>
-<li>  Covert Communications: Domain Fronting, CDN routing, and abusing trusted SaaS APIs (Microsoft Graph, Slack).</li>
-<li>  Smart Traffic Filtering: Setting up redirectors using Apache/Nginx rewrite rules or Keitaro to filter out sandboxes and defenders.</li>
-<li>  <strong>Lab Scenario:</strong> Deploying an automated C2 infrastructure on AWS/GCP with smart redirectors that redirect defensive security scanners to a benign dummy site.</li>
+<li><strong>Operational Focus:</strong> Designing automated, resilient, and non-attributable infrastructure for stealthy persistence.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Multi-tiered C2 redirection (front-line, mid-tier, and backend C2) utilizing Terraform and Ansible.</li>
+<li>Malleable C2 profile customization (HTTP/S profiles, DNS-over-HTTPS).</li>
+<li>Covert Communications: Domain Fronting, CDN routing, and abusing trusted SaaS APIs (Microsoft Graph, Slack).</li>
+<li>Smart Traffic Filtering: Setting up redirectors using Apache/Nginx rewrite rules or Keitaro to filter out sandboxes and defenders.</li>
 </ul>
-
-<h3>Module 10: Low-Level Memory Corruption & Reverse Engineering</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Deploying an automated C2 infrastructure on AWS/GCP with smart redirectors that redirect defensive security scanners to a benign dummy site.</li>
+</ul>
+<h3>Module 10: Low-Level Memory Corruption &amp; Reverse Engineering</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Explaining and exploiting low-level memory vulnerabilities.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Analyzing stack and heap-based buffer overflows, use-after-free (UAF), and integer overflows.</li>
-<li>  Bypassing operating system mitigations: ASLR, DEP/NX, and stack canaries.</li>
-<li>  Analyzing binary control flows and structures in a debugger (x64dbg, GDB).</li>
-<li>  <strong>Lab Scenario:</strong> Writing a custom exploit payload to bypass ASLR and DEP on a vulnerable x64 network service.</li>
+<li><strong>Operational Focus:</strong> Explaining and exploiting low-level memory vulnerabilities.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Analyzing stack and heap-based buffer overflows, use-after-free (UAF), and integer overflows.</li>
+<li>Bypassing operating system mitigations: ASLR, DEP/NX, and stack canaries.</li>
+<li>Analyzing binary control flows and structures in a debugger (x64dbg, GDB).</li>
 </ul>
-
-<h3>Module 11: Evasion Techniques & Custom Payload Development</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Writing a custom exploit payload to bypass ASLR and DEP on a vulnerable x64 network service.</li>
+</ul>
+<h3>Module 11: Evasion Techniques &amp; Custom Payload Development</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Engineering payloads specifically designed to bypass modern EDR and AV solutions.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Writing custom loaders in C, C++, Rust, or Go with customized string encryption (XOR, AES) and entropy reduction.</li>
-<li>  Bypassing AMSI (Antimalware Scan Interface) and ETW (Event Tracing for Windows) [2].</li>
-<li>  Evading user-mode API hooking: Dynamic loading, manual syscall resolution, and Direct/Indirect System Calls (Syscalls).</li>
-<li>  Process Injection: Reflective DLL Injection, Process Hollowing, and Thread Execution Hijacking.</li>
-<li>  <strong>Lab Scenario:</strong> Writing a custom Go-based loader that utilizes indirect syscalls and process hollowing to execute shellcode without triggering user-mode EDR hooks.</li>
+<li><strong>Operational Focus:</strong> Engineering payloads specifically designed to bypass modern EDR and AV solutions.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Writing custom loaders in C, C++, Rust, or Go with customized string encryption (XOR, AES) and entropy reduction.</li>
+<li>Bypassing AMSI (Antimalware Scan Interface) and ETW (Event Tracing for Windows) [2].</li>
+<li>Evading user-mode API hooking: Dynamic loading, manual syscall resolution, and Direct/Indirect System Calls (Syscalls).</li>
+<li>Process Injection: Reflective DLL Injection, Process Hollowing, and Thread Execution Hijacking.</li>
 </ul>
-
-<h3>Module 12: Specialized Environments: OT/ICS & AI Red Teaming</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Writing a custom Go-based loader that utilizes indirect syscalls and process hollowing to execute shellcode without triggering user-mode EDR hooks.</li>
+</ul>
+<h3>Module 12: Specialized Environments: OT/ICS &amp; AI Red Teaming</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Targeting complex cyber-physical environments and modern integrated machine learning pipelines.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  <strong>OT/ICS:</strong> Bypassing IT-to-OT boundaries (Purdue Model), manipulating legacy industrial protocols (Modbus, Siemens S7, DNP3), and engineering workstation compromise.</li>
-<li>  <strong>AI Red Teaming:</strong> Direct/Indirect Prompt Injection, exploiting insecure output handling, training data poisoning, and model weight extraction.</li>
-<li>  <strong>Lab Scenario (Dual-Option):</strong></li>
-<li>  *Option A:* Accessing an OT network segment and issuing safe commands to read PLC register states on a simulated industrial water pump.</li>
-<li>  *Option B:* Crafting an indirect prompt injection payload hosted on a web page to force an AI-driven support agent to exfiltrate private user records.</li>
+<li><strong>Operational Focus:</strong> Targeting complex cyber-physical environments and modern integrated machine learning pipelines.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li><strong>OT/ICS:</strong> Bypassing IT-to-OT boundaries (Purdue Model), manipulating legacy industrial protocols (Modbus, Siemens S7, DNP3), and engineering workstation compromise.</li>
+<li><strong>AI Red Teaming:</strong> Direct/Indirect Prompt Injection, exploiting insecure output handling, training data poisoning, and model weight extraction.</li>
 </ul>
-
-<h2>Phase 5: The Professional Lifecycle & Operational Conclusion (The Final 10-15%)</h2>
-*Focuses on mimicking real-world threat actors, maintaining operational security throughout a campaign, and translating technical compromise into business value and defensive improvements.*
-
-<h3>Module 13: Threat Intelligence & Adversary Emulation</h3>
+</li>
+<li><strong>Lab Scenario (Dual-Option):</strong><ul>
+<li><em>Option A:</em> Accessing an OT network segment and issuing safe commands to read PLC register states on a simulated industrial water pump.</li>
+<li><em>Option B:</em> Crafting an indirect prompt injection payload hosted on a web page to force an AI-driven support agent to exfiltrate private user records.</li>
+</ul>
+</li>
+</ul>
+<h2>Phase 5: The Professional Lifecycle &amp; Operational Conclusion (The Final 10-15%)</h2>
+<p><em>Focuses on mimicking real-world threat actors, maintaining operational security throughout a campaign, and translating technical compromise into business value and defensive improvements.</em></p>
+<h3>Module 13: Threat Intelligence &amp; Adversary Emulation</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Transitioning from "hacking everything" to accurately mimicking the specific capabilities and behaviors of known threat actors (APTs, Ransomware Operators).</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  Consuming Cyber Threat Intelligence (CTI) and translating reports into actionable operations.</li>
-<li>  Deep dive into the <strong>MITRE ATT&CK</strong> framework: Mapping campaigns to Tactics, Techniques, and Procedures (TTPs).</li>
-<li>  Developing Threat Emulation Plans: Scoping an engagement to mimic a specific actor (e.g., emulating the toolsets and cadence of APT29 or FIN7).</li>
-<li>  Assumed Breach vs. Full Kill-Chain simulations.</li>
-<li>  <strong>Lab Scenario:</strong> Analyze a published CTI report on a recent ransomware group, extract their specific TTPs, and build an automated emulation plan (using tools like Caldera or Prelude) to execute that exact attack path in a lab environment.</li>
+<li><strong>Operational Focus:</strong> Transitioning from "hacking everything" to accurately mimicking the specific capabilities and behaviors of known threat actors (APTs, Ransomware Operators).</li>
+<li><strong>Core Concepts:</strong><ul>
+<li>Consuming Cyber Threat Intelligence (CTI) and translating reports into actionable operations.</li>
+<li>Deep dive into the <strong>MITRE ATT&amp;CK</strong> framework: Mapping campaigns to Tactics, Techniques, and Procedures (TTPs).</li>
+<li>Developing Threat Emulation Plans: Scoping an engagement to mimic a specific actor (e.g., emulating the toolsets and cadence of APT29 or FIN7).</li>
+<li>Assumed Breach vs. Full Kill-Chain simulations.</li>
 </ul>
-
-<h3>Module 14: Operational Security (OPSEC) & Data Exfiltration</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Analyze a published CTI report on a recent ransomware group, extract their specific TTPs, and build an automated emulation plan (using tools like Caldera or Prelude) to execute that exact attack path in a lab environment.</li>
+</ul>
+<h3>Module 14: Operational Security (OPSEC) &amp; Data Exfiltration</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> Avoiding attribution, protecting red team infrastructure, and successfully extracting the "crown jewels" without triggering Data Loss Prevention (DLP) or Network Detection (NDR) systems.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  <strong>OPSEC Fundamentals:</strong> Compartmentalization of infrastructure, avoiding cross-contamination of payloads, and managing operator telemetry.</li>
-<li>  <strong>Data Staging:</strong> Identifying critical data, compressing, archiving, and encrypting data locally before movement.</li>
-<li>  <strong>Advanced Exfiltration Channels:</strong> Exfiltrating via DNS queries, ICMP tunnels, or blending in with trusted SaaS traffic (e.g., uploading to a compromised OneDrive, AWS S3 bucket, or GitHub repo).</li>
-<li>  <strong>Trickle Exfiltration:</strong> Bypassing bandwidth monitoring by chunking data and sending it over an extended period.</li>
-<li>  <strong>Lab Scenario:</strong> Stage and encrypt a simulated database on a compromised host, then exfiltrate it over a custom DNS tunnel, ensuring the traffic volume stays below the alerting threshold of a simulated SIEM/NDR.</li>
+<li><strong>Operational Focus:</strong> Avoiding attribution, protecting red team infrastructure, and successfully extracting the "crown jewels" without triggering Data Loss Prevention (DLP) or Network Detection (NDR) systems.</li>
+<li><strong>Core Concepts:</strong><ul>
+<li><strong>OPSEC Fundamentals:</strong> Compartmentalization of infrastructure, avoiding cross-contamination of payloads, and managing operator telemetry.</li>
+<li><strong>Data Staging:</strong> Identifying critical data, compressing, archiving, and encrypting data locally before movement.</li>
+<li><strong>Advanced Exfiltration Channels:</strong> Exfiltrating via DNS queries, ICMP tunnels, or blending in with trusted SaaS traffic (e.g., uploading to a compromised OneDrive, AWS S3 bucket, or GitHub repo).</li>
+<li><strong>Trickle Exfiltration:</strong> Bypassing bandwidth monitoring by chunking data and sending it over an extended period.</li>
 </ul>
-
-<h3>Module 15: Reporting, Executive Debriefing, & Purple Teaming</h3>
+</li>
+<li><strong>Lab Scenario:</strong> Stage and encrypt a simulated database on a compromised host, then exfiltrate it over a custom DNS tunnel, ensuring the traffic volume stays below the alerting threshold of a simulated SIEM/NDR.</li>
+</ul>
+<h3>Module 15: Reporting, Executive Debriefing, &amp; Purple Teaming</h3>
 <ul>
-<li>  <strong>Operational Focus:</strong> The most critical module—translating technical dominance into measurable risk reduction for the business.</li>
-<li>  <strong>Core Concepts:</strong></li>
-<li>  <strong>Report Writing:</strong> Crafting an Executive Summary (business impact, bottom-line risk) versus a Technical Narrative (step-by-step reproduction, IOCs).</li>
-<li>  <strong>Risk Frameworks:</strong> Calculating and translating risk using frameworks like CVSS, DREAD, or FAIR.</li>
-<li>  <strong>Purple Teaming:</strong> Transitioning from an adversarial stance to a collaborative one. Sitting with the Blue Team to replay attacks step-by-step.</li>
-<li>  <strong>Detection Engineering:</strong> Assisting defenders in writing custom YARA, Snort, or Sigma rules to detect the very attacks you just executed.</li>
-<li>  <strong>Lab Scenario:</strong> Execute a targeted attack path (e.g., Kerberoasting), then switch to a Blue Team role to review the simulated SIEM logs (Splunk/Elastic). Finally, write a custom Sigma rule to catch the attack and draft a 2-page executive summary detailing the business risk.</li>
+<li><strong>Operational Focus:</strong> The most critical module—translating technical dominance into measurable risk reduction for the business. </li>
+<li><strong>Core Concepts:</strong><ul>
+<li><strong>Report Writing:</strong> Crafting an Executive Summary (business impact, bottom-line risk) versus a Technical Narrative (step-by-step reproduction, IOCs).</li>
+<li><strong>Risk Frameworks:</strong> Calculating and translating risk using frameworks like CVSS, DREAD, or FAIR.</li>
+<li><strong>Purple Teaming:</strong> Transitioning from an adversarial stance to a collaborative one. Sitting with the Blue Team to replay attacks step-by-step.</li>
+<li><strong>Detection Engineering:</strong> Assisting defenders in writing custom YARA, Snort, or Sigma rules to detect the very attacks you just executed.</li>
 </ul>
-
-<p>***</p></main>
+</li>
+<li><strong>Lab Scenario:</strong> Execute a targeted attack path (e.g., Kerberoasting), then switch to a Blue Team role to review the simulated SIEM logs (Splunk/Elastic). Finally, write a custom Sigma rule to catch the attack and draft a 2-page executive summary detailing the business risk.</li>
+</ul>
+<hr /></main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>

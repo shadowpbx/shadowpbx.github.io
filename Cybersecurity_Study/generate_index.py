@@ -2,9 +2,8 @@
 import os
 import re
 import yaml
+import markdown
 import logging
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def parse_markdown(md_text):
     parts = md_text.split('---', 2)
@@ -19,37 +18,8 @@ def parse_markdown(md_text):
     else:
         content = md_text
         
-    html = content
-    html = re.sub(r'^### (.*?)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
-    html = re.sub(r'^## (.*?)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
-    html = re.sub(r'^# (.*?)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
-    
-    html_lines = []
-    in_list = False
-    for line in html.split('\n'):
-        if line.strip().startswith('* ') or line.strip().startswith('- '):
-            if not in_list:
-                html_lines.append('<ul>')
-                in_list = True
-            html_lines.append(f'<li>{line.strip()[2:]}</li>')
-        else:
-            if in_list:
-                html_lines.append('</ul>')
-                in_list = False
-            html_lines.append(line)
-    html = '\n'.join(html_lines)
-    
-    html = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html)
-    html = re.sub(r'`(.*?)`', r'<code>\1</code>', html)
-    
-    paras = []
-    for block in html.split('\n\n'):
-        block = block.strip()
-        if block and not block.startswith('<h') and not block.startswith('<ul') and not block.startswith('<li') and not block.startswith('</ul'):
-            paras.append(f'<p>{block}</p>')
-        else:
-            paras.append(block)
-    html = '\n\n'.join(paras)
+    # Compile markdown to HTML using the python-markdown library
+    html = markdown.markdown(content, extensions=['fenced_code', 'tables'])
     
     return metadata, html
 
