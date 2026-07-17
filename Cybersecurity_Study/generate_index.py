@@ -80,8 +80,7 @@ def build_study():
                     <p class="study-card-desc">{post['summary']}</p>
                 </div>
                 <div class="study-card-meta">
-                    <span>DATE // {post['date']}</span>
-                </div>
+                    </div>
             </a>"""
         posts_list_html.append(entry)
         

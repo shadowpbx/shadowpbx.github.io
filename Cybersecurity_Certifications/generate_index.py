@@ -77,7 +77,6 @@ def build_certs():
                 <h3>{post['title']}</h3>
                 <p class="post-summary">{post['summary']}</p>
                 <div class="post-meta">
-                    <span>DATE // {post['date']}</span>
                     <span class="meta-tag">{post['tag']}</span>
                 </div>
             </a>"""
