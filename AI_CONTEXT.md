@@ -25,11 +25,17 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── _posts/             # Source markdown articles
 │   └── posts/              # Compiled HTML articles
 │
-├── Cybersecurity_Study/
+├── Cybersecurity_Certifications/
 │   ├── index.html          # Professional Credentials / certifications listing
 │   ├── generate_index.py   # Python post compiler for Certification posts
 │   ├── _posts/             # Source markdown certifications
 │   └── posts/              # Compiled HTML certification posts (like CompTIA A+)
+│
+├── Cybersecurity_Study/
+│   ├── index.html          # Cybersecurity Curriculum / training programs listing
+│   ├── generate_index.py   # Python post compiler for Study Curriculums
+│   ├── _posts/             # Source markdown syllabi (like Elite Red Team Curriculum)
+│   └── posts/              # Compiled HTML syllabus posts
 │
 ├── Cybersecurity_Tools/
 │   ├── index.html          # Dashboard index for tools & scripts
@@ -73,7 +79,8 @@ Navigation is flat and clean, with dropdown lists reserved only for sub-categori
 *   `[ CYBERSECURITY ]` (Dropdown):
     *   `Security Tutorials` -> `/Cybersecurity_Tutorials/`
     *   `Tools & Scripts` -> `/Cybersecurity_Tools/`
-    *   `Security Credentials` -> `/Cybersecurity_Study/` (certifications)
+    *   `Certifications` -> `/Cybersecurity_Certifications/`
+    *   `Cybersecurity Curriculum` -> `/Cybersecurity_Study/` (study syllabi)
 *   `[ COURSEWORK ]` -> `/Academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ ARTICLES ]` -> `/Articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`
