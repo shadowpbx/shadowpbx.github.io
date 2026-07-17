@@ -202,15 +202,88 @@ template = """<!DOCTYPE html>
             text-decoration: underline;
         }}
     
-                @media (max-width: 768px) {{
-            .breadcrumb-curr, .bc-curr-sep {{
-                display: none !important;
+        @media (max-width: 768px) {{
+            .readme-container {{
+                margin: 1.5rem auto;
+                padding: 0 1rem;
             }}
+            .terminal-header .header-container {{
+                padding: 2rem 1rem;
+            }}
+            .terminal-header h1 {{
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+            }}
+            .terminal-header .back-link {{
+                margin-bottom: 1rem;
+            }}
+        }}
+    
+        
+        /* Premium Breadcrumb Widget styling */
+        .breadcrumb-nav {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 0.85rem;
+            border-radius: 6px;
+            margin-bottom: 2.5rem;
+        }}
+
+        .breadcrumb-left a, .breadcrumb-right a {{
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }}
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {{
+            color: var(--accent);
+            text-decoration: underline;
+        }}
+
+        .bc-sep {{
+            color: #cbd5e1;
+            margin: 0 0.4rem;
+        }}
+
+        .breadcrumb-curr {{
+            color: var(--text-primary);
+            font-weight: 600;
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: bottom;
+        }}
+
+        .breadcrumb-right {{
+            display: flex;
+            gap: 1rem;
+        }}
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {{
+            overflow-x: hidden;
+        }}
+        
+        pre[class*="language-"] {{
+            overflow-x: auto !important;
+        }}
+
+        @media (max-width: 768px) {{
             .breadcrumb-nav {{
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                padding: 0.5rem 0.85rem !important;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 0.6rem 0.85rem;
+            }}
+            .breadcrumb-curr {{
+                max-width: 150px;
             }}
             :not(pre) > code {{
                 white-space: normal !important;
@@ -228,7 +301,7 @@ template = """<!DOCTYPE html>
 
     <header class="terminal-header">
         <div class="header-container">
-            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep bc-curr-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
+            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
             <div class="terminal-prompt">user@hexdef:~$ cat README.md</div>
             <h1>{title}</h1>
         </div>
