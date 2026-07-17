@@ -1,45 +1,43 @@
-# Developer & AI Context Guide (Cybersecurity_Study)
+# Developer & AI Context Guide (Cybersecurity_Certifications)
 ## Overview
-This file serves as a system guide for any AI assistant or developer working inside the **Cybersecurity_Study** repository. This repository houses Tanvir Hussain's academic coursework notes (including CLEPs, HVCC, and future UAlbany/M.S. coursework) and professional IT/Security certification study materials.
+This file serves as a system guide for any AI assistant or developer working inside the **Cybersecurity_Certifications** directory. This directory houses Tanvir Hussain's verified IT/Security professional certifications and study references (like CompTIA A+).
 
 ---
 
 ## 1. Directory Structure & Layout
-*   `index.html`: Main landing page designed with a responsive two-column grid separating **Certifications** and **Academic Coursework**.
-*   `_posts/`: Input directory containing markdown files of study guides and notes.
-*   `posts/`: Output directory containing compiled HTML pages of notes.
-*   `post_template.html`: HTML layout template used to wrap individual notes pages.
-*   `generate_index.py`: Python build script that converts markdown files in `_posts/` to HTML, and updates the double-track columns in `index.html`.
+*   `index.html`: Main landing page listing all completed or in-progress certifications.
+*   `_posts/`: Input directory containing markdown files of certification details.
+*   `posts/`: Output directory containing compiled HTML pages of certifications.
+*   `post_template.html`: HTML layout template used to wrap individual certification pages.
+*   `generate_index.py`: Python build script that converts markdown files in `_posts/` to HTML, and updates the list in `index.html`.
 
 ---
 
 ## 2. Front-Matter Metadata Specification
-To ensure notes are sorted into the correct index column, all markdown files in `_posts/` must contain Jekyll-style YAML front-matter with the following properties:
+All markdown files in `_posts/` must contain Jekyll-style YAML front-matter with the following properties:
 
 ```yaml
 ---
-title: "CLEP American Government: Landmark Court Cases"
-date: 2026-07-12
-track: Academic
-tag: GOV
+title: "CompTIA A+ Core 1 (220-1101) High-Yield Study Reference"
+date: "2026.07.12"
+tags: ["CERT", "A+"]
+summary: "High-yield reference guide and summary of core system components, ports, protocols, and hardware troubleshooting for the A+ Core 1 exam."
 ---
 ```
 
 ### Metadata Fields:
-1.  **`title`:** String. The name of the study topic or domain guide.
-2.  **`date`:** Date (`YYYY-MM-DD`). Used to sort entries newest-first.
-3.  **`track`:** Choice of `Certification` or `Academic`.
-    *   `Certification`: Places the note in the **Certifications** column (e.g. CompTIA A+, Security+ notes).
-    *   `Academic`: Places the note in the **Academic Coursework** column (e.g. CLEP, college courses). Defaults to `Academic` if omitted.
-4.  **`tag`:** Short badge label (e.g., `A+`, `SEC+`, `GOV`, `ENGLISH`, `ALGEBRA`). Defaults to auto-generated keywords if omitted.
+1.  **`title`:** String. The name of the certification.
+2.  **`date`:** String (`YYYY.MM.DD`). Used to sort entries newest-first.
+3.  **`tags`:** List of strings (e.g., `["CERT", "A+"]`).
+4.  **`summary`:** String. Brief description displayed on the landing card.
 
 ---
 
 ## 3. Build & Compile Process
-To recompile your study guides and update the landing page indexes, run the compiler script in the root of this folder:
+To recompile certifications and update the index, run:
 
 ```bash
 python3 generate_index.py
 ```
 
-*Note: The compiler uses placeholders `<!-- CERTS_START -->`/`<!-- CERTS_END -->` and `<!-- ACADEMIC_START -->`/`<!-- ACADEMIC_END -->` inside `index.html`. It will not overwrite your styles, header navigation, or structural divs.*
+*Note: The compiler uses placeholders `<!-- POSTS_START -->` and `<!-- POSTS_END -->` inside `index.html`. It will not overwrite your styles, header navigation, or structural divs.*
