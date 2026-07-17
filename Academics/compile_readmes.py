@@ -219,7 +219,6 @@ template = """<!DOCTYPE html>
         }}
     
         
-        
         /* Premium Breadcrumb Widget styling */
         .breadcrumb-nav {{
             display: flex;
@@ -277,14 +276,14 @@ template = """<!DOCTYPE html>
         }}
 
         @media (max-width: 768px) {{
-            .breadcrumb-curr, .bc-curr-sep {{
-                display: none !important;
-            }}
             .breadcrumb-nav {{
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-                padding: 0.5rem 0.75rem !important;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                padding: 0.6rem 0.85rem;
+            }}
+            .breadcrumb-curr {{
+                max-width: 150px;
             }}
             :not(pre) > code {{
                 white-space: normal !important;
@@ -302,7 +301,7 @@ template = """<!DOCTYPE html>
 
     <header class="terminal-header">
         <div class="header-container">
-            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">~</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep bc-curr-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
+            <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> <span class="bc-sep">/</span> <a href="/Academics/">academics</a> <span class="bc-sep">/</span> <a href="/Academics/coursework.html">coursework</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">{title}</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
             <div class="terminal-prompt">user@hexdef:~$ cat README.md</div>
             <h1>{title}</h1>
         </div>
