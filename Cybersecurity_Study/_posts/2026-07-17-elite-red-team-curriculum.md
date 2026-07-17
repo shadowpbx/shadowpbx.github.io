@@ -5,10 +5,6 @@ tags: ["STUDY", "RED TEAM"]
 summary: "A 15-module training syllabus designed to take an operator progressively from passive reconnaissance up to low-level EDR bypasses and specialized AI/ICS targeting."
 ---
 
-
-
-# Comprehensive Cybersecurity Attack Vector Taxonomy
-
 ## Phase 1: Operational Foundations & Entry Points (Easy)
 *Focuses on non-intrusive operations, standard toolsets, human factors, and physical security. These concepts have lower entry barriers and rely heavily on pre-built tooling.*
 
