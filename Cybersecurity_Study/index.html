@@ -8,6 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
+    <style>
+        .featured-card {
+            min-height: 200px;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .study-card-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin: 0.5rem 0 0.75rem 0;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .study-card-desc {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -44,12 +68,14 @@
         <span class="section-label">Cybersecurity Curriculum</span>
         <div class="post-list" id="certs-posts">
             <!-- POSTS_START -->
-            <a href="posts/2026-07-17-elite-red-team-curriculum.html" class="post-entry">
-                <h3>Progressive Elite Red Team Curriculum</h3>
-                <p class="post-summary">A 15-module training syllabus designed to take an operator progressively from passive reconnaissance up to low-level EDR bypasses and specialized AI/ICS targeting.</p>
-                <div class="post-meta">
+            <a href="posts/2026-07-17-elite-red-team-curriculum.html" class="study-card featured-card">
+                <div>
+                    <h3>CURRICULUM // STUDY</h3>
+                    <div class="study-card-title">Progressive Elite Red Team Curriculum</div>
+                    <p class="study-card-desc">A 15-module training syllabus designed to take an operator progressively from passive reconnaissance up to low-level EDR bypasses and specialized AI/ICS targeting.</p>
+                </div>
+                <div class="study-card-meta">
                     <span>DATE // 2026.07.17</span>
-                    <span class="meta-tag">STUDY</span>
                 </div>
             </a>
             <!-- POSTS_END -->

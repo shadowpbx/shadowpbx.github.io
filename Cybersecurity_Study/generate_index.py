@@ -73,12 +73,14 @@ def build_study():
         
     posts_list_html = []
     for post in compiled_posts:
-        entry = f"""            <a href="{post['href']}" class="post-entry">
-                <h3>{post['title']}</h3>
-                <p class="post-summary">{post['summary']}</p>
-                <div class="post-meta">
+        entry = f"""            <a href="{post['href']}" class="study-card featured-card">
+                <div>
+                    <h3>CURRICULUM // {post['tag']}</h3>
+                    <div class="study-card-title">{post['title']}</div>
+                    <p class="study-card-desc">{post['summary']}</p>
+                </div>
+                <div class="study-card-meta">
                     <span>DATE // {post['date']}</span>
-                    <span class="meta-tag">{post['tag']}</span>
                 </div>
             </a>"""
         posts_list_html.append(entry)
