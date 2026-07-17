@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macroeconomics Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        .readme-container {
+            max-width: 750px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .readme-h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .readme-h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+        
+        .readme-h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .readme-hr {
+            border: 0;
+            height: 1px;
+            background: var(--border);
+            margin: 2.5rem 0;
+        }
+        
+        .readme-ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .readme-ul li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .code-block-container {
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        pre {
+            margin: 0;
+        }
+        
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+        
+        .readme-inline-code {
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+        
+        .readme-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .readme-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <a href="/Academics/" class="back-link">[ &larr; BACK TO COURSEWORK ]</a>
+            <div class="terminal-prompt">user@hexdef:~$ cat README.md</div>
+            <h1>Macroeconomics</h1>
+        </div>
+    </header>
+
+    <div class="readme-container">
+        <h1 class='readme-h1'>CLEP Lecture Audio Player & Playlist Compiler</h1>
+<ul class='readme-ul'>
+<li><strong>Live Audio Player</strong>: https://shadowpbx.github.io/CLEP_Macroeconomics/</li>
+<li><strong>Live Interactive Graph Lab</strong>: https://shadowpbx.github.io/CLEP_Macroeconomics_Graphs/</li>
+</ul>
+<p>A premium, mobile-responsive, dark-themed HTML5 audio player designed for studying CLEP lecture courses on the go. It supports lock-screen media controls, custom loop counts, speed adjustments, and auto-resumes playback precisely where you left off.</p>
+<p>This repository houses the player interface and a helper playlist compiler designed to cleanly split audio storage (hosted externally on Cloudflare R2 / S3) from the player code (hosted on GitHub Pages).</p>
+<hr class='readme-hr'>
+<h2 class='readme-h2'>🌟 Key Features</h2>
+<ul class='readme-ul'>
+<li>📱 <strong>Mobile-First Responsive Design</strong>: Beautiful glassmorphic dark-mode interface powered by Outfit Typography and Material Round Icons.</li>
+<li>☁️ <strong>Cloudflare R2/S3 Ready</strong>: Keep your repository lightweight! Host audio files in a public Cloudflare R2 bucket and configure the player to stream them directly.</li>
+<li>🔁 <strong>Custom Track Looping</strong>: Set the player to repeat each lecture track multiple times (e.g., repeat 3 times) before automatically transitioning to the next track—ideal for reinforcement learning.</li>
+<li>⚡ <strong>Playback Speed Control</strong>: Speed up or slow down lectures between <code class="readme-inline-code">0.75x</code> and <code class="readme-inline-code">2.0x</code> speeds.</li>
+<li>💾 <strong>Smart Auto-Resume</strong>: The player automatically persists your track index, loop iterations, playback speed, timeline position, and base URL in your browser's local storage. If you refresh or reopen the page, it resumes exactly where you left off.</li>
+<li>🔒 <strong>Lock Screen Control Integration</strong>: Fully utilizes the HTML5 browser <strong>Media Session API</strong> so you can play, pause, seek, and skip tracks directly from your phone's lock screen or notification panel.</li>
+<li>📖 <strong>Written Study Companion</strong>: Access course study notes, illustrations, charts, and summaries in a new browser tab (<code class="readme-inline-code">companion.html</code>) directly from the player settings without interrupting audio playback.</li>
+<li>📝 <strong>Dynamic Metadata Integration</strong>: Instantly changes the course Title and Subtitle dynamically on the page by parsing metadata.</li>
+</ul>
+<hr class='readme-hr'>
+<h2 class='readme-h2'>📂 File Architecture</h2>
+<ul class='readme-ul'>
+<li><strong><code class="readme-inline-code">index.html</code></strong>: The core player application. 100% self-contained client-side code (HTML, CSS, JS).</li>
+<li><strong><code class="readme-inline-code">companion.html</code></strong>: The written study companion containing course notes, diagrams, and reference tutorials.</li>
+<li><strong><code class="readme-inline-code">generate_playlist.py</code></strong>: A python script that scans your audio files (either locally or on a remote bucket) and writes the catalog files.</li>
+<li><strong><code class="readme-inline-code">about.txt</code></strong>: A metadata text file containing the course Title and Subtitle. Used by the Python generator to dynamically brand the player.</li>
+<li><strong><code class="readme-inline-code">playlist.json</code> & <code class="readme-inline-code">playlist.js</code></strong>: Automatically compiled playlist catalogs containing the track order and Cloudflare R2 base URL configuration.</li>
+</ul>
+<hr class='readme-hr'>
+<h2 class='readme-h2'>🚀 Setup & Usage Guide</h2>
+<h3 class='readme-h3'>1. Upload Your Audio Files to Cloudflare R2</h3>
+<p>1. Log into your Cloudflare account and create an <strong>R2 Bucket</strong>.</p>
+<p>2. Upload your <code class="readme-inline-code">.mp3</code> files to the bucket.</p>
+<p>3. Enable public access (either via a custom domain like <code class="readme-inline-code">https://audio.example.com/</code> or Cloudflare's free <code class="readme-inline-code">pub-<hash>.r2.dev</code> bucket URL).</p>
+<h3 class='readme-h3'>2. Configure Course Metadata</h3>
+<p>Edit the <code class="readme-inline-code">about.txt</code> file in your root folder:</p>
+<div class="code-block-container"><pre><code class="language-txt">
+Title: Macroeconomics
+Sub Title: CLEP Examination Prep Audio
+</code></pre></div>
+<h3 class='readme-h3'>3. Generate the Playlists</h3>
+<p>The Python playlist compiler detects your audio files and creates catalog files for the player.</p>
+<ul class='readme-ul'>
+<li>Ensure you have <code class="readme-inline-code">click</code> installed:</li>
+<div class="code-block-container"><pre><code class="language-bash">
+  pip install click
+</code></pre></div>
+<li>Run the script and specify your custom Cloudflare R2 folder URL as the source:</li>
+<div class="code-block-container"><pre><code class="language-bash">
+  python3 generate_playlist.py -d "https://audio.epistemicresearch.org/Macroeconomics/"
+</code></pre></div>
+</ul>
+<p>The generator automatically parses your folder structure (or falls back to scanning your local MP3 filenames if remote directory listing is disabled) and writes out both <code class="readme-inline-code">playlist.json</code> and <code class="readme-inline-code">playlist.js</code> with your embedded R2 URL.</p>
+<h3 class='readme-h3'>4. Deploy the Player on GitHub Pages</h3>
+<p>1. Push <code class="readme-inline-code">index.html</code>, <code class="readme-inline-code">about.txt</code>, <code class="readme-inline-code">generate_playlist.py</code>, <code class="readme-inline-code">playlist.js</code>, <code class="readme-inline-code">playlist.json</code>, and <code class="readme-inline-code">companion.html</code> to your GitHub repository.</p>
+<p>2. In your repository settings under <strong>Pages</strong>, enable GitHub Pages to build from your main branch.</p>
+<p>3. Your audio player will immediately go live!</p>
+<hr class='readme-hr'>
+<h2 class='readme-h2'>🛠 Local & Offline Development</h2>
+<p>This project is built to support offline learning:</p>
+<ul class='readme-ul'>
+<li>Open <code class="readme-inline-code">index.html</code> directly in your browser (<code class="readme-inline-code">file:///</code> protocol).</li>
+<li>Even if the browser's security sandbox blocks dynamic JSON fetching locally, the player automatically falls back to reading track mappings and R2 base URLs from the script-loaded <code class="readme-inline-code">playlist.js</code>.</li>
+</ul>
+<hr class='readme-hr'>
+<p>*Designed for seamless studying on the go.*</p>
+        
+        <footer style="margin-top: 5rem;">
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
+        </footer>
+    </div>
+
+</body>
+</html>

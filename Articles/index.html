@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cybersecurity | Tanvir Hussain</title>
+    <title>Blog | Tanvir Hussain</title>
     <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
             <nav class="nav-container">
                 <a href="/" class="nav-link">[ HOME ]</a>
                 <div class="dropdown">
-                    <a href="/Cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <a href="/Cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/Cybersecurity_Tutorials/">Security Tutorials</a>
                         <a href="/Cybersecurity_Tools/">Tools & Scripts</a>
@@ -26,26 +26,42 @@
                     </div>
                 </div>
                 <a href="/Academics/" class="nav-link">[ COURSEWORK ]</a>
-                <a href="/Articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/Articles/" class="nav-link active">[ ARTICLES ]</a>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx:~$ cybersec --dashboard</div>
-            <h1>Cybersecurity Portal</h1>
+            <div class="terminal-prompt">user@hexdef:~$ articles --show-all</div>
+            <h1>Articles & Guides</h1>
         </div>
     </header>
 
     <div class="container">
-        <span class="section-label">01 // Cybersecurity Library</span>
+        <span class="section-label">01 // Technical Publications</span>
         
         <div class="post-list" id="dynamic-posts">
             <!-- POSTS_START -->
-            <a href="posts/2026-06-23-introduction-to-cybersecurity.html" class="post-entry">
-                <h3>Introduction to threat modeling and risk assessment</h3>
-                <p class="post-summary">What is Threat Modeling? Threat modeling is a structured process with the goal of identifying security requirements, pinpointing security threats and...</p>
+            <a href="posts/2026-04-04-buildroot-rasp-pi-wifi-fix.html" class="post-entry">
+                <h3>Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</h3>
+                <p class="post-summary">In a standard OS, massive background daemons like systemd, udev, and NetworkManager handle the complex timing required to wake up hardware. In Buildro...</p>
                 <div class="post-meta">
-                    <span>DATE // 2026.06.23</span>
-                    <span class="meta-tag">PENTEST</span>
+                    <span>DATE // 2026.04.04</span>
+                    <span class="meta-tag">HARDENING</span>
+                </div>
+            </a>
+            <a href="posts/2026-03-31-pi-zero-2-w-boot-process.html" class="post-entry">
+                <h3>Raspberry Pi Zero 2 W Boot Process: A Bare Metal Guide</h3>
+                <p class="post-summary">If you have ever built a custom operating system or dug into low-level digital forensics, you know that understanding how a device wakes up is just as...</p>
+                <div class="post-meta">
+                    <span>DATE // 2026.03.31</span>
+                    <span class="meta-tag">SYSTEMS</span>
+                </div>
+            </a>
+            <a href="posts/2026-03-27-Chrome-Crash-Fix.html" class="post-entry">
+                <h3>How a BIOS Fix Ended My Chrome Crashes and System-Wide Instability (Intel 13th/14th Gen)</h3>
+                <p class="post-summary">The Short Version: If you are running a high-end Intel processor (like the i7-13700K) on Linux with a massive 128GB RAM configuration, you have likely...</p>
+                <div class="post-meta">
+                    <span>DATE // 2026.03.27</span>
+                    <span class="meta-tag">FORENSICS</span>
                 </div>
             </a>
             <!-- POSTS_END -->

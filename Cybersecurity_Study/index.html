@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics & Certifications | Tanvir Hussain</title>
-    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
+    <title>Certifications | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -18,64 +17,41 @@
             <nav class="nav-container">
                 <a href="/" class="nav-link">[ HOME ]</a>
                 <div class="dropdown">
-                    <a href="/Cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <a href="/Cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/Cybersecurity_Tutorials/">Security Tutorials</a>
                         <a href="/Cybersecurity_Tools/">Tools & Scripts</a>
-                        <a href="/Cybersecurity_Study/certifications.html">Security Credentials</a>
+                        <a href="/Cybersecurity_Study/">Security Credentials</a>
                     </div>
                 </div>
-                <div class="dropdown">
-                    <a href="/CLEP/" class="nav-link active">[ ACADEMICS ]</a>
-                    <div class="dropdown-menu">
-                        <a href="/CLEP/">CLEP Exam Registry</a>
-                        <a href="/Cybersecurity_Study/cybersecurity_coursework.html">HVCC Coursework</a>
-                        <a href="/Cybersecurity_Study/all_coursework.html">All Academic Log</a>
-                    </div>
-                </div>
-                <a href="/Tutorials/" class="nav-link">[ TUTORIALS ]</a>
-                <a href="/Blog/" class="nav-link">[ BLOG ]</a>
+                <a href="/Academics/" class="nav-link">[ COURSEWORK ]</a>
+                <a href="/Articles/" class="nav-link">[ ARTICLES ]</a>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx:~$ study --show-dashboard</div>
-            <h1>Certifications & Coursework</h1>
+            <div class="terminal-prompt">user@hexdef:~$ study --list-certs</div>
+            <h1>Professional Credentials</h1>
         </div>
     </header>
 
     <div class="container">
-        <div class="study-cards-grid">
-            
-            <!-- Card 1: Certifications -->
-            <a href="certifications.html" class="study-card">
-                <div>
-                    <h3>01 // Certifications</h3>
-                    <div class="study-card-title">Professional Credentials</div>
-                    <p class="study-card-desc">IT and Information Security credential study guides, flashcards, and port reference lists.</p>
-                </div>
-                <div class="study-card-meta"><!-- CERTS_COUNT -->1<!-- CERTS_COUNT_END --> FILES</div>
-            </a>
+        <span class="section-label">Certifications</span>
+        <div class="post-list" id="certs-posts">
+            <!-- POSTS_START -->
+            <a href="posts/2026-07-12-aplus-core1.html" class="post-entry">
+                <h3>CompTIA A+ Core 1 (220-1101) High-Yield Study Reference</h3>
+                <p class="post-summary">This is a test high-yield reference guide for CompTIA A+ Core 1 study notes.
 
-            <!-- Card 2: Cybersecurity Coursework -->
-            <a href="cybersecurity_coursework.html" class="study-card">
-                <div>
-                    <h3>02 // Cybersecurity</h3>
-                    <div class="study-card-title">Security Coursework</div>
-                    <p class="study-card-desc">Technical coursework notes, lab writeups, and coding exercises from my core cybersecurity curriculum.</p>
+<h2>Common Ports & Protocols</h2>
+| Port | Protocol | Purpose |
+|------|----------|---------|
+|...</p>
+                <div class="post-meta">
+                    <span>DATE // 2026.07.12</span>
+                    <span class="meta-tag">CERT</span>
                 </div>
-                <div class="study-card-meta"><!-- CYBER_COUNT -->1<!-- CYBER_COUNT_END --> FILES</div>
             </a>
-
-            <!-- Card 3: All Coursework -->
-            <a href="all_coursework.html" class="study-card">
-                <div>
-                    <h3>03 // Transcript</h3>
-                    <div class="study-card-title">All Coursework & CLEPs</div>
-                    <p class="study-card-desc">Comprehensive log of general education classes, CLEP exam guides, and foundational credits.</p>
-                </div>
-                <div class="study-card-meta"><!-- ALL_COUNT -->2<!-- ALL_COUNT_END --> FILES</div>
-            </a>
-
+            <!-- POSTS_END -->
         </div>
 
         <footer>
@@ -98,6 +74,5 @@
             }
         });
     </script>
-
 </body>
 </html>

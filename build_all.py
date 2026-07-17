@@ -10,11 +10,11 @@ logging.basicConfig(
 
 subfolders = [
     "Cybersecurity",
-    "Blog",
-    "Tutorials",
+    "Articles",
     "Cybersecurity_Study",
     "Cybersecurity_Tools",
-    "Cybersecurity_Tutorials"
+    "Cybersecurity_Tutorials",
+    "Academics"
 ]
 
 root_dir = os.path.dirname(os.path.abspath(__file__))
@@ -40,19 +40,19 @@ def build_all():
         else:
             logging.warning(f"No compiler script found in {folder} (expected: generate_index.py)")
             
-    # Build CLEP READMEs
-    clep_compiler = os.path.join(root_dir, "CLEP", "compile_readmes.py")
-    if os.path.exists(clep_compiler):
-        logging.info("Compiling CLEP README files...")
+    # Build Academics READMEs
+    academics_compiler = os.path.join(root_dir, "Academics", "compile_readmes.py")
+    if os.path.exists(academics_compiler):
+        logging.info("Compiling Academics README files...")
         try:
             subprocess.run(
                 ["python3", "compile_readmes.py"],
-                cwd=os.path.join(root_dir, "CLEP"),
+                cwd=os.path.join(root_dir, "Academics"),
                 check=True
             )
-            logging.info("Successfully compiled CLEP READMEs.")
+            logging.info("Successfully compiled Academics READMEs.")
         except subprocess.CalledProcessError as e:
-            logging.error(f"Error compiling CLEP READMEs: {e}")
+            logging.error(f"Error compiling Academics READMEs: {e}")
 
     logging.info("Global Website Build Complete!")
 
