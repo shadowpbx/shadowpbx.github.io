@@ -3,45 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics & Coursework | Tanvir Hussain</title>
+    <title>Academics & Overview | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
-    <style>
-        .clep-links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .study-card {
-            min-height: auto;
-            padding: 1.5rem;
-        }
-
-        .clep-card-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.25rem;
-            border-top: 1px dashed var(--border);
-            padding-top: 0.75rem;
-        }
-
-        .clep-card-links a {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .clep-card-links a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
 
@@ -59,68 +25,36 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="javascript:void(0)" class="nav-link active" style="cursor: default;">[ ACADEMICS ]</a>
+                    <a href="/Academics/" class="nav-link active">[ ACADEMICS ]</a>
                     <div class="dropdown-menu">
-                        <a href="/Academics/">Coursework</a>
+                        <a href="/Academics/coursework.html">Coursework</a>
                     </div>
                 </div>
                 <a href="/Articles/" class="nav-link">[ ARTICLES ]</a>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ academics --show-coursework</div>
-            <h1>Coursework & CLEPs</h1>
+            <div class="terminal-prompt">user@hexdef:~$ academics --show-overview</div>
+            <h1>Academic Overview</h1>
         </div>
     </header>
 
     <div class="container">
         
-        <span class="section-label">01 // CLEP Exam Registry</span>
-        <div class="clep-links-grid" style="margin-bottom: 3.5rem;">
-            
-            <!-- Card 1: Sociology -->
-            <div class="study-card">
-                <div>
-                    <h3>01 // Introductory Sociology</h3>
-                    <div class="study-card-title">CLEP Sociology</div>
-                    <p class="study-card-desc" style="font-size: 0.85rem;">Audio lectures and detailed study notes covering foundations of sociology, social structures, and culture.</p>
-                </div>
-                <div class="clep-card-links">
-                    <a href="Sociology/index.html">AUDIO &rarr;</a>
-                    <a href="Sociology/companion.html">COMPANION &rarr;</a>
-                    <a href="Sociology/readme.html">README &rarr;</a>
-                </div>
+        <span class="section-label">Academic Profile</span>
+        <div class="study-card" style="min-height: auto; padding: 2rem; margin-bottom: 2rem; margin-top: 1rem;">
+            <p style="margin-top: 0; font-size: 1.1rem; line-height: 1.8;">
+                Currently pursuing an <strong>Associate of Science (A.S.) in Cybersecurity</strong> at <strong>Hudson Valley Community College (HVCC)</strong>.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
+                This space compiles academic coursework records, laboratory exercises, and accelerated learning portfolios (such as Prior Learning Assessments and CLEP examinations).
+            </p>
+            <div style="margin-top: 2rem; border-top: 1px dashed var(--border); padding-top: 1.5rem;">
+                <a href="/Academics/coursework.html" style="color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; text-decoration: none; display: inline-block;">
+                    VIEW COMPLETED COURSEWORK &rarr;
+                </a>
             </div>
-
-            <!-- Card 2: Macroeconomics -->
-            <div class="study-card">
-                <div>
-                    <h3>02 // Principles of Macroeconomics</h3>
-                    <div class="study-card-title">CLEP Macroeconomics</div>
-                    <p class="study-card-desc" style="font-size: 0.85rem;">Equations list, audio guides, and integrated economic graph labs (Supply & Demand, AD/AS model, Phillips Curve).</p>
-                </div>
-                <div class="clep-card-links">
-                    <a href="Macroeconomics/index.html">AUDIO &rarr;</a>
-                    <a href="Macroeconomics/companion.html">COMPANION &rarr;</a>
-                    <a href="Macroeconomics/readme.html">README &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Card 3: American Government -->
-            <div class="study-card">
-                <div>
-                    <h3>03 // American Government</h3>
-                    <div class="study-card-title">CLEP American Gov</div>
-                    <p class="study-card-desc" style="font-size: 0.85rem;">Audio guides, key terminology flashcard logs, and constitutional frameworks study logs.</p>
-                </div>
-                <div class="clep-card-links">
-                    <a href="American_Government/index.html">AUDIO &rarr;</a>
-                    <a href="American_Government/readme.html">README &rarr;</a>
-                </div>
-            </div>
-
         </div>
-
 
         <footer>
             &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
