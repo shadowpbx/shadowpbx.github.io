@@ -18,7 +18,7 @@
             line-height: 1.7;
         }
         
-        .readme-h1 {
+        .readme-container h1 {
             font-size: 1.8rem;
             font-weight: 700;
             border-bottom: 2px solid var(--border);
@@ -28,7 +28,7 @@
             letter-spacing: -0.02em;
         }
         
-        .readme-h2 {
+        .readme-container h2 {
             font-size: 1.4rem;
             font-weight: 600;
             margin-top: 2rem;
@@ -37,7 +37,7 @@
             color: var(--text-primary);
         }
         
-        .readme-h3 {
+        .readme-container h3 {
             font-size: 1.15rem;
             font-weight: 600;
             margin-top: 1.5rem;
@@ -45,24 +45,24 @@
             color: var(--text-primary);
         }
         
-        .readme-hr {
+        .readme-container hr {
             border: 0;
             height: 1px;
             background: var(--border);
             margin: 2.5rem 0;
         }
         
-        .readme-ul {
+        .readme-container ul {
             margin: 1rem 0;
             padding-left: 1.5rem;
         }
         
-        .readme-ul li {
+        .readme-container ul li {
             margin-bottom: 0.5rem;
             color: var(--text-secondary);
         }
         
-        .code-block-container {
+        .readme-container pre {
             background: var(--bg-header);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -80,7 +80,7 @@
             font-size: 0.9rem;
         }
         
-        .readme-inline-code {
+        .readme-container :not(pre) > code {
             background: var(--bg-header);
             border: 1px solid var(--border);
             padding: 2px 6px;
@@ -89,13 +89,13 @@
             color: var(--accent);
         }
         
-        .readme-link {
+        .readme-container a {
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
         }
         
-        .readme-link:hover {
+        .readme-container a:hover {
             text-decoration: underline;
         }
     
@@ -214,15 +214,17 @@
     </header>
 
     <div class="readme-container">
-        <h1 class='readme-h1'>CLEP Macroeconomics Graphs Lab</h1>
+        <h1>CLEP Macroeconomics Graphs Lab</h1>
 <p>Live App: https://shadowpbx.github.io/CLEP_Macroeconomics_Graphs/</p>
-<h2 class='readme-h2'>Run Locally</h2>
+<h2>Run Locally</h2>
 <p><strong>Prerequisites:</strong>  Node.js</p>
-<p>1. Install dependencies:</p>
-<p><code class="readme-inline-code">npm install</code></p>
-<p>2. Set the <code class="readme-inline-code">GEMINI_API_KEY</code> in <a href=".env.local" target="_blank" class="readme-link">.env.local</a> to your Gemini API key</p>
-<p>3. Run the app:</p>
-<p><code class="readme-inline-code">npm run dev</code></p>
+<ol>
+<li>Install dependencies:
+   <code>npm install</code></li>
+<li>Set the <code>GEMINI_API_KEY</code> in <a href=".env.local">.env.local</a> to your Gemini API key</li>
+<li>Run the app:
+   <code>npm run dev</code></li>
+</ol>
         
         <footer style="margin-top: 5rem;">
             &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT

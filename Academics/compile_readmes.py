@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import markdown
 import re
 
 clep_root = "/home/shad/Application/Github/shadowpbx.github.io/Academics"
@@ -8,99 +9,14 @@ folders = ["Sociology", "Macroeconomics", "Macroeconomics_Graphs", "American_Gov
 
 # A simple Python Markdown-to-HTML parser using regex
 def markdown_to_html(md_text):
-    html_lines = []
-    in_list = False
-    in_code_block = False
-    
-    # Pre-process blockquotes, horizontal rules, and double newlines
-    lines = md_text.split('\n')
-    
-    for line in lines:
-        # Code blocks
-        if line.strip().startswith("```"):
-            if in_code_block:
-                html_lines.append("</code></pre></div>")
-                in_code_block = False
-            else:
-                lang = line.strip().replace("```", "").strip()
-                html_lines.append(f'<div class="code-block-container"><pre><code class="language-{lang or "txt"}">')
-                in_code_block = True
-            continue
+    # Strip YAML front matter if present
+    if md_text.startswith('---'):
+        parts = md_text.split('---', 2)
+        if len(parts) >= 3:
+            md_text = parts[2]
             
-        if in_code_block:
-            # Escape HTML characters in code block
-            escaped = line.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
-            html_lines.append(escaped)
-            continue
-
-        # Horizontal rules
-        if line.strip() == "---" or line.strip() == "***":
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-            html_lines.append("<hr class='readme-hr'>")
-            continue
-            
-        # Headings
-        if line.startswith("# "):
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-            html_lines.append(f"<h1 class='readme-h1'>{line[2:].strip()}</h1>")
-            continue
-        elif line.startswith("## "):
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-            html_lines.append(f"<h2 class='readme-h2'>{line[3:].strip()}</h2>")
-            continue
-        elif line.startswith("### "):
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-            html_lines.append(f"<h3 class='readme-h3'>{line[4:].strip()}</h3>")
-            continue
-            
-        # Bullet list items
-        stripped = line.strip()
-        if stripped.startswith("* ") or stripped.startswith("- "):
-            if not in_list:
-                html_lines.append("<ul class='readme-ul'>")
-                in_list = True
-            content = stripped[2:].strip()
-            html_lines.append(f"<li>{content}</li>")
-            continue
-            
-        # Standard paragraph or empty line
-        if stripped == "":
-            if in_list:
-                html_lines.append("</ul>")
-                in_list = False
-            continue
-            
-        if in_list:
-            # If not matching bullet but still in_list, close the list
-            html_lines.append("</ul>")
-            in_list = False
-            
-        # Treat as standard paragraph line
-        html_lines.append(f"<p>{stripped}</p>")
-
-    if in_list:
-        html_lines.append("</ul>")
-        
-    html_content = "\n".join(html_lines)
-    
-    # Inline formatting (Bold, code, links)
-    # Bold: **text**
-    html_content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', html_content)
-    # Inline code: `code`
-    html_content = re.sub(r'`(.*?)`', r'<code class="readme-inline-code">\1</code>', html_content)
-    # Links: [text](url)
-    html_content = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2" target="_blank" class="readme-link">\1</a>', html_content)
-    
-    return html_content
-
+    # Compile markdown to HTML using python-markdown library
+    return markdown.markdown(md_text, extensions=['fenced_code', 'tables'])
 template = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,7 +37,7 @@ template = """<!DOCTYPE html>
             line-height: 1.7;
         }}
         
-        .readme-h1 {{
+        .readme-container h1 {{
             font-size: 1.8rem;
             font-weight: 700;
             border-bottom: 2px solid var(--border);
@@ -131,7 +47,7 @@ template = """<!DOCTYPE html>
             letter-spacing: -0.02em;
         }}
         
-        .readme-h2 {{
+        .readme-container h2 {{
             font-size: 1.4rem;
             font-weight: 600;
             margin-top: 2rem;
@@ -140,7 +56,7 @@ template = """<!DOCTYPE html>
             color: var(--text-primary);
         }}
         
-        .readme-h3 {{
+        .readme-container h3 {{
             font-size: 1.15rem;
             font-weight: 600;
             margin-top: 1.5rem;
@@ -148,24 +64,24 @@ template = """<!DOCTYPE html>
             color: var(--text-primary);
         }}
         
-        .readme-hr {{
+        .readme-container hr {{
             border: 0;
             height: 1px;
             background: var(--border);
             margin: 2.5rem 0;
         }}
         
-        .readme-ul {{
+        .readme-container ul {{
             margin: 1rem 0;
             padding-left: 1.5rem;
         }}
         
-        .readme-ul li {{
+        .readme-container ul li {{
             margin-bottom: 0.5rem;
             color: var(--text-secondary);
         }}
         
-        .code-block-container {{
+        .readme-container pre {{
             background: var(--bg-header);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -183,7 +99,7 @@ template = """<!DOCTYPE html>
             font-size: 0.9rem;
         }}
         
-        .readme-inline-code {{
+        .readme-container :not(pre) > code {{
             background: var(--bg-header);
             border: 1px solid var(--border);
             padding: 2px 6px;
@@ -192,13 +108,13 @@ template = """<!DOCTYPE html>
             color: var(--accent);
         }}
         
-        .readme-link {{
+        .readme-container a {{
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
         }}
         
-        .readme-link:hover {{
+        .readme-container a:hover {{
             text-decoration: underline;
         }}
     
