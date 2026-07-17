@@ -26,11 +26,10 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   └── posts/              # Compiled HTML articles
 │
 ├── Cybersecurity_Study/
-│   ├── index.html          # Dashboard index for certifications & coursework
-│   ├── certifications.html # Cisco, Google Sec, CompTIA list
-│   ├── cybersecurity_coursework.html # HVCC computer science study notes
-│   ├── all_coursework.html # Detailed coursework transcript index
-│   └── generate_index.py   # Specialized python compiler (injects post counts to dashboard cards)
+│   ├── index.html          # Professional Credentials / certifications listing
+│   ├── generate_index.py   # Python post compiler for Certification posts
+│   ├── _posts/             # Source markdown certifications
+│   └── posts/              # Compiled HTML certification posts (like CompTIA A+)
 │
 ├── Cybersecurity_Tools/
 │   ├── index.html          # Dashboard index for tools & scripts
@@ -42,57 +41,41 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │
 ├── Cybersecurity_Tutorials/
 │   ├── index.html          # Security tutorials & walkthroughs log
-│   └── generate_index.py   # Python post compiler for Security Tutorials
+│   ├── generate_index.py   # Python post compiler for Security Tutorials
+│   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
 │
-├── Tutorials/
-│   ├── index.html          # General technical walkthroughs (Raspberry Pi, systems)
-│   └── generate_index.py   # Python post compiler for General Tutorials
+├── Academics/
+│   ├── index.html          # Coursework & CLEPs dashboard
+│   ├── generate_index.py   # Python post compiler for academic coursework
+│   ├── compile_readmes.py  # Custom Python Markdown-to-HTML parser for README files
+│   ├── _posts/             # Source coursework notes (like CISS 100)
+│   ├── posts/              # Compiled HTML coursework notes
+│   │
+│   ├── Sociology/          # CLEP Sociology audio player, companion, and readme
+│   ├── Macroeconomics/     # CLEP Macroeconomics audio player, companion, and readme
+│   ├── Macroeconomics_Graphs/ # React + TS + Tailwind graphing lab workspace (compiled under dist/)
+│   └── American_Government/ # CLEP American Government audio player and readme
 │
-├── Blog/
-│   ├── index.html          # Systems journal / general blog logs
-│   └── generate_index.py   # Python post compiler for Blog
-│
-└── CLEP/
-    ├── index.html          # Central CLEP exam study dashboard
-    ├── compile_readmes.py  # Custom Python Markdown-to-HTML parser for README files
-    │
-    ├── Sociology/
-    │   ├── index.html      # Audio lecture player (Sociology)
-    │   ├── companion.html  # Study companion notebook
-    │   └── readme.html     # Compiled syllabus details (from README.md)
-    │
-    ├── Macroeconomics/
-    │   ├── index.html      # Audio lecture player (Macroeconomics)
-    │   ├── companion.html  # Study companion notebook (links to graphs app)
-    │   └── readme.html     # Compiled syllabus details (from README.md)
-    │
-    ├── Macroeconomics_Graphs/
-    │   ├── vite.config.ts  # Vite configuration (configured with relative base: './')
-    │   ├── src/            # React + TypeScript + Tailwind graphing workspace source code
-    │   └── dist/           # Compiled React static site bundle (tracked in git)
-    │
-    └── American_Government/
-        ├── index.html      # Audio lecture player (American Government)
-        └── readme.html     # Compiled syllabus details (from README.md)
+└── Articles/
+    ├── index.html          # Articles & Guides log (merged Blog + Tutorials)
+    ├── generate_index.py   # Python post compiler for general articles and guides
+    ├── _posts/             # Source blog and tutorial markdown files
+    └── posts/              # Compiled HTML articles
 ```
 
 ---
 
-## 2. Navigation System & Dropdowns
-Navigation lists are unified across all dashboard headers. The dropdowns are built using a **pure CSS hover mechanism** with a transparent `:before` element bridge to prevent hover loss. On mobile devices, the menu toggle collapses the navigation tree.
+## 2. Flat Navigation System
+Navigation is flat and clean, with dropdown lists reserved only for sub-categories under Cybersecurity.
 
 ### Navigation Hierarchy
 *   `[ HOME ]` -> `/`
-*   `[ CYBERSECURITY ]` -> `/Cybersecurity/`
+*   `[ CYBERSECURITY ]` (Dropdown):
     *   `Security Tutorials` -> `/Cybersecurity_Tutorials/`
     *   `Tools & Scripts` -> `/Cybersecurity_Tools/`
-    *   `Security Credentials` -> `/Cybersecurity_Study/certifications.html`
-*   `[ ACADEMICS ]` -> `/CLEP/`
-    *   `CLEP Exam Registry` -> `/CLEP/`
-    *   `HVCC Coursework` -> `/Cybersecurity_Study/cybersecurity_coursework.html`
-    *   `All Academic Log` -> `/Cybersecurity_Study/all_coursework.html`
-*   `[ TUTORIALS ]` -> `/Tutorials/`
-*   `[ BLOG ]` -> `/Blog/`
+    *   `Security Credentials` -> `/Cybersecurity_Study/` (certifications)
+*   `[ COURSEWORK ]` -> `/Academics/` (unified page listing CLEPs and general academic coursework logs)
+*   `[ ARTICLES ]` -> `/Articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx` (new tab)
 
@@ -109,13 +92,9 @@ All layouts inherit from the central `/global.css` file:
 *   **Terminal Prompt Green:** `#059669`
 *   **Borders:** `#e2e8f0` (Slate-200)
 
-### Spacing Rules
-*   Maintain tight vertical padding and small gaps.
-*   Prevent vertical layout shifts by using `scrollbar-gutter: stable;` on the HTML root.
-
 ---
 
 ## 4. Compilation Tooling
 *   **Static Post Compilers:** Run locally to parse front-matter Markdown files and convert them into HTML pages wrapped in `post_template.html`.
-*   **Master Build Script:** `build_all.py` runs all subpage `generate_index.py` scripts and compiles the CLEP Markdown readmes.
+*   **Master Build Script:** `build_all.py` runs all subpage `generate_index.py` scripts and compiles the Academics Markdown readmes.
 *   **Execution:** Run `python3 build_all.py` in the root folder before committing.
