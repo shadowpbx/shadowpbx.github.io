@@ -75,35 +75,41 @@
             }
         }
     
-        /* Compact Breadcrumb Header styling */
+        
+        /* Premium Breadcrumb Widget styling */
         .breadcrumb-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
-            border-bottom: 1px dashed var(--border);
-            padding-bottom: 1rem;
+            font-size: 0.8rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 0.85rem;
+            border-radius: 6px;
             margin-bottom: 2.5rem;
         }
 
         .breadcrumb-left a, .breadcrumb-right a {
-            color: var(--accent);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
         .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
             text-decoration: underline;
         }
 
-        .breadcrumb-left {
-            color: var(--text-secondary);
+        .bc-sep {
+            color: #cbd5e1;
+            margin: 0 0.4rem;
         }
 
         .breadcrumb-curr {
-            color: var(--text-secondary);
-            font-weight: normal;
+            color: var(--text-primary);
+            font-weight: 600;
             max-width: 250px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -117,23 +123,40 @@
             gap: 1rem;
         }
 
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
         @media (max-width: 768px) {
             .breadcrumb-nav {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.5rem;
-                padding-bottom: 0.75rem;
-                margin-bottom: 1.5rem;
+                padding: 0.6rem 0.85rem;
             }
             .breadcrumb-curr {
                 max-width: 150px;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> &gt; <a href="/Articles/">articles</a> &gt; <span class="breadcrumb-curr">Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
+        <div class="breadcrumb-nav"><div class="breadcrumb-left"><a href="/">hexdef.com</a> <span class="bc-sep">/</span> <a href="/Articles/">articles</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</span></div><div class="breadcrumb-right"><a href="/">[ HOME ]</a><a href="/resume/">[ RESUME ]</a></div></div>
         <header><h1>Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W</h1><p class="post-date">PUBLISHED // 2026.04.04</p></header>
         <main><p>In a standard OS, massive background daemons like <code>systemd</code>, <code>udev</code>, and <code>NetworkManager</code> handle the complex timing required to wake up hardware. In Buildroot, these services do not exist unless you explicitly build them. This leads to a common, frustrating scenario: <strong>Your Raspberry Pi Zero 2 W connects to Wi-Fi perfectly when you type commands manually, but refuses to connect automatically on boot.</strong></p>
 <p>If you are experiencing this, you haven't necessarily misconfigured your credentials. Instead, you have encountered the "Gears of the Machine"—the internal timing conflicts known as <strong>Race Conditions</strong>. This article serves as a comprehensive guide to diagnosing and defeating these architectural hurdles to achieve a 100% reliable, zero-touch headless boot.</p>
