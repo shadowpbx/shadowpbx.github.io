@@ -134,6 +134,32 @@
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
+
+        /* Secure Email and Mail Button Styling */
+        .secure-email {
+            unicode-bidi: bidi-override;
+            direction: rtl;
+        }
+
+        .mail-btn {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 1.05rem;
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            background: var(--bg-card);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .mail-btn:hover {
+            border-color: var(--accent);
+            background: rgba(142, 68, 173, 0.02);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -164,6 +190,9 @@
             <div class="terminal-prompt">user@hexdef:~$ whoami</div>
             <h1>Tanvir <span class="typing-effect">Hussain</span></h1>
             <p>[ Information Security | Digital Forensics | Infrastructure Hardening ]</p>
+            <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.9rem;">
+                [ <a href="#" class="email-link" data-user="tanvir" data-domain="hexdef.com" style="color: var(--accent); text-decoration: none; font-weight: 700;">✉ <span class="secure-email">moc.fedxeh@rivnat</span></a> ]
+            </p>
         </div>
     </header>
 
@@ -207,6 +236,17 @@
             </div>
         </section>
 
+        <section id="contact" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <span class="section-label">04 // Contact</span>
+            <h2>Get in Touch</h2>
+            <p>For professional inquiries, security research collaborations, or system audits:</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="#" class="email-link mail-btn" data-user="tanvir" data-domain="hexdef.com">
+                    user@hexdef:~$ mail -s "hello" <span class="secure-email">moc.fedxeh@rivnat</span>
+                </a>
+            </div>
+        </section>
+
         <footer>
             &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
         </footer>
@@ -225,6 +265,19 @@
                 menuBtn.textContent = '[ ☰ menu --list ]';
                 navContainer.classList.remove('show');
             }
+        });
+
+        // Set up secure email link click handlers
+        document.querySelectorAll('.email-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const user = link.getAttribute('data-user');
+                const domain = link.getAttribute('data-domain');
+                if (user && domain) {
+                    const email = user + '@' + domain;
+                    window.location.href = 'mailto:' + email;
+                }
+            });
         });
     </script>
 
