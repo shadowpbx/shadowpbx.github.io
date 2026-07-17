@@ -3,7 +3,6 @@ title: "Progressive Elite Red Team Curriculum"
 date: "2026.07.17"
 tags: ["STUDY", "RED TEAM"]
 summary: "A 15-module training syllabus designed to take an operator progressively from passive reconnaissance up to low-level EDR bypasses and specialized AI/ICS targeting."
-direct_link: "curriculum.html"
 ---
 
 
