@@ -79,18 +79,23 @@ def build_study():
                 tags = meta.get("tags", ["STUDY"])
                 summary = meta.get("summary", html_body[:180].replace("<p>", "").replace("</p>", "") + "...")
                 
-                post_html = template.replace("{{ title }}", title).replace("{{ date }}", str(date)).replace("{{ content }}", html_body)
-                
                 out_fn = fn.replace(".md", ".html")
                 out_fp = os.path.join(output_dir, out_fn)
                 
-                with open(out_fp, "w", encoding="utf-8") as f:
-                    f.write(post_html)
-                
-                logging.info(f"Generated certification post: posts/{out_fn}")
+                # Check for direct_link
+                direct_link = meta.get("direct_link")
+                if direct_link:
+                    post_href = direct_link
+                    logging.info(f"Skipping compilation for direct link: {direct_link}")
+                else:
+                    post_href = f"posts/{out_fn}"
+                    post_html = template.replace("{{ title }}", title).replace("{{ date }}", str(date)).replace("{{ content }}", html_body)
+                    with open(out_fp, "w", encoding="utf-8") as f:
+                        f.write(post_html)
+                    logging.info(f"Generated curriculum post: posts/{out_fn}")
                 
                 compiled_posts.append({
-                    "href": f"posts/{out_fn}",
+                    "href": post_href,
                     "title": title,
                     "summary": summary,
                     "date": str(date).replace("-", "."),

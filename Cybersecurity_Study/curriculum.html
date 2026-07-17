@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Elite Red Team Curriculum | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #475569; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 750px; margin: 0 auto; padding: 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        
+        /* Rendered Markdown Styling */
+        .markdown-body { font-size: 1.15rem; color: var(--text-secondary); }
+        .markdown-body h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        .markdown-body h3 { font-family: var(--font-main); color: var(--text-primary); margin-top: 2rem; font-size: 1.2rem; font-weight: 600; }
+        .markdown-body ul { margin: 1rem 0; padding-left: 1.5rem; }
+        .markdown-body li { margin-bottom: 0.5rem; }
+        .markdown-body hr { border: 0; height: 1px; background: var(--border); margin: 3rem 0; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        .markdown-body :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important;
+            color: #4338ca !important;
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        .markdown-body pre { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; overflow-x: auto; }
+        .markdown-body pre code { font-family: var(--font-mono) !important; font-size: 0.95rem !important; color: #f8fafc !important; }
+        
+        /* TABLES */
+        .markdown-body table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        .markdown-body th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        .markdown-body td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        .markdown-body tr:nth-child(even) td { background-color: #f1f5f9; }
+        .markdown-body tr:last-child td { border-bottom: none; }
+        
+        /* Premium Breadcrumb Widget styling */
+        .breadcrumb-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 0.85rem;
+            border-radius: 6px;
+            margin-bottom: 2.5rem;
+        }
+
+        .breadcrumb-left {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none;
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .bc-sep {
+            color: #cbd5e1;
+            margin: 0 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .breadcrumb-curr {
+            color: var(--text-primary);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .breadcrumb-right {
+            display: flex;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            .markdown-body {
+                font-size: 1.05rem;
+            }
+            .markdown-body :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            .markdown-body table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="breadcrumb-nav">
+            <div class="breadcrumb-left">
+                <a href="/">~</a> <span class="bc-sep">/</span> <a href="/Cybersecurity/">cybersecurity</a> <span class="bc-sep">/</span> <a href="/Cybersecurity_Study/">curriculum</a> <span class="bc-sep">/</span> <span class="breadcrumb-curr">Progressive Elite Red Team Curriculum</span>
+            </div>
+            <div class="breadcrumb-right">
+                <a href="/">[ HOME ]</a>
+                <a href="/resume/">[ RESUME ]</a>
+            </div>
+        </div>
+
+        <header>
+            <h1 id="post-title">Progressive Elite Red Team Curriculum</h1>
+            <p class="post-date">PUBLISHED // 2026.07.17</p>
+        </header>
+
+        <main>
+            <div id="syllabus-content" class="markdown-body">
+                <!-- Loading State -->
+                <div style="text-align: center; padding: 3rem 1rem; color: var(--text-secondary); font-family: var(--font-mono);">
+                    <p style="font-size: 0.95rem;">Parsing curriculum.md reference file...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
+        </footer>
+    </div>
+
+    <!-- Marked.js Markdown Parser CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function loadSyllabus() {
+            try {
+                const response = await fetch('curriculum.md');
+                if (!response.ok) {
+                    throw new Error(`Failed to load syllabus file: ${response.statusText}`);
+                }
+                let markdownText = await response.text();
+                
+                // Strip YAML front-matter if present
+                if (markdownText.startsWith('---')) {
+                    const parts = markdownText.split('---');
+                    if (parts.length >= 3) {
+                        try {
+                            const lines = parts[1].split('\n');
+                            for (const line of lines) {
+                                if (line.startsWith('title:')) {
+                                    const title = line.replace('title:', '').replace(/"/g, '').trim();
+                                    document.getElementById('post-title').textContent = title;
+                                    document.title = title + " | Tanvir Hussain";
+                                }
+                            }
+                        } catch (e) {
+                            console.error("Error parsing YAML metadata block: ", e);
+                        }
+                        markdownText = parts.slice(2).join('---');
+                    }
+                }
+                
+                // Configure marked options
+                marked.setOptions({
+                    gfm: true,
+                    breaks: true
+                });
+
+                // Render Markdown to HTML and inject
+                document.getElementById('syllabus-content').innerHTML = marked.parse(markdownText);
+            } catch (err) {
+                console.error("CORS or Load Error", err);
+                const isLocalFile = window.location.protocol === 'file:';
+                const errorMsg = isLocalFile 
+                  ? "Web browsers block loading local markdown files via AJAX due to CORS safety policy. Please run a local web server (e.g. <code>python3 -m http.server</code>) or view the deployed page on GitHub Pages to load content dynamically."
+                  : "Could not load the syllabus guide (curriculum.md). Please verify the file is present in the repository directory.";
+                
+                document.getElementById('syllabus-content').innerHTML = `
+                  <div style="border-left: 4px solid #ef4444; background: rgba(239, 68, 68, 0.08); padding: 1rem; border-radius: 6px; display: flex; gap: 0.75rem;">
+                    <p style="color: #ef4444; margin: 0; font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.5;">${errorMsg}</p>
+                  </div>
+                `;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadSyllabus);
+    </script>
+</body>
+</html>
