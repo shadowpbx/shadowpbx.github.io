@@ -106,6 +106,20 @@ def convert_md_to_html(md_file):
     
     tag = str(tag).upper()
 
+    # Check for direct link bypass (e.g. standalone HTML tool)
+    direct_link = front_matter.get('direct_link', '')
+    if direct_link:
+        summary = front_matter.get('summary', 'Interactive utility page.')
+        return {
+            "url": direct_link,
+            "title": title,
+            "summary": summary,
+            "date": clean_date,
+            "tag": tag,
+            "track": track,
+            "category": category
+        }
+
     # Convert Markdown to HTML
     try:
         html_content = markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
