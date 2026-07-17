@@ -1,5 +1,5 @@
 ---
-title: "Progressive Elite Red Team Curriculum"
+title: "Comprehensive Cybersecurity Attack Vector Taxonomy"
 date: "2026.07.17"
 tags: ["STUDY", "RED TEAM"]
 summary: "A 15-module training syllabus designed to take an operator progressively from passive reconnaissance up to low-level EDR bypasses and specialized AI/ICS targeting."
@@ -7,7 +7,7 @@ summary: "A 15-module training syllabus designed to take an operator progressive
 
 
 
-# Progressive Elite Red Team Curriculum (Easy to Hard)
+# Comprehensive Cybersecurity Attack Vector Taxonomy
 
 ## Phase 1: Operational Foundations & Entry Points (Easy)
 *Focuses on non-intrusive operations, standard toolsets, human factors, and physical security. These concepts have lower entry barriers and rely heavily on pre-built tooling.*
