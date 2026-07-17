@@ -21,20 +21,17 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │
 ├── Cybersecurity/
 │   ├── index.html          # Core cybersecurity blog logs
-│   ├── generate_index.py   # Python post compiler for Cybersecurity
 │   ├── _posts/             # Source markdown articles
 │   └── posts/              # Compiled HTML articles
 │
 ├── Cybersecurity_Certifications/
 │   ├── index.html          # Professional Credentials / certifications listing
-│   ├── generate_index.py   # Python post compiler for Certification posts
 │   ├── _posts/             # Source markdown certifications
 │   └── posts/              # Compiled HTML certification posts (like CompTIA A+)
 │
 ├── Cybersecurity_Study/
 │   ├── index.html          # Cybersecurity Curriculum / training programs listing
-│   ├── generate_index.py   # Python post compiler for Study Curriculums
-│   ├── _posts/             # Source markdown syllabi (like Elite Red Team Curriculum)
+│   ├── _posts/             # Source markdown syllabi (like Comprehensive Attack Vector Taxonomy)
 │   └── posts/              # Compiled HTML syllabus posts
 │
 ├── Cybersecurity_Tools/
@@ -43,17 +40,14 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── cybersecurity_tools.html
 │   ├── all_scripts.html
 │   ├── all_tools.html
-│   └── generate_index.py   # Specialized python compiler (injects tools counts to dashboard cards)
+│   └── posts/              # Compiled HTML tool profiles
 │
 ├── Cybersecurity_Tutorials/
 │   ├── index.html          # Security tutorials & walkthroughs log
-│   ├── generate_index.py   # Python post compiler for Security Tutorials
 │   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
 │
 ├── Academics/
 │   ├── index.html          # Coursework & CLEPs dashboard
-│   ├── generate_index.py   # Python post compiler for academic coursework
-│   ├── compile_readmes.py  # Custom Python Markdown-to-HTML parser for README files
 │   ├── _posts/             # Source coursework notes (like CISS 100)
 │   ├── posts/              # Compiled HTML coursework notes
 │   │
@@ -64,7 +58,6 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │
 └── Articles/
     ├── index.html          # Articles & Guides log (merged Blog + Tutorials)
-    ├── generate_index.py   # Python post compiler for general articles and guides
     ├── _posts/             # Source blog and tutorial markdown files
     └── posts/              # Compiled HTML articles
 ```
@@ -95,13 +88,13 @@ All layouts inherit from the central `/global.css` file:
 *   **Card Background:** `#ffffff` (Pure white)
 *   **Accent Color:** `#8e44ad` (Signature Purple)
 *   **Primary Text:** `#0f172a` (Slate-900)
-*   **Secondary Text:** `#475569` (Slate-600)
+*   **Secondary Text:** `#2c3e50` (Slate-800 / Dark Charcoal)
 *   **Terminal Prompt Green:** `#059669`
 *   **Borders:** `#e2e8f0` (Slate-200)
 
 ---
 
 ## 4. Compilation Tooling
-*   **Static Post Compilers:** Run locally to parse front-matter Markdown files and convert them into HTML pages wrapped in `post_template.html`.
-*   **Master Build Script:** `build_all.py` runs all subpage `generate_index.py` scripts and compiles the Academics Markdown readmes.
-*   **Execution:** Run `python3 build_all.py` in the root folder before committing.
+*   **Centralized Compiler Engine:** Consolidates all static compilation logic for all monorepo directories into a single, master Python script: **`build_all.py`** in the root directory. 
+*   **Capabilities:** Compiles Markdown files (using `python-markdown` with fenced code blocks and tables extensions), injects contents into local templates, constructs index cards (supporting standard lists and curriculum featured cards), dynamically calculates script/tool count metrics for Cybersecurity_Tools, and compiles CLEP syllabus README guides in Academics.
+*   **Execution:** Run `python3 build_all.py` in the root folder to rebuild the entire website.
