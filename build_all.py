@@ -11,6 +11,7 @@ logging.basicConfig(
 subfolders = [
     "Cybersecurity",
     "Articles",
+    "Cybersecurity_Certifications",
     "Cybersecurity_Study",
     "Cybersecurity_Tools",
     "Cybersecurity_Tutorials",

@@ -53,7 +53,7 @@ def parse_markdown(md_text):
     
     return metadata, html
 
-def build_study():
+def build_certs():
     root = os.path.dirname(os.path.abspath(__file__))
     posts_dir = os.path.join(root, "_posts")
     output_dir = os.path.join(root, "posts")
@@ -76,7 +76,7 @@ def build_study():
                 
                 title = meta.get("title", fn[:-3].replace("-", " ").title())
                 date = meta.get("date", "2026.07.16")
-                tags = meta.get("tags", ["STUDY"])
+                tags = meta.get("tags", ["CERT"])
                 summary = meta.get("summary", html_body[:180].replace("<p>", "").replace("</p>", "") + "...")
                 
                 post_html = template.replace("{{ title }}", title).replace("{{ date }}", str(date)).replace("{{ content }}", html_body)
@@ -122,9 +122,9 @@ def build_study():
         index_content = placeholder_pattern.sub(new_placeholder, index_content)
         with open(index_path, "w", encoding="utf-8") as f:
             f.write(index_content)
-        logging.info("Successfully updated Cybersecurity_Study/index.html.")
+        logging.info("Successfully updated Cybersecurity_Certifications/index.html.")
     else:
         logging.warning("POSTS placeholders not found in index.html.")
 
 if __name__ == "__main__":
-    build_study()
+    build_certs()
