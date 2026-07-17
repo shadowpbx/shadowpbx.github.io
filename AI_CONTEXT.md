@@ -97,4 +97,4 @@ All layouts inherit from the central `/global.css` file:
 ## 4. Compilation Tooling
 *   **Centralized Compiler Engine:** Consolidates all static compilation logic for all monorepo directories into a single, master Python script: **`build_all.py`** in the root directory. 
 *   **Capabilities:** Compiles Markdown files (using `python-markdown` with fenced code blocks and tables extensions), injects contents into local templates, constructs index cards (supporting standard lists and curriculum featured cards), dynamically calculates script/tool count metrics for Cybersecurity_Tools, and compiles CLEP syllabus README guides in Academics.
-*   **Execution:** Run `python3 build_all.py` in the root folder to rebuild the entire website.
+*   **Execution:** Run `python3 build_all.py` in the root folder to rebuild the entire website. To rebuild only a specific section, pass the directory name as an argument (e.g. `python3 build_all.py Cybersecurity_Study`).

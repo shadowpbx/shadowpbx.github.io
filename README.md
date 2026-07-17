@@ -31,33 +31,37 @@ Python has a built-in web server module that allows you to preview the site inst
 
 ## 🛠️ Build & Compilation Pipeline
 
-The website compiles Markdown articles (`.md`) into themed static HTML files (`.html`) using specialized Python generator scripts.
+The website compiles Markdown articles (`.md`) into themed static HTML files (`.html`) using a centralized Python build system.
 
 ### How to Compile the Portal:
-Whenever you add or edit study notes, tools list, or blog posts, execute the master build script in the root directory:
+To recompile the website, run the master build script in the root directory:
 
 ```bash
+# Build the entire website:
 python3 build_all.py
+
+# Build only a specific folder (targeted build):
+python3 build_all.py Cybersecurity_Study
 ```
 
-This single command will:
-1.  Scan the source directories (`Blog/`, `Cybersecurity/`, `Tutorials/`, `Cybersecurity_Study/`, `Cybersecurity_Tools/`, `Cybersecurity_Tutorials/`).
+This command will:
+1.  Scan active source directories (`Cybersecurity`, `Articles`, `Cybersecurity_Certifications`, `Cybersecurity_Study`, `Cybersecurity_Tools`, `Cybersecurity_Tutorials`).
 2.  Process all front-matter Markdown files in their respective `_posts/` directories.
 3.  Generate responsive, Prism-highlighted HTML pages in their respective `posts/` directories.
-4.  Infect dashboard cards with live file counts.
-5.  Compile CLEP syllabus documentation (`README.md` files) into beautiful static `readme.html` pages under the `/CLEP/` directory.
+4.  Update index pages and dashboard card counters.
+5.  Compile Academics syllabus documentation (`README.md` files) into static `readme.html` pages under `/Academics/`.
 
 ---
 
 ## 📊 Building the Economic Graph Lab (Vite + React)
 
-The Principles of Macroeconomics study guide features an interactive economic graphing utility written in **React + TypeScript + TailwindCSS** located under `/CLEP/Macroeconomics_Graphs/`.
+The Principles of Macroeconomics study guide features an interactive economic graphing utility written in **React + TypeScript + TailwindCSS** located under `/Academics/Macroeconomics_Graphs/`.
 
 To build or modify the Graph Lab locally:
 
 1.  Navigate to the Graph Lab workspace:
     ```bash
-    cd CLEP/Macroeconomics_Graphs/
+    cd Academics/Macroeconomics_Graphs/
     ```
 2.  Install dependencies:
     ```bash
@@ -71,7 +75,7 @@ To build or modify the Graph Lab locally:
     ```bash
     npm run build
     ```
-    *Note: The production static output is written to `/CLEP/Macroeconomics_Graphs/dist/` which is tracked in Git to allow hosting on GitHub Pages.*
+    *Note: The production static output is written to `/Academics/Macroeconomics_Graphs/dist/` which is tracked in Git to allow hosting on GitHub Pages.*
 
 ---
 
