@@ -11,6 +11,11 @@
     --font-mono: 'JetBrains Mono', monospace;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 html {
     scrollbar-gutter: stable;
 }
@@ -46,14 +51,9 @@ body {
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
     font-weight: 700;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.terminal-prompt::-webkit-scrollbar {
-    display: none;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 h1 {
