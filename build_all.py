@@ -336,7 +336,7 @@ def compile_standard_section(folder_path, folder_name, config):
                 post_href = f"posts/{out_fn}"
                 
                 # Replace content in templates
-                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date).replace("{{ filename }}", fn)
+                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date)
                 with open(out_fp, "w", encoding="utf-8") as f:
                     f.write(post_html)
                 logging.info(f"Generated HTML post: {post_href}")
@@ -498,7 +498,7 @@ def compile_tools_section(folder_path):
                 out_fp = os.path.join(output_dir, out_fn)
                 post_href = f"posts/{out_fn}"
                 
-                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date).replace("{{ filename }}", fn)
+                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date)
                 with open(out_fp, "w", encoding="utf-8") as f:
                     f.write(post_html)
                     
