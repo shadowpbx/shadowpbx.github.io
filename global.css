@@ -27,7 +27,6 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
 }
 
 /* Header & Prompt styles */
