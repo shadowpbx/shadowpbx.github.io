@@ -175,7 +175,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx:~/academics/{folder_lowercase}$ cat README.md</div>
+            <div class="terminal-prompt">user@shadowpbx: ~/academics/{folder_lowercase}$ cat README.md</div>
             <h1>{title}</h1>
         </div>
     </header>
