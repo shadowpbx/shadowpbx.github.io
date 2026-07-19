@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Guide to Unpacking and Decompiling Protected Android Applications | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_tutorials/">Security Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_study/">Cybersecurity Curriculum</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/cyber/posts$ cat writeup.md</div>
+            <h1>A Guide to Unpacking and Decompiling Protected Android Applications</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><p>When standard static analysis fails because an application is packed, cybersecurity analysts must use dynamic memory extraction to recover the executable code. Since the Android Runtime must execute decrypted instructions, the application's native loader is forced to decrypt the core bytecode into the device's volatile memory at runtime. This guide covers how to capture, repair, and analyze those decrypted files.</p>
+<hr />
+<h3>Environment Setup and Tool Verification</h3>
+<p>Before initiating the extraction, configure the communication link between your host workstation and the testing device.</p>
+<h4>Host Workstation Dependencies</h4>
+<ul>
+<li><strong>Platform Tools:</strong> Install the Android SDK Platform Tools, ensuring the Android Debug Bridge utility is mapped to your system's path variables.</li>
+<li><strong>Python Environment:</strong> Verify Python and its package installer are configured on the system.</li>
+<li><strong>Device Connection:</strong> Confirm the workstation can detect the connected target device by querying active devices via the terminal. The output must return the hardware identifier of the device.</li>
+</ul>
+<h4>Testing Device Preparation</h4>
+<ul>
+<li><strong>Root Access:</strong> Utilize a physical device or a high-performance emulator running a systemless rooting framework like Magisk or KernelSU. This allows deep process inspection without permanently altering read-only system partitions.</li>
+<li><strong>Architecture Query:</strong> Determine the CPU instruction set of the target device to select the correct software binaries.</li>
+<li><strong>Frida Server Setup:</strong> Obtain the Frida daemon binary that matches the exact version running on your host machine and matches the target hardware architecture. </li>
+<li><strong>Daemon Deployment:</strong> Push the server binary to a writable, executable directory on the device, modify its permissions to allow execution, and launch the service with root privileges in the background.</li>
+</ul>
+<hr />
+<h3>Static Fingerprinting</h3>
+<p>Analyzing the target file statically before execution helps identify the exact packer or protector used to wrap the code.</p>
+<h4>Extraction and Signature Verification</h4>
+<ul>
+<li><strong>APKiD Installation:</strong> Install the compilation and packer fingerprinting tool on your host workstation.</li>
+<li><strong>Target Scanning:</strong> Run the scanning utility against the target application package.</li>
+<li><strong>Analyzing Results:</strong> Review the terminal output to identify the specific shielding technology. Finding signatures of commercial packers confirms that standard decompilation tools will yield empty bootstrap loaders, validating the need for dynamic extraction.</li>
+</ul>
+<hr />
+<h3>Environmental Check Mitigation</h3>
+<p>Many protectors include built-in environmental checks designed to detect root access, active debuggers, or instrumentation frameworks. If these checks are triggered, the application terminates immediately, preventing the decryption of the core payload.</p>
+<h4>Anti-Analysis Evading Tactics</h4>
+<ul>
+<li><strong>Custom Frameworks:</strong> Use a modified version of the instrumentation runtime where common signature strings, communication channels, and default network ports have been randomized to evade detection.</li>
+<li><strong>Root Isolation:</strong> Configure the rooting environment's isolation features to restrict the target application from scanning directories containing superuser variables or reading mounting configurations.</li>
+<li><strong>Process Verification:</strong> Confirm that you can query the active process list of the target device without causing the application to crash.</li>
+</ul>
+<hr />
+<h3>Volatile Memory Extraction</h3>
+<p>Once the application runs successfully without crashing, the native bootstrap library completes the decryption of the payload in memory. You can then scan the process's virtual memory map to extract the decrypted byte sequences.</p>
+<h4>Utilizing Memory Dumpers</h4>
+<ul>
+<li><strong>Tool Installation:</strong> Install a specialized dynamic memory scanner on your workstation.</li>
+<li><strong>Foreground Scanning:</strong> Launch the target application, navigate past its initial loading screens, and run the dumper to scan the active process memory.</li>
+<li><strong>Spawn-On-Boot Scanning:</strong> For applications that dynamically unload decrypted code segments quickly, instruct the dumper to spawn the package directly. This allows the scanner to monitor and capture the bytecode during the initial boot sequence.</li>
+<li><strong>Fuzzy Searching:</strong> Ensure the scanner utilizes search algorithms capable of identifying raw memory boundaries, which helps locate executable blocks even if the standard headers are intentionally damaged by the packer.</li>
+</ul>
+<hr />
+<h3>File Validation and Structural Repair</h3>
+<p>After the memory extraction process completes, review the recovered files on your workstation.</p>
+<h4>Reconstruction Workflows</h4>
+<ul>
+<li><strong>Directory Inspection:</strong> Navigate to the output directory containing the dumped assets. You will find several files representing extracted memory blocks.</li>
+<li><strong>Filtering Payloads:</strong> Ignore small metadata files and focus on the larger extracted files, which typically contain the core application logic.</li>
+<li><strong>Header Correction:</strong> Packers often damage or erase standard file headers in memory to disrupt simple dumping tools. While modern dumpers attempt to restore standard file signatures automatically, heavily corrupted structures may require running dedicated file repair scripts to realign internal offsets and class tables.</li>
+</ul>
+<hr />
+<h3>Static Analysis of Reconstructed Bytecode</h3>
+<p>With the repaired executable files successfully extracted, you can proceed to standard static decompilation.</p>
+<h4>Codebase Auditing</h4>
+<ul>
+<li><strong>Decompiler Loading:</strong> Launch a graphical decompiler interface on your workstation and load the recovered files.</li>
+<li><strong>Verifying Code Visibility:</strong> Confirm that you can view the actual functional package tree and classes of the application rather than empty initialization stubs.</li>
+<li><strong>Logical Analysis:</strong> Perform globally indexed searches to locate backend endpoints, audit internal encryption routines, or analyze the handling of sensitive application permissions.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
