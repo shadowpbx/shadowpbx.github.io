@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists of software used for reverse engineering Android applications | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_tutorials/">Security Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_study/">Cybersecurity Curriculum</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/cyber/posts$ cat writeup.md</div>
+            <h1>Lists of software used for reverse engineering Android applications</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><p>Here are two comprehensive, structured lists of software used for reverse engineering Android applications (APKs), native libraries (<code>.so</code>), and device firmware. </p>
+<hr />
+<h3>List 1: Open-Source Software (OSS)</h3>
+<p>The open-source ecosystem is highly mature. These tools are free, public, and frequently updated by the security community.</p>
+<h4>A. Static Analysis &amp; Decompilation</h4>
+<ul>
+<li><strong>JADX (and JADX-GUI):</strong> The most popular tool for translating Android DEX files back into readable Java/Kotlin code. It features a robust search engine, call graph visualization, and deobfuscation helper options.</li>
+<li><strong>Apktool:</strong> The gold standard for disassembling APKs into Smali (Android's assembly language) and decoding Android resource files (such as layouts, strings, and the <code>AndroidManifest.xml</code>). It also allows you to rebuild the modified files back into an APK.</li>
+<li><strong>Ghidra:</strong> The NSA’s open-source Software Reverse Engineering (SRE) suite. It is highly capable at analyzing, disassembling, and decompiling native ARM/x86 Android libraries (<code>.so</code> files).</li>
+<li><strong>Bytecode Viewer:</strong> A comprehensive Java bytecode viewer and decompiler that integrates multiple decompilers (including Fernflower, CFR, and Procyon) under one interface.</li>
+<li><strong>Androguard:</strong> A Python-based framework used to interact with Android files. It allows developers to write custom scripts to parse resources, extract DEX bytecode, and analyze permissions.</li>
+<li><strong>Radare2 / Cutter:</strong> A highly powerful, command-line-driven reverse engineering framework (Radare2) and its official GUI (Cutter), excellent for low-level native code reversing.</li>
+</ul>
+<h4>B. Dynamic Analysis &amp; Hooking</h4>
+<ul>
+<li><strong>Frida:</strong> A world-class dynamic binary instrumentation toolkit. It injects a JavaScript engine into the running app's process space, allowing you to hook Java/Kotlin methods and native C functions on the fly.</li>
+<li><strong>Objection:</strong> A runtime mobile exploration toolkit built on top of Frida. It packages common tasks (like bypassing SSL pinning, dumping memory, and exploring the filesystem) into a user-friendly CLI.</li>
+<li><strong>House / Medusa:</strong> Advanced, scriptable dynamic analysis orchestration frameworks built on Frida, designed to monitor cryptography, file modifications, and network requests at runtime.</li>
+<li><strong>FRIDA-DEXDump:</strong> A memory scanner script that searches a running app's RAM for the characteristic DEX magic headers and dumps the raw, decrypted DEX files to your host machine.</li>
+<li><strong>DexDumper / BlackDex:</strong> Tools designed to dump decrypted DEX files from memory in environments where root access may not be available or when bypassing basic packers.</li>
+<li><strong>FART / Youpk:</strong> Specialized, open-source custom Android ROM projects that run modified Android Runtimes (ART). They hook deep OS-level class loaders to dump the code the exact millisecond a class is loaded.</li>
+</ul>
+<h4>C. Automated Vulnerability Scanning &amp; Symbolic Execution</h4>
+<ul>
+<li><strong>MobSF (Mobile Security Framework):</strong> An automated, all-in-one static and dynamic analysis tool. It automatically identifies hardcoded credentials, weak permissions, and common vulnerabilities in an uploaded APK.</li>
+<li><strong>Quark-Engine:</strong> An open-source Android malware analysis engine that allows threat researchers to write behavioral rules (e.g., "reads SMS and sends it to the internet") to automatically flag malicious intent.</li>
+<li><strong>APKiD:</strong> A tool that analyzes compiled APKs to identify the specific compilers, obfuscators, packers, and protectors used to build them.</li>
+<li><strong>angr / Miasm / Triton:</strong> Advanced open-source symbolic execution and binary analysis frameworks. Reverse engineers use these to write custom deobfuscators (such as removing Control Flow Flattening) by mathematically resolving executed code paths.</li>
+</ul>
+<h4>D. Network Interception</h4>
+<ul>
+<li><strong>mitmproxy:</strong> A highly customizable, open-source command-line SSL/TLS interception proxy used to view, modify, replay web/API traffic from Android devices.</li>
+<li><strong>OWASP ZAP (ZAP):</strong> A web application security scanner and proxy that is fully open-source and frequently used to audit mobile application API endpoints.</li>
+</ul>
+<hr />
+<h3>List 2: Professional / Commercial / Proprietary Software</h3>
+<p>These are paid, commercial tools used by professional security firms, enterprise red teams, and government intelligence agencies. They often offer superior technical support, enterprise collaboration features, and highly advanced deobfuscation.</p>
+<h4>A. Enterprise Decompilers &amp; SRE Suites</h4>
+<ul>
+<li><strong>JEB Decompiler (by PNF Software):</strong> The industry-standard commercial decompiler for Android. While JADX is excellent for clean code, JEB excels at recovering heavily obfuscated, packed, or protected DEX and Smali code. It also decompiles native ARM code and allows for interactive debugging of active processes.</li>
+<li><strong>IDA Pro (by Hex-Rays):</strong> The premier professional disassembler and decompiler used globally. While expensive, its native ARM decompiler is considered the benchmark for analyzing complex native <code>.so</code> files, identifying malware encryption routines, and debugging live native code.</li>
+<li><strong>Binary Ninja (by Vector 35):</strong> A modern, highly capable commercial alternative to IDA Pro. It uses a clean Intermediate Representation (IL) architecture, making it exceptionally good for scripting automated native code analysis and deobfuscation.</li>
+</ul>
+<h4>B. Advanced Virtualization &amp; Emulation Platforms</h4>
+<ul>
+<li><strong>Corellium:</strong> A cloud-based and on-premise hardware-level virtualization platform. It allows reverse engineers to run high-fidelity, virtualized Android devices on real ARM hardware in the cloud. It is heavily utilized by nation-state actors and advanced enterprise researchers to inspect kernel behavior, extract system memories, and debug root-level system processes.</li>
+<li><strong>Genymotion Enterprise:</strong> A fast, highly configurable Android virtualization tool. The enterprise edition integrates with cloud environments (AWS, GCP) and continuous integration (CI) pipelines, allowing automated dynamic security audits at scale.</li>
+</ul>
+<h4>C. Enterprise Mobile Application Security Testing (MAST)</h4>
+<ul>
+<li><strong>NowSecure:</strong> A leading commercial platform that automates mobile app security testing. It runs static, dynamic, and interactive analysis against Android and iOS apps, mapping findings directly to compliance standards (like OWASP MASVS).</li>
+<li><strong>Oversecured:</strong> A specialized commercial static analysis (SAST) platform that focuses on identifying complex, high-severity vulnerabilities (such as Intent Redirection, path traversal, and content provider leaks) with highly accurate, low-false-positive scanning engines.</li>
+<li><strong>App-Ray:</strong> A commercial scanner designed to analyze APKs before they are published, scanning for data leaks, privacy violations, and malicious behaviors.</li>
+</ul>
+<h4>D. Network Interception (Enterprise)</h4>
+<ul>
+<li><strong>Burp Suite Professional (by PortSwigger):</strong> The standard tool for web and API penetration testing. While a free "Community" edition exists, the paid "Professional" edition is heavily used by mobile auditors to automatically scan APIs, run custom active intrusion payloads, and map data flows.</li>
+<li><strong>Charles Proxy:</strong> A commercial HTTP proxy and reverse proxy monitor. It is popular among developers and testers for its clean, easy-to-use interface when inspecting encrypted HTTPS mobile traffic.</li>
+</ul>
+<h4>E. Malware Analysis Sandboxes</h4>
+<ul>
+<li><strong>Joe Sandbox (Ultimate/Cloud):</strong> A paid, fully automated malware analysis sandbox. It runs uploaded Android APKs in a heavily instrumented, real-device or emulator environment to automatically generate behavioral threat reports.</li>
+<li><strong>VirusTotal Enterprise:</strong> Used by threat intelligence analysts to search massive databases of scanned Android malware samples, trace historical metadata, and pivot on specific binary signatures.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
