@@ -186,19 +186,6 @@ def generate_playlist(dir, output, base_url):
     if resolved_base_url and not resolved_base_url.endswith('/'):
         resolved_base_url += '/'
 
-    # Fallback: load tracks from existing JSON if current scan returned 0 tracks
-    if not mp3_files and os.path.exists(json_path):
-        try:
-            with open(json_path, 'r', encoding='utf-8') as f:
-                old_data = json.load(f)
-            if "tracks" in old_data and old_data["tracks"]:
-                mp3_files = old_data["tracks"]
-                logger.info(f"Loaded {len(mp3_files)} cached tracks from existing {json_path}")
-                if not resolved_base_url:
-                    resolved_base_url = old_data.get("baseUrl", "")
-        except Exception as e:
-            logger.warning(f"Could not load fallback tracks from existing json: {e}")
-
     # 1. Construct JS format with metadata and tracks
     js_content = (
         "// Auto-generated playlist file. Do not edit manually.\n"
