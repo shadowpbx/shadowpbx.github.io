@@ -212,19 +212,34 @@ def generate_playlist(dir, output, base_url):
 
     # Resolve track durations
     tracks_list = []
-    for f_name in mp3_files:
-        local_file_path = f_name
-        if not is_remote and dir != '.':
-            local_file_path = os.path.join(dir, f_name)
-        
-        duration = 0.0
-        if os.path.exists(local_file_path):
-            duration = get_mp3_duration(local_file_path)
+    
+    # Fallback: load tracks from existing JSON if current scan returned 0 tracks
+    if not mp3_files and os.path.exists(json_path):
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                old_data = json.load(f)
+            if "tracks" in old_data and old_data["tracks"]:
+                tracks_list = old_data["tracks"]
+                logger.info(f"Loaded {len(tracks_list)} cached tracks from existing {json_path}")
+                if not resolved_base_url:
+                    resolved_base_url = old_data.get("baseUrl", "")
+        except Exception as e:
+            logger.warning(f"Could not load fallback tracks from existing json: {e}")
             
-        tracks_list.append({
-            "file": f_name,
-            "duration": duration
-        })
+    if not tracks_list:
+        for f_name in mp3_files:
+            local_file_path = f_name
+            if not is_remote and dir != '.':
+                local_file_path = os.path.join(dir, f_name)
+            
+            duration = 0.0
+            if os.path.exists(local_file_path):
+                duration = get_mp3_duration(local_file_path)
+                
+            tracks_list.append({
+                "file": f_name,
+                "duration": duration
+            })
 
     # 1. Construct JS format with metadata and tracks
     js_content = (
@@ -263,7 +278,7 @@ def generate_playlist(dir, output, base_url):
             f.write(json_content)
         logger.info(f"Successfully generated JSON playlist at: {json_path}")
 
-        click.echo(f"Success! {len(mp3_files)} tracks saved to {base_name}.js and {base_name}.json")
+        click.echo(f"Success! {len(tracks_list)} tracks saved to {base_name}.js and {base_name}.json")
     except Exception as e:
         logger.error(f"Failed to write playlist files: {e}")
         sys.exit(1)
