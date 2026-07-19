@@ -340,7 +340,7 @@ footer {
         padding: 0;
         font-size: 0.95rem;
         font-weight: 700;
-        margin-bottom: 0.2rem;
+        margin-bottom: 1rem;
         outline: none;
     }
 
@@ -378,7 +378,7 @@ footer {
     }
 
     .terminal-header {
-        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+        padding: 1.2rem 1.5rem 1.2rem 1.5rem;
     }
 
     .container {
