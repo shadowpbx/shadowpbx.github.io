@@ -6,5 +6,4 @@ A vast study resource, documentation, and learning material related to cybersecu
 ### 📝 Latest Publications & Notes
 <!-- POSTS_START -->
 - [Lists of software used for reverse engineering Android applications](https://shadowpbx.github.io/cybersecurity/posts/2026-07-18-lists-of-software-used-for-reverse-engineering-android-applications.html)
-- [Introduction to threat modeling and risk assessment](https://shadowpbx.github.io/cybersecurity/posts/2026-06-23-introduction-to-cybersecurity.html)
 <!-- POSTS_END -->
