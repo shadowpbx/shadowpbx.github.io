@@ -94,7 +94,6 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `General Articles` -> `/general_articles/` (non-security technical articles)
     *   `Tools & Utilities` -> `/general_tools/` (non-security tools & scripts)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
-*   `[ ARTICLES ]` -> `/articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx` (new tab)
 
