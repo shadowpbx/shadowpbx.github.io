@@ -34,10 +34,10 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── _posts/             # Source markdown files (35 Chapter posts + Red Team Index)
 │   └── posts/              # Compiled HTML post pages
 │
-├── cybersecurity_coursework/
-│   ├── index.html          # Cybersecurity Coursework & Lab Logs listing
-│   ├── _posts/             # Source markdown coursework entries
-│   └── posts/              # Compiled HTML coursework pages
+├── cybersecurity_study_modules/
+│   ├── index.html          # Cybersecurity Study Modules & Lab Notes listing
+│   ├── _posts/             # Source markdown study module entries
+│   └── posts/              # Compiled HTML study module pages
 │
 ├── cybersecurity_tools/
 │   ├── index.html          # Dashboard index for tools & scripts
@@ -56,13 +56,13 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── _posts/             # Source markdown systems entries
 │   └── posts/              # Compiled HTML systems pages
 │
-├── general_articles/
+├── systems_articles/
 │   ├── index.html          # Articles & Guides (non-security technical articles)
 │   ├── _posts/             # Source markdown articles
 │   └── posts/              # Compiled HTML article pages
 │
-├── general_tools/
-│   ├── index.html          # General Tools & Software Utilities
+├── systems_tools/
+│   ├── index.html          # Systems Tools & Software Utilities
 │   ├── _posts/             # Source markdown tool profiles
 │   └── posts/              # Compiled HTML tool pages
 │
@@ -94,10 +94,10 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `Tools & Scripts` -> `/cybersecurity_tools/`
     *   `Certifications` -> `/cybersecurity_certifications/`
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
-    *   `Cybersecurity Coursework` -> `/cybersecurity_coursework/` (coursework & lab logs)
+    *   `Study Modules` -> `/cybersecurity_study_modules/` (study modules & lab notes)
 *   `[ SYSTEMS ]` -> `/systems/` (Dropdown):
-    *   `Articles & Guides` -> `/general_articles/` (non-security technical articles)
-    *   `Tools & Utilities` -> `/general_tools/` (non-security tools & scripts)
+    *   `Articles & Guides` -> `/systems_articles/` (non-security technical articles)
+    *   `Tools & Utilities` -> `/systems_tools/` (non-security tools & scripts)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ RESUME ]` -> `/resume/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx` (new tab)

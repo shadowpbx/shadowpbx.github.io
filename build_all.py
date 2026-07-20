@@ -17,12 +17,12 @@ FOLDER_CONFIGS = {
     "articles": {"type": "standard", "default_tag": "SYSTEMS"},
     "cybersecurity_certifications": {"type": "standard", "default_tag": "CERT"},
     "cybersecurity_curriculum": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
-    "cybersecurity_coursework": {"type": "standard", "default_tag": "COURSEWORK"},
+    "cybersecurity_study_modules": {"type": "standard", "default_tag": "MODULES"},
     "cybersecurity_tutorials": {"type": "standard", "default_tag": "TUTORIAL"},
     "cybersecurity_tools": {"type": "tools"},
     "systems": {"type": "standard", "default_tag": "SYSTEMS"},
-    "general_articles": {"type": "standard", "default_tag": "SYSTEMS"},
-    "general_tools": {"type": "standard", "default_tag": "UTILITIES"},
+    "systems_articles": {"type": "standard", "default_tag": "SYSTEMS"},
+    "systems_tools": {"type": "standard", "default_tag": "UTILITIES"},
     "academics": {"type": "academics_readmes"}
 }
 
@@ -167,14 +167,14 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                         <a href="/cybersecurity_tools/">Tools & Scripts</a>
                         <a href="/cybersecurity_certifications/">Certifications</a>
                         <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
-                        <a href="/cybersecurity_coursework/">Cybersecurity Coursework</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <a href="/systems/" class="nav-link">[ SYSTEMS ]</a>
                     <div class="dropdown-menu">
-                        <a href="/general_articles/">Articles & Guides</a>
-                        <a href="/general_tools/">Tools & Utilities</a>
+                        <a href="/systems_articles/">Articles & Guides</a>
+                        <a href="/systems_tools/">Tools & Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">
