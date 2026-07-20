@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Application API Interception and Reverse Engineering: A Step-by-Step Case Study | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_tutorials/">Security Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_study/">Cybersecurity Curriculum</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/cyber/posts$ cat writeup.md</div>
+            <h1>Mobile Application API Interception and Reverse Engineering: A Step-by-Step Case Study</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><p>In modern mobile application security auditing, understanding client-server communication is critical [1]. While developers secure application traffic using encryption protocols like HTTPS, security researchers and analysts must often reverse-engineer these endpoints to verify backend validation, check for vulnerabilities, and inspect data transmission [2]. </p>
+<p>This article documents the practical, step-by-step methodology used to analyze a production Android application, transitioning from raw packet capture to full application-layer API decryption and static analysis.</p>
+<h2>Phase 1: Environment Setup and the Rooting Constraint</h2>
+<p>The analysis began with a standard Android Virtual Device (AVD). However, attempting to intercept traffic on a default emulator image presents a major technical challenge:</p>
+<ul>
+<li><strong>The Security Barrier:</strong> Since Android 7.0 (API 24), the operating system no longer trusts user-installed Certificate Authorities (CAs) by default for secure application connections. </li>
+<li><strong>The Production Restriction:</strong> Standard emulators containing the Google Play Store are production builds. For security reasons, these builds permanently disable root access (<code>adb root</code> is blocked), making it impossible to inject certificates into the trusted system directory.</li>
+</ul>
+<p>To proceed, the application's split APK files were pulled from the standard emulator to the local Linux host so they could be reinstalled on a developer-friendly testing environment.</p>
+<hr />
+<h2>Phase 2: Preparing a Writable Developer Environment</h2>
+<p>To bypass the production environment restrictions, a new emulator image was configured in Android Studio:</p>
+<ol>
+<li><strong>Creating a Google APIs Image:</strong> A new AVD was created using a <strong>Google APIs</strong> system image instead of a Google Play image, allowing debug capabilities.</li>
+<li><strong>Launching with Write Permissions:</strong> The emulator was started from the Linux terminal with a writable system partition:
+   <code>bash
+   /home/shad/Android/Sdk/emulator/emulator -avd Your_Google_APIs_AVD -writable-system</code></li>
+<li><strong>Elevating Privileges and Remounting:</strong> To write files to the system root, Android's integrity verification (<code>dm-verity</code>) was disabled, and the partitions were remounted as read-write:
+   <code>bash
+   adb root
+   adb remount
+   adb reboot</code>
+   After the reboot, running <code>adb root</code> and <code>adb remount</code> successfully unlocked the <code>/system/etc/security/cacerts/</code> directory.</li>
+</ol>
+<hr />
+<h2>Phase 3: Dynamic Interception &amp; HTTPS Decryption</h2>
+<p>With a writable, rooted emulator active, an interception tool was introduced to act as a Man-in-the-Middle (MitM) proxy [2].</p>
+<ol>
+<li><strong>Automating Certificate Injection with HTTP Toolkit:</strong> HTTP Toolkit was launched on the Linux host. Using the <strong>"Android Device via ADB"</strong> feature, the tool detected the root access and writable partition [1]. It automatically injected its custom decryption CA directly into the emulator’s system certificate store [1].</li>
+<li><strong>Installing the Target App Splits:</strong> The original split APKs of the grocery application (Chaldal) were pushed to the emulator together to prevent resource mismatches or splash-screen crashes:
+   <code>bash
+   adb install-multiple *.apk</code></li>
+<li><strong>Observing Live API Streams:</strong> Upon launching the app, the proxy successfully decrypted the TLS connection. Real-time traffic analysis revealed:</li>
+<li><strong>Structured JSON Endpoints:</strong> Secure POST requests, such as <code>https://catalog.chaldal.com/searchPersonalized</code>, transmitting search queries, API keys, and device identifiers.</li>
+<li><strong>Real-time WebSockets:</strong> A live bidirectional WebSocket connection (<code>wss://groceryintegration-api.chaldal.com/api/v1/realTime</code>) used to sync inventory and cart updates without page refreshes.</li>
+</ol>
+<hr />
+<h2>Phase 4: Raw Packet Analysis</h2>
+<p>To study the network mechanics beneath the application layer, Wireshark was deployed on the Linux host. </p>
+<ol>
+<li><strong>Resolving GUI Performance Freezes:</strong> Initially, capturing on the host's <code>any</code> interface flooded the Wireshark GUI with background system traffic, causing the application to stop responding. This was resolved by:</li>
+<li>Disabling network name resolution in Wireshark preferences.</li>
+<li>Utilizing a strict <strong>Capture Filter</strong> rather than a Display Filter to discard noise at the kernel level:
+     <code>text
+     net 103.185.176.0/23</code></li>
+<li><strong>Infrastructure Identification:</strong> A WHOIS lookup on the captured destination IP range (<code>103.185.176.0/23</code>) confirmed the servers belonged directly to the application's infrastructure.</li>
+<li><strong>Analyzing the Transport Layer:</strong> Wireshark displayed the initial unencrypted TLS Client Hello handshakes, revealing Server Name Indication (SNI) details before the subsequent transmission of encrypted Application Data packets.</li>
+</ol>
+<hr />
+<h2>Phase 5: Static Analysis and Secret Extraction</h2>
+<p>In addition to dynamic traffic analysis, static analysis was performed directly on the application's binaries to inspect the code structure and extract embedded assets.</p>
+<ol>
+<li><strong>Code Decompilation (Jadx-GUI):</strong> Jadx-GUI was used to decompile the Dalvik Executable (DEX) files back into readable Java and Kotlin code. This allowed for the inspection of the application’s core classes, including network request formatting and tracking headers.</li>
+<li><strong>Automated Security Auditing (MobSF):</strong> Mobile Security Framework (MobSF) was run to perform static analysis. It scanned the codebase for common security misconfigurations, insecure permissions, and hardcoded secrets.</li>
+<li><strong>Certificate and Key Extraction:</strong> 
+   To locate cryptographic keys and certificates embedded within the assets, a specialized scanning utility was run. While several tools perform this function, typical choices in this workflow include:</li>
+<li><strong>APKleaks:</strong> A tool designed to scan decompiled APKs for URIs, endpoints, and hardcoded API keys.</li>
+<li><strong>Keytool:</strong> Used to inspect the application's signing certificates within the <code>META-INF</code> directory.</li>
+<li><strong>MobSF's Static Analyzer:</strong> Which automatically parses and displays certificates, hardcoded keys, and sensitive string variables found inside the unpacked archive.</li>
+</ol>
+<hr />
+<h2>Phase 6: Replicating the API and Automation</h2>
+<p>Once the dynamic payloads were understood, the application's dependency on the Android UI was bypassed entirely.</p>
+<ol>
+<li><strong>Replicating the Request:</strong> Using the headers and JSON payload captured during interception, a <code>curl</code> command was executed from the Linux terminal to query the search API directly.</li>
+<li><strong>Automating Queries:</strong> A Python script utilizing the <code>requests</code> library was written to programmatically search the catalog and output real-time inventory and pricing data directly to the command line, completing the cycle of API reverse-engineering.</li>
+</ol>
+<hr />
+<p>This thread covered a diverse set of tools, ranging from professional security proxies to command-line network utilities and Android developer tools.</p>
+<p>The following is a comprehensive, categorized list of every tool used, discussed, or referenced in our workflow:</p>
+<h3>1. Network &amp; Proxy Interception Tools (The "Middlemen")</h3>
+<ul>
+<li><strong>HTTP Toolkit:</strong> The automated, open-source GUI desktop tool used to automatically inject certificates and intercept the Android emulator [2].</li>
+<li><strong>mitmproxy:</strong> The lightweight, native Linux terminal-based SSL/TLS intercepting proxy.</li>
+<li><strong>mitmweb:</strong> The browser-based web interface companion for <code>mitmproxy</code>.</li>
+<li><strong>Burp Suite (Community Edition):</strong> The industry-standard Java-based graphical tool for professional web and API security auditing.</li>
+</ul>
+<h3>2. Reverse Engineering &amp; APK Patching Tools</h3>
+<ul>
+<li><strong>apk-mitm:</strong> The open-source CLI utility used to automatically patch the split APKs to trust user certificates [3].</li>
+<li><strong>Apktool:</strong> The classic command-line tool used to manually decompile and rebuild APK files.</li>
+<li><strong>Jadx / Jadx-GUI:</strong> The popular decompiler used to convert Android Dalvik bytecode back into readable Java/Kotlin source code.</li>
+<li><strong>apksigner:</strong> The Android SDK utility used to sign rebuilt APKs so they can be installed on Android devices.</li>
+<li><strong>zip / unzip:</strong> Standard archive utilities used to package split APK files into <code>.apks</code> bundles and extract them.</li>
+</ul>
+<h3>3. Secret Extraction &amp; Static Analysis Tools</h3>
+<ul>
+<li><strong>Trufflehog:</strong> The high-entropy scanner used to search through your unpacked APK files to automatically find hardcoded API keys, private keys, and secrets [1].</li>
+<li><strong>MobSF (Mobile Security Framework):</strong> The automated static analysis tool used to find security misconfigurations, insecure permissions, and hardcoded variables.</li>
+<li><strong>APKleaks:</strong> A tool designed to scan decompiled APKs specifically for URIs, endpoints, and developer secrets.</li>
+<li><strong>Keytool:</strong> A JDK utility used to inspect and manage the application's signing certificates (usually found inside the <code>META-INF</code> directory).</li>
+</ul>
+<h3>4. Packet Sniffers &amp; Network Diagnostics</h3>
+<ul>
+<li><strong>Wireshark:</strong> The standard GUI-based network packet analyzer used to capture live streams.</li>
+<li><strong>tcpdump:</strong> The lightweight command-line packet sniffer native to Linux and Android.</li>
+<li><strong>tshark:</strong> The headless, command-line version of Wireshark used to capture packets directly inside the Linux terminal.</li>
+<li><strong>netsim:</strong> The modern network simulator backend built into the Android SDK (triggered via the <code>-netsim-args</code> flag) used to generate packet captures.</li>
+</ul>
+<h3>5. Android SDK &amp; Device Utilities</h3>
+<ul>
+<li><strong>Android Studio (Virtual Device Manager):</strong> The IDE used to create and manage the virtual devices (<code>Pixel_10</code> and <code>Pixel_10_APIs</code>).</li>
+<li><strong>emulator:</strong> The Android SDK CLI tool used to launch specific virtual devices from your Linux terminal.</li>
+<li><strong>adb (Android Debug Bridge):</strong> The CLI tool used to communicate with the emulator, push files, grant root privileges, and install packages [4].</li>
+<li><strong>logcat:</strong> The built-in Android logging tool used to view real-time system errors and app crash traces.</li>
+<li><strong>pm (Package Manager):</strong> The Android shell utility used to list installed packages on the device.</li>
+<li><strong>dumpsys:</strong> The Android diagnostic utility used to dump system service data (used to find the app's UID).</li>
+</ul>
+<h3>6. Linux Shell &amp; System Commands</h3>
+<ul>
+<li><strong>openssl:</strong> Used to calculate the cryptographic hash of the proxy's CA certificate for system injection.</li>
+<li><strong>curl / wget:</strong> Command-line tools used to transfer data from servers (manually executing the Chaldal search API, or downloading the HTTP Toolkit package).</li>
+<li><strong>jq:</strong> The command-line JSON processor used to format and prettify the raw API responses.</li>
+<li><strong>python3 (requests library):</strong> The programming language and library used to write a custom, lightweight script to query Chaldal's API.</li>
+<li><strong>setcap / getcap:</strong> Linux utilities used to grant Wireshark's network capture engine (<code>dumpcap</code>) permission to capture raw sockets without root.</li>
+<li><strong>newgrp / groups:</strong> Shell utilities used to refresh and verify your user's group privileges.</li>
+<li><strong>ss / netstat:</strong> Sockets statistics utilities used to inspect active connections coming from specific app UIDs.</li>
+<li><strong>nano:</strong> The terminal-based text editor used to modify your <code>~/.bashrc</code> file.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
