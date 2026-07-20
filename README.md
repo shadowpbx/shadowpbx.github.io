@@ -41,7 +41,7 @@ To recompile the website, run the master build script in the root directory:
 python3 build_all.py
 
 # Build only a specific folder (targeted build):
-python3 build_all.py curriculum
+python3 build_all.py cybersecurity_curriculum
 ```
 
 This command will:
