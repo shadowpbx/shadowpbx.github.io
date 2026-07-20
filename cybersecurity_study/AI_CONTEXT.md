@@ -34,10 +34,10 @@ summary: "A 15-module training syllabus designed to take an operator progressive
 ---
 
 ## 3. Build & Compile Process
-To recompile syllabi and update the index, run:
+To recompile syllabi and update the index, run the targeted monorepo build script from the root directory:
 
 ```bash
-python3 generate_index.py
+python3 build_all.py cybersecurity_study
 ```
 
 *Note: The compiler uses placeholders `<!-- POSTS_START -->` and `<!-- POSTS_END -->` inside `index.html`. It will not overwrite your styles, header navigation, or structural divs.*

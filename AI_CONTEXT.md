@@ -94,7 +94,9 @@ All layouts inherit from the central `/global.css` file:
 
 ---
 
-## 4. Compilation Tooling
+## 4. Compilation Tooling & AI Execution Rules
 *   **Centralized Compiler Engine:** Consolidates all static compilation logic for all monorepo directories into a single, master Python script: **`build_all.py`** in the root directory. 
-*   **Capabilities:** Compiles Markdown files (using `python-markdown` with fenced code blocks and tables extensions), injects contents into local templates, constructs index cards (supporting standard lists and curriculum featured cards), dynamically calculates script/tool count metrics for Cybersecurity_Tools, and compiles CLEP syllabus README guides in Academics.
-*   **Execution:** Run `python3 build_all.py` in the root folder to rebuild the entire website. To rebuild only a specific section, pass the directory name as an argument (e.g. `python3 build_all.py Cybersecurity_Study`).
+*   **Targeted Build Requirement:** **NEVER build the entire website with plain `python3 build_all.py`** when making targeted edits. ALWAYS build only the specific directory where files were added or modified by passing the lowercase folder name as an argument (e.g. `python3 build_all.py cybersecurity` or `python3 build_all.py cybersecurity_study`).
+*   **Directory Naming Case Sensitivity:** All directory paths and CLI arguments are strictly **lowercase** on the Linux server (`cybersecurity`, `cybersecurity_study`, `academics`, etc.).
+*   **Playlist & Generator Policy:** NEVER modify audio playlist files (`playlist.json`, `playlist.js`) or generator scripts (`generate_playlist.py`) unless explicitly requested by the user.
+*   **Capabilities:** Compiles Markdown files (using `python-markdown` with fenced code blocks and tables extensions), injects contents into local templates, constructs index cards (supporting standard lists and curriculum featured cards), dynamically calculates script/tool count metrics for `cybersecurity_tools`, and compiles README guides in `academics`.
