@@ -51,8 +51,13 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── index.html          # Security tutorials & walkthroughs log
 │   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
 │
+├── systems/
+│   ├── index.html          # Systems Architecture & Engineering dashboard
+│   ├── _posts/             # Source markdown systems entries
+│   └── posts/              # Compiled HTML systems pages
+│
 ├── general_articles/
-│   ├── index.html          # General Articles & Technical Writeups
+│   ├── index.html          # Articles & Guides (non-security technical articles)
 │   ├── _posts/             # Source markdown articles
 │   └── posts/              # Compiled HTML article pages
 │
@@ -72,8 +77,8 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   └── American_Government/ # CLEP American Government audio player and readme
 │
 └── articles/
-    ├── index.html          # Articles & Guides log (merged Blog + Tutorials)
-    ├── _posts/             # Source blog and tutorial markdown files
+    ├── index.html          # Legacy Articles log
+    ├── _posts/             # Source markdown files
     └── posts/              # Compiled HTML articles
 ```
 
@@ -90,8 +95,8 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `Certifications` -> `/cybersecurity_certifications/`
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
     *   `Cybersecurity Coursework` -> `/cybersecurity_coursework/` (coursework & lab logs)
-*   `[ SYSTEMS ]` (Dropdown):
-    *   `General Articles` -> `/general_articles/` (non-security technical articles)
+*   `[ SYSTEMS ]` -> `/systems/` (Dropdown):
+    *   `Articles & Guides` -> `/general_articles/` (non-security technical articles)
     *   `Tools & Utilities` -> `/general_tools/` (non-security tools & scripts)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ RESUME ]` -> `/resume/`
