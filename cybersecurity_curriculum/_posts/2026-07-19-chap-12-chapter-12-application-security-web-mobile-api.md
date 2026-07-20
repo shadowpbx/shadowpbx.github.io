@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 12: Application Security (Web, Mobile, API)"
+title: "Application Security (Web, Mobile, API)"
 chapter_num: "12"
 summary: "Web Proxies & Traffic Interception (Burp Suite, OWASP ZAP), Web Session Management Security, OWASP Web Top 10 - Injection Attacks, OWASP Web Top 10 - Cross-S..."
 ---

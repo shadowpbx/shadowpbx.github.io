@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 20: AI & Machine Learning in Security"
+title: "AI & Machine Learning in Security"
 chapter_num: "20"
 summary: "Adversarial Machine Learning, Securing Large Language Models (LLMs), AI for Defensive Security Operations"
 ---

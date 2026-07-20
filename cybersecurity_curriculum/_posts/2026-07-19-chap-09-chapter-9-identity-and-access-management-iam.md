@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 9: Identity and Access Management (IAM)"
+title: "Identity and Access Management (IAM)"
 chapter_num: "09"
 summary: "Multi-Factor Authentication (MFA), Single Sign-On (SSO), Modern Auth Protocols (OAuth 2.0 & OpenID Connect), Privileged Access Management (PAM)"
 ---

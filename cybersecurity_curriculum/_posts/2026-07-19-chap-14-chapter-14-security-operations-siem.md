@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 14: Security Operations & SIEM"
+title: "Security Operations & SIEM"
 chapter_num: "14"
 summary: "SIEM Architecture (Splunk, ELK, QRadar), Log Sources & Telemetry Integration, Detection Engineering (YARA, Sigma), Alert Triage & SOC Workflows"
 ---

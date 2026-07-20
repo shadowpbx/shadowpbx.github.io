@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 19: Operational Technology (OT) & ICS Security"
+title: "Operational Technology (OT) & ICS Security"
 chapter_num: "19"
 summary: "Operational Technology Ecosystem, IT vs. OT Security Mindsets, The Purdue Enterprise Reference Model, Industrial Protocol Analysis"
 ---

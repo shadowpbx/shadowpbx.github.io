@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 17: DevSecOps & Container Security"
+title: "DevSecOps & Container Security"
 chapter_num: "17"
 summary: "The CI/CD Security Pipeline, Application Security Testing in Pipelines, Container Architecture & Isolation (Namespaces, cgroups), Container Security & Escape..."
 ---

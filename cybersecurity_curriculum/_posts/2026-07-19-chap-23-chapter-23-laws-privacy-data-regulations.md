@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 23: Laws, Privacy & Data Regulations"
+title: "Laws, Privacy & Data Regulations"
 chapter_num: "23"
 summary: "Global & Regional Privacy Frameworks, Healthcare & Financial Regulations, Government-Specific Security Mandates, Policy & Standards Development"
 ---

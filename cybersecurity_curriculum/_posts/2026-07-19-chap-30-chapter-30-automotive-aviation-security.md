@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 30: Automotive & Aviation Security"
+title: "Automotive & Aviation Security"
 chapter_num: "30"
 summary: "Vehicle Networks & Communication (CAN Bus, ECU, OBD-II), Electric Vehicle (EV) Infrastructure & Autonomous Systems, Aviation Security Architecture (ADS-B, AC..."
 ---

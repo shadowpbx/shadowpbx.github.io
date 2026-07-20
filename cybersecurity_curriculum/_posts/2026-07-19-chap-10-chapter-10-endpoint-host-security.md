@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 10: Endpoint & Host Security"
+title: "Endpoint & Host Security"
 chapter_num: "10"
 summary: "Antivirus vs. EDR (Endpoint Detection & Response), Host Hardening, Application Whitelisting, Patch & Vulnerability Management"
 ---

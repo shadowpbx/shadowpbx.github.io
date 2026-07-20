@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 1: Hardware & System Architecture"
+title: "Hardware & System Architecture"
 chapter_num: "01"
 summary: "CPU Architecture (x86 vs. ARM vs. RISC-V), CPU Internals (ALU, Control Unit, Registers, Cache, Clock Cycles), Memory Management (RAM, MMU, Paging, Swap/Pagef..."
 ---

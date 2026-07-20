@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 21: Security Frameworks & Methodologies"
+title: "Security Frameworks & Methodologies"
 chapter_num: "21"
 summary: "NIST Cybersecurity Framework (CSF), ISO 27001/27002 Standards, MITRE ATT&CK Framework, CIS Controls (Critical Security Controls)"
 ---

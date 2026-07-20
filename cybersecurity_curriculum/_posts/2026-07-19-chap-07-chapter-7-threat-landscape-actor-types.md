@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 7: Threat Landscape & Actor Types"
+title: "Threat Landscape & Actor Types"
 chapter_num: "07"
 summary: "Hacker Classifications, Advanced Persistent Threats (APTs), Insiders & Hacktivists, Self-Replicating Malware Families (Viruses vs. Worms)"
 ---

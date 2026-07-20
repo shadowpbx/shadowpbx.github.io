@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 8: Network Security & Architecture"
+title: "Network Security & Architecture"
 chapter_num: "08"
 summary: "Firewalls (Packet-filtering vs. Stateful vs. NGFW), Intrusion Detection & Prevention Systems (IDS/IPS), Network Architecture & Segmentation, Virtual Private ..."
 ---

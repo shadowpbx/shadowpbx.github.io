@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 27: Security Economics & Budgeting"
+title: "Security Economics & Budgeting"
 chapter_num: "27"
 summary: "Financial Models in Security (CapEx vs. OpEx), Security Procurement & Vendor Negotiation, Security Performance Metrics (KPIs & KRIs)"
 ---

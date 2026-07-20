@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 5: The Philosophy of Security"
+title: "The Philosophy of Security"
 chapter_num: "05"
 summary: "The CIA Triad (Confidentiality, Integrity, Availability), The AAA Framework (Authentication, Authorization, Accounting/Auditing), Principle of Least Privileg..."
 ---

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 13: Penetration Testing & Red Teaming"
+title: "Penetration Testing & Red Teaming"
 chapter_num: "13"
 summary: "The Cyber Kill Chain Framework, Passive Reconnaissance & OSINT, Active Reconnaissance (Nmap Scanning), Service Enumeration"
 ---

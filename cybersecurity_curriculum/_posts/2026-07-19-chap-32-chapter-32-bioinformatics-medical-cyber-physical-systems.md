@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 32: Bioinformatics & Medical Cyber-Physical Systems"
+title: "Bioinformatics & Medical Cyber-Physical Systems"
 chapter_num: "32"
 summary: "Medical IoT (IoMT - Internet of Medical Things), Genomic Data Security"
 ---

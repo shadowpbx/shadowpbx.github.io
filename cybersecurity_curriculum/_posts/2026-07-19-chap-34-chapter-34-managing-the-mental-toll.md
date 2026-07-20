@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 34: Managing the Mental Toll"
+title: "Managing the Mental Toll"
 chapter_num: "34"
 summary: "Imposter Syndrome Management, Paranoia vs. Pragmatism (Risk Acceptance)"
 ---

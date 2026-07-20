@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 16: Cloud Security"
+title: "Cloud Security"
 chapter_num: "16"
 summary: "Cloud Architecture & Shared Responsibility, Cloud Identity & Access Management (IAM), Cloud Networking (VPCs, Security Groups, Transit Gateways), Cloud Stora..."
 ---

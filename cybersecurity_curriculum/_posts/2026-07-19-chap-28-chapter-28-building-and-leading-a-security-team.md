@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 28: Building and Leading a Security Team"
+title: "Building and Leading a Security Team"
 chapter_num: "28"
 summary: "Security Operations Center (SOC) Structuring, The Purple Team Dynamic, Security Talent Retention & Career Pathing"
 ---

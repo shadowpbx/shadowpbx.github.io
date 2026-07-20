@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 33: Deepfakes, Disinformation, & PsyOps"
+title: "Deepfakes, Disinformation, & PsyOps"
 chapter_num: "33"
 summary: "Information Warfare & PsyOps, Generative AI Social Threats"
 ---

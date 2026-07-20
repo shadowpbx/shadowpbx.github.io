@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 2: Operating Systems Deep Dive"
+title: "Operating Systems Deep Dive"
 chapter_num: "02"
 summary: "Linux Philosophy & File System Structure, Linux Command Line (Bash Operations), Linux Permissions & Access Controls, Linux Daemons, Services & Initialization..."
 ---

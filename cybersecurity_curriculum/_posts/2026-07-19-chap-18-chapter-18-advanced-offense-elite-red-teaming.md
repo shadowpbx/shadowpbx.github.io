@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 18: Advanced Offense (Elite Red Teaming)"
+title: "Advanced Offense (Elite Red Teaming)"
 chapter_num: "18"
 summary: "Malware Development & LOLBins, Endpoint Detection Evasion Tactics, Exploit Development (Buffer Overflows), Memory Defenses & Bypasses (ASLR/DEP)"
 ---

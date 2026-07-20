@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 15: Incident Response & Digital Forensics (DFIR)"
+title: "Incident Response & Digital Forensics (DFIR)"
 chapter_num: "15"
 summary: "The Incident Response Lifecycle (NIST SP 800-61), Live Incident Triage & Containment, Memory Forensics (Volatility), Disk Forensics (dd, FTK Imager, Autopsy)"
 ---

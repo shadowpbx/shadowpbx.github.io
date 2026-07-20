@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 22: Risk Management & Procurement"
+title: "Risk Management & Procurement"
 chapter_num: "22"
 summary: "Risk Assessment Methodologies (Quantitative vs. Qualitative), Risk Response Strategies, Business Continuity Planning (BCP), Disaster Recovery (DR) Strategies"
 ---

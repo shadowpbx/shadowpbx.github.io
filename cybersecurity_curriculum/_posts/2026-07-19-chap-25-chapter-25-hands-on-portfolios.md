@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 25: Hands-On Portfolios"
+title: "Hands-On Portfolios"
 chapter_num: "25"
 summary: "Home Lab Architecture & Design, Active Directory Range Construction, Capture the Flag (CTF) Documentation & Write-ups, Open Source Security Contributions"
 ---

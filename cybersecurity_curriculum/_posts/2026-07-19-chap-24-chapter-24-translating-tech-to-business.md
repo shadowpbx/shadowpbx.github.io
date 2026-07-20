@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 24: Translating Tech to Business"
+title: "Translating Tech to Business"
 chapter_num: "24"
 summary: "Executive Communication & Boardroom Reporting, Real-World Breach Analogies, Budget Justification & Security ROI"
 ---

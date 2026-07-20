@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 4: Scripting and Automation"
+title: "Scripting and Automation"
 chapter_num: "04"
 summary: "Python for Security Operations, Python Data Handling (JSON, XML), Python Network Automation (Requests & Sockets), Python Packet Manipulation (Scapy)"
 ---

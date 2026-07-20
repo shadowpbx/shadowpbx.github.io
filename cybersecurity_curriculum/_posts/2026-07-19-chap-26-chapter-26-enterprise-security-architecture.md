@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 26: Enterprise Security Architecture"
+title: "Enterprise Security Architecture"
 chapter_num: "26"
 summary: "The SABSA Framework (Sherwood Applied Business Security Architecture), TOGAF Integration (The Open Group Architecture Framework), Mergers, Acquisitions, & Di..."
 ---

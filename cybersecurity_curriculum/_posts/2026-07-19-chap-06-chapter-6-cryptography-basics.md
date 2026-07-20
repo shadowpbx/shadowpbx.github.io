@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 6: Cryptography Basics"
+title: "Cryptography Basics"
 chapter_num: "06"
 summary: "Cryptographic History & Principles, Symmetric Encryption (Block vs. Stream Ciphers), Asymmetric Encryption (RSA & ECC), Hashing Algorithms (MD5 & SHA-256)"
 ---

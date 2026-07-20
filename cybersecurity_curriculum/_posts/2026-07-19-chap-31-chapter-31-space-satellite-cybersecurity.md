@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 31: Space & Satellite Cybersecurity"
+title: "Space & Satellite Cybersecurity"
 chapter_num: "31"
 summary: "Satellite Constellation Architecture & Ground Stations, RF Signal Exploitation (GPS/GNSS Spoofing, Jamming, Telemetry)"
 ---

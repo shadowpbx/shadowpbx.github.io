@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 29: Crisis Communication & Public Relations"
+title: "Crisis Communication & Public Relations"
 chapter_num: "29"
 summary: "Breach Notification & Incident Public Relations, Law Enforcement Coordination & Liaising"
 ---

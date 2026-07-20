@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 35: Contributing to the Craft"
+title: "Contributing to the Craft"
 chapter_num: "35"
 summary: "Zero-Day Discovery & Responsible Disclosure, Industry Mentorship & Community Engagement"
 ---

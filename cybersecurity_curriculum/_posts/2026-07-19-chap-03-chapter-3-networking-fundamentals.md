@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Chapter 3: Networking Fundamentals"
+title: "Networking Fundamentals"
 chapter_num: "03"
 summary: "Network Topologies (Star, Mesh, Ring), The OSI Model (7-Layer Deep Dive), The TCP/IP Model (4-Layer DoD Architecture), Layer 2 Switching (MAC, Ethernet, ARP)"
 ---
