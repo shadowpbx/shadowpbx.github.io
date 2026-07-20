@@ -51,6 +51,16 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── index.html          # Security tutorials & walkthroughs log
 │   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
 │
+├── general_articles/
+│   ├── index.html          # General Articles & Technical Writeups
+│   ├── _posts/             # Source markdown articles
+│   └── posts/              # Compiled HTML article pages
+│
+├── general_tools/
+│   ├── index.html          # General Tools & Software Utilities
+│   ├── _posts/             # Source markdown tool profiles
+│   └── posts/              # Compiled HTML tool pages
+│
 ├── academics/
 │   ├── index.html          # Coursework & CLEPs dashboard
 │   ├── _posts/             # Source coursework notes (like CISS 100)
@@ -70,7 +80,7 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 ---
 
 ## 2. Flat Navigation System
-Navigation is flat and clean, with dropdown lists reserved only for sub-categories under Cybersecurity.
+Navigation is flat and clean, with dropdown lists reserved for sub-categories under Cybersecurity and Systems.
 
 ### Navigation Hierarchy
 *   `[ HOME ]` -> `/`
@@ -80,6 +90,9 @@ Navigation is flat and clean, with dropdown lists reserved only for sub-categori
     *   `Certifications` -> `/cybersecurity_certifications/`
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
     *   `Cybersecurity Coursework` -> `/cybersecurity_coursework/` (coursework & lab logs)
+*   `[ SYSTEMS ]` (Dropdown):
+    *   `General Articles` -> `/general_articles/` (non-security technical articles)
+    *   `Tools & Utilities` -> `/general_tools/` (non-security tools & scripts)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ ARTICLES ]` -> `/articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`

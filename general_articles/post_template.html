@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Security Architecture | Tanvir Hussain</title>
+    <title>{{ title }} | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -31,8 +31,8 @@
         /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
         :not(pre) > code {
             font-family: var(--font-mono) !important;
-            background-color: #f5f3ff !important; /* Very Light Purple Background */
-            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            background-color: #f5f3ff !important;
+            color: #4338ca !important;
             padding: 0.2rem 0.4rem !important;
             border-radius: 6px !important;
             font-size: 0.85em !important;
@@ -55,71 +55,12 @@
         main td:first-child { font-weight: 600; color: var(--text-primary); }
         main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
 
-        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
     
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem 3rem 1rem;
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
             }
-            .back-link {
-                margin-bottom: 1rem;
-            }
-            header {
-                margin-bottom: 2rem;
-                padding-bottom: 1rem;
-            }
-            h1 {
-                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
-                line-height: 1.3;
-            }
-            main {
-                font-size: 1.05rem;
-            }
-        }
-    
-        
-        
-        /* Hide scrollbar Firefox */
-            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
-            padding-right: 1rem;
-            margin-right: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .breadcrumb-left::-webkit-scrollbar {
-            display: none; /* Hide scrollbar Chrome/Safari */
-        }
-
-        .breadcrumb-left a, .breadcrumb-right a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        
-
-        
-
-        
-
-        /* Fix mobile horizontal scrolling overflow issues */
-        body {
-            overflow-x: hidden;
-        }
-        
-        pre[class*="language-"] {
-            overflow-x: auto !important;
-        }
-
-        @media (max-width: 768px) {
-            
             :not(pre) > code {
                 white-space: normal !important;
                 word-break: break-all !important;
@@ -139,7 +80,7 @@
             <nav class="nav-container">
                 <a href="/" class="nav-link">[ HOME ]</a>
                 <div class="dropdown">
-                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/cybersecurity_tutorials/">Security Tutorials</a>
                         <a href="/cybersecurity_tools/">Tools & Scripts</a>
@@ -149,7 +90,7 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/general_articles/" class="nav-link">[ SYSTEMS ]</a>
+                    <a href="/general_articles/" class="nav-link active">[ SYSTEMS ]</a>
                     <div class="dropdown-menu">
                         <a href="/general_articles/">General Articles</a>
                         <a href="/general_tools/">Tools & Utilities</a>
@@ -165,17 +106,13 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx: ~/study/posts$ cat syllabus.md</div>
-            <h1>Enterprise Security Architecture</h1>
+            <div class="terminal-prompt">user@shadowpbx: ~/systems/articles$ cat article.md</div>
+            <h1>{{ title }}</h1>
         </div>
     </header>
 
     <div class="container">
-        <main><ul>
-<li><strong>The SABSA Framework (Sherwood Applied Business Security Architecture):</strong> Designing and applying enterprise-wide security architecture using a structured, business-driven framework, mapping business context and concepts down to logical, physical, and operational security controls across multiple layers.</li>
-<li><strong>TOGAF Integration (The Open Group Architecture Framework):</strong> Aligning security-specific architectures directly with broader enterprise IT frameworks, ensuring security controls are natively baked into overall business technology designs.</li>
-<li><strong>Mergers, Acquisitions, &amp; Divestitures (M&amp;A) Security:</strong> Assessing and managing systemic cybersecurity risk during corporate transitions, performing due diligence on target networks, and securely integrating or cleanly separating disparate network infrastructures.</li>
-</ul></main>
+        <main>{{ content }}</main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>

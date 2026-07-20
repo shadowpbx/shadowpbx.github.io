@@ -20,6 +20,8 @@ FOLDER_CONFIGS = {
     "cybersecurity_coursework": {"type": "standard", "default_tag": "COURSEWORK"},
     "cybersecurity_tutorials": {"type": "standard", "default_tag": "TUTORIAL"},
     "cybersecurity_tools": {"type": "tools"},
+    "general_articles": {"type": "standard", "default_tag": "SYSTEMS"},
+    "general_tools": {"type": "standard", "default_tag": "UTILITIES"},
     "academics": {"type": "academics_readmes"}
 }
 
@@ -165,6 +167,13 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                         <a href="/cybersecurity_certifications/">Certifications</a>
                         <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
                         <a href="/cybersecurity_coursework/">Cybersecurity Coursework</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/general_articles/" class="nav-link">[ SYSTEMS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/general_articles/">General Articles</a>
+                        <a href="/general_tools/">Tools & Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">
