@@ -372,12 +372,9 @@ def compile_standard_section(folder_path, folder_name, config):
         
         ref_list_html = []
         for post in ref_posts:
-            ref_entry = f"""                        <tr>
-                            <td><span class="ref-title">{post['title']}</span></td>
-                            <td><span class="ref-badge">{post['tag']}</span></td>
-                            <td><span class="study-card-desc">{post['summary']}</span></td>
-                            <td><a href="{post['url']}" class="ref-action-link">OPEN INDEX &rarr;</a></td>
-                        </tr>"""
+            ref_entry = f"""            <a href="{post['url']}" class="specialized-entry">
+                <span class="ref-title">{post['title']}</span>
+            </a>"""
             ref_list_html.append(ref_entry)
         joined_ref = "\n".join(ref_list_html)
     else:
