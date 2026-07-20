@@ -30,9 +30,9 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   └── posts/              # Compiled HTML certification posts (like CompTIA A+)
 │
 ├── cybersecurity_curriculum/
-│   ├── index.html          # Cybersecurity Curriculum / training programs listing
-│   ├── _posts/             # Source markdown syllabi (like Comprehensive Attack Vector Taxonomy)
-│   └── posts/              # Compiled HTML syllabus posts
+│   ├── index.html          # Cybersecurity 35-Chapter Master Curriculum & Reference Syllabi
+│   ├── _posts/             # Source markdown files (35 Chapter posts + Red Team Index)
+│   └── posts/              # Compiled HTML post pages
 │
 ├── cybersecurity_tools/
 │   ├── index.html          # Dashboard index for tools & scripts
