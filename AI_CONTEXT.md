@@ -29,7 +29,7 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── _posts/             # Source markdown certifications
 │   └── posts/              # Compiled HTML certification posts (like CompTIA A+)
 │
-├── cybersecurity_study/
+├── curriculum/
 │   ├── index.html          # Cybersecurity Curriculum / training programs listing
 │   ├── _posts/             # Source markdown syllabi (like Comprehensive Attack Vector Taxonomy)
 │   └── posts/              # Compiled HTML syllabus posts
@@ -73,7 +73,7 @@ Navigation is flat and clean, with dropdown lists reserved only for sub-categori
     *   `Security Tutorials` -> `/cybersecurity_tutorials/`
     *   `Tools & Scripts` -> `/cybersecurity_tools/`
     *   `Certifications` -> `/cybersecurity_certifications/`
-    *   `Cybersecurity Curriculum` -> `/cybersecurity_study/` (study syllabi)
+    *   `Cybersecurity Curriculum` -> `/curriculum/` (study syllabi)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ ARTICLES ]` -> `/articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`
@@ -96,7 +96,7 @@ All layouts inherit from the central `/global.css` file:
 
 ## 4. Compilation Tooling & AI Execution Rules
 *   **Centralized Compiler Engine:** Consolidates all static compilation logic for all monorepo directories into a single, master Python script: **`build_all.py`** in the root directory. 
-*   **Targeted Build Requirement:** **NEVER build the entire website with plain `python3 build_all.py`** when making targeted edits. ALWAYS build only the specific directory where files were added or modified by passing the lowercase folder name as an argument (e.g. `python3 build_all.py cybersecurity` or `python3 build_all.py cybersecurity_study`).
-*   **Directory Naming Case Sensitivity:** All directory paths and CLI arguments are strictly **lowercase** on the Linux server (`cybersecurity`, `cybersecurity_study`, `academics`, etc.).
+*   **Targeted Build Requirement:** **NEVER build the entire website with plain `python3 build_all.py`** when making targeted edits. ALWAYS build only the specific directory where files were added or modified by passing the lowercase folder name as an argument (e.g. `python3 build_all.py cybersecurity` or `python3 build_all.py curriculum`).
+*   **Directory Naming Case Sensitivity:** All directory paths and CLI arguments are strictly **lowercase** on the Linux server (`cybersecurity`, `curriculum`, `academics`, etc.).
 *   **Playlist & Generator Policy:** NEVER modify audio playlist files (`playlist.json`, `playlist.js`) or generator scripts (`generate_playlist.py`) unless explicitly requested by the user.
 *   **Capabilities:** Compiles Markdown files (using `python-markdown` with fenced code blocks and tables extensions), injects contents into local templates, constructs index cards (supporting standard lists and curriculum featured cards), dynamically calculates script/tool count metrics for `cybersecurity_tools`, and compiles README guides in `academics`.

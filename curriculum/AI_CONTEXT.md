@@ -1,6 +1,6 @@
-# Developer & AI Context Guide (Cybersecurity_Study - Cybersecurity Curriculum)
+# Developer & AI Context Guide (curriculum - Cybersecurity Curriculum)
 ## Overview
-This file serves as a system guide for any AI assistant or developer working inside the **Cybersecurity_Study** directory. This directory houses Tanvir Hussain's self-directed Cybersecurity Curriculums and Study Syllabi (like the Elite Red Team Curriculum).
+This file serves as a system guide for any AI assistant or developer working inside the **curriculum** directory. This directory houses Tanvir Hussain's self-directed Cybersecurity Curriculums and Study Syllabi (like the Elite Red Team Curriculum).
 
 ---
 
@@ -37,7 +37,7 @@ summary: "A 15-module training syllabus designed to take an operator progressive
 To recompile syllabi and update the index, run the targeted monorepo build script from the root directory:
 
 ```bash
-python3 build_all.py cybersecurity_study
+python3 build_all.py curriculum
 ```
 
 *Note: The compiler uses placeholders `<!-- POSTS_START -->` and `<!-- POSTS_END -->` inside `index.html`. It will not overwrite your styles, header navigation, or structural divs.*

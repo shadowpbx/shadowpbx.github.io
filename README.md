@@ -41,11 +41,11 @@ To recompile the website, run the master build script in the root directory:
 python3 build_all.py
 
 # Build only a specific folder (targeted build):
-python3 build_all.py Cybersecurity_Study
+python3 build_all.py curriculum
 ```
 
 This command will:
-1.  Scan active source directories (`Cybersecurity`, `Articles`, `Cybersecurity_Certifications`, `Cybersecurity_Study`, `Cybersecurity_Tools`, `Cybersecurity_Tutorials`).
+1.  Scan active source directories (`Cybersecurity`, `Articles`, `Cybersecurity_Certifications`, `curriculum`, `Cybersecurity_Tools`, `Cybersecurity_Tutorials`).
 2.  Process all front-matter Markdown files in their respective `_posts/` directories.
 3.  Generate responsive, Prism-highlighted HTML pages in their respective `posts/` directories.
 4.  Update index pages and dashboard card counters.
