@@ -31,8 +31,8 @@
         /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
         :not(pre) > code {
             font-family: var(--font-mono) !important;
-            background-color: #f5f3ff !important; /* Very Light Purple Background */
-            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            background-color: #f5f3ff !important;
+            color: #4338ca !important;
             padding: 0.2rem 0.4rem !important;
             border-radius: 6px !important;
             font-size: 0.85em !important;
@@ -55,71 +55,12 @@
         main td:first-child { font-weight: 600; color: var(--text-primary); }
         main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
 
-        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
     
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem 3rem 1rem;
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
             }
-            .back-link {
-                margin-bottom: 1rem;
-            }
-            header {
-                margin-bottom: 2rem;
-                padding-bottom: 1rem;
-            }
-            h1 {
-                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
-                line-height: 1.3;
-            }
-            main {
-                font-size: 1.05rem;
-            }
-        }
-    
-        
-        
-        /* Hide scrollbar Firefox */
-            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
-            padding-right: 1rem;
-            margin-right: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .breadcrumb-left::-webkit-scrollbar {
-            display: none; /* Hide scrollbar Chrome/Safari */
-        }
-
-        .breadcrumb-left a, .breadcrumb-right a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        
-
-        
-
-        
-
-        /* Fix mobile horizontal scrolling overflow issues */
-        body {
-            overflow-x: hidden;
-        }
-        
-        pre[class*="language-"] {
-            overflow-x: auto !important;
-        }
-
-        @media (max-width: 768px) {
-            
             :not(pre) > code {
                 white-space: normal !important;
                 word-break: break-all !important;
@@ -149,7 +90,7 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/general_articles/" class="nav-link">[ SYSTEMS ]</a>
+                    <a href="/general_articles/" class="nav-link active">[ SYSTEMS ]</a>
                     <div class="dropdown-menu">
                         <a href="/general_articles/">General Articles</a>
                         <a href="/general_tools/">Tools & Utilities</a>
@@ -161,11 +102,11 @@
                         <a href="/academics/coursework.html">Coursework</a>
                     </div>
                 </div>
-                <a href="/articles/" class="nav-link active">[ ARTICLES ]</a>
+                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx: ~/articles/posts$ cat article.md</div>
+            <div class="terminal-prompt">user@shadowpbx: ~/systems/articles$ cat article.md</div>
             <h1>Raspberry Pi Zero 2 W Boot Process: A Bare Metal Guide</h1>
         </div>
     </header>
