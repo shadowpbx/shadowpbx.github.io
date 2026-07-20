@@ -346,18 +346,31 @@ def compile_standard_section(folder_path, folder_name, config):
                 "title": title,
                 "summary": summary,
                 "date": clean_date,
-                "tag": tag
+                "tag": tag,
+                "chapter_num": str(meta.get("chapter_num", "99"))
             })
             
-    # Sort posts newest-first
-    compiled_posts.sort(key=lambda x: x['date'], reverse=True)
+    # Sort posts: numerical order for cybersecurity_curriculum, newest-first for others
+    if folder_name == "cybersecurity_curriculum":
+        compiled_posts.sort(key=lambda x: x['chapter_num'])
+    else:
+        compiled_posts.sort(key=lambda x: x['date'], reverse=True)
     
     # Generate index.html card items
     posts_list_html = []
     layout = config.get("layout", "standard")
     
     for post in compiled_posts:
-        if layout == "featured":
+        if folder_name == "cybersecurity_curriculum":
+            entry = f"""            <a href="{post['url']}" class="curriculum-card">
+                <div>
+                    <div class="curriculum-card-num">CHAPTER {post['chapter_num']}</div>
+                    <div class="curriculum-card-title">{post['title']}</div>
+                    <p class="curriculum-card-desc">{post['summary']}</p>
+                </div>
+                <div class="curriculum-card-footer">READ CHAPTER &rarr;</div>
+            </a>"""
+        elif layout == "featured":
             # Curved layout card for Study syllabus
             entry = f"""            <a href="{post['url']}" class="study-card featured-card">
                 <div>

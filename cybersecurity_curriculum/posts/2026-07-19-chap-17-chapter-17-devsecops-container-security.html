@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 17: DevSecOps & Container Security | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_tutorials/">Security Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/study/posts$ cat syllabus.md</div>
+            <h1>Chapter 17: DevSecOps & Container Security</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><ul>
+<li><strong>The CI/CD Security Pipeline:</strong> Shifting security "left" by integrating automated validation controls directly into continuous integration and delivery pipelines, including Jenkins and GitLab runners.</li>
+<li><strong>Application Security Testing in Pipelines:</strong> Automating software security analysis inside active builds: checking source code for flaws (SAST), testing compiled, running apps for flaws (DAST), and identifying known vulnerable open-source libraries (SCA).</li>
+<li><strong>Container Architecture &amp; Isolation (Namespaces, cgroups):</strong> Analyzing container engines (such as Docker), separating processes via Linux namespaces, limiting resource allocations via cgroups, and auditing the core daemon.</li>
+<li><strong>Container Security &amp; Escape Mitigation:</strong> Protecting microservices by scanning image layers for vulnerabilities, executing containers under non-root contexts, and preventing host system access escapes.</li>
+<li><strong>Kubernetes Cluster Security (RBAC, Network Policies):</strong> Hardening container orchestration systems (Kubernetes), configuring cluster Role-Based Access Control (RBAC), isolating pods, and declaring logical ingress/egress Network Policies.</li>
+<li><strong>Infrastructure as Code (IaC) Security:</strong> Performing static scanning on declarative configuration files (such as Terraform and CloudFormation templates) to identify security misconfigurations prior to deployment.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
