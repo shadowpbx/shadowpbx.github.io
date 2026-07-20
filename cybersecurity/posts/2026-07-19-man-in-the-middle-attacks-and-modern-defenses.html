@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man-in-the-Middle Attacks and Modern Defenses | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.6rem, 5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_tutorials/">Security Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_study/">Cybersecurity Curriculum</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/articles/" class="nav-link">[ ARTICLES ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/cyber/posts$ cat writeup.md</div>
+            <h1>Man-in-the-Middle Attacks and Modern Defenses</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><p>When moving beyond a controlled virtual testing environment, Man-in-the-Middle (MitM) attacks occur across different layers of the networking stack. While the core objective remains the same—intercepting and reading traffic between two parties—the physical and logical methods used to force traffic through the middleman change based on the environment.</p>
+<p>The following is a conceptual overview of how MitM attacks are executed in various contexts, ranging from local Wi-Fi networks to global internet routing, along with the defenses used to prevent them.</p>
+<hr />
+<h3>1. Local Network (LAN) Interception</h3>
+<p>On a local network (such as a home network, corporate office, or public coffee shop), devices communicate using physical hardware addresses (MAC addresses) rather than IP addresses. Attackers exploit this layer to redirect traffic.</p>
+<h4>ARP Spoofing (Address Resolution Protocol)</h4>
+<ul>
+<li><strong>The Concept:</strong> The Address Resolution Protocol (ARP) maps a device's IP address to its physical MAC address so local devices can communicate with each other. ARP has no built-in authentication; devices naturally accept incoming update messages.</li>
+<li><strong>How it works:</strong> An attacker sends spoofed ARP messages to the target device, claiming, "I am the gateway router." Simultaneously, they send ARP messages to the router claiming, "I am the target device." Both devices update their routing tables, causing all traffic to flow through the attacker's machine before reaching its destination.</li>
+<li><strong>Defense:</strong> <strong>Dynamic ARP Inspection (DAI)</strong> on network switches, which validates ARP packets against a database of trusted IP-to-MAC mappings.</li>
+</ul>
+<h4>Rogue Access Points (The "Evil Twin")</h4>
+<ul>
+<li><strong>The Concept:</strong> Operating systems naturally remember and auto-connect to familiar Wi-Fi network names (SSIDs) like "Starbucks_Guest" to improve user experience.</li>
+<li><strong>How it works:</strong> An attacker sets up a portable router or a wireless card on their laptop transmitting the exact same SSID with a stronger signal. Devices automatically connect to the attacker's rogue access point. Since the attacker controls the router, they control the DNS servers and route all the victim's traffic through their interception proxy.</li>
+<li><strong>Defense:</strong> <strong>WPA3 Enterprise authentication</strong>, <strong>802.1X network access control</strong>, and user vigilance (such as verifying security certificates or using a virtual private network on untrusted networks).</li>
+</ul>
+<hr />
+<h3>2. Domain &amp; Name Resolution Interception (DNS Spoofing)</h3>
+<p>When you type a domain name (like bank.com), your computer asks a Domain Name System (DNS) server to translate that text into a numerical IP address.</p>
+<h4>DNS Cache Poisoning</h4>
+<ul>
+<li><strong>The Concept:</strong> DNS resolvers cache IP addresses locally so they do not have to query root servers for the IP every single time.</li>
+<li><strong>How it works:</strong> An attacker injects a malicious entry into a DNS resolver's cache. When a victim asks the server for the IP of bank.com, the poisoned DNS server returns the attacker’s malicious server IP address instead of the bank's real IP. The user is seamlessly directed to a fake login page.</li>
+<li><strong>Defense:</strong> </li>
+<li><strong>DNSSEC (Domain Name System Security Extensions):</strong> Uses cryptographic signatures to verify that the DNS record has not been tampered with.</li>
+<li><strong>DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT):</strong> While DNSSEC ensures integrity, DoH and DoT encrypt the actual DNS queries. This prevents local eavesdroppers on the LAN from seeing which domains a user is requesting.</li>
+</ul>
+<hr />
+<h3>3. Internet-Scale Interception (BGP Hijacking)</h3>
+<p>At the global scale, the internet is composed of massive networks called Autonomous Systems (AS) owned by ISPs and tech giants. They route traffic between each other using the Border Gateway Protocol (BGP).</p>
+<h4>BGP Hijacking</h4>
+<ul>
+<li><strong>The Concept:</strong> BGP relies heavily on trust; networks announce to the world, "I own these IP addresses, send their traffic through me."</li>
+<li><strong>How it works:</strong> An attacker (often a malicious ISP or a state actor) falsely advertises that they have the shortest, most efficient route to a specific target's IP address range. Global routers update their paths, routing millions of users' web traffic directly through the attacker's network infrastructure before sending it to its final destination.</li>
+<li><strong>Defense:</strong> </li>
+<li><strong>RPKI (Resource Public Key Infrastructure):</strong> A cryptographic method of signing BGP route advertisements to prove ownership of IP prefixes.</li>
+<li><strong>Route Origin Validation (ROV):</strong> Network operators must configure their routers to actively reject BGP advertisements that fail RPKI validation.</li>
+</ul>
+<hr />
+<h3>4. Cellular Interception (IMSI Catchers / Stingrays)</h3>
+<p>In mobile cellular networks, your smartphone is constantly looking for the strongest signal from local cell towers.</p>
+<ul>
+<li><strong>How it works:</strong> A portable device called an IMSI Catcher (commonly known as a Stingray) masquerades as a legitimate cell tower. Because legacy 2G protocols (and some backward-compatibility flaws in newer generations) do not force the cell tower to authenticate itself to the phone, the victim's smartphone automatically connects to the Stingray. The device can then intercept unencrypted SMS messages, voice calls, and mobile data.</li>
+<li><strong>Defense:</strong> Disabling 2G on modern smartphones, utilizing end-to-end encrypted messaging applications, and upgrading network standards to fully authenticated 5G.</li>
+</ul>
+<hr />
+<h3>5. Mitigating the Weakest Link: Downgrade Attacks and Certificate Safeguards</h3>
+<p>Even when strong encryption is available, attackers will attempt to bypass it by forcing systems to communicate using older, insecure protocols or by abusing the trust model of Certificate Authorities (CAs).</p>
+<h4>Protocol Downgrades (SSL Stripping)</h4>
+<ul>
+<li><strong>How it works:</strong> If a user types <code>example.com</code> instead of <code>https://example.com</code>, the initial connection is unencrypted. An attacker in the middle intercepts this request, establishes an HTTPS connection with the real website, but keeps the connection to the victim as plain, unencrypted HTTP.</li>
+<li><strong>Defense:</strong> <strong>HSTS (HTTP Strict Transport Security)</strong>. This header instructs browsers to only interact with the website via secure HTTPS connections, preventing any attempt to downgrade to HTTP.</li>
+</ul>
+<h4>Rogue Certificate Issuance</h4>
+<ul>
+<li><strong>How it works:</strong> If an attacker compromises a Certificate Authority or tricks them into issuing a valid SSL certificate for a domain they do not own, they can decrypt the victim's traffic without triggering browser warnings.</li>
+<li><strong>Defense:</strong> </li>
+<li><strong>Certificate Transparency (CT) Logs:</strong> Modern browsers require CAs to publicly log every certificate they issue, allowing domain owners to quickly detect unauthorized certificates.</li>
+<li><strong>CAA (Certification Authority Authorization) Records:</strong> DNS records that allow domain owners to restrict which specific CAs are authorized to issue certificates for their domain.</li>
+</ul>
+<hr />
+<h3>The Ultimate Shield: End-to-End Encryption</h3>
+<p>No matter where or how a Man-in-the-Middle attack is executed—whether through ARP spoofing in a local coffee shop or BGP hijacking across the globe—the attacker still runs into a formidable cryptographic barrier.</p>
+<p>If a website or app uses robust HTTPS, the data payload remains fully encrypted. Even if an attacker successfully reroutes your traffic, they cannot read or alter it unless they can also trick your device into trusting a fake security certificate (which triggers immediate warnings on standard systems). Combined with defenses like HSTS and Certificate Transparency, the global transition to universal HTTPS and TLS remains one of the most effective defenses against MitM attacks in network history.</p></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
