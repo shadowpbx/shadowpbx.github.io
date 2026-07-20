@@ -34,6 +34,11 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── _posts/             # Source markdown files (35 Chapter posts + Red Team Index)
 │   └── posts/              # Compiled HTML post pages
 │
+├── cybersecurity_coursework/
+│   ├── index.html          # Cybersecurity Coursework & Lab Logs listing
+│   ├── _posts/             # Source markdown coursework entries
+│   └── posts/              # Compiled HTML coursework pages
+│
 ├── cybersecurity_tools/
 │   ├── index.html          # Dashboard index for tools & scripts
 │   ├── cybersecurity_scripts.html
@@ -74,6 +79,7 @@ Navigation is flat and clean, with dropdown lists reserved only for sub-categori
     *   `Tools & Scripts` -> `/cybersecurity_tools/`
     *   `Certifications` -> `/cybersecurity_certifications/`
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
+    *   `Cybersecurity Coursework` -> `/cybersecurity_coursework/` (coursework & lab logs)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ ARTICLES ]` -> `/articles/` (merged timeline of all tutorials and blog articles)
 *   `[ RESUME ]` -> `/resume/`
