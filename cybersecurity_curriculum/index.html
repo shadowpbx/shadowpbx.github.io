@@ -70,29 +70,49 @@
             color: var(--accent);
         }
 
-        .specialized-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .specialized-entry {
+        .specialized-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1.1rem 1.5rem;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+
+        .specialized-box-header {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--border);
+            padding: 0.9rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .specialized-box-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .specialized-entry {
+            padding: 1.25rem 1.5rem;
             text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid var(--border);
             transition: all 0.2s ease;
+            background: transparent;
+        }
+
+        .specialized-entry:last-child {
+            border-bottom: none;
         }
 
         .specialized-entry:hover {
-            border-color: var(--accent);
-            transform: translateX(4px);
-            background: rgba(142, 68, 173, 0.05);
+            background: rgba(142, 68, 173, 0.08);
+            padding-left: 1.75rem;
         }
 
         .specialized-entry .ref-title {
@@ -104,7 +124,7 @@
         .specialized-entry::after {
             content: "→";
             font-family: var(--font-mono);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--accent);
             margin-left: 1rem;
@@ -446,9 +466,9 @@
             <!-- POSTS_END -->
         </div>
 
-        <div style="margin-top: 4rem;">
-            <span class="section-label">Specialized Indexes & Master Syllabi</span>
-            <div class="specialized-list">
+        <div class="specialized-box">
+            <div class="specialized-box-header">❖ SPECIALIZED INDEXES & MASTER SYLLABI</div>
+            <div class="specialized-box-body">
                 <!-- REFERENCE_START -->
             <a href="posts/2026-07-19-offensive-security-the-red-team-index.html" class="specialized-entry">
                 <span class="ref-title">Offensive Security: The Red Team Index</span>
