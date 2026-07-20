@@ -350,18 +350,15 @@ def compile_standard_section(folder_path, folder_name, config):
                 "chapter_num": str(meta.get("chapter_num", "99"))
             })
             
-    # Sort posts: numerical order for cybersecurity_curriculum, newest-first for others
+    # Sort posts & prepare HTML items
     if folder_name == "cybersecurity_curriculum":
-        compiled_posts.sort(key=lambda x: x['chapter_num'])
-    else:
-        compiled_posts.sort(key=lambda x: x['date'], reverse=True)
-    
-    # Generate index.html card items
-    posts_list_html = []
-    layout = config.get("layout", "standard")
-    
-    for post in compiled_posts:
-        if folder_name == "cybersecurity_curriculum":
+        chapter_posts = [p for p in compiled_posts if p['chapter_num'] != "99"]
+        chapter_posts.sort(key=lambda x: x['chapter_num'])
+        ref_posts = [p for p in compiled_posts if p['chapter_num'] == "99"]
+        ref_posts.sort(key=lambda x: x['date'], reverse=True)
+        
+        posts_list_html = []
+        for post in chapter_posts:
             entry = f"""            <a href="{post['url']}" class="curriculum-card">
                 <div>
                     <div class="curriculum-card-num">CHAPTER {post['chapter_num']}</div>
@@ -370,27 +367,43 @@ def compile_standard_section(folder_path, folder_name, config):
                 </div>
                 <div class="curriculum-card-footer">READ CHAPTER &rarr;</div>
             </a>"""
-        elif layout == "featured":
-            # Curved layout card for Study syllabus
-            entry = f"""            <a href="{post['url']}" class="study-card featured-card">
-                <div>
-                    <h3>CURRICULUM // {post['tag']}</h3>
-                    <div class="study-card-title">{post['title']}</div>
-                    <p class="study-card-desc">{post['summary']}</p>
-                </div>
-            </a>"""
-        else:
-            # Standard cards without dates
-            entry = f"""            <a href="{post['url']}" class="post-entry">
-                <h3>{post['title']}</h3>
-                <p class="post-summary">{post['summary']}</p>
-                <div class="post-meta">
-                    <span class="meta-tag">{post['tag']}</span>
-                </div>
-            </a>"""
-        posts_list_html.append(entry)
+            posts_list_html.append(entry)
+        joined_posts = "\n".join(posts_list_html)
         
-    joined_posts = "\n".join(posts_list_html)
+        ref_list_html = []
+        for post in ref_posts:
+            ref_entry = f"""                        <tr>
+                            <td><span class="ref-title">{post['title']}</span></td>
+                            <td><span class="ref-badge">{post['tag']}</span></td>
+                            <td><span class="study-card-desc">{post['summary']}</span></td>
+                            <td><a href="{post['url']}" class="ref-action-link">OPEN INDEX &rarr;</a></td>
+                        </tr>"""
+            ref_list_html.append(ref_entry)
+        joined_ref = "\n".join(ref_list_html)
+    else:
+        compiled_posts.sort(key=lambda x: x['date'], reverse=True)
+        posts_list_html = []
+        layout = config.get("layout", "standard")
+        for post in compiled_posts:
+            if layout == "featured":
+                entry = f"""            <a href="{post['url']}" class="study-card featured-card">
+                    <div>
+                        <h3>CURRICULUM // {post['tag']}</h3>
+                        <div class="study-card-title">{post['title']}</div>
+                        <p class="study-card-desc">{post['summary']}</p>
+                    </div>
+                </a>"""
+            else:
+                entry = f"""            <a href="{post['url']}" class="post-entry">
+                    <h3>{post['title']}</h3>
+                    <p class="post-summary">{post['summary']}</p>
+                    <div class="post-meta">
+                        <span class="meta-tag">{post['tag']}</span>
+                    </div>
+                </a>"""
+            posts_list_html.append(entry)
+        joined_posts = "\n".join(posts_list_html)
+        joined_ref = ""
     
     # Overwrite index.html placeholders
     if os.path.exists(index_file):
@@ -405,9 +418,16 @@ def compile_standard_section(folder_path, folder_name, config):
         if placeholder_pattern.search(index_content):
             new_placeholder = f"<!-- POSTS_START -->\n{joined_posts}\n            <!-- POSTS_END -->"
             index_content = placeholder_pattern.sub(new_placeholder, index_content)
-            with open(index_file, 'w', encoding='utf-8') as f:
-                f.write(index_content)
-            logging.info(f"Successfully updated index.html for {folder_name}.")
+            
+        if folder_name == "cybersecurity_curriculum":
+            ref_pattern = re.compile(r'<!-- REFERENCE_START -->.*?<!-- REFERENCE_END -->', re.DOTALL)
+            if ref_pattern.search(index_content):
+                new_ref = f"<!-- REFERENCE_START -->\n{joined_ref}\n                        <!-- REFERENCE_END -->"
+                index_content = ref_pattern.sub(new_ref, index_content)
+
+        with open(index_file, 'w', encoding='utf-8') as f:
+            f.write(index_content)
+        logging.info(f"Successfully updated index.html for {folder_name}.")
             
     # Update README markdown lists
     update_readme_list(readme_file, compiled_posts, folder_name)
