@@ -366,7 +366,7 @@ def compile_standard_section(folder_path, folder_name, config):
         chapter_posts = [p for p in compiled_posts if p['chapter_num'] != "99"]
         chapter_posts.sort(key=lambda x: x['chapter_num'])
         ref_posts = [p for p in compiled_posts if p['chapter_num'] == "99"]
-        ref_posts.sort(key=lambda x: x['date'], reverse=True)
+        ref_posts.sort(key=lambda x: x['title'], reverse=True)
         
         posts_list_html = []
         for post in chapter_posts:
