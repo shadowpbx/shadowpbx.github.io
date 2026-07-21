@@ -170,80 +170,96 @@
     </header>
 
     <div class="container">
-        <main><p><strong>1. Web Application &amp; API Security (AppSec)</strong>
-*   <strong>Input Validation &amp; Parameterization</strong> <em>(Counters Adv. Injection)</em> — Utilizing Prepared Statements, ORMs, and strict input sanitization to neutralize SQLi/OS Command/LDAP injections.
-*   <strong>Content Security Policy (CSP) &amp; Encoding</strong> <em>(Counters XSS)</em> — Enforcing strict script execution policies and context-aware output encoding to prevent client-side hijacking.
-*   <strong>Anti-CSRF Tokens &amp; SameSite Cookies</strong> <em>(Counters CSRF)</em> — Enforcing state-changing request validation and restricting cross-origin cookie sharing.
-*   <strong>Egress Filtering &amp; Allow-listing</strong> <em>(Counters SSRF)</em> — Denying server outbound connections to internal IPs/metadata endpoints (e.g., 169.254.169.254) and enforcing strict API gateways.
-*   <strong>Robust Session Management &amp; MFA</strong> <em>(Counters Broken Auth)</em> — Enforcing Secure/HttpOnly flags on cookies, strict session timeouts, and Multi-Factor Authentication.
-*   <strong>Object-Level Authorization (RBAC/ABAC)</strong> <em>(Counters IDOR / BOLA)</em> — Rigorously validating user permissions against every requested direct database object or API parameter.
-*   <strong>Safe XML Parsing</strong> <em>(Counters XXE)</em> — Disabling DTDs (Document Type Definitions) and external entity resolution in all XML parsers.
-*   <strong>Safe Deserialization &amp; Schema Validation</strong> <em>(Counters Insecure Deserialization)</em> — Enforcing schema-validated JSON over native object deserialization, or cryptographically signing serialized objects.
-*   <strong>File System Virtualization &amp; Chroot</strong> <em>(Counters Path Traversal)</em> — Normalizing file paths, using indirect file references, and jailing application execution to the web-root.
-*   <strong>Static Application Security Testing (SAST)</strong> <em>(Counters Mobile Manifest/Config Leaks)</em> — Automatically scanning mobile package configs (AndroidManifest.xml, Info.plist) in the CI/CD pipeline to catch hardcoded secrets.
-*   <strong>Mobile App Hardening &amp; Obfuscation</strong> <em>(Counters Mobile Decompiling)</em> — Packing and obfuscating mobile code (ProGuard, DexGuard) to frustrate reverse engineering tools (JADX, Ghidra).
-*   <strong>Anti-Debugging &amp; RASP</strong> <em>(Counters Runtime Hooking/Frida)</em> — Implementing Runtime Application Self-Protection to detect dynamic instrumentation and crash the app if tampered with.
-*   <strong>Certificate Pinning &amp; Root Detection</strong> <em>(Counters Mobile Sec Control Bypasses)</em> — Hard-coding trusted TLS certificate hashes and implementing root/jailbreak environment checks.
-*   <strong>Mobile IPC &amp; Storage Hardening</strong> <em>(Counters Mobile IPC/Storage Exploitation)</em> — Encrypting local databases (SQLCipher), securing Intents, and disabling cloud backups for sensitive directories.</p>
-<p><strong>2. Network Layer &amp; Infrastructure Security</strong>
-*   <strong>Protocol Hardening</strong> <em>(Counters Spoofing &amp; Poisoning)</em> — Implementing Dynamic ARP Inspection (DAI), DNSSEC, and disabling legacy broadcast protocols (LLMNR/NBT-NS).
-*   <strong>Encryption in Transit &amp; HSTS</strong> <em>(Counters MitM)</em> — Enforcing HTTP Strict Transport Security and ensuring modern TLS 1.2/1.3 configurations to prevent SSL stripping.
-*   <strong>Network Access Control (NAC) &amp; 802.1X</strong> <em>(Counters Layer 2 Vulnerabilities)</em> — Preventing rogue devices, MAC flooding, and VLAN hopping by requiring endpoint authentication before network access.
-*   <strong>BGP RPKI &amp; Route Filtering</strong> <em>(Counters Routing/Gateway Attacks)</em> — Cryptographically verifying route advertisements and implementing strict BGP filters.
-*   <strong>Anti-DDoS &amp; WAF Architecture</strong> <em>(Counters DoS/DDoS)</em> — Deploying CDNs, Anycast networks, and Web Application Firewalls to absorb and filter volumetric/app-layer attacks.
-*   <strong>Zero Trust Network Access (ZTNA) &amp; Lifecycle Management</strong> <em>(Counters Perimeter Appliance Exploitation)</em> — Phasing out legacy VPNs and firewalls in favor of identity-aware, per-application access gateways, and disabling public admin interfaces.</p>
-<p><strong>3. Host, OS, &amp; Memory-Level Security (Endpoint Defense)</strong>
-*   <strong>Memory Protections</strong> <em>(Counters Memory Corruption)</em> — Enforcing compiler-level defenses (ASLR, DEP/NX, Stack Canaries, Control Flow Guard) and utilizing memory-safe languages (Rust, Go).
-*   <strong>Virtualization-Based Security (VBS)</strong> <em>(Counters OS Mitigations Bypass)</em> — Isolating kernel processes and credentials (e.g., Windows Credential Guard) from user-mode memory access.
-*   <strong>Anti-Debugging / Anti-Disassembly</strong> <em>(Counters Debugger-Based Analysis)</em> — Compiling software with environment checks (e.g., <code>IsDebuggerPresent</code>) to detect runtime debuggers and halt execution.
-*   <strong>Privilege Management (EPM)</strong> <em>(Counters Local Priv Esc)</em> — Enforcing the Principle of Least Privilege, removing local admin rights, implementing UAC limits, and rapid kernel patching.
-*   <strong>Application Control / Allow-listing</strong> <em>(Counters Living off the Land - LotL)</em> — Restricting trusted administrative utilities via AppLocker, WDAC, and PowerShell Constrained Language Mode.
-*   <strong>Endpoint Detection &amp; Response (EDR) / Memory Scanning</strong> <em>(Counters Fileless Malware)</em> — Monitoring process telemetry, reflective module loading, and dynamic memory allocations to catch fileless execution.</p>
-<p><strong>4. Identity, Authentication, &amp; Cryptography</strong>
-*   <strong>Phishing-Resistant MFA</strong> <em>(Counters Credential Attacks)</em> — Defeating brute force, password spraying, and stuffing by requiring FIDO2 hardware keys (YubiKey) or Windows Hello.
-*   <strong>Active Directory Hardening</strong> <em>(Counters AD Core Exploitation)</em> — Implementing Tiered Administration (Tier 0/1/2), LAPS (Local Administrator Password Solution), and disabling RC4 (mitigates Kerberoasting).
-*   <strong>PKI &amp; Certificate Security</strong> <em>(Counters AD Trusts &amp; Cert Abuse)</em> — Securing ADCS by enabling Extended Protection for Authentication (EPA) and strictly controlling ESC templates and delegations.
-*   <strong>Directory State &amp; ACL Monitoring</strong> <em>(Counters AD Policy &amp; Control Manipulation)</em> — Continuously auditing AD Permissions (BloodHound Enterprise, PingCastle) to detect rogue delegations or hidden GPO backdoors.
-*   <strong>Micro-segmentation &amp; Host Firewalls</strong> <em>(Counters Lateral Movement)</em> — Blocking PtH/PtT by preventing direct workstation-to-workstation communication over RPC and SMB.
-*   <strong>Cryptographic Agility</strong> <em>(Counters Crypto Downgrade Attacks)</em> — Enforcing strict cipher suite ordering and disabling legacy SSL/TLS fallback mechanisms.
-*   <strong>Cryptographic Standardization</strong> <em>(Counters Cryptographic Weaknesses)</em> — Mandating industry-standard algorithms (AES-GCM, SHA-3), strong PRNGs, and deprecating weak collision-prone hashes (MD5, SHA-1).</p>
-<p><strong>5. Supply Chain, Cloud, &amp; DevOps Security (DevSecOps)</strong>
-*   <strong>IAM Least Privilege &amp; SCPs</strong> <em>(Counters Cloud Priv Esc)</em> — Restricting cloud roles, enforcing Service Control Policies, and requiring IMDSv2 to prevent metadata access.
-*   <strong>Cloud Security Posture Management (CSPM)</strong> <em>(Counters Cloud Misconfigs)</em> — Continuously auditing cloud environments for exposed S3 buckets, open security groups, and Entra ID misconfigurations.
-*   <strong>Container Security &amp; Seccomp</strong> <em>(Counters Container Breakouts)</em> — Running rootless containers, utilizing Distroless base images, and enforcing strict AppArmor/Seccomp profiles.
-*   <strong>Kubernetes Hardening &amp; Network Policies</strong> <em>(Counters K8s Compromise)</em> — Enforcing Pod Security Admission, default-deny namespace policies, and mTLS between control plane components.
-*   <strong>Internal Artifact Registries</strong> <em>(Counters Dependency Confusion/Typosquatting)</em> — Claiming internal package names on public registries and enforcing builds from private, verified repositories.
-*   <strong>Software Composition Analysis (SCA) &amp; Pipeline Hardening</strong> <em>(Counters Compromised Updates)</em> — Generating SBOMs, auditing third-party dependencies, and enforcing cryptographically signed commits in CI/CD.</p>
-<p><strong>6. Hardware &amp; Physical Security</strong>
-*   <strong>Physical Access Controls</strong> <em>(Counters Physical Red Teaming)</em> — Implementing mantraps, anti-passback turnstiles, biometric scanners, and CCTV to deter physical entry lock bypasses.
-*   <strong>High-Frequency/Encrypted RFID</strong> <em>(Counters RFID &amp; Badge Cloning)</em> — Replacing legacy proximity cards with modern, cryptographically secure smart badges (e.g., DESFire EV2/EV3).
-*   <strong>Peripheral Port Blocking &amp; MDM</strong> <em>(Counters Rogue Devices)</em> — Disabling physical USB data access via GPO, MDM policies, or physical epoxy to block Rubber Duckies/LAN Turtles.
-*   <strong>Full Disk Encryption (FDE) &amp; Secure Boot</strong> <em>(Counters Evil Maid Attacks)</em> — Encrypting drives (BitLocker/FileVault) and enforcing hardware-rooted boot integrity (TPM) against unattended tampering.
-*   <strong>Hardware Isolation &amp; Microcode Mitigations</strong> <em>(Counters Side-Channel Attacks)</em> — Implementing hardware patches (e.g., Meltdown/Spectre mitigations) to isolate CPU cache memory execution.
-*   <strong>Firmware Integrity &amp; Measured Boot</strong> <em>(Counters Firmware/Microcode Exploits)</em> — Validating cryptographic signatures of the BIOS/UEFI at boot to ensure the system hasn't been compromised by a rootkit.</p>
-<p><strong>7. Human Element (Security Awareness &amp; Culture)</strong>
-*   <strong>Email Authentication &amp; SEGs</strong> <em>(Counters Phishing &amp; Multi-Channel)</em> — Configuring strict DMARC/SPF/DKIM records and Secure Email Gateways to drop spoofed emails before reaching users.
-*   <strong>Security Awareness Training (SAT) &amp; Clear Desk Policies</strong> <em>(Counters Baiting Campaigns)</em> — Educating staff not to plug in unknown hardware and strictly enforcing policies that secure physical workstations.
-*   <strong>Challenge Culture</strong> <em>(Counters Tailgating &amp; Piggybacking)</em> — Empowering and requiring employees to actively challenge unbadged individuals at access points.</p>
-<p><strong>8. SecOps, Threat Hunting, &amp; Defense Methodology</strong>
-*   <strong>Attack Surface Management (ASM) &amp; DRP</strong> <em>(Counters Advanced OSINT Automation)</em> — Continuously scanning the internet and dark web for exposed subdomains, open ports, and unauthorized code commits.
-*   <strong>Credential Monitoring &amp; Automated Revocation</strong> <em>(Counters Credential Leak Parsing)</em> — Ingesting public breach databases and automatically forcing password resets for affected corporate accounts.
-*   <strong>Threat Intelligence &amp; IoC Ingestion</strong> <em>(Counters Red Team Infra)</em> — Consuming CTI feeds to proactively block malicious ASNs, known domains, and IPs used by offensive infrastructure.
-*   <strong>TLS Fingerprinting &amp; Traffic Analysis</strong> <em>(Counters C2 Customization)</em> — Utilizing JA3/JA4 TLS fingerprinting and beaconing analysis (jitter/frequency patterns) to identify hidden C2 traffic.
-*   <strong>Egress Monitoring &amp; SSL/TLS Decryption</strong> <em>(Counters Covert Communications)</em> — Inspecting outbound traffic at the proxy level to detect Domain Fronting and stop tunneling to third-party APIs.
-*   <strong>Deception Technology</strong> <em>(Counters Smart Traffic Filtering)</em> — Deploying honeypots, honeytokens, and fake network shares to catch attackers probing the network, ignoring dummy reverse proxies.
-*   <strong>Dynamic Analysis &amp; Memory Scanning</strong> <em>(Counters Custom Loaders)</em> — Utilizing sandboxing and in-memory YARA scanning to detect decrypted payloads after execution.
-*   <strong>Telemetry Integrity &amp; Anti-Tampering</strong> <em>(Counters AMSI &amp; ETW Bypasses)</em> — Protecting monitoring interfaces using OS-level protections (like Windows Protected Process Light - PPL) to prevent memory patching.
-*   <strong>Syscall Monitoring &amp; Kernel Callbacks</strong> <em>(Counters User-Mode API Evasion)</em> — Deploying advanced EDRs that monitor kernel callbacks (ETWti) and thread call stacks to detect direct/indirect syscall abuse.
-*   <strong>Process Injection &amp; Behavioral Monitoring</strong> <em>(Counters Process Injection)</em> — Alerting on anomalous Parent-Child process trees, cross-process memory allocations, and hollowed processes.
-*   <strong>OT/ICS Defense &amp; Segmentation</strong> <em>(Counters OT/ICS Protocol Manipulation)</em> — Strictly enforcing the Purdue Model to isolate Operational Technology and utilizing non-disruptive, passive monitoring tools (Claroty, Nozomi).
-*   <strong>AI/LLM Application Defense (AI TRiSM)</strong> <em>(Counters AI Red Teaming)</em> — Implementing AI Trust, Risk, and Security Management: input sanitization for Prompt Injections, output filtering, and protecting model weights.
-*   <strong>Continuous Validation &amp; BAS</strong> <em>(Counters Adversary Emulation)</em> — Using Breach and Attack Simulation tools (Atomic Red Team) to constantly test and refine Blue Team visibility against mapped CTI profiles.
-*   <strong>Log Aggregation &amp; SIEM Correlation</strong> <em>(Counters OPSEC &amp; Data Staging)</em> — Centralizing telemetry (Sysmon, Zeek) to detect anomalous file archiving, encryption, or staging behaviors prior to exfiltration.
-*   <strong>Data Loss Prevention (DLP) &amp; Anomaly Detection</strong> <em>(Counters Covert Exfil)</em> — Blocking unexpected ICMP/DNS tunneling and utilizing DLP engines to detect large, sensitive data flows moving to unauthorized SaaS endpoints.
-*   <strong>Risk Quantification &amp; Prioritization</strong> <em>(Counters Report Writing)</em> — Using frameworks like FAIR, SSVC, or EPSS to translate identified vulnerabilities into actionable, prioritized business risks.
-*   <strong>Collaborative Defense &amp; SOAR</strong> <em>(Counters Purple Teaming)</em> — Establishing automated Incident Response playbooks (SOAR) based on the validated findings from Purple Team exercises.
-*   <strong>Detection Engineering &amp; Rule Lifecycle</strong> <em>(Counters Detection Engineering)</em> — Continuously writing, tuning, and deploying customized behavior-based rulesets (Sigma, Snort, YARA) mapped strictly to the MITRE ATT&amp;CK framework.</p></main>
+        <main><h2>1. Web Application &amp; API Security (AppSec)</h2>
+<ul>
+<li><strong>Input Validation &amp; Parameterization</strong> <em>(Counters Adv. Injection)</em> — Utilizing Prepared Statements, ORMs, and strict input sanitization to neutralize SQLi/OS Command/LDAP injections.</li>
+<li><strong>Content Security Policy (CSP) &amp; Encoding</strong> <em>(Counters XSS)</em> — Enforcing strict script execution policies and context-aware output encoding to prevent client-side hijacking.</li>
+<li><strong>Anti-CSRF Tokens &amp; SameSite Cookies</strong> <em>(Counters CSRF)</em> — Enforcing state-changing request validation and restricting cross-origin cookie sharing.</li>
+<li><strong>Egress Filtering &amp; Allow-listing</strong> <em>(Counters SSRF)</em> — Denying server outbound connections to internal IPs/metadata endpoints (e.g., <code>169.254.169.254</code>) and enforcing strict API gateways.</li>
+<li><strong>Robust Session Management &amp; MFA</strong> <em>(Counters Broken Auth)</em> — Enforcing <code>Secure</code>/<code>HttpOnly</code> flags on cookies, strict session timeouts, and Multi-Factor Authentication.</li>
+<li><strong>Object-Level Authorization (RBAC/ABAC)</strong> <em>(Counters IDOR / BOLA)</em> — Rigorously validating user permissions against every requested direct database object or API parameter.</li>
+<li><strong>Safe XML Parsing</strong> <em>(Counters XXE)</em> — Disabling DTDs (Document Type Definitions) and external entity resolution in all XML parsers.</li>
+<li><strong>Safe Deserialization &amp; Schema Validation</strong> <em>(Counters Insecure Deserialization)</em> — Enforcing schema-validated JSON over native object deserialization, or cryptographically signing serialized objects.</li>
+<li><strong>File System Virtualization &amp; Chroot</strong> <em>(Counters Path Traversal)</em> — Normalizing file paths, using indirect file references, and jailing application execution to the web-root.</li>
+<li><strong>Static Application Security Testing (SAST)</strong> <em>(Counters Mobile Manifest/Config Leaks)</em> — Automatically scanning mobile package configs (<code>AndroidManifest.xml</code>, <code>Info.plist</code>) in the CI/CD pipeline to catch hardcoded secrets.</li>
+<li><strong>Mobile App Hardening &amp; Obfuscation</strong> <em>(Counters Mobile Decompiling)</em> — Packing and obfuscating mobile code (ProGuard, DexGuard) to frustrate reverse engineering tools (JADX, Ghidra).</li>
+<li><strong>Anti-Debugging &amp; RASP</strong> <em>(Counters Runtime Hooking/Frida)</em> — Implementing Runtime Application Self-Protection to detect dynamic instrumentation and crash the app if tampered with.</li>
+<li><strong>Certificate Pinning &amp; Root Detection</strong> <em>(Counters Mobile Sec Control Bypasses)</em> — Hard-coding trusted TLS certificate hashes and implementing root/jailbreak environment checks.</li>
+<li><strong>Mobile IPC &amp; Storage Hardening</strong> <em>(Counters Mobile IPC/Storage Exploitation)</em> — Encrypting local databases (SQLCipher), securing Intents, and disabling cloud backups for sensitive directories.</li>
+</ul>
+<h2>2. Network Layer &amp; Infrastructure Security</h2>
+<ul>
+<li><strong>Protocol Hardening</strong> <em>(Counters Spoofing &amp; Poisoning)</em> — Implementing Dynamic ARP Inspection (DAI), DNSSEC, and disabling legacy broadcast protocols (LLMNR/NBT-NS).</li>
+<li><strong>Encryption in Transit &amp; HSTS</strong> <em>(Counters MitM)</em> — Enforcing HTTP Strict Transport Security and ensuring modern TLS 1.2/1.3 configurations to prevent SSL stripping.</li>
+<li><strong>Network Access Control (NAC) &amp; 802.1X</strong> <em>(Counters Layer 2 Vulnerabilities)</em> — Preventing rogue devices, MAC flooding, and VLAN hopping by requiring endpoint authentication before network access.</li>
+<li><strong>BGP RPKI &amp; Route Filtering</strong> <em>(Counters Routing/Gateway Attacks)</em> — Cryptographically verifying route advertisements and implementing strict BGP filters.</li>
+<li><strong>Anti-DDoS &amp; WAF Architecture</strong> <em>(Counters DoS/DDoS)</em> — Deploying CDNs, Anycast networks, and Web Application Firewalls to absorb and filter volumetric/app-layer attacks.</li>
+<li><strong>Zero Trust Network Access (ZTNA) &amp; Lifecycle Management</strong> <em>(Counters Perimeter Appliance Exploitation)</em> — Phasing out legacy VPNs and firewalls in favor of identity-aware, per-application access gateways, and disabling public admin interfaces.</li>
+</ul>
+<h2>3. Host, OS, &amp; Memory-Level Security (Endpoint Defense)</h2>
+<ul>
+<li><strong>Memory Protections</strong> <em>(Counters Memory Corruption)</em> — Enforcing compiler-level defenses (ASLR, DEP/NX, Stack Canaries, Control Flow Guard) and utilizing memory-safe languages (Rust, Go).</li>
+<li><strong>Virtualization-Based Security (VBS)</strong> <em>(Counters OS Mitigations Bypass)</em> — Isolating kernel processes and credentials (e.g., Windows Credential Guard) from user-mode memory access.</li>
+<li><strong>Anti-Debugging / Anti-Disassembly</strong> <em>(Counters Debugger-Based Analysis)</em> — Compiling software with environment checks (e.g., <code>IsDebuggerPresent</code>) to detect runtime debuggers and halt execution.</li>
+<li><strong>Privilege Management (EPM)</strong> <em>(Counters Local Priv Esc)</em> — Enforcing the Principle of Least Privilege, removing local admin rights, implementing UAC limits, and rapid kernel patching.</li>
+<li><strong>Application Control / Allow-listing</strong> <em>(Counters Living off the Land - LotL)</em> — Restricting trusted administrative utilities via AppLocker, WDAC, and PowerShell Constrained Language Mode.</li>
+<li><strong>Endpoint Detection &amp; Response (EDR) / Memory Scanning</strong> <em>(Counters Fileless Malware)</em> — Monitoring process telemetry, reflective module loading, and dynamic memory allocations to catch fileless execution.</li>
+</ul>
+<h2>4. Identity, Authentication, &amp; Cryptography</h2>
+<ul>
+<li><strong>Phishing-Resistant MFA</strong> <em>(Counters Credential Attacks)</em> — Defeating brute force, password spraying, and stuffing by requiring FIDO2 hardware keys (YubiKey) or Windows Hello.</li>
+<li><strong>Active Directory Hardening</strong> <em>(Counters AD Core Exploitation)</em> — Implementing Tiered Administration (Tier 0/1/2), LAPS (Local Administrator Password Solution), and disabling RC4 (mitigates Kerberoasting).</li>
+<li><strong>PKI &amp; Certificate Security</strong> <em>(Counters AD Trusts &amp; Cert Abuse)</em> — Securing ADCS by enabling Extended Protection for Authentication (EPA) and strictly controlling ESC templates and delegations.</li>
+<li><strong>Directory State &amp; ACL Monitoring</strong> <em>(Counters AD Policy &amp; Control Manipulation)</em> — Continuously auditing AD Permissions (BloodHound Enterprise, PingCastle) to detect rogue delegations or hidden GPO backdoors.</li>
+<li><strong>Micro-segmentation &amp; Host Firewalls</strong> <em>(Counters Lateral Movement)</em> — Blocking PtH/PtT by preventing direct workstation-to-workstation communication over RPC and SMB.</li>
+<li><strong>Cryptographic Agility</strong> <em>(Counters Crypto Downgrade Attacks)</em> — Enforcing strict cipher suite ordering and disabling legacy SSL/TLS fallback mechanisms.</li>
+<li><strong>Cryptographic Standardization</strong> <em>(Counters Cryptographic Weaknesses)</em> — Mandating industry-standard algorithms (AES-GCM, SHA-3), strong PRNGs, and deprecating weak collision-prone hashes (MD5, SHA-1).</li>
+</ul>
+<h2>5. Supply Chain, Cloud, &amp; DevOps Security (DevSecOps)</h2>
+<ul>
+<li><strong>IAM Least Privilege &amp; SCPs</strong> <em>(Counters Cloud Priv Esc)</em> — Restricting cloud roles, enforcing Service Control Policies, and requiring IMDSv2 to prevent metadata access.</li>
+<li><strong>Cloud Security Posture Management (CSPM)</strong> <em>(Counters Cloud Misconfigs)</em> — Continuously auditing cloud environments for exposed S3 buckets, open security groups, and Entra ID misconfigurations.</li>
+<li><strong>Container Security &amp; Seccomp</strong> <em>(Counters Container Breakouts)</em> — Running rootless containers, utilizing Distroless base images, and enforcing strict AppArmor/Seccomp profiles.</li>
+<li><strong>Kubernetes Hardening &amp; Network Policies</strong> <em>(Counters K8s Compromise)</em> — Enforcing Pod Security Admission, default-deny namespace policies, and mTLS between control plane components.</li>
+<li><strong>Internal Artifact Registries</strong> <em>(Counters Dependency Confusion/Typosquatting)</em> — Claiming internal package names on public registries and enforcing builds from private, verified repositories.</li>
+<li><strong>Software Composition Analysis (SCA) &amp; Pipeline Hardening</strong> <em>(Counters Compromised Updates)</em> — Generating SBOMs, auditing third-party dependencies, and enforcing cryptographically signed commits in CI/CD.</li>
+</ul>
+<h2>6. Hardware &amp; Physical Security</h2>
+<ul>
+<li><strong>Physical Access Controls</strong> <em>(Counters Physical Red Teaming)</em> — Implementing mantraps, anti-passback turnstiles, biometric scanners, and CCTV to deter physical entry lock bypasses.</li>
+<li><strong>High-Frequency/Encrypted RFID</strong> <em>(Counters RFID &amp; Badge Cloning)</em> — Replacing legacy proximity cards with modern, cryptographically secure smart badges (e.g., DESFire EV2/EV3).</li>
+<li><strong>Peripheral Port Blocking &amp; MDM</strong> <em>(Counters Rogue Devices)</em> — Disabling physical USB data access via GPO, MDM policies, or physical epoxy to block Rubber Duckies/LAN Turtles.</li>
+<li><strong>Full Disk Encryption (FDE) &amp; Secure Boot</strong> <em>(Counters Evil Maid Attacks)</em> — Encrypting drives (BitLocker/FileVault) and enforcing hardware-rooted boot integrity (TPM) against unattended tampering.</li>
+<li><strong>Hardware Isolation &amp; Microcode Mitigations</strong> <em>(Counters Side-Channel Attacks)</em> — Implementing hardware patches (e.g., Meltdown/Spectre mitigations) to isolate CPU cache memory execution.</li>
+<li><strong>Firmware Integrity &amp; Measured Boot</strong> <em>(Counters Firmware/Microcode Exploits)</em> — Validating cryptographic signatures of the BIOS/UEFI at boot to ensure the system hasn't been compromised by a rootkit.</li>
+</ul>
+<h2>7. Human Element (Security Awareness &amp; Culture)</h2>
+<ul>
+<li><strong>Email Authentication &amp; SEGs</strong> <em>(Counters Phishing &amp; Multi-Channel)</em> — Configuring strict DMARC/SPF/DKIM records and Secure Email Gateways to drop spoofed emails before reaching users.</li>
+<li><strong>Security Awareness Training (SAT) &amp; Clear Desk Policies</strong> <em>(Counters Baiting Campaigns)</em> — Educating staff not to plug in unknown hardware and strictly enforcing policies that secure physical workstations.</li>
+<li><strong>Challenge Culture</strong> <em>(Counters Tailgating &amp; Piggybacking)</em> — Empowering and requiring employees to actively challenge unbadged individuals at access points.</li>
+</ul>
+<h2>8. SecOps, Threat Hunting, &amp; Defense Methodology</h2>
+<ul>
+<li><strong>Attack Surface Management (ASM) &amp; DRP</strong> <em>(Counters Advanced OSINT Automation)</em> — Continuously scanning the internet and dark web for exposed subdomains, open ports, and unauthorized code commits.</li>
+<li><strong>Credential Monitoring &amp; Automated Revocation</strong> <em>(Counters Credential Leak Parsing)</em> — Ingesting public breach databases and automatically forcing password resets for affected corporate accounts.</li>
+<li><strong>Threat Intelligence &amp; IoC Ingestion</strong> <em>(Counters Red Team Infra)</em> — Consuming CTI feeds to proactively block malicious ASNs, known domains, and IPs used by offensive infrastructure.</li>
+<li><strong>TLS Fingerprinting &amp; Traffic Analysis</strong> <em>(Counters C2 Customization)</em> — Utilizing JA3/JA4 TLS fingerprinting and beaconing analysis (jitter/frequency patterns) to identify hidden C2 traffic.</li>
+<li><strong>Egress Monitoring &amp; SSL/TLS Decryption</strong> <em>(Counters Covert Communications)</em> — Inspecting outbound traffic at the proxy level to detect Domain Fronting and stop tunneling to third-party APIs.</li>
+<li><strong>Deception Technology</strong> <em>(Counters Smart Traffic Filtering)</em> — Deploying honeypots, honeytokens, and fake network shares to catch attackers probing the network, ignoring dummy reverse proxies.</li>
+<li><strong>Dynamic Analysis &amp; Memory Scanning</strong> <em>(Counters Custom Loaders)</em> — Utilizing sandboxing and in-memory YARA scanning to detect decrypted payloads after execution.</li>
+<li><strong>Telemetry Integrity &amp; Anti-Tampering</strong> <em>(Counters AMSI &amp; ETW Bypasses)</em> — Protecting monitoring interfaces using OS-level protections (like Windows Protected Process Light - PPL) to prevent memory patching.</li>
+<li><strong>Syscall Monitoring &amp; Kernel Callbacks</strong> <em>(Counters User-Mode API Evasion)</em> — Deploying advanced EDRs that monitor kernel callbacks (ETWti) and thread call stacks to detect direct/indirect syscall abuse.</li>
+<li><strong>Process Injection &amp; Behavioral Monitoring</strong> <em>(Counters Process Injection)</em> — Alerting on anomalous Parent-Child process trees, cross-process memory allocations, and hollowed processes.</li>
+<li><strong>OT/ICS Defense &amp; Segmentation</strong> <em>(Counters OT/ICS Protocol Manipulation)</em> — Strictly enforcing the Purdue Model to isolate Operational Technology and utilizing non-disruptive, passive monitoring tools (Claroty, Nozomi).</li>
+<li><strong>AI/LLM Application Defense (AI TRiSM)</strong> <em>(Counters AI Red Teaming)</em> — Implementing AI Trust, Risk, and Security Management: input sanitization for Prompt Injections, output filtering, and protecting model weights.</li>
+<li><strong>Continuous Validation &amp; BAS</strong> <em>(Counters Adversary Emulation)</em> — Using Breach and Attack Simulation tools (Atomic Red Team) to constantly test and refine Blue Team visibility against mapped CTI profiles.</li>
+<li><strong>Log Aggregation &amp; SIEM Correlation</strong> <em>(Counters OPSEC &amp; Data Staging)</em> — Centralizing telemetry (Sysmon, Zeek) to detect anomalous file archiving, encryption, or staging behaviors prior to exfiltration.</li>
+<li><strong>Data Loss Prevention (DLP) &amp; Anomaly Detection</strong> <em>(Counters Covert Exfil)</em> — Blocking unexpected ICMP/DNS tunneling and utilizing DLP engines to detect large, sensitive data flows moving to unauthorized SaaS endpoints.</li>
+<li><strong>Risk Quantification &amp; Prioritization</strong> <em>(Counters Report Writing)</em> — Using frameworks like FAIR, SSVC, or EPSS to translate identified vulnerabilities into actionable, prioritized business risks.</li>
+<li><strong>Collaborative Defense &amp; SOAR</strong> <em>(Counters Purple Teaming)</em> — Establishing automated Incident Response playbooks (SOAR) based on the validated findings from Purple Team exercises.</li>
+<li><strong>Detection Engineering &amp; Rule Lifecycle</strong> <em>(Counters Detection Engineering)</em> — Continuously writing, tuning, and deploying customized behavior-based rulesets (Sigma, Snort, YARA) mapped strictly to the MITRE ATT&amp;CK framework.</li>
+</ul></main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
