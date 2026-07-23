@@ -47,8 +47,8 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── all_tools.html
 │   └── posts/              # Compiled HTML tool profiles
 │
-├── cybersecurity_tutorials/
-│   ├── index.html          # Security tutorials & walkthroughs log
+├── cybersecurity_audio/
+│   ├── index.html          # Audio tutorials & walkthroughs log
 │   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
 │
 ├── systems/
@@ -90,7 +90,7 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
 ### Navigation Hierarchy
 *   `[ HOME ]` -> `/`
 *   `[ CYBERSECURITY ]` (Dropdown):
-    *   `Security Tutorials` -> `/cybersecurity_tutorials/`
+    *   `Audio Tutorials` -> `/cybersecurity_audio/`
     *   `Tools & Scripts` -> `/cybersecurity_tools/`
     *   `Certifications` -> `/cybersecurity_certifications/`
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)

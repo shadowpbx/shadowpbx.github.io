@@ -18,7 +18,7 @@ FOLDER_CONFIGS = {
     "cybersecurity_certifications": {"type": "standard", "default_tag": "CERT"},
     "cybersecurity_curriculum": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
     "cybersecurity_study_modules": {"type": "standard", "default_tag": "MODULES"},
-    "cybersecurity_tutorials": {"type": "standard", "default_tag": "TUTORIAL"},
+    "cybersecurity_audio": {"type": "standard", "default_tag": "AUDIO"},
     "cybersecurity_tools": {"type": "tools"},
     "systems": {"type": "standard", "default_tag": "SYSTEMS"},
     "systems_articles": {"type": "standard", "default_tag": "SYSTEMS"},
@@ -163,7 +163,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                 <div class="dropdown">
                     <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
-                        <a href="/cybersecurity_tutorials/">Security Tutorials</a>
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
                         <a href="/cybersecurity_tools/">Tools & Scripts</a>
                         <a href="/cybersecurity_certifications/">Certifications</a>
                         <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
