@@ -10,6 +10,7 @@ This file serves as a system guide for any AI assistant or developer working ins
 *   `posts/`: Output directory containing compiled HTML pages.
 *   `post_template.html`: HTML layout template used to wrap individual audio tutorial pages.
 *   `Cybersecurity_Concise/`: Custom audio-guided master index study player.
+*   `assets/`: Hosted audio samples (`assets/audio/`) and 1-click Python script downloads (`assets/code/`).
 
 ---
 

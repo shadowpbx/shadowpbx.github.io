@@ -10,7 +10,7 @@ summary: "A production-ready guide and code archive for building a fully local V
         <strong>Purpose:</strong> Designed as both a personal journal and a definitive code archive, this guide details how to build a production-ready, fully local <strong>VoxCPM2</strong> ecosystem. It contains everything needed—from PyTorch environment setup to deploying a background Text-to-MP3 watcher daemon—to recreate the system entirely from scratch.
     </p>
     <p style="margin: 0.75rem 0 0 0; font-size: 0.9rem; line-height: 1.5; color: #475569;">
-        💡 <em>Looking to clean & extract raw vocal samples first? Check out our companion guide: <a href="/systems_articles/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html" style="color: #4338ca; font-weight: 700; text-decoration: underline;">Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu</a>.</em>
+        💡 <em>Looking to clean & extract raw vocal samples first? Check out our companion guide: <a href="/cybersecurity_audio/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html" style="color: #4338ca; font-weight: 700; text-decoration: underline;">Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu</a>.</em>
     </p>
 </div>
 
@@ -145,7 +145,7 @@ Place isolated vocal WAV files inside `clone/`. The registered reference voice f
 voxcpm2/clone/1_thomas_segment_125_219_(Vocals).wav
 ```
 
-*(This clean vocal track was isolated using the MDX-Net model in UVR5. For the complete step-by-step vocal extraction guide, see: [Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu](/systems_articles/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html)).*
+*(This clean vocal track was isolated using the MDX-Net model in UVR5. For the complete step-by-step vocal extraction guide, see: [Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu](/cybersecurity_audio/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html)).*
 
 ---
 
@@ -302,10 +302,10 @@ You can download the raw, ready-to-run Python scripts directly or expand the acc
 <div style="margin: 1.5rem 0 2.5rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
     <p style="margin-top: 0; font-weight: 700; color: #0f172a; font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">📦 1-Click Code Downloads</p>
     <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-        <a href="/systems_articles/assets/code/voxcpm2/run.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download run.py ]</a>
-        <a href="/systems_articles/assets/code/voxcpm2/watch_input.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download watch_input.py ]</a>
-        <a href="/systems_articles/assets/code/voxcpm2/say.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download say.py ]</a>
-        <a href="/systems_articles/assets/code/voxcpm2/clone_thomas.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download clone_thomas.py ]</a>
+        <a href="/cybersecurity_audio/assets/code/voxcpm2/run.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download run.py ]</a>
+        <a href="/cybersecurity_audio/assets/code/voxcpm2/watch_input.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download watch_input.py ]</a>
+        <a href="/cybersecurity_audio/assets/code/voxcpm2/say.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download say.py ]</a>
+        <a href="/cybersecurity_audio/assets/code/voxcpm2/clone_thomas.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download clone_thomas.py ]</a>
     </div>
 </div>
 
