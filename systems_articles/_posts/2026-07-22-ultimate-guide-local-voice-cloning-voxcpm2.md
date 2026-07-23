@@ -9,6 +9,9 @@ summary: "A production-ready guide and code archive for building a fully local V
     <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
         <strong>Purpose:</strong> Designed as both a personal journal and a definitive code archive, this guide details how to build a production-ready, fully local <strong>VoxCPM2</strong> ecosystem. It contains everything needed—from PyTorch environment setup to deploying a background Text-to-MP3 watcher daemon—to recreate the system entirely from scratch.
     </p>
+    <p style="margin: 0.75rem 0 0 0; font-size: 0.9rem; line-height: 1.5; color: #475569;">
+        💡 <em>Looking to clean & extract raw vocal samples first? Check out our companion guide: <a href="/systems_articles/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html" style="color: #4338ca; font-weight: 700; text-decoration: underline;">Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu</a>.</em>
+    </p>
 </div>
 
 ---
@@ -142,7 +145,7 @@ Place isolated vocal WAV files inside `clone/`. The registered reference voice f
 voxcpm2/clone/1_thomas_segment_125_219_(Vocals).wav
 ```
 
-*(This clean vocal track was isolated using UVR5 MDX-Net model from Thomas's audio file).*
+*(This clean vocal track was isolated using the MDX-Net model in UVR5. For the complete step-by-step vocal extraction guide, see: [Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu](/systems_articles/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html)).*
 
 ---
 
