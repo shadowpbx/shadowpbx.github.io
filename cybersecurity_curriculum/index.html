@@ -146,6 +146,90 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* MACROVIEW ECOSYSTEM SECTION STYLES */
+        .macroview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .macro-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .macro-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .macro-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .macro-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0.25rem 0 0.5rem 0;
+        }
+
+        .macro-desc {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .macro-foundation { border-left: 3px solid #059669; }
+        .macro-foundation .macro-badge { background: rgba(5, 150, 105, 0.1); color: #059669; }
+        .macro-foundation:hover { border-color: #059669; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15); }
+
+        .macro-white { border-left: 3px solid #64748b; }
+        .macro-white .macro-badge { background: rgba(100, 116, 139, 0.12); color: #64748b; }
+        .macro-white:hover { border-color: #64748b; box-shadow: 0 4px 14px rgba(100, 116, 139, 0.15); }
+
+        .macro-yellow { border-left: 3px solid #d97706; }
+        .macro-yellow .macro-badge { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+        .macro-yellow:hover { border-color: #d97706; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15); }
+
+        .macro-blue { border-left: 3px solid #2563eb; }
+        .macro-blue .macro-badge { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+        .macro-blue:hover { border-color: #2563eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15); }
+
+        .macro-red { border-left: 3px solid #dc2626; }
+        .macro-red .macro-badge { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+        .macro-red:hover { border-color: #dc2626; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.15); }
+
+        .macro-purple { border-left: 3px solid #8e44ad; }
+        .macro-purple .macro-badge { background: rgba(142, 68, 173, 0.12); color: #8e44ad; }
+        .macro-purple:hover { border-color: #8e44ad; box-shadow: 0 4px 14px rgba(142, 68, 173, 0.15); }
+
+        .macro-dfir { border-left: 3px solid #4f46e5; }
+        .macro-dfir .macro-badge { background: rgba(79, 70, 229, 0.12); color: #4f46e5; }
+        .macro-dfir:hover { border-color: #4f46e5; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.15); }
+
+        @media (max-width: 900px) {
+            .macroview-grid {
+                grid-template-columns: 1fr;
+            }
+            .macro-dfir {
+                grid-column: span 1 !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -187,6 +271,60 @@
     </header>
 
     <div class="container">
+        <!-- MACROVIEW ECOSYSTEM SECTION -->
+        <section id="macroview" style="margin-bottom: 3.5rem;">
+            <h2 style="font-family: var(--font-main); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; color: var(--text-primary); font-weight: 600;">
+                <span style="font-family: var(--font-mono); color: var(--accent); margin-right: 8px; font-size: 1.4rem; font-weight: 700;">00 //</span> Macroview of Cybersecurity
+            </h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6;">
+                Understanding the complete security landscape: how risk management, systems architecture, defense, offense, and forensics interconnect across the enterprise.
+            </p>
+
+            <div class="macroview-grid">
+                <div class="macro-card macro-foundation">
+                    <div class="macro-badge">FOUNDATION</div>
+                    <h3 class="macro-title">Core Protocols &amp; Theory</h3>
+                    <p class="macro-desc">Learning the rules of the game: CIA Triad, OSI &amp; TCP/IP stack models, access control primitives, and cryptographic foundations.</p>
+                </div>
+
+                <div class="macro-card macro-white">
+                    <div class="macro-badge">WHITE TEAM</div>
+                    <h3 class="macro-title">GRC &amp; Risk Governance</h3>
+                    <p class="macro-desc">Identifying business risk, establishing security policies, auditing compliance standards (NIST CSF, ISO 27001, SOC 2), and managing governance.</p>
+                </div>
+
+                <div class="macro-card macro-yellow">
+                    <div class="macro-badge">YELLOW TEAM</div>
+                    <h3 class="macro-title">Security Architecture</h3>
+                    <p class="macro-desc">Engineers and developers building resilient infrastructure, hardened systems, secure OS frameworks, and zero-trust topologies.</p>
+                </div>
+
+                <div class="macro-card macro-blue">
+                    <div class="macro-badge">BLUE TEAM</div>
+                    <h3 class="macro-title">Defense &amp; SOC Operations</h3>
+                    <p class="macro-desc">Active defenders monitoring SIEM telemetry, deploying EDR agents, analyzing intrusions, and executing real-time threat mitigation.</p>
+                </div>
+
+                <div class="macro-card macro-red">
+                    <div class="macro-badge">RED TEAM</div>
+                    <h3 class="macro-title">Offensive Security &amp; Audit</h3>
+                    <p class="macro-desc">Ethical hackers simulating adversary tactics, techniques, and procedures (TTPs) to expose vulnerabilities before malicious actors do.</p>
+                </div>
+
+                <div class="macro-card macro-purple">
+                    <div class="macro-badge">PURPLE TEAM</div>
+                    <h3 class="macro-title">Integration &amp; Hardening</h3>
+                    <p class="macro-desc">Collaborative feedback loop where offensive findings directly inform defensive detection rules, closing vulnerability gaps rapidly.</p>
+                </div>
+
+                <div class="macro-card macro-dfir" style="grid-column: span 3;">
+                    <div class="macro-badge">DFIR &amp; CTI</div>
+                    <h3 class="macro-title">Digital Forensics &amp; Cyber Threat Intelligence</h3>
+                    <p class="macro-desc">When security breaches occur, forensic detectives step in to analyze disk images, memory artifacts, and network pcap captures to attribute threat actors, uncover root causes, and guide incident recovery.</p>
+                </div>
+            </div>
+        </section>
+
         <span class="section-label">Cybersecurity Curriculum (35 Chapters)</span>
         <div class="curriculum-grid" id="curriculum-posts">
             <!-- POSTS_START -->
