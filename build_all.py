@@ -194,7 +194,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
         {body}
         
         <footer style="margin-top: 5rem;">
-            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
         </footer>
     </div>
 
