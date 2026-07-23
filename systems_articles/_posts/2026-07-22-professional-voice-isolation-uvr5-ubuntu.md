@@ -1,7 +1,7 @@
 ---
 title: "Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu"
 date: "2026.07.22"
-tags: ["SYSTEMS", "AUDIO"]
+tags: ["AUDIO"]
 summary: "A complete guide on installing, configuring, and GPU-accelerating Ultimate Vocal Remover 5 (UVR5) on Ubuntu for professional voice isolation and AI dataset preparation."
 ---
 
@@ -24,19 +24,19 @@ Below are the actual sample audio files processed using this UVR5 pipeline:
 <div style="margin: 1.5rem 0; padding: 1.25rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
     <p style="margin-top: 0; font-weight: 600; color: #0f172a;">1. Original Audio Segment (MP3 Sample):</p>
     <audio controls style="width: 100%; margin-bottom: 0.75rem;">
-        <source src="/cybersecurity_audio/assets/audio/thomas_segment_125_219.mp3" type="audio/mpeg">
+        <source src="/systems_articles/assets/audio/thomas_segment_125_219.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-    <a href="/cybersecurity_audio/assets/audio/thomas_segment_125_219.mp3" download style="font-family: var(--font-mono); font-size: 0.85rem; color: #4338ca; font-weight: 700; text-decoration: none;">[ ⬇ Download Original MP3 ]</a>
+    <a href="/systems_articles/assets/audio/thomas_segment_125_219.mp3" download style="font-family: var(--font-mono); font-size: 0.85rem; color: #4338ca; font-weight: 700; text-decoration: none;">[ ⬇ Download Original MP3 ]</a>
 </div>
 
 <div style="margin: 1.5rem 0; padding: 1.25rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
     <p style="margin-top: 0; font-weight: 600; color: #0f172a;">2. Isolated & Denoised Vocal Output (32-bit Float WAV):</p>
     <audio controls style="width: 100%; margin-bottom: 0.75rem;">
-        <source src="/cybersecurity_audio/assets/audio/1_thomas_segment_125_219_(Vocals).wav" type="audio/wav">
+        <source src="/systems_articles/assets/audio/1_thomas_segment_125_219_(Vocals).wav" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
-    <a href="/cybersecurity_audio/assets/audio/1_thomas_segment_125_219_(Vocals).wav" download style="font-family: var(--font-mono); font-size: 0.85rem; color: #4338ca; font-weight: 700; text-decoration: none;">[ ⬇ Download Isolated Vocal WAV ]</a>
+    <a href="/systems_articles/assets/audio/1_thomas_segment_125_219_(Vocals).wav" download style="font-family: var(--font-mono); font-size: 0.85rem; color: #4338ca; font-weight: 700; text-decoration: none;">[ ⬇ Download Isolated Vocal WAV ]</a>
 </div>
 
 ---
