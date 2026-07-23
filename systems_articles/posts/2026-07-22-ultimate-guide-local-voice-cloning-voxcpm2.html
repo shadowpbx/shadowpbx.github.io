@@ -131,8 +131,7 @@
 <li><a href="#9-one-click-master-launchers-runpy--startpy">One-Click Master Launchers (<code>run.py</code> &amp; <code>start.py</code>)</a></li>
 <li><a href="#10-folder-directory-standardization">Folder Directory Standardization</a></li>
 <li><a href="#11-git-version-control--safe-checkpoint-tagging">Git Version Control &amp; Safe Checkpoint Tagging</a></li>
-<li><a href="#12-essential-files-to-save--share-with-others">Essential Files to Save &amp; Share with Others</a></li>
-<li><a href="#13-full-source-code-archive">Full Source Code Archive</a></li>
+<li><a href="#12-full-source-code-archive">Full Source Code Archive</a></li>
 </ol>
 <hr />
 <h2>1. System &amp; Hardware Requirements</h2>
@@ -316,21 +315,7 @@ git tag -a safe -m &quot;Safe working checkpoint&quot; -f
 <p>To revert to this safe working point anytime in the future:</p>
 <pre><code class="language-bash">git checkout safe
 </code></pre>
-<hr />
-<h2>12. Essential Files to Save &amp; Share with Others</h2>
-<p>If you want to backup or share this custom setup with someone else without sharing large 4.7 GB model weights or audio outputs, share these <strong>8 essential files</strong>:</p>
-<ol>
-<li><strong><code>voxcpm2/run.py</code></strong> — Master launcher script.</li>
-<li><strong><code>voxcpm2/watch_input.py</code></strong> — Folder watcher daemon with 300-word sentence chunking &amp; dual progress bar.</li>
-<li><strong><code>voxcpm2/say.py</code></strong> — CLI voice generator tool.</li>
-<li><strong><code>voxcpm2/clone_thomas.py</code></strong> — Standalone voice cloning script.</li>
-<li><strong><code>voxcpm2/clone/1_thomas_segment_125_219_(Vocals).wav</code></strong> — Thomas's reference vocal sample.</li>
-<li><strong><code>voxcpm2/README.md</code></strong> — Basic user guide.</li>
-<li><strong><code>voxcpm2/TUTORIAL.md</code></strong> — This complete disaster recovery guide and code archive.</li>
-<li><strong><code>.gitignore</code></strong> — Git ignore configuration.</li>
-</ol>
-<hr />
-<h2>13. Full Source Code Archive</h2>
+<h2>12. Full Source Code Archive</h2>
 <p>Below is the complete, un-truncated source code for all custom Python scripts in the system.</p>
 <hr />
 <h3>Script 1: <code>voxcpm2/run.py</code> (Master Launcher)</h3>

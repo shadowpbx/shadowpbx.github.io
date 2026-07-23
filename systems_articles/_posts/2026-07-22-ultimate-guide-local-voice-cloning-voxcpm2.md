@@ -26,8 +26,7 @@ summary: "A production-ready guide and code archive for building a fully local V
 9. [One-Click Master Launchers (`run.py` & `start.py`)](#9-one-click-master-launchers-runpy--startpy)
 10. [Folder Directory Standardization](#10-folder-directory-standardization)
 11. [Git Version Control & Safe Checkpoint Tagging](#11-git-version-control--safe-checkpoint-tagging)
-12. [Essential Files to Save & Share with Others](#12-essential-files-to-save--share-with-others)
-13. [Full Source Code Archive](#13-full-source-code-archive)
+12. [Full Source Code Archive](#12-full-source-code-archive)
 
 ---
 
@@ -293,24 +292,7 @@ To revert to this safe working point anytime in the future:
 git checkout safe
 ```
 
----
-
-## 12. Essential Files to Save & Share with Others
-
-If you want to backup or share this custom setup with someone else without sharing large 4.7 GB model weights or audio outputs, share these **8 essential files**:
-
-1. **`voxcpm2/run.py`** — Master launcher script.
-2. **`voxcpm2/watch_input.py`** — Folder watcher daemon with 300-word sentence chunking & dual progress bar.
-3. **`voxcpm2/say.py`** — CLI voice generator tool.
-4. **`voxcpm2/clone_thomas.py`** — Standalone voice cloning script.
-5. **`voxcpm2/clone/1_thomas_segment_125_219_(Vocals).wav`** — Thomas's reference vocal sample.
-6. **`voxcpm2/README.md`** — Basic user guide.
-7. **`voxcpm2/TUTORIAL.md`** — This complete disaster recovery guide and code archive.
-8. **`.gitignore`** — Git ignore configuration.
-
----
-
-## 13. Full Source Code Archive
+## 12. Full Source Code Archive
 
 Below is the complete, un-truncated source code for all custom Python scripts in the system.
 
