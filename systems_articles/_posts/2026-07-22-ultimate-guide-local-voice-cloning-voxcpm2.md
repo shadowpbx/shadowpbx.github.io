@@ -292,13 +292,26 @@ To revert to this safe working point anytime in the future:
 git checkout safe
 ```
 
-## 12. Full Source Code Archive
+## 12. Full Source Code Archive & Direct Downloads
 
-Below is the complete, un-truncated source code for all custom Python scripts in the system.
+You can download the raw, ready-to-run Python scripts directly or expand the accordions below to inspect the source code online.
+
+<div style="margin: 1.5rem 0 2.5rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+    <p style="margin-top: 0; font-weight: 700; color: #0f172a; font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">📦 1-Click Code Downloads</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+        <a href="/systems_articles/assets/code/voxcpm2/run.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download run.py ]</a>
+        <a href="/systems_articles/assets/code/voxcpm2/watch_input.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download watch_input.py ]</a>
+        <a href="/systems_articles/assets/code/voxcpm2/say.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download say.py ]</a>
+        <a href="/systems_articles/assets/code/voxcpm2/clone_thomas.py" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download clone_thomas.py ]</a>
+    </div>
+</div>
 
 ---
 
 ### Script 1: `voxcpm2/run.py` (Master Launcher)
+
+<details>
+<summary style="font-family: var(--font-mono); font-weight: 700; cursor: pointer; color: #4338ca; padding: 0.5rem 0;">▶ Click to View Source Code: voxcpm2/run.py</summary>
 
 ```python
 #!/usr/bin/env python3
@@ -370,10 +383,14 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+</details>
 
 ---
 
 ### Script 2: `voxcpm2/watch_input.py` (Automated Text-to-MP3 Watcher Daemon)
+
+<details>
+<summary style="font-family: var(--font-mono); font-weight: 700; cursor: pointer; color: #4338ca; padding: 0.5rem 0;">▶ Click to View Source Code: voxcpm2/watch_input.py</summary>
 
 ```python
 #!/usr/bin/env python3
@@ -663,11 +680,14 @@ def process_all(
 
 if __name__ == "__main__":
     app()
-```
+</details>
 
 ---
 
 ### Script 3: `voxcpm2/say.py` (CLI Voice Generator Utility)
+
+<details>
+<summary style="font-family: var(--font-mono); font-weight: 700; cursor: pointer; color: #4338ca; padding: 0.5rem 0;">▶ Click to View Source Code: voxcpm2/say.py</summary>
 
 ```python
 #!/usr/bin/env python3
@@ -882,10 +902,14 @@ def speak(
 if __name__ == "__main__":
     app()
 ```
+</details>
 
 ---
 
 ### Script 4: `voxcpm2/clone_thomas.py` (Voice Cloning Script)
+
+<details>
+<summary style="font-family: var(--font-mono); font-weight: 700; cursor: pointer; color: #4338ca; padding: 0.5rem 0;">▶ Click to View Source Code: voxcpm2/clone_thomas.py</summary>
 
 ```python
 #!/usr/bin/env python3
@@ -975,3 +999,4 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+</details>
