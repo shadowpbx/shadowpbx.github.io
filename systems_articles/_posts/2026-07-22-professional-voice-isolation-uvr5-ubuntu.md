@@ -5,7 +5,11 @@ tags: ["SYSTEMS", "AUDIO"]
 summary: "A complete guide on installing, configuring, and GPU-accelerating Ultimate Vocal Remover 5 (UVR5) on Ubuntu for professional voice isolation and AI dataset preparation."
 ---
 
-*A complete journaling guide on installing, configuring, and GPU-accelerating Ultimate Vocal Remover 5 (UVR5) for professional noise reduction and VoxCPM2 voice cloning.*
+<div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #4338ca; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
+        A complete journaling guide on installing, configuring, and GPU-accelerating <strong>Ultimate Vocal Remover 5 (UVR5)</strong> for professional noise reduction and VoxCPM2 voice cloning.
+    </p>
+</div>
 
 Whether you are building a text-to-speech dataset for voice cloning, cleaning up a noisy podcast interview, or trying to salvage dialogue for a film, the biggest hurdle is getting perfectly clean, dry vocal audio. Background music, ambient street noise, room echo, and HVAC hum will absolutely ruin an AI voice model or a professional mix. 
 
