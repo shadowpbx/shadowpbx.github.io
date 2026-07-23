@@ -110,6 +110,7 @@ All layouts inherit from the central `/global.css` file:
 *   **Secondary Text:** `#2c3e50` (Slate-800 / Dark Charcoal)
 *   **Terminal Prompt Green:** `#059669`
 *   **Borders:** `#e2e8f0` (Slate-200)
+*   **Mobile Fluid Typography:** Post titles in all `post_template.html` files use fluid font scaling (`font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;` with `line-height: 1.3`) under `@media (max-width: 768px)` so long titles scale cleanly on mobile devices (e.g. iPhone X) without filling the viewport.
 
 ---
 
