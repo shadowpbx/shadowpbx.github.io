@@ -4,6 +4,7 @@ Collection of general-purpose software engineering, Linux administration, and co
 
 ## Recent Articles
 <!-- POSTS_START -->
+- [Modified Kokoro-82M Engine: Zero-Word-Cut Processing, Automated Watcher & Full Source](https://shadowpbx.github.io/systems_articles/posts/2026-07-22-modified-kokoro-82m-engine-zero-word-cut-processing.html)
 - [The Ultimate Guide to Local Voice Cloning with VoxCPM2](https://shadowpbx.github.io/systems_articles/posts/2026-07-22-ultimate-guide-local-voice-cloning-voxcpm2.html)
 - [Professional Voice Isolation & Audio Cleanup: The Ultimate UVR5 Workflow on Ubuntu](https://shadowpbx.github.io/systems_articles/posts/2026-07-22-professional-voice-isolation-uvr5-ubuntu.html)
 - [Solving Wi-Fi Auto-Connect Race Conditions & Configuration Traps in Buildroot for Raspberry Pi Zero 2 W](https://shadowpbx.github.io/systems_articles/posts/2026-04-04-buildroot-rasp-pi-wifi-fix.html)
