@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Guide to Local Voice Cloning with VoxCPM2 | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important;
+            color: #4338ca !important;
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
+    
+        @media (max-width: 768px) {
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/systems/" class="nav-link">[ SYSTEMS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/systems_articles/">Articles & Guides</a>
+                        <a href="/systems_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/systems/articles$ cat article.md</div>
+            <h1>The Ultimate Guide to Local Voice Cloning with VoxCPM2</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #4338ca; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
+        <strong>Purpose:</strong> Designed as both a personal journal and a definitive code archive, this guide details how to build a production-ready, fully local <strong>VoxCPM2</strong> ecosystem. It contains everything needed—from PyTorch environment setup to deploying a background Text-to-MP3 watcher daemon—to recreate the system entirely from scratch.
+    </p>
+</div>
+
+<hr />
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#1-system--hardware-requirements">System &amp; Hardware Requirements</a></li>
+<li><a href="#2-conda-environment--pytorch-cuda-setup">Conda Environment &amp; PyTorch CUDA Setup</a></li>
+<li><a href="#3-cloning-voxcpm-repository--offline-model-weights">Cloning VoxCPM Repository &amp; Offline Model Weights</a></li>
+<li><a href="#4-voice-cloning-reference--preset-registration-thomas">Voice Cloning Reference &amp; Preset Registration (Thomas)</a></li>
+<li><a href="#5-building-the-cli-voice-generator-tool-saypy">Building the CLI Voice Generator Tool (<code>say.py</code>)</a></li>
+<li><a href="#6-building-the-automated-text-to-mp3-watcher-daemon-watch_inputpy">Building the Automated Text-to-MP3 Watcher Daemon (<code>watch_input.py</code>)</a></li>
+<li><a href="#7-solving-kv-cache-overflow-valueerror-kv-cache-is-full">Solving KV Cache Overflow (<code>ValueError: KV cache is full</code>)</a></li>
+<li><a href="#8-live-terminal-progress-bar--warning-filter">Live Terminal Progress Bar &amp; Warning Filter</a></li>
+<li><a href="#9-one-click-master-launchers-runpy--startpy">One-Click Master Launchers (<code>run.py</code> &amp; <code>start.py</code>)</a></li>
+<li><a href="#10-folder-directory-standardization">Folder Directory Standardization</a></li>
+<li><a href="#11-git-version-control--safe-checkpoint-tagging">Git Version Control &amp; Safe Checkpoint Tagging</a></li>
+<li><a href="#12-essential-files-to-save--share-with-others">Essential Files to Save &amp; Share with Others</a></li>
+<li><a href="#13-full-source-code-archive">Full Source Code Archive</a></li>
+</ol>
+<hr />
+<h2>1. System &amp; Hardware Requirements</h2>
+<ul>
+<li><strong>OS</strong>: Ubuntu Linux 22.04 / 24.04 LTS</li>
+<li><strong>RAM</strong>: 128 GB</li>
+<li><strong>GPU</strong>: Dual NVIDIA GeForce RTX 3060 (12 GB VRAM each, CUDA 12.1 enabled)</li>
+<li><strong>Storage Directory</strong>: <code>~/Application/AI/TTS/voxcpm2</code></li>
+</ul>
+<hr />
+<h2>2. Conda Environment &amp; PyTorch CUDA Setup</h2>
+<h3>Step 2.1: Install Miniconda (if needed)</h3>
+<pre><code class="language-bash">wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b -p ~/miniconda3
+</code></pre>
+<h3>Step 2.2: Create <code>voxcpm</code> Conda Environment (Python 3.11)</h3>
+<pre><code class="language-bash">~/miniconda3/bin/conda create -n voxcpm python=3.11 -y
+</code></pre>
+<h3>Step 2.3: Install PyTorch with CUDA 12.1 Support</h3>
+<pre><code class="language-bash">~/miniconda3/envs/voxcpm/bin/pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+</code></pre>
+<h3>Step 2.4: Install Required Packages</h3>
+<p>You can install dependencies directly or via a standard <code>requirements.txt</code>:</p>
+<pre><code class="language-bash">~/miniconda3/envs/voxcpm/bin/pip install soundfile rich typer modelscope transformers huggingface_hub ffmpeg-python
+</code></pre>
+<h4><code>requirements.txt</code>:</h4>
+<pre><code class="language-text"># PyTorch (Note: Best installed via the PyTorch index for CUDA 12.1 support)
+torch
+torchvision
+torchaudio
+
+# Audio Processing
+soundfile
+ffmpeg-python
+numpy
+
+# CLI &amp; Visualization Tools
+rich
+typer
+tqdm
+
+# Deep Learning &amp; Model Hubs
+modelscope
+transformers
+huggingface_hub
+</code></pre>
+<hr />
+<h2>3. Cloning VoxCPM Repository &amp; Offline Model Weights</h2>
+<h3>Step 3.1: Clone OpenBMB Repository</h3>
+<pre><code class="language-bash">mkdir -p ~/Application/AI/TTS
+cd ~/Application/AI/TTS
+git clone https://github.com/OpenBMB/VoxCPM.git voxcpm2
+cd voxcpm2
+~/miniconda3/envs/voxcpm/bin/pip install -e .
+</code></pre>
+<h3>Step 3.2: Download Model Weights Standalone</h3>
+<p>Download the 2B parameter VoxCPM2 model weights (4.7 GB) and store them directly inside <code>voxcpm2/models/VoxCPM2</code>:</p>
+<pre><code class="language-bash">mkdir -p ~/Application/AI/TTS/voxcpm2/models
+~/miniconda3/envs/voxcpm/bin/python -c &quot;
+from huggingface_hub import snapshot_download
+snapshot_download(repo_id='openbmb/VoxCPM2', local_dir='models/VoxCPM2')
+&quot;
+</code></pre>
+<h3>Step 3.3: Clean Hugging Face Cache to Save Disk Space</h3>
+<p>Delete temporary Hugging Face cache to free up 4.7 GB while keeping local standalone model files intact:</p>
+<pre><code class="language-bash">rm -rf ~/.cache/huggingface/hub/models--openbmb--VoxCPM2
+</code></pre>
+<hr />
+<h2>4. Voice Cloning Reference &amp; Preset Registration (Thomas)</h2>
+<p>Create a <code>clone</code> directory for reference audio:</p>
+<pre><code class="language-bash">mkdir -p voxcpm2/clone
+</code></pre>
+<p>Place isolated vocal WAV files inside <code>clone/</code>. The registered reference voice file for Thomas is:</p>
+<pre><code class="language-text">voxcpm2/clone/1_thomas_segment_125_219_(Vocals).wav
+</code></pre>
+<p><em>(This clean vocal track was isolated using UVR5 MDX-Net model from Thomas's audio file).</em></p>
+<hr />
+<h2>5. Building the CLI Voice Generator Tool (<code>say.py</code>)</h2>
+<p>Create <code>voxcpm2/say.py</code> to allow instant command-line speech generation using voice presets.</p>
+<h3>Features:</h3>
+<ul>
+<li>Accepts text input directly or as a file argument.</li>
+<li>Supports voice presets (<code>--voice thomas</code>).</li>
+<li>Displays live progress bars.</li>
+<li>Automatically saves generated audio to <code>voxcpm2/output/</code>.</li>
+</ul>
+<p>Make it executable:</p>
+<pre><code class="language-bash">chmod +x voxcpm2/say.py
+</code></pre>
+<p>Usage:</p>
+<pre><code class="language-bash">~/miniconda3/envs/voxcpm/bin/python voxcpm2/say.py &quot;Hello world&quot; --voice thomas
+</code></pre>
+<hr />
+<h2>6. Building the Automated Text-to-MP3 Watcher Daemon (<code>watch_input.py</code>)</h2>
+<p>Create <code>voxcpm2/input</code>, <code>voxcpm2/output</code>, and <code>voxcpm2/input/.processed</code>:</p>
+<pre><code class="language-bash">mkdir -p voxcpm2/input/.processed
+mkdir -p voxcpm2/output
+</code></pre>
+<h3>Pipeline Workflow:</h3>
+<ol>
+<li>Drop any <code>.txt</code> file into <code>voxcpm2/input/</code>.</li>
+<li><code>watch_input.py</code> continuously monitors the directory.</li>
+<li>Automatically synthesizes speech using Thomas's cloned voice.</li>
+<li>Converts audio to 320kbps MP3 via FFmpeg in <code>voxcpm2/output/&lt;filename&gt;.mp3</code>.</li>
+<li>Moves processed <code>.txt</code> files to <code>voxcpm2/input/.processed/</code>.</li>
+</ol>
+<hr />
+<h2>7. Solving KV Cache Overflow (<code>ValueError: KV cache is full</code>)</h2>
+<h3>Problem Identified</h3>
+<p>VoxCPM2's internal continuous diffusion auto-regressive backbone has a hard limit of <code>4,096</code> tokens in its KV cache. Passing large documents or whole books (e.g. <em>The Yellow Wallpaper</em>, 6,078 words) in one pass caused <code>ValueError: KV cache is full</code>.</p>
+<h3>Solution: Smart Word-Based Sentence Chunking</h3>
+<p>We built <code>split_text_into_chunks(text, target_words=300)</code>:</p>
+<ol>
+<li><strong>Target Chunk Size:</strong> ~300 words per chunk (~1,500 – 1,800 characters).</li>
+<li><strong>Strict Sentence Boundaries:</strong> Cuts text <strong>only at sentence endings</strong> (<code>.</code>, <code>!</code>, <code>?</code>, <code>;</code>).</li>
+<li><strong>No Mid-Word Cuts:</strong> Never slices words (prevents Kokoro-style bug where <code>strong</code> is cut into <code>str</code> + <code>ong</code>).</li>
+<li><strong>No Mid-Sentence Cuts:</strong> Ensures complete natural phrasing.</li>
+<li><strong>CUDA Memory Management:</strong> Calls <code>torch.cuda.empty_cache()</code> between chunks to prevent GPU VRAM fragmentation.</li>
+<li><strong>Seamless Audio Concatenation:</strong> Combines audio chunks via <code>np.concatenate()</code> into one single continuous MP3 file.</li>
+</ol>
+<hr />
+<h2>8. Live Terminal Progress Bar &amp; Warning Filter</h2>
+<h3>Improvements Added:</h3>
+<ol>
+<li><strong>Suppressed tqdm Output:</strong> Patched internal <code>tqdm.tqdm</code> to eliminate noisy capacity logs (<code>102/4096</code>).</li>
+<li><strong>Silenced Streaming Warnings:</strong> Filtered out <code>UserWarning: Retry on bad cases is not supported in streaming mode</code>.</li>
+<li><strong>Dual-Level Rich Progress Bar:</strong><ul>
+<li><strong>Overall Document Progress:</strong> Continuously updates live from <strong>1% $\rightarrow$ 100%</strong> across all chunks on every GPU streaming frame step.</li>
+<li><strong>Sub-Chunk Progress Bar:</strong> Displays exact frame progress (<code>Frame 191/2400</code>) for the active ~300-word chunk.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2>9. One-Click Master Launchers (<code>run.py</code> &amp; <code>start.py</code>)</h2>
+<p>Create <code>voxcpm2/run.py</code> and <code>voxcpm2/start.py</code> as master launcher scripts:</p>
+<pre><code class="language-bash">python3 voxcpm2/run.py
+</code></pre>
+<h3>What <code>run.py</code> Does:</h3>
+<ul>
+<li>Verifies directory structure (<code>input/</code>, <code>output/</code>, <code>.processed/</code>).</li>
+<li>Checks Conda environment Python.</li>
+<li>Verifies GPU hardware.</li>
+<li>Automatically launches <code>watch_input.py --watch</code>.</li>
+</ul>
+<hr />
+<h2>10. Folder Directory Standardization</h2>
+<p>All scripts were updated to use <strong><code>voxcpm2/output/</code></strong> as the single unified output directory for all generated <code>.mp3</code> and <code>.wav</code> audio files (removing duplicate <code>outputs</code> folders).</p>
+<pre><code class="language-text">voxcpm2/
+├── run.py                 # One-click master launcher
+├── start.py               # Launcher alias
+├── say.py                 # CLI voice generator
+├── watch_input.py         # Text-to-MP3 watcher daemon
+├── clone_thomas.py        # Standalone voice cloning script
+├── input/                 # Drop .txt files here
+│   └── .processed/        # Processed text archive
+├── output/                # 320kbps MP3 output files
+├── clone/                 # Reference WAV audio (Thomas)
+└── models/                # Local offline weights (4.7 GB)
+    └── VoxCPM2/
+</code></pre>
+<hr />
+<h2>11. Git Version Control &amp; Safe Checkpoint Tagging</h2>
+<h3>Step 11.1: <code>.gitignore</code> Configuration</h3>
+<p>Create <code>.gitignore</code> to keep repository lightweight (ignoring audio files and 4.7 GB model weights):</p>
+<pre><code class="language-gitignore">voxcpm2/models/
+*.safetensors
+*.pth
+*.bin
+*.pt
+*.mp3
+*.wav
+voxcpm2/output/
+voxcpm2/input/.processed/
+</code></pre>
+<h3>Step 11.2: Creating Safe Tag Checkpoint</h3>
+<pre><code class="language-bash">git init
+git add .
+git commit -m &quot;SAFE: Stable production-ready TTS &amp; voice cloning pipeline&quot;
+git tag -a safe -m &quot;Safe working checkpoint&quot; -f
+</code></pre>
+<p>To revert to this safe working point anytime in the future:</p>
+<pre><code class="language-bash">git checkout safe
+</code></pre>
+<hr />
+<h2>12. Essential Files to Save &amp; Share with Others</h2>
+<p>If you want to backup or share this custom setup with someone else without sharing large 4.7 GB model weights or audio outputs, share these <strong>8 essential files</strong>:</p>
+<ol>
+<li><strong><code>voxcpm2/run.py</code></strong> — Master launcher script.</li>
+<li><strong><code>voxcpm2/watch_input.py</code></strong> — Folder watcher daemon with 300-word sentence chunking &amp; dual progress bar.</li>
+<li><strong><code>voxcpm2/say.py</code></strong> — CLI voice generator tool.</li>
+<li><strong><code>voxcpm2/clone_thomas.py</code></strong> — Standalone voice cloning script.</li>
+<li><strong><code>voxcpm2/clone/1_thomas_segment_125_219_(Vocals).wav</code></strong> — Thomas's reference vocal sample.</li>
+<li><strong><code>voxcpm2/README.md</code></strong> — Basic user guide.</li>
+<li><strong><code>voxcpm2/TUTORIAL.md</code></strong> — This complete disaster recovery guide and code archive.</li>
+<li><strong><code>.gitignore</code></strong> — Git ignore configuration.</li>
+</ol>
+<hr />
+<h2>13. Full Source Code Archive</h2>
+<p>Below is the complete, un-truncated source code for all custom Python scripts in the system.</p>
+<hr />
+<h3>Script 1: <code>voxcpm2/run.py</code> (Master Launcher)</h3>
+<pre><code class="language-python">#!/usr/bin/env python3
+&quot;&quot;&quot;
+VoxCPM2 Master Service Launcher (`voxcpm2/run.py` / `voxcpm2/start.py`)
+=======================================================================
+One-click python script that initializes system paths, verifies GPU acceleration,
+and runs the automated Text-to-MP3 watcher service (`watch_input.py --watch`).
+
+Usage:
+    python3 run.py
+&quot;&quot;&quot;
+
+import os
+import sys
+import subprocess
+from pathlib import Path
+
+# Dynamic Paths Setup (Portable &amp; Privacy-Safe)
+ROOT_DIR = Path(__file__).resolve().parent
+CONDA_PYTHON = Path.home() / &quot;miniconda3&quot; / &quot;envs&quot; / &quot;voxcpm&quot; / &quot;bin&quot; / &quot;python&quot;
+WATCHER_SCRIPT = ROOT_DIR / &quot;watch_input.py&quot;
+INPUT_DIR = ROOT_DIR / &quot;input&quot;
+OUTPUT_DIR = ROOT_DIR / &quot;output&quot;
+
+def main():
+    print(&quot;=&quot; * 65)
+    print(&quot;  VoxCPM2 Master Text-to-MP3 Service Launcher&quot;)
+    print(&quot;=&quot; * 65)
+
+    # 1. Ensure Input and Output directories exist inside voxcpm2
+    INPUT_DIR.mkdir(parents=True, exist_ok=True)
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    (INPUT_DIR / &quot;.processed&quot;).mkdir(parents=True, exist_ok=True)
+
+    print(f&quot;[+] Input Directory  : {INPUT_DIR.resolve()}&quot;)
+    print(f&quot;[+] Output Directory : {OUTPUT_DIR.resolve()}&quot;)
+    print(f&quot;[+] Registered Voice : Thomas (1_thomas_segment_125_219_(Vocals).wav)&quot;)
+
+    # 2. Check Conda Environment Python
+    if not CONDA_PYTHON.exists():
+        print(f&quot;[!] Error: Conda environment Python not found at {CONDA_PYTHON}&quot;)
+        print(&quot;    Please ensure the 'voxcpm' conda environment is installed.&quot;)
+        sys.exit(1)
+
+    print(f&quot;[+] Python Executable: {CONDA_PYTHON}&quot;)
+
+    # 3. Check Watcher Script
+    if not WATCHER_SCRIPT.exists():
+        print(f&quot;[!] Error: Watcher script not found at {WATCHER_SCRIPT}&quot;)
+        sys.exit(1)
+
+    print(f&quot;[+] Watcher Script   : {WATCHER_SCRIPT}&quot;)
+    print(&quot;\n[➔] Starting automated Text-to-MP3 folder watcher...&quot;)
+    print(&quot;    Drop any .txt file into 'voxcpm2/input/' to generate an MP3 in 'voxcpm2/output/'.&quot;)
+    print(&quot;    Press Ctrl+C to stop the service.\n&quot;)
+
+    # 4. Re-execute via Conda Python environment with --watch flag
+    cmd = [str(CONDA_PYTHON), str(WATCHER_SCRIPT), &quot;--watch&quot;]
+
+    try:
+        subprocess.run(cmd, check=True)
+    except KeyboardInterrupt:
+        print(&quot;\n[✔] VoxCPM2 Service stopped by user.&quot;)
+    except subprocess.CalledProcessError as e:
+        print(f&quot;\n[!] Watcher process exited with error code {e.returncode}&quot;)
+        sys.exit(e.returncode)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
+<hr />
+<h3>Script 2: <code>voxcpm2/watch_input.py</code> (Automated Text-to-MP3 Watcher Daemon)</h3>
+<pre><code class="language-python">#!/usr/bin/env python3
+&quot;&quot;&quot;
+VoxCPM2 Automated Text-to-MP3 Folder Watcher (`watch_input.py`)
+================================================================
+Monitors `voxcpm2/input/*.txt` for new text files,
+automatically synthesizes high-fidelity speech using Thomas's cloned voice (VoxCPM2),
+and exports the result directly as an MP3 file into `voxcpm2/output/`.
+
+Displays continuous live 1% to 100% overall document progress alongside sub-chunk progress.
+&quot;&quot;&quot;
+
+import os
+import sys
+import re
+import time
+import shutil
+import warnings
+import subprocess
+import logging
+import numpy as np
+from pathlib import Path
+from typing import Optional, List
+import typer
+from rich.console import Console
+from rich.panel import Panel
+from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, SpinnerColumn
+
+# Suppress harmless streaming retry UserWarnings for clean terminal UI
+warnings.filterwarnings(&quot;ignore&quot;, category=UserWarning, module=&quot;.*voxcpm.*&quot;)
+warnings.filterwarnings(&quot;ignore&quot;, message=&quot;.*Retry on bad cases.*&quot;)
+
+# Suppress internal tqdm output for clean Rich progress rendering
+import tqdm
+_orig_tqdm = tqdm.tqdm
+def _silent_tqdm(*args, **kwargs):
+    kwargs['disable'] = True
+    return _orig_tqdm(*args, **kwargs)
+tqdm.tqdm = _silent_tqdm
+
+# Configure PyTorch CUDA memory allocation to avoid fragmentation
+os.environ[&quot;PYTORCH_CUDA_ALLOC_CONF&quot;] = &quot;expandable_segments:True&quot;
+
+console = Console()
+app = typer.Typer(help=&quot;VoxCPM2 Automated Text-to-MP3 Folder Processor&quot;)
+
+# Dynamic Paths Setup (Portable &amp; Privacy-Safe)
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_DIR = BASE_DIR / &quot;input&quot;
+OUTPUT_DIR = BASE_DIR / &quot;output&quot;
+PROCESSED_DIR = INPUT_DIR / &quot;.processed&quot;
+LOCAL_MODEL_DIR = BASE_DIR / &quot;models&quot; / &quot;VoxCPM2&quot;
+DEFAULT_VOICE = BASE_DIR / &quot;clone&quot; / &quot;1_thomas_segment_125_219_(Vocals).wav&quot;
+PID_FILE = Path(&quot;/tmp/voxcpm_watcher.pid&quot;)
+
+# Configure structured logging
+logging.basicConfig(
+    level=logging.INFO,
+    format=&quot;%(asctime)s [%(levelname)s] %(message)s&quot;,
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger(&quot;watch_input&quot;)
+
+
+def split_text_into_chunks(text: str, target_words: int = 300) -&gt; List[str]:
+    &quot;&quot;&quot;
+    Splits text strictly at sentence boundaries (. ! ? ;).
+    Accumulates complete sentences up to ~target_words (300 words).
+    Never cuts words in the middle or sentences mid-phrase.
+    &quot;&quot;&quot;
+    cleaned_text = re.sub(r'\s+', ' ', text).strip()
+    if not cleaned_text:
+        return []
+
+    sentence_pattern = re.compile(r'[^.!?;\n]+[.!?;\n]+|\S+$')
+    raw_sentences = sentence_pattern.findall(cleaned_text)
+
+    chunks = []
+    current_chunk = &quot;&quot;
+
+    for sentence in raw_sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+
+        sentence_word_count = len(sentence.split())
+        current_word_count = len(current_chunk.split()) if current_chunk else 0
+
+        if not current_chunk:
+            current_chunk = sentence
+        elif current_word_count + sentence_word_count &lt;= target_words:
+            current_chunk = f&quot;{current_chunk} {sentence}&quot;
+        else:
+            chunks.append(current_chunk)
+            current_chunk = sentence
+
+    if current_chunk:
+        chunks.append(current_chunk)
+
+    return chunks if chunks else [text]
+
+
+def convert_wav_to_mp3(wav_path: Path, mp3_path: Path) -&gt; bool:
+    &quot;&quot;&quot;Converts a WAV audio file to 320kbps MP3 using FFmpeg.&quot;&quot;&quot;
+    cmd = [
+        &quot;ffmpeg&quot;, &quot;-y&quot;,
+        &quot;-i&quot;, str(wav_path),
+        &quot;-codec:a&quot;, &quot;libmp3lame&quot;,
+        &quot;-b:a&quot;, &quot;320k&quot;,
+        str(mp3_path)
+    ]
+    try:
+        subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        return mp3_path.exists()
+    except Exception as e:
+        logger.error(f&quot;FFmpeg conversion to MP3 failed for {wav_path}: {e}&quot;)
+        return False
+
+
+def process_txt_file(txt_file: Path, tts_model, voice_path: Path):
+    &quot;&quot;&quot;Reads a .txt file, chunk-synthesizes speech using VoxCPM2, and writes an MP3 file.&quot;&quot;&quot;
+    if not txt_file.exists() or txt_file.name.startswith(&quot;.&quot;):
+        return
+
+    logger.info(f&quot;Processing new text file: '{txt_file.name}'&quot;)
+
+    try:
+        with open(txt_file, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+            text_content = f.read().strip()
+    except Exception as e:
+        logger.error(f&quot;Could not read {txt_file}: {e}&quot;)
+        return
+
+    if not text_content:
+        logger.warning(f&quot;File '{txt_file.name}' is empty. Skipping.&quot;)
+        shutil.move(str(txt_file), str(PROCESSED_DIR / txt_file.name))
+        return
+
+    stem_name = txt_file.stem
+    temp_wav_path = OUTPUT_DIR / f&quot;{stem_name}_temp.wav&quot;
+    target_mp3_path = OUTPUT_DIR / f&quot;{stem_name}.mp3&quot;
+
+    # Split text into ~300-word sentence chunks
+    text_chunks = split_text_into_chunks(text_content, target_words=300)
+    num_chunks = len(text_chunks)
+    total_words = len(text_content.split())
+    total_doc_est_frames = max(50, int(total_words * 8.35))
+
+    console.print(Panel(f&quot;[bold cyan]Synthesizing Document:[/bold cyan] '{txt_file.name}'\n&quot;
+                        f&quot;[yellow]{total_words} words[/yellow] split into [green]{num_chunks} sentence chunk{'s' if num_chunks &gt; 1 else ''}[/green] -&gt; '{target_mp3_path.name}'&quot;, title=&quot;VoxCPM2 Synthesis&quot;))
+
+    import soundfile as sf
+    import torch
+
+    audio_segments = []
+    sample_rate = 48000
+    total_frames_generated = 0
+
+    with Progress(
+        SpinnerColumn(spinner_name=&quot;dots&quot;),
+        TextColumn(&quot;[bold cyan]{task.description}&quot;),
+        BarColumn(bar_width=35),
+        TaskProgressColumn(),
+        TimeRemainingColumn(),
+        console=console,
+        transient=False,
+    ) as progress:
+        # Live Overall Document Progress (0% to 100%)
+        overall_task = progress.add_task(f&quot;[bold yellow]Overall Document Progress[/bold yellow]&quot;, total=total_doc_est_frames)
+
+        for idx, chunk in enumerate(text_chunks, start=1):
+            chunk_words = len(chunk.split())
+            est_chunk_frames = max(30, int(chunk_words * 8.35))
+
+            chunk_task = progress.add_task(f&quot;Chunk {idx}/{num_chunks} ({chunk_words} words)&quot;, total=est_chunk_frames)
+            chunk_audio_patches = []
+            chunk_step = 0
+
+            for audio_patch in tts_model.generate_streaming(
+                text=chunk,
+                reference_wav_path=str(voice_path),
+                cfg_value=2.0,
+                inference_timesteps=10,
+            ):
+                chunk_step += 1
+                total_frames_generated += 1
+                chunk_audio_patches.append(audio_patch)
+
+                # Live sub-chunk update
+                progress.update(chunk_task, completed=min(chunk_step, est_chunk_frames), description=f&quot;Chunk {idx}/{num_chunks} (Frame {chunk_step}/{est_chunk_frames})&quot;)
+
+                # Live continuous 1% -&gt; 100% overall document update
+                progress.update(overall_task, completed=min(total_frames_generated, total_doc_est_frames))
+
+            if chunk_audio_patches:
+                chunk_audio = np.concatenate(chunk_audio_patches)
+                audio_segments.append(chunk_audio)
+
+            progress.update(chunk_task, completed=est_chunk_frames, description=f&quot;[green]✓ Chunk {idx}/{num_chunks} Complete ({chunk_step} frames)[/green]&quot;)
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
+        progress.update(overall_task, completed=total_doc_est_frames, description=&quot;[bold green]✓ Overall Document Progress Complete[/bold green]&quot;)
+
+    # Concatenate all sentence chunk audio arrays into one continuous audio track
+    combined_audio = np.concatenate(audio_segments) if len(audio_segments) &gt; 1 else audio_segments[0]
+
+    # Save temporary WAV
+    sf.write(str(temp_wav_path), combined_audio, sample_rate)
+
+    # Convert to MP3
+    if convert_wav_to_mp3(temp_wav_path, target_mp3_path):
+        console.print(f&quot;[bold green]✓ Successfully generated MP3 (100% Complete):[/bold green] {target_mp3_path}&quot;)
+        if temp_wav_path.exists():
+            temp_wav_path.unlink()
+        # Archive processed txt file
+        archive_target = PROCESSED_DIR / txt_file.name
+        if archive_target.exists():
+            archive_target.unlink()
+        shutil.move(str(txt_file), str(archive_target))
+    else:
+        logger.error(f&quot;Failed to generate MP3 for {txt_file.name}&quot;)
+
+
+@app.command()
+def process_all(
+    watch: bool = typer.Option(False, &quot;--watch&quot;, &quot;-w&quot;, help=&quot;Run continuously in background watcher mode.&quot;),
+    interval: int = typer.Option(3, &quot;--interval&quot;, &quot;-i&quot;, help=&quot;Poll interval in seconds for watch mode.&quot;),
+):
+    &quot;&quot;&quot;
+    Scans the input directory for .txt files and converts them to MP3 using Thomas's cloned voice.
+    &quot;&quot;&quot;
+    INPUT_DIR.mkdir(exist_ok=True)
+    OUTPUT_DIR.mkdir(exist_ok=True)
+    PROCESSED_DIR.mkdir(exist_ok=True)
+
+    if not DEFAULT_VOICE.exists():
+        console.print(f&quot;[bold red]Error:[/bold red] Default Thomas voice file missing at: {DEFAULT_VOICE}&quot;)
+        raise typer.Exit(code=1)
+
+    console.print(Panel(&quot;[bold green]VoxCPM2 Automated Text-to-MP3 Converter[/bold green]\n&quot;
+                        f&quot;Input Dir:  {INPUT_DIR}\n&quot;
+                        f&quot;Output Dir: {OUTPUT_DIR}\n&quot;
+                        f&quot;Voice:      Thomas ({DEFAULT_VOICE.name})&quot;, title=&quot;VoxCPM2 Watcher&quot;))
+
+    try:
+        import torch
+        from voxcpm import VoxCPM
+    except ImportError:
+        console.print(&quot;[bold red]Error:[/bold red] VoxCPM package not available in python environment.&quot;)
+        raise typer.Exit(code=1)
+
+    device = &quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;
+    model_id = str(LOCAL_MODEL_DIR) if LOCAL_MODEL_DIR.exists() else &quot;openbmb/VoxCPM2&quot;
+
+    logger.info(f&quot;Loading VoxCPM2 model on {device.upper()}...&quot;)
+    model = VoxCPM.from_pretrained(model_id, device=device)
+    logger.info(&quot;Model loaded and ready.&quot;)
+
+    # Write PID lock
+    with open(PID_FILE, &quot;w&quot;) as f:
+        f.write(str(os.getpid()))
+
+    try:
+        if watch:
+            console.print(&quot;[bold green]Running in continuous WATCH mode. Press Ctrl+C to stop.[/bold green]&quot;)
+            while True:
+                txt_files = sorted(list(INPUT_DIR.glob(&quot;*.txt&quot;)))
+                for txt_file in txt_files:
+                    process_txt_file(txt_file, model, DEFAULT_VOICE)
+                time.sleep(interval)
+        else:
+            txt_files = sorted(list(INPUT_DIR.glob(&quot;*.txt&quot;)))
+            if not txt_files:
+                console.print(f&quot;[yellow]No .txt files currently found in {INPUT_DIR}[/yellow]&quot;)
+                return
+            for txt_file in txt_files:
+                process_txt_file(txt_file, model, DEFAULT_VOICE)
+    except KeyboardInterrupt:
+        console.print(&quot;\n[yellow]Watcher stopped by user.[/yellow]&quot;)
+    finally:
+        if PID_FILE.exists():
+            PID_FILE.unlink(missing_ok=True)
+
+
+if __name__ == &quot;__main__&quot;:
+    app()
+</code></pre>
+<hr />
+<h3>Script 3: <code>voxcpm2/say.py</code> (CLI Voice Generator Utility)</h3>
+<pre><code class="language-python">#!/usr/bin/env python3
+&quot;&quot;&quot;
+VoxCPM2 Voice Generator CLI Tool (`say.py`)
+============================================
+A command-line tool to synthesize speech using registered voice presets
+(such as 'thomas') or custom reference audio files.
+Displays continuous live 1% to 100% overall document progress alongside sub-chunk progress.
+&quot;&quot;&quot;
+
+import sys
+import re
+import logging
+import warnings
+import numpy as np
+from pathlib import Path
+from typing import Optional, List
+import typer
+from rich.console import Console
+from rich.panel import Panel
+from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, SpinnerColumn
+
+# Suppress harmless streaming retry UserWarnings for clean terminal UI
+warnings.filterwarnings(&quot;ignore&quot;, category=UserWarning, module=&quot;.*voxcpm.*&quot;)
+warnings.filterwarnings(&quot;ignore&quot;, message=&quot;.*Retry on bad cases.*&quot;)
+
+# Suppress internal tqdm output for clean Rich progress rendering
+import tqdm
+_orig_tqdm = tqdm.tqdm
+def _silent_tqdm(*args, **kwargs):
+    kwargs['disable'] = True
+    return _orig_tqdm(*args, **kwargs)
+tqdm.tqdm = _silent_tqdm
+
+console = Console()
+app = typer.Typer(help=&quot;VoxCPM2 Voice Generator CLI&quot;)
+
+# Structured Logging Setup
+logging.basicConfig(
+    level=logging.INFO,
+    format=&quot;%(asctime)s [%(levelname)s] %(message)s&quot;,
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger(&quot;voxcpm_say&quot;)
+
+# Dynamic Paths Setup (Portable &amp; Privacy-Safe)
+BASE_DIR = Path(__file__).resolve().parent
+CLONE_DIR = BASE_DIR / &quot;clone&quot;
+LOCAL_MODEL_DIR = BASE_DIR / &quot;models&quot; / &quot;VoxCPM2&quot;
+
+VOICE_PRESETS = {
+    &quot;thomas&quot;: CLONE_DIR / &quot;1_thomas_segment_125_219_(Vocals).wav&quot;,
+    &quot;default&quot;: CLONE_DIR / &quot;1_thomas_segment_125_219_(Vocals).wav&quot;,
+}
+
+
+def split_text_into_chunks(text: str, target_words: int = 300) -&gt; List[str]:
+    &quot;&quot;&quot;
+    Splits text strictly at sentence boundaries (. ! ? ;).
+    Accumulates complete sentences up to ~target_words (300 words).
+    Never cuts words in the middle or sentences mid-phrase.
+    &quot;&quot;&quot;
+    cleaned_text = re.sub(r'\s+', ' ', text).strip()
+    if not cleaned_text:
+        return []
+
+    sentence_pattern = re.compile(r'[^.!?;\n]+[.!?;\n]+|\S+$')
+    raw_sentences = sentence_pattern.findall(cleaned_text)
+
+    chunks = []
+    current_chunk = &quot;&quot;
+
+    for sentence in raw_sentences:
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+
+        sentence_word_count = len(sentence.split())
+        current_word_count = len(current_chunk.split()) if current_chunk else 0
+
+        if not current_chunk:
+            current_chunk = sentence
+        elif current_word_count + sentence_word_count &lt;= target_words:
+            current_chunk = f&quot;{current_chunk} {sentence}&quot;
+        else:
+            chunks.append(current_chunk)
+            current_chunk = sentence
+
+    if current_chunk:
+        chunks.append(current_chunk)
+
+    return chunks if chunks else [text]
+
+
+@app.command()
+def speak(
+    text: str = typer.Argument(..., help=&quot;The text to synthesize into speech.&quot;),
+    voice: str = typer.Option(&quot;thomas&quot;, &quot;--voice&quot;, &quot;-v&quot;, help=&quot;Registered voice preset (e.g. 'thomas') or path to WAV file.&quot;),
+    output: Optional[str] = typer.Option(None, &quot;--output&quot;, &quot;-o&quot;, help=&quot;Output file path (defaults to output/speech.wav).&quot;),
+    cfg: float = typer.Option(2.0, &quot;--cfg&quot;, help=&quot;Classifier-free guidance scale.&quot;),
+    steps: int = typer.Option(10, &quot;--steps&quot;, help=&quot;Inference timesteps.&quot;),
+):
+    &quot;&quot;&quot;
+    Synthesize text into speech using a voice preset or reference file.
+    &quot;&quot;&quot;
+    console.print(Panel(f&quot;[bold cyan]VoxCPM2 Speech Generator[/bold cyan]\nTarget Text: [yellow]'{text[:100]}{'...' if len(text) &gt; 100 else ''}'[/yellow]&quot;, title=&quot;VoxCPM2&quot;))
+
+    # Resolve Voice Reference File
+    voice_path: Optional[Path] = None
+    voice_key = voice.strip().lower()
+
+    if voice_key in VOICE_PRESETS:
+        voice_path = VOICE_PRESETS[voice_key]
+        console.print(f&quot;[bold green]✓[/bold green] Using registered voice preset: [bold gold1]{voice_key}[/bold gold1] ({voice_path.name})&quot;)
+    else:
+        custom_path = Path(voice)
+        if custom_path.exists() and custom_path.is_file():
+            voice_path = custom_path
+            console.print(f&quot;[bold green]✓[/bold green] Using custom audio reference: {voice_path.resolve()}&quot;)
+        else:
+            console.print(f&quot;[bold red]Error:[/bold red] Voice preset or file '[yellow]{voice}[/yellow]' not found.&quot;)
+            console.print(f&quot;Available presets: {list(VOICE_PRESETS.keys())}&quot;)
+            raise typer.Exit(code=1)
+
+    # Resolve Output Path
+    output_dir = BASE_DIR / &quot;output&quot;
+    output_dir.mkdir(exist_ok=True)
+
+    if output:
+        out_file = Path(output)
+        out_file.parent.mkdir(exist_ok=True)
+    else:
+        out_file = output_dir / f&quot;speech_{voice_key}.wav&quot;
+
+    text_chunks = split_text_into_chunks(text, target_words=300)
+    num_chunks = len(text_chunks)
+    total_words = len(text.split())
+    total_doc_est_frames = max(50, int(total_words * 8.35))
+
+    try:
+        import torch
+        import soundfile as sf
+        from voxcpm import VoxCPM
+    except ImportError as e:
+        console.print(f&quot;[bold red]Error:[/bold red] Required packages not found. Ensure 'voxcpm' conda environment is active.&quot;)
+        raise typer.Exit(code=1)
+
+    device = &quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;
+    model_id = str(LOCAL_MODEL_DIR) if LOCAL_MODEL_DIR.exists() else &quot;openbmb/VoxCPM2&quot;
+
+    console.print(f&quot;[dim]Loading VoxCPM2 model on {device.upper()}...[/dim]&quot;)
+    model = VoxCPM.from_pretrained(model_id, device=device)
+
+    audio_segments = []
+    sample_rate = 48000
+    total_frames_generated = 0
+
+    with Progress(
+        SpinnerColumn(spinner_name=&quot;dots&quot;),
+        TextColumn(&quot;[bold cyan]{task.description}&quot;),
+        BarColumn(bar_width=35),
+        TaskProgressColumn(),
+        TimeRemainingColumn(),
+        console=console,
+        transient=False,
+    ) as progress:
+        # Live Overall Document Progress (0% to 100%)
+        overall_task = progress.add_task(f&quot;[bold yellow]Overall Document Progress[/bold yellow]&quot;, total=total_doc_est_frames)
+
+        for idx, chunk in enumerate(text_chunks, start=1):
+            chunk_words = len(chunk.split())
+            est_chunk_frames = max(30, int(chunk_words * 8.35))
+
+            chunk_task = progress.add_task(f&quot;Chunk {idx}/{num_chunks} ({chunk_words} words)&quot;, total=est_chunk_frames)
+            chunk_audio_patches = []
+            chunk_step = 0
+
+            for audio_patch in model.generate_streaming(
+                text=chunk,
+                reference_wav_path=str(voice_path),
+                cfg_value=cfg,
+                inference_timesteps=steps,
+            ):
+                chunk_step += 1
+                total_frames_generated += 1
+                chunk_audio_patches.append(audio_patch)
+
+                # Live sub-chunk update
+                progress.update(chunk_task, completed=min(chunk_step, est_chunk_frames), description=f&quot;Chunk {idx}/{num_chunks} (Frame {chunk_step}/{est_chunk_frames})&quot;)
+
+                # Live continuous 1% -&gt; 100% overall document update
+                progress.update(overall_task, completed=min(total_frames_generated, total_doc_est_frames))
+
+            if chunk_audio_patches:
+                chunk_audio = np.concatenate(chunk_audio_patches)
+                audio_segments.append(chunk_audio)
+
+            progress.update(chunk_task, completed=est_chunk_frames, description=f&quot;[green]✓ Chunk {idx}/{num_chunks} Complete ({chunk_step} frames)[/green]&quot;)
+
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+
+        progress.update(overall_task, completed=total_doc_est_frames, description=&quot;[bold green]✓ Overall Document Progress Complete[/bold green]&quot;)
+
+    combined_audio = np.concatenate(audio_segments) if len(audio_segments) &gt; 1 else audio_segments[0]
+    sf.write(str(out_file), combined_audio, sample_rate)
+
+    console.print(f&quot;[bold green]✓ Audio generated successfully (100% Complete)![/bold green]&quot;)
+    console.print(f&quot;File saved to: [bold underline white]{out_file.resolve()}[/bold underline white] (Sample Rate: {sample_rate}Hz)&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    app()
+</code></pre>
+<hr />
+<h3>Script 4: <code>voxcpm2/clone_thomas.py</code> (Voice Cloning Script)</h3>
+<pre><code class="language-python">#!/usr/bin/env python3
+&quot;&quot;&quot;
+VoxCPM2 Voice Cloning Script for 'Thomas'
+===========================================
+Clones the voice from the reference vocal track '1_thomas_segment_125_219_(Vocals).wav'
+and synthesizes custom spoken text using VoxCPM2.
+&quot;&quot;&quot;
+
+import sys
+import logging
+from pathlib import Path
+
+logging.basicConfig(
+    level=logging.INFO,
+    format=&quot;%(asctime)s [%(levelname)s] %(message)s&quot;,
+    handlers=[logging.StreamHandler(sys.stdout)]
+)
+logger = logging.getLogger(&quot;clone_thomas&quot;)
+
+BASE_DIR = Path(__file__).resolve().parent
+
+def main():
+    try:
+        import torch
+        import soundfile as sf
+        from voxcpm import VoxCPM
+    except ImportError as e:
+        logger.error(&quot;Failed to import required dependencies in voxcpm environment.&quot;)
+        logger.error(f&quot;ImportError: {e}&quot;)
+        sys.exit(1)
+
+    device = &quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;
+    logger.info(f&quot;Execution Device: {device}&quot;)
+
+    # Local model directory check
+    local_model_path = BASE_DIR / &quot;models&quot; / &quot;VoxCPM2&quot;
+    model_identifier = str(local_model_path) if local_model_path.exists() else &quot;openbmb/VoxCPM2&quot;
+
+    logger.info(f&quot;Loading VoxCPM2 model from: {model_identifier}&quot;)
+    model = VoxCPM.from_pretrained(model_identifier, device=device)
+    logger.info(&quot;VoxCPM2 model loaded successfully.&quot;)
+
+    # Reference clone file path
+    ref_audio_path = BASE_DIR / &quot;clone&quot; / &quot;1_thomas_segment_125_219_(Vocals).wav&quot;
+    if not ref_audio_path.exists():
+        logger.error(f&quot;Reference audio file not found: {ref_audio_path}&quot;)
+        sys.exit(1)
+
+    logger.info(f&quot;Using voice reference audio: {ref_audio_path.name}&quot;)
+
+    # Output directory
+    output_dir = BASE_DIR / &quot;output&quot;
+    output_dir.mkdir(exist_ok=True)
+    output_file = output_dir / &quot;cloned_thomas_speech.wav&quot;
+
+    # Text to synthesize with Thomas's cloned voice
+    synthesis_text = (
+        &quot;Welcome! This is Thomas's cloned voice generated using VoxCPM2. &quot;
+        &quot;The speech synthesis is continuous, natural, and running locally with full GPU acceleration.&quot;
+    )
+
+    logger.info(f&quot;Synthesizing text: '{synthesis_text}'&quot;)
+
+    try:
+        res = model.generate(
+            text=synthesis_text,
+            reference_wav_path=str(ref_audio_path),
+            cfg_value=2.0,
+            inference_timesteps=10,
+        )
+        sample_rate = 48000
+        if isinstance(res, tuple):
+            audio_array = res[0]
+            if len(res) &gt; 1 and isinstance(res[1], int):
+                sample_rate = res[1]
+        else:
+            audio_array = res
+
+        sf.write(str(output_file), audio_array, sample_rate)
+        logger.info(f&quot;Voice cloning complete! Saved cloned audio to: {output_file.resolve()} (Sample Rate: {sample_rate}Hz)&quot;)
+    except Exception as e:
+        logger.exception(f&quot;Error during voice cloning generation: {e}&quot;)
+        sys.exit(1)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
