@@ -9,6 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
     <style>
+        h2 {
+            font-family: var(--font-main);
+            font-size: 1.75rem;
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            color: var(--text-primary);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h2::before {
+            content: "> ";
+            font-family: var(--font-mono);
+            color: var(--terminal-green);
+            margin-right: 10px;
+        }
+
+        .section-num {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            margin-right: 8px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
         .curriculum-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -273,9 +302,7 @@
     <div class="container">
         <!-- MACROVIEW ECOSYSTEM SECTION -->
         <section id="macroview" style="margin-bottom: 3.5rem;">
-            <h2 style="font-family: var(--font-main); font-size: 1.75rem; margin-top: 0; margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; color: var(--text-primary); font-weight: 600;">
-                <span style="font-family: var(--font-mono); color: var(--accent); margin-right: 8px; font-size: 1.4rem; font-weight: 700;">00 //</span> Macroview of Cybersecurity
-            </h2>
+            <h2><span class="section-num">00 //</span> Macroview of Cybersecurity</h2>
             <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6;">
                 Understanding the complete security landscape: how risk management, systems architecture, defense, offense, and forensics interconnect across the enterprise.
             </p>
@@ -335,8 +362,9 @@
             </div>
         </section>
 
-        <span class="section-label">Cybersecurity Curriculum (35 Chapters)</span>
-        <div class="curriculum-grid" id="curriculum-posts">
+        <section id="curriculum-list">
+            <h2><span class="section-num">01 //</span> Core Curriculum (35 Chapters)</h2>
+            <div class="curriculum-grid" id="curriculum-posts">
             <!-- POSTS_START -->
             <a href="posts/2026-07-19-chap-01-chapter-1-hardware-system-architecture.html" class="curriculum-card">
                 <div>
@@ -620,6 +648,7 @@
             </a>
             <!-- POSTS_END -->
         </div>
+        </section>
 
 
 
