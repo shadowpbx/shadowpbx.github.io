@@ -137,15 +137,19 @@
 
 <hr />
 <h2>Beyond Voice Cloning: A Professional Powerhouse</h2>
-<p>While I primarily use UVR5 for zero-shot voice cloning datasets (like VoxCPM2), it is actually a massive cheat code for all sorts of professional audio engineering tasks:
-* <strong>Dialogue Cleanup &amp; Film Post-Production:</strong> If you have a video recording where the lavalier mic picked up wind, traffic, or background chatter, UVR5 can isolate the subject's voice perfectly, acting as a high-end noise reduction suite.
-* <strong>Podcast Repair:</strong> Sometimes a guest records in an untreated room with lots of reverb, or their dog barks in the background. UVR5's VR Architecture models (like <code>UVR-DeEcho-Normal</code>) can completely strip out room echo and background interruptions.
-* <strong>Music Production &amp; DJs:</strong> If you need to create acapellas or instrumental stems for remixes, UVR5's Demucs and MDX-Net models separate drums, bass, vocals, and melodies with studio-grade precision.</p>
+<p>While I primarily use UVR5 for zero-shot voice cloning datasets (like VoxCPM2), it is actually a massive cheat code for all sorts of professional audio engineering tasks:</p>
+<ul>
+<li><strong>Dialogue Cleanup &amp; Film Post-Production:</strong> If you have a video recording where the lavalier mic picked up wind, traffic, or background chatter, UVR5 can isolate the subject's voice perfectly, acting as a high-end noise reduction suite.</li>
+<li><strong>Podcast Repair:</strong> Sometimes a guest records in an untreated room with lots of reverb, or their dog barks in the background. UVR5's VR Architecture models (like <code>UVR-DeEcho-Normal</code>) can completely strip out room echo and background interruptions.</li>
+<li><strong>Music Production &amp; DJs:</strong> If you need to create acapellas or instrumental stems for remixes, UVR5's Demucs and MDX-Net models separate drums, bass, vocals, and melodies with studio-grade precision.</li>
+</ul>
 <h2>My Hardware Setup</h2>
-<p>UVR5 is incredibly computationally intensive. While it <em>can</em> run on a CPU, a dedicated GPU is highly recommended. My workstation is built to chew through these deep learning models in a fraction of the time:
-* <strong>OS:</strong> Ubuntu Linux
-* <strong>RAM:</strong> 128GB
-* <strong>GPUs:</strong> Dual NVIDIA GeForce RTX 3060s (12GB VRAM each)</p>
+<p>UVR5 is incredibly computationally intensive. While it <em>can</em> run on a CPU, a dedicated GPU is highly recommended. My workstation is built to chew through these deep learning models in a fraction of the time:</p>
+<ul>
+<li><strong>OS:</strong> Ubuntu Linux</li>
+<li><strong>RAM:</strong> 128GB</li>
+<li><strong>GPUs:</strong> Dual NVIDIA GeForce RTX 3060s (12GB VRAM each)</li>
+</ul>
 <hr />
 <h2>1. System Setup &amp; Installation</h2>
 <p>First, we need to install the system-level dependencies for audio processing (FFmpeg) and the graphical interface (Tkinter). </p>
@@ -175,17 +179,21 @@ pip install -r requirements.txt
 <h3>⚠️ Crucial Fixes for Linux / Python 3.10</h3>
 <p>During my setup, I ran into three specific dependency challenges. Run these commands to fix them before launching:</p>
 <ol>
-<li><strong>Restore <code>pkg_resources</code> for Librosa 0.9.2</strong>:
-   <code>bash
-   pip install "setuptools&lt;70.0.0"</code></li>
-<li><strong>Fix Playsound Audio Preview Error</strong>:
-   <code>bash
-   pip install playsound==1.2.2</code></li>
-<li><strong>Bypass Dora / Scikit-Learn Deprecation Restriction</strong>:
-   <code>bash
-   export SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
-   pip install dora-search==0.0.3</code></li>
+<li><strong>Restore <code>pkg_resources</code> for Librosa 0.9.2:</strong></li>
 </ol>
+<pre><code class="language-bash">pip install &quot;setuptools&lt;70.0.0&quot;
+</code></pre>
+<ol>
+<li><strong>Fix Playsound Audio Preview Error:</strong></li>
+</ol>
+<pre><code class="language-bash">pip install playsound==1.2.2
+</code></pre>
+<ol>
+<li><strong>Bypass Dora / Scikit-Learn Deprecation Restriction:</strong></li>
+</ol>
+<pre><code class="language-bash">export SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
+pip install dora-search==0.0.3
+</code></pre>
 <hr />
 <h2>3. Forcing GPU Acceleration</h2>
 <p>To ensure UVR5 automatically uses the dual RTX 3060 GPUs without needing to manually toggle it in the GUI every time, you can modify the constants file.</p>
@@ -214,13 +222,19 @@ ffmpeg -y -i segment_125_219.mp3 -ar 48000 -ac 1 segment_125_219.wav
 <p>Here is my exact configuration in the UVR5 GUI:</p>
 <ul>
 <li><strong>Process Method:</strong> <code>MDX-Net</code></li>
-<li><strong>The Model:</strong> <code>Kim Vocal 2</code> or <code>UVR-MDX-NET-Voc_FT</code></li>
+<li><strong>The Model:</strong> <code>Kim Vocal 2</code> or <code>UVR-MDX-NET-Voc_FT</code><ul>
 <li><em>Kim Vocal 2</em> is exceptionally aggressive at recognizing human voice frequencies, leaving zero ambient noise. </li>
 <li><em>Voc_FT</em> is a fine-tuned alternative designed to eliminate "instrumental bleed."</li>
-<li><strong>Segment Size:</strong> <code>1024</code> (or up to <code>2048</code>)</li>
+</ul>
+</li>
+<li><strong>Segment Size:</strong> <code>1024</code> (or up to <code>2048</code>)<ul>
 <li><em>Why:</em> Larger segments give the AI more surrounding audio context, improving separation quality. While these numbers will instantly crash a standard computer, dual 12GB GPUs easily swallow the massive data chunks.</li>
-<li><strong>Overlap:</strong> <code>0.85 to 0.90</code></li>
+</ul>
+</li>
+<li><strong>Overlap:</strong> <code>0.85 to 0.90</code><ul>
 <li><em>Why:</em> A high overlap smooths out the seams between processed audio chunks, eliminating choppy artifacts. (Pushing it to 0.99 is possible, but inflates processing time for virtually zero audible improvement).</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>💡 <strong>Pro-Tip:</strong> If the output sounds clean but has a slight metallic echo left over from the original room or background music, run the isolated vocal track <em>back</em> through UVR5 using the VR Architecture model: <code>UVR-DeEcho-Normal</code>.</p>
@@ -228,15 +242,17 @@ ffmpeg -y -i segment_125_219.mp3 -ar 48000 -ac 1 segment_125_219.wav
 <hr />
 <h2>6. Why WAV? (Never use MP3 for Datasets or Post-Production)</h2>
 <p>Under output preferences, <strong>always select WAV</strong>. If you are generating an audio dataset for voice modeling, AI text-to-speech, or doing professional audio mixing, MP3 should <em>never</em> be used as an intermediate format. </p>
-<p>Here is why:
-1. <strong>No Lossy Compression Artifacts:</strong> MP3 silently cuts out high/low frequencies and introduces subtle metallic artifacts. Voice-training algorithms are extremely sensitive to these distortions and will bake them into your final voice model.
-2. <strong>Exact Sample Alignment:</strong> MP3 encoding inherently adds tiny milliseconds of silent padding at the beginning and end of files. This messes up automatic audio slicers and forced-alignment tools (like Whisper).
-3. <strong>No Phase Distortion:</strong> MP3 compression shifts audio phase relationships. Keeping the phase intact is critical for preventing robotic-sounding artifacts when isolating stems with deep learning.</p>
+<p>Here is why:</p>
+<ol>
+<li><strong>No Lossy Compression Artifacts:</strong> MP3 silently cuts out high/low frequencies and introduces subtle metallic artifacts. Voice-training algorithms are extremely sensitive to these distortions and will bake them into your final voice model.</li>
+<li><strong>Exact Sample Alignment:</strong> MP3 encoding inherently adds tiny milliseconds of silent padding at the beginning and end of files. This messes up automatic audio slicers and forced-alignment tools (like Whisper).</li>
+<li><strong>No Phase Distortion:</strong> MP3 compression shifts audio phase relationships. Keeping the phase intact is critical for preventing robotic-sounding artifacts when isolating stems with deep learning.</li>
+</ol>
 <p><strong>My Export Settings:</strong> <code>WAV</code>, <code>48000 Hz</code>, <code>32-bit Float</code>. Keep everything as WAV throughout the extraction, denoising, and slicing stages.</p>
 <hr />
 <h2>7. Integrating with VoxCPM2 (My Workflow Example)</h2>
 <p>Once UVR5 finishes processing, I move the resulting clean WAV file into my working directory. For my voice cloning projects, this looks like:</p>
-<pre><code class="language-bash">mv 1_segment_125_219_\(Vocals\).wav ~/Application/AI/TTS/voxcpm2/clone/
+<pre><code class="language-bash">mv 1_segment_125_219_(Vocals).wav ~/Application/AI/TTS/voxcpm2/clone/
 </code></pre>
 <p>This pristine, isolated vocal file is now ready to be registered as the default voice reference preset.</p></main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS ARCHITECT</footer>

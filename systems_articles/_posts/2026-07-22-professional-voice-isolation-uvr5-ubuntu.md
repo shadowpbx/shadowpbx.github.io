@@ -38,13 +38,17 @@ Below are the actual sample audio files processed using this UVR5 pipeline:
 ---
 
 ## Beyond Voice Cloning: A Professional Powerhouse
+
 While I primarily use UVR5 for zero-shot voice cloning datasets (like VoxCPM2), it is actually a massive cheat code for all sorts of professional audio engineering tasks:
+
 * **Dialogue Cleanup & Film Post-Production:** If you have a video recording where the lavalier mic picked up wind, traffic, or background chatter, UVR5 can isolate the subject's voice perfectly, acting as a high-end noise reduction suite.
 * **Podcast Repair:** Sometimes a guest records in an untreated room with lots of reverb, or their dog barks in the background. UVR5's VR Architecture models (like `UVR-DeEcho-Normal`) can completely strip out room echo and background interruptions.
 * **Music Production & DJs:** If you need to create acapellas or instrumental stems for remixes, UVR5's Demucs and MDX-Net models separate drums, bass, vocals, and melodies with studio-grade precision.
 
 ## My Hardware Setup
+
 UVR5 is incredibly computationally intensive. While it *can* run on a CPU, a dedicated GPU is highly recommended. My workstation is built to chew through these deep learning models in a fraction of the time:
+
 * **OS:** Ubuntu Linux
 * **RAM:** 128GB
 * **GPUs:** Dual NVIDIA GeForce RTX 3060s (12GB VRAM each)
@@ -56,12 +60,14 @@ UVR5 is incredibly computationally intensive. While it *can* run on a CPU, a ded
 First, we need to install the system-level dependencies for audio processing (FFmpeg) and the graphical interface (Tkinter). 
 
 Open your terminal and run:
+
 ```bash
 sudo apt update && sudo apt upgrade
 sudo apt install -y ffmpeg python3-pip python3-tk git
 ```
 
 Next, pull the official UVR5 source code from GitHub into your preferred directory:
+
 ```bash
 mkdir -p ~/Application/AI/TTS/
 cd ~/Application/AI/TTS/
@@ -88,21 +94,27 @@ pip install -r requirements.txt
 ```
 
 ### ⚠️ Crucial Fixes for Linux / Python 3.10
+
 During my setup, I ran into three specific dependency challenges. Run these commands to fix them before launching:
 
-1. **Restore `pkg_resources` for Librosa 0.9.2**:
-   ```bash
-   pip install "setuptools<70.0.0"
-   ```
-2. **Fix Playsound Audio Preview Error**:
-   ```bash
-   pip install playsound==1.2.2
-   ```
-3. **Bypass Dora / Scikit-Learn Deprecation Restriction**:
-   ```bash
-   export SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
-   pip install dora-search==0.0.3
-   ```
+1. **Restore `pkg_resources` for Librosa 0.9.2:**
+
+```bash
+pip install "setuptools<70.0.0"
+```
+
+2. **Fix Playsound Audio Preview Error:**
+
+```bash
+pip install playsound==1.2.2
+```
+
+3. **Bypass Dora / Scikit-Learn Deprecation Restriction:**
+
+```bash
+export SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
+pip install dora-search==0.0.3
+```
 
 ---
 
@@ -111,9 +123,11 @@ During my setup, I ran into three specific dependency challenges. Run these comm
 To ensure UVR5 automatically uses the dual RTX 3060 GPUs without needing to manually toggle it in the GUI every time, you can modify the constants file.
 
 Open `uvr5/gui_data/constants.py`, locate line 639, and update it to:
+
 ```python
 'is_gpu_conversion': True
 ```
+
 *Note: You can also just verify that the "GPU Conversion" checkbox is enabled on the main GUI screen when you launch the app.*
 
 ---
@@ -129,6 +143,7 @@ python ~/Application/AI/TTS/uvr5/UVR.py
 ```
 
 ### Pre-processing with FFmpeg
+
 Before throwing a massive audio file into UVR5, I trim the exact segment I need. For example, to isolate a specific voice segment between the 1:25 and 2:19 marks, I use FFmpeg:
 
 ```bash
@@ -149,12 +164,12 @@ Here is my exact configuration in the UVR5 GUI:
 
 * **Process Method:** `MDX-Net`
 * **The Model:** `Kim Vocal 2` or `UVR-MDX-NET-Voc_FT`
-  * *Kim Vocal 2* is exceptionally aggressive at recognizing human voice frequencies, leaving zero ambient noise. 
-  * *Voc_FT* is a fine-tuned alternative designed to eliminate "instrumental bleed."
+    * *Kim Vocal 2* is exceptionally aggressive at recognizing human voice frequencies, leaving zero ambient noise. 
+    * *Voc_FT* is a fine-tuned alternative designed to eliminate "instrumental bleed."
 * **Segment Size:** `1024` (or up to `2048`)
-  * *Why:* Larger segments give the AI more surrounding audio context, improving separation quality. While these numbers will instantly crash a standard computer, dual 12GB GPUs easily swallow the massive data chunks.
+    * *Why:* Larger segments give the AI more surrounding audio context, improving separation quality. While these numbers will instantly crash a standard computer, dual 12GB GPUs easily swallow the massive data chunks.
 * **Overlap:** `0.85 to 0.90`
-  * *Why:* A high overlap smooths out the seams between processed audio chunks, eliminating choppy artifacts. (Pushing it to 0.99 is possible, but inflates processing time for virtually zero audible improvement).
+    * *Why:* A high overlap smooths out the seams between processed audio chunks, eliminating choppy artifacts. (Pushing it to 0.99 is possible, but inflates processing time for virtually zero audible improvement).
 
 > 💡 **Pro-Tip:** If the output sounds clean but has a slight metallic echo left over from the original room or background music, run the isolated vocal track *back* through UVR5 using the VR Architecture model: `UVR-DeEcho-Normal`.
 
@@ -165,6 +180,7 @@ Here is my exact configuration in the UVR5 GUI:
 Under output preferences, **always select WAV**. If you are generating an audio dataset for voice modeling, AI text-to-speech, or doing professional audio mixing, MP3 should *never* be used as an intermediate format. 
 
 Here is why:
+
 1. **No Lossy Compression Artifacts:** MP3 silently cuts out high/low frequencies and introduces subtle metallic artifacts. Voice-training algorithms are extremely sensitive to these distortions and will bake them into your final voice model.
 2. **Exact Sample Alignment:** MP3 encoding inherently adds tiny milliseconds of silent padding at the beginning and end of files. This messes up automatic audio slicers and forced-alignment tools (like Whisper).
 3. **No Phase Distortion:** MP3 compression shifts audio phase relationships. Keeping the phase intact is critical for preventing robotic-sounding artifacts when isolating stems with deep learning.
@@ -178,7 +194,7 @@ Here is why:
 Once UVR5 finishes processing, I move the resulting clean WAV file into my working directory. For my voice cloning projects, this looks like:
 
 ```bash
-mv 1_segment_125_219_\(Vocals\).wav ~/Application/AI/TTS/voxcpm2/clone/
+mv 1_segment_125_219_(Vocals).wav ~/Application/AI/TTS/voxcpm2/clone/
 ```
 
 This pristine, isolated vocal file is now ready to be registered as the default voice reference preset.
