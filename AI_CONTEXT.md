@@ -58,8 +58,9 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │
 ├── systems_articles/
 │   ├── index.html          # Articles & Guides (non-security technical articles)
-│   ├── _posts/             # Source markdown articles
-│   └── posts/              # Compiled HTML article pages
+│   ├── _posts/             # Source markdown articles (e.g. UVR5, VoxCPM2)
+│   ├── posts/              # Compiled HTML article pages
+│   └── assets/             # Hosted audio samples and 1-click code downloads
 │
 ├── systems_tools/
 │   ├── index.html          # Systems Tools & Software Utilities
