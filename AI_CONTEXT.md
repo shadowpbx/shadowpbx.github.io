@@ -66,20 +66,15 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── _posts/             # Source markdown tool profiles
 │   └── posts/              # Compiled HTML tool pages
 │
-├── academics/
-│   ├── index.html          # Coursework & CLEPs dashboard
-│   ├── _posts/             # Source coursework notes (like CISS 100)
-│   ├── posts/              # Compiled HTML coursework notes
-│   │
-│   ├── Sociology/          # CLEP Sociology audio player, companion, and readme
-│   ├── Macroeconomics/     # CLEP Macroeconomics audio player, companion, and readme
-│   ├── Macroeconomics_Graphs/ # React + TS + Tailwind graphing lab workspace (compiled under dist/)
-│   └── American_Government/ # CLEP American Government audio player and readme
-│
-└── articles/
-    ├── index.html          # Legacy Articles log
-    ├── _posts/             # Source markdown files
-    └── posts/              # Compiled HTML articles
+└── academics/
+    ├── index.html          # Coursework & CLEPs dashboard
+    ├── _posts/             # Source coursework notes (like CISS 100)
+    ├── posts/              # Compiled HTML coursework notes
+    │
+    ├── Sociology/          # CLEP Sociology audio player, companion, and readme
+    ├── Macroeconomics/     # CLEP Macroeconomics audio player, companion, and readme
+    ├── Macroeconomics_Graphs/ # React + TS + Tailwind graphing lab workspace (compiled under dist/)
+    └── American_Government/ # CLEP American Government audio player and readme
 ```
 
 ---

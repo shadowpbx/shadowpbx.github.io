@@ -14,7 +14,6 @@ logging.basicConfig(
 # Configuration map for all monorepo sections
 FOLDER_CONFIGS = {
     "cybersecurity": {"type": "standard", "default_tag": "PENTEST"},
-    "articles": {"type": "standard", "default_tag": "SYSTEMS"},
     "cybersecurity_certifications": {"type": "standard", "default_tag": "CERT"},
     "cybersecurity_curriculum": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
     "cybersecurity_study_modules": {"type": "standard", "default_tag": "MODULES"},
