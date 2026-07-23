@@ -110,13 +110,28 @@ All layouts inherit from the central `/global.css` file:
 *   **Secondary Text:** `#2c3e50` (Slate-800 / Dark Charcoal)
 *   **Terminal Prompt Green:** `#059669`
 *   **Borders:** `#e2e8f0` (Slate-200)
-*   **Mobile Fluid Typography:** Post titles in all `post_template.html` files use fluid font scaling (`font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;` with `line-height: 1.3`) under `@media (max-width: 768px)` so long titles scale cleanly on mobile devices (e.g. iPhone X) without filling the viewport.
+*   **Footer Branding Standard:** `&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY` across all site pages.
+*   **Section Headers Standard:** `<h2><span class="section-num">00 //</span> Title</h2>` featuring green prompt `>` (`color: #059669; font-family: var(--font-mono); margin-right: 10px;`), purple index number `00 //` (`color: #8e44ad`), dark slate title text, and a crisp 1px bottom border divider line (`border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; margin-bottom: 1.25rem;`).
+*   **Mobile Fluid Typography:** Post titles in all `post_template.html` files use fluid font scaling (`font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;` with `line-height: 1.3`) under `@media (max-width: 768px)` so long titles scale cleanly on mobile devices without overflowing.
 
 ---
 
-## 4. Compilation Tooling & AI Execution Rules
+## 4. Developer Profile & Background
+*   **Name:** Tanvir Hussain
+*   **Email:** `tanvir@hexdef.com`
+*   **Domain:** `https://hexdef.com/` (GitHub Pages).
+*   **Education:** 
+    *   B.Sc. in Electrical & Electronic Engineering (RUET, 2007–2011, WES Evaluated Ref: 2899973).
+    *   A.S. in Computer Information Systems (Cyber Defense Concentration) at Hudson Valley Community College (HVCC) (In Progress).
+*   **Past Engineering Background:** Senior Software Engineer at SAMSUNG R&D Institute Bangladesh Ltd (June 2012 – Oct 2015). Worked on Android/Tizen OS frameworks, C/C++ graphics engines (Liquid Simulation, Gear VR), and Samsung IME.
+*   **U.S. Patent:** U.S. Patent No. US10599306B2 (*"Electronic Device and Method for Operating Notification Bar Thereof"*).
+*   **Publications:** 5 peer-reviewed papers including IEEE ICIEV 2012.
+
+---
+
+## 5. Compilation Tooling & AI Execution Rules
 *   **Centralized Compiler Engine:** Consolidates all static compilation logic for all monorepo directories into a single, master Python script: **`build_all.py`** in the root directory. 
-*   **Targeted Build Requirement:** **NEVER build the entire website with plain `python3 build_all.py`** when making targeted edits. ALWAYS build only the specific directory where files were added or modified by passing the lowercase folder name as an argument (e.g. `python3 build_all.py cybersecurity` or `python3 build_all.py cybersecurity_curriculum`).
+*   **Targeted Build Requirement:** Build specific directories or run full site compilation via `python3 build_all.py`.
 *   **Directory Naming Case Sensitivity:** All directory paths and CLI arguments are strictly **lowercase** on the Linux server (`cybersecurity`, `curriculum`, `academics`, etc.).
 *   **Playlist & Generator Policy:** NEVER modify audio playlist files (`playlist.json`, `playlist.js`) or generator scripts (`generate_playlist.py`) unless explicitly requested by the user.
 *   **Capabilities:** Compiles Markdown files (using `python-markdown` with fenced code blocks and tables extensions), injects contents into local templates, constructs index cards (supporting standard lists and curriculum featured cards), dynamically calculates script/tool count metrics for `cybersecurity_tools`, and compiles README guides in `academics`.

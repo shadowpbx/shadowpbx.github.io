@@ -42,16 +42,16 @@ summary: "A comprehensive categorization of red team attack vectors, exploitatio
 ---
 
 ## 3. Page Layout Architecture
-1. **3-Column Chapter Grid (`.curriculum-grid`):** Displays 35 chapter cards in 3 columns on desktop, 2 on tablet, 1 on mobile. Each card features a top badge (`CHAPTER 01`), clean title, topic summary preview, and a `READ CHAPTER →` action link.
-2. **Specialized Indexes Container (`.specialized-box`):** An enclosed dark glass box below the grid with an accent header bar (`❖ SPECIALIZED INDEXES & MASTER SYLLABI`) hosting title-only, fully-clickable reference rows (`.specialized-entry`).
+1. **Macroview Ecosystem Section (`00 // Macroview of Cybersecurity`):** A top overview grid (`.macroview-grid`) featuring 7 interactive cards representing the complete security domain: Foundation (Green), White Team (Slate), Yellow Team (Gold), Blue Team (Blue - links directly to Blue Team Index post), Red Team (Red - links directly to Red Team Index post), Purple Team (Purple), and DFIR & CTI (Indigo - spans 3 columns).
+2. **3-Column Chapter Grid (`01 // Core Curriculum (35 Chapters)`):** Displays 35 chapter cards in 3 columns on desktop (`.curriculum-grid`), 2 on tablet, 1 on mobile. Each card features a top badge (`CHAPTER 01`), clean title, topic summary preview, and a `READ CHAPTER →` action link.
 
 ---
 
 ## 4. Build & Compile Process
-To recompile all chapters, update index cards, and rebuild reference tables, run the targeted monorepo build script from the repository root:
+To recompile all chapters and update index cards, run the monorepo build script:
 
 ```bash
 python3 build_all.py cybersecurity_curriculum
 ```
 
-*Note: The compiler uses placeholders `<!-- POSTS_START -->` / `<!-- POSTS_END -->` for chapter cards, and `<!-- REFERENCE_START -->` / `<!-- REFERENCE_END -->` for specialized index rows inside `index.html`.*
+*Note: The compiler uses placeholders `<!-- POSTS_START -->` / `<!-- POSTS_END -->` for chapter cards inside `index.html`.*
