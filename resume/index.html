@@ -32,20 +32,16 @@
             margin-bottom: 1.5rem;
             padding-bottom: 0.6rem;
             border-bottom: 1px solid var(--border);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 0.35rem;
             color: var(--text-primary);
             font-weight: 600;
             letter-spacing: -0.02em;
+            display: block;
         }
 
         h2::before {
-            content: ">";
+            content: "> ";
             font-family: var(--font-mono);
             color: var(--terminal-green);
-            flex-shrink: 0;
         }
 
         .section-num {
@@ -54,8 +50,7 @@
             font-size: 0.95em;
             font-weight: 700;
             white-space: nowrap;
-            display: inline-block;
-            flex-shrink: 0;
+            margin-right: 0.35rem;
         }
 
         p {
