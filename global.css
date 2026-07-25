@@ -381,7 +381,29 @@ footer {
         padding: 1.2rem 1.5rem 1.2rem 1.5rem;
     }
 
+    .terminal-header h1 {
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+        line-height: 1.3;
+    }
+
+    h2 {
+        font-size: clamp(1.2rem, 3.8vw, 1.6rem);
+        line-height: 1.35;
+    }
+
+    main h2 {
+        font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
+        margin-top: 2rem !important;
+    }
+
     .container {
         margin: 0 auto;
     }
+}
+
+/* Non-breaking Section Number Prefix Standard */
+.section-num {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
 }
