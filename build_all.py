@@ -347,16 +347,19 @@ def compile_standard_section(folder_path, folder_name, config):
                 
                 chapter_num_val = str(meta.get("chapter_num", "99"))
                 if chapter_num_val != "99":
-                    chapter_badge_html = f'<div class="chapter-badge">[ CHAPTER {chapter_num_val} ]</div>'
+                    terminal_prompt_str = f"user@hexdef:~$ study --chapter {chapter_num_val} --read"
                 else:
-                    tag_name = str(tag).upper() if tag else "INDEX"
-                    chapter_badge_html = f'<div class="chapter-badge">[ {tag_name} ]</div>'
+                    slug = fn.replace(".md", "").lower().replace("_", "-")
+                    slug = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', slug)
+                    slug = slug.replace("master-index-of-", "").replace("-master-index", "").replace("the-", "")
+                    slug = re.sub(r'^-+|-+$', '', slug)
+                    terminal_prompt_str = f"user@hexdef:~$ study --index {slug} --read"
                 
                 # Replace content in templates
                 post_html = template_content.replace("{{ title }}", title)\
                                             .replace("{{ content }}", html_body)\
                                             .replace("{{ date }}", clean_date)\
-                                            .replace("{{ chapter_badge }}", chapter_badge_html)
+                                            .replace("{{ terminal_prompt }}", terminal_prompt_str)
                 with open(out_fp, "w", encoding="utf-8") as f:
                     f.write(post_html)
                 logging.info(f"Generated HTML post: {post_href}")
