@@ -345,8 +345,18 @@ def compile_standard_section(folder_path, folder_name, config):
                 out_fp = os.path.join(output_dir, out_fn)
                 post_href = f"posts/{out_fn}"
                 
+                chapter_num_val = str(meta.get("chapter_num", "99"))
+                if chapter_num_val != "99":
+                    chapter_badge_html = f'<div class="chapter-badge">[ CHAPTER {chapter_num_val} // CORE CURRICULUM ]</div>'
+                else:
+                    tag_name = str(tag).upper() if tag else "STUDY"
+                    chapter_badge_html = f'<div class="chapter-badge">[ {tag_name} // MASTER INDEX ]</div>'
+                
                 # Replace content in templates
-                post_html = template_content.replace("{{ title }}", title).replace("{{ content }}", html_body).replace("{{ date }}", clean_date)
+                post_html = template_content.replace("{{ title }}", title)\
+                                            .replace("{{ content }}", html_body)\
+                                            .replace("{{ date }}", clean_date)\
+                                            .replace("{{ chapter_badge }}", chapter_badge_html)
                 with open(out_fp, "w", encoding="utf-8") as f:
                     f.write(post_html)
                 logging.info(f"Generated HTML post: {post_href}")
