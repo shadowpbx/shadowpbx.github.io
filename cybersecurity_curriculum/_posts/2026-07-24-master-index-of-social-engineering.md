@@ -2,12 +2,12 @@
 title: "Social Engineering"
 date: "2026.07.24"
 tags: ["STUDY", "SOCIAL ENGINEERING"]
-summary: "A comprehensive master reference index covering OSINT target profiling, digital phishing variants, vishing & pretexting, physical security bypasses, MFA fatigue, and psychological triggers."
+summary: "A comprehensive master reference index covering OSINT target profiling, digital phishing variants, vishing & pretexting, physical security bypasses, MFA fatigue, AiTM proxies, psychological triggers, and FIDO2/DMARC defenses."
 ---
 
 <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #e11d48; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
-        <strong>Purpose:</strong> A master reference index detailing the human element of security breaches—covering OSINT target profiling, digital phishing variants (Spear-phishing, Whaling, Quishing, OAuth consent hijacking), voice/video vishing & AI voice cloning, physical tailgating & badges, MFA fatigue push bombing, and core psychological influence levers.
+        <strong>Purpose:</strong> A comprehensive master reference index detailing the human element of security breaches—covering OSINT target profiling, digital phishing variants, voice/video vishing & AI voice cloning, physical tailgating & badges, MFA fatigue push bombing, AiTM reverse proxies (Evilginx2), domain homograph spoofing, core psychological influence levers, and FIDO2/DMARC defensive countermeasures.
     </p>
 </div>
 
@@ -65,10 +65,21 @@ summary: "A comprehensive master reference index covering OSINT target profiling
 *   **MFA Fatigue (Push Bombing)** — Spamming a user's phone with Multi-Factor Authentication approval requests at 3:00 AM. The attacker relies on the user getting annoyed, tired, or cognitively overloaded and pressing *"Approve"* just to make it stop.
 *   **Scareware / Fake AV** — Web pop-ups that lock the browser, play loud sirens, and claim the computer is infected with child pornography or severe malware, providing an urgent phone number to call for *"tech support."*
 *   **SEO Poisoning / Malvertising** — Buying Google Ads or manipulating search rankings so that when a user searches for *"Download Zoom"* or *"IT Support,"* the very first link they click is malicious.
+*   **LLM-Driven Spear Phishing** — Leveraging Generative AI (LLMs) to automatically synthesize thousands of highly personalized, context-aware emails with zero grammatical errors across multiple languages.
 
 ---
 
-## 6. The Psychological Triggers (The "Why" It Works)
+## 6. Advanced Phishing Delivery & Technical Infrastructure
+*Technical delivery mechanisms used by advanced threat actors.*
+
+*   **Adversary-in-the-Middle (AiTM) Reverse Proxies** — Deploying proxy tools (e.g., Evilginx2, Modlishka) that relay authentication requests between the victim and legitimate login portals. Captures both passwords and active **Session Tokens / Cookies**, completely defeating traditional 2FA/TOTP.
+*   **Domain Homograph & Punycode Attacks** — Registering domains using visually identical Internationalized Domain Name (IDN) Cyrillic characters (e.g., `gооgle.com` using Cyrillic `о`) to bypass visual scrutiny.
+*   **Typosquatting & Combosquatting** — Registering common typos (`paypa1.com`) or plausible domain variations (`paypal-security-update.com`) to host phishing portals.
+*   **Watering Hole Attacks** — Compromising a legitimate third-party website frequently visited by a targeted group (e.g., industry news forums) to secretly drop credential harvesters or browser exploits.
+
+---
+
+## 7. The Psychological Triggers (The "Why" It Works)
 *Every single attack listed above relies on pulling one or more of these core psychological levers.*
 
 *   **Authority** — Humans are socially conditioned to obey authority figures (Police, Executives, Auditors, IT Directors).
@@ -78,3 +89,14 @@ summary: "A comprehensive master reference index covering OSINT target profiling
 *   **Social Proof (Consensus)** — Convincing the target that everyone else is already doing it (e.g., *"The rest of your department has already migrated their accounts using this link"*).
 *   **Commitment & Consistency** — Asking the target for a tiny, harmless favor first. Once they say *"yes"* to a small thing, they are psychologically much more likely to say *"yes"* to the big, dangerous request later. 
 *   **Coercion & Extortion (Insider Threat)** — When deception fails, leveraging discovered secrets, gambling debts, or physical threats to force a legitimate employee to act maliciously on the attacker's behalf.
+
+---
+
+## 8. Defensive Countermeasures & Phishing Resilience
+*Engineering and operational controls designed to neutralize social engineering attacks.*
+
+*   **Phishing-Resistant MFA (FIDO2 / WebAuthn)** — Hardware keys (YubiKey) and passkeys that cryptographically bind authentication to the browser's origin domain, rendering AiTM reverse proxy attacks completely ineffective.
+*   **Email Authentication Triad (SPF, DKIM, DMARC)** — Enforcing Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM), and DMARC with a strict `p=reject` policy to stop domain spoofing.
+*   **Number Matching & Conditional Access** — Eliminating MFA Push Bombing by requiring users to enter a 2-digit number displayed on screen into their authenticator app before granting session access.
+*   **One-Click Phishing Reporting & Automated Triage** — Integrating email reporting buttons into client mail applications for instant automated sandbox analysis and domain blocking.
+*   **Physical Access Controls & Escort Policies** — Badge turnstiles, mandatory visitor escorts, secure document shredding bins, and strict clean-desk policies.
