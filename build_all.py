@@ -347,10 +347,10 @@ def compile_standard_section(folder_path, folder_name, config):
                 
                 chapter_num_val = str(meta.get("chapter_num", "99"))
                 if chapter_num_val != "99":
-                    chapter_badge_html = f'<div class="chapter-badge">[ CHAPTER {chapter_num_val} // CORE CURRICULUM ]</div>'
+                    chapter_badge_html = f'<div class="chapter-badge">[ CHAPTER {chapter_num_val} ]</div>'
                 else:
-                    tag_name = str(tag).upper() if tag else "STUDY"
-                    chapter_badge_html = f'<div class="chapter-badge">[ {tag_name} // MASTER INDEX ]</div>'
+                    tag_name = str(tag).upper() if tag else "INDEX"
+                    chapter_badge_html = f'<div class="chapter-badge">[ {tag_name} ]</div>'
                 
                 # Replace content in templates
                 post_html = template_content.replace("{{ title }}", title)\
