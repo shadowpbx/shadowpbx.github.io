@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cybersecurity Bedrock: The Master Foundation Index | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/systems/" class="nav-link">[ SYSTEMS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/systems_articles/">Articles & Guides</a>
+                        <a href="/systems_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/study/posts$ cat syllabus.md</div>
+            <h1>The Cybersecurity Bedrock: The Master Foundation Index</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #059669; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
+        <strong>Purpose:</strong> Designed as the foundational bedrock for the cybersecurity curriculum, this master index breaks down the core concepts across all 8 security domains—from CIA Triad primitives and GRC frameworks to PKI cryptography, cloud shared responsibility, STRIDE threat modeling, and DFIR forensics.
+    </p>
+</div>
+
+<hr />
+<h2>1. Core Security Principles (The Absolute Basics)</h2>
+<ul>
+<li><strong>The CIA Triad</strong> — The ultimate goals of security: ensuring <strong>Confidentiality</strong> (privacy), <strong>Integrity</strong> (accuracy/unaltered state), and <strong>Availability</strong> (system uptime).</li>
+<li><strong>The AAA Framework</strong> — The lifecycle of an entity: <strong>Authentication</strong> (proving who you are), <strong>Authorization</strong> (what you are allowed to do), and <strong>Accounting</strong> (tracking what you did).</li>
+<li><strong>Non-Repudiation</strong> — Ensuring a user cannot deny having performed an action (achieved via digital signatures and immutable logging).</li>
+<li><strong>Defense in Depth (DiD)</strong> — Layering multiple, independent security controls so if one fails, others stand in the way (e.g., Firewall + EDR + MFA).</li>
+<li><strong>Zero Trust Architecture (ZTA)</strong> — <em>"Never Trust, Always Verify."</em> Assuming the network is already hostile and requiring strict identity and context verification for every single request.</li>
+<li><strong>Principle of Least Privilege (PoLP)</strong> — Granting users, processes, and systems only the bare minimum access rights necessary to perform their jobs.</li>
+<li><strong>Separation of Duties (SoD)</strong> — Dividing critical tasks among multiple people to prevent fraud or error (e.g., the developer writing the code cannot approve its deployment).</li>
+<li><strong>Security by Design &amp; Fail-Safe Defaults</strong> — Integrating security into the blueprint of a system from day one, and ensuring that if a system fails, it fails into a secure, closed state.</li>
+</ul>
+<hr />
+<h2>2. Risk, Governance, &amp; Compliance (GRC)</h2>
+<ul>
+<li><strong>The Risk Equation</strong> — <strong>Risk = Threat × Vulnerability × Impact</strong>. A vulnerability with no threat actor, or a threat with no business impact, alters the risk priority.</li>
+<li><strong>Risk Treatment Strategies</strong> — The 4 ways to handle risk: <strong>Mitigate</strong> (deploy a firewall), <strong>Transfer</strong> (buy cyber insurance), <strong>Avoid</strong> (shut down the vulnerable service), or <strong>Accept</strong> (acknowledge the risk and do nothing).</li>
+<li><strong>Compliance vs. Privacy vs. Security</strong> — Security is protecting the data; Privacy is respecting user rights to that data (GDPR, CCPA); Compliance is proving it to an auditor (PCI-DSS, HIPAA).</li>
+<li><strong>Major Security Frameworks</strong> — The overarching blueprints for organizational security (e.g., NIST Cybersecurity Framework (CSF), ISO 27001, SOC 2).</li>
+<li><strong>Asset &amp; Vulnerability Management</strong> — You cannot protect what you don't know exists. The continuous lifecycle of discovering assets, scanning for flaws, and prioritizing patches.</li>
+<li><strong>Business Continuity &amp; Disaster Recovery (BCP/DR)</strong> — BCP keeps the business running during a crisis; DR restores IT systems (measured by RTO - Recovery Time Objective, and RPO - Recovery Point Objective).</li>
+</ul>
+<hr />
+<h2>3. Identity &amp; Access Management (IAM)</h2>
+<ul>
+<li><strong>Authentication Factors</strong> — Something you <strong>Know</strong> (password), <strong>Have</strong> (YubiKey), <strong>Are</strong> (biometrics), <strong>Where you Are</strong> (IP/GPS), <strong>Something you Do</strong> (typing cadence).</li>
+<li><strong>Identity Federation &amp; SSO</strong> — Allowing users to authenticate once across multiple independent systems using standards like <strong>SAML</strong> (enterprise), <strong>OAuth 2.0</strong> (delegated access), and <strong>OIDC</strong>.</li>
+<li><strong>IAM Lifecycle</strong> — The strict, tracked process of Provisioning (onboarding), Modifying (role changes), and Deprovisioning (offboarding) user access.</li>
+<li><strong>Access Control Models</strong> — <ul>
+<li><strong>DAC:</strong> Data owner decides access (e.g., Google Docs).</li>
+<li><strong>MAC:</strong> System enforces strict clearance labels (e.g., Military classification).</li>
+<li><strong>RBAC:</strong> Access granted based on job role/function.</li>
+<li><strong>ABAC:</strong> Access granted based on dynamic attributes (time, device health, location).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>4. Cryptography &amp; Data Protection</h2>
+<ul>
+<li><strong>Symmetric vs. Asymmetric Encryption</strong> — Symmetric uses <em>one key</em> for both encryption/decryption (fast, bulk data). Asymmetric uses a <em>mathematically linked public/private key pair</em> (slower, used for secure key exchange).</li>
+<li><strong>Hashing &amp; Salting</strong> — Hashing is a one-way function turning data into a fixed string to verify integrity. <em>Salting</em> adds random data to passwords before hashing to defeat pre-computed dictionary attacks (Rainbow Tables).</li>
+<li><strong>Digital Signatures</strong> — Encrypting a hash with a Private Key to prove <em>both</em> Integrity and Non-Repudiation (proving who sent it and that it wasn't altered).</li>
+<li><strong>Public Key Infrastructure (PKI)</strong> — The ecosystem of Certificate Authorities (CAs) and digital certificates that allows devices to trust each other (the backbone of HTTPS).</li>
+<li><strong>The Three States of Data</strong> — Data <strong>At Rest</strong> (on a drive), <strong>In Transit</strong> (across a network), and <strong>In Use</strong> (in RAM). Each requires distinct encryption/protection.</li>
+</ul>
+<hr />
+<h2>5. Architecture, Network &amp; Cloud Fundamentals</h2>
+<ul>
+<li><strong>The OSI Model</strong> — The 7-layer framework of networking (Physical, Data Link, Network, Transport, Session, Presentation, Application). Critical for understanding where attacks and defenses live.</li>
+<li><strong>TCP/IP &amp; Core Protocols</strong> — Understanding how data is routed (IP), guaranteed (TCP) or sent quickly without guarantees (UDP), and mapped to essential services (DNS, HTTP/S, SSH).</li>
+<li><strong>Network Segmentation &amp; DMZ</strong> — Dividing a flat network using firewalls/VLANs to contain breaches. The Demilitarized Zone (DMZ) safely hosts public-facing servers away from internal data.</li>
+<li><strong>The Cloud Shared Responsibility Model</strong> — The hard rule of cloud security: The Provider secures the <em>Cloud</em> (physical hardware, hypervisor), the Customer secures what is <em>in the Cloud</em> (OS, data, IAM, configurations).</li>
+</ul>
+<hr />
+<h2>6. Secure Software Development (AppSec)</h2>
+<ul>
+<li><strong>Secure SDLC &amp; DevSecOps</strong> — Integrating security testing (SAST, DAST, SCA) directly into the Software Development Life Cycle, shifting security "left" (earlier in the process) rather than testing at the end.</li>
+<li><strong>OWASP Top 10</strong> — The foundational awareness document representing the most critical web application security risks (e.g., Broken Access Control, Injection).</li>
+</ul>
+<hr />
+<h2>7. Threat Modeling &amp; Attacker Methodology</h2>
+<ul>
+<li><strong>Vulnerability vs. Exploit vs. Payload</strong> — A <em>vulnerability</em> is the flaw (an open window). An <em>exploit</em> is the tool used to take advantage of it (a crowbar). The <em>payload</em> is the malicious action taken afterward (stealing the TV).</li>
+<li><strong>Threat Actor Types</strong> — <strong>APTs</strong> (Nation-states), <strong>Cybercriminals</strong> (Financial/Ransomware), <strong>Hacktivists</strong> (Ideological), and <strong>Insider Threats</strong> (Malicious/Negligent staff).</li>
+<li><strong>The Cyber Kill Chain / MITRE ATT&amp;CK</strong> — Frameworks mapping the lifecycle of a cyberattack (Recon, Weaponization, Delivery, Exploitation, C2, Actions on Objectives).</li>
+<li><strong>Threat Modeling (STRIDE)</strong> — A proactive framework to find design flaws: <strong>S</strong>poofing, <strong>T</strong>ampering, <strong>R</strong>epudiation, <strong>I</strong>nformation Disclosure, <strong>D</strong>enial of Service, <strong>E</strong>levation of Privilege.</li>
+</ul>
+<hr />
+<h2>8. Incident Response &amp; Digital Forensics</h2>
+<ul>
+<li><strong>NIST Incident Response Lifecycle</strong> — 1. Preparation &rarr; 2. Detection &amp; Analysis &rarr; 3. Containment, Eradication &amp; Recovery &rarr; 4. Post-Incident Activity.</li>
+<li><strong>IoCs vs. IoAs</strong> — <strong>Indicators of Compromise</strong> (reactive evidence like known bad IPs or file hashes) vs. <strong>Indicators of Attack</strong> (proactive behavioral patterns like unusual off-hours login spikes).</li>
+<li><strong>Order of Volatility</strong> — The forensic rule dictating data must be captured starting with the most fragile (RAM/CPU caches) down to the most permanent (Hard Drives/Backups).</li>
+<li><strong>Chain of Custody</strong> — The unbroken, chronological paper trail documenting the seizure, control, transfer, and analysis of digital evidence so it is admissible in court.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
