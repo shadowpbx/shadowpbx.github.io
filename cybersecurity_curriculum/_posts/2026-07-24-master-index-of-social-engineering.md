@@ -1,5 +1,5 @@
 ---
-title: "The Master Index of Social Engineering"
+title: "Social Engineering"
 date: "2026.07.24"
 tags: ["STUDY", "SOCIAL ENGINEERING"]
 summary: "A comprehensive master reference index covering OSINT target profiling, digital phishing variants, vishing & pretexting, physical security bypasses, MFA fatigue, and psychological triggers."
