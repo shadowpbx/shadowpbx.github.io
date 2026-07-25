@@ -393,11 +393,16 @@ def compile_standard_section(folder_path, folder_name, config):
             posts_list_html.append(entry)
         joined_posts = "\n".join(posts_list_html)
         
+        specialized_posts = [p for p in ref_posts if not any(k in p['url'] for k in ["bedrock", "defensive-security", "offensive-security", "governance-risk", "security-architecture", "adversary-emulation", "audited-dfir"])]
+        specialized_posts.sort(key=lambda x: x['title'])
         ref_list_html = []
-        for post in ref_posts:
-            ref_entry = f"""            <a href="{post['url']}" class="specialized-entry">
-                <span class="ref-title">{post['title']}</span>
-            </a>"""
+        for post in specialized_posts:
+            ref_entry = f"""                <li style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1.25rem;">
+                    <a href="{post['url']}" style="text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%;">
+                        <span><span style="font-family: var(--font-mono); color: #e11d48; font-weight: 700; margin-right: 0.5rem;">&gt;</span> {post['title']}</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #e11d48; white-space: nowrap;">READ &rarr;</span>
+                    </a>
+                </li>"""
             ref_list_html.append(ref_entry)
         joined_ref = "\n".join(ref_list_html)
     else:
