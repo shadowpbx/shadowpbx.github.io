@@ -84,8 +84,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--accent);
-            color: #ffffff !important;
+            background: rgba(142, 68, 173, 0.08);
+            color: #6b21a8 !important;
+            border: 1px solid rgba(142, 68, 173, 0.3);
             font-family: var(--font-mono);
             font-size: 0.8rem;
             font-weight: 700;
@@ -95,11 +96,14 @@
             transition: all 0.2s ease;
             text-align: center;
             letter-spacing: 0.03em;
+            white-space: nowrap;
         }
 
         .btn-audio-primary:hover {
-            background: #763696;
-            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.25);
+            background: #8e44ad;
+            color: #ffffff !important;
+            border-color: #8e44ad;
+            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.2);
             transform: translateY(-1px);
         }
 
@@ -107,7 +111,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: transparent;
+            background: var(--bg-page);
             color: var(--text-primary) !important;
             border: 1px solid var(--border);
             font-family: var(--font-mono);
@@ -119,11 +123,12 @@
             transition: all 0.2s ease;
             text-align: center;
             letter-spacing: 0.03em;
+            white-space: nowrap;
         }
 
         .btn-audio-secondary:hover {
             border-color: var(--text-primary);
-            background: rgba(15, 23, 42, 0.04);
+            background: rgba(15, 23, 42, 0.06);
             transform: translateY(-1px);
         }
 
