@@ -48,8 +48,9 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   └── posts/              # Compiled HTML tool profiles
 │
 ├── cybersecurity_audio/
-│   ├── index.html          # Audio tutorials & walkthroughs log
-│   └── Cybersecurity_Concise/ # Custom audio-guided master index study player
+│   ├── index.html          # Audio tutorials hub & featured audio study suites dashboard
+│   ├── Cybersecurity_Concise/ # Suite 01: Cybersecurity Concise Master Index Player (397 Modules • 98h 26m)
+│   └── Cybersecurity_Badstuff/ # Suite 02: The Threat Landscape Audio Player (71 Modules • 11h 5m)
 │
 ├── systems/
 │   ├── index.html          # Systems Architecture & Engineering dashboard

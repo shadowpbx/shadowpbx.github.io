@@ -1,20 +1,29 @@
 # Developer & AI Context Guide (cybersecurity_audio - Audio Tutorials)
 ## Overview
-This file serves as a system guide for any AI assistant or developer working inside the **cybersecurity_audio** directory. This directory houses Tanvir Hussain's audio tutorials, walkthroughs, and audio-guided master index study player.
+This file serves as a system guide for any AI assistant or developer working inside the **cybersecurity_audio** directory. This directory houses Tanvir Hussain's audio-guided master index study suites, audio walkthroughs, and companion notes.
 
 ---
 
-## 1. Directory Structure & Layout
-*   `index.html`: Main landing page listing all audio tutorials.
-*   `_posts/`: Input directory containing markdown files for audio tutorial entries.
-*   `posts/`: Output directory containing compiled HTML pages.
-*   `post_template.html`: HTML layout template used to wrap individual audio tutorial pages.
-*   `Cybersecurity_Concise/`: Custom audio-guided master index study player.
-*   `assets/`: Hosted audio samples (`assets/audio/`) and 1-click Python script downloads (`assets/code/`).
+## 1. Directory Structure & Featured Audio Suites
+*   `index.html`: Main landing page featuring the **Featured Audio Study Suites** dashboard and dynamically compiled audio tutorial logs.
+*   `Cybersecurity_Concise/`: Featured Suite 01 — *Cybersecurity Concise Master Index Audio Study Suite* (397 Modules • 98h 26m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
+*   `Cybersecurity_Badstuff/`: Featured Suite 02 — *The Threat Landscape* (71 Modules • 11h 5m total runtime). Covers Malware, Exploits, OT/ICS, and AI Security Risks. Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
+*   `_posts/`: Source markdown directory for individual audio tutorial entries.
+*   `posts/`: Output directory for compiled HTML audio post pages.
+*   `post_template.html`: Layout template for wrapping individual audio post entries.
 
 ---
 
-## 2. Build & Compile Process
+## 2. Card Design & Button Standards
+*   **Terminal Workstation Cards:** High-contrast cards featuring:
+    *   **Top Status Bar:** Left suite badge (`[ SUITE 01 ]`, `[ SUITE 02 ]`) and right status pill displaying track count + total runtime (`397 MODULES • 98h 26m`, `71 MODULES • 11h 5m`).
+    *   **Dual Action Buttons:**
+        *   `btn-audio-primary`: `[ 🎧 LAUNCH PLAYER ]` with `white-space: nowrap`, high-contrast deep purple text (`#6b21a8`), and light purple tint background (`rgba(142, 68, 173, 0.08)`). Hover shifts to full purple (`#8e44ad`) with white text.
+        *   `btn-audio-secondary`: `[ 📖 STUDY NOTES ]` with `white-space: nowrap` and clean border.
+
+---
+
+## 3. Build & Compile Process
 To recompile audio tutorial entries and update `index.html`, run the targeted monorepo build script from the repository root:
 
 ```bash
