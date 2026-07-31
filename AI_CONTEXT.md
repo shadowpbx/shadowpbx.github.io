@@ -111,7 +111,8 @@ All layouts inherit from the central `/global.css` file:
 *   **Terminal Prompt Green:** `#059669`
 *   **Borders:** `#e2e8f0` (Slate-200)
 *   **Footer Branding Standard:** `&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY` across all site pages.
-*   **Section Headers Standard:** `<h2><span class="section-num">00 //</span> Title</h2>` featuring green prompt `>` (`color: #059669; font-family: var(--font-mono); margin-right: 10px;`), purple index number `00 //` (`color: #8e44ad`), dark slate title text, and a crisp 1px bottom border divider line (`border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; margin-bottom: 1.25rem;`).
+*   **Section Headers Standard:** `<h2><span class="section-num">00 //</span> Title</h2>` featuring green prompt `>` (`color: #059669; font-family: var(--font-mono); margin-right: 10px;`), purple index number `00 //` (`color: #8e44ad`), dark slate title text, and a crisp 1px bottom border divider line (`border-bottom: 1px solid var(--border); padding-top: 0.6rem; padding-bottom: 0.6rem; margin-bottom: 1.25rem;`).
+*   **CLI Terminal Prompt Header:** Individual post headers use CLI flag formatting inside `.terminal-prompt` (`user@hexdef:~$ study --chapter 01 --read` or `user@hexdef:~$ study --index <slug> --read`).
 *   **Mobile Fluid Typography:** Post titles in all `post_template.html` files use fluid font scaling (`font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;` with `line-height: 1.3`) under `@media (max-width: 768px)` so long titles scale cleanly on mobile devices without overflowing.
 
 ---
