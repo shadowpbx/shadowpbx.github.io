@@ -1,0 +1,291 @@
+{
+  "title": "The Threat Landscape",
+  "subtitle": "71 Modules on Malware, Exploits & Cybercrime",
+  "baseUrl": "https://cybersecurity.epistemicresearch.org/badstuff/",
+  "tracks": [
+    {
+      "file": "1.1 Viruses.mp3",
+      "duration": 612.4
+    },
+    {
+      "file": "1.2 Worms.mp3",
+      "duration": 466.4
+    },
+    {
+      "file": "1.3 Trojans.mp3",
+      "duration": 515.0
+    },
+    {
+      "file": "1.4 Remote Access Trojans (RATs).mp3",
+      "duration": 528.6
+    },
+    {
+      "file": "1.5 Rootkits & Bootkits.mp3",
+      "duration": 529.8
+    },
+    {
+      "file": "1.6 Ransomware.mp3",
+      "duration": 479.0
+    },
+    {
+      "file": "1.7 Spyware & Keyloggers.mp3",
+      "duration": 542.1
+    },
+    {
+      "file": "1.8 Infostealers.mp3",
+      "duration": 518.6
+    },
+    {
+      "file": "1.9 Cryptojacking.mp3",
+      "duration": 546.4
+    },
+    {
+      "file": "2.1 Bulk Phishing.mp3",
+      "duration": 479.6
+    },
+    {
+      "file": "2.2 Spear Phishing.mp3",
+      "duration": 484.7
+    },
+    {
+      "file": "2.3 Whaling.mp3",
+      "duration": 616.6
+    },
+    {
+      "file": "2.4 Smishing.mp3",
+      "duration": 559.4
+    },
+    {
+      "file": "2.5 Vishing.mp3",
+      "duration": 525.7
+    },
+    {
+      "file": "2.6 Angler Phishing.mp3",
+      "duration": 534.0
+    },
+    {
+      "file": "2.7 Business Email Compromise (BEC).mp3",
+      "duration": 607.7
+    },
+    {
+      "file": "2.8 Pretexting.mp3",
+      "duration": 645.2
+    },
+    {
+      "file": "2.9 Baiting.mp3",
+      "duration": 496.2
+    },
+    {
+      "file": "2.10 Quid Pro Quo.mp3",
+      "duration": 518.6
+    },
+    {
+      "file": "2.11 Watering Hole Attacks.mp3",
+      "duration": 532.5
+    },
+    {
+      "file": "2.12 Tailgating & Piggybacking.mp3",
+      "duration": 559.2
+    },
+    {
+      "file": "3.1 LLMNR-NBT-NS Poisoning.mp3",
+      "duration": 606.9
+    },
+    {
+      "file": "3.2 Kerberoasting & AS-REP Roasting.mp3",
+      "duration": 563.1
+    },
+    {
+      "file": "3.3 DCSync Attacks.mp3",
+      "duration": 592.8
+    },
+    {
+      "file": "3.4 Golden & Silver Ticket Attacks.mp3",
+      "duration": 569.0
+    },
+    {
+      "file": "3.5 Pass-the-Hash (PtH) & Pass-the-Ticket (PtT).mp3",
+      "duration": 522.7
+    },
+    {
+      "file": "3.6 OAuth Consent Phishing.mp3",
+      "duration": 543.4
+    },
+    {
+      "file": "3.7 MFA Fatigue (Push Spamming).mp3",
+      "duration": 532.6
+    },
+    {
+      "file": "3.8 SIM Swapping.mp3",
+      "duration": 586.5
+    },
+    {
+      "file": "3.9 Session Hijacking & Cookie Theft.mp3",
+      "duration": 535.6
+    },
+    {
+      "file": "4.1 Man-in-the-Middle (MitM).mp3",
+      "duration": 596.0
+    },
+    {
+      "file": "4.2 IP Spoofing.mp3",
+      "duration": 584.1
+    },
+    {
+      "file": "4.3 MAC Spoofing.mp3",
+      "duration": 568.6
+    },
+    {
+      "file": "4.4 ARP Poisoning.mp3",
+      "duration": 583.7
+    },
+    {
+      "file": "4.5 DNS Spoofing (Cache Poisoning).mp3",
+      "duration": 548.8
+    },
+    {
+      "file": "4.6 BGP Route Hijacking.mp3",
+      "duration": 572.0
+    },
+    {
+      "file": "4.7 Edge Device Exploitation (VPN Gateways & Firewalls).mp3",
+      "duration": 613.7
+    },
+    {
+      "file": "4.8 Volumetric Attacks (UDP-ICMP Floods, DNS Amplification).mp3",
+      "duration": 585.3
+    },
+    {
+      "file": "4.9 Protocol Attacks (SYN Floods).mp3",
+      "duration": 589.4
+    },
+    {
+      "file": "4.10 Application Attacks (HTTP GET-POST Floods).mp3",
+      "duration": 583.6
+    },
+    {
+      "file": "5.1 SQL Injection (SQLi).mp3",
+      "duration": 554.6
+    },
+    {
+      "file": "5.2 Command Injection.mp3",
+      "duration": 545.9
+    },
+    {
+      "file": "5.3 XML External Entity (XXE).mp3",
+      "duration": 570.2
+    },
+    {
+      "file": "5.4 Cross-Site Scripting (XSS).mp3",
+      "duration": 565.3
+    },
+    {
+      "file": "5.5 Cross-Site Request Forgery (CSRF).mp3",
+      "duration": 575.4
+    },
+    {
+      "file": "5.6 Server-Side Request Forgery (SSRF).mp3",
+      "duration": 632.9
+    },
+    {
+      "file": "5.7 Broken Object Level Authorization (BOLA).mp3",
+      "duration": 562.9
+    },
+    {
+      "file": "5.8 Broken Function Level Authorization (BFLA).mp3",
+      "duration": 569.0
+    },
+    {
+      "file": "5.9 Lack of Rate Limiting & Resource Exhaustion.mp3",
+      "duration": 564.0
+    },
+    {
+      "file": "6.1 Virtual Machine (VM) Escape.mp3",
+      "duration": 599.5
+    },
+    {
+      "file": "6.2 Container Escape.mp3",
+      "duration": 579.9
+    },
+    {
+      "file": "6.3 Hardware Side-Channel Attacks (Spectre & Meltdown).mp3",
+      "duration": 561.3
+    },
+    {
+      "file": "6.4 Rowhammer (DRAM Disturbance).mp3",
+      "duration": 557.0
+    },
+    {
+      "file": "6.5 UEFI-BIOS Rootkits.mp3",
+      "duration": 695.2
+    },
+    {
+      "file": "7.1 Obsolete Hashes & Ciphers (MD5, SHA-1, WEP, DES).mp3",
+      "duration": 615.4
+    },
+    {
+      "file": "7.2 Missing or Insufficient Salting.mp3",
+      "duration": 529.0
+    },
+    {
+      "file": "7.3 Hardcoded Credentials & Leaked API Keys.mp3",
+      "duration": 579.3
+    },
+    {
+      "file": "7.4 Harvest Now, Decrypt Later (SNDL - Quantum Risks).mp3",
+      "duration": 596.4
+    },
+    {
+      "file": "8.1 Industrial Protocol Exploitation (Modbus, DNP3).mp3",
+      "duration": 586.5
+    },
+    {
+      "file": "8.2 PLC Logic Tampering.mp3",
+      "duration": 592.9
+    },
+    {
+      "file": "8.3 Default Administrative Credentials.mp3",
+      "duration": 588.1
+    },
+    {
+      "file": "8.4 Unsigned-Insecure Firmware Updates.mp3",
+      "duration": 542.5
+    },
+    {
+      "file": "9.1 Direct Prompt Injection (Jailbreaking).mp3",
+      "duration": 546.3
+    },
+    {
+      "file": "9.2 Indirect Prompt Injection.mp3",
+      "duration": 507.3
+    },
+    {
+      "file": "9.3 Training Data Poisoning.mp3",
+      "duration": 535.1
+    },
+    {
+      "file": "9.4 Evasion Attacks (Adversarial Noise).mp3",
+      "duration": 603.3
+    },
+    {
+      "file": "9.5 Autonomous Agent Hijacking.mp3",
+      "duration": 543.4
+    },
+    {
+      "file": "10.1 Typosquatting.mp3",
+      "duration": 617.5
+    },
+    {
+      "file": "10.2 Dependency Confusion.mp3",
+      "duration": 561.5
+    },
+    {
+      "file": "10.3 CI-CD Pipeline Poisoning.mp3",
+      "duration": 514.9
+    },
+    {
+      "file": "10.4 Build Server Compromise.mp3",
+      "duration": 554.5
+    }
+  ]
+}
