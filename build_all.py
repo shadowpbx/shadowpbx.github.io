@@ -394,7 +394,7 @@ def compile_standard_section(folder_path, folder_name, config):
         joined_posts = "\n".join(posts_list_html)
         
         specialized_posts = [p for p in ref_posts if not any(k in p['url'] for k in ["bedrock", "defensive-security", "offensive-security", "governance-risk", "security-architecture", "adversary-emulation", "audited-dfir"])]
-        specialized_posts.sort(key=lambda x: x['title'])
+        specialized_posts.sort(key=lambda x: (x['date'], x['title']), reverse=True)
         ref_list_html = []
         for post in specialized_posts:
             ref_entry = f"""                <li style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1.25rem;">
