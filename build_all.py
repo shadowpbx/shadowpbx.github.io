@@ -388,7 +388,6 @@ def compile_standard_section(folder_path, folder_name, config):
                     <div class="curriculum-card-title">{post['title']}</div>
                     <p class="curriculum-card-desc">{post['summary']}</p>
                 </div>
-                <div class="curriculum-card-footer">READ CHAPTER &rarr;</div>
             </a>"""
             posts_list_html.append(entry)
         joined_posts = "\n".join(posts_list_html)
@@ -398,9 +397,8 @@ def compile_standard_section(folder_path, folder_name, config):
         ref_list_html = []
         for post in specialized_posts:
             ref_entry = f"""                <li style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1.25rem;">
-                    <a href="{post['url']}" style="text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; width: 100%;">
-                        <span><span style="font-family: var(--font-mono); color: #e11d48; font-weight: 700; margin-right: 0.5rem;">&gt;</span> {post['title']}</span>
-                        <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #e11d48; white-space: nowrap;">READ &rarr;</span>
+                    <a href="{post['url']}" style="text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1.05rem; display: block; width: 100%;">
+                        <span style="font-family: var(--font-mono); color: #e11d48; font-weight: 700; margin-right: 0.5rem;">&gt;</span> {post['title']}
                     </a>
                 </li>"""
             ref_list_html.append(ref_entry)
