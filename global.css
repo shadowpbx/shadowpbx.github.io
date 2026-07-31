@@ -389,6 +389,8 @@ footer {
     h2 {
         font-size: clamp(1.2rem, 3.8vw, 1.6rem);
         line-height: 1.35;
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
     }
 
     main h2 {
@@ -398,6 +400,7 @@ footer {
 
     .container {
         margin: 0 auto;
+        padding-top: 1.5rem !important;
     }
 }
 
