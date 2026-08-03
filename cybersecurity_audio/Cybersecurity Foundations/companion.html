@@ -474,9 +474,12 @@
 
   </div>
 
-  <!-- Marked.js Markdown Parser CDN & Pre-Compiled notes.js -->
+  <!-- Marked.js & KaTeX CDN for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script src="notes.js?v=20260802_3"></script>
   <script>
     async function loadNotes() {
       marked.setOptions({
@@ -484,31 +487,47 @@
         breaks: true
       });
 
+      const container = document.getElementById('notes-content');
+      let rawText = '';
+
       if (typeof notesMarkdown !== 'undefined') {
-        document.getElementById('notes-content').innerHTML = marked.parse(notesMarkdown);
-        return;
+        rawText = notesMarkdown;
+      } else {
+        try {
+          const response = await fetch('notes.md');
+          if (!response.ok) {
+            throw new Error(`Failed to load notes: ${response.statusText}`);
+          }
+          rawText = await response.text();
+        } catch (err) {
+          console.error("CORS or Load Error", err);
+          const isLocalFile = window.location.protocol === 'file:';
+          const errorMsg = isLocalFile 
+            ? "Web browsers block loading external files (notes.md) locally via file:// protocols due to CORS safety settings. Please run a local web server (e.g. <code>python3 -m http.server</code>) or view the deployed page on GitHub Pages to load notes dynamically."
+            : "Could not load the study guide (notes.md). Please verify the file is present in the repository directory.";
+          
+          container.innerHTML = `
+            <div class="tip-box" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); display: flex; gap: 0.75rem;">
+              <span class="material-icons-round" style="color: #ef4444; flex-shrink: 0;">error</span>
+              <p style="color: #fca5a5; margin: 0; font-size: 0.95rem; line-height: 1.5;">${errorMsg}</p>
+            </div>
+          `;
+          return;
+        }
       }
 
-      try {
-        const response = await fetch('notes.md');
-        if (!response.ok) {
-          throw new Error(`Failed to load notes: ${response.statusText}`);
-        }
-        const markdownText = await response.text();
-        document.getElementById('notes-content').innerHTML = marked.parse(markdownText);
-      } catch (err) {
-        console.error("CORS or Load Error", err);
-        const isLocalFile = window.location.protocol === 'file:';
-        const errorMsg = isLocalFile 
-          ? "Web browsers block loading external files (notes.md) locally via file:// protocols due to CORS safety settings. Please run a local web server (e.g. <code>python3 -m http.server</code>) or view the deployed page on GitHub Pages to load notes dynamically."
-          : "Could not load the study guide (notes.md). Please verify the file is present in the repository directory.";
-        
-        document.getElementById('notes-content').innerHTML = `
-          <div class="tip-box" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); display: flex; gap: 0.75rem;">
-            <span class="material-icons-round" style="color: #ef4444; flex-shrink: 0;">error</span>
-            <p style="color: #fca5a5; margin: 0; font-size: 0.95rem; line-height: 1.5;">${errorMsg}</p>
-          </div>
-        `;
+      // Render Markdown HTML
+      container.innerHTML = marked.parse(rawText);
+
+      // Typeset LaTeX math expressions ($...$ and $$...$$) via KaTeX
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
       }
     }
 
