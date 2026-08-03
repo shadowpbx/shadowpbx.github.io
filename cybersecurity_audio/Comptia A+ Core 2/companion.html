@@ -474,24 +474,27 @@
 
   </div>
 
-  <!-- Marked.js Markdown Parser CDN -->
+  <!-- Marked.js Markdown Parser CDN & Pre-Compiled notes.js -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="notes.js"></script>
   <script>
     async function loadNotes() {
+      marked.setOptions({
+        gfm: true,
+        breaks: true
+      });
+
+      if (typeof notesMarkdown !== 'undefined') {
+        document.getElementById('notes-content').innerHTML = marked.parse(notesMarkdown);
+        return;
+      }
+
       try {
         const response = await fetch('notes.md');
         if (!response.ok) {
           throw new Error(`Failed to load notes: ${response.statusText}`);
         }
         const markdownText = await response.text();
-        
-        // Configure marked options
-        marked.setOptions({
-          gfm: true,
-          breaks: true
-        });
-
-        // Render Markdown to HTML and inject
         document.getElementById('notes-content').innerHTML = marked.parse(markdownText);
       } catch (err) {
         console.error("CORS or Load Error", err);
