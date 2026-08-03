@@ -25,7 +25,7 @@ Welcome to the **Cybersecurity Master Foundation Index**. This guide serves as t
 
 ## 📊 2. Risk, Governance, & Compliance (GRC)
 
-* **The Risk Equation**: $\text{Risk} = \text{Threat} \times \text{Vulnerability} \times \text{Impact}$. A vulnerability without an active threat or business impact alters risk prioritization.
+* **The Risk Equation**: `Risk = Threat × Vulnerability × Impact`. A vulnerability without an active threat or business impact alters risk prioritization.
 * **Risk Treatment Strategies**:
   1. **Mitigate**: Implement security controls (e.g., deploy firewalls or patches).
   2. **Transfer**: Shift financial liability to a third party (e.g., cyber insurance).
@@ -201,7 +201,7 @@ Welcome to the **Cybersecurity Master Foundation Index**. This guide serves as t
   * **IoCs**: Reactive forensic artifacts (file hashes, malicious IP logs).
   * **IoAs**: Proactive behavioral patterns indicating an attack in progress.
 * **Digital Forensics & Order of Volatility**: Preserving evidence starting from most volatile:
-  $$\text{CPU Registers/Cache} \rightarrow \text{RAM} \rightarrow \text{Network State} \rightarrow \text{Disk Storage} \rightarrow \text{Archival Media}$$
+  `CPU Registers/Cache → RAM → Network State → Disk Storage → Archival Media`
 * **Chain of Custody**: Documented chronological record establishing evidence collection, handling, and custody to ensure court admissibility.
 * **Operational Metrics**:
   * **MTTD**: Mean Time to Detect threats.
