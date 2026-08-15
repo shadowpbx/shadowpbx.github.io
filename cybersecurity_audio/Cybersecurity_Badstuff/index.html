@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Threat Landscape Audio Player</title>
-  <meta name="description" content="A premium, mobile-responsive HTML5 audio player for The Threat Landscape: 71 Modules on Malware, Exploits & Cybercrime. Features custom track looping and auto-resume.">
+  <title>Cyber Attacks & Exploits Audio Player</title>
+  <meta name="description" content="A premium, mobile-responsive HTML5 audio player for Cyber Attacks & Exploits: 71 Deep-Dive Modules on Malware, Attack Vectors & Exploits. Features custom track looping and auto-resume.">
   
   <!-- Modern Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -992,8 +992,8 @@
 <body>
 
   <header>
-    <h1 id="mainTitle">The Threat Landscape</h1>
-    <p id="mainSubtitle">71 Modules on Malware, Exploits & Cybercrime</p>
+    <h1 id="mainTitle">Cyber Attacks & Exploits</h1>
+    <p id="mainSubtitle">71 Deep-Dive Modules on Malware, Attack Vectors & Exploits</p>
     <p id="playlistMeta" style="font-size: 0.85rem; color: var(--accent-secondary); margin-top: 0.35rem; font-weight: 500;"></p>
   </header>
 
@@ -1765,8 +1765,8 @@
         title = title.replace(/_/g, ' ').replace(/-/g, ' ');
         navigator.mediaSession.metadata = new MediaMetadata({
           title: title,
-          artist: 'The Threat Landscape',
-          album: document.getElementById('mainTitle').textContent || 'The Threat Landscape: 71 Modules',
+          artist: 'Cyber Attacks & Exploits',
+          album: document.getElementById('mainTitle').textContent || 'Cyber Attacks & Exploits: 71 Modules',
           artwork: [
             { src: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=256&auto=format&fit=crop', sizes: '256x256', type: 'image/jpeg' }
           ]

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Course Companion - Written Guide & Sandbox</title>
-  <meta name="description" content="Study notes, written tutorials, equations, and interactive graph utilities to accompany the audio lecture series.">
+  <title>Cyber Attacks & Exploits Study Companion</title>
+  <meta name="description" content="Study companion notes for Cyber Attacks & Exploits: 71 Deep-Dive Modules on Malware, Attack Vectors & Exploits.">
   
   <!-- Modern Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -447,7 +447,7 @@
         </div>
       </div>
       <h1>Written Study Companion</h1>
-      <p>Combine written reference guides, notes, and module summaries for The Threat Landscape course.</p>
+      <p>Written reference guides, attack mechanics, and deep-dive notes for Cyber Attacks & Exploits.</p>
     </header>
 
     <main style="display: flex; flex-direction: column; gap: 1.5rem;">
@@ -456,13 +456,13 @@
       <section class="card">
         <h2>
           <span class="material-icons-round">security</span>
-          Cybersecurity Concepts & Reference Guide
+          Cyber Attacks & Exploits Reference Guide
         </h2>
         
         <div id="notes-content" class="markdown-body">
           <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
             <span class="material-icons-round" style="font-size: 2.5rem; animation: spin 1s linear infinite; color: var(--accent-color); margin-bottom: 0.5rem;">sync</span>
-            <p style="font-size: 0.95rem;">Parsing concepts.md reference file...</p>
+            <p style="font-size: 0.95rem;">Parsing reference notes...</p>
           </div>
         </div>
       </section>
@@ -470,29 +470,65 @@
     </main>
 
     <footer>
-      <p>Study Companion Suite • Built with dynamic markdown rendering</p>
+      <p>Cyber Attacks & Exploits Study Companion Suite • Built with dynamic markdown rendering</p>
     </footer>
 
   </div>
 
-  <!-- Marked.js Markdown Parser & Auto-Compiled concepts.js -->
+  <!-- Marked.js & KaTeX CDN for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="concepts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script src="concepts.js?v=20260814_1"></script>
   <script>
-    function loadConcepts() {
+    async function loadConcepts() {
+      marked.setOptions({
+        gfm: true,
+        breaks: true
+      });
+
+      const container = document.getElementById('notes-content');
+      let rawText = '';
+
       if (typeof conceptsMarkdown !== 'undefined') {
-        marked.setOptions({
-          gfm: true,
-          breaks: true
-        });
-        document.getElementById('notes-content').innerHTML = marked.parse(conceptsMarkdown);
+        rawText = conceptsMarkdown;
       } else {
-        document.getElementById('notes-content').innerHTML = `
-          <div class="tip-box" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); display: flex; gap: 0.75rem;">
-            <span class="material-icons-round" style="color: #ef4444; flex-shrink: 0;">error</span>
-            <p style="color: #fca5a5; margin: 0; font-size: 0.95rem; line-height: 1.5;">Could not load concepts.js. Please run generate_playlist.py to build catalog assets.</p>
-          </div>
-        `;
+        try {
+          const response = await fetch('concepts.md');
+          if (!response.ok) {
+            throw new Error(`Failed to load notes: ${response.statusText}`);
+          }
+          rawText = await response.text();
+        } catch (err) {
+          console.error("CORS or Load Error", err);
+          const isLocalFile = window.location.protocol === 'file:';
+          const errorMsg = isLocalFile 
+            ? "Web browsers block loading external files (concepts.md) locally via file:// protocols due to CORS safety settings. Please run a local web server (e.g. <code>python3 -m http.server</code>) or view the deployed page on GitHub Pages to load notes dynamically."
+            : "Could not load the study guide (concepts.md). Please verify the file is present in the repository directory.";
+          
+          container.innerHTML = `
+            <div class="tip-box" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); display: flex; gap: 0.75rem;">
+              <span class="material-icons-round" style="color: #ef4444; flex-shrink: 0;">error</span>
+              <p style="color: #fca5a5; margin: 0; font-size: 0.95rem; line-height: 1.5;">${errorMsg}</p>
+            </div>
+          `;
+          return;
+        }
+      }
+
+      // Render Markdown HTML
+      container.innerHTML = marked.parse(rawText);
+
+      // Typeset LaTeX math expressions ($...$ and $$...$$) via KaTeX
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
       }
     }
 

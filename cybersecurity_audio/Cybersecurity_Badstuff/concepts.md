@@ -1,6 +1,6 @@
-# 🛡️ The Threat Landscape: 71 Modules Reference Guide
+# 🛡️ Cyber Attacks & Exploits: 71 Modules Reference Guide
 
-Welcome to the **Comprehensive Cybersecurity Reference Guide** accompanying *The Threat Landscape: 71 Modules on Malware, Exploits & Cybercrime*. This companion document breaks down all 71 lecture modules into 10 structured security domains, detailing attack mechanics, real-world vectors, and primary defensive strategies.
+Welcome to the **Comprehensive Cybersecurity Reference Guide** accompanying *Cyber Attacks & Exploits: 71 Deep-Dive Modules on Malware, Attack Vectors & Exploits*. This companion document breaks down all 71 lecture modules into 10 structured security domains, detailing attack mechanics, real-world vectors, and primary defensive strategies.
 
 ---
 

@@ -1,3 +1,2 @@
-Title: The Threat Landscape
-Sub Title: 71 Modules on Malware, Exploits & Cybercrime
-
+Title: Cyber Attacks & Exploits
+Sub Title: 71 Deep-Dive Modules on Malware, Attack Vectors & Exploits

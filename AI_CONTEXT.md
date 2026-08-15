@@ -50,7 +50,7 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 ├── cybersecurity_audio/
 │   ├── index.html          # Audio tutorials hub & featured audio study suites dashboard
 │   ├── Cybersecurity_Concise/ # Suite 01: Cybersecurity Concise Master Index Player (397 Modules • 98h 26m)
-│   ├── Cybersecurity_Badstuff/ # Suite 02: The Threat Landscape Audio Player (71 Modules • 11h 5m)
+│   ├── Cybersecurity_Badstuff/ # Suite 02: Cyber Attacks & Exploits Audio Player (71 Modules • 11h 5m)
 │   ├── Comptia A+ Core 2/ # Suite 03: CompTIA A+ Core 2 Exam Study Suite (744 Modules • 82h 51m)
 │   ├── Cybersecurity Foundations/ # Suite 04: Cybersecurity Foundation Study Suite (55 Modules • 6h 51m)
 │   └── 01 Kali Linux Tools/ # Suite 05: Kali Linux 229 Security Tools Master Reference (229 Modules • 27h 13m)

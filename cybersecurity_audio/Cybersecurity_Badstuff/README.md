@@ -1,8 +1,8 @@
-# 🛡️ The Threat Landscape: Audio Player & Playlist Compiler
+# 🛡️ Cyber Attacks & Exploits: Audio Player & Playlist Compiler
 
-* **Live Audio Player**: https://shadowpbx.github.io/The_Threat_Landscape/
+* **Live Audio Player**: https://hexdef.com/cybersecurity_audio/Cybersecurity_Badstuff/
 
-A premium, mobile-responsive, dark-themed HTML5 audio player and study suite designed for exploring ***The Threat Landscape: 71 Modules on Malware, Exploits & Cybercrime*** on the go. 
+A premium, mobile-responsive, dark-themed HTML5 audio player and study suite designed for exploring ***Cyber Attacks & Exploits: 71 Deep-Dive Modules on Malware, Attack Vectors & Exploits*** on the go. 
 
 It supports lock-screen media controls, custom loop counts, speed adjustments, smart timeline auto-resume, and an integrated written study companion rendered dynamically from Markdown.
 
