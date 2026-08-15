@@ -6,7 +6,7 @@ This file serves as a system guide for any AI assistant or developer working ins
 
 ## 1. Directory Structure & Featured Audio Suites
 *   `index.html`: Main landing page featuring the **Featured Audio Study Suites** dashboard and dynamically compiled audio tutorial logs.
-*   `Cybersecurity_Concise/`: Featured Suite 01 — *Cybersecurity Concise Master Index Audio Study Suite* (397 Modules • 98h 26m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
+*   `Cybersecurity_Concise/`: Featured Suite 01 — *Cybersecurity Master Index* (35 Chapters • 397 Modules • 98h 26m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
 *   `Cybersecurity_Badstuff/`: Featured Suite 02 — *Cyber Attacks & Exploits* (71 Modules • 11h 5m total runtime). Covers Malware, Exploits, OT/ICS, and AI Security Risks. Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
 *   `Comptia A+ Core 2/`: Featured Suite 03 — *CompTIA A+ Core 2 (220-1202) Exam Study Suite* (744 Modules • 82h 51m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written exam notes).
 *   `Cybersecurity Foundations/`: Featured Suite 04 — *Cybersecurity Foundation Study Suite* (55 Modules • 6h 51m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).

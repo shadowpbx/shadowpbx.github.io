@@ -271,6 +271,16 @@ def generate_playlist(dir, output, base_url):
             f.write(json_content)
         logger.info(f"Successfully generated JSON playlist at: {json_path}")
 
+        # Write notes.js if notes.md exists
+        notes_md = os.path.join(base_dir, 'notes.md')
+        notes_js = os.path.join(base_dir, 'notes.js')
+        if os.path.exists(notes_md):
+            with open(notes_md, 'r', encoding='utf-8') as f:
+                n_content = f.read()
+            with open(notes_js, 'w', encoding='utf-8') as f:
+                f.write(f"const notesMarkdown = {json.dumps(n_content)};\n")
+            logger.info("Successfully compiled notes.md into notes.js")
+
         click.echo(f"Success! {len(mp3_files)} tracks saved to {base_name}.js and {base_name}.json")
     except Exception as e:
         logger.error(f"Failed to write playlist files: {e}")
