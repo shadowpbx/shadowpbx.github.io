@@ -20,9 +20,8 @@ This file serves as a system guide for any AI assistant or developer working ins
 ## 2. Card Design & Button Standards
 *   **Terminal Workstation Cards:** High-contrast cards featuring:
     *   **Top Status Bar:** Left suite badge (`[ SUITE 01 ]` – `[ SUITE 05 ]`) and right status pill displaying track count + total runtime (`397 MODULES • 98h 26m`, `71 MODULES • 11h 5m`, `744 MODULES • 82h 51m`, `55 MODULES • 6h 51m`, `229 MODULES • 27h 13m`).
-    *   **Dual Action Buttons:**
-        *   `btn-audio-primary`: `[ 🎧 LAUNCH PLAYER ]` with `white-space: nowrap`, high-contrast deep purple text (`#6b21a8`), and light purple tint background (`rgba(142, 68, 173, 0.08)`). Hover shifts to full purple (`#8e44ad`) with white text.
-        *   `btn-audio-secondary`: `[ 📖 STUDY NOTES ]` with `white-space: nowrap` and clean border.
+    *   **Single Focused Action Button:**
+        *   `btn-audio-primary`: Full-width `[ 🎧 LAUNCH PLAYER ]` with `white-space: nowrap`, high-contrast deep purple text (`#6b21a8`), and light purple tint background (`rgba(142, 68, 173, 0.08)`). Hover shifts to full purple (`#8e44ad`) with white text and glow shadow. Study notes are accessible directly within each player header.
 
 ---
 

@@ -73,24 +73,23 @@
         }
 
         .audio-card-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
+            display: flex;
             padding-top: 1.25rem;
             border-top: 1px solid var(--border);
         }
 
         .btn-audio-primary {
             display: inline-flex;
+            width: 100%;
             align-items: center;
             justify-content: center;
             background: rgba(142, 68, 173, 0.08);
             color: #6b21a8 !important;
             border: 1px solid rgba(142, 68, 173, 0.3);
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            padding: 0.65rem 0.85rem;
+            padding: 0.75rem 1rem;
             border-radius: 6px;
             text-decoration: none;
             transition: all 0.2s ease;
@@ -105,37 +104,6 @@
             border-color: #8e44ad;
             box-shadow: 0 4px 12px rgba(142, 68, 173, 0.2);
             transform: translateY(-1px);
-        }
-
-        .btn-audio-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-page);
-            color: var(--text-primary) !important;
-            border: 1px solid var(--border);
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 0.65rem 0.85rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            text-align: center;
-            letter-spacing: 0.03em;
-            white-space: nowrap;
-        }
-
-        .btn-audio-secondary:hover {
-            border-color: var(--text-primary);
-            background: rgba(15, 23, 42, 0.06);
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 600px) {
-            .audio-card-actions {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -196,7 +164,6 @@
                     </div>
                     <div class="audio-card-actions">
                         <a href="Cybersecurity_Concise/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                        <a href="Cybersecurity_Concise/companion.html" class="btn-audio-secondary">[ 📖 STUDY NOTES ]</a>
                     </div>
                 </div>
 
@@ -212,7 +179,6 @@
                     </div>
                     <div class="audio-card-actions">
                         <a href="Cybersecurity_Badstuff/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                        <a href="Cybersecurity_Badstuff/companion.html" class="btn-audio-secondary">[ 📖 STUDY NOTES ]</a>
                     </div>
                 </div>
 
@@ -228,7 +194,6 @@
                     </div>
                     <div class="audio-card-actions">
                         <a href="Comptia%20A+%20Core%202/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                        <a href="Comptia%20A+%20Core%202/companion.html" class="btn-audio-secondary">[ 📖 STUDY NOTES ]</a>
                     </div>
                 </div>
 
@@ -244,7 +209,6 @@
                     </div>
                     <div class="audio-card-actions">
                         <a href="Cybersecurity%20Foundations/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                        <a href="Cybersecurity%20Foundations/companion.html" class="btn-audio-secondary">[ 📖 STUDY NOTES ]</a>
                     </div>
                 </div>
 
@@ -260,7 +224,6 @@
                     </div>
                     <div class="audio-card-actions">
                         <a href="01%20Kali%20Linux%20Tools/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                        <a href="01%20Kali%20Linux%20Tools/companion.html" class="btn-audio-secondary">[ 📖 STUDY NOTES ]</a>
                     </div>
                 </div>
 
