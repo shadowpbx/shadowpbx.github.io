@@ -10,6 +10,7 @@ This file serves as a system guide for any AI assistant or developer working ins
 *   `Cybersecurity_Badstuff/`: Featured Suite 02 — *The Threat Landscape* (71 Modules • 11h 5m total runtime). Covers Malware, Exploits, OT/ICS, and AI Security Risks. Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
 *   `Comptia A+ Core 2/`: Featured Suite 03 — *CompTIA A+ Core 2 (220-1202) Exam Study Suite* (744 Modules • 82h 51m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written exam notes).
 *   `Cybersecurity Foundations/`: Featured Suite 04 — *Cybersecurity Foundation Study Suite* (55 Modules • 6h 51m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written notes).
+*   `01 Kali Linux Tools/`: Featured Suite 05 — *Kali Linux 229 Security Tools Master Reference Guide* (229 Modules • 27h 13m total runtime). Contains `index.html` (interactive HTML5 player) and `companion.html` (written tool notes).
 *   `_posts/`: Source markdown directory for individual audio tutorial entries.
 *   `posts/`: Output directory for compiled HTML audio post pages.
 *   `post_template.html`: Layout template for wrapping individual audio post entries.
@@ -18,7 +19,7 @@ This file serves as a system guide for any AI assistant or developer working ins
 
 ## 2. Card Design & Button Standards
 *   **Terminal Workstation Cards:** High-contrast cards featuring:
-    *   **Top Status Bar:** Left suite badge (`[ SUITE 01 ]`, `[ SUITE 02 ]`, `[ SUITE 03 ]`, `[ SUITE 04 ]`) and right status pill displaying track count + total runtime (`397 MODULES • 98h 26m`, `71 MODULES • 11h 5m`, `744 MODULES • 82h 51m`, `55 MODULES • 6h 51m`).
+    *   **Top Status Bar:** Left suite badge (`[ SUITE 01 ]` – `[ SUITE 05 ]`) and right status pill displaying track count + total runtime (`397 MODULES • 98h 26m`, `71 MODULES • 11h 5m`, `744 MODULES • 82h 51m`, `55 MODULES • 6h 51m`, `229 MODULES • 27h 13m`).
     *   **Dual Action Buttons:**
         *   `btn-audio-primary`: `[ 🎧 LAUNCH PLAYER ]` with `white-space: nowrap`, high-contrast deep purple text (`#6b21a8`), and light purple tint background (`rgba(142, 68, 173, 0.08)`). Hover shifts to full purple (`#8e44ad`) with white text.
         *   `btn-audio-secondary`: `[ 📖 STUDY NOTES ]` with `white-space: nowrap` and clean border.

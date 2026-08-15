@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kali Linux Tools Study Companion</title>
+  <meta name="description" content="Comprehensive master study companion and reference guide for 229 Kali Linux Security Tools across 13 official categories.">
+
+  <!-- Outfit & Material Icons Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Default to dark comfort mode */
+      --bg-color: #121318;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #1a1b26 0%, #121318 100%);
+      --panel-bg: rgba(22, 23, 30, 0.7);
+      --panel-border: rgba(255, 255, 255, 0.05);
+      --text-main: #f1f5f9; /* Soft off-white */
+      --text-muted: #94a3b8; /* Muted slate */
+      --accent-color: #a78bfa; /* Lavender/Violet */
+      --accent-glow: rgba(167, 139, 250, 0.3);
+      --accent-secondary: #06b6d4; /* Neon Cyan */
+      --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+      --tip-bg: rgba(6, 182, 212, 0.06);
+      --tip-border: var(--accent-secondary);
+      --tip-text: #94d8e6;
+      --code-bg: rgba(0, 0, 0, 0.35);
+      --code-text: #f472b6;
+      --card-hover-border: var(--accent-secondary);
+      --card-hover-shadow: rgba(6, 182, 212, 0.15);
+      --h4-bg: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Light Theme variables */
+    html[data-theme="light"] {
+      --bg-color: #f7f9fc;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #f0f4f8 0%, #f7f9fc 100%);
+      --panel-bg: rgba(255, 255, 255, 0.85);
+      --panel-border: rgba(0, 0, 0, 0.06);
+      --text-main: #000000; /* Strictly black */
+      --text-muted: #000000; /* Strictly black */
+      --accent-color: #7c3aed;
+      --accent-glow: rgba(124, 58, 237, 0.2);
+      --accent-secondary: #0891b2;
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --tip-bg: rgba(8, 145, 178, 0.05);
+      --tip-border: var(--accent-secondary);
+      --tip-text: #000000; /* Strictly black */
+      --code-bg: rgba(0, 0, 0, 0.05);
+      --code-text: #db2777;
+      --card-hover-border: var(--accent-secondary);
+      --card-hover-shadow: rgba(8, 145, 178, 0.1);
+      --h4-bg: rgba(0, 0, 0, 0.05);
+    }
+
+    /* Sepia Theme variables */
+    html[data-theme="sepia"] {
+      --bg-color: #f4ecd8;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #faf4e8 0%, #f4ecd8 100%);
+      --panel-bg: rgba(253, 251, 247, 0.9);
+      --panel-border: rgba(139, 92, 26, 0.1);
+      --text-main: #433422;
+      --text-muted: #433422; /* Warm dark brown to avoid gray */
+      --accent-color: #b45309;
+      --accent-glow: rgba(180, 83, 9, 0.2);
+      --accent-secondary: #0f766e;
+      --shadow-lg: 0 10px 15px -3px rgba(139, 92, 26, 0.05), 0 4px 6px -2px rgba(139, 92, 26, 0.05);
+      --tip-bg: rgba(15, 118, 110, 0.04);
+      --tip-border: var(--accent-secondary);
+      --tip-text: #115e59;
+      --code-bg: rgba(139, 92, 26, 0.06);
+      --code-text: #b45309;
+      --card-hover-border: var(--accent-secondary);
+      --card-hover-shadow: rgba(15, 118, 110, 0.08);
+      --h4-bg: rgba(0, 0, 0, 0.04);
+    }
+
+    /* System Preference Auto Mode */
+    @media (prefers-color-scheme: light) {
+      html[data-theme="auto"] {
+        --bg-color: #f7f9fc;
+        --bg-gradient: radial-gradient(circle at 50% 0%, #f0f4f8 0%, #f7f9fc 100%);
+        --panel-bg: rgba(255, 255, 255, 0.85);
+        --panel-border: rgba(0, 0, 0, 0.06);
+        --text-main: #000000; /* Strictly black */
+        --text-muted: #000000; /* Strictly black */
+        --accent-color: #7c3aed;
+        --accent-glow: rgba(124, 58, 237, 0.2);
+        --accent-secondary: #0891b2;
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --tip-bg: rgba(8, 145, 178, 0.05);
+        --tip-border: var(--accent-secondary);
+        --tip-text: #000000; /* Strictly black */
+        --code-bg: rgba(0, 0, 0, 0.05);
+        --code-text: #db2777;
+        --card-hover-border: var(--accent-secondary);
+        --card-hover-shadow: rgba(8, 145, 178, 0.1);
+        --h4-bg: rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body {
+      background: var(--bg-color);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0.25rem; /* Maximize side space on mobile devices */
+      font-size: 1.05rem; /* Scale up base text slightly */
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 1.5rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* Layout Wrapper */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Header Section */
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--panel-border);
+      padding-bottom: 1.25rem;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .btn-back:hover {
+      color: #22d3ee;
+    }
+
+    .btn-back .material-icons-round {
+      font-size: 1.2rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #a78bfa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Content Cards */
+    .card {
+      background: var(--panel-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--panel-border);
+      border-radius: 12px; /* Sleeker rounded corners on mobile */
+      padding: 1rem; /* Reduced padding on mobile to match parent background closer */
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        padding: 2rem;
+        border-radius: 20px;
+      }
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
+    h2 .material-icons-round {
+      color: var(--accent-color);
+    }
+
+    /* Interactive Graph Lab Link Card Style */
+    .interactive-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .interactive-card:hover {
+      border-color: var(--accent-secondary);
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.25), var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .icon-glow {
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: 12px;
+      padding: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .interactive-card:hover .icon-glow {
+      background: rgba(6, 182, 212, 0.2);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    /* Highlight box style */
+    .tip-box {
+      background: var(--tip-bg);
+      border-left: 4px solid var(--tip-border);
+      border-radius: 4px 12px 12px 4px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .tip-box .material-icons-round {
+      color: var(--tip-border);
+      flex-shrink: 0;
+    }
+
+    .tip-box p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--tip-text);
+    }
+
+    /* Markdown Body Styling */
+    .markdown-body {
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.05rem; /* Larger font size */
+      font-weight: 500;   /* Matching font-semibold visual weight of the React guide */
+    }
+
+    .markdown-body h3 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid var(--accent-color); /* More prominent divider line */
+      padding-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-transform: uppercase; /* Match Study Guide style */
+      letter-spacing: 0.05em;
+    }
+
+    .markdown-body h3::before {
+      content: 'book';
+      font-family: 'Material Icons Round';
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      text-transform: none;
+    }
+
+    .markdown-body h4 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-flex;
+      background: var(--h4-bg);
+      padding: 0.2rem 0.6rem;
+      border-left: 3px solid var(--accent-secondary);
+    }
+
+    .markdown-body p {
+      margin-bottom: 1.15rem;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      font-weight: 500; /* Bold/semibold appearance */
+    }
+
+    .markdown-body ul, .markdown-body ol {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .markdown-body li {
+      font-size: 1.025rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .markdown-body strong {
+      font-weight: 700;
+    }
+
+    .markdown-body code {
+      background: var(--code-bg);
+      border: 1px solid var(--panel-border);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: var(--code-text);
+      font-weight: bold;
+    }
+
+    /* Keyframe animation for spinner */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Footer Section */
+    footer {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--panel-border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    /* Theme Switcher Styles */
+    .theme-switcher {
+      display: flex;
+      background: rgba(0, 0, 0, 0.15);
+      border: 1px solid var(--panel-border);
+      border-radius: 30px;
+      padding: 2px;
+      gap: 2px;
+      align-items: center;
+    }
+
+    .theme-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease !important;
+    }
+
+    .theme-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .theme-btn.active {
+      background: var(--accent-color);
+      color: #ffffff !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .theme-btn .material-icons-round {
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <div class="nav-row">
+        <a href="index.html" class="btn-back">
+          <span class="material-icons-round">arrow_back</span>
+          Back to Player
+        </a>
+        
+        <!-- Theme Switcher Controls -->
+        <div class="theme-switcher">
+          <button class="theme-btn" data-theme-val="dark" title="Dark Comfort Mode">
+            <span class="material-icons-round">dark_mode</span>
+          </button>
+          <button class="theme-btn" data-theme-val="sepia" title="Warm Sepia Mode">
+            <span class="material-icons-round">coffee</span>
+          </button>
+          <button class="theme-btn" data-theme-val="light" title="Light Paper Mode">
+            <span class="material-icons-round">light_mode</span>
+          </button>
+          <button class="theme-btn" data-theme-val="auto" title="Sync with System Theme">
+            <span class="material-icons-round">brightness_auto</span>
+          </button>
+        </div>
+      </div>
+      <h1>Written Study Companion</h1>
+      <p>Combine written reference guides, key topics, and study summaries to prepare for the exam.</p>
+    </header>
+
+    <main style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+      <!-- Notes Reference Section (Loaded dynamically from notes.md) -->
+      <section class="card">
+        <h2>
+          <span class="material-icons-round">auto_stories</span>
+          Kali Linux Tools Reference Guide
+        </h2>
+        
+        <div id="notes-content" class="markdown-body">
+          <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+            <span class="material-icons-round" style="font-size: 2.5rem; animation: spin 1s linear infinite; color: var(--accent-color); margin-bottom: 0.5rem;">sync</span>
+            <p style="font-size: 0.95rem;">Parsing notes.md reference file...</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>Kali Linux Security Tools Study Companion Suite • Built with dynamic markdown rendering</p>
+    </footer>
+
+  </div>
+
+  <!-- Marked.js & KaTeX CDN for LaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script src="notes.js?v=20260814_1"></script>
+  <script>
+    async function loadNotes() {
+      marked.setOptions({
+        gfm: true,
+        breaks: true
+      });
+
+      const container = document.getElementById('notes-content');
+      let rawText = '';
+
+      if (typeof notesMarkdown !== 'undefined') {
+        rawText = notesMarkdown;
+      } else {
+        try {
+          const response = await fetch('notes.md');
+          if (!response.ok) {
+            throw new Error(`Failed to load notes: ${response.statusText}`);
+          }
+          rawText = await response.text();
+        } catch (err) {
+          console.error("CORS or Load Error", err);
+          const isLocalFile = window.location.protocol === 'file:';
+          const errorMsg = isLocalFile 
+            ? "Web browsers block loading external files (notes.md) locally via file:// protocols due to CORS safety settings. Please run a local web server (e.g. <code>python3 -m http.server</code>) or view the deployed page on GitHub Pages to load notes dynamically."
+            : "Could not load the study guide (notes.md). Please verify the file is present in the repository directory.";
+          
+          container.innerHTML = `
+            <div class="tip-box" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.08); display: flex; gap: 0.75rem;">
+              <span class="material-icons-round" style="color: #ef4444; flex-shrink: 0;">error</span>
+              <p style="color: #fca5a5; margin: 0; font-size: 0.95rem; line-height: 1.5;">${errorMsg}</p>
+            </div>
+          `;
+          return;
+        }
+      }
+
+      // Render Markdown HTML
+      container.innerHTML = marked.parse(rawText);
+
+      // Typeset LaTeX math expressions ($...$ and $$...$$) via KaTeX
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    // Theme Switcher Logic
+    const themeButtons = document.querySelectorAll('.theme-btn');
+    
+    // Load stored theme or default to dark
+    const savedTheme = localStorage.getItem('cybersecurity_concise_companion_theme') || 'dark';
+    setTheme(savedTheme);
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const themeVal = btn.getAttribute('data-theme-val');
+        setTheme(themeVal);
+      });
+    });
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      
+      // Update active button state
+      themeButtons.forEach(btn => {
+        if (btn.getAttribute('data-theme-val') === theme) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      
+      localStorage.setItem('cybersecurity_concise_companion_theme', theme);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadNotes();
+    });
+  </script>
+
+</body>
+</html>

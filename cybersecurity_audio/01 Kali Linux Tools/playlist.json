@@ -1,0 +1,923 @@
+{
+  "title": "Kali Linux Tools",
+  "subtitle": "229 Security Tools Master Reference Guide",
+  "baseUrl": "https://cybersecurity.epistemicresearch.org/kali_linux_tools/",
+  "tracks": [
+    {
+      "file": "1.1 nmap.mp3",
+      "duration": 391.9
+    },
+    {
+      "file": "1.2 masscan.mp3",
+      "duration": 360.8
+    },
+    {
+      "file": "1.3 hping3.mp3",
+      "duration": 374.9
+    },
+    {
+      "file": "1.4 unicornscan.mp3",
+      "duration": 344.1
+    },
+    {
+      "file": "1.5 netdiscover.mp3",
+      "duration": 341.5
+    },
+    {
+      "file": "1.6 arp-scan.mp3",
+      "duration": 362.8
+    },
+    {
+      "file": "1.7 fping.mp3",
+      "duration": 368.2
+    },
+    {
+      "file": "1.8 naabu.mp3",
+      "duration": 365.4
+    },
+    {
+      "file": "1.9 dmitry.mp3",
+      "duration": 386.4
+    },
+    {
+      "file": "1.10 legion.mp3",
+      "duration": 401.4
+    },
+    {
+      "file": "1.11 amass.mp3",
+      "duration": 401.3
+    },
+    {
+      "file": "1.12 subfinder.mp3",
+      "duration": 337.3
+    },
+    {
+      "file": "1.13 dnsrecon.mp3",
+      "duration": 390.0
+    },
+    {
+      "file": "1.14 dnsenum.mp3",
+      "duration": 394.2
+    },
+    {
+      "file": "1.15 fierce.mp3",
+      "duration": 362.0
+    },
+    {
+      "file": "1.16 sublist3r.mp3",
+      "duration": 334.2
+    },
+    {
+      "file": "1.17 knockpy.mp3",
+      "duration": 358.2
+    },
+    {
+      "file": "1.18 pagodo.mp3",
+      "duration": 375.4
+    },
+    {
+      "file": "1.19 dnstracer.mp3",
+      "duration": 363.3
+    },
+    {
+      "file": "1.20 dnsdict6.mp3",
+      "duration": 400.9
+    },
+    {
+      "file": "1.21 theHarvester.mp3",
+      "duration": 374.7
+    },
+    {
+      "file": "1.22 recon-ng.mp3",
+      "duration": 370.2
+    },
+    {
+      "file": "1.23 maltego.mp3",
+      "duration": 360.9
+    },
+    {
+      "file": "1.24 spiderfoot.mp3",
+      "duration": 351.5
+    },
+    {
+      "file": "1.25 metagoofil.mp3",
+      "duration": 396.9
+    },
+    {
+      "file": "1.26 sherlock.mp3",
+      "duration": 383.4
+    },
+    {
+      "file": "1.27 osrframework.mp3",
+      "duration": 378.3
+    },
+    {
+      "file": "1.28 gowitness.mp3",
+      "duration": 412.7
+    },
+    {
+      "file": "1.29 enum4linux.mp3",
+      "duration": 425.1
+    },
+    {
+      "file": "1.30 enum4linux-ng.mp3",
+      "duration": 423.9
+    },
+    {
+      "file": "1.31 smbmap.mp3",
+      "duration": 413.6
+    },
+    {
+      "file": "1.32 smbclient.mp3",
+      "duration": 336.8
+    },
+    {
+      "file": "1.33 nbtscan.mp3",
+      "duration": 387.2
+    },
+    {
+      "file": "1.34 crackmapexec NetExec.mp3",
+      "duration": 433.2
+    },
+    {
+      "file": "1.35 ldapsearch.mp3",
+      "duration": 393.6
+    },
+    {
+      "file": "1.36 onesixtyone.mp3",
+      "duration": 391.2
+    },
+    {
+      "file": "1.37 snmpcheck.mp3",
+      "duration": 409.9
+    },
+    {
+      "file": "1.38 snmpwalk.mp3",
+      "duration": 441.3
+    },
+    {
+      "file": "2.1 nuclei.mp3",
+      "duration": 441.0
+    },
+    {
+      "file": "2.2 nikto.mp3",
+      "duration": 397.9
+    },
+    {
+      "file": "2.3 golismero.mp3",
+      "duration": 357.1
+    },
+    {
+      "file": "2.4 lynis.mp3",
+      "duration": 390.6
+    },
+    {
+      "file": "2.5 nmap-nse.mp3",
+      "duration": 405.8
+    },
+    {
+      "file": "2.6 openvas gvm.mp3",
+      "duration": 405.7
+    },
+    {
+      "file": "2.7 afl.mp3",
+      "duration": 405.7
+    },
+    {
+      "file": "2.8 sfuzz.mp3",
+      "duration": 399.3
+    },
+    {
+      "file": "2.9 spike.mp3",
+      "duration": 382.2
+    },
+    {
+      "file": "2.10 bed.mp3",
+      "duration": 449.0
+    },
+    {
+      "file": "2.11 yersinia.mp3",
+      "duration": 406.7
+    },
+    {
+      "file": "2.12 cisco-auditing-tool CAT.mp3",
+      "duration": 406.0
+    },
+    {
+      "file": "2.13 cisco-global-exploiter CGE.mp3",
+      "duration": 414.0
+    },
+    {
+      "file": "2.14 cisco-torch.mp3",
+      "duration": 417.7
+    },
+    {
+      "file": "2.15 SIPvicious.mp3",
+      "duration": 408.3
+    },
+    {
+      "file": "2.16 voiphopper.mp3",
+      "duration": 460.6
+    },
+    {
+      "file": "2.17 unix-privesc-check.mp3",
+      "duration": 360.4
+    },
+    {
+      "file": "2.18 checksec.mp3",
+      "duration": 401.6
+    },
+    {
+      "file": "2.19 linux-exploit-suggester.mp3",
+      "duration": 407.8
+    },
+    {
+      "file": "2.20 wesng.mp3",
+      "duration": 395.9
+    },
+    {
+      "file": "3.1 burpsuite.mp3",
+      "duration": 430.0
+    },
+    {
+      "file": "3.2 zaproxy.mp3",
+      "duration": 390.9
+    },
+    {
+      "file": "3.3 mitmproxy.mp3",
+      "duration": 382.9
+    },
+    {
+      "file": "3.4 httpx.mp3",
+      "duration": 430.5
+    },
+    {
+      "file": "3.4 wpscan.mp3",
+      "duration": 363.7
+    },
+    {
+      "file": "3.5 joomscan.mp3",
+      "duration": 361.5
+    },
+    {
+      "file": "3.5 skipfish.mp3",
+      "duration": 375.9
+    },
+    {
+      "file": "3.6 arachni.mp3",
+      "duration": 394.7
+    },
+    {
+      "file": "3.6 droopescan.mp3",
+      "duration": 380.4
+    },
+    {
+      "file": "3.7 cmseek.mp3",
+      "duration": 382.9
+    },
+    {
+      "file": "3.7 w3af.mp3",
+      "duration": 367.8
+    },
+    {
+      "file": "3.8 gobuster.mp3",
+      "duration": 390.2
+    },
+    {
+      "file": "3.9 ffuf.mp3",
+      "duration": 411.5
+    },
+    {
+      "file": "3.10 feroxbuster.mp3",
+      "duration": 363.2
+    },
+    {
+      "file": "3.11 dirb.mp3",
+      "duration": 374.7
+    },
+    {
+      "file": "3.12 dirbuster.mp3",
+      "duration": 348.4
+    },
+    {
+      "file": "3.13 wfuzz.mp3",
+      "duration": 400.1
+    },
+    {
+      "file": "3.14 dirsearch.mp3",
+      "duration": 389.1
+    },
+    {
+      "file": "3.15 arjun.mp3",
+      "duration": 419.9
+    },
+    {
+      "file": "3.16 kiterunner.mp3",
+      "duration": 411.8
+    },
+    {
+      "file": "3.17 whatweb.mp3",
+      "duration": 401.2
+    },
+    {
+      "file": "3.18 commix.mp3",
+      "duration": 415.6
+    },
+    {
+      "file": "3.19 jwt_tool.mp3",
+      "duration": 449.5
+    },
+    {
+      "file": "3.20 dalfox.mp3",
+      "duration": 404.9
+    },
+    {
+      "file": "3.21 wapiti.mp3",
+      "duration": 366.7
+    },
+    {
+      "file": "3.22 gitleaks.mp3",
+      "duration": 399.8
+    },
+    {
+      "file": "3.23 weevely.mp3",
+      "duration": 399.6
+    },
+    {
+      "file": "3.24 webshells.mp3",
+      "duration": 358.8
+    },
+    {
+      "file": "4.1 sqlmap.mp3",
+      "duration": 421.6
+    },
+    {
+      "file": "4.2 sqlninja.mp3",
+      "duration": 384.5
+    },
+    {
+      "file": "4.3 bbqsql.mp3",
+      "duration": 458.0
+    },
+    {
+      "file": "4.4 nosqlmap.mp3",
+      "duration": 421.2
+    },
+    {
+      "file": "4.5 hexorbase.mp3",
+      "duration": 394.5
+    },
+    {
+      "file": "4.6 odat.mp3",
+      "duration": 444.2
+    },
+    {
+      "file": "4.7 oscanner.mp3",
+      "duration": 416.1
+    },
+    {
+      "file": "4.8 tnscmd10g.mp3",
+      "duration": 446.2
+    },
+    {
+      "file": "4.9 msqlpscan.mp3",
+      "duration": 435.2
+    },
+    {
+      "file": "4.10 redis-cli.mp3",
+      "duration": 415.0
+    },
+    {
+      "file": "5.1 john.mp3",
+      "duration": 392.8
+    },
+    {
+      "file": "5.2 hashcat.mp3",
+      "duration": 391.8
+    },
+    {
+      "file": "5.3 ophcrack.mp3",
+      "duration": 399.3
+    },
+    {
+      "file": "5.4 rainbowcrack.mp3",
+      "duration": 371.9
+    },
+    {
+      "file": "5.5 hashid.mp3",
+      "duration": 429.9
+    },
+    {
+      "file": "5.6 nth.mp3",
+      "duration": 410.3
+    },
+    {
+      "file": "5.7 pypykatz.mp3",
+      "duration": 417.2
+    },
+    {
+      "file": "5.8 hydra.mp3",
+      "duration": 425.8
+    },
+    {
+      "file": "5.9 medusa.mp3",
+      "duration": 400.3
+    },
+    {
+      "file": "5.10 ncrack.mp3",
+      "duration": 416.4
+    },
+    {
+      "file": "5.11 patator.mp3",
+      "duration": 427.7
+    },
+    {
+      "file": "5.12 crowbar.mp3",
+      "duration": 438.5
+    },
+    {
+      "file": "5.13 kerbrute.mp3",
+      "duration": 425.8
+    },
+    {
+      "file": "5.14 crunch.mp3",
+      "duration": 403.7
+    },
+    {
+      "file": "5.15 cewl.mp3",
+      "duration": 391.5
+    },
+    {
+      "file": "5.16 rsmangler.mp3",
+      "duration": 392.6
+    },
+    {
+      "file": "5.17 statsprocessor.mp3",
+      "duration": 395.1
+    },
+    {
+      "file": "5.18 wordlists.mp3",
+      "duration": 353.0
+    },
+    {
+      "file": "5.19 chntpw.mp3",
+      "duration": 406.7
+    },
+    {
+      "file": "5.20 samdump2.mp3",
+      "duration": 423.6
+    },
+    {
+      "file": "5.21 gpp.mp3",
+      "duration": 428.5
+    },
+    {
+      "file": "5.22 fcrackzip.mp3",
+      "duration": 394.5
+    },
+    {
+      "file": "5.23 pdfcrack.mp3",
+      "duration": 424.9
+    },
+    {
+      "file": "6.1 aircrack.mp3",
+      "duration": 389.1
+    },
+    {
+      "file": "6.2 wifite.mp3",
+      "duration": 401.1
+    },
+    {
+      "file": "6.3 airgeddon.mp3",
+      "duration": 414.6
+    },
+    {
+      "file": "6.4 kismet.mp3",
+      "duration": 440.7
+    },
+    {
+      "file": "6.5 hcxdumptool & hcxtools.mp3",
+      "duration": 394.5
+    },
+    {
+      "file": "6.6 eaphammer.mp3",
+      "duration": 427.1
+    },
+    {
+      "file": "6.7 fern.mp3",
+      "duration": 415.5
+    },
+    {
+      "file": "6.8 cowpatty.mp3",
+      "duration": 402.9
+    },
+    {
+      "file": "6.9 reaver.mp3",
+      "duration": 465.2
+    },
+    {
+      "file": "6.10 pixiewps.mp3",
+      "duration": 451.4
+    },
+    {
+      "file": "6.11 bully.mp3",
+      "duration": 420.4
+    },
+    {
+      "file": "6.12 btscanner.mp3",
+      "duration": 416.2
+    },
+    {
+      "file": "6.13 bluelog.mp3",
+      "duration": 411.0
+    },
+    {
+      "file": "6.14 spooftooph.mp3",
+      "duration": 431.4
+    },
+    {
+      "file": "6.15 crackle.mp3",
+      "duration": 441.9
+    },
+    {
+      "file": "6.16 ubertooth.mp3",
+      "duration": 401.1
+    },
+    {
+      "file": "6.17 killerbee.mp3",
+      "duration": 468.2
+    },
+    {
+      "file": "6.18 proxmark3.mp3",
+      "duration": 442.7
+    },
+    {
+      "file": "6.19 mfcuk.mp3",
+      "duration": 439.9
+    },
+    {
+      "file": "6.20 mfoc.mp3",
+      "duration": 467.5
+    },
+    {
+      "file": "6.21 gqrx.mp3",
+      "duration": 450.6
+    },
+    {
+      "file": "6.22 hackrf.mp3",
+      "duration": 432.5
+    },
+    {
+      "file": "6.23 kalibrate.mp3",
+      "duration": 494.7
+    },
+    {
+      "file": "7.1 ghidra.mp3",
+      "duration": 465.6
+    },
+    {
+      "file": "7.2 radare2.mp3",
+      "duration": 405.2
+    },
+    {
+      "file": "7.3 iaito.mp3",
+      "duration": 375.3
+    },
+    {
+      "file": "7.4 bytecode.mp3",
+      "duration": 402.6
+    },
+    {
+      "file": "7.5 plasma.mp3",
+      "duration": 411.9
+    },
+    {
+      "file": "7.6 pycdc.mp3",
+      "duration": 378.0
+    },
+    {
+      "file": "7.7 gdb.mp3",
+      "duration": 429.4
+    },
+    {
+      "file": "7.8 pwndbg.mp3",
+      "duration": 434.4
+    },
+    {
+      "file": "7.9 edb.mp3",
+      "duration": 492.3
+    },
+    {
+      "file": "7.10 ollydbg.mp3",
+      "duration": 443.3
+    },
+    {
+      "file": "7.11 strace.mp3",
+      "duration": 515.9
+    },
+    {
+      "file": "7.12 ltrace.mp3",
+      "duration": 423.8
+    },
+    {
+      "file": "7.13 frida.mp3",
+      "duration": 433.2
+    },
+    {
+      "file": "7.14 ropper.mp3",
+      "duration": 433.7
+    },
+    {
+      "file": "7.15 apktool.mp3",
+      "duration": 447.1
+    },
+    {
+      "file": "7.16 dex2jar.mp3",
+      "duration": 437.3
+    },
+    {
+      "file": "7.17 androguard.mp3",
+      "duration": 400.0
+    },
+    {
+      "file": "7.18 jadx.mp3",
+      "duration": 425.5
+    },
+    {
+      "file": "7.19 checksec.mp3",
+      "duration": 487.6
+    },
+    {
+      "file": "8.1 metasploit.mp3",
+      "duration": 447.6
+    },
+    {
+      "file": "8.2 armitage.mp3",
+      "duration": 418.9
+    },
+    {
+      "file": "8.3 routersploit.mp3",
+      "duration": 460.3
+    },
+    {
+      "file": "8.4 searchsploit.mp3",
+      "duration": 446.8
+    },
+    {
+      "file": "8.5 shellnoob.mp3",
+      "duration": 470.1
+    },
+    {
+      "file": "8.6 msfvenom.mp3",
+      "duration": 450.4
+    },
+    {
+      "file": "8.7 beef.mp3",
+      "duration": 487.2
+    },
+    {
+      "file": "8.8 social.mp3",
+      "duration": 452.2
+    },
+    {
+      "file": "9.1 wireshark.mp3",
+      "duration": 471.7
+    },
+    {
+      "file": "9.2 tshark.mp3",
+      "duration": 445.5
+    },
+    {
+      "file": "9.3 tcpdump.mp3",
+      "duration": 477.2
+    },
+    {
+      "file": "9.4 netsniff.mp3",
+      "duration": 466.1
+    },
+    {
+      "file": "9.5 dsniff.mp3",
+      "duration": 427.0
+    },
+    {
+      "file": "9.6 scapy.mp3",
+      "duration": 453.5
+    },
+    {
+      "file": "9.7 bettercap.mp3",
+      "duration": 430.4
+    },
+    {
+      "file": "9.8 ettercap.mp3",
+      "duration": 466.2
+    },
+    {
+      "file": "9.9 responder.mp3",
+      "duration": 530.4
+    },
+    {
+      "file": "9.10 mitm6.mp3",
+      "duration": 495.8
+    },
+    {
+      "file": "9.11 dnschef.mp3",
+      "duration": 452.8
+    },
+    {
+      "file": "9.12 sslsplit.mp3",
+      "duration": 491.3
+    },
+    {
+      "file": "9.13 macchanger.mp3",
+      "duration": 483.0
+    },
+    {
+      "file": "9.14 arpspoof.mp3",
+      "duration": 475.5
+    },
+    {
+      "file": "10.1 impacket.mp3",
+      "duration": 487.6
+    },
+    {
+      "file": "10.2 psexec.mp3",
+      "duration": 486.7
+    },
+    {
+      "file": "10.3 secretsdump.mp3",
+      "duration": 487.5
+    },
+    {
+      "file": "10.4 atexec.mp3",
+      "duration": 454.4
+    },
+    {
+      "file": "10.5 evil.mp3",
+      "duration": 489.6
+    },
+    {
+      "file": "10.6 bloodhound.mp3",
+      "duration": 457.3
+    },
+    {
+      "file": "10.7 certipy.mp3",
+      "duration": 525.7
+    },
+    {
+      "file": "10.8 rubeus.mp3",
+      "duration": 465.8
+    },
+    {
+      "file": "10.9 mimikatz.mp3",
+      "duration": 438.1
+    },
+    {
+      "file": "10.10 PEASS.mp3",
+      "duration": 451.2
+    },
+    {
+      "file": "10.11 lazagne.mp3",
+      "duration": 445.1
+    },
+    {
+      "file": "10.12 samdump2.mp3",
+      "duration": 479.0
+    },
+    {
+      "file": "10.13 chntpw.mp3",
+      "duration": 450.8
+    },
+    {
+      "file": "10.14 chisel.mp3",
+      "duration": 526.2
+    },
+    {
+      "file": "10.15 ligolo.mp3",
+      "duration": 490.2
+    },
+    {
+      "file": "10.16 proxychains.mp3",
+      "duration": 489.6
+    },
+    {
+      "file": "10.17 socat.mp3",
+      "duration": 466.2
+    },
+    {
+      "file": "10.18 sliver.mp3",
+      "duration": 513.8
+    },
+    {
+      "file": "10.19 iodine.mp3",
+      "duration": 514.0
+    },
+    {
+      "file": "10.20 ptunnel.mp3",
+      "duration": 551.3
+    },
+    {
+      "file": "11.1 autopsy.mp3",
+      "duration": 536.7
+    },
+    {
+      "file": "11.2 sleuthkit.mp3",
+      "duration": 518.7
+    },
+    {
+      "file": "11.3 guymager.mp3",
+      "duration": 525.3
+    },
+    {
+      "file": "11.4 dcfldd.mp3",
+      "duration": 512.3
+    },
+    {
+      "file": "11.5 ewf.mp3",
+      "duration": 505.2
+    },
+    {
+      "file": "11.6 volatility3.mp3",
+      "duration": 494.0
+    },
+    {
+      "file": "11.7 winpmem.mp3",
+      "duration": 538.1
+    },
+    {
+      "file": "11.8 yara.mp3",
+      "duration": 435.1
+    },
+    {
+      "file": "11.9 oletools.mp3",
+      "duration": 455.8
+    },
+    {
+      "file": "11.10 foremost.mp3",
+      "duration": 450.0
+    },
+    {
+      "file": "11.11 scalpel.mp3",
+      "duration": 493.9
+    },
+    {
+      "file": "11.12 magicrescue.mp3",
+      "duration": 447.4
+    },
+    {
+      "file": "11.13 testdisk.mp3",
+      "duration": 521.6
+    },
+    {
+      "file": "11.14 photorec.mp3",
+      "duration": 478.5
+    },
+    {
+      "file": "11.15 binwalk.mp3",
+      "duration": 471.8
+    },
+    {
+      "file": "11.16 bulk_extractor.mp3",
+      "duration": 479.1
+    },
+    {
+      "file": "11.17 pdf.mp3",
+      "duration": 473.7
+    },
+    {
+      "file": "11.18 exiftool.mp3",
+      "duration": 489.0
+    },
+    {
+      "file": "11.19 chkrootkit & rkhunter.mp3",
+      "duration": 456.4
+    },
+    {
+      "file": "12.1 faraday.mp3",
+      "duration": 491.7
+    },
+    {
+      "file": "12.2 dradis.mp3",
+      "duration": 496.9
+    },
+    {
+      "file": "12.3 cherrytree.mp3",
+      "duration": 512.4
+    },
+    {
+      "file": "13.1 social.mp3",
+      "duration": 493.8
+    },
+    {
+      "file": "13.2 gophish.mp3",
+      "duration": 479.8
+    },
+    {
+      "file": "13.3 evilginx2.mp3",
+      "duration": 508.0
+    },
+    {
+      "file": "13.4 king.mp3",
+      "duration": 550.6
+    }
+  ]
+}
