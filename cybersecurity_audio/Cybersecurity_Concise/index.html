@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersecurity Concise Audio Player</title>
-  <meta name="description" content="A premium, mobile-responsive HTML5 audio player for Cybersecurity Concise lectures. Features custom track looping, speed controls, and auto-resume.">
+  <meta name="description" content="A premium, mobile-responsive HTML5 audio player for Cybersecurity Concise - Master Index Audio Study Suite. Features custom track looping and auto-resume.">
   
   <!-- Modern Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -483,7 +483,130 @@
     }
 
     .playlist-header {
-      margin-bottom: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.25rem 0 0.65rem 0;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Segmented View Mode Toggle */
+    .view-mode-toggle {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .view-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .view-mode-btn .material-icons-round {
+      font-size: 0.95rem;
+      margin-right: 0.25rem;
+    }
+
+    .view-mode-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .view-mode-btn.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    /* Playlist Action Buttons (Locate / Top) */
+    .playlist-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .playlist-action-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .playlist-action-btn:active {
+      transform: scale(0.96);
+    }
+    .playlist-action-btn .material-icons-round {
+      font-size: 0.95rem;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 rgba(192, 132, 252, 0); }
+      50% { box-shadow: 0 0 20px rgba(192, 132, 252, 0.8), inset 0 0 10px rgba(192, 132, 252, 0.3); border-color: rgba(192, 132, 252, 0.8); }
+      100% { box-shadow: 0 0 0 rgba(192, 132, 252, 0); }
+    }
+    .track-item.pulse-highlight {
+      animation: pulseGlow 1.2s ease-in-out;
+    }
+
+    /* Floating Always-Visible Screen Scroll-To-Top Button */
+    .btn-scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      color: #ffffff;
+      padding: 0.5rem 0.95rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(139, 92, 246, 0.3);
+      z-index: 9999;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-scroll-top:hover {
+      background: var(--accent-color);
+      border-color: #c084fc;
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+      transform: translateY(-3px) scale(1.04);
+    }
+    .btn-scroll-top:active {
+      transform: translateY(0) scale(0.96);
+    }
+    .btn-scroll-top .material-icons-round {
+      font-size: 1.1rem;
     }
 
     .search-box {
@@ -645,11 +768,20 @@
       list-style: none;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       padding-left: 0;
     }
     .chapter-section.expanded .chapter-track-list {
-      max-height: 1200px;
+      max-height: 50000px;
+      overflow: visible;
+    }
+
+    /* Flat Track List View */
+    .flat-track-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: block;
     }
 
     /* Footer Credits */
@@ -823,7 +955,15 @@
       }
 
       .playlist-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 0.5rem 0;
         margin-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .search-box {
@@ -948,9 +1088,21 @@
     </section>
 
     <!-- Right Hand: Tracks Directory Panel -->
-    <section class="glass-panel playlist-panel" aria-label="Playlist Panel">
+    <section class="glass-panel playlist-panel" aria-label="Playlist Panel" style="position: relative;">
       <div class="playlist-header">
-        <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem;">Track List</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h2 style="font-size: 1.1rem; font-weight: 600;">Track List</h2>
+          <div class="view-mode-toggle" id="viewModeToggle" role="group" aria-label="Playlist View Mode">
+            <button type="button" class="view-mode-btn active" id="btnGroupedView" title="Group tracks by domain/chapter">
+              <span class="material-icons-round">folder</span>
+              <span>Grouped</span>
+            </button>
+            <button type="button" class="view-mode-btn" id="btnFlatView" title="Show all tracks in a continuous flat list">
+              <span class="material-icons-round">format_list_bulleted</span>
+              <span>Flat</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="track-list" id="trackListContainer">
@@ -1195,11 +1347,16 @@
     // Helper to get chapter name from track path
     function getChapterName(track) {
       const filename = getTrackFilename(track);
-      const slashIdx = filename.indexOf('/');
-      if (slashIdx === -1) {
-        return "General Lectures";
+      const cleanName = filename.replace(/^Audio\//i, '');
+      const slashIdx = cleanName.indexOf('/');
+      if (slashIdx !== -1) {
+        return cleanName.substring(0, slashIdx);
       }
-      return filename.substring(0, slashIdx);
+      const match = cleanName.match(/^(\d+)\.\d+/);
+      if (match) {
+        return `Chapter ${match[1]}`;
+      }
+      return "General Lectures";
     }
 
     // Format chapter total duration in hours and minutes
@@ -1214,9 +1371,104 @@
       }
     }
 
-    // Render HTML Track List grouped by chapter
+    // State for playlist view mode: 'grouped' (default) or 'flat'
+    let playlistViewMode = localStorage.getItem('cybersecurity_playlist_view_mode') || 'grouped';
+
+    function setPlaylistViewMode(mode) {
+      playlistViewMode = mode;
+      localStorage.setItem('cybersecurity_playlist_view_mode', mode);
+      updateViewModeButtons();
+      renderPlaylist();
+      // Jump to the currently playing file after doing everything
+      scrollToActiveTrack(true);
+    }
+
+    function updateViewModeButtons() {
+      const btnGrouped = document.getElementById('btnGroupedView');
+      const btnFlat = document.getElementById('btnFlatView');
+      if (btnGrouped && btnFlat) {
+        if (playlistViewMode === 'flat') {
+          btnFlat.classList.add('active');
+          btnGrouped.classList.remove('active');
+        } else {
+          btnGrouped.classList.add('active');
+          btnFlat.classList.remove('active');
+        }
+      }
+    }
+
+    function initViewModeControls() {
+      const btnGrouped = document.getElementById('btnGroupedView');
+      const btnFlat = document.getElementById('btnFlatView');
+
+      if (btnGrouped) {
+        btnGrouped.addEventListener('click', (e) => {
+          e.preventDefault();
+          setPlaylistViewMode('grouped');
+        });
+      }
+      if (btnFlat) {
+        btnFlat.addEventListener('click', (e) => {
+          e.preventDefault();
+          setPlaylistViewMode('flat');
+        });
+      }
+      updateViewModeButtons();
+    }
+
+    // Helper to create a single track DOM item
+    function createTrackItemElement(index) {
+      const track = tracks[index];
+      const cleanName = formatTrackName(track);
+
+      let displayName = cleanName;
+      const slashIdx = cleanName.indexOf('/');
+      if (slashIdx !== -1) {
+        displayName = cleanName.substring(slashIdx + 1);
+      }
+      displayName = displayName.replace(/_/g, ' ').replace(/-/g, ' ');
+
+      const li = document.createElement('li');
+      li.className = `track-item ${index === currentTrackIndex ? 'active' : ''}`;
+      li.setAttribute('data-index', index);
+      li.setAttribute('role', 'button');
+      li.setAttribute('tabindex', '0');
+
+      const duration = getTrackDuration(track);
+      const trackDurationStr = duration > 0 ? ` • ${formatTime(duration)}` : "";
+
+      li.innerHTML = `
+        <div class="track-item-info">
+          <div class="track-item-title" title="${displayName}">${displayName}</div>
+          <div class="track-item-sub">Track ${index + 1}${trackDurationStr}</div>
+        </div>
+        ${index === currentTrackIndex ? `
+          <div class="track-indicator">
+            <span class="material-icons-round">${isPlaying ? 'volume_up' : 'volume_mute'}</span>
+          </div>
+        ` : ''}
+      `;
+
+      li.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectTrack(index);
+      });
+
+      li.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          selectTrack(index);
+        }
+      });
+
+      return li;
+    }
+
+    // Render HTML Track List (supporting Grouped by Chapter and Flat List modes)
     function renderPlaylist() {
       trackListContainer.innerHTML = "";
+      updateViewModeButtons();
       
       if (tracks.length === 0) {
         const div = document.createElement('div');
@@ -1232,7 +1484,18 @@
         return;
       }
 
-      // Group tracks by chapter
+      // 1. Flat View Mode: Render all tracks in a single continuous list
+      if (playlistViewMode === 'flat') {
+        const flatList = document.createElement('ul');
+        flatList.className = 'flat-track-list';
+        tracks.forEach((_, index) => {
+          flatList.appendChild(createTrackItemElement(index));
+        });
+        trackListContainer.appendChild(flatList);
+        return;
+      }
+
+      // 2. Grouped View Mode: Group tracks by chapter / domain
       const chaptersMap = new Map();
       tracks.forEach((track, index) => {
         const chapter = getChapterName(track);
@@ -1275,65 +1538,28 @@
         trackList.className = 'chapter-track-list';
 
         trackIndices.forEach(index => {
-          const track = tracks[index];
-          const cleanName = formatTrackName(track);
+          trackList.appendChild(createTrackItemElement(index));
+        });
 
-          // Strip chapter prefix for cleaner display inside the chapter list
-          let displayName = cleanName;
-          const slashIdx = cleanName.indexOf('/');
-          if (slashIdx !== -1) {
-            displayName = cleanName.substring(slashIdx + 1);
+        // Exclusive Accordion: Expanding one chapter automatically collapses other chapters
+        const toggleChapter = () => {
+          const willExpand = !chapterSection.classList.contains('expanded');
+          if (willExpand) {
+            document.querySelectorAll('.chapter-section.expanded').forEach(sec => {
+              if (sec !== chapterSection) {
+                sec.classList.remove('expanded');
+              }
+            });
           }
-          // Clean up underscores and hyphens to look like clean readable titles
-          displayName = displayName.replace(/_/g, ' ').replace(/-/g, ' ');
-
-          const li = document.createElement('li');
-          li.className = `track-item ${index === currentTrackIndex ? 'active' : ''}`;
-          li.setAttribute('data-index', index);
-          li.setAttribute('role', 'button');
-          li.setAttribute('tabindex', '0');
-
-          const duration = getTrackDuration(track);
-          const trackDurationStr = duration > 0 ? ` • ${formatTime(duration)}` : "";
-
-          li.innerHTML = `
-            <div class="track-item-info">
-              <div class="track-item-title" title="${displayName}">${displayName}</div>
-              <div class="track-item-sub">Audio Lecture${trackDurationStr}</div>
-            </div>
-            ${index === currentTrackIndex ? `
-              <div class="track-indicator">
-                <span class="material-icons-round">${isPlaying ? 'volume_up' : 'volume_mute'}</span>
-              </div>
-            ` : ''}
-          `;
-
-          // Track clicks
-          li.addEventListener('click', (e) => {
-            e.stopPropagation();
-            selectTrack(index);
-          });
-
-          li.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              e.stopPropagation();
-              selectTrack(index);
-            }
-          });
-
-          trackList.appendChild(li);
-        });
-
-        // Header click listener toggles expansion
-        header.addEventListener('click', () => {
           chapterSection.classList.toggle('expanded');
-        });
+        };
+
+        header.addEventListener('click', toggleChapter);
 
         header.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            chapterSection.classList.toggle('expanded');
+            toggleChapter();
           }
         });
 
@@ -1450,11 +1676,34 @@
       }
     }
 
-    function scrollToActiveTrack() {
-      const activeEl = document.querySelector('.track-item.active');
-      if (activeEl) {
-        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+    function scrollToActiveTrack(forceSmooth = true) {
+      if (currentTrackIndex < 0 || currentTrackIndex >= tracks.length) return;
+      
+      setTimeout(() => {
+        const activeEl = document.querySelector(`.track-item[data-index="${currentTrackIndex}"]`) || document.querySelector('.track-item.active');
+        if (!activeEl) return;
+
+        // 1. If in grouped view, collapse others and expand only the chapter containing this track
+        const parentChapter = activeEl.closest('.chapter-section');
+        if (parentChapter) {
+          document.querySelectorAll('.chapter-section.expanded').forEach(sec => {
+            if (sec !== parentChapter) sec.classList.remove('expanded');
+          });
+          parentChapter.classList.add('expanded');
+        }
+
+        // 2. Scroll the element into view (smoothly centers in viewport and container)
+        activeEl.scrollIntoView({
+          behavior: forceSmooth ? 'smooth' : 'auto',
+          block: 'center',
+          inline: 'nearest'
+        });
+
+        // 3. Highlight pulse animation so the user visually sees the active track
+        activeEl.classList.remove('pulse-highlight');
+        void activeEl.offsetWidth; // Trigger DOM reflow
+        activeEl.classList.add('pulse-highlight');
+      }, 60);
     }
 
     // Custom loop counter UI update
@@ -1504,7 +1753,7 @@
         navigator.mediaSession.metadata = new MediaMetadata({
           title: title,
           artist: 'Cybersecurity Concise',
-          album: document.getElementById('mainTitle').textContent || 'Cybersecurity Concise',
+          album: document.getElementById('mainTitle').textContent || 'Cybersecurity Concise Study Suite',
           artwork: [
             { src: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=256&auto=format&fit=crop', sizes: '256x256', type: 'image/jpeg' }
           ]
@@ -1639,11 +1888,33 @@
       savePlaybackState();
     });
 
+    // Initialize Always-Visible Scroll To Top handler
+    function initScrollTopButton() {
+      const btn = document.getElementById('btnScrollTop');
+      if (!btn) return;
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (trackListContainer) {
+          trackListContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
     // Initialize Application
     window.addEventListener('DOMContentLoaded', () => {
       initMediaSessionControls();
+      initViewModeControls();
+      initScrollTopButton();
       loadPlaylist();
     });
   </script>
+
+  <!-- Floating Screen Scroll-To-Top Button -->
+  <button type="button" class="btn-scroll-top" id="btnScrollTop" title="Scroll back to top">
+    <span class="material-icons-round">arrow_upward</span>
+    <span>Top</span>
+  </button>
 </body>
 </html>
