@@ -55,7 +55,8 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── Cybersecurity Foundations/ # Suite 04: Cybersecurity Foundation Study Suite (55 Modules • 6h 51m)
 │   ├── 01 Kali Linux Tools/ # Suite 05: Kali Linux 229 Security Tools Master Reference (229 Modules • 27h 13m)
 │   ├── 02 Social Engineering/ # Suite 06: Social Engineering: Human Hacking & Psychology (49 Modules • 6h 4m)
-│   └── 03 Hacking Human Wetware History/ # Suite 07: Hacking Human Wetware: 50 Legendary Heists & Cons (50 Modules • 7h 6m)
+│   ├── 03 Hacking Human Wetware History/ # Suite 07: Hacking Human Wetware: 50 Legendary Heists & Cons (50 Modules • 7h 6m)
+│   └── 04 Scammer Psychology & Sociology/ # Suite 08: Scammer Psychology & Sociology (46 Modules • 5h 32m)
 │
 ├── systems/
 │   ├── index.html          # Systems Architecture & Engineering dashboard

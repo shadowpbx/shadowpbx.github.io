@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scammer Psychology & Sociology Audio Player</title>
+  <meta name="description" content="A premium, mobile-responsive HTML5 audio player exploring 46 modules on the psychological, sociological, and neurological science of deception.">
+  
+  <!-- Modern Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+      --panel-bg: rgba(15, 23, 42, 0.65);
+      --panel-border: rgba(255, 255, 255, 0.08);
+      --accent-color: #8b5cf6; /* Electric Violet */
+      --accent-glow: rgba(139, 92, 246, 0.4);
+      --accent-secondary: #06b6d4; /* Neon Cyan */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --track-hover: rgba(255, 255, 255, 0.04);
+      --track-active: rgba(139, 92, 246, 0.15);
+      --track-active-border: rgba(139, 92, 246, 0.3);
+      --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.75rem;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Core Container */
+    .app-container {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .app-container {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        align-items: start;
+      }
+    }
+
+    header {
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #a78bfa, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.25rem;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Glassmorphism Panel Base */
+    .glass-panel {
+      background: var(--panel-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 1rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (min-width: 768px) {
+      .glass-panel {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Now Playing Section */
+    .player-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 0;
+    }
+
+    @media (min-width: 768px) {
+      .player-card {
+        position: sticky;
+        top: 1.5rem;
+      }
+    }
+
+    .album-art-container {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 30px var(--accent-glow);
+      position: relative;
+      overflow: hidden;
+      animation: rotateArt 20s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .album-art-container.playing {
+      animation-play-state: running;
+    }
+
+    .album-art-inner {
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      border-radius: 50%;
+      background: #090d16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .album-art-inner .material-icons-round {
+      font-size: 4.5rem;
+      background: linear-gradient(to bottom right, #c084fc, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes rotateArt {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .track-details {
+      width: 100%;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+
+    .track-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0.35rem;
+    }
+
+    .track-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Custom Loop Control Badge */
+    .loop-badge-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .loop-badge-container .material-icons-round {
+      font-size: 1rem;
+      color: var(--accent-secondary);
+    }
+
+    .loop-counter-display {
+      font-weight: 600;
+      color: var(--accent-secondary);
+    }
+
+    /* Timeline & Scrubbing */
+    .timeline-container {
+      width: 100%;
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-slider {
+      width: 100%;
+      height: 8px; /* Slightly thicker track for easier tap accuracy */
+      border-radius: 4px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .timeline-slider::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+    }
+
+    .timeline-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px; /* Increased thumb size for easy mobile seeking */
+      height: 22px;
+      border-radius: 50%;
+      background: var(--text-main);
+      box-shadow: 0 0 12px var(--accent-glow);
+      cursor: pointer;
+      margin-top: -7px; /* Align perfectly center with 8px track */
+      transition: transform 0.1s ease;
+    }
+
+    .timeline-slider::-webkit-slider-thumb:active,
+    .timeline-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.3);
+    }
+
+    /* Firefox styling compatibility */
+    .timeline-slider::-moz-range-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: transparent;
+    }
+
+    .timeline-slider::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border: none;
+      border-radius: 50%;
+      background: var(--text-main);
+      box-shadow: 0 0 12px var(--accent-glow);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+
+    .timeline-slider::-moz-range-thumb:active,
+    .timeline-slider::-moz-range-thumb:hover {
+      transform: scale(1.3);
+    }
+
+    .time-stamps {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Player Control Buttons */
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-circle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .btn-circle:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-circle:active {
+      transform: translateY(0);
+    }
+
+    .btn-small {
+      width: 42px;
+      height: 42px;
+    }
+
+    .btn-small .material-icons-round {
+      font-size: 1.25rem;
+    }
+
+    .btn-large {
+      width: 64px;
+      height: 64px;
+      background: var(--accent-color);
+      box-shadow: 0 4px 15px var(--accent-glow);
+      border: none;
+    }
+
+    .btn-large:hover {
+      background: #9d70ff;
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+    }
+
+    .btn-large .material-icons-round {
+      font-size: 2.25rem;
+    }
+
+    /* Custom Loop Control Setting Panel */
+    .settings-grid {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .setting-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+
+    .setting-label {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .setting-label .material-icons-round {
+      font-size: 1.1rem;
+    }
+
+    /* Counter Input Styling */
+    .loop-input-group {
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .loop-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      padding: 0.35rem 0.6rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loop-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .loop-value {
+      width: 35px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      background: transparent;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    /* Speed and Sleep Controls */
+    .speed-select {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .btn-link {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.85rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+    .btn-link:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .text-input {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      border-radius: 8px;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.85rem;
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .text-input:focus {
+      border-color: var(--accent-color);
+      background: rgba(0, 0, 0, 0.35);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .text-input::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Playlist Section */
+    .playlist-panel {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    @media (min-width: 768px) {
+      .playlist-panel {
+        max-height: 520px;
+      }
+    }
+
+    .playlist-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0.25rem 0 0.65rem 0;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Segmented View Mode Toggle */
+    .view-mode-toggle {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .view-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .view-mode-btn .material-icons-round {
+      font-size: 0.95rem;
+      margin-right: 0.25rem;
+    }
+
+    .view-mode-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .view-mode-btn.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      box-shadow: 0 2px 8px var(--accent-glow);
+    }
+
+    /* Playlist Action Buttons (Locate / Top) */
+    .playlist-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .playlist-action-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .playlist-action-btn:active {
+      transform: scale(0.96);
+    }
+    .playlist-action-btn .material-icons-round {
+      font-size: 0.95rem;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 rgba(192, 132, 252, 0); }
+      50% { box-shadow: 0 0 20px rgba(192, 132, 252, 0.8), inset 0 0 10px rgba(192, 132, 252, 0.3); border-color: rgba(192, 132, 252, 0.8); }
+      100% { box-shadow: 0 0 0 rgba(192, 132, 252, 0); }
+    }
+    .track-item.pulse-highlight {
+      animation: pulseGlow 1.2s ease-in-out;
+    }
+
+    /* Floating Always-Visible Screen Scroll-To-Top Button */
+    .btn-scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(192, 132, 252, 0.4);
+      color: #ffffff;
+      padding: 0.5rem 0.95rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(139, 92, 246, 0.3);
+      z-index: 9999;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-scroll-top:hover {
+      background: var(--accent-color);
+      border-color: #c084fc;
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+      transform: translateY(-3px) scale(1.04);
+    }
+    .btn-scroll-top:active {
+      transform: translateY(0) scale(0.96);
+    }
+    .btn-scroll-top .material-icons-round {
+      font-size: 1.1rem;
+    }
+
+    .search-box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .search-box .material-icons-round {
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      outline: none;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    .search-box input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .track-list {
+      list-style: none;
+      overflow-y: auto;
+      flex-grow: 1;
+      padding-right: 0.25rem;
+    }
+
+    /* Custom Scrollbar */
+    .track-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .track-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .track-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+    .track-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .track-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0.85rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .track-item:hover {
+      background: var(--track-hover);
+    }
+
+    .track-item.active {
+      background: var(--track-active);
+      border-color: var(--track-active-border);
+    }
+
+    .track-item-info {
+      flex: 1;
+      min-width: 0;
+      margin-right: 0.75rem;
+    }
+
+    .track-item-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.35;
+      color: var(--text-main);
+    }
+
+    .track-item.active .track-item-title {
+      color: #c084fc;
+    }
+
+    .track-item-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .track-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-secondary);
+    }
+
+    .track-indicator .material-icons-round {
+      font-size: 1.25rem;
+    }
+
+    /* Chapter Accordion Styles */
+    .chapter-section {
+      margin-bottom: 0.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.01);
+    }
+    .chapter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1rem;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.03);
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    .chapter-header:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .chapter-header:focus-visible {
+      outline: 2px solid var(--accent-color);
+    }
+    .chapter-title-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .chapter-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .chapter-chevron {
+      color: var(--text-muted);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1.25rem;
+    }
+    .chapter-section.expanded .chapter-chevron {
+      transform: rotate(180deg);
+      color: var(--accent-secondary);
+    }
+    .chapter-track-list {
+      list-style: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-left: 0;
+    }
+    .chapter-section.expanded .chapter-track-list {
+      max-height: 50000px;
+      overflow: visible;
+    }
+
+    /* Flat Track List View */
+    .flat-track-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: block;
+    }
+
+    /* Footer Credits */
+    footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.3);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile View Overrides (Sticking player to top and scrolling page naturally) */
+    @media (max-width: 767px) {
+      body {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+      }
+
+      header {
+        margin-top: 0.5rem;
+        padding: 0 0.75rem;
+        flex-shrink: 0;
+      }
+
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      header p {
+        font-size: 0.8rem;
+      }
+
+      #playlistMeta {
+        margin-top: 0.15rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      .app-container {
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        gap: 0.75rem;
+      }
+
+      .player-card {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        flex-shrink: 0;
+        padding: 0.75rem;
+        background: #0f172a; /* Solid background to block scrolling text */
+        border-radius: 20px;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      .album-art-container {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 0.5rem;
+      }
+
+      .album-art-inner .material-icons-round {
+        font-size: 2.5rem;
+      }
+
+      .track-details {
+        margin-bottom: 0.5rem;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .track-title {
+        font-size: 1.15rem;
+        margin-bottom: 0.15rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .track-subtitle {
+        font-size: 0.8rem;
+      }
+
+      .track-item-title {
+        font-size: 0.95rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .track-item-sub {
+        font-size: 0.8rem !important;
+      }
+
+      /* Compact mobile accordion headers */
+      .chapter-header {
+        padding: 0.65rem 0.85rem;
+      }
+      .chapter-title-text {
+        font-size: 0.85rem;
+      }
+
+      .timeline-container {
+        margin-bottom: 0.5rem;
+      }
+
+      .time-stamps {
+        margin-top: 0.25rem;
+      }
+
+      .controls-row {
+        margin-bottom: 0.5rem;
+        gap: 0.75rem;
+      }
+
+      .btn-large {
+        width: 48px;
+        height: 48px;
+      }
+
+      .btn-large .material-icons-round {
+        font-size: 1.75rem;
+      }
+
+      .btn-small {
+        width: 36px;
+        height: 36px;
+      }
+
+      .btn-small .material-icons-round {
+        font-size: 1.1rem;
+      }
+
+      .settings-grid {
+        margin-bottom: 0;
+        padding: 0.5rem 0.75rem;
+        gap: 0.4rem;
+      }
+
+      .setting-item {
+        font-size: 0.8rem;
+      }
+
+      .playlist-panel {
+        overflow: visible;
+        padding: 0.75rem;
+        margin: 0 0.5rem;
+      }
+
+      .playlist-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 0.5rem 0;
+        margin-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .search-box {
+        margin-top: 0.25rem;
+        padding: 0.35rem 0.5rem;
+      }
+
+      .track-list {
+        overflow: visible;
+      }
+
+      .track-item {
+        padding: 0.5rem 0.65rem;
+        margin-bottom: 0.35rem;
+      }
+
+      footer {
+        display: block;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="mainTitle">Scammer Psychology & Sociology</h1>
+    <p id="mainSubtitle">46 Modules on the Science of Deception</p>
+    <p id="playlistMeta" style="font-size: 0.85rem; color: var(--accent-secondary); margin-top: 0.35rem; font-weight: 500;"></p>
+  </header>
+
+  <main class="app-container">
+    
+    <!-- Left Hand: Audio Player Controls -->
+    <section class="glass-panel player-card" aria-label="Audio Controls">
+      <div class="track-details">
+        <div class="track-title" id="nowPlayingTitle">No track selected</div>
+        <div class="track-subtitle" id="nowPlayingSubtitle">Select a lecture to begin</div>
+        
+        <!-- Live Loop Status -->
+        <div style="display: flex; justify-content: center;">
+          <div class="loop-badge-container" id="loopBadge" style="display: none;">
+            <span class="material-icons-round">loop</span>
+            <span>Iteration: <span class="loop-counter-display" id="loopBadgeText">1 / 1</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrubbing Timeline -->
+      <div class="timeline-container">
+        <input type="range" class="timeline-slider" id="timeline" min="0" max="100" value="0">
+        <div class="time-stamps">
+          <span id="timeElapsed">0:00</span>
+          <span id="timeTotal">0:00</span>
+        </div>
+      </div>
+
+      <!-- Main Controls Row -->
+      <div class="controls-row">
+        <button class="btn-circle btn-small" id="btnPrev" title="Previous Track" aria-label="Previous Track">
+          <span class="material-icons-round">skip_previous</span>
+        </button>
+        <button class="btn-circle btn-large" id="btnPlay" title="Play/Pause" aria-label="Play/Pause">
+          <span class="material-icons-round" id="playIcon">play_arrow</span>
+        </button>
+        <button class="btn-circle btn-small" id="btnNext" title="Next Track" aria-label="Next Track">
+          <span class="material-icons-round">skip_next</span>
+        </button>
+      </div>
+
+      <!-- Custom Settings Row (Speed, R2 Bucket, & Custom Loop Playback) -->
+      <div class="settings-grid">
+        <!-- Loop count feature requested by USER -->
+        <div class="setting-item">
+          <span class="setting-label">
+            <span class="material-icons-round">repeat</span>
+            Play each audio (times)
+          </span>
+          <div class="loop-input-group">
+            <button class="loop-btn" id="loopDec" title="Decrease repeat limit" aria-label="Decrease repeat limit">
+              <span class="material-icons-round">remove</span>
+            </button>
+            <input type="text" class="loop-value" id="loopLimitVal" value="1" readonly>
+            <button class="loop-btn" id="loopInc" title="Increase repeat limit" aria-label="Increase repeat limit">
+              <span class="material-icons-round">add</span>
+            </button>
+          </div>
+        </div>
+
+<!-- Written Companion Link -->
+        <div class="setting-item" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: 0.25rem;">
+          <span class="setting-label">
+            <span class="material-icons-round">menu_book</span>
+            Written Companion
+          </span>
+          <a class="btn-link" href="companion.html" target="_blank" title="Open written companion notes in a new tab">
+            Open Guide
+          </a>
+        </div>
+
+        <!-- Cloudflare R2 Base URL configuration (Hidden) -->
+        <input type="hidden" id="r2BaseUrlInput">
+      </div>
+    </section>
+
+    <!-- Right Hand: Tracks Directory Panel -->
+    <section class="glass-panel playlist-panel" aria-label="Playlist Panel" style="position: relative;">
+      <div class="playlist-header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h2 style="font-size: 1.1rem; font-weight: 600;">Track List</h2>
+          <div class="view-mode-toggle" id="viewModeToggle" role="group" aria-label="Playlist View Mode">
+            <button type="button" class="view-mode-btn active" id="btnGroupedView" title="Group tracks by domain/chapter">
+              <span class="material-icons-round">folder</span>
+              <span>Grouped</span>
+            </button>
+            <button type="button" class="view-mode-btn" id="btnFlatView" title="Show all tracks in a continuous flat list">
+              <span class="material-icons-round">format_list_bulleted</span>
+              <span>Flat</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-list" id="trackListContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Host on GitHub Pages | Designed for study on the go.</p>
+  </footer>
+
+  <!-- HTML5 Audio Core element -->
+  <audio id="audioEngine" preload="metadata"></audio>
+
+  <!-- Load playlist.js for fallback/legacy support -->
+  <script src="playlist.js"></script>
+
+  <script>
+    // Global state for tracks
+    if (typeof tracks === 'undefined') {
+      window.tracks = [];
+    }
+
+    // System Logger helper
+    const Log = {
+      info: (msg) => console.log(`[Info] ${msg}`),
+      error: (msg, err) => console.error(`[Error] ${msg}`, err)
+    };
+
+    // State Variables
+    let currentTrackIndex = 0;
+    let targetLoopLimit = 1;      // How many times each track should be played before moving to the next
+    let currentLoopIteration = 1;  // Tracks current iteration count of the track
+    let isPlaying = false;
+    let loopTimeoutId = null;      // Handles track looping restarts
+    let lastEndedTime = 0;         // Debounce guard for ended events
+    let trackSearchQuery = "";
+    let r2BaseUrl = "";            // Cloudflare R2 bucket base URL
+
+    // DOM Elements
+    const audio = document.getElementById('audioEngine');
+    const artContainer = document.getElementById('artContainer');
+    const nowPlayingTitle = document.getElementById('nowPlayingTitle');
+    const nowPlayingSubtitle = document.getElementById('nowPlayingSubtitle');
+    const timeline = document.getElementById('timeline');
+    const timeElapsed = document.getElementById('timeElapsed');
+    const timeTotal = document.getElementById('timeTotal');
+    const btnPlay = document.getElementById('btnPlay');
+    const playIcon = document.getElementById('playIcon');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    const speedSelect = document.getElementById('speedSelect');
+    const loopLimitVal = document.getElementById('loopLimitVal');
+    const loopInc = document.getElementById('loopInc');
+    const loopDec = document.getElementById('loopDec');
+    const loopBadge = document.getElementById('loopBadge');
+    const loopBadgeText = document.getElementById('loopBadgeText');
+    const trackListContainer = document.getElementById('trackListContainer');
+    const r2BaseUrlInput = document.getElementById('r2BaseUrlInput');
+
+    // Fetch playlist.json with fallback support
+    async function loadPlaylist() {
+      try {
+        const response = await fetch('playlist.json');
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = await response.json();
+        const newTracks = data.tracks || [];
+        
+        // Mutate array in place to avoid reassigning/redeclaring `tracks`
+        tracks.length = 0;
+        tracks.push(...newTracks);
+        
+        // Resolve R2 Base URL from playlist.json config (ignoring local storage override)
+        localStorage.removeItem('cybersecurity_concise_r2_url');
+        r2BaseUrl = data.baseUrl || "";
+        r2BaseUrlInput.value = r2BaseUrl;
+
+        // Render main title and subtitle dynamically from playlist.json config
+        if (data.title) {
+          document.getElementById('mainTitle').textContent = data.title;
+        }
+        if (data.subtitle) {
+          document.getElementById('mainSubtitle').textContent = data.subtitle;
+        }
+        
+        Log.info(`Loaded ${tracks.length} tracks from playlist.json`);
+      } catch (err) {
+        Log.error("Error loading playlist.json, trying fallback legacy playlist.js", err);
+        
+        // Check if legacy playlist.js has populated tracks already (tracks is not empty)
+        if (typeof tracks !== 'undefined' && tracks.length > 0) {
+          Log.info(`Fallback loaded ${tracks.length} tracks from legacy playlist.js`);
+          
+          // Resolve base URL from playlist.js if available
+          localStorage.removeItem('cybersecurity_concise_r2_url');
+          if (typeof baseUrl !== 'undefined') {
+            r2BaseUrl = baseUrl;
+          } else {
+            r2BaseUrl = "";
+          }
+
+          // Render main title and subtitle from playlist.js if available
+          if (typeof playlistTitle !== 'undefined') {
+            document.getElementById('mainTitle').textContent = playlistTitle;
+          }
+          if (typeof playlistSubtitle !== 'undefined') {
+            document.getElementById('mainSubtitle').textContent = playlistSubtitle;
+          }
+        } else {
+          Log.error("No playlist data found. Please generate playlist.json or playlist.js.");
+          r2BaseUrl = "";
+        }
+        
+        r2BaseUrlInput.value = r2BaseUrl;
+      }
+      
+      // Render and initialize states once tracks are loaded
+      renderPlaylist();
+      initAppState();
+      updatePlaylistMeta();
+    }
+
+    function updatePlaylistMeta() {
+      let totalSeconds = 0;
+      let trackCount = tracks.length;
+      
+      tracks.forEach(track => {
+        totalSeconds += getTrackDuration(track);
+      });
+
+      const metaEl = document.getElementById('playlistMeta');
+      if (metaEl) {
+        if (trackCount === 0) {
+          metaEl.textContent = "";
+          return;
+        }
+        
+        let timeStr = "";
+        if (totalSeconds > 0) {
+          const hours = Math.floor(totalSeconds / 3600);
+          const minutes = Math.floor((totalSeconds % 3600) / 60);
+          if (hours > 0) {
+            timeStr = ` • ${hours} hr ${minutes} min`;
+          } else {
+            timeStr = ` • ${minutes} min`;
+          }
+        }
+        metaEl.textContent = `${trackCount} Lectures${timeStr}`;
+      }
+    }
+
+    // Initialize application state from LocalStorage to support seamless walking/mail delivery resume
+    function initAppState() {
+      try {
+        const storedIndex = localStorage.getItem('cybersecurity_concise_index');
+        const storedLimit = localStorage.getItem('cybersecurity_concise_loop_limit');
+        const storedTime = localStorage.getItem('cybersecurity_concise_time');
+        const storedSpeed = localStorage.getItem('cybersecurity_concise_speed');
+        const storedIteration = localStorage.getItem('cybersecurity_concise_loop_iteration');
+
+        if (storedIndex !== null) {
+          currentTrackIndex = parseInt(storedIndex, 10);
+          if (isNaN(currentTrackIndex) || currentTrackIndex < 0 || currentTrackIndex >= tracks.length) {
+            currentTrackIndex = 0;
+          }
+        }
+        if (storedLimit !== null) {
+          targetLoopLimit = parseInt(storedLimit, 10);
+          if (isNaN(targetLoopLimit) || targetLoopLimit < 1) targetLoopLimit = 1;
+          loopLimitVal.value = targetLoopLimit;
+        }
+        if (storedSpeed !== null) {
+          audio.playbackRate = parseFloat(storedSpeed);
+          // speed state preserved
+        }
+        
+        loadTrack(currentTrackIndex, false, true);
+        
+        // Restore loop iteration count after loadTrack resets it
+        if (storedIteration !== null) {
+          const parsedIteration = parseInt(storedIteration, 10);
+          if (!isNaN(parsedIteration) && parsedIteration >= 1 && parsedIteration <= targetLoopLimit) {
+            currentLoopIteration = parsedIteration;
+          }
+        }
+        updateLoopBadge();
+
+        // Restore time offsets
+        if (storedTime !== null) {
+          const parsedTime = parseFloat(storedTime);
+          if (!isNaN(parsedTime)) {
+            audio.currentTime = parsedTime;
+            timeline.value = parsedTime;
+          }
+        }
+      } catch (err) {
+        Log.error("Error reloading application state", err);
+      }
+    }
+
+    // Save playback position periodically (to prevent lost state on page closures/refreshes)
+    function savePlaybackState() {
+      try {
+        localStorage.setItem('cybersecurity_concise_index', currentTrackIndex);
+        localStorage.setItem('cybersecurity_concise_loop_limit', targetLoopLimit);
+        localStorage.setItem('cybersecurity_concise_loop_iteration', currentLoopIteration);
+        localStorage.setItem('cybersecurity_concise_time', audio.currentTime);
+        localStorage.setItem('cybersecurity_concise_speed', audio.playbackRate);
+      } catch (err) {
+        Log.error("Error storing playback state", err);
+      }
+    }
+
+    // Helper to get filename from a track object or string
+    function getTrackFilename(track) {
+      if (!track) return "";
+      return typeof track === 'string' ? track : track.file;
+    }
+
+    // Helper to get duration from a track object or string
+    function getTrackDuration(track) {
+      if (!track) return 0;
+      return typeof track === 'object' ? (track.duration || 0) : 0;
+    }
+
+    // Clean track visual names for UI display
+    function formatTrackName(filename) {
+      // Remove '.mp3' extension
+      let name = getTrackFilename(filename).replace('.mp3', '');
+      return name;
+    }
+
+    // Encode track filename path segments preserving slashes
+    function encodeTrackPath(path) {
+      return path.split('/').map(segment => encodeURIComponent(segment)).join('/');
+    }
+
+    const domainObjectiveMap = {
+      '1': 'Category 1: The Mind of the Scammer (Personality & Justifications)',
+      '2': 'Category 2: The Victim’s Vulnerabilities (Why We Are Susceptible)',
+      '3': 'Category 3: Psychological Tactics (How the Scammer Manipulates the Victim)',
+      '4': 'Category 4: Cognitive Biases & Brain Traps (How Our Own Brains Betray Us)'
+    };
+
+    // Smart Multi-Tier Chapter Resolver:
+    // 1. Checks subfolder paths (e.g. "Chapter 1: Intro/1.1...")
+    // 2. Checks 2-level objective numbering (e.g. "1.1.1" -> maps "1.1" in domainObjectiveMap)
+    // 3. Checks 1-level domain numbering (e.g. "1.1" -> maps "1" in domainObjectiveMap)
+    // 4. Auto-generates clean names if unmapped (e.g. "Domain 1.1" or "Domain 1")
+    function getChapterName(track) {
+      const filename = getTrackFilename(track);
+      const cleanName = filename.replace(/^Audio\//i, '');
+
+      // Tier 1: Folder-based hierarchy
+      const slashIdx = cleanName.indexOf('/');
+      if (slashIdx !== -1) {
+        return cleanName.substring(0, slashIdx);
+      }
+
+      // Tier 2: Two-level numbering check (e.g., '1.1' from '1.1.2 Lecture.mp3')
+      const match2 = cleanName.match(/^(\d+\.\d+)/);
+      if (match2 && typeof domainObjectiveMap !== 'undefined' && domainObjectiveMap[match2[1]]) {
+        return domainObjectiveMap[match2[1]];
+      }
+
+      // Tier 3: Single-level numbering check (e.g., '1' from '1.4 Lecture.mp3')
+      const match1 = cleanName.match(/^(\d+)\./);
+      if (match1 && typeof domainObjectiveMap !== 'undefined' && domainObjectiveMap[match1[1]]) {
+        return domainObjectiveMap[match1[1]];
+      }
+
+      // Tier 4: Dynamic fallback formatting
+      if (match2 && match2[1].includes('.')) {
+        return `Domain ${match2[1]}`;
+      }
+      if (match1) {
+        return `Domain ${match1[1]}`;
+      }
+
+      return "General Lectures";
+    }
+
+    // Format chapter total duration in hours and minutes
+    function formatChapterDuration(seconds) {
+      if (isNaN(seconds) || seconds <= 0) return "";
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      if (hours > 0) {
+        return `${hours} hr ${minutes} min`;
+      } else {
+        return `${minutes} min`;
+      }
+    }
+
+    // State for playlist view mode: 'grouped' (default) or 'flat'
+    let playlistViewMode = localStorage.getItem('cybersecurity_playlist_view_mode') || 'grouped';
+
+    function setPlaylistViewMode(mode) {
+      playlistViewMode = mode;
+      localStorage.setItem('cybersecurity_playlist_view_mode', mode);
+      updateViewModeButtons();
+      renderPlaylist();
+      // Jump to the currently playing file after doing everything
+      scrollToActiveTrack(true);
+    }
+
+    function updateViewModeButtons() {
+      const btnGrouped = document.getElementById('btnGroupedView');
+      const btnFlat = document.getElementById('btnFlatView');
+      if (btnGrouped && btnFlat) {
+        if (playlistViewMode === 'flat') {
+          btnFlat.classList.add('active');
+          btnGrouped.classList.remove('active');
+        } else {
+          btnGrouped.classList.add('active');
+          btnFlat.classList.remove('active');
+        }
+      }
+    }
+
+    function initViewModeControls() {
+      const btnGrouped = document.getElementById('btnGroupedView');
+      const btnFlat = document.getElementById('btnFlatView');
+
+      if (btnGrouped) {
+        btnGrouped.addEventListener('click', (e) => {
+          e.preventDefault();
+          setPlaylistViewMode('grouped');
+        });
+      }
+      if (btnFlat) {
+        btnFlat.addEventListener('click', (e) => {
+          e.preventDefault();
+          setPlaylistViewMode('flat');
+        });
+      }
+      updateViewModeButtons();
+    }
+
+    // Helper to create a single track DOM item
+    function createTrackItemElement(index) {
+      const track = tracks[index];
+      const cleanName = formatTrackName(track);
+
+      let displayName = cleanName;
+      const slashIdx = cleanName.indexOf('/');
+      if (slashIdx !== -1) {
+        displayName = cleanName.substring(slashIdx + 1);
+      }
+      displayName = displayName.replace(/_/g, ' ').replace(/-/g, ' ');
+
+      const li = document.createElement('li');
+      li.className = `track-item ${index === currentTrackIndex ? 'active' : ''}`;
+      li.setAttribute('data-index', index);
+      li.setAttribute('role', 'button');
+      li.setAttribute('tabindex', '0');
+
+      const duration = getTrackDuration(track);
+      const trackDurationStr = duration > 0 ? ` • ${formatTime(duration)}` : "";
+
+      li.innerHTML = `
+        <div class="track-item-info">
+          <div class="track-item-title" title="${displayName}">${displayName}</div>
+          <div class="track-item-sub">Track ${index + 1}${trackDurationStr}</div>
+        </div>
+        ${index === currentTrackIndex ? `
+          <div class="track-indicator">
+            <span class="material-icons-round">${isPlaying ? 'volume_up' : 'volume_mute'}</span>
+          </div>
+        ` : ''}
+      `;
+
+      li.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectTrack(index);
+      });
+
+      li.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          selectTrack(index);
+        }
+      });
+
+      return li;
+    }
+
+    // Render HTML Track List (supporting Grouped by Chapter and Flat List modes)
+    function renderPlaylist() {
+      trackListContainer.innerHTML = "";
+      updateViewModeButtons();
+      
+      if (tracks.length === 0) {
+        const div = document.createElement('div');
+        div.className = 'track-item';
+        div.style.cursor = 'default';
+        div.innerHTML = `
+          <div class="track-item-info">
+            <div class="track-item-title" style="color: var(--accent-secondary);">No playlist loaded</div>
+            <div class="track-item-sub">Please run generate_playlist.py to scan your folder.</div>
+          </div>
+        `;
+        trackListContainer.appendChild(div);
+        return;
+      }
+
+      // 1. Flat View Mode: Render all tracks in a single continuous list
+      if (playlistViewMode === 'flat') {
+        const flatList = document.createElement('ul');
+        flatList.className = 'flat-track-list';
+        tracks.forEach((_, index) => {
+          flatList.appendChild(createTrackItemElement(index));
+        });
+        trackListContainer.appendChild(flatList);
+        return;
+      }
+
+      // 2. Grouped View Mode: Group tracks by chapter / domain
+      const chaptersMap = new Map();
+      tracks.forEach((track, index) => {
+        const chapter = getChapterName(track);
+        if (!chaptersMap.has(chapter)) {
+          chaptersMap.set(chapter, []);
+        }
+        chaptersMap.get(chapter).push(index);
+      });
+
+      chaptersMap.forEach((trackIndices, chapterName) => {
+        const chapterSection = document.createElement('div');
+        chapterSection.className = 'chapter-section';
+        // Auto-expand if this chapter contains the active track
+        const hasActiveTrack = trackIndices.includes(currentTrackIndex);
+        if (hasActiveTrack) {
+          chapterSection.classList.add('expanded');
+        }
+
+        const header = document.createElement('div');
+        header.className = 'chapter-header';
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+
+        // Calculate total chapter duration
+        let totalSec = 0;
+        trackIndices.forEach(idx => {
+          totalSec += getTrackDuration(tracks[idx]);
+        });
+        const durationStr = totalSec > 0 ? ` • ${formatChapterDuration(totalSec)}` : "";
+
+        header.innerHTML = `
+          <span class="chapter-title-text" title="${chapterName}">${chapterName}</span>
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
+            <span class="chapter-meta">${trackIndices.length} tracks${durationStr}</span>
+            <span class="material-icons-round chapter-chevron">expand_more</span>
+          </div>
+        `;
+
+        const trackList = document.createElement('ul');
+        trackList.className = 'chapter-track-list';
+
+        trackIndices.forEach(index => {
+          trackList.appendChild(createTrackItemElement(index));
+        });
+
+        // Exclusive Accordion: Expanding one chapter automatically collapses other chapters
+        const toggleChapter = () => {
+          const willExpand = !chapterSection.classList.contains('expanded');
+          if (willExpand) {
+            document.querySelectorAll('.chapter-section.expanded').forEach(sec => {
+              if (sec !== chapterSection) {
+                sec.classList.remove('expanded');
+              }
+            });
+          }
+          chapterSection.classList.toggle('expanded');
+        };
+
+        header.addEventListener('click', toggleChapter);
+
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleChapter();
+          }
+        });
+
+        chapterSection.appendChild(header);
+        chapterSection.appendChild(trackList);
+        trackListContainer.appendChild(chapterSection);
+      });
+    }
+
+    // Load selected track file into Audio element
+    function loadTrack(index, shouldPlay = true, isInitializing = false) {
+      if (index < 0 || index >= tracks.length) return;
+      
+      currentTrackIndex = index;
+      const trackFilename = getTrackFilename(tracks[index]);
+      
+      // Load source file (relative path resolves correctly locally and on GitHub Pages)
+      // Resolve absolute URL using R2 base URL if present (preserving subfolder slashes)
+      let finalUrl = encodeTrackPath(trackFilename);
+      const activeBaseUrl = r2BaseUrlInput.value.trim();
+      if (activeBaseUrl) {
+        const formattedBase = activeBaseUrl.endsWith('/') ? activeBaseUrl : activeBaseUrl + '/';
+        finalUrl = formattedBase + encodeTrackPath(trackFilename);
+      }
+      
+      audio.src = finalUrl;
+      audio.load();
+
+      // Clear any pending transition loop timers
+      if (loopTimeoutId) {
+        clearTimeout(loopTimeoutId);
+        loopTimeoutId = null;
+      }
+
+      if (!isInitializing) {
+        // Reset loop iteration state for the newly loaded track
+        currentLoopIteration = 1;
+        lastEndedTime = 0;
+        updateLoopBadge();
+      }
+
+      // UI updates (strip folder path prefix for clean view on card)
+      let cleanTitle = formatTrackName(trackFilename);
+      const slashIdx = cleanTitle.indexOf('/');
+      if (slashIdx !== -1) {
+        cleanTitle = cleanTitle.substring(slashIdx + 1);
+      }
+      cleanTitle = cleanTitle.replace(/_/g, ' ').replace(/-/g, ' ');
+
+      nowPlayingTitle.textContent = cleanTitle;
+      nowPlayingSubtitle.textContent = `Track ${index + 1} of ${tracks.length}`;
+      
+      // Speed restoration
+      audio.playbackRate = 1.0;
+
+      // Re-render the playlist highlight
+      renderPlaylist();
+      setTimeout(scrollToActiveTrack, 100);
+
+      // Update Media Session Metadata for lock screen interaction
+      updateMediaSession(trackFilename);
+
+      if (shouldPlay) {
+        playAudio();
+      } else {
+        pauseAudio();
+      }
+      
+      if (!isInitializing) {
+        savePlaybackState();
+      }
+    }
+
+    // Select track explicitly via playlist clicking
+    function selectTrack(index) {
+      loadTrack(index, true);
+    }
+
+    function playAudio() {
+      isPlaying = true;
+      audio.play().then(() => {
+        playIcon.textContent = 'pause';
+        if (artContainer) artContainer.classList.add('playing');
+        updatePlaylistIndicators();
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.playbackState = 'playing';
+        }
+      }).catch(err => {
+        Log.error("Playback request interrupted/failed: User gesture might be required.", err);
+        isPlaying = false;
+        pauseAudio();
+      });
+    }
+
+    function pauseAudio() {
+      isPlaying = false;
+      audio.pause();
+      if (loopTimeoutId) {
+        clearTimeout(loopTimeoutId);
+        loopTimeoutId = null;
+      }
+      playIcon.textContent = 'play_arrow';
+      if (artContainer) artContainer.classList.remove('playing');
+      updatePlaylistIndicators();
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.playbackState = 'paused';
+      }
+    }
+
+    function updatePlaylistIndicators() {
+      const activeIndicator = document.querySelector('.track-item.active .track-indicator .material-icons-round');
+      if (activeIndicator) {
+        activeIndicator.textContent = isPlaying ? 'volume_up' : 'volume_mute';
+      }
+    }
+
+    function scrollToActiveTrack(forceSmooth = true) {
+      if (currentTrackIndex < 0 || currentTrackIndex >= tracks.length) return;
+      
+      const activeEl = document.querySelector(`.track-item[data-index="${currentTrackIndex}"]`) || document.querySelector('.track-item.active');
+      if (!activeEl) return;
+
+      // 1. If in grouped view, collapse others and expand only the chapter containing this track
+      const parentChapter = activeEl.closest('.chapter-section');
+      if (parentChapter) {
+        document.querySelectorAll('.chapter-section.expanded').forEach(sec => {
+          if (sec !== parentChapter) sec.classList.remove('expanded');
+        });
+        parentChapter.classList.add('expanded');
+      }
+
+      // 2. Allow DOM reflow for chapter expand/collapse, then calculate position dynamically
+      setTimeout(() => {
+        const freshActiveEl = document.querySelector(`.track-item[data-index="${currentTrackIndex}"]`) || document.querySelector('.track-item.active');
+        if (!freshActiveEl) return;
+
+        const isDesktop = window.innerWidth >= 768;
+
+        if (isDesktop && trackListContainer && trackListContainer.scrollHeight > trackListContainer.clientHeight) {
+          // Desktop: Smoothly center inside the dedicated scrollable panel
+          const containerRect = trackListContainer.getBoundingClientRect();
+          const elRect = freshActiveEl.getBoundingClientRect();
+          const targetScrollTop = trackListContainer.scrollTop + (elRect.top - containerRect.top) - (trackListContainer.clientHeight / 2) + (freshActiveEl.clientHeight / 2);
+          
+          trackListContainer.scrollTo({
+            top: Math.max(0, targetScrollTop),
+            behavior: forceSmooth ? 'smooth' : 'auto'
+          });
+        } else {
+          // Mobile / iPhone: Calculate position directly below the sticky top player card
+          const playerCard = document.querySelector('.player-card');
+          const stickyOffset = playerCard ? playerCard.getBoundingClientRect().height : 0;
+          const elRect = freshActiveEl.getBoundingClientRect();
+          const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+          
+          // Target places the track cleanly 16px below the bottom edge of the sticky player card
+          const targetY = currentScrollY + elRect.top - stickyOffset - 16;
+
+          window.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: forceSmooth ? 'smooth' : 'auto'
+          });
+        }
+
+        // 3. Highlight pulse animation so the user visually sees the active track
+        freshActiveEl.classList.remove('pulse-highlight');
+        void freshActiveEl.offsetWidth; // Trigger DOM reflow
+        freshActiveEl.classList.add('pulse-highlight');
+      }, 120);
+    }
+
+    // Custom loop counter UI update
+    function updateLoopBadge() {
+      if (targetLoopLimit > 1) {
+        loopBadge.style.display = 'flex';
+        loopBadgeText.textContent = `${currentLoopIteration} / ${targetLoopLimit}`;
+      } else {
+        loopBadge.style.display = 'none';
+      }
+    }
+
+    // Playback navigation
+    function nextTrack() {
+      let nextIndex = currentTrackIndex + 1;
+      if (nextIndex >= tracks.length) {
+        nextIndex = 0; // Wrap around to the start
+      }
+      loadTrack(nextIndex, true);
+    }
+
+    function prevTrack() {
+      let prevIndex = currentTrackIndex - 1;
+      if (prevIndex < 0) {
+        prevIndex = tracks.length - 1; // Wrap around to the end
+      }
+      loadTrack(prevIndex, true);
+    }
+
+    // Time Format Converter
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return '0:00';
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    // Integrate with Browser Media Session (Lock Screen control support)
+    function updateMediaSession(filename) {
+      if ('mediaSession' in navigator) {
+        let title = formatTrackName(filename);
+        const slashIdx = title.indexOf('/');
+        if (slashIdx !== -1) {
+          title = title.substring(slashIdx + 1);
+        }
+        title = title.replace(/_/g, ' ').replace(/-/g, ' ');
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: title,
+          artist: 'Scammer Psychology & Sociology',
+          album: document.getElementById('mainTitle').textContent || '46 Modules on the Science of Deception',
+          artwork: [
+            { src: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=256&auto=format&fit=crop', sizes: '256x256', type: 'image/jpeg' }
+          ]
+        });
+      }
+    }
+
+    function initMediaSessionControls() {
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('play', () => {
+          playAudio();
+        });
+        navigator.mediaSession.setActionHandler('pause', () => {
+          pauseAudio();
+        });
+        navigator.mediaSession.setActionHandler('previoustrack', () => {
+          prevTrack();
+        });
+        navigator.mediaSession.setActionHandler('nexttrack', () => {
+          nextTrack();
+        });
+        navigator.mediaSession.setActionHandler('seekto', (details) => {
+          if (details.fastSeek && 'fastSeek' in audio) {
+            audio.fastSeek(details.seekTime);
+          } else {
+            audio.currentTime = details.seekTime;
+          }
+          savePlaybackState();
+        });
+      }
+    }
+
+    // EVENT LISTENERS CONFIGURATION
+    
+    // Play/Pause Action
+    btnPlay.addEventListener('click', () => {
+      if (isPlaying) {
+        pauseAudio();
+      } else {
+        playAudio();
+      }
+    });
+
+    btnNext.addEventListener('click', nextTrack);
+    btnPrev.addEventListener('click', prevTrack);
+
+    // Audio Engine Handlers
+    audio.addEventListener('timeupdate', () => {
+      if (!timeline.matches(':active')) {
+        timeline.value = audio.currentTime;
+      }
+      timeElapsed.textContent = formatTime(audio.currentTime);
+      
+      // Periodically save state (every 5 seconds) to prevent losing place on crash/kill
+      if (Math.floor(audio.currentTime) % 5 === 0) {
+        savePlaybackState();
+      }
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      timeline.max = audio.duration;
+      timeTotal.textContent = formatTime(audio.duration);
+    });
+
+    // Handle track endings and the custom loop logic requested
+    audio.addEventListener('ended', () => {
+      const now = Date.now();
+      if (now - lastEndedTime < 1000) {
+        Log.warn(`Spurious duplicate ended event detected; ignored. Time diff: ${now - lastEndedTime}ms`);
+        return;
+      }
+      lastEndedTime = now;
+
+      Log.info(`Finished iteration ${currentLoopIteration} of track ${currentTrackIndex}`);
+      
+      if (currentLoopIteration < targetLoopLimit) {
+        // Repeat the current track again
+        currentLoopIteration++;
+        updateLoopBadge();
+        savePlaybackState();
+        
+        // Use a short timeout to allow the browser to fully complete the ended state transition
+        // and prevent double-firing ended events on mobile browsers.
+        if (loopTimeoutId) clearTimeout(loopTimeoutId);
+        loopTimeoutId = setTimeout(() => {
+          loopTimeoutId = null;
+          audio.currentTime = 0;
+          playAudio();
+          Log.info(`Starting iteration ${currentLoopIteration} of track ${currentTrackIndex}`);
+        }, 50);
+      } else {
+        // We reached the loop limit, transition to the next lecture
+        Log.info(`Finished all iterations (${targetLoopLimit}). Moving to next track.`);
+        nextTrack();
+      }
+    });
+
+    // Timeline Scrubbing Handler
+    timeline.addEventListener('input', () => {
+      timeElapsed.textContent = formatTime(timeline.value);
+    });
+
+    timeline.addEventListener('change', () => {
+      audio.currentTime = timeline.value;
+      savePlaybackState();
+    });
+
+    // Custom Loop Limit controls
+    loopInc.addEventListener('click', () => {
+      targetLoopLimit++;
+      loopLimitVal.value = targetLoopLimit;
+      updateLoopBadge();
+      savePlaybackState();
+    });
+
+    loopDec.addEventListener('click', () => {
+      if (targetLoopLimit > 1) {
+        targetLoopLimit--;
+        loopLimitVal.value = targetLoopLimit;
+        // If current loop is higher than new limit, cap it
+        if (currentLoopIteration > targetLoopLimit) {
+          currentLoopIteration = targetLoopLimit;
+        }
+        updateLoopBadge();
+        savePlaybackState();
+      }
+    });
+
+    // Speed Selector Handler
+    // Playback rate fixed at standard 1.0x
+
+    // Initialize Always-Visible Scroll To Top handler
+    function initScrollTopButton() {
+      const btn = document.getElementById('btnScrollTop');
+      if (!btn) return;
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (trackListContainer) {
+          trackListContainer.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Initialize Application
+    window.addEventListener('DOMContentLoaded', () => {
+      initMediaSessionControls();
+      initViewModeControls();
+      initScrollTopButton();
+      loadPlaylist();
+    });
+  </script>
+
+  <!-- Floating Screen Scroll-To-Top Button -->
+  <button type="button" class="btn-scroll-top" id="btnScrollTop" title="Scroll back to top">
+    <span class="material-icons-round">arrow_upward</span>
+    <span>Top</span>
+  </button>
+</body>
+</html>
