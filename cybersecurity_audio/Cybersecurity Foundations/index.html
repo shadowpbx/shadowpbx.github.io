@@ -1055,23 +1055,7 @@
           </div>
         </div>
 
-        <!-- Playback speed control -->
-        <div class="setting-item">
-          <span class="setting-label">
-            <span class="material-icons-round">speed</span>
-            Playback speed
-          </span>
-          <select class="speed-select" id="speedSelect" title="Select speed" aria-label="Select playback speed">
-            <option value="0.75">0.75x</option>
-            <option value="1" selected>1.0x (Normal)</option>
-            <option value="1.25">1.25x</option>
-            <option value="1.5">1.5x</option>
-            <option value="1.75">1.75x</option>
-            <option value="2">2.0x</option>
-          </select>
-        </div>
-
-        <!-- Written Companion Link -->
+<!-- Written Companion Link -->
         <div class="setting-item" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: 0.25rem;">
           <span class="setting-label">
             <span class="material-icons-round">menu_book</span>
@@ -1280,7 +1264,7 @@
         }
         if (storedSpeed !== null) {
           audio.playbackRate = parseFloat(storedSpeed);
-          speedSelect.value = storedSpeed;
+          // speed state preserved
         }
         
         loadTrack(currentTrackIndex, false, true);
@@ -1628,7 +1612,7 @@
       nowPlayingSubtitle.textContent = `Track ${index + 1} of ${tracks.length}`;
       
       // Speed restoration
-      audio.playbackRate = parseFloat(speedSelect.value);
+      audio.playbackRate = 1.0;
 
       // Re-render the playlist highlight
       renderPlaylist();
@@ -1707,12 +1691,32 @@
           parentChapter.classList.add('expanded');
         }
 
-        // 2. Scroll the element into view (smoothly centers in viewport and container)
-        activeEl.scrollIntoView({
-          behavior: forceSmooth ? 'smooth' : 'auto',
-          block: 'center',
-          inline: 'nearest'
-        });
+        // 2. Dynamic measurement: Account for sticky header height + 16px breathing margin
+        const isDesktop = window.innerWidth >= 768;
+        const headerEl = document.querySelector('.playlist-header');
+        const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 0;
+
+        if (isDesktop && trackListContainer && trackListContainer.scrollHeight > trackListContainer.clientHeight) {
+          // Desktop: Smoothly center inside the dedicated scroll container
+          const containerRect = trackListContainer.getBoundingClientRect();
+          const elRect = activeEl.getBoundingClientRect();
+          const targetScrollTop = trackListContainer.scrollTop + (elRect.top - containerRect.top) - (trackListContainer.clientHeight / 2) + (activeEl.clientHeight / 2);
+          
+          trackListContainer.scrollTo({
+            top: Math.max(0, targetScrollTop),
+            behavior: forceSmooth ? 'smooth' : 'auto'
+          });
+        } else {
+          // Mobile / iOS Safari: Dynamically calculate scroll position below sticky header
+          const elRect = activeEl.getBoundingClientRect();
+          const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+          const targetY = currentScrollY + elRect.top - headerHeight - 16;
+
+          window.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: forceSmooth ? 'smooth' : 'auto'
+          });
+        }
 
         // 3. Highlight pulse animation so the user visually sees the active track
         activeEl.classList.remove('pulse-highlight');
@@ -1898,10 +1902,7 @@
     });
 
     // Speed Selector Handler
-    speedSelect.addEventListener('change', () => {
-      audio.playbackRate = parseFloat(speedSelect.value);
-      savePlaybackState();
-    });
+    // Playback rate fixed at standard 1.0x
 
     // Initialize Always-Visible Scroll To Top handler
     function initScrollTopButton() {

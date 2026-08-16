@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CompTIA A+ Core 2 (220-1202) Audio Player</title>
-  <meta name="description" content="A premium, mobile-responsive HTML5 audio player for CompTIA A+ Core 2 (220-1202) exam study. Features custom track looping, speed controls, and auto-resume.">
+  <title>Social Engineering Audio Player</title>
+  <meta name="description" content="A premium, mobile-responsive HTML5 audio player covering 49 Social Engineering and Human Hacking modules across 8 core categories. Features custom track looping and auto-resume.">
   
   <!-- Modern Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -992,8 +992,8 @@
 <body>
 
   <header>
-    <h1 id="mainTitle">CompTIA A+</h1>
-    <p id="mainSubtitle">Core 2 (220-1202) Exam Study Suite</p>
+    <h1 id="mainTitle">Social Engineering</h1>
+    <p id="mainSubtitle">49 Human Hacking & Psychological Attack Modules</p>
     <p id="playlistMeta" style="font-size: 0.85rem; color: var(--accent-secondary); margin-top: 0.35rem; font-weight: 500;"></p>
   </header>
 
@@ -1329,53 +1329,51 @@
     }
 
     const domainObjectiveMap = {
-      '1.1': 'Domain 1.1: Common Operating System Types',
-      '1.2': 'Domain 1.2: OS Installations & Upgrades',
-      '1.3': 'Domain 1.3: Windows Editions & Features',
-      '1.4': 'Domain 1.4: Windows OS Features & Tools',
-      '1.5': 'Domain 1.5: Microsoft Command-Line Tools',
-      '1.6': 'Domain 1.6: Windows Settings Configuration',
-      '1.7': 'Domain 1.7: Windows Client Networking',
-      '1.8': 'Domain 1.8: macOS Features & Tools',
-      '1.9': 'Domain 1.9: Linux Client Features & Tools',
-      '1.10': 'Domain 1.10: Application Installation & Requirements',
-      '1.11': 'Domain 1.11: Cloud Productivity Tools',
-      '2.1': 'Domain 2.1: Security Controls & Measures',
-      '2.2': 'Domain 2.2: Windows OS Security Settings',
-      '2.3': 'Domain 2.3: Wireless Security & Authentication',
-      '2.4': 'Domain 2.4: Malware Types, Detection & Prevention',
-      '2.5': 'Domain 2.5: Social Engineering & Attacks',
-      '2.6': 'Domain 2.6: Browser Security & Best Practices',
-      '2.7': 'Domain 2.7: Device Disposal & Data Destruction',
-      '2.8': 'Domain 2.8: Mobile Security Controls',
-      '3.1': 'Domain 3.1: Windows OS Troubleshooting',
-      '3.2': 'Domain 3.2: Security Issues Troubleshooting',
-      '3.3': 'Domain 3.3: Mobile Device Issues Troubleshooting',
-      '3.4': 'Domain 3.4: Application & Software Troubleshooting',
-      '4.1': 'Domain 4.1: Documentation & Best Practices',
-      '4.2': 'Domain 4.2: Change Management Processes',
-      '4.3': 'Domain 4.3: Disaster Prevention & Recovery',
-      '4.4': 'Domain 4.4: Safety Procedures & Protocols',
-      '4.5': 'Domain 4.5: Environmental Controls & Waste',
-      '4.6': 'Domain 4.6: Incident Response & Forensics',
-      '4.7': 'Domain 4.7: Professionalism & Communication',
-      '4.8': 'Domain 4.8: Scripting Basics & Languages',
-      '4.9': 'Domain 4.9: Remote Access & Security',
-      '4.10': 'Domain 4.10: Basic Environmental Controls'
+      '1': 'Category 1: Reconnaissance & Target Profiling (The Setup Phase)',
+      '2': 'Category 2: Digital & Text-Based Deception (Phishing Variants)',
+      '3': 'Category 3: Vocal, Visual, & Interpersonal Deception (Vishing & Pretexting)',
+      '4': 'Category 4: Physical Deception & Access (The On-Site Element)',
+      '5': 'Category 5: Technological Exploitation of Human Behavior',
+      '6': 'Category 6: Advanced Phishing Delivery & Technical Infrastructure',
+      '7': 'Category 7: The Psychological Triggers (The "Why" It Works)',
+      '8': 'Category 8: Defensive Countermeasures & Phishing Resilience'
     };
 
-    // Helper to get chapter name from track path
+    // Smart Multi-Tier Chapter Resolver:
+    // 1. Checks subfolder paths (e.g. "Chapter 1: Intro/1.1...")
+    // 2. Checks 2-level objective numbering (e.g. "1.1.1" -> maps "1.1" in domainObjectiveMap)
+    // 3. Checks 1-level domain numbering (e.g. "1.1" -> maps "1" in domainObjectiveMap)
+    // 4. Auto-generates clean names if unmapped (e.g. "Domain 1.1" or "Domain 1")
     function getChapterName(track) {
       const filename = getTrackFilename(track);
       const cleanName = filename.replace(/^Audio\//i, '');
-      const match = cleanName.match(/^(\d+\.\d+)/);
-      if (match && domainObjectiveMap[match[1]]) {
-        return domainObjectiveMap[match[1]];
-      }
-      const slashIdx = filename.indexOf('/');
+
+      // Tier 1: Folder-based hierarchy
+      const slashIdx = cleanName.indexOf('/');
       if (slashIdx !== -1) {
-        return filename.substring(0, slashIdx);
+        return cleanName.substring(0, slashIdx);
       }
+
+      // Tier 2: Two-level numbering check (e.g., '1.1' from '1.1.2 Lecture.mp3')
+      const match2 = cleanName.match(/^(\d+\.\d+)/);
+      if (match2 && typeof domainObjectiveMap !== 'undefined' && domainObjectiveMap[match2[1]]) {
+        return domainObjectiveMap[match2[1]];
+      }
+
+      // Tier 3: Single-level numbering check (e.g., '1' from '1.4 Lecture.mp3')
+      const match1 = cleanName.match(/^(\d+)\./);
+      if (match1 && typeof domainObjectiveMap !== 'undefined' && domainObjectiveMap[match1[1]]) {
+        return domainObjectiveMap[match1[1]];
+      }
+
+      // Tier 4: Dynamic fallback formatting
+      if (match2 && match2[1].includes('.')) {
+        return `Domain ${match2[1]}`;
+      }
+      if (match1) {
+        return `Domain ${match1[1]}`;
+      }
+
       return "General Lectures";
     }
 
@@ -1792,8 +1790,8 @@
         title = title.replace(/_/g, ' ').replace(/-/g, ' ');
         navigator.mediaSession.metadata = new MediaMetadata({
           title: title,
-          artist: 'CompTIA A+ Core 2',
-          album: document.getElementById('mainTitle').textContent || 'CompTIA A+ Core 2 (220-1202)',
+          artist: 'Social Engineering',
+          album: document.getElementById('mainTitle').textContent || '49 Human Hacking Modules',
           artwork: [
             { src: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=256&auto=format&fit=crop', sizes: '256x256', type: 'image/jpeg' }
           ]
