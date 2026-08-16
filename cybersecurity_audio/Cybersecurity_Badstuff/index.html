@@ -1676,39 +1676,44 @@
     function scrollToActiveTrack(forceSmooth = true) {
       if (currentTrackIndex < 0 || currentTrackIndex >= tracks.length) return;
       
+      const activeEl = document.querySelector(`.track-item[data-index="${currentTrackIndex}"]`) || document.querySelector('.track-item.active');
+      if (!activeEl) return;
+
+      // 1. If in grouped view, collapse others and expand only the chapter containing this track
+      const parentChapter = activeEl.closest('.chapter-section');
+      if (parentChapter) {
+        document.querySelectorAll('.chapter-section.expanded').forEach(sec => {
+          if (sec !== parentChapter) sec.classList.remove('expanded');
+        });
+        parentChapter.classList.add('expanded');
+      }
+
+      // 2. Allow DOM reflow for chapter expand/collapse, then calculate position dynamically
       setTimeout(() => {
-        const activeEl = document.querySelector(`.track-item[data-index="${currentTrackIndex}"]`) || document.querySelector('.track-item.active');
-        if (!activeEl) return;
+        const freshActiveEl = document.querySelector(`.track-item[data-index="${currentTrackIndex}"]`) || document.querySelector('.track-item.active');
+        if (!freshActiveEl) return;
 
-        // 1. If in grouped view, collapse others and expand only the chapter containing this track
-        const parentChapter = activeEl.closest('.chapter-section');
-        if (parentChapter) {
-          document.querySelectorAll('.chapter-section.expanded').forEach(sec => {
-            if (sec !== parentChapter) sec.classList.remove('expanded');
-          });
-          parentChapter.classList.add('expanded');
-        }
-
-        // 2. Dynamic measurement: Account for sticky header height + 16px breathing margin
         const isDesktop = window.innerWidth >= 768;
-        const headerEl = document.querySelector('.playlist-header');
-        const headerHeight = headerEl ? headerEl.getBoundingClientRect().height : 0;
 
         if (isDesktop && trackListContainer && trackListContainer.scrollHeight > trackListContainer.clientHeight) {
-          // Desktop: Smoothly center inside the dedicated scroll container
+          // Desktop: Smoothly center inside the dedicated scrollable panel
           const containerRect = trackListContainer.getBoundingClientRect();
-          const elRect = activeEl.getBoundingClientRect();
-          const targetScrollTop = trackListContainer.scrollTop + (elRect.top - containerRect.top) - (trackListContainer.clientHeight / 2) + (activeEl.clientHeight / 2);
+          const elRect = freshActiveEl.getBoundingClientRect();
+          const targetScrollTop = trackListContainer.scrollTop + (elRect.top - containerRect.top) - (trackListContainer.clientHeight / 2) + (freshActiveEl.clientHeight / 2);
           
           trackListContainer.scrollTo({
             top: Math.max(0, targetScrollTop),
             behavior: forceSmooth ? 'smooth' : 'auto'
           });
         } else {
-          // Mobile / iOS Safari: Dynamically calculate scroll position below sticky header
-          const elRect = activeEl.getBoundingClientRect();
+          // Mobile / iPhone: Calculate position directly below the sticky top player card
+          const playerCard = document.querySelector('.player-card');
+          const stickyOffset = playerCard ? playerCard.getBoundingClientRect().height : 0;
+          const elRect = freshActiveEl.getBoundingClientRect();
           const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
-          const targetY = currentScrollY + elRect.top - headerHeight - 16;
+          
+          // Target places the track cleanly 16px below the bottom edge of the sticky player card
+          const targetY = currentScrollY + elRect.top - stickyOffset - 16;
 
           window.scrollTo({
             top: Math.max(0, targetY),
@@ -1717,10 +1722,10 @@
         }
 
         // 3. Highlight pulse animation so the user visually sees the active track
-        activeEl.classList.remove('pulse-highlight');
-        void activeEl.offsetWidth; // Trigger DOM reflow
-        activeEl.classList.add('pulse-highlight');
-      }, 60);
+        freshActiveEl.classList.remove('pulse-highlight');
+        void freshActiveEl.offsetWidth; // Trigger DOM reflow
+        freshActiveEl.classList.add('pulse-highlight');
+      }, 120);
     }
 
     // Custom loop counter UI update
