@@ -143,26 +143,26 @@
 <h2>1. Sorting &amp; Searching (The Foundations)</h2>
 <p><em>The fundamental building blocks of data organization, comparison, and retrieval.</em></p>
 <ul>
-<li><strong>Binary Search</strong> — Finds a specific item in a <em>sorted</em> list in $O(\log n)$ logarithmic time by repeatedly halving the search space.</li>
-<li><strong>MergeSort</strong> — A classic divide-and-conquer algorithm that recursively splits an array into individual elements and merges them in sorted order with guaranteed $O(n \log n)$ performance.</li>
+<li><strong>Binary Search</strong> — Finds a specific item in a <em>sorted</em> list in <code>O(log n)</code> logarithmic time by repeatedly dividing the search space in half.</li>
+<li><strong>MergeSort</strong> — A classic divide-and-conquer algorithm that recursively splits an array into individual elements and merges them back together in sorted order with guaranteed <code>O(n log n)</code> performance.</li>
 <li><strong>QuickSort</strong> — Highly efficient in-place sorting that partitions elements around a selected pivot element, widely used as the default engine across programming language standard libraries.</li>
-<li><strong>HeapSort</strong> — An $O(n \log n)$ comparison-based algorithm that builds a binary heap data structure to sequentially extract the maximum or minimum value.</li>
-<li><strong>Radix Sort</strong> — A non-comparative integer sorting algorithm that processes data digit by digit from least to most significant, achieving linear time $O(nk)$ for fixed-length keys.</li>
-<li><strong>Insertion Sort</strong> — While $O(n^2)$ for massive arrays, it features minimal overhead and acts as the optimal fallback sorting method for small datasets (frequently nested within hybrid sorting algorithms like Timsort and Introsort).</li>
-<li><strong>Counting Sort</strong> — An integer sorting algorithm that maps key frequencies directly into an auxiliary array, proving sorting can run in linear $O(n + k)$ time under strict integer range boundaries.</li>
+<li><strong>HeapSort</strong> — An <code>O(n log n)</code> comparison-based algorithm that builds a binary heap data structure to sequentially extract the maximum or minimum value.</li>
+<li><strong>Radix Sort</strong> — A non-comparative integer sorting algorithm that processes data digit by digit from least to most significant, achieving linear time <code>O(nk)</code> for fixed-length keys.</li>
+<li><strong>Insertion Sort</strong> — While <code>O(n²)</code> for massive arrays, it features minimal overhead and acts as the optimal fallback sorting method for small datasets (frequently nested within hybrid sorting algorithms like Timsort and Introsort).</li>
+<li><strong>Counting Sort</strong> — An integer sorting algorithm that maps key frequencies directly into an auxiliary array, proving sorting can run in linear <code>O(n + k)</code> time under strict integer range boundaries.</li>
 </ul>
 <hr />
 <h2>2. Graph &amp; Network Algorithms (Routing &amp; Relationships)</h2>
 <p><em>Traversing, optimizing, and analyzing complex networked node topologies.</em></p>
 <ul>
-<li><strong>Breadth-First Search (BFS)</strong> — Traverses a graph level by level outward from the source, guaranteeing the shortest path in unweighted networks.</li>
+<li><strong>Breadth-First Search (BFS)</strong> — Traverses a graph layer by layer outward from the source, guaranteeing the shortest path in unweighted networks.</li>
 <li><strong>Depth-First Search (DFS)</strong> — Explores deeply along individual graph branches before backtracking, fundamental for cycle detection, topological sorting, and maze generation.</li>
 <li><strong>Dijkstra’s Algorithm</strong> — Solves the single-source shortest path problem on weighted graphs with non-negative edge weights using a priority queue (powers GPS routing engines).</li>
-<li><strong>A* (A-Star) Search</strong> — An extension of Dijkstra's algorithm that utilizes heuristic estimates ($f(n) = g(n) + h(n)$) to drastically accelerate pathfinding in gaming and robotics.</li>
+<li><strong>A* (A-Star) Search</strong> — An extension of Dijkstra's algorithm that utilizes heuristic estimates (<code>f(n) = g(n) + h(n)</code>) to drastically accelerate pathfinding in gaming and robotics.</li>
 <li><strong>Kruskal’s &amp; Prim’s Algorithms</strong> — Greedy algorithms designed to construct a Minimum Spanning Tree (MST), connecting all network vertices with minimum total edge cost.</li>
 <li><strong>Bellman-Ford Algorithm</strong> — Computes single-source shortest paths on arbitrary directed graphs and detects negative-weight cycles.</li>
-<li><strong>Floyd-Warshall Algorithm</strong> — A dynamic programming approach that computes all-pairs shortest paths simultaneously across every node pair in $O(V^3)$ time.</li>
-<li><strong>Topological Sort</strong> — Linearly orders vertices in a Directed Acyclic Graph (DAG) such that every directed edge $u \to v$ has $u$ appearing before $v$ (critical for build systems and package managers).</li>
+<li><strong>Floyd-Warshall Algorithm</strong> — A dynamic programming approach that computes all-pairs shortest paths simultaneously across every node pair in <code>O(V³)</code> time.</li>
+<li><strong>Topological Sort</strong> — Linearly orders vertices in a Directed Acyclic Graph (DAG) such that every directed edge <code>u → v</code> has <code>u</code> appearing before <code>v</code> (critical for build systems and package managers).</li>
 <li><strong>Ford-Fulkerson &amp; Edmonds-Karp</strong> — Calculates the maximum possible network flow from a source to a sink across capacity-constrained pipelines.</li>
 <li><strong>Tarjan’s Algorithm</strong> — Finds Strongly Connected Components (SCCs) in a directed graph in a single linear-time DFS pass.</li>
 </ul>
@@ -179,7 +179,7 @@
 <h2>4. String Processing, Parsing, &amp; Compression</h2>
 <p><em>High-performance text search, dictionary matching, and lossless data encoding.</em></p>
 <ul>
-<li><strong>Knuth-Morris-Pratt (KMP)</strong> — Searches for occurrences of a pattern within text by pre-computing a partial match table (π table) to skip redundant character comparisons in $O(n + m)$ time.</li>
+<li><strong>Knuth-Morris-Pratt (KMP)</strong> — Searches for occurrences of a pattern within text by pre-computing a partial match table (π table) to skip redundant character comparisons in <code>O(n + m)</code> time.</li>
 <li><strong>Rabin-Karp Algorithm</strong> — Uses rolling hashes to search for pattern strings within text, uniquely suited for multi-pattern lookups and plagiarism detection.</li>
 <li><strong>Boyer-Moore Algorithm</strong> — An extremely fast string search engine that scans patterns from right to left and utilizes bad-character and good-suffix shift rules to jump across text (powers GNU <code>grep</code> and CTRL+F).</li>
 <li><strong>Aho-Corasick Algorithm</strong> — Constructs a finite state trie with failure transitions to search for an entire dictionary of strings concurrently in linear time (powers antivirus virus definition scanners and intrusion detection engines).</li>
@@ -190,16 +190,16 @@
 <h2>5. Mathematics &amp; Number Theory</h2>
 <p><em>Analytical methods, prime generation, signal transforms, and statistical modeling.</em></p>
 <ul>
-<li><strong>Euclidean Algorithm &amp; Extended Euclidean</strong> — Rapidly calculates the Greatest Common Divisor ($\gcd$) of two integers and solves linear Diophantine equations (critical for modular inverse computation in RSA).</li>
-<li><strong>Sieve of Eratosthenes</strong> — A prime sieve algorithm that finds all prime numbers up to an upper limit $n$ in $O(n \log \log n)$ time by iteratively marking composite multiples.</li>
-<li><strong>Fast Fourier Transform (FFT)</strong> — Computes the Discrete Fourier Transform (DFT) in $O(n \log n)$ instead of $O(n^2)$, converting time-domain signals into frequency spectra (powers Wi-Fi, audio DSP, and telecommunications).</li>
+<li><strong>Euclidean Algorithm &amp; Extended Euclidean</strong> — Rapidly calculates the Greatest Common Divisor (<code>gcd(a, b)</code>) of two integers and solves linear Diophantine equations (critical for modular inverse computation in RSA).</li>
+<li><strong>Sieve of Eratosthenes</strong> — A prime sieve algorithm that finds all prime numbers up to an upper limit <code>n</code> in <code>O(n log log n)</code> time by iteratively marking composite multiples.</li>
+<li><strong>Fast Fourier Transform (FFT)</strong> — Computes the Discrete Fourier Transform (DFT) in <code>O(n log n)</code> instead of <code>O(n²)</code>, converting time-domain signals into frequency spectra (powers Wi-Fi, audio DSP, and telecommunications).</li>
 <li><strong>Monte Carlo Algorithm</strong> — Utilizes repeated pseudo-random sampling to numerically approximate deterministic systems that are mathematically intractable.</li>
 </ul>
 <hr />
 <h2>6. Computational Geometry</h2>
 <p><em>Spatial partitioning, visual collision detection, and planar boundary extraction.</em></p>
 <ul>
-<li><strong>Graham Scan (Convex Hull)</strong> — Computes the convex hull of a finite set of 2D planar points in $O(n \log n)$ time by sorting points angularly and maintaining a boundary stack.</li>
+<li><strong>Graham Scan (Convex Hull)</strong> — Computes the convex hull of a finite set of 2D planar points in <code>O(n log n)</code> time by sorting points angularly and maintaining a boundary stack.</li>
 <li><strong>Sweep Line Algorithm</strong> — Solves 2D geometric problems (such as segment intersections and Voronoi diagram construction) by sweeping an imaginary line across the coordinate space.</li>
 <li><strong>Ray Casting Algorithm</strong> — Tests whether a given coordinate point resides inside, outside, or on the boundary of a complex polygon by counting ray-edge intersections (fundamental to 3D rendering and game hit-boxes).</li>
 </ul>
@@ -229,7 +229,7 @@
 <ul>
 <li><strong>Gradient Descent (SGD, Adam)</strong> — Iteratively updates model weight parameters in the opposite direction of the loss function gradient to minimize prediction error.</li>
 <li><strong>Backpropagation</strong> — Computes partial derivatives of the loss function with respect to every neural network weight via the multivariable calculus chain rule.</li>
-<li><strong>K-Means Clustering</strong> — An unsupervised vector quantization algorithm that partitions $n$ observations into $k$ clusters based on nearest centroid means.</li>
+<li><strong>K-Means Clustering</strong> — An unsupervised vector quantization algorithm that partitions <code>n</code> observations into <code>k</code> clusters based on nearest centroid means.</li>
 <li><strong>Support Vector Machines (SVM)</strong> — Identifies the maximum-margin hyperplane that optimally separates distinct categorical feature classes in high-dimensional space.</li>
 <li><strong>Minimax (with Alpha-Beta Pruning)</strong> — A recursive adversarial game-tree decision algorithm that maximizes best-case payoffs while pruning branches that cannot influence the final outcome.</li>
 <li><strong>Simulated Annealing</strong> — A probabilistic global optimization meta-heuristic that escapes local minima by accepting suboptimal moves with a temperature-decayed probability.</li>
@@ -246,8 +246,8 @@
 <h2>11. Quantum Algorithms</h2>
 <p><em>Exploiting quantum superposition and entanglement to solve intractable classical problems.</em></p>
 <ul>
-<li><strong>Shor's Algorithm</strong> — Factors integers in polynomial time $O((\log N)^3)$ using the Quantum Fourier Transform, theoretically breaking classical public-key cryptography (RSA/ECC).</li>
-<li><strong>Grover's Algorithm</strong> — Performs unstructured database search in quadratic speedup $O(\sqrt{N})$ using quantum amplitude amplification.</li>
+<li><strong>Shor's Algorithm</strong> — Factors integers in polynomial time <code>O((log N)³)</code> using the Quantum Fourier Transform, theoretically breaking classical public-key cryptography (RSA/ECC).</li>
+<li><strong>Grover's Algorithm</strong> — Performs unstructured database search in quadratic speedup <code>O(√N)</code> using quantum amplitude amplification.</li>
 </ul></main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
     </div>
