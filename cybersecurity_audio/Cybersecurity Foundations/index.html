@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cybersecurity Foundation Audio Player</title>
-  <meta name="description" content="A premium, mobile-responsive HTML5 audio player for Cybersecurity Foundation lectures. Features custom track looping, speed controls, and auto-resume.">
+  <meta name="description" content="Comprehensive audio player for Cybersecurity Foundations covering 12 core security domains.">
   
   <!-- Modern Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -347,17 +347,26 @@
       font-size: 2.25rem;
     }
 
-    /* Custom Loop Control Setting Panel */
+    /* Custom Loop & Utility Single-Row Setting Bar */
     .settings-grid {
       width: 100%;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
-      padding: 0.85rem;
+      padding: 0.45rem 0.75rem;
       display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
       margin-bottom: 1rem;
+    }
+
+    .utility-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
     }
 
     .setting-item {
@@ -378,52 +387,85 @@
       font-size: 1.1rem;
     }
 
-    /* Counter Input Styling */
-    .loop-input-group {
-      display: flex;
-      align-items: center;
+    /* Single-Click Cycling Loop Button & Companion Link */
+    .btn-loop-cycle {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
       border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .loop-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      padding: 0.35rem 0.6rem;
+      height: 36px;
+      padding: 0 0.85rem;
+      font-size: 0.85rem;
+      font-family: inherit;
+      font-weight: 500;
       cursor: pointer;
-      display: flex;
+      transition: all 0.2s ease;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 0.45rem;
+      box-sizing: border-box;
+      user-select: none;
     }
 
-    .loop-btn:hover {
-      background: rgba(255, 255, 255, 0.05);
+    /* Loop Icon with Centered Inset Number/Symbol */
+    .loop-icon-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
     }
 
-    .loop-value {
-      width: 35px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.9rem;
-      border: none;
-      background: transparent;
-      color: var(--text-main);
-      outline: none;
+    .loop-base-icon {
+      font-size: 1.45rem !important;
+      line-height: 1;
+      display: block;
     }
 
-    /* Speed and Sleep Controls */
-    .speed-select {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-main);
-      border-radius: 8px;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.85rem;
-      outline: none;
-      cursor: pointer;
+    .loop-badge-inside {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%);
+      font-size: 0.58rem;
+      font-weight: 800;
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.5px;
+      color: var(--text-muted);
+    }
+
+    .btn-loop-cycle:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .btn-loop-cycle:hover .material-icons-round,
+    .btn-loop-cycle:hover .loop-badge-inside {
+      color: #ffffff;
+    }
+
+    .btn-loop-cycle:active {
+      transform: scale(0.96);
+    }
+
+    /* Active Glowing State when looping (2, 3, ∞) */
+    .btn-loop-cycle.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .btn-loop-cycle.active .material-icons-round,
+    .btn-loop-cycle.active .loop-badge-inside {
+      color: #ffffff;
     }
 
     .btn-link {
@@ -431,7 +473,8 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text-main);
       border-radius: 8px;
-      padding: 0.25rem 0.6rem;
+      height: 36px;
+      padding: 0 0.85rem;
       font-size: 0.85rem;
       text-decoration: none;
       cursor: pointer;
@@ -440,6 +483,7 @@
       align-items: center;
       justify-content: center;
       font-weight: 500;
+      box-sizing: border-box;
     }
     .btn-link:hover {
       background: var(--accent-color);
@@ -940,10 +984,11 @@
 
       .settings-grid {
         margin-bottom: 0;
-        padding: 0.5rem 0.75rem;
+        padding: 0.35rem 0.6rem;
         gap: 0.4rem;
       }
 
+      .utility-item,
       .setting-item {
         font-size: 0.8rem;
       }
@@ -1036,35 +1081,22 @@
         </button>
       </div>
 
-      <!-- Custom Settings Row (Speed, R2 Bucket, & Custom Loop Playback) -->
+      <!-- Single-Row Utility Bar: Cycling Repeat Button & Study Notes Link -->
       <div class="settings-grid">
-        <!-- Loop count feature requested by USER -->
-        <div class="setting-item">
-          <span class="setting-label">
-            <span class="material-icons-round">repeat</span>
-            Play each audio (times)
+        <!-- Left: Cycling Repeat Button with Inset Number/Symbol (1, 2, 3, ∞) -->
+        <button type="button" class="btn-loop-cycle" id="btnLoopCycle" title="Repeat: Play once (Click to cycle 2, 3, ∞)" aria-label="Cycle repeat mode">
+          <span class="loop-icon-wrapper">
+            <span class="material-icons-round loop-base-icon">repeat</span>
+            <span class="loop-badge-inside" id="loopCycleLabel">1</span>
           </span>
-          <div class="loop-input-group">
-            <button class="loop-btn" id="loopDec" title="Decrease repeat limit" aria-label="Decrease repeat limit">
-              <span class="material-icons-round">remove</span>
-            </button>
-            <input type="text" class="loop-value" id="loopLimitVal" value="1" readonly>
-            <button class="loop-btn" id="loopInc" title="Increase repeat limit" aria-label="Increase repeat limit">
-              <span class="material-icons-round">add</span>
-            </button>
-          </div>
-        </div>
+          <span>Repeat</span>
+        </button>
 
-<!-- Written Companion Link -->
-        <div class="setting-item" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; margin-top: 0.25rem;">
-          <span class="setting-label">
-            <span class="material-icons-round">menu_book</span>
-            Written Companion
-          </span>
-          <a class="btn-link" href="companion.html" target="_blank" title="Open written companion notes in a new tab">
-            Open Guide
-          </a>
-        </div>
+        <!-- Right: Written Companion Link -->
+        <a class="btn-link" href="companion.html" target="_blank" title="Open written study notes in a new tab">
+          <span class="material-icons-round" style="font-size: 1rem; margin-right: 0.3rem;">menu_book</span>
+          <span>Study Notes</span>
+        </a>
 
         <!-- Cloudflare R2 Base URL configuration (Hidden) -->
         <input type="hidden" id="r2BaseUrlInput">
@@ -1140,14 +1172,41 @@
     const playIcon = document.getElementById('playIcon');
     const btnPrev = document.getElementById('btnPrev');
     const btnNext = document.getElementById('btnNext');
-    const speedSelect = document.getElementById('speedSelect');
-    const loopLimitVal = document.getElementById('loopLimitVal');
-    const loopInc = document.getElementById('loopInc');
-    const loopDec = document.getElementById('loopDec');
+    const speedSelect = document.getElementById('speedSelect'); // null if removed
+    const btnLoopCycle = document.getElementById('btnLoopCycle');
+    const loopCycleLabel = document.getElementById('loopCycleLabel');
     const loopBadge = document.getElementById('loopBadge');
     const loopBadgeText = document.getElementById('loopBadgeText');
     const trackListContainer = document.getElementById('trackListContainer');
     const r2BaseUrlInput = document.getElementById('r2BaseUrlInput');
+
+    const LOOP_MODES = [1, 2, 3, Infinity];
+
+    // Dynamic LocalStorage Namespace Isolator
+    // Ensures multiple player instances/courses running side-by-side on the same domain never conflict
+    let storageNamespace = "";
+
+    function initStorageNamespace(playlistData) {
+      let identifier = "";
+      if (playlistData && playlistData.title) {
+        identifier = playlistData.title.trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+      }
+      if (!identifier) {
+        // Fallback to URL pathname slug
+        identifier = window.location.pathname.replace(/\/index\.html$/i, '').replace(/^\/+|\/+$/g, '').replace(/[^a-zA-Z0-9_-]/g, '_');
+      }
+      if (!identifier) {
+        identifier = "default_course";
+      }
+      storageNamespace = `audioplayer_${identifier}_`;
+    }
+
+    function getStorageKey(keyName) {
+      if (!storageNamespace) {
+        initStorageNamespace(null);
+      }
+      return `${storageNamespace}${keyName}`;
+    }
 
     // Fetch playlist.json with fallback support
     async function loadPlaylist() {
@@ -1163,8 +1222,10 @@
         tracks.length = 0;
         tracks.push(...newTracks);
         
-        // Resolve R2 Base URL from playlist.json config (ignoring local storage override)
-        localStorage.removeItem('cybersecurity_concise_r2_url');
+        // Initialize dynamic storage namespace for this specific course
+        initStorageNamespace(data);
+
+        // Resolve R2 Base URL from playlist.json config
         r2BaseUrl = data.baseUrl || "";
         r2BaseUrlInput.value = r2BaseUrl;
 
@@ -1176,7 +1237,7 @@
           document.getElementById('mainSubtitle').textContent = data.subtitle;
         }
         
-        Log.info(`Loaded ${tracks.length} tracks from playlist.json`);
+        Log.info(`Loaded ${tracks.length} tracks from playlist.json (Namespace: ${storageNamespace})`);
       } catch (err) {
         Log.error("Error loading playlist.json, trying fallback legacy playlist.js", err);
         
@@ -1184,8 +1245,9 @@
         if (typeof tracks !== 'undefined' && tracks.length > 0) {
           Log.info(`Fallback loaded ${tracks.length} tracks from legacy playlist.js`);
           
+          initStorageNamespace({ title: typeof playlistTitle !== 'undefined' ? playlistTitle : null });
+
           // Resolve base URL from playlist.js if available
-          localStorage.removeItem('cybersecurity_concise_r2_url');
           if (typeof baseUrl !== 'undefined') {
             r2BaseUrl = baseUrl;
           } else {
@@ -1201,6 +1263,7 @@
           }
         } else {
           Log.error("No playlist data found. Please generate playlist.json or playlist.js.");
+          initStorageNamespace(null);
           r2BaseUrl = "";
         }
         
@@ -1208,6 +1271,7 @@
       }
       
       // Render and initialize states once tracks are loaded
+      loadPlaylistViewMode();
       renderPlaylist();
       initAppState();
       updatePlaylistMeta();
@@ -1245,11 +1309,11 @@
     // Initialize application state from LocalStorage to support seamless walking/mail delivery resume
     function initAppState() {
       try {
-        const storedIndex = localStorage.getItem('cybersecurity_concise_index');
-        const storedLimit = localStorage.getItem('cybersecurity_concise_loop_limit');
-        const storedTime = localStorage.getItem('cybersecurity_concise_time');
-        const storedSpeed = localStorage.getItem('cybersecurity_concise_speed');
-        const storedIteration = localStorage.getItem('cybersecurity_concise_loop_iteration');
+        const storedIndex = localStorage.getItem(getStorageKey('index'));
+        const storedLimit = localStorage.getItem(getStorageKey('loop_limit'));
+        const storedTime = localStorage.getItem(getStorageKey('time'));
+        const storedSpeed = localStorage.getItem(getStorageKey('speed'));
+        const storedIteration = localStorage.getItem(getStorageKey('loop_iteration'));
 
         if (storedIndex !== null) {
           currentTrackIndex = parseInt(storedIndex, 10);
@@ -1258,10 +1322,14 @@
           }
         }
         if (storedLimit !== null) {
-          targetLoopLimit = parseInt(storedLimit, 10);
-          if (isNaN(targetLoopLimit) || targetLoopLimit < 1) targetLoopLimit = 1;
-          loopLimitVal.value = targetLoopLimit;
+          if (storedLimit === 'Infinity' || storedLimit === 'infinity') {
+            targetLoopLimit = Infinity;
+          } else {
+            targetLoopLimit = parseInt(storedLimit, 10);
+            if (isNaN(targetLoopLimit) || targetLoopLimit < 1) targetLoopLimit = 1;
+          }
         }
+        updateLoopUI();
         if (storedSpeed !== null) {
           audio.playbackRate = parseFloat(storedSpeed);
           // speed state preserved
@@ -1272,11 +1340,11 @@
         // Restore loop iteration count after loadTrack resets it
         if (storedIteration !== null) {
           const parsedIteration = parseInt(storedIteration, 10);
-          if (!isNaN(parsedIteration) && parsedIteration >= 1 && parsedIteration <= targetLoopLimit) {
+          if (!isNaN(parsedIteration) && parsedIteration >= 1 && (targetLoopLimit === Infinity || parsedIteration <= targetLoopLimit)) {
             currentLoopIteration = parsedIteration;
           }
         }
-        updateLoopBadge();
+        updateLoopUI();
 
         // Restore time offsets
         if (storedTime !== null) {
@@ -1294,11 +1362,11 @@
     // Save playback position periodically (to prevent lost state on page closures/refreshes)
     function savePlaybackState() {
       try {
-        localStorage.setItem('cybersecurity_concise_index', currentTrackIndex);
-        localStorage.setItem('cybersecurity_concise_loop_limit', targetLoopLimit);
-        localStorage.setItem('cybersecurity_concise_loop_iteration', currentLoopIteration);
-        localStorage.setItem('cybersecurity_concise_time', audio.currentTime);
-        localStorage.setItem('cybersecurity_concise_speed', audio.playbackRate);
+        localStorage.setItem(getStorageKey('index'), currentTrackIndex);
+        localStorage.setItem(getStorageKey('loop_limit'), targetLoopLimit === Infinity ? 'Infinity' : targetLoopLimit);
+        localStorage.setItem(getStorageKey('loop_iteration'), currentLoopIteration);
+        localStorage.setItem(getStorageKey('time'), audio.currentTime);
+        localStorage.setItem(getStorageKey('speed'), audio.playbackRate);
       } catch (err) {
         Log.error("Error storing playback state", err);
       }
@@ -1331,30 +1399,53 @@
     const domainObjectiveMap = {
       '1': 'Domain 1: Core Security Principles',
       '2': 'Domain 2: Risk, Governance, & Compliance (GRC)',
-      '3': 'Domain 3: Identity & Access Management (IAM)',
-      '4': 'Domain 4: Cryptography & Data Protection',
-      '5': 'Domain 5: Network Security & Perimeter Controls',
-      '6': 'Domain 6: Cloud Security & Infrastructure',
-      '7': 'Domain 7: Secure Software Development (AppSec)',
-      '8': 'Domain 8: Threat Modeling & Intelligence',
-      '9': 'Domain 9: Security Operations & SOC',
-      '10': 'Domain 10: Social Engineering & Human Element',
-      '11': 'Domain 11: Incident Response & Forensics',
-      '12': 'Domain 12: Physical & Environmental Security'
+      '3': 'Domain 3: Network Security Architecture',
+      '4': 'Domain 4: Cryptography & PKI',
+      '5': 'Domain 5: Identity and Access Management (IAM)',
+      '6': 'Domain 6: Host & Endpoint Security',
+      '7': 'Domain 7: Application Security & Secure Coding',
+      '8': 'Domain 8: Cloud, Virtualization, & Container Security',
+      '9': 'Domain 9: Defensive Operations (Blue Team & SOC)',
+      '10': 'Domain 10: Offensive Security (Red Team & Pen Testing)',
+      '11': 'Domain 11: Digital Forensics & Incident Response (DFIR)',
+      '12': 'Domain 12: Emerging Domains & Career Mastery'
     };
 
-    // Helper to get chapter name from track path
+    // Smart Multi-Tier Chapter Resolver:
+    // 1. Checks subfolder paths (e.g. "Chapter 1: Intro/1.1...")
+    // 2. Checks 2-level objective numbering (e.g. "1.1.1" -> maps "1.1" in domainObjectiveMap)
+    // 3. Checks 1-level domain numbering (e.g. "1.1" -> maps "1" in domainObjectiveMap)
+    // 4. Auto-generates clean names if unmapped (e.g. "Domain 1.1" or "Domain 1")
     function getChapterName(track) {
       const filename = getTrackFilename(track);
       const cleanName = filename.replace(/^Audio\//i, '');
-      const match = cleanName.match(/^(\d+)\.\d+/);
-      if (match && domainObjectiveMap[match[1]]) {
-        return domainObjectiveMap[match[1]];
-      }
-      const slashIdx = filename.indexOf('/');
+
+      // Tier 1: Folder-based hierarchy
+      const slashIdx = cleanName.indexOf('/');
       if (slashIdx !== -1) {
-        return filename.substring(0, slashIdx);
+        return cleanName.substring(0, slashIdx);
       }
+
+      // Tier 2: Two-level numbering check (e.g., '1.1' from '1.1.2 Lecture.mp3')
+      const match2 = cleanName.match(/^(\d+\.\d+)/);
+      if (match2 && typeof domainObjectiveMap !== 'undefined' && domainObjectiveMap[match2[1]]) {
+        return domainObjectiveMap[match2[1]];
+      }
+
+      // Tier 3: Single-level numbering check (e.g., '1' from '1.4 Lecture.mp3')
+      const match1 = cleanName.match(/^(\d+)\./);
+      if (match1 && typeof domainObjectiveMap !== 'undefined' && domainObjectiveMap[match1[1]]) {
+        return domainObjectiveMap[match1[1]];
+      }
+
+      // Tier 4: Dynamic fallback formatting
+      if (match2 && match2[1].includes('.')) {
+        return `Domain ${match2[1]}`;
+      }
+      if (match1) {
+        return `Domain ${match1[1]}`;
+      }
+
       return "General Lectures";
     }
 
@@ -1371,11 +1462,16 @@
     }
 
     // State for playlist view mode: 'grouped' (default) or 'flat'
-    let playlistViewMode = localStorage.getItem('cybersecurity_playlist_view_mode') || 'grouped';
+    let playlistViewMode = 'grouped';
+
+    function loadPlaylistViewMode() {
+      playlistViewMode = localStorage.getItem(getStorageKey('view_mode')) || 'grouped';
+      updateViewModeButtons();
+    }
 
     function setPlaylistViewMode(mode) {
       playlistViewMode = mode;
-      localStorage.setItem('cybersecurity_playlist_view_mode', mode);
+      localStorage.setItem(getStorageKey('view_mode'), mode);
       updateViewModeButtons();
       renderPlaylist();
       // Jump to the currently playing file after doing everything
@@ -1730,14 +1826,52 @@
       }, 120);
     }
 
-    // Custom loop counter UI update
+    // Custom loop counter UI & badge updates
     function updateLoopBadge() {
-      if (targetLoopLimit > 1) {
+      if (targetLoopLimit === Infinity) {
+        loopBadge.style.display = 'flex';
+        loopBadgeText.textContent = 'Loop ∞';
+      } else if (targetLoopLimit > 1) {
         loopBadge.style.display = 'flex';
         loopBadgeText.textContent = `${currentLoopIteration} / ${targetLoopLimit}`;
       } else {
         loopBadge.style.display = 'none';
       }
+    }
+
+    // Update the cycling loop button visual state
+    function updateLoopUI() {
+      const label = document.getElementById('loopCycleLabel');
+      const btn = document.getElementById('btnLoopCycle');
+      if (!label || !btn) return;
+
+      if (targetLoopLimit === Infinity) {
+        label.textContent = '∞';
+        btn.classList.add('active');
+        btn.title = 'Repeat Mode: Infinite Loop (Click to reset to 1)';
+      } else if (targetLoopLimit > 1) {
+        label.textContent = `${targetLoopLimit}`;
+        btn.classList.add('active');
+        btn.title = `Repeat Mode: Repeat ${targetLoopLimit} times (Click to cycle)`;
+      } else {
+        label.textContent = '1';
+        btn.classList.remove('active');
+        btn.title = 'Repeat Mode: Play once (Click to cycle 2, 3, ∞)';
+      }
+      updateLoopBadge();
+    }
+
+    // Single-click cycle repeat handler: 1x -> 2x -> 3x -> ∞ -> 1x
+    function cycleLoopMode() {
+      const currentIndex = LOOP_MODES.indexOf(targetLoopLimit);
+      const nextIndex = (currentIndex === -1) ? 0 : (currentIndex + 1) % LOOP_MODES.length;
+      targetLoopLimit = LOOP_MODES[nextIndex];
+
+      if (targetLoopLimit !== Infinity && currentLoopIteration > targetLoopLimit) {
+        currentLoopIteration = targetLoopLimit;
+      }
+      updateLoopUI();
+      savePlaybackState();
     }
 
     // Playback navigation
@@ -1777,9 +1911,9 @@
         navigator.mediaSession.metadata = new MediaMetadata({
           title: title,
           artist: 'Cybersecurity',
-          album: document.getElementById('mainTitle').textContent || 'Cybersecurity Foundation',
+          album: document.getElementById('mainTitle').textContent || 'Cybersecurity Foundations',
           artwork: [
-            { src: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=256&auto=format&fit=crop', sizes: '256x256', type: 'image/jpeg' }
+            { src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=256&auto=format&fit=crop', sizes: '256x256', type: 'image/jpeg' }
           ]
         });
       }
@@ -1853,10 +1987,10 @@
 
       Log.info(`Finished iteration ${currentLoopIteration} of track ${currentTrackIndex}`);
       
-      if (currentLoopIteration < targetLoopLimit) {
+      if (targetLoopLimit === Infinity || currentLoopIteration < targetLoopLimit) {
         // Repeat the current track again
         currentLoopIteration++;
-        updateLoopBadge();
+        updateLoopUI();
         savePlaybackState();
         
         // Use a short timeout to allow the browser to fully complete the ended state transition
@@ -1885,26 +2019,10 @@
       savePlaybackState();
     });
 
-    // Custom Loop Limit controls
-    loopInc.addEventListener('click', () => {
-      targetLoopLimit++;
-      loopLimitVal.value = targetLoopLimit;
-      updateLoopBadge();
-      savePlaybackState();
-    });
-
-    loopDec.addEventListener('click', () => {
-      if (targetLoopLimit > 1) {
-        targetLoopLimit--;
-        loopLimitVal.value = targetLoopLimit;
-        // If current loop is higher than new limit, cap it
-        if (currentLoopIteration > targetLoopLimit) {
-          currentLoopIteration = targetLoopLimit;
-        }
-        updateLoopBadge();
-        savePlaybackState();
-      }
-    });
+    // Cycling Loop Button Event Listener (1x -> 2x -> 3x -> ∞ -> 1x)
+    if (btnLoopCycle) {
+      btnLoopCycle.addEventListener('click', cycleLoopMode);
+    }
 
     // Speed Selector Handler
     // Playback rate fixed at standard 1.0x
