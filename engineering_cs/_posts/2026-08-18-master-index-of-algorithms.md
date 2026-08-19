@@ -3,6 +3,7 @@ title: "Master Index of Algorithms"
 date: "2026.08.18"
 tags: ["ALGORITHMS", "COMPUTER SCIENCE"]
 summary: "A comprehensive master reference cataloging foundational sorting, graph theory, dynamic programming, cryptography, streaming, ML, distributed consensus, and quantum algorithms."
+is_macroview: true
 ---
 
 <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #8e44ad; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">

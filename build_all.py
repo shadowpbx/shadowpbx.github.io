@@ -374,7 +374,8 @@ def compile_standard_section(folder_path, folder_name, config):
                 "summary": summary,
                 "date": clean_date,
                 "tag": tag,
-                "chapter_num": str(meta.get("chapter_num", "99"))
+                "chapter_num": str(meta.get("chapter_num", "99")),
+                "is_macroview": meta.get("is_macroview", False) or meta.get("hide_from_index", False)
             })
             
     # Sort posts & prepare HTML items
@@ -408,10 +409,11 @@ def compile_standard_section(folder_path, folder_name, config):
             ref_list_html.append(ref_entry)
         joined_ref = "\n".join(ref_list_html)
     else:
-        compiled_posts.sort(key=lambda x: x['date'], reverse=True)
+        feed_posts = [p for p in compiled_posts if not p.get("is_macroview")]
+        feed_posts.sort(key=lambda x: x['date'], reverse=True)
         posts_list_html = []
         layout = config.get("layout", "standard")
-        for post in compiled_posts:
+        for post in feed_posts:
             if layout == "featured":
                 entry = f"""            <a href="{post['url']}" class="study-card featured-card">
                     <div>
@@ -429,7 +431,11 @@ def compile_standard_section(folder_path, folder_name, config):
                     </div>
                 </a>"""
             posts_list_html.append(entry)
-        joined_posts = "\n".join(posts_list_html)
+        
+        if not posts_list_html and folder_name == "engineering_cs":
+            joined_posts = '            <div style="color: var(--text-secondary); font-style: italic; font-size: 0.95rem; padding: 0.75rem 0;">Additional deep dive modules and computational guides in development.</div>'
+        else:
+            joined_posts = "\n".join(posts_list_html)
         joined_ref = ""
     
     # Overwrite index.html placeholders
