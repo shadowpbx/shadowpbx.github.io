@@ -9,19 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
     <style>
-        .cs-macroview-grid {
+        .macroview-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
             margin-top: 1rem;
             margin-bottom: 3.5rem;
         }
 
-        .cs-card {
+        .macro-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: all 0.25s ease;
             position: relative;
             overflow: hidden;
@@ -29,66 +29,65 @@
             flex-direction: column;
             justify-content: space-between;
             text-decoration: none;
-            border-left: 3px solid #8e44ad;
+            cursor: pointer;
         }
 
-        .cs-card:hover {
+        .macro-card:hover {
             transform: translateY(-2px);
-            border-color: #8e44ad;
-            box-shadow: 0 6px 18px rgba(142, 68, 173, 0.12);
         }
 
-        .cs-badge {
+        .macro-badge {
             font-family: var(--font-mono);
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.06em;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             display: inline-block;
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 4px;
-            background: rgba(142, 68, 173, 0.1);
-            color: #8e44ad;
         }
 
-        .cs-card-title {
-            font-size: 1.25rem;
+        .macro-title {
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-primary);
             margin: 0.25rem 0 0.5rem 0;
             line-height: 1.35;
         }
 
-        .cs-card-desc {
-            font-size: 0.92rem;
-            line-height: 1.55;
+        .macro-desc {
+            font-size: 0.88rem;
+            line-height: 1.5;
             color: var(--text-secondary);
             margin: 0;
         }
 
-        .cs-card-footer {
-            margin-top: 1.25rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #8e44ad;
-        }
+        .macro-purple { border-left: 3px solid #8e44ad; }
+        .macro-purple .macro-badge { background: rgba(142, 68, 173, 0.12); color: #8e44ad; }
+        .macro-purple:hover { border-color: #8e44ad; box-shadow: 0 4px 14px rgba(142, 68, 173, 0.15); }
 
-        .cs-card-count {
-            color: var(--terminal-green);
-            background: rgba(5, 150, 105, 0.08);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.72rem;
-        }
+        .macro-green { border-left: 3px solid #059669; }
+        .macro-green .macro-badge { background: rgba(5, 150, 105, 0.12); color: #059669; }
+        .macro-green:hover { border-color: #059669; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15); }
 
-        @media (max-width: 768px) {
-            .cs-macroview-grid {
+        .macro-blue { border-left: 3px solid #2563eb; }
+        .macro-blue .macro-badge { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+        .macro-blue:hover { border-color: #2563eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15); }
+
+        .macro-yellow { border-left: 3px solid #d97706; }
+        .macro-yellow .macro-badge { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+        .macro-yellow:hover { border-color: #d97706; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15); }
+
+        .macro-red { border-left: 3px solid #dc2626; }
+        .macro-red .macro-badge { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+        .macro-red:hover { border-color: #dc2626; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.15); }
+
+        .macro-indigo { border-left: 3px solid #4f46e5; }
+        .macro-indigo .macro-badge { background: rgba(79, 70, 229, 0.12); color: #4f46e5; }
+        .macro-indigo:hover { border-color: #4f46e5; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.15); }
+
+        @media (max-width: 900px) {
+            .macroview-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -136,33 +135,84 @@
 
     <div class="container">
         
-        <!-- SECTION 00: MACROVIEW & MASTER INDICES -->
-        <section id="cs-master-indices">
-            <span class="section-label">00 // Specialized Master Indices & Computational Foundations</span>
-            <div class="cs-macroview-grid">
+        <!-- SECTION 00: MACROVIEW OF COMPUTER SCIENCE -->
+        <section id="macroview" style="margin-bottom: 3.5rem;">
+            <span class="section-label">00 // Macroview of Computer Science: 6 Pillars of Computational Foundations</span>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6;">
+                The holistic discipline of computer science: from foundational divide-and-conquer algorithms and data structures to CPU architecture, operating system kernels, compilers, and distributed consensus networks.
+            </p>
+
+            <div class="macroview-grid">
                 
-                <a href="posts/2026-08-18-master-index-of-algorithms.html" class="cs-card">
+                <!-- CARD 1: ALGORITHMS -->
+                <a href="posts/2026-08-18-master-index-of-algorithms.html" class="macro-card macro-purple">
                     <div>
-                        <div class="cs-badge">ALGORITHMS &amp; COMPLEXITY</div>
-                        <h2 class="cs-card-title">Master Index of Algorithms</h2>
-                        <p class="cs-card-desc">A comprehensive master reference cataloging foundational sorting, graph theory, dynamic programming, string parsing, cryptography, streaming, machine learning heuristics, distributed consensus, and quantum algorithms.</p>
+                        <div class="macro-badge">ALGORITHMS</div>
+                        <h3 class="macro-title">Algorithms &amp; Complexity</h3>
+                        <p class="macro-desc">Divide-and-conquer, greedy heuristics, dynamic programming, shortest-path graph traversals, Big-O asymptotic analysis, and quantum algorithms.</p>
                     </div>
-                    <div class="cs-card-footer">
-                        <span class="cs-card-count">11 DOMAINS</span>
-                        <span>OPEN MASTER INDEX &rarr;</span>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #8e44ad;">
+                        OPEN ALGORITHMS INDEX &rarr;
                     </div>
                 </a>
 
-                <!-- Placeholder for Future Card: Data Structures Master Taxonomy -->
-                <div class="cs-card" style="opacity: 0.92; border-left-color: #059669;">
+                <!-- CARD 2: DATA STRUCTURES -->
+                <div class="macro-card macro-green" style="cursor: default;">
                     <div>
-                        <div class="cs-badge" style="background: rgba(5, 150, 105, 0.1); color: #059669;">DATA STRUCTURES &amp; MEMORY</div>
-                        <h2 class="cs-card-title">Data Structures &amp; Memory Layout</h2>
-                        <p class="cs-card-desc">Comprehensive taxonomy of linear lists, self-balancing binary search trees (AVL/Red-Black), B-Trees, heaps, hash tables, tries, and disjoint-set union architectures.</p>
+                        <div class="macro-badge">DATA STRUCTURES</div>
+                        <h3 class="macro-title">Data Structures &amp; Memory</h3>
+                        <p class="macro-desc">Linear arrays, linked lists, self-balancing BSTs (AVL/Red-Black), B-Trees, heaps, hash tables, tries, and cache-friendly memory layouts.</p>
                     </div>
-                    <div class="cs-card-footer" style="color: #059669;">
-                        <span class="cs-card-count" style="color: #64748b; background: #f1f5f9;">ROADMAP</span>
-                        <span>[ IN DEVELOPMENT ]</span>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #059669;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 3: ARCHITECTURE -->
+                <div class="macro-card macro-blue" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">ARCHITECTURE</div>
+                        <h3 class="macro-title">Computer Architecture</h3>
+                        <p class="macro-desc">CPU instruction pipelines, register sets (x86/ARM/RISC-V), memory hierarchy, cache coherence, MMU virtual memory paging, and hardware logic.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #2563eb;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 4: OPERATING SYSTEMS -->
+                <div class="macro-card macro-yellow" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">OPERATING SYSTEMS</div>
+                        <h3 class="macro-title">OS &amp; Concurrency</h3>
+                        <p class="macro-desc">Kernel space vs user space, process scheduling, multithreading, mutexes/semaphores, virtual file systems, interrupt handlers, and syscalls.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #d97706;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 5: COMPILERS -->
+                <div class="macro-card macro-red" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">COMPILERS</div>
+                        <h3 class="macro-title">Compilers &amp; Language Theory</h3>
+                        <p class="macro-desc">Lexical analysis, AST generation, semantic analysis, type systems, intermediate representation (IR), LLVM optimization, and bytecode VMs.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #dc2626;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 6: DISTRIBUTED SYSTEMS -->
+                <div class="macro-card macro-indigo" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">DISTRIBUTED SYSTEMS</div>
+                        <h3 class="macro-title">Distributed Consensus</h3>
+                        <p class="macro-desc">CAP theorem, leader election, Raft and Paxos consensus, distributed hash tables, RPC protocols, replication, and fault tolerance at scale.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #4f46e5;">
+                        [ ROADMAP // IN DEV ]
                     </div>
                 </div>
 
