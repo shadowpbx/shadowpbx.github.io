@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Index of Algorithms | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important;
+            color: #4338ca !important;
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+            main h2 {
+                font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
+                margin-top: 2rem !important;
+            }
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link active">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering_cs/">Computer Science</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@shadowpbx: ~/engineering/cs$ cat document.md</div>
+            <h1>Master Index of Algorithms</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #8e44ad; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
+        <strong>Purpose:</strong> A master reference index and computational taxonomy covering 11 critical algorithmic domains—spanning foundational divide-and-conquer sorting, shortest-path graph traversals, dynamic programming optimizations, text pattern parsing, modern cryptography, high-throughput streaming heuristics, distributed consensus protocols, and quantum mechanics.
+    </p>
+</div>
+
+<hr />
+<h2>1. Sorting &amp; Searching (The Foundations)</h2>
+<p><em>The fundamental building blocks of data organization, comparison, and retrieval.</em></p>
+<ul>
+<li><strong>Binary Search</strong> — Finds a specific item in a <em>sorted</em> list in $O(\log n)$ logarithmic time by repeatedly halving the search space.</li>
+<li><strong>MergeSort</strong> — A classic divide-and-conquer algorithm that recursively splits an array into individual elements and merges them in sorted order with guaranteed $O(n \log n)$ performance.</li>
+<li><strong>QuickSort</strong> — Highly efficient in-place sorting that partitions elements around a selected pivot element, widely used as the default engine across programming language standard libraries.</li>
+<li><strong>HeapSort</strong> — An $O(n \log n)$ comparison-based algorithm that builds a binary heap data structure to sequentially extract the maximum or minimum value.</li>
+<li><strong>Radix Sort</strong> — A non-comparative integer sorting algorithm that processes data digit by digit from least to most significant, achieving linear time $O(nk)$ for fixed-length keys.</li>
+<li><strong>Insertion Sort</strong> — While $O(n^2)$ for massive arrays, it features minimal overhead and acts as the optimal fallback sorting method for small datasets (frequently nested within hybrid sorting algorithms like Timsort and Introsort).</li>
+<li><strong>Counting Sort</strong> — An integer sorting algorithm that maps key frequencies directly into an auxiliary array, proving sorting can run in linear $O(n + k)$ time under strict integer range boundaries.</li>
+</ul>
+<hr />
+<h2>2. Graph &amp; Network Algorithms (Routing &amp; Relationships)</h2>
+<p><em>Traversing, optimizing, and analyzing complex networked node topologies.</em></p>
+<ul>
+<li><strong>Breadth-First Search (BFS)</strong> — Traverses a graph level by level outward from the source, guaranteeing the shortest path in unweighted networks.</li>
+<li><strong>Depth-First Search (DFS)</strong> — Explores deeply along individual graph branches before backtracking, fundamental for cycle detection, topological sorting, and maze generation.</li>
+<li><strong>Dijkstra’s Algorithm</strong> — Solves the single-source shortest path problem on weighted graphs with non-negative edge weights using a priority queue (powers GPS routing engines).</li>
+<li><strong>A* (A-Star) Search</strong> — An extension of Dijkstra's algorithm that utilizes heuristic estimates ($f(n) = g(n) + h(n)$) to drastically accelerate pathfinding in gaming and robotics.</li>
+<li><strong>Kruskal’s &amp; Prim’s Algorithms</strong> — Greedy algorithms designed to construct a Minimum Spanning Tree (MST), connecting all network vertices with minimum total edge cost.</li>
+<li><strong>Bellman-Ford Algorithm</strong> — Computes single-source shortest paths on arbitrary directed graphs and detects negative-weight cycles.</li>
+<li><strong>Floyd-Warshall Algorithm</strong> — A dynamic programming approach that computes all-pairs shortest paths simultaneously across every node pair in $O(V^3)$ time.</li>
+<li><strong>Topological Sort</strong> — Linearly orders vertices in a Directed Acyclic Graph (DAG) such that every directed edge $u \to v$ has $u$ appearing before $v$ (critical for build systems and package managers).</li>
+<li><strong>Ford-Fulkerson &amp; Edmonds-Karp</strong> — Calculates the maximum possible network flow from a source to a sink across capacity-constrained pipelines.</li>
+<li><strong>Tarjan’s Algorithm</strong> — Finds Strongly Connected Components (SCCs) in a directed graph in a single linear-time DFS pass.</li>
+</ul>
+<hr />
+<h2>3. Dynamic Programming (Optimization &amp; Memory)</h2>
+<p><em>Breaking complex recursive problems down into overlapping subproblems with memoization.</em></p>
+<ul>
+<li><strong>0/1 Knapsack Problem</strong> — Optimizes the total value of items placed into a container under strict maximum weight capacity constraints.</li>
+<li><strong>Longest Common Subsequence (LCS)</strong> — Identifies the longest sequence appearing in identical relative order across multiple strings (fundamental to DNA sequencing and <code>git diff</code>).</li>
+<li><strong>Levenshtein Distance</strong> — Measures the minimum number of single-character edits (insertions, deletions, substitutions) required to transform one string into another (powers spellcheckers and fuzzy search).</li>
+<li><strong>Matrix Chain Multiplication</strong> — Finds the optimal parenthesization order to minimize total scalar multiplications when multiplying a sequence of matrices.</li>
+</ul>
+<hr />
+<h2>4. String Processing, Parsing, &amp; Compression</h2>
+<p><em>High-performance text search, dictionary matching, and lossless data encoding.</em></p>
+<ul>
+<li><strong>Knuth-Morris-Pratt (KMP)</strong> — Searches for occurrences of a pattern within text by pre-computing a partial match table (π table) to skip redundant character comparisons in $O(n + m)$ time.</li>
+<li><strong>Rabin-Karp Algorithm</strong> — Uses rolling hashes to search for pattern strings within text, uniquely suited for multi-pattern lookups and plagiarism detection.</li>
+<li><strong>Boyer-Moore Algorithm</strong> — An extremely fast string search engine that scans patterns from right to left and utilizes bad-character and good-suffix shift rules to jump across text (powers GNU <code>grep</code> and CTRL+F).</li>
+<li><strong>Aho-Corasick Algorithm</strong> — Constructs a finite state trie with failure transitions to search for an entire dictionary of strings concurrently in linear time (powers antivirus virus definition scanners and intrusion detection engines).</li>
+<li><strong>Huffman Coding</strong> — A greedy variable-length prefix coding algorithm that compresses data by allocating fewer bits to frequently appearing symbols (underlies ZIP, JPEG, and MP3).</li>
+<li><strong>LZW (Lempel-Ziv-Welch)</strong> — A dictionary-based universal lossless compression algorithm that dynamically builds its phrase dictionary from the input stream (the engine of GIF and PDF formats).</li>
+</ul>
+<hr />
+<h2>5. Mathematics &amp; Number Theory</h2>
+<p><em>Analytical methods, prime generation, signal transforms, and statistical modeling.</em></p>
+<ul>
+<li><strong>Euclidean Algorithm &amp; Extended Euclidean</strong> — Rapidly calculates the Greatest Common Divisor ($\gcd$) of two integers and solves linear Diophantine equations (critical for modular inverse computation in RSA).</li>
+<li><strong>Sieve of Eratosthenes</strong> — A prime sieve algorithm that finds all prime numbers up to an upper limit $n$ in $O(n \log \log n)$ time by iteratively marking composite multiples.</li>
+<li><strong>Fast Fourier Transform (FFT)</strong> — Computes the Discrete Fourier Transform (DFT) in $O(n \log n)$ instead of $O(n^2)$, converting time-domain signals into frequency spectra (powers Wi-Fi, audio DSP, and telecommunications).</li>
+<li><strong>Monte Carlo Algorithm</strong> — Utilizes repeated pseudo-random sampling to numerically approximate deterministic systems that are mathematically intractable.</li>
+</ul>
+<hr />
+<h2>6. Computational Geometry</h2>
+<p><em>Spatial partitioning, visual collision detection, and planar boundary extraction.</em></p>
+<ul>
+<li><strong>Graham Scan (Convex Hull)</strong> — Computes the convex hull of a finite set of 2D planar points in $O(n \log n)$ time by sorting points angularly and maintaining a boundary stack.</li>
+<li><strong>Sweep Line Algorithm</strong> — Solves 2D geometric problems (such as segment intersections and Voronoi diagram construction) by sweeping an imaginary line across the coordinate space.</li>
+<li><strong>Ray Casting Algorithm</strong> — Tests whether a given coordinate point resides inside, outside, or on the boundary of a complex polygon by counting ray-edge intersections (fundamental to 3D rendering and game hit-boxes).</li>
+</ul>
+<hr />
+<h2>7. Cryptography &amp; Security</h2>
+<p><em>Mathematical algorithms enforcing confidentiality, data integrity, and key agreements.</em></p>
+<ul>
+<li><strong>RSA (Rivest–Shamir–Adleman)</strong> — An asymmetric public-key cryptosystem based on the practical difficulty of the prime factorization of large semiprime integers.</li>
+<li><strong>AES (Advanced Encryption Standard)</strong> — A symmetric block cipher operating on 128-bit blocks using substitution-permutation networks across 10, 12, or 14 rounds (global enterprise standard).</li>
+<li><strong>SHA-256 (Secure Hash Algorithm)</strong> — A cryptographic one-way hash function producing a fixed 256-bit digest with strict preimage resistance and avalanche characteristics.</li>
+<li><strong>Diffie-Hellman Key Exchange</strong> — Enables two communicating endpoints to establish a shared cryptographic secret over an untrusted public network without transmitting the secret itself.</li>
+</ul>
+<hr />
+<h2>8. Big Data, Hashing, &amp; Streaming Algorithms</h2>
+<p><em>Probabilistic data structures and distributed map-reduce computation at internet scale.</em></p>
+<ul>
+<li><strong>Bloom Filter</strong> — A space-efficient probabilistic data structure that queries set membership with zero false negatives and tunable false positive probabilities.</li>
+<li><strong>HyperLogLog</strong> — Estimates the distinct cardinality of multi-billion element data streams using negligible fixed memory footprints (used for unique visitor counts).</li>
+<li><strong>Count-Min Sketch</strong> — A sub-linear space streaming sketch that tracks item frequency estimates across high-velocity live data feeds (calculates real-time trending topics).</li>
+<li><strong>Locality-Sensitive Hashing (LSH)</strong> — Hashes high-dimensional vectors so similar items collide into identical buckets with high probability (powers recommendation engines and nearest-neighbor search).</li>
+<li><strong>PageRank</strong> — Computes stationary probability distributions across hyperlinked graph structures to rank node importance by modeling random web surfer behavior.</li>
+<li><strong>MapReduce</strong> — A distributed execution paradigm that partitions massive datasets, processes map transformations in parallel across clusters, and aggregates results via reduce workers.</li>
+</ul>
+<hr />
+<h2>9. Machine Learning, AI, &amp; Meta-Heuristics</h2>
+<p><em>Iterative parameter optimization, cluster classification, and combinatorial search.</em></p>
+<ul>
+<li><strong>Gradient Descent (SGD, Adam)</strong> — Iteratively updates model weight parameters in the opposite direction of the loss function gradient to minimize prediction error.</li>
+<li><strong>Backpropagation</strong> — Computes partial derivatives of the loss function with respect to every neural network weight via the multivariable calculus chain rule.</li>
+<li><strong>K-Means Clustering</strong> — An unsupervised vector quantization algorithm that partitions $n$ observations into $k$ clusters based on nearest centroid means.</li>
+<li><strong>Support Vector Machines (SVM)</strong> — Identifies the maximum-margin hyperplane that optimally separates distinct categorical feature classes in high-dimensional space.</li>
+<li><strong>Minimax (with Alpha-Beta Pruning)</strong> — A recursive adversarial game-tree decision algorithm that maximizes best-case payoffs while pruning branches that cannot influence the final outcome.</li>
+<li><strong>Simulated Annealing</strong> — A probabilistic global optimization meta-heuristic that escapes local minima by accepting suboptimal moves with a temperature-decayed probability.</li>
+<li><strong>Genetic Algorithms</strong> — Solves constrained multi-variable optimization problems through simulated evolutionary biology (selection, crossover, mutation).</li>
+</ul>
+<hr />
+<h2>10. Distributed Systems &amp; Consensus</h2>
+<p><em>Fault-tolerant state replication, decentralized ordering, and cluster coordination.</em></p>
+<ul>
+<li><strong>Paxos &amp; Raft Algorithms</strong> — Leader-based consensus protocols that maintain a deterministic, fault-tolerant replicated state machine across distributed server clusters.</li>
+<li><strong>Proof of Work (PoW) &amp; Proof of Stake (PoS)</strong> — Cryptographic and economic consensus algorithms enabling trustless distributed networks to agree on ledger state without a central authority.</li>
+</ul>
+<hr />
+<h2>11. Quantum Algorithms</h2>
+<p><em>Exploiting quantum superposition and entanglement to solve intractable classical problems.</em></p>
+<ul>
+<li><strong>Shor's Algorithm</strong> — Factors integers in polynomial time $O((\log N)^3)$ using the Quantum Fourier Transform, theoretically breaking classical public-key cryptography (RSA/ECC).</li>
+<li><strong>Grover's Algorithm</strong> — Performs unstructured database search in quadratic speedup $O(\sqrt{N})$ using quantum amplitude amplification.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
