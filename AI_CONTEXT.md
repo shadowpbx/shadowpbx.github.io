@@ -120,7 +120,10 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
 *(As Electrical Engineering, Embedded Systems, or DevSecOps are added in the future, they simply reside under this unified dropdown!)*
 
 **Full Discipline Scope & Architecture:**
-1. **Computer Science (`/engineering_cs/`):** Foundational algorithms (Search/Sort, Graph/Network, Dynamic Programming, String Processing, Cryptography, AI/ML heuristics, Distributed Consensus, Quantum), data structures, and algorithmic complexity (`Master Index of Algorithms`).
+1. **Computer Science (`/engineering_cs/`):** CLI prompt `user@hexdef:~$ cs --show-curriculum` ("Computer Science & Computational Foundations"). Houses foundational curricula across:
+   * `00 // Algorithms & Complexity` (*Master Index of Algorithms*, *Data Structures Deep Dive*)
+   * `01 // Systems & Computer Architecture` (*CPU Execution Pipeline & Registers*, *Virtual Memory & Cache Coherence*)
+   * `02 // Compilers & Language Theory` (*Lexical Analysis & ASTs*, *Bytecode Virtual Machines*)
 2. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
 3. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
 4. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
