@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="/global.css">
     <style>
         :root {
@@ -136,124 +137,410 @@
     <div class="container">
         <main><div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #8e44ad; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
     <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
-        <strong>Purpose:</strong> A master reference index and computational taxonomy covering 11 critical algorithmic domains—spanning foundational divide-and-conquer sorting, shortest-path graph traversals, dynamic programming optimizations, text pattern parsing, modern cryptography, high-throughput streaming heuristics, distributed consensus protocols, and quantum mechanics.
+        <strong>Academic Scope & Specification:</strong> A rigorous computational taxonomy and algorithmic reference synthesized according to top-tier university curricula (MIT 6.006/6.046, UC Berkeley CS 170, CMU 15-451). Spans 11 foundational domains featuring exact asymptotic complexities (Best, Worst, Average, Auxiliary Space), algorithmic design paradigms, formal state invariants, and practical systems implementations.
     </p>
 </div>
 
 <hr />
+<h2>🏛️ Algorithmic Design Paradigms</h2>
+<p>Before analyzing specific algorithms, computer scientists classify algorithms by their underlying design strategy:</p>
+<ol>
+<li><strong>Divide-and-Conquer:</strong> Break the problem into non-overlapping subproblems of the same type, solve them recursively, and combine solutions <em>(e.g., MergeSort, Fast Fourier Transform, Strassen's Matrix Multiplication)</em>. Governed by the <strong>Master Theorem</strong>: $T(n) = aT(n/b) + O(n^d)$.</li>
+<li><strong>Greedy Strategy:</strong> Construct a solution incrementally by choosing the locally optimal choice at each step without backtracking <em>(e.g., Dijkstra, Kruskal, Prim, Huffman Coding)</em>. Requires proving the <strong>Greedy-Choice Property</strong> and <strong>Optimal Substructure</strong>.</li>
+<li><strong>Dynamic Programming (DP):</strong> Solve optimization problems exhibiting <strong>overlapping subproblems</strong> and <strong>optimal substructure</strong> by caching intermediate subproblem solutions via memoization (top-down) or tabulation (bottom-up) <em>(e.g., Knapsack, Bellman-Ford, Floyd-Warshall)</em>.</li>
+<li><strong>Reduction &amp; Transform-and-Conquer:</strong> Transform a problem into an instance of a known solved problem <em>(e.g., Bipartite Matching reduced to Max Flow, 3-SAT reductions)</em>.</li>
+<li><strong>Randomization &amp; Probabilistic Analysis:</strong> Utilize pseudo-random choices to guarantee expected polynomial runtime or sublinear space bounds <em>(e.g., Randomized QuickSort, Miller-Rabin, HyperLogLog)</em>.</li>
+<li><strong>Branch-and-Bound / Pruning:</strong> Systematically enumerate candidate solutions along a search tree while pruning unpromising subtrees <em>(e.g., A</em> Search, Alpha-Beta Pruning, Traveling Salesperson exact solver)*.</li>
+</ol>
+<hr />
 <h2>1. Sorting &amp; Searching (The Foundations)</h2>
-<p><em>The fundamental building blocks of data organization, comparison, and retrieval.</em></p>
+<p><em>Comparative and non-comparative ordering, in-place partitioning, and retrieval complexity.</em></p>
+<h3>📊 Sorting Complexity Matrix</h3>
+<div style="overflow-x: auto;">
+<table>
+    <thead>
+        <tr>
+            <th>Algorithm</th>
+            <th>Best Time</th>
+            <th>Average Time</th>
+            <th>Worst Time</th>
+            <th>Space (Aux)</th>
+            <th>Stable?</th>
+            <th>Design Paradigm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Binary Search</strong></td>
+            <td><code>O(1)</code></td>
+            <td><code>O(log n)</code></td>
+            <td><code>O(log n)</code></td>
+            <td><code>O(1)</code></td>
+            <td>N/A</td>
+            <td>Divide &amp; Conquer / Decrease</td>
+        </tr>
+        <tr>
+            <td><strong>MergeSort</strong></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n)</code></td>
+            <td>Yes</td>
+            <td>Divide &amp; Conquer</td>
+        </tr>
+        <tr>
+            <td><strong>QuickSort (Randomized)</strong></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n²)</code></td>
+            <td><code>O(log n)</code></td>
+            <td>No</td>
+            <td>Divide &amp; Conquer / Partitioning</td>
+        </tr>
+        <tr>
+            <td><strong>HeapSort</strong></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(1)</code></td>
+            <td>No</td>
+            <td>Selection / Binary Heap</td>
+        </tr>
+        <tr>
+            <td><strong>Insertion Sort</strong></td>
+            <td><code>O(n)</code></td>
+            <td><code>O(n²)</code></td>
+            <td><code>O(n²)</code></td>
+            <td><code>O(1)</code></td>
+            <td>Yes</td>
+            <td>Incremental Insertion</td>
+        </tr>
+        <tr>
+            <td><strong>Counting Sort</strong></td>
+            <td><code>O(n + k)</code></td>
+            <td><code>O(n + k)</code></td>
+            <td><code>O(n + k)</code></td>
+            <td><code>O(k)</code></td>
+            <td>Yes</td>
+            <td>Non-Comparative / Direct Indexing</td>
+        </tr>
+        <tr>
+            <td><strong>Radix Sort (LSD)</strong></td>
+            <td><code>O(nk)</code></td>
+            <td><code>O(nk)</code></td>
+            <td><code>O(nk)</code></td>
+            <td><code>O(n + k)</code></td>
+            <td>Yes</td>
+            <td>Non-Comparative / Positional Digit</td>
+        </tr>
+        <tr>
+            <td><strong>Timsort (Python / Java)</strong></td>
+            <td><code>O(n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n log n)</code></td>
+            <td><code>O(n)</code></td>
+            <td>Yes</td>
+            <td>Hybrid (MergeSort + Insertion Sort)</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <ul>
-<li><strong>Binary Search</strong> — Finds a specific item in a <em>sorted</em> list in <code>O(log n)</code> logarithmic time by repeatedly dividing the search space in half.</li>
-<li><strong>MergeSort</strong> — A classic divide-and-conquer algorithm that recursively splits an array into individual elements and merges them back together in sorted order with guaranteed <code>O(n log n)</code> performance.</li>
-<li><strong>QuickSort</strong> — Highly efficient in-place sorting that partitions elements around a selected pivot element, widely used as the default engine across programming language standard libraries.</li>
-<li><strong>HeapSort</strong> — An <code>O(n log n)</code> comparison-based algorithm that builds a binary heap data structure to sequentially extract the maximum or minimum value.</li>
-<li><strong>Radix Sort</strong> — A non-comparative integer sorting algorithm that processes data digit by digit from least to most significant, achieving linear time <code>O(nk)</code> for fixed-length keys.</li>
-<li><strong>Insertion Sort</strong> — While <code>O(n²)</code> for massive arrays, it features minimal overhead and acts as the optimal fallback sorting method for small datasets (frequently nested within hybrid sorting algorithms like Timsort and Introsort).</li>
-<li><strong>Counting Sort</strong> — An integer sorting algorithm that maps key frequencies directly into an auxiliary array, proving sorting can run in linear <code>O(n + k)</code> time under strict integer range boundaries.</li>
+<li><strong>Binary Search</strong> — Searches a sorted collection by evaluating the median element and halving the remaining interval. Guaranteed <code>O(log n)</code> comparisons; optimal for static read-heavy arrays.</li>
+<li><strong>MergeSort</strong> — Recursively splits arrays into singletons, then merges subarrays using a two-pointer merge subroutine. Optimal when guaranteed worst-case <code>O(n log n)</code> and stability are mandatory (standard for linked lists and external disk sorting).</li>
+<li><strong>QuickSort</strong> — Partitions an array around a chosen pivot (Hoare or Lomuto partitioning) such that elements <code>&lt; pivot</code> precede it and elements <code>&gt; pivot</code> follow it. Highly cache-friendly; standard for in-memory primitive sorting (e.g., C <code>qsort</code>, Rust <code>sort_unstable</code>).</li>
+<li><strong>HeapSort</strong> — Constructs an in-place <code>Max-Heap</code> in <code>O(n)</code> time using <code>heapify</code>, then repeatedly swaps the root maximum with the terminal leaf and sifts down. Guarantees <code>O(n log n)</code> without auxiliary memory allocations (<code>O(1)</code> space).</li>
+<li><strong>Radix Sort (LSD / MSD)</strong> — Sorts multi-digit keys position by position using a stable sub-sort (typically Counting Sort). Avoids comparison-based lower bounds ($\Omega(n \log n)$), running in linear time <code>O(nk)</code> where $k$ is key width.</li>
+<li><strong>Insertion Sort</strong> — Builds the sorted array in-place one item at a time. Runs in linear <code>O(n)</code> time on nearly sorted inputs; serves as the base case switch threshold ($n \le 32$) inside hybrid engines like <strong>Timsort</strong> and <strong>Introsort</strong>.</li>
+<li><strong>Counting Sort</strong> — Computes key frequency histograms over an integer range $[0, k]$, transforming counts into prefix sums to place items directly into their output slots. Proves linear sorting is possible under bounded integer domains.</li>
 </ul>
 <hr />
 <h2>2. Graph &amp; Network Algorithms (Routing &amp; Relationships)</h2>
-<p><em>Traversing, optimizing, and analyzing complex networked node topologies.</em></p>
+<p><em>Pathfinding, minimum spanning trees, cycle detection, and flow networks across directed/undirected graphs.</em></p>
+<h3>📊 Graph Algorithms Complexity Matrix</h3>
+<div style="overflow-x: auto;">
+<table>
+    <thead>
+        <tr>
+            <th>Algorithm</th>
+            <th>Primary Objective</th>
+            <th>Time Complexity</th>
+            <th>Space Complexity</th>
+            <th>Negative Edges?</th>
+            <th>Design Paradigm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Breadth-First Search (BFS)</strong></td>
+            <td>Shortest Path (Unweighted)</td>
+            <td><code>O(V + E)</code></td>
+            <td><code>O(V)</code></td>
+            <td>N/A (Unweighted)</td>
+            <td>Queue Traversal</td>
+        </tr>
+        <tr>
+            <td><strong>Depth-First Search (DFS)</strong></td>
+            <td>Topological Sort, Cycles, SCC</td>
+            <td><code>O(V + E)</code></td>
+            <td><code>O(V)</code></td>
+            <td>N/A</td>
+            <td>Recursive Stack Traversal</td>
+        </tr>
+        <tr>
+            <td><strong>Dijkstra (Min-Heap)</strong></td>
+            <td>Single-Source Shortest Path (SSSP)</td>
+            <td><code>O((V + E) log V)</code></td>
+            <td><code>O(V)</code></td>
+            <td>❌ No (Non-negative only)</td>
+            <td>Greedy + Priority Queue</td>
+        </tr>
+        <tr>
+            <td><strong>A* (A-Star) Search</strong></td>
+            <td>Heuristic Shortest Path</td>
+            <td><code>O(E)</code> (Best) – <code>O(bᵈ)</code></td>
+            <td><code>O(V)</code></td>
+            <td>❌ No</td>
+            <td>Best-First / Heuristic Search</td>
+        </tr>
+        <tr>
+            <td><strong>Bellman-Ford</strong></td>
+            <td>SSSP + Negative Cycle Detection</td>
+            <td><code>O(V · E)</code></td>
+            <td><code>O(V)</code></td>
+            <td>✅ Yes</td>
+            <td>Dynamic Programming</td>
+        </tr>
+        <tr>
+            <td><strong>Floyd-Warshall</strong></td>
+            <td>All-Pairs Shortest Path (APSP)</td>
+            <td><code>O(V³)</code></td>
+            <td><code>O(V²)</code></td>
+            <td>✅ Yes (No neg cycles)</td>
+            <td>Dynamic Programming</td>
+        </tr>
+        <tr>
+            <td><strong>Kruskal’s Algorithm</strong></td>
+            <td>Minimum Spanning Tree (MST)</td>
+            <td><code>O(E log E)</code></td>
+            <td><code>O(V)</code></td>
+            <td>✅ Yes</td>
+            <td>Greedy + Disjoint Set (DSU)</td>
+        </tr>
+        <tr>
+            <td><strong>Prim’s Algorithm</strong></td>
+            <td>Minimum Spanning Tree (MST)</td>
+            <td><code>O((V + E) log V)</code></td>
+            <td><code>O(V)</code></td>
+            <td>✅ Yes</td>
+            <td>Greedy + Priority Queue</td>
+        </tr>
+        <tr>
+            <td><strong>Tarjan’s SCC</strong></td>
+            <td>Strongly Connected Components</td>
+            <td><code>O(V + E)</code></td>
+            <td><code>O(V)</code></td>
+            <td>N/A (Directed)</td>
+            <td>Single-Pass DFS + Low-Link</td>
+        </tr>
+        <tr>
+            <td><strong>Edmonds-Karp (Max Flow)</strong></td>
+            <td>Maximum Network Flow</td>
+            <td><code>O(V · E²)</code></td>
+            <td><code>O(V + E)</code></td>
+            <td>N/A (Capacities $\ge 0$)</td>
+            <td>Augmenting Paths via BFS</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <ul>
-<li><strong>Breadth-First Search (BFS)</strong> — Traverses a graph layer by layer outward from the source, guaranteeing the shortest path in unweighted networks.</li>
-<li><strong>Depth-First Search (DFS)</strong> — Explores deeply along individual graph branches before backtracking, fundamental for cycle detection, topological sorting, and maze generation.</li>
-<li><strong>Dijkstra’s Algorithm</strong> — Solves the single-source shortest path problem on weighted graphs with non-negative edge weights using a priority queue (powers GPS routing engines).</li>
-<li><strong>A* (A-Star) Search</strong> — An extension of Dijkstra's algorithm that utilizes heuristic estimates (<code>f(n) = g(n) + h(n)</code>) to drastically accelerate pathfinding in gaming and robotics.</li>
-<li><strong>Kruskal’s &amp; Prim’s Algorithms</strong> — Greedy algorithms designed to construct a Minimum Spanning Tree (MST), connecting all network vertices with minimum total edge cost.</li>
-<li><strong>Bellman-Ford Algorithm</strong> — Computes single-source shortest paths on arbitrary directed graphs and detects negative-weight cycles.</li>
-<li><strong>Floyd-Warshall Algorithm</strong> — A dynamic programming approach that computes all-pairs shortest paths simultaneously across every node pair in <code>O(V³)</code> time.</li>
-<li><strong>Topological Sort</strong> — Linearly orders vertices in a Directed Acyclic Graph (DAG) such that every directed edge <code>u → v</code> has <code>u</code> appearing before <code>v</code> (critical for build systems and package managers).</li>
-<li><strong>Ford-Fulkerson &amp; Edmonds-Karp</strong> — Calculates the maximum possible network flow from a source to a sink across capacity-constrained pipelines.</li>
-<li><strong>Tarjan’s Algorithm</strong> — Finds Strongly Connected Components (SCCs) in a directed graph in a single linear-time DFS pass.</li>
+<li><strong>Breadth-First Search (BFS)</strong> — Explores all neighbor nodes at current depth $k$ before advancing to $k+1$ using a FIFO queue. Computes shortest path on unweighted graphs and minimum hop counts in computer networks.</li>
+<li><strong>Depth-First Search (DFS)</strong> — Traverses deepest along paths before backtracking via a recursion call stack. Fundamental for cycle detection, bipartite testing, Euler paths, and topological ordering.</li>
+<li><strong>Dijkstra’s Algorithm</strong> — Computes single-source shortest paths on weighted directed graphs with non-negative edge weights $w(u, v) \ge 0$. Maintains distance estimates updated via the relaxation invariant:
+    $$d[v] = \min(d[v], d[u] + w(u, v))$$</li>
+<li><strong>A* (A-Star) Search</strong> — Heuristic graph search accelerating Dijkstra by prioritizing nodes minimizing evaluation function $f(n) = g(n) + h(n)$, where $g(n)$ is known cost from origin and $h(n)$ is an admissible, consistent heuristic estimate to the goal (powers GPS routing, robotics, and game AI).</li>
+<li><strong>Kruskal’s Algorithm</strong> — Minimum Spanning Tree (MST) algorithm that sorts all edges by weight and greedily unifies disjoint components using a <strong>Disjoint-Set Union (DSU)</strong> structure with path compression and union-by-rank running in near-linear $O(E \alpha(V))$ time.</li>
+<li><strong>Prim’s Algorithm</strong> — Builds an MST starting from an arbitrary root node, greedily expanding a cut boundary by consuming minimum-weight incident edges stored in a min-priority queue.</li>
+<li><strong>Bellman-Ford Algorithm</strong> — Solves single-source shortest paths on arbitrary directed graphs containing negative edge weights. Relaxes all $|E|$ edges $|V|-1$ times; a subsequent relaxation check that still decreases distance proves the existence of a negative-weight cycle.</li>
+<li><strong>Floyd-Warshall Algorithm</strong> — Dynamic programming algorithm computing all-pairs shortest paths simultaneously across every node pair $(i, j)$ using intermediate vertices ${1, \dots, k}$:
+    $$D^{(k)}[i, j] = \min\left(D^{(k-1)}[i, j],\, D^{(k-1)}[i, k] + D^{(k-1)}[k, j]\right)$$</li>
+<li><strong>Topological Sort (Kahn’s / DFS)</strong> — Linearly orders DAG vertices such that every directed edge $u \to v$ guarantees $u$ precedes $v$. Critical for compiler build order systems (Make, CMake), CI/CD task graphs, and package dependency managers.</li>
+<li><strong>Ford-Fulkerson &amp; Edmonds-Karp</strong> — Determines maximum flow across capacity-constrained source-to-sink networks. Edmonds-Karp implements BFS to find shortest augmenting paths in the residual graph, terminating in $O(VE^2)$ time via the Max-Flow Min-Cut theorem.</li>
+<li><strong>Tarjan’s Algorithm</strong> — Discovers all Strongly Connected Components (SCCs) in a directed graph during a single DFS traversal using DFS discovery timestamps and node <code>low-link</code> values stored on a stack in $O(V + E)$ time.</li>
 </ul>
 <hr />
 <h2>3. Dynamic Programming (Optimization &amp; Memory)</h2>
-<p><em>Breaking complex recursive problems down into overlapping subproblems with memoization.</em></p>
+<p><em>Decomposing NP-hard or combinatorial search spaces into overlapping subproblems with optimal substructure.</em></p>
+<h3>📊 Canonical Dynamic Programming Formulations</h3>
+<div style="overflow-x: auto;">
+<table>
+    <thead>
+        <tr>
+            <th>Problem</th>
+            <th>State Definition</th>
+            <th>Time Complexity</th>
+            <th>Space Complexity</th>
+            <th>Real-World Application</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>0/1 Knapsack</strong></td>
+            <td><code>DP[i, w]</code> = max value using first $i$ items with capacity $w$</td>
+            <td><code>O(n · W)</code> (Pseudo-poly)</td>
+            <td><code>O(W)</code> (Optimized)</td>
+            <td>Resource allocation, portfolio budgeting</td>
+        </tr>
+        <tr>
+            <td><strong>Longest Common Subsequence (LCS)</strong></td>
+            <td><code>DP[i, j]</code> = LCS length between $X[1..i]$ and $Y[1..j]$</td>
+            <td><code>O(n · m)</code></td>
+            <td><code>O(min(n, m))</code></td>
+            <td><code>git diff</code>, file patching, DNA sequence alignment</td>
+        </tr>
+        <tr>
+            <td><strong>Levenshtein Distance</strong></td>
+            <td><code>DP[i, j]</code> = edit distance between $S[1..i]$ and $T[1..j]$</td>
+            <td><code>O(n · m)</code></td>
+            <td><code>O(min(n, m))</code></td>
+            <td>Fuzzy search, OCR correction, spellchecking</td>
+        </tr>
+        <tr>
+            <td><strong>Matrix Chain Multiplication</strong></td>
+            <td><code>DP[i, j]</code> = min scalar multiplications to multiply $A_i \dots A_j$</td>
+            <td><code>O(n³)</code></td>
+            <td><code>O(n²)</code></td>
+            <td>Query planning, graphics rendering pipelines</td>
+        </tr>
+        <tr>
+            <td><strong>Kadane’s Algorithm</strong></td>
+            <td><code>max_ending_here = max(A[i], max_ending_here + A[i])</code></td>
+            <td><code>O(n)</code></td>
+            <td><code>O(1)</code></td>
+            <td>Max subarray analysis, financial trading window</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
 <ul>
-<li><strong>0/1 Knapsack Problem</strong> — Optimizes the total value of items placed into a container under strict maximum weight capacity constraints.</li>
-<li><strong>Longest Common Subsequence (LCS)</strong> — Identifies the longest sequence appearing in identical relative order across multiple strings (fundamental to DNA sequencing and <code>git diff</code>).</li>
-<li><strong>Levenshtein Distance</strong> — Measures the minimum number of single-character edits (insertions, deletions, substitutions) required to transform one string into another (powers spellcheckers and fuzzy search).</li>
-<li><strong>Matrix Chain Multiplication</strong> — Finds the optimal parenthesization order to minimize total scalar multiplications when multiplying a sequence of matrices.</li>
+<li><strong>0/1 Knapsack Problem</strong> — Selects a subset of $n$ items with given weights and values to maximize total value without exceeding capacity $W$. State transition:
+    $$DP[i, w] = \max\left(DP[i-1, w],\, DP[i-1, w - w_i] + v_i\right)$$</li>
+<li><strong>Longest Common Subsequence (LCS)</strong> — Finds the longest sequence appearing in identical relative order across sequences $X$ and $Y$. Foundational engine for GNU <code>diff</code>, version control merge conflict algorithms, and genomic bioinformatics.</li>
+<li><strong>Levenshtein Distance (Edit Distance)</strong> — Calculates the minimum operations (insert, delete, replace) required to convert string $S$ to $T$. Standard metric for fuzzy search engines (Elasticsearch, Lucene) and autocorrect engines.</li>
+<li><strong>Matrix Chain Multiplication</strong> — Optimizes the associative parenthesization sequence for a chain of matrix multiplications $A_1 A_2 \dots A_n$. Prevents factorial computational explosions by memoizing subchain partitions in $O(n^3)$ time.</li>
+<li><strong>Kadane’s Algorithm</strong> — Dynamic programming in linear time $O(n)$ with $O(1)$ space that finds the contiguous subarray within a 1D numerical array having the largest sum.</li>
 </ul>
 <hr />
 <h2>4. String Processing, Parsing, &amp; Compression</h2>
-<p><em>High-performance text search, dictionary matching, and lossless data encoding.</em></p>
+<p><em>Exact substring searching, multi-pattern dictionary automata, and entropy encoding.</em></p>
 <ul>
-<li><strong>Knuth-Morris-Pratt (KMP)</strong> — Searches for occurrences of a pattern within text by pre-computing a partial match table (π table) to skip redundant character comparisons in <code>O(n + m)</code> time.</li>
-<li><strong>Rabin-Karp Algorithm</strong> — Uses rolling hashes to search for pattern strings within text, uniquely suited for multi-pattern lookups and plagiarism detection.</li>
-<li><strong>Boyer-Moore Algorithm</strong> — An extremely fast string search engine that scans patterns from right to left and utilizes bad-character and good-suffix shift rules to jump across text (powers GNU <code>grep</code> and CTRL+F).</li>
-<li><strong>Aho-Corasick Algorithm</strong> — Constructs a finite state trie with failure transitions to search for an entire dictionary of strings concurrently in linear time (powers antivirus virus definition scanners and intrusion detection engines).</li>
-<li><strong>Huffman Coding</strong> — A greedy variable-length prefix coding algorithm that compresses data by allocating fewer bits to frequently appearing symbols (underlies ZIP, JPEG, and MP3).</li>
-<li><strong>LZW (Lempel-Ziv-Welch)</strong> — A dictionary-based universal lossless compression algorithm that dynamically builds its phrase dictionary from the input stream (the engine of GIF and PDF formats).</li>
+<li><strong>Knuth-Morris-Pratt (KMP)</strong> — Searches for string pattern $P$ of length $m$ inside text $T$ of length $n$ in strict $O(n + m)$ time. Precomputes a prefix-function failure table ($\pi$) enabling the scan pointer to never backtrack across text characters.</li>
+<li><strong>Rabin-Karp Algorithm</strong> — Uses polynomial rolling hash functions (Horner's rule) to compare pattern hashes against sliding text windows in $O(n + m)$ average time. Scales to simultaneous multi-pattern search and duplicate document fingerprinting.</li>
+<li><strong>Boyer-Moore Algorithm</strong> — Scans pattern characters from right to left, utilizing the <strong>Bad Character Rule</strong> and <strong>Good Suffix Rule</strong> to jump the search window forward multiple characters on mismatch. Sublinear in practice; powers GNU <code>grep</code> and system text search utilities.</li>
+<li><strong>Aho-Corasick Automaton</strong> — Constructs a finite-state trie with dictionary failure transitions and dictionary output links. Matches an entire dictionary of $k$ keywords against text $T$ simultaneously in linear $O(n + m + z)$ time (fundamental to intrusion detection systems like Snort/Suricata and antivirus signature matchers).</li>
+<li><strong>Huffman Coding</strong> — Lossless variable-length prefix entropy coding. Constructs a binary tree with minimum-frequency nodes deepest, assigning shorter bitstrings to high-frequency symbols (powers DEFLATE, ZIP, JPEG, MP3).</li>
+<li><strong>LZW (Lempel-Ziv-Welch)</strong> — Dictionary-based lossless compression that builds a phrase translation table dynamically on the fly during single-pass encoding without transmitting the dictionary (engine behind GIF and UNIX <code>compress</code>).</li>
 </ul>
 <hr />
-<h2>5. Mathematics &amp; Number Theory</h2>
-<p><em>Analytical methods, prime generation, signal transforms, and statistical modeling.</em></p>
+<h2>5. Mathematics, Number Theory, &amp; Transforms</h2>
+<p><em>Modular arithmetic, prime generation, discrete transforms, and randomized verification.</em></p>
 <ul>
-<li><strong>Euclidean Algorithm &amp; Extended Euclidean</strong> — Rapidly calculates the Greatest Common Divisor (<code>gcd(a, b)</code>) of two integers and solves linear Diophantine equations (critical for modular inverse computation in RSA).</li>
-<li><strong>Sieve of Eratosthenes</strong> — A prime sieve algorithm that finds all prime numbers up to an upper limit <code>n</code> in <code>O(n log log n)</code> time by iteratively marking composite multiples.</li>
-<li><strong>Fast Fourier Transform (FFT)</strong> — Computes the Discrete Fourier Transform (DFT) in <code>O(n log n)</code> instead of <code>O(n²)</code>, converting time-domain signals into frequency spectra (powers Wi-Fi, audio DSP, and telecommunications).</li>
-<li><strong>Monte Carlo Algorithm</strong> — Utilizes repeated pseudo-random sampling to numerically approximate deterministic systems that are mathematically intractable.</li>
+<li><strong>Euclidean &amp; Extended Euclidean Algorithm</strong> — Calculates $\gcd(a, b)$ via recursive division in $O(\log(\min(a, b)))$ steps. The Extended Euclidean algorithm solves for Bézout coefficients $x, y$ such that:
+    $$ax + by = \gcd(a, b)$$
+    Essential for computing modular multiplicative inverses in asymmetric RSA key generation.</li>
+<li><strong>Modular Exponentiation ($a^b \pmod m$)</strong> — Computes powers modulo $m$ in $O(\log b)$ logarithmic time using repeated squaring, preventing integer overflow when computing cryptographic keys with 4096-bit exponents.</li>
+<li><strong>Sieve of Eratosthenes</strong> — Generates all prime numbers up to boundary $n$ in $O(n \log \log n)$ time with $O(n)$ space by iteratively crossing off prime multiples. Segmented sieves reduce auxiliary memory consumption to $O(\sqrt{n})$ for cache efficiency.</li>
+<li><strong>Fast Fourier Transform (Cooley-Tukey FFT)</strong> — Computes the Discrete Fourier Transform (DFT) of an $n$-length sequence in $O(n \log n)$ time instead of naïve $O(n^2)$ by recursively splitting inputs into even and odd indices using complex roots of unity $e^{-2\pi i / n}$. Powers telecommunications (OFDM/5G), digital audio DSP, and polynomial multiplication.</li>
+<li><strong>Miller-Rabin Primality Test</strong> — Probabilistic primality test evaluating properties of strong pseudoprimes in $O(k \log^3 n)$ time, providing negligible error rate $\le 4^{-k}$ for generating massive cryptographic primes.</li>
+<li><strong>Monte Carlo &amp; Las Vegas Algorithms</strong> — Randomized computation paradigms: Monte Carlo algorithms guarantee deterministic runtime with bounded error probability (e.g., randomized primality), while Las Vegas algorithms guarantee absolute correctness with randomized runtime (e.g., Randomized QuickSort).</li>
 </ul>
 <hr />
-<h2>6. Computational Geometry</h2>
-<p><em>Spatial partitioning, visual collision detection, and planar boundary extraction.</em></p>
+<h2>6. Computational Geometry &amp; Spatial Indexing</h2>
+<p><em>Planar boundary calculation, convex hulls, intersection detection, and spatial partitioning.</em></p>
 <ul>
-<li><strong>Graham Scan (Convex Hull)</strong> — Computes the convex hull of a finite set of 2D planar points in <code>O(n log n)</code> time by sorting points angularly and maintaining a boundary stack.</li>
-<li><strong>Sweep Line Algorithm</strong> — Solves 2D geometric problems (such as segment intersections and Voronoi diagram construction) by sweeping an imaginary line across the coordinate space.</li>
-<li><strong>Ray Casting Algorithm</strong> — Tests whether a given coordinate point resides inside, outside, or on the boundary of a complex polygon by counting ray-edge intersections (fundamental to 3D rendering and game hit-boxes).</li>
+<li><strong>Graham Scan (Convex Hull)</strong> — Computes the minimum convex polygon bounding $n$ planar points in guaranteed $O(n \log n)$ time by angularly sorting coordinates around a pivot and eliminating non-left turns using a stack.</li>
+<li><strong>Bentley-Ottmann Sweep Line Algorithm</strong> — Determines all $k$ intersection points among $n$ line segments in $O((n + k) \log n)$ time by sweeping an imaginary vertical line across the plane, maintaining active segments in a self-balancing BST and upcoming events in a priority queue.</li>
+<li><strong>Ray Casting &amp; Winding Number (Point-in-Polygon)</strong> — Determines if a point $(x, y)$ resides within an arbitrary polygon by casting an infinite ray from the point and counting boundary edge intersections (odd = inside, even = outside). Fundamental to CAD, 3D game engines, and GIS coordinate systems.</li>
+<li><strong>Closest Pair of Points</strong> — Divide-and-conquer algorithm finding the two closest points in a 2D Euclidean coordinate space in $O(n \log n)$ time (improving upon naïve $O(n^2)$ exhaustive comparisons).</li>
+<li><strong>K-D Tree (k-Dimensional Tree)</strong> — Binary space-partitioning tree organizing points in $k$-dimensional space. Enables $O(\log n)$ average range queries and nearest-neighbor search for LiDAR, computer vision, and machine learning point clouds.</li>
 </ul>
 <hr />
 <h2>7. Cryptography &amp; Security</h2>
 <p><em>Mathematical algorithms enforcing confidentiality, data integrity, and key agreements.</em></p>
 <ul>
-<li><strong>RSA (Rivest–Shamir–Adleman)</strong> — An asymmetric public-key cryptosystem based on the practical difficulty of the prime factorization of large semiprime integers.</li>
-<li><strong>AES (Advanced Encryption Standard)</strong> — A symmetric block cipher operating on 128-bit blocks using substitution-permutation networks across 10, 12, or 14 rounds (global enterprise standard).</li>
-<li><strong>SHA-256 (Secure Hash Algorithm)</strong> — A cryptographic one-way hash function producing a fixed 256-bit digest with strict preimage resistance and avalanche characteristics.</li>
-<li><strong>Diffie-Hellman Key Exchange</strong> — Enables two communicating endpoints to establish a shared cryptographic secret over an untrusted public network without transmitting the secret itself.</li>
+<li><strong>RSA (Rivest–Shamir–Adleman)</strong> — Asymmetric public-key cryptosystem based on the trapdoor one-way function of integer factorization. Computes public/private exponent pairs $(e, d)$ modulo semiprime $n = pq$ using Euler's totient $\phi(n) = (p-1)(q-1)$:
+    $$c \equiv m^e \pmod n,\quad m \equiv c^d \pmod n$$</li>
+<li><strong>Diffie-Hellman &amp; ECDH (Elliptic Curve Key Exchange)</strong> — Enables two endpoints to establish a shared symmetric secret over unauthenticated networks without transmitting the secret key. ECDH relies on the discrete logarithm problem over elliptic curve points:
+    $$y^2 = x^3 + ax + b$$</li>
+<li><strong>AES (Advanced Encryption Standard / Rijndael)</strong> — Symmetric block cipher encrypting 128-bit blocks across 10 (128-bit), 12 (192-bit), or 14 (256-bit) rounds utilizing <strong>SubBytes</strong> (S-Box), <strong>ShiftRows</strong>, <strong>MixColumns</strong>, and <strong>AddRoundKey</strong> transformations. Hardware accelerated via Intel AES-NI.</li>
+<li><strong>SHA-256 (Secure Hash Algorithm)</strong> — Cryptographic one-way hash function using a Merkle-Damgård construction with Davies-Meyer compression, producing a 256-bit digest engineered for collision resistance, preimage resistance, and strict avalanche criteria.</li>
+<li><strong>HMAC (Hash-based Message Authentication Code)</strong> — Cryptographic message authentication combining a secret cryptographic key with a one-way hash function:
+    $$\text{HMAC}(K, m) = H\Big((K \oplus \text{opad}) \parallel H\big((K \oplus \text{ipad}) \parallel m\big)\Big)$$</li>
 </ul>
 <hr />
 <h2>8. Big Data, Hashing, &amp; Streaming Algorithms</h2>
-<p><em>Probabilistic data structures and distributed map-reduce computation at internet scale.</em></p>
+<p><em>Sublinear space approximations, probabilistic counting, distributed map-reduce, and vector retrieval.</em></p>
 <ul>
-<li><strong>Bloom Filter</strong> — A space-efficient probabilistic data structure that queries set membership with zero false negatives and tunable false positive probabilities.</li>
-<li><strong>HyperLogLog</strong> — Estimates the distinct cardinality of multi-billion element data streams using negligible fixed memory footprints (used for unique visitor counts).</li>
-<li><strong>Count-Min Sketch</strong> — A sub-linear space streaming sketch that tracks item frequency estimates across high-velocity live data feeds (calculates real-time trending topics).</li>
-<li><strong>Locality-Sensitive Hashing (LSH)</strong> — Hashes high-dimensional vectors so similar items collide into identical buckets with high probability (powers recommendation engines and nearest-neighbor search).</li>
-<li><strong>PageRank</strong> — Computes stationary probability distributions across hyperlinked graph structures to rank node importance by modeling random web surfer behavior.</li>
-<li><strong>MapReduce</strong> — A distributed execution paradigm that partitions massive datasets, processes map transformations in parallel across clusters, and aggregates results via reduce workers.</li>
+<li><strong>Bloom Filter</strong> — Space-efficient probabilistic data structure querying set membership using $m$-bit array and $k$ independent hash functions. Guarantees <strong>zero false negatives</strong> with tunable false positive probability:
+    $$p \approx \left(1 - e^{-kn/m}\right)^k$$</li>
+<li><strong>HyperLogLog (HLL)</strong> — Cardinality estimation algorithm calculating the number of unique elements in multi-billion item data streams using $O(\log \log n)$ memory. Evaluates the distribution of leading zeros in hashed identifiers with standard error $1.04 / \sqrt{m}$ (powers Redis HLL, Google BigQuery).</li>
+<li><strong>Count-Min Sketch</strong> — Sublinear space streaming sketch estimating event frequencies across high-throughput live data streams using a 2D array of depth $d$ and width $w$, guaranteeing frequency estimates within $\epsilon N$ error bound with probability $1 - \delta$.</li>
+<li><strong>Locality-Sensitive Hashing (LSH)</strong> — Probabilistic hashing where similar items in high-dimensional space hash to the same bucket with high probability. Scales approximate nearest-neighbor search (ANN), audio fingerprinting (Shazam), and recommendation vector databases.</li>
+<li><strong>PageRank</strong> — Computes stationary probability distributions across hyperlinked graph structures via power iteration of the Markov transition matrix with random damping factor $d \approx 0.85$:
+    $$PR(u) = \frac{1 - d}{N} + d \sum_{v \in B_u} \frac{PR(v)}{L(v)}$$</li>
+<li><strong>MapReduce</strong> — Distributed programming model that partitions datasets across clusters, executes user-defined <code>Map()</code> functions in parallel, shuffles/sorts intermediate keys, and aggregates values via <code>Reduce()</code> workers.</li>
 </ul>
 <hr />
 <h2>9. Machine Learning, AI, &amp; Meta-Heuristics</h2>
-<p><em>Iterative parameter optimization, cluster classification, and combinatorial search.</em></p>
+<p><em>Continuous optimization, gradient calculus, clustering, game theory, and evolutionary search.</em></p>
 <ul>
-<li><strong>Gradient Descent (SGD, Adam)</strong> — Iteratively updates model weight parameters in the opposite direction of the loss function gradient to minimize prediction error.</li>
-<li><strong>Backpropagation</strong> — Computes partial derivatives of the loss function with respect to every neural network weight via the multivariable calculus chain rule.</li>
-<li><strong>K-Means Clustering</strong> — An unsupervised vector quantization algorithm that partitions <code>n</code> observations into <code>k</code> clusters based on nearest centroid means.</li>
-<li><strong>Support Vector Machines (SVM)</strong> — Identifies the maximum-margin hyperplane that optimally separates distinct categorical feature classes in high-dimensional space.</li>
-<li><strong>Minimax (with Alpha-Beta Pruning)</strong> — A recursive adversarial game-tree decision algorithm that maximizes best-case payoffs while pruning branches that cannot influence the final outcome.</li>
-<li><strong>Simulated Annealing</strong> — A probabilistic global optimization meta-heuristic that escapes local minima by accepting suboptimal moves with a temperature-decayed probability.</li>
-<li><strong>Genetic Algorithms</strong> — Solves constrained multi-variable optimization problems through simulated evolutionary biology (selection, crossover, mutation).</li>
+<li><strong>Gradient Descent (SGD, Adam)</strong> — Optimizes model parameters $\theta$ by iteratively descending the loss function gradient $\nabla_\theta L(\theta)$. The <strong>Adam (Adaptive Moment Estimation)</strong> optimizer maintains exponentially decaying moving averages of past gradients ($m_t$) and squared gradients ($v_t$):
+    $$\theta_{t+1} = \theta_t - \frac{\eta}{\sqrt{\hat{v}_t} + \epsilon} \hat{m}_t$$</li>
+<li><strong>Backpropagation</strong> — Computes the exact partial derivative $\frac{\partial L}{\partial w_{ij}}$ of the loss function with respect to every weight in a deep neural network via recursive application of the multivariable calculus chain rule.</li>
+<li><strong>K-Means Clustering (Lloyd's Algorithm)</strong> — Unsupervised vector quantization partitioning $n$ observations into $k$ clusters, alternating between assignment of points to nearest centroids and recalculation of centroid means until convergence.</li>
+<li><strong>Support Vector Machines (SVM &amp; SMO)</strong> — Identifies the optimal separating maximum-margin hyperplane $\mathbf{w}^T \mathbf{x} - b = 0$ in high-dimensional feature spaces. Employs the <strong>Kernel Trick</strong> (RBF, Polynomial) to project linearly non-separable data into higher dimensions without explicit coordinate computation.</li>
+<li><strong>Minimax with $\alpha\text{-}\beta$ Pruning</strong> — Adversarial search algorithm evaluating zero-sum two-player game trees. Prunes subtrees where $\alpha \ge \beta$ (the maximizer has a guaranteed better alternative), maintaining optimal decision-making while doubling search depth.</li>
+<li><strong>Simulated Annealing</strong> — Global optimization meta-heuristic inspired by metallurgy that escapes local minima by accepting inferior candidate states with Metropolis probability:
+    $$P(\text{accept}) = e^{-\Delta E / T}$$
+    where temperature $T$ decays gradually over time.</li>
+<li><strong>Genetic Algorithms (GA)</strong> — Solves multi-dimensional combinatorial optimization problems via simulated Darwinian evolution, iteratively performing fitness evaluation, selection, crossover, and probabilistic mutation.</li>
 </ul>
 <hr />
 <h2>10. Distributed Systems &amp; Consensus</h2>
-<p><em>Fault-tolerant state replication, decentralized ordering, and cluster coordination.</em></p>
+<p><em>Fault tolerance, state replication, Byzantine agreement, and decentralized ledgers.</em></p>
 <ul>
-<li><strong>Paxos &amp; Raft Algorithms</strong> — Leader-based consensus protocols that maintain a deterministic, fault-tolerant replicated state machine across distributed server clusters.</li>
-<li><strong>Proof of Work (PoW) &amp; Proof of Stake (PoS)</strong> — Cryptographic and economic consensus algorithms enabling trustless distributed networks to agree on ledger state without a central authority.</li>
+<li><strong>Paxos Protocol (Leslie Lamport)</strong> — Foundational consensus protocol ensuring a cluster of distributed nodes agrees on a single value despite network partitions and message delays. Operates across two phases: <strong>Phase 1 (Prepare/Promise)</strong> and <strong>Phase 2 (Accept/Accepted)</strong>.</li>
+<li><strong>Raft Consensus Algorithm</strong> — Understandable leader-based consensus algorithm dividing state machine replication into three formal subproblems: <strong>Leader Election</strong> (heartbeats and randomized timeouts), <strong>Log Replication</strong> (append-entries RPCs), and <strong>Safety Invariants</strong> (election restrictions ensuring committed entries persist).</li>
+<li><strong>Practical Byzantine Fault Tolerance (PBFT)</strong> — Reaches deterministic state consensus across distributed networks in $O(n^2)$ message complexity even when up to $f$ nodes act maliciously or collude, requiring:
+    $$N \ge 3f + 1$$</li>
+<li><strong>Proof of Work (PoW / Nakamoto Consensus)</strong> — Decentralized cryptographic consensus protocol where block proposer rights require expending computational work solving a partial hash inversion inequality ($H(\text{block}) &lt; \text{Target}$). Enforces the longest-chain rule across trustless networks.</li>
+<li><strong>Proof of Stake (PoS)</strong> — Consensus protocol where block validators are weighted by their bonded economic stake. Enforces Byzantine fault tolerance through mathematical penalty slashing for malicious equivocation (e.g., Casper FFG).</li>
 </ul>
 <hr />
-<h2>11. Quantum Algorithms</h2>
-<p><em>Exploiting quantum superposition and entanglement to solve intractable classical problems.</em></p>
+<h2>11. Quantum Algorithms &amp; Computational Complexity</h2>
+<p><em>Exploiting quantum superposition and entanglement to solve classically intractable problems.</em></p>
 <ul>
-<li><strong>Shor's Algorithm</strong> — Factors integers in polynomial time <code>O((log N)³)</code> using the Quantum Fourier Transform, theoretically breaking classical public-key cryptography (RSA/ECC).</li>
-<li><strong>Grover's Algorithm</strong> — Performs unstructured database search in quadratic speedup <code>O(√N)</code> using quantum amplitude amplification.</li>
+<li><strong>Shor’s Algorithm</strong> — Quantum algorithm for integer prime factorization and discrete logarithms running in polynomial time $O((\log N)^3)$ with $O(\log N)$ qubits. Utilizes quantum superposition and the <strong>Quantum Fourier Transform (QFT)</strong> to find the modular period $r$ of $a^r \equiv 1 \pmod N$, theoretically breaking classical public-key cryptography (RSA, Diffie-Hellman, ECC).</li>
+<li><strong>Grover’s Algorithm</strong> — Quantum search algorithm finding a target element in an unsorted database of $N$ items in quadratic speedup $O(\sqrt{N})$ using repeated application of the <strong>Grover Diffusion Operator</strong> (amplitude amplification).</li>
+<li><strong>Deutsch-Jozsa &amp; Simon's Algorithms</strong> — Early quantum algorithms providing exponential speedups over classical algorithms, proving that quantum computing models ($\text{BQP}$) exceed classical bounded-error probabilistic polynomial time ($\text{BPP}$).</li>
+<li><strong>Computational Complexity Hierarchy:</strong><ul>
+<li><strong>$\text{P}$ (Polynomial Time):</strong> Decision problems solvable on a deterministic Turing machine in polynomial time $O(n^k)$.</li>
+<li><strong>$\text{NP}$ (Nondeterministic Polynomial Time):</strong> Decision problems whose solutions can be <em>verified</em> in polynomial time.</li>
+<li><strong>$\text{NP-Complete}$:</strong> The hardest problems in $\text{NP}$ (e.g., 3-SAT, Traveling Salesperson, Knapsack, Vertex Cover, Clique) to which all other $\text{NP}$ problems reduce in polynomial time via the <strong>Cook-Levin Theorem</strong>.</li>
+<li><strong>$\text{BQP}$ (Bounded-Error Quantum Polynomial Time):</strong> The class of decision problems solvable by a quantum computer in polynomial time with error probability $\le 1/3$.</li>
+</ul>
+</li>
 </ul></main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.querySelector('main') || document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navContainer = document.querySelector('.nav-container');
