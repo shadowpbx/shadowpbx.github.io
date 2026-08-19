@@ -28,7 +28,6 @@
         main > *:first-child { margin-top: 0 !important; }
         main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
         
-        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
         :not(pre) > code {
             font-family: var(--font-mono) !important;
             background-color: #f5f3ff !important;
@@ -42,11 +41,9 @@
             text-decoration: none !important;
         }
 
-        /* CODE BLOCKS */
         pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
         code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
         
-        /* TABLES */
         main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
         main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
         main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
@@ -58,19 +55,12 @@
         footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
     
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem 3rem 1rem;
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
             }
-            .back-link {
-                margin-bottom: 1rem;
-            }
-            header {
-                margin-bottom: 2rem;
-                padding-bottom: 1rem;
-            }
-            h1 {
-                font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
-                line-height: 1.3;
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
             }
             main {
                 font-size: 1.05rem;
@@ -78,13 +68,6 @@
             main h2 {
                 font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
                 margin-top: 2rem !important;
-            }
-            .breadcrumb-nav {
-                padding: 0.5rem 0.75rem;
-            }
-            :not(pre) > code {
-                white-space: normal !important;
-                word-break: break-all !important;
             }
             main table {
                 display: block;
@@ -111,10 +94,10 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/systems/" class="nav-link">[ SYSTEMS ]</a>
+                    <a href="/engineering/" class="nav-link active">[ ENGINEERING ]</a>
                     <div class="dropdown-menu">
-                        <a href="/systems_articles/">Articles & Guides</a>
-                        <a href="/systems_tools/">Tools & Utilities</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -123,10 +106,10 @@
                         <a href="/academics/coursework.html">Coursework</a>
                     </div>
                 </div>
-<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx: ~/systems/tools$ cat utility.md</div>
+            <div class="terminal-prompt">user@shadowpbx: ~/engineering/posts$ cat system.md</div>
             <h1>{{ title }}</h1>
         </div>
     </header>

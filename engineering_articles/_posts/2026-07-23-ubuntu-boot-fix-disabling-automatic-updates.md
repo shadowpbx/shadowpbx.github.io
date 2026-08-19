@@ -18,7 +18,7 @@ This guide details the exact root cause of boot-time update freezes and provides
 <div style="margin: 1.5rem 0 2.5rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
     <p style="margin-top: 0; font-weight: 700; color: #0f172a; font-family: var(--font-mono); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">📦 1-Click Script Download</p>
     <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-        <a href="/systems_articles/assets/code/fix_autoupdates.sh" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download fix_autoupdates.sh ]</a>
+        <a href="/engineering_articles/assets/code/fix_autoupdates.sh" download style="background: #ffffff; border: 1px solid #cbd5e1; padding: 0.6rem 1rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: #4338ca; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">[ ⬇ Download fix_autoupdates.sh ]</a>
     </div>
 </div>
 

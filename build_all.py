@@ -19,9 +19,9 @@ FOLDER_CONFIGS = {
     "cybersecurity_study_modules": {"type": "standard", "default_tag": "MODULES"},
     "cybersecurity_audio": {"type": "standard", "default_tag": "AUDIO"},
     "cybersecurity_tools": {"type": "tools"},
-    "systems": {"type": "standard", "default_tag": "SYSTEMS"},
-    "systems_articles": {"type": "standard", "default_tag": "SYSTEMS"},
-    "systems_tools": {"type": "standard", "default_tag": "UTILITIES"},
+    "engineering": {"type": "standard", "default_tag": "ENGINEERING"},
+    "engineering_articles": {"type": "standard", "default_tag": "ENGINEERING"},
+    "engineering_tools": {"type": "standard", "default_tag": "UTILITIES"},
     "academics": {"type": "academics_readmes"}
 }
 
@@ -170,10 +170,10 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/systems/" class="nav-link">[ SYSTEMS ]</a>
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
                     <div class="dropdown-menu">
-                        <a href="/systems_articles/">Articles & Guides</a>
-                        <a href="/systems_tools/">Tools & Utilities</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">

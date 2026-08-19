@@ -58,19 +58,19 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 │   ├── 03 Hacking Human Wetware History/ # Suite 07: Hacking Human Wetware: 50 Legendary Heists & Cons (50 Modules • 7h 6m)
 │   └── 04 Scammer Psychology & Sociology/ # Suite 08: Scammer Psychology & Sociology (46 Modules • 5h 32m)
 │
-├── systems/
-│   ├── index.html          # Systems Architecture & Engineering dashboard
-│   ├── _posts/             # Source markdown systems entries
-│   └── posts/              # Compiled HTML systems pages
+├── engineering/
+│   ├── index.html          # Engineering & Systems Architecture dashboard
+│   ├── _posts/             # Source markdown engineering entries
+│   └── posts/              # Compiled HTML engineering pages
 │
-├── systems_articles/
-│   ├── index.html          # Articles & Guides (non-security technical articles)
-│   ├── _posts/             # Source markdown articles (e.g. UVR5, VoxCPM2)
+├── engineering_articles/
+│   ├── index.html          # Articles & Guides (engineering, algorithms, and technical articles)
+│   ├── _posts/             # Source markdown articles (e.g. UVR5, VoxCPM2, Pi Zero 2 W)
 │   ├── posts/              # Compiled HTML article pages
 │   └── assets/             # Hosted audio samples and 1-click code downloads
 │
-├── systems_tools/
-│   ├── index.html          # Systems Tools & Software Utilities
+├── engineering_tools/
+│   ├── index.html          # Engineering Tools & Software Utilities
 │   ├── _posts/             # Source markdown tool profiles
 │   └── posts/              # Compiled HTML tool pages
 │
@@ -88,7 +88,7 @@ shadowpbx.github.io/ (Main Repository root, maps to hexdef.com/)
 ---
 
 ## 2. Flat Navigation System
-Navigation is flat and clean, with dropdown lists reserved for sub-categories under Cybersecurity and Systems.
+Navigation is flat and clean, with dropdown lists reserved for sub-categories under Cybersecurity and Engineering.
 
 ### Navigation Hierarchy
 *   `[ HOME ]` -> `/`
@@ -98,9 +98,9 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `Certifications` -> `/cybersecurity_certifications/`
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
     *   `Study Modules` -> `/cybersecurity_study_modules/` (study modules & lab notes)
-*   `[ SYSTEMS ]` -> `/systems/` (Dropdown):
-    *   `Articles & Guides` -> `/systems_articles/` (non-security technical articles)
-    *   `Tools & Utilities` -> `/systems_tools/` (non-security tools & scripts)
+*   `[ ENGINEERING ]` -> `/engineering/` (Dropdown):
+    *   `Articles & Guides` -> `/engineering_articles/` (technical articles, CS, OS, embedded guides)
+    *   `Tools & Utilities` -> `/engineering_tools/` (developer tools & utilities)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ RESUME ]` -> `/resume/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx` (new tab)

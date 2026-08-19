@@ -1,14 +1,14 @@
-# Developer & AI Context Guide (systems - Systems Architecture & Engineering)
+# Developer & AI Context Guide (engineering - Engineering & Systems Architecture)
 ## Overview
-This file serves as a system guide for any AI assistant or developer working inside the **systems** (or future **engineering**) directory. This directory houses Tanvir Hussain's Systems Architecture and Engineering dashboard.
+This file serves as a system guide for any AI assistant or developer working inside the **engineering** directory (`/engineering/`). This directory houses Tanvir Hussain's Engineering & Systems Architecture dashboard.
 
 ---
 
 ## 1. Directory Structure & Layout
-*   `index.html`: Main landing page for Systems Architecture & Engineering.
-*   `_posts/`: Input directory containing markdown files for systems architecture posts.
+*   `index.html`: Main landing page for Engineering & Systems Architecture.
+*   `_posts/`: Input directory containing markdown files for engineering architecture posts.
 *   `posts/`: Output directory containing compiled HTML pages.
-*   `post_template.html`: HTML layout template used to wrap individual systems pages.
+*   `post_template.html`: HTML layout template used to wrap individual engineering pages.
 
 ---
 
@@ -34,9 +34,9 @@ When expanding or structuring engineering, computer science, and computing topic
 ---
 
 ## 3. Build & Compile Process
-To recompile systems posts and update `index.html`, run the targeted monorepo build script from the repository root:
+To recompile engineering posts and update `index.html`, run the targeted monorepo build script from the repository root:
 
 ```bash
-python3 build_all.py systems
+python3 build_all.py engineering
 ```
 
