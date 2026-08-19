@@ -12,24 +12,23 @@ This file serves as a system guide for any AI assistant or developer working ins
 
 ---
 
-## 2. 🏛️ The Ideal [ ENGINEERING ] Architecture & Roadmap Specification
-When expanding or structuring engineering, computer science, and computing topics, the unified **`[ ENGINEERING ]`** umbrella is mapped as follows:
+## 2. 🏛️ The [ ENGINEERING ] Dropdown Structure & Expansion Roadmap
 
+**Active Dropdown Structure:**
 ```text
 [ ENGINEERING ] (Dropdown Menu)
- ├── DevSecOps & Cloud Infrastructure  (CI/CD, Docker, Kubernetes, Terraform, Cloud Security Architecture)
- ├── Computer Science & Algorithms      (Master Index of Algorithms, Data Structures, Computational Theory)
- ├── Electrical & Embedded Engineering  (Circuits, Raspberry Pi, Microcontrollers, Hardware, Digital Logic)
- ├── Systems & Linux Architecture       (Boot processes, Kernel tuning, Voice ML engines, OS Internals)
- └── Engineering Tools & Utilities      (SDO Calendar, Developer Scripts, Systems Utilities)
+ ├── Computer Science       --> /engineering_cs/       (Algorithms, Data Structures, Theory)
+ ├── Articles & Guides      --> /engineering_articles/ (Linux Kernel, Embedded Systems, Audio ML)
+ └── Tools & Utilities      --> /engineering_tools/    (Developer Software, Utilities)
 ```
+*(As Electrical Engineering, Embedded Systems, or DevSecOps are added in the future, they simply reside under this unified dropdown!)*
 
-**Discipline Roles & Scope:**
-1. **DevSecOps & Cloud Infrastructure:** Automated CI/CD pipelines, container orchestration (Docker/Kubernetes), Infrastructure as Code (Terraform), cloud security, and build infrastructure.
-2. **Computer Science & Algorithms:** Core algorithms (Sorting, Graph Theory, Dynamic Programming, String Processing, Cryptography, Machine Learning heuristics, Distributed Consensus, Quantum), data structures, and computational complexity (`Master Index of Algorithms`).
-3. **Electrical & Embedded Engineering:** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and digital signal processing.
-4. **Systems & Linux Architecture:** Low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
-5. **Engineering Tools & Utilities:** Specialized developer software, productivity tools, and automation scripts.
+**Full Discipline Scope & Architecture:**
+1. **Computer Science (`/engineering_cs/`):** Foundational algorithms (Search/Sort, Graph/Network, Dynamic Programming, String Processing, Cryptography, AI/ML heuristics, Distributed Consensus, Quantum), data structures, and algorithmic complexity (`Master Index of Algorithms`).
+2. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
+3. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
+4. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
+5. **DevSecOps & Cloud Infrastructure (Future Submenu):** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), and cloud security architecture.
 
 ---
 

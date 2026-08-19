@@ -99,32 +99,32 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
     *   `Study Modules` -> `/cybersecurity_study_modules/` (study modules & lab notes)
 *   `[ ENGINEERING ]` -> `/engineering/` (Dropdown):
-    *   `Articles & Guides` -> `/engineering_articles/` (technical articles, CS, OS, embedded guides)
-    *   `Tools & Utilities` -> `/engineering_tools/` (developer tools & utilities)
+    *   `Computer Science` -> `/engineering_cs/` (Algorithms, Data Structures, Theory)
+    *   `Articles & Guides` -> `/engineering_articles/` (Linux Kernel, Embedded Systems, Audio ML)
+    *   `Tools & Utilities` -> `/engineering_tools/` (Developer Software, Utilities)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
 *   `[ RESUME ]` -> `/resume/`
 *   `[ GITHUB ]` -> `https://github.com/shadowpbx` (new tab)
 
 ---
 
-### 🏛️ The Ideal [ ENGINEERING ] Architecture & Navigation Specification
-When transitioning or structuring engineering and computing topics, the unified **`[ ENGINEERING ]`** umbrella is mapped as follows:
+### 🏛️ The [ ENGINEERING ] Dropdown Structure & Expansion Roadmap
 
+**Active Dropdown Structure:**
 ```text
 [ ENGINEERING ] (Dropdown Menu)
- ├── DevSecOps & Cloud Infrastructure  (CI/CD, Docker, Kubernetes, Terraform, Cloud Security Architecture)
- ├── Computer Science & Algorithms      (Master Index of Algorithms, Data Structures, Computational Theory)
- ├── Electrical & Embedded Engineering  (Circuits, Raspberry Pi, Microcontrollers, Hardware, Digital Logic)
- ├── Systems & Linux Architecture       (Boot processes, Kernel tuning, Voice ML engines, OS Internals)
- └── Engineering Tools & Utilities      (SDO Calendar, Developer Scripts, Systems Utilities)
+ ├── Computer Science       --> /engineering_cs/       (Algorithms, Data Structures, Theory)
+ ├── Articles & Guides      --> /engineering_articles/ (Linux Kernel, Embedded Systems, Audio ML)
+ └── Tools & Utilities      --> /engineering_tools/    (Developer Software, Utilities)
 ```
+*(As Electrical Engineering, Embedded Systems, or DevSecOps are added in the future, they simply reside under this unified dropdown!)*
 
-**Discipline Roles & Purpose:**
-1. **DevSecOps & Cloud Infrastructure:** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), cloud architecture, and security automation.
-2. **Computer Science & Algorithms:** Foundational algorithms (Search/Sort, Graph/Network, Dynamic Programming, String Processing, Cryptography, AI/ML heuristics, Distributed Consensus, Quantum), data structures, and algorithmic complexity (`Master Index of Algorithms`).
-3. **Electrical & Embedded Engineering:** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
-4. **Systems & Linux Architecture:** Low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
-5. **Engineering Tools & Utilities:** Specialized developer software, productivity tools, and automation scripts.
+**Full Discipline Scope & Architecture:**
+1. **Computer Science (`/engineering_cs/`):** Foundational algorithms (Search/Sort, Graph/Network, Dynamic Programming, String Processing, Cryptography, AI/ML heuristics, Distributed Consensus, Quantum), data structures, and algorithmic complexity (`Master Index of Algorithms`).
+2. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
+3. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
+4. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
+5. **DevSecOps & Cloud Infrastructure (Future Submenu):** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), and cloud security architecture.
 
 ---
 
