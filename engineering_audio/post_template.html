@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scripting and Automation | Tanvir Hussain</title>
+    <title>{{ title }} | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -23,21 +23,6 @@
         header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
         .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
         h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
-        .chapter-badge {
-            font-family: var(--font-mono);
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-top: 0.75rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-            background: rgba(142, 68, 173, 0.08);
-            padding: 3px 10px;
-            border-radius: 4px;
-            border: 1px solid rgba(142, 68, 173, 0.22);
-        }
         .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
         main { font-size: 1.15rem; color: var(--text-primary); }
         main > *:first-child { margin-top: 0 !important; }
@@ -46,8 +31,8 @@
         /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
         :not(pre) > code {
             font-family: var(--font-mono) !important;
-            background-color: #f5f3ff !important; /* Very Light Purple Background */
-            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            background-color: #f5f3ff !important;
+            color: #4338ca !important;
             padding: 0.2rem 0.4rem !important;
             border-radius: 6px !important;
             font-size: 0.85em !important;
@@ -70,7 +55,7 @@
         main td:first-child { font-weight: 600; color: var(--text-primary); }
         main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
 
-        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
     
         @media (max-width: 768px) {
             .container {
@@ -94,51 +79,9 @@
                 font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
                 margin-top: 2rem !important;
             }
-        }
-    
-        
-        
-        /* Hide scrollbar Firefox */
-            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
-            padding-right: 1rem;
-            margin-right: 0.5rem;
-            color: var(--text-secondary);
-        }
-
-        .breadcrumb-left::-webkit-scrollbar {
-            display: none; /* Hide scrollbar Chrome/Safari */
-        }
-
-        .breadcrumb-left a, .breadcrumb-right a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-        }
-
-        
-
-        
-
-        
-
-        /* Fix mobile horizontal scrolling overflow issues */
-        body {
-            overflow-x: hidden;
-        }
-        
-        pre[class*="language-"] {
-            overflow-x: auto !important;
-        }
-
-        @media (max-width: 768px) {
-            
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
             :not(pre) > code {
                 white-space: normal !important;
                 word-break: break-all !important;
@@ -158,7 +101,7 @@
             <nav class="nav-container">
                 <a href="/" class="nav-link">[ HOME ]</a>
                 <div class="dropdown">
-                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/cybersecurity_audio/">Audio Tutorials</a>
                         <a href="/cybersecurity_tools/">Tools & Scripts</a>
@@ -168,7 +111,7 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <a href="/engineering/" class="nav-link active">[ ENGINEERING ]</a>
                     <div class="dropdown-menu">
                         <a href="/engineering_cs/">Computer Science</a>
                         <a href="/engineering_audio/">Audio Tutorials</a>
@@ -182,26 +125,16 @@
                         <a href="/academics/coursework.html">Coursework</a>
                     </div>
                 </div>
-<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ study --chapter 04 --read</div>
-            <h1>Scripting and Automation</h1>
+            <div class="terminal-prompt">user@shadowpbx: ~/engineering/audio$ cat tutorial.md</div>
+            <h1>{{ title }}</h1>
         </div>
     </header>
 
     <div class="container">
-        <main><ul>
-<li><strong>Python for Security Operations:</strong> Utilizing high-level, interpreted scripting to rapidly write customized security tools, automation scripts, and rapid-prototypes.</li>
-<li><strong>Python Data Handling (JSON, XML):</strong> Importing, manipulating, and exporting complex data sets, managing standard key-value structures, and parsing structural configuration files.</li>
-<li><strong>Python Network Automation (Requests &amp; Sockets):</strong> Constructing automated web scraping or API interaction engines, and establishing raw, low-level socket-based TCP/UDP connections.</li>
-<li><strong>Python Packet Manipulation (Scapy):</strong> Forging custom network packets, injecting customized headers, and parsing raw network captures for advanced automated protocol analysis.</li>
-<li><strong>Bash Scripting &amp; Automation:</strong> Writing automated system-level command loops, configuring conditionally executed administrative tasks, and combining operating system binaries on Linux hosts.</li>
-<li><strong>Linux Text Processing (Grep, Awk, Sed, Regex):</strong> Parsing and extracting high-value logs and data from unstructured system text using pattern matching and stream editors.</li>
-<li><strong>PowerShell Architecture (Object-Oriented Scripting):</strong> Managing and automation in Windows using structured object pipelines, passing complex hardware and registry objects instead of raw text.</li>
-<li><strong>PowerShell Security &amp; Execution Policies:</strong> Navigating execution enforcement rules, applying bypass strategies during administrative operations, enforcing Constrained Language Mode, and implementing secure script-signing controls.</li>
-<li><strong>PowerShell Remoting &amp; Fleet Management:</strong> Conducting remote enterprise management operations over WinRM, querying domain directories, and managing large scale Windows assets.</li>
-</ul></main>
+        <main>{{ content }}</main>
         <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>

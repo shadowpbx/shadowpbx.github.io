@@ -100,6 +100,7 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `Study Modules` -> `/cybersecurity_study_modules/` (study modules & lab notes)
 *   `[ ENGINEERING ]` -> `/engineering/` (Dropdown):
     *   `Computer Science` -> `/engineering_cs/` (Algorithms, Data Structures, Theory)
+    *   `Audio Tutorials` -> `/engineering_audio/` (Voice-driven Engineering & CS Study Suites)
     *   `Articles & Guides` -> `/engineering_articles/` (Linux Kernel, Embedded Systems, Audio ML)
     *   `Tools & Utilities` -> `/engineering_tools/` (Developer Software, Utilities)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
@@ -114,6 +115,7 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
 ```text
 [ ENGINEERING ] (Dropdown Menu)
  ├── Computer Science       --> /engineering_cs/       (Algorithms, Data Structures, Theory)
+ ├── Audio Tutorials        --> /engineering_audio/    (Interactive Players & Companion Notes)
  ├── Articles & Guides      --> /engineering_articles/ (Linux Kernel, Embedded Systems, Audio ML)
  └── Tools & Utilities      --> /engineering_tools/    (Developer Software, Utilities)
 ```
@@ -124,10 +126,11 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
    * `00 // Algorithms & Complexity` (*Master Index of Algorithms*, *Data Structures Deep Dive*)
    * `01 // Systems & Computer Architecture` (*CPU Execution Pipeline & Registers*, *Virtual Memory & Cache Coherence*)
    * `02 // Compilers & Language Theory` (*Lexical Analysis & ASTs*, *Bytecode Virtual Machines*)
-2. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
-3. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
-4. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
-5. **DevSecOps & Cloud Infrastructure (Future Submenu):** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), and cloud security architecture.
+2. **Audio Tutorials (`/engineering_audio/`):** CLI prompt `user@hexdef:~$ audio --engineering --list-suites` ("Engineering Audio Workstation"). Interactive audio players and voice-driven courses covering algorithms, systems architecture, and engineering principles.
+3. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
+4. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
+5. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
+6. **DevSecOps & Cloud Infrastructure (Future Submenu):** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), and cloud security architecture.
 
 ---
 

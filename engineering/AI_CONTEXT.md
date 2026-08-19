@@ -18,6 +18,7 @@ This file serves as a system guide for any AI assistant or developer working ins
 ```text
 [ ENGINEERING ] (Dropdown Menu)
  ├── Computer Science       --> /engineering_cs/       (Algorithms, Data Structures, Theory)
+ ├── Audio Tutorials        --> /engineering_audio/    (Interactive Players & Companion Notes)
  ├── Articles & Guides      --> /engineering_articles/ (Linux Kernel, Embedded Systems, Audio ML)
  └── Tools & Utilities      --> /engineering_tools/    (Developer Software, Utilities)
 ```
@@ -25,10 +26,11 @@ This file serves as a system guide for any AI assistant or developer working ins
 
 **Full Discipline Scope & Architecture:**
 1. **Computer Science (`/engineering_cs/`):** Foundational algorithms (Search/Sort, Graph/Network, Dynamic Programming, String Processing, Cryptography, AI/ML heuristics, Distributed Consensus, Quantum), data structures, and algorithmic complexity (`Master Index of Algorithms`).
-2. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
-3. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
-4. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
-5. **DevSecOps & Cloud Infrastructure (Future Submenu):** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), and cloud security architecture.
+2. **Audio Tutorials (`/engineering_audio/`):** Voice-driven engineering & CS study suites, interactive audio players, and companion notes.
+3. **Articles & Guides (`/engineering_articles/`):** Systems architecture, low-level OS mechanics, Linux kernel modules, bootloaders/init systems, and ML audio processing engines (Kokoro, VoxCPM2).
+4. **Tools & Utilities (`/engineering_tools/`):** Specialized developer software, productivity tools, and automation scripts.
+5. **Electrical & Embedded Engineering (Future Submenu):** Circuit analysis, digital electronics, hardware design, microcontrollers, embedded Linux (Raspberry Pi, Buildroot), and signal processing.
+6. **DevSecOps & Cloud Infrastructure (Future Submenu):** CI/CD automation pipelines, containerization (Docker/K8s), Infrastructure as Code (Terraform), and cloud security architecture.
 
 ---
 
