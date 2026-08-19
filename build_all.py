@@ -174,8 +174,8 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                 <div class="dropdown">
                     <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
                     <div class="dropdown-menu">
-                        <a href="/engineering_cs/">Computer Science</a>
                         <a href="/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering_cs/">Computer Science</a>
                         <a href="/engineering_articles/">Articles & Guides</a>
                         <a href="/engineering_tools/">Tools & Utilities</a>
                     </div>

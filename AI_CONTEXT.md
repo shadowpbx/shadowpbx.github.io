@@ -99,8 +99,8 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
     *   `Cybersecurity Curriculum` -> `/cybersecurity_curriculum/` (study syllabi)
     *   `Study Modules` -> `/cybersecurity_study_modules/` (study modules & lab notes)
 *   `[ ENGINEERING ]` -> `/engineering/` (Dropdown):
-    *   `Computer Science` -> `/engineering_cs/` (Algorithms, Data Structures, Theory)
     *   `Audio Tutorials` -> `/engineering_audio/` (Voice-driven Engineering & CS Study Suites)
+    *   `Computer Science` -> `/engineering_cs/` (Algorithms, Data Structures, Theory)
     *   `Articles & Guides` -> `/engineering_articles/` (Linux Kernel, Embedded Systems, Audio ML)
     *   `Tools & Utilities` -> `/engineering_tools/` (Developer Software, Utilities)
 *   `[ COURSEWORK ]` -> `/academics/` (unified page listing CLEPs and general academic coursework logs)
@@ -114,8 +114,8 @@ Navigation is flat and clean, with dropdown lists reserved for sub-categories un
 **Active Dropdown Structure:**
 ```text
 [ ENGINEERING ] (Dropdown Menu)
- ├── Computer Science       --> /engineering_cs/       (Algorithms, Data Structures, Theory)
  ├── Audio Tutorials        --> /engineering_audio/    (Interactive Players & Companion Notes)
+ ├── Computer Science       --> /engineering_cs/       (Algorithms, Data Structures, Theory)
  ├── Articles & Guides      --> /engineering_articles/ (Linux Kernel, Embedded Systems, Audio ML)
  └── Tools & Utilities      --> /engineering_tools/    (Developer Software, Utilities)
 ```
