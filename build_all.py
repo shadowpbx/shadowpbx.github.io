@@ -350,14 +350,26 @@ def compile_standard_section(folder_path, folder_name, config):
                 post_href = f"posts/{out_fn}"
                 
                 chapter_num_val = str(meta.get("chapter_num", "99"))
-                if chapter_num_val != "99":
-                    terminal_prompt_str = f"user@hexdef:~$ study --chapter {chapter_num_val} --read"
+                slug = fn.replace(".md", "").lower().replace("_", "-")
+                slug = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', slug)
+                slug = slug.replace("master-index-of-", "").replace("-master-index", "").replace("the-", "")
+                slug = re.sub(r'^-+|-+$', '', slug)
+                
+                if folder_name == "cybersecurity_curriculum":
+                    if chapter_num_val != "99":
+                        terminal_prompt_str = f"user@hexdef:~$ study --chapter {chapter_num_val} --read"
+                    else:
+                        terminal_prompt_str = f"user@hexdef:~$ study --index {slug} --read"
+                elif folder_name == "engineering_cs":
+                    terminal_prompt_str = f"user@hexdef:~$ cs --index {slug} --read"
+                elif folder_name == "engineering_articles":
+                    terminal_prompt_str = f"user@hexdef:~$ engineering --article {slug} --read"
+                elif folder_name == "engineering_tools":
+                    terminal_prompt_str = f"user@hexdef:~$ engineering --tool {slug}"
+                elif folder_name == "engineering_audio":
+                    terminal_prompt_str = f"user@hexdef:~$ audio --engineering --listen"
                 else:
-                    slug = fn.replace(".md", "").lower().replace("_", "-")
-                    slug = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', slug)
-                    slug = slug.replace("master-index-of-", "").replace("-master-index", "").replace("the-", "")
-                    slug = re.sub(r'^-+|-+$', '', slug)
-                    terminal_prompt_str = f"user@hexdef:~$ study --index {slug} --read"
+                    terminal_prompt_str = f"user@hexdef:~$ cat {fn}"
                 
                 # Replace content in templates
                 post_html = template_content.replace("{{ title }}", title)\
