@@ -322,17 +322,17 @@
     }
 
     .btn-small {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
     }
 
     .btn-small .material-icons-round {
-      font-size: 1.25rem;
+      font-size: 1.45rem;
     }
 
     .btn-large {
-      width: 64px;
-      height: 64px;
+      width: 66px;
+      height: 66px;
       background: var(--accent-color);
       box-shadow: 0 4px 15px var(--accent-glow);
       border: none;
@@ -344,7 +344,95 @@
     }
 
     .btn-large .material-icons-round {
-      font-size: 2.25rem;
+      font-size: 2.6rem;
+    }
+
+    /* Circular Speed Control Button */
+    .btn-speed-cycle {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      padding: 0;
+      position: relative;
+    }
+
+    .btn-speed-cycle .speed-icon {
+      font-size: 1.25rem !important;
+      line-height: 1;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+    }
+
+    .btn-speed-cycle .speed-badge-text {
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1;
+      font-family: inherit;
+      color: var(--text-muted);
+      letter-spacing: -0.3px;
+      transition: color 0.2s ease;
+    }
+
+    .btn-speed-cycle:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .btn-speed-cycle:hover .speed-icon,
+    .btn-speed-cycle:hover .speed-badge-text {
+      color: #ffffff;
+    }
+
+    /* Active Glowing State when Speed != 1.0x */
+    .btn-speed-cycle.active {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .btn-speed-cycle.active .speed-icon,
+    .btn-speed-cycle.active .speed-badge-text {
+      color: #ffffff;
+    }
+
+    /* Circular Loop Control Button & SVG */
+    .btn-loop-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .loop-svg {
+      width: 24px;
+      height: 24px;
+      color: var(--text-muted);
+      transition: color 0.2s ease;
+      display: block;
+    }
+
+    .btn-loop-circle:hover {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    .btn-loop-circle:hover .loop-svg {
+      color: #ffffff;
+    }
+
+    /* Active Glowing State when looping (2, 3, ∞) */
+    .btn-loop-circle.active {
+      background: var(--accent-color);
+      border-color: var(--accent-color);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .btn-loop-circle.active .loop-svg {
+      color: #ffffff;
     }
 
     /* Custom Loop & Utility Single-Row Setting Bar */
@@ -357,115 +445,9 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 0.5rem;
       margin-bottom: 1rem;
-    }
-
-    .utility-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-    }
-
-    .setting-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.85rem;
-    }
-
-    .setting-label {
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .setting-label .material-icons-round {
-      font-size: 1.1rem;
-    }
-
-    /* Single-Click Cycling Loop Button & Companion Link */
-    .btn-loop-cycle {
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
-      border-radius: 8px;
-      height: 36px;
-      padding: 0 0.85rem;
-      font-size: 0.85rem;
-      font-family: inherit;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      box-sizing: border-box;
-      user-select: none;
-    }
-
-    /* Loop Icon with Centered Inset Number/Symbol */
-    .loop-icon-wrapper {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-    }
-
-    .loop-base-icon {
-      font-size: 1.45rem !important;
-      line-height: 1;
-      display: block;
-    }
-
-    .loop-badge-inside {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -46%);
-      font-size: 0.58rem;
-      font-weight: 800;
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -0.5px;
-      color: var(--text-muted);
-    }
-
-    .btn-loop-cycle:hover {
-      background: var(--accent-color);
-      color: #ffffff;
-      border-color: var(--accent-color);
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    .btn-loop-cycle:hover .material-icons-round,
-    .btn-loop-cycle:hover .loop-badge-inside {
-      color: #ffffff;
-    }
-
-    .btn-loop-cycle:active {
-      transform: scale(0.96);
-    }
-
-    /* Active Glowing State when looping (2, 3, ∞) */
-    .btn-loop-cycle.active {
-      background: var(--accent-color);
-      color: #ffffff;
-      border-color: var(--accent-color);
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    .btn-loop-cycle.active .material-icons-round,
-    .btn-loop-cycle.active .loop-badge-inside {
-      color: #ffffff;
     }
 
     .btn-link {
@@ -474,7 +456,7 @@
       color: var(--text-main);
       border-radius: 8px;
       height: 36px;
-      padding: 0 0.85rem;
+      padding: 0 1rem;
       font-size: 0.85rem;
       text-decoration: none;
       cursor: pointer;
@@ -484,6 +466,7 @@
       justify-content: center;
       font-weight: 500;
       box-sizing: border-box;
+      width: 100%;
     }
     .btn-link:hover {
       background: var(--accent-color);
@@ -961,25 +944,38 @@
 
       .controls-row {
         margin-bottom: 0.5rem;
-        gap: 0.75rem;
+        gap: 0.5rem;
       }
 
       .btn-large {
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
       }
 
       .btn-large .material-icons-round {
-        font-size: 1.75rem;
+        font-size: 2.1rem;
       }
 
       .btn-small {
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
       }
 
       .btn-small .material-icons-round {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+      }
+
+      .btn-speed-cycle .speed-icon {
+        font-size: 1.15rem !important;
+      }
+
+      .btn-speed-cycle .speed-badge-text {
+        font-size: 0.58rem;
+      }
+
+      .loop-svg {
+        width: 22px;
+        height: 22px;
       }
 
       .settings-grid {
@@ -1068,33 +1064,43 @@
         </div>
       </div>
 
-      <!-- Main Controls Row -->
+      <!-- Main Controls Row (5-Button Circular Transport Bar) -->
       <div class="controls-row">
+        <!-- Far Left: Speed Control Circle Button -->
+        <button class="btn-circle btn-small btn-speed-cycle" id="btnSpeedCycle" title="Playback Speed: 1.0x (Click to cycle)" aria-label="Playback Speed">
+          <span class="material-icons-round speed-icon">speed</span>
+          <span class="speed-badge-text" id="speedCycleLabel">1.0x</span>
+        </button>
+
+        <!-- Previous Track -->
         <button class="btn-circle btn-small" id="btnPrev" title="Previous Track" aria-label="Previous Track">
           <span class="material-icons-round">skip_previous</span>
         </button>
+
+        <!-- Play/Pause Track -->
         <button class="btn-circle btn-large" id="btnPlay" title="Play/Pause" aria-label="Play/Pause">
           <span class="material-icons-round" id="playIcon">play_arrow</span>
         </button>
+
+        <!-- Next Track -->
         <button class="btn-circle btn-small" id="btnNext" title="Next Track" aria-label="Next Track">
           <span class="material-icons-round">skip_next</span>
         </button>
+
+        <!-- Far Right: Repeat Loop Circle Button with Inset Number -->
+        <button class="btn-circle btn-small btn-loop-circle" id="btnLoopCycle" title="Repeat: Play once (Click to cycle 2, 3, ∞)" aria-label="Cycle repeat mode">
+          <svg class="loop-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12a10 10 0 1 1-10-10c2.8 0 5.48 1.12 7.49 3.05L22 7.5" stroke-width="2"/>
+            <path d="M22 2v5.5h-5.5" stroke-width="2"/>
+            <text x="12" y="15.2" fill="currentColor" stroke="none" font-size="8.5" font-weight="900" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" id="loopCycleLabel">1</text>
+          </svg>
+        </button>
       </div>
 
-      <!-- Single-Row Utility Bar: Cycling Repeat Button & Study Notes Link -->
+      <!-- Study Companion Utility Row -->
       <div class="settings-grid">
-        <!-- Left: Cycling Repeat Button with Inset Number/Symbol (1, 2, 3, ∞) -->
-        <button type="button" class="btn-loop-cycle" id="btnLoopCycle" title="Repeat: Play once (Click to cycle 2, 3, ∞)" aria-label="Cycle repeat mode">
-          <span class="loop-icon-wrapper">
-            <span class="material-icons-round loop-base-icon">repeat</span>
-            <span class="loop-badge-inside" id="loopCycleLabel">1</span>
-          </span>
-          <span>Repeat</span>
-        </button>
-
-        <!-- Right: Written Companion Link -->
         <a class="btn-link" href="companion.html" target="_blank" title="Open written study notes in a new tab">
-          <span class="material-icons-round" style="font-size: 1rem; margin-right: 0.3rem;">menu_book</span>
+          <span class="material-icons-round" style="font-size: 1.1rem; margin-right: 0.4rem;">menu_book</span>
           <span>Study Notes</span>
         </a>
 
@@ -1172,7 +1178,8 @@
     const playIcon = document.getElementById('playIcon');
     const btnPrev = document.getElementById('btnPrev');
     const btnNext = document.getElementById('btnNext');
-    const speedSelect = document.getElementById('speedSelect'); // null if removed
+    const btnSpeedCycle = document.getElementById('btnSpeedCycle');
+    const speedCycleLabel = document.getElementById('speedCycleLabel');
     const btnLoopCycle = document.getElementById('btnLoopCycle');
     const loopCycleLabel = document.getElementById('loopCycleLabel');
     const loopBadge = document.getElementById('loopBadge');
@@ -1181,6 +1188,7 @@
     const r2BaseUrlInput = document.getElementById('r2BaseUrlInput');
 
     const LOOP_MODES = [1, 2, 3, Infinity];
+    const SPEED_MODES = [1.0, 1.1, 1.2, 0.8, 0.9];
 
     // Dynamic LocalStorage Namespace Isolator
     // Ensures multiple player instances/courses running side-by-side on the same domain never conflict
@@ -1331,9 +1339,12 @@
         }
         updateLoopUI();
         if (storedSpeed !== null) {
-          audio.playbackRate = parseFloat(storedSpeed);
-          // speed state preserved
+          const parsedSpeed = parseFloat(storedSpeed);
+          if (!isNaN(parsedSpeed) && parsedSpeed >= 0.5 && parsedSpeed <= 3.0) {
+            audio.playbackRate = parsedSpeed;
+          }
         }
+        updateSpeedUI();
         
         loadTrack(currentTrackIndex, false, true);
         
@@ -1862,7 +1873,7 @@
       updateLoopBadge();
     }
 
-    // Single-click cycle repeat handler: 1x -> 2x -> 3x -> ∞ -> 1x
+    // Single-click cycle repeat handler: 1 -> 2 -> 3 -> ∞ -> 1
     function cycleLoopMode() {
       const currentIndex = LOOP_MODES.indexOf(targetLoopLimit);
       const nextIndex = (currentIndex === -1) ? 0 : (currentIndex + 1) % LOOP_MODES.length;
@@ -1873,6 +1884,38 @@
       }
       updateLoopUI();
       savePlaybackState();
+    }
+
+    // Update the circular speed button visual state
+    function updateSpeedUI() {
+      const label = document.getElementById('speedCycleLabel');
+      const btn = document.getElementById('btnSpeedCycle');
+      if (!label || !btn) return;
+
+      const currentRate = audio.playbackRate || 1.0;
+      const formattedRate = (currentRate === 1.0) ? '1.0x' : `${Number(currentRate.toFixed(1))}x`;
+      label.textContent = formattedRate;
+
+      if (Math.abs(currentRate - 1.0) > 0.001) {
+        btn.classList.add('active');
+        btn.title = `Playback Speed: ${formattedRate} (Click to cycle, double-click to reset 1.0x)`;
+      } else {
+        btn.classList.remove('active');
+        btn.title = 'Playback Speed: 1.0x (Normal) (Click to cycle)';
+      }
+    }
+
+    // Single-click cycle speed handler: 1.0x -> 1.1x -> 1.2x -> 0.8x -> 0.9x -> 1.0x
+    function cycleSpeedMode() {
+      const currentRate = Number((audio.playbackRate || 1.0).toFixed(1));
+      let currentIndex = SPEED_MODES.findIndex(r => Math.abs(r - currentRate) < 0.01);
+      const nextIndex = (currentIndex === -1) ? 0 : (currentIndex + 1) % SPEED_MODES.length;
+      const newSpeed = SPEED_MODES[nextIndex];
+      
+      audio.playbackRate = newSpeed;
+      updateSpeedUI();
+      savePlaybackState();
+      Log.info(`Playback speed updated to ${newSpeed}x`);
     }
 
     // Playback navigation
@@ -2020,13 +2063,22 @@
       savePlaybackState();
     });
 
-    // Cycling Loop Button Event Listener (1x -> 2x -> 3x -> ∞ -> 1x)
+    // Cycling Loop Button Event Listener (1 -> 2 -> 3 -> ∞ -> 1)
     if (btnLoopCycle) {
       btnLoopCycle.addEventListener('click', cycleLoopMode);
     }
 
-    // Speed Selector Handler
-    // Playback rate fixed at standard 1.0x
+    // Cycling Speed Button Event Listener (1.0x -> 1.1x -> 1.2x -> 0.8x -> 0.9x -> 1.0x)
+    if (btnSpeedCycle) {
+      btnSpeedCycle.addEventListener('click', cycleSpeedMode);
+      btnSpeedCycle.addEventListener('dblclick', (e) => {
+        e.preventDefault();
+        audio.playbackRate = 1.0;
+        updateSpeedUI();
+        savePlaybackState();
+        Log.info('Playback speed reset to 1.0x (Normal)');
+      });
+    }
 
     // Initialize Always-Visible Scroll To Top handler
     function initScrollTopButton() {
