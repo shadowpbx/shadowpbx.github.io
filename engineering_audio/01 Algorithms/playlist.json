@@ -1,0 +1,227 @@
+{
+  "title": "Master Index of Algorithms",
+  "subtitle": "The Definitive Computer Science Reference",
+  "baseUrl": "https://engineering.hexdef.com/algorithms/",
+  "tracks": [
+    {
+      "file": "1.1 Binary Search.mp3",
+      "duration": 401.7
+    },
+    {
+      "file": "1.2 MergeSort.mp3",
+      "duration": 409.0
+    },
+    {
+      "file": "1.3 QuickSort.mp3",
+      "duration": 399.3
+    },
+    {
+      "file": "1.4 HeapSort.mp3",
+      "duration": 401.6
+    },
+    {
+      "file": "1.5 Radix Sort.mp3",
+      "duration": 440.1
+    },
+    {
+      "file": "1.6 Insertion Sort.mp3",
+      "duration": 389.6
+    },
+    {
+      "file": "1.7 Counting Sort.mp3",
+      "duration": 435.5
+    },
+    {
+      "file": "2.1 Breadth-First Search.mp3",
+      "duration": 345.9
+    },
+    {
+      "file": "2.2 Depth-First Search.mp3",
+      "duration": 351.0
+    },
+    {
+      "file": "2.3 Dijkstra's Algorithm.mp3",
+      "duration": 387.2
+    },
+    {
+      "file": "2.4 A-Star Search Algorithm.mp3",
+      "duration": 394.5
+    },
+    {
+      "file": "2.5 Kruskal's and Prim's Algorithms.mp3",
+      "duration": 398.9
+    },
+    {
+      "file": "2.6 Bellman-Ford Algorithm.mp3",
+      "duration": 395.3
+    },
+    {
+      "file": "2.7 Floyd-Warshall Algorithm.mp3",
+      "duration": 390.1
+    },
+    {
+      "file": "2.8 Topological Sort.mp3",
+      "duration": 354.3
+    },
+    {
+      "file": "2.9 Ford-Fulkerson and Edmonds-Karp.mp3",
+      "duration": 408.7
+    },
+    {
+      "file": "2.10 Tarjan's Algorithm.mp3",
+      "duration": 421.2
+    },
+    {
+      "file": "3.1 0-1 Knapsack Problem.mp3",
+      "duration": 390.1
+    },
+    {
+      "file": "3.2 Longest Common Subsequence.mp3",
+      "duration": 389.8
+    },
+    {
+      "file": "3.3 Levenshtein Distance.mp3",
+      "duration": 394.5
+    },
+    {
+      "file": "3.4 Matrix Chain Multiplication.mp3",
+      "duration": 466.5
+    },
+    {
+      "file": "4.1 Knuth-Morris-Pratt Algorithm.mp3",
+      "duration": 387.6
+    },
+    {
+      "file": "4.2 Rabin-Karp Algorithm.mp3",
+      "duration": 402.0
+    },
+    {
+      "file": "4.3 Boyer-Moore Algorithm.mp3",
+      "duration": 385.6
+    },
+    {
+      "file": "4.4 Aho-Corasick Algorithm.mp3",
+      "duration": 413.4
+    },
+    {
+      "file": "4.5 Huffman Coding.mp3",
+      "duration": 405.2
+    },
+    {
+      "file": "4.6 Lempel-Ziv-Welch Compression.mp3",
+      "duration": 428.8
+    },
+    {
+      "file": "5.1 Euclidean Algorithm.mp3",
+      "duration": 440.3
+    },
+    {
+      "file": "5.2 Sieve of Eratosthenes.mp3",
+      "duration": 408.7
+    },
+    {
+      "file": "5.3 Fast Fourier Transform.mp3",
+      "duration": 441.9
+    },
+    {
+      "file": "5.4 Monte Carlo Algorithm.mp3",
+      "duration": 403.1
+    },
+    {
+      "file": "6.1 Graham Scan Convex Hull.mp3",
+      "duration": 401.4
+    },
+    {
+      "file": "6.2 Sweep Line Algorithm.mp3",
+      "duration": 411.6
+    },
+    {
+      "file": "6.3 Ray Casting Algorithm.mp3",
+      "duration": 446.6
+    },
+    {
+      "file": "7.1 RSA Algorithm.mp3",
+      "duration": 410.5
+    },
+    {
+      "file": "7.2 AES Advanced Encryption Standard.mp3",
+      "duration": 417.9
+    },
+    {
+      "file": "7.3 SHA-256 Secure Hash Algorithm.mp3",
+      "duration": 447.5
+    },
+    {
+      "file": "7.4 Diffie-Hellman Key Exchange.mp3",
+      "duration": 467.1
+    },
+    {
+      "file": "8.1 Bloom Filter.mp3",
+      "duration": 454.5
+    },
+    {
+      "file": "8.2 HyperLogLog.mp3",
+      "duration": 461.5
+    },
+    {
+      "file": "8.3 Count-Min Sketch.mp3",
+      "duration": 408.7
+    },
+    {
+      "file": "8.4 Locality-Sensitive Hashing.mp3",
+      "duration": 423.1
+    },
+    {
+      "file": "8.5 PageRank.mp3",
+      "duration": 409.7
+    },
+    {
+      "file": "8.6 MapReduce.mp3",
+      "duration": 403.7
+    },
+    {
+      "file": "9.1 Gradient Descent.mp3",
+      "duration": 389.6
+    },
+    {
+      "file": "9.2 Backpropagation.mp3",
+      "duration": 389.0
+    },
+    {
+      "file": "9.3 K-Means Clustering.mp3",
+      "duration": 425.1
+    },
+    {
+      "file": "9.4 Support Vector Machines.mp3",
+      "duration": 424.4
+    },
+    {
+      "file": "9.5 Minimax with Alpha-Beta Pruning.mp3",
+      "duration": 402.1
+    },
+    {
+      "file": "9.6 Simulated Annealing.mp3",
+      "duration": 421.0
+    },
+    {
+      "file": "9.7 Genetic Algorithms.mp3",
+      "duration": 422.4
+    },
+    {
+      "file": "10.1 Paxos and Raft Algorithms.mp3",
+      "duration": 452.0
+    },
+    {
+      "file": "10.2 Proof of Work and Proof of Stake.mp3",
+      "duration": 447.8
+    },
+    {
+      "file": "11.1 Shor's Algorithm.mp3",
+      "duration": 445.9
+    },
+    {
+      "file": "11.2 Grover's Algorithm.mp3",
+      "duration": 499.4
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+Title: Master Index of Algorithms
+Sub Title: The Definitive Computer Science Reference
