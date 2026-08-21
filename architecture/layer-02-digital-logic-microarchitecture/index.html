@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 02: Digital Logic & Microarchitecture | Master Curriculum</title>
+    <meta name="description" content="Master Index of Digital Logic, Computer Architecture, RISC/CISC ISAs, Superscalar Pipelining, Cache Coherence, Hardware Security Enclaves & Microarchitectural Exploits.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        /* Header Layer Badge */
+        .header-layer-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.3rem 0.75rem;
+            border-radius: 5px;
+            border: 1px solid #1e293b;
+            vertical-align: middle;
+            margin-right: 0.65rem;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+        }
+
+        /* Layer Hero & Header Typography */
+        .layer-hero-box {
+            padding: 1.5rem 0 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .layer-page-subtitle {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 860px;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .layer-stats-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+        }
+
+        .stat-val {
+            font-weight: 800;
+        }
+
+        .stat-lbl {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            color: var(--border);
+        }
+
+        /* 6 Signature Domain Color Systems for Layer 02 */
+        .domain-1 {
+            --domain-color: #6366f1;
+            --domain-bg: rgba(99, 102, 241, 0.05);
+            --domain-border: rgba(99, 102, 241, 0.25);
+            --domain-glow: rgba(99, 102, 241, 0.12);
+        }
+        .domain-2 {
+            --domain-color: #0284c7;
+            --domain-bg: rgba(2, 132, 199, 0.05);
+            --domain-border: rgba(2, 132, 199, 0.25);
+            --domain-glow: rgba(2, 132, 199, 0.12);
+        }
+        .domain-3 {
+            --domain-color: #059669;
+            --domain-bg: rgba(5, 150, 105, 0.05);
+            --domain-border: rgba(5, 150, 105, 0.25);
+            --domain-glow: rgba(5, 150, 105, 0.12);
+        }
+        .domain-4 {
+            --domain-color: #d97706;
+            --domain-bg: rgba(217, 119, 6, 0.05);
+            --domain-border: rgba(217, 119, 6, 0.25);
+            --domain-glow: rgba(217, 119, 6, 0.12);
+        }
+        .domain-5 {
+            --domain-color: #2563eb;
+            --domain-bg: rgba(37, 99, 235, 0.05);
+            --domain-border: rgba(37, 99, 235, 0.25);
+            --domain-glow: rgba(37, 99, 235, 0.12);
+        }
+        .domain-6 {
+            --domain-color: #e11d48;
+            --domain-bg: rgba(225, 29, 72, 0.05);
+            --domain-border: rgba(225, 29, 72, 0.25);
+            --domain-glow: rgba(225, 29, 72, 0.12);
+        }
+
+        /* Domain Jump Nav */
+        .domain-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            padding: 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .domain-nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .domain-nav-link.nav-d1 { color: #6366f1; border-color: rgba(99, 102, 241, 0.3); }
+        .domain-nav-link.nav-d1:hover { background: #6366f1; color: #ffffff; border-color: #6366f1; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d2 { color: #0284c7; border-color: rgba(2, 132, 199, 0.3); }
+        .domain-nav-link.nav-d2:hover { background: #0284c7; color: #ffffff; border-color: #0284c7; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d3 { color: #059669; border-color: rgba(5, 150, 105, 0.3); }
+        .domain-nav-link.nav-d3:hover { background: #059669; color: #ffffff; border-color: #059669; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d4 { color: #d97706; border-color: rgba(217, 119, 6, 0.3); }
+        .domain-nav-link.nav-d4:hover { background: #d97706; color: #ffffff; border-color: #d97706; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d5 { color: #2563eb; border-color: rgba(37, 99, 235, 0.3); }
+        .domain-nav-link.nav-d5:hover { background: #2563eb; color: #ffffff; border-color: #2563eb; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d6 { color: #e11d48; border-color: rgba(225, 29, 72, 0.3); }
+        .domain-nav-link.nav-d6:hover { background: #e11d48; color: #ffffff; border-color: #e11d48; transform: translateY(-1px); }
+
+        /* Domain Container & Module Cards */
+        .domain-section {
+            margin-bottom: 3.25rem;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--domain-bg);
+            border: 1px solid var(--domain-border);
+            border-left: 4px solid var(--domain-color);
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-title {
+            font-size: 1.20rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .domain-count {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--domain-color);
+            background: #ffffff;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid var(--domain-border);
+        }
+
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .domain-section .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .domain-section .module-card:hover {
+            border-color: var(--domain-color);
+            box-shadow: 0 6px 18px var(--domain-glow);
+            transform: translateY(-2px);
+        }
+
+        .module-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .module-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .domain-section .module-id {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--domain-color);
+        }
+
+        .module-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .rigor-badge {
+            font-family: var(--font-mono);
+            font-size: 0.70rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+        }
+
+        .rigor-bs { background: rgba(5, 150, 105, 0.1); color: #059669; border: 1px solid rgba(5, 150, 105, 0.25); }
+        .rigor-ms { background: rgba(37, 99, 235, 0.1); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.25); }
+        .rigor-phd { background: rgba(225, 29, 72, 0.1); color: #e11d48; border: 1px solid rgba(225, 29, 72, 0.25); }
+
+        .module-desc {
+            font-size: 0.90rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin: 0 0 0.65rem 0;
+        }
+
+        .module-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .domain-section .module-app {
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            background: var(--domain-bg);
+            border-left: 3px solid var(--domain-color);
+            padding: 0.65rem 0.95rem;
+            border-radius: 0 6px 6px 0;
+            margin: 0;
+        }
+
+        .domain-section .module-app strong {
+            color: var(--domain-color);
+            font-weight: 800;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: inline-block;
+            margin-right: 0.35rem;
+        }
+
+        .back-nav {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-back {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(142, 68, 173, 0.08);
+            border: 1px solid rgba(142, 68, 173, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering_cs/">Computer Science</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 02 --index digital-logic-microarchitecture</div>
+            <h1><span class="header-layer-badge">LAYER 02</span> Digital Logic &amp; Microarchitecture</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="layer-hero-box">
+            <p class="layer-page-subtitle">
+                The discrete computational bridge between physical silicon and software execution. Master curriculum spanning Boolean algebra, ALU design, RISC/CISC ISAs, 5-stage superscalar pipelining, cache coherence hierarchies, hardware security enclaves (ARM TrustZone, Intel CET, ARM MTE), and microarchitectural transient execution exploits (Spectre, Meltdown, MDS, Rowhammer).
+            </p>
+            <div class="layer-stats-strip">
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #6366f1;">6</span>
+                    <span class="stat-lbl">Core Domains</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #059669;">32</span>
+                    <span class="stat-lbl">Technical Modules</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #e11d48;">100%</span>
+                    <span class="stat-lbl">Microarchitectural Ground Truth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Jump Navigation -->
+        <nav class="domain-nav" aria-label="Domain Quick Navigation">
+            <a href="#domain-1" class="domain-nav-link nav-d1">2.1 Digital Logic (5)</a>
+            <a href="#domain-2" class="domain-nav-link nav-d2">2.2 ISA &amp; CPU (5)</a>
+            <a href="#domain-3" class="domain-nav-link nav-d3">2.3 Pipelining &amp; OoO (6)</a>
+            <a href="#domain-4" class="domain-nav-link nav-d4">2.4 Memory &amp; Caches (5)</a>
+            <a href="#domain-5" class="domain-nav-link nav-d5">2.5 Hardware Security (5)</a>
+            <a href="#domain-6" class="domain-nav-link nav-d6">2.6 Microarch Exploits (6)</a>
+        </nav>
+
+        <!-- DOMAIN 2.1 -->
+        <section class="domain-section domain-1" id="domain-1">
+            <div class="domain-header">
+                <h2 class="domain-title">2.1 Digital Logic &amp; Circuit Primitives</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.1.1</span>
+                            <h3 class="module-title">Logic Gates &amp; Boolean Algebra</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Semiconductor switching circuits (AND, OR, NOT, XOR, NAND, NOR) that evaluate discrete binary voltage states against fundamental Boolean algebraic identities and DeMorgan's laws.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> XOR gates form the mathematical foundation of stream ciphers and one-time pads; universal NAND/NOR gate topologies construct all computing logic and are audited for hardware backdoors.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.1.2</span>
+                            <h3 class="module-title">Combinational Logic (Adders, Multiplexers, Decoders &amp; ALUs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Stateless logic networks whose outputs depend solely on the instantaneous combination of present inputs, including ripple-carry/lookahead adders, barrel shifters, and Arithmetic Logic Units (ALUs).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The execution core of every microprocessor; arithmetic overflow and underflow conditions in ALU circuits create integer truncation vulnerabilities in compiled software.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.1.3</span>
+                            <h3 class="module-title">Sequential Logic (Flip-Flops, Latches &amp; Clocks)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Bistable multivibrator circuits (D flip-flops, SR latches) governed by strict setup ($t_{\text{setup}}$) and hold ($t_{\text{hold}}$) timing constraints that store state synchronously on master clock transitions.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Building CPU register files and pipeline stage boundaries; setup-time violations induced via clock-glitching cause flip-flops to enter metastable states, skipping security branch checks.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.1.4</span>
+                            <h3 class="module-title">Finite State Machines (FSM: Mealy &amp; Moore)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Mathematical models of sequential hardware control composed of discrete state registers, input combinational decoders, and transition functions (Mealy with asynchronous input dependency vs. Moore synchronous outputs).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Governs protocol controllers (USB, PCIe, DRAM) and instruction decoders; unhandled illegal state transitions allow fault-injection attacks to force hardware controllers into undefined privileged modes.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.1.5</span>
+                            <h3 class="module-title">Hardware Description Languages (HDLs) &amp; FPGAs (Verilog / VHDL)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Register-Transfer Level (RTL) formal code standards used to synthesize digital logic onto Field-Programmable Gate Array Look-Up Tables (LUTs) or fabricate dedicated Application-Specific Integrated Circuits (ASICs).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Designing custom open-source cryptographic accelerators (RISC-V); RTL static analysis tools audit HDL source code for stealth silicon backdoors and malicious trigger circuits.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 2.2 -->
+        <section class="domain-section domain-2" id="domain-2">
+            <div class="domain-header">
+                <h2 class="domain-title">2.2 Instruction Set Architecture (ISA) &amp; CPU Fundamentals</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.2.1</span>
+                            <h3 class="module-title">Instruction Set Architecture (ISA: x86-64, ARM64, RISC-V)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> The formal architectural contract between hardware execution and software binary code, defining machine instructions, native word sizes, addressing modes, and programmer-visible register states.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The fundamental target for binary reverse engineering, shellcode crafting, and exploit payload generation; dictates instruction encoding (fixed-length 32-bit in ARM/RISC-V vs. variable-length 1–15 byte in x86).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.2.2</span>
+                            <h3 class="module-title">Register Architecture &amp; Special-Purpose Registers</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Zero-latency on-chip storage directly wired to ALU data paths, split into General-Purpose Registers (GPRs) and Special Registers (Instruction Pointer <code>RIP/PC</code>, Stack Pointer <code>RSP/SP</code>, Frame Pointer, Status Flags).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Overwriting the Instruction Pointer (<code>RIP</code>) to hijack control flow is the primary objective of stack/heap memory corruption exploits; register preservation conventions govern calling ABIs.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.2.3</span>
+                            <h3 class="module-title">Endianness &amp; Memory Alignment Constraints</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Byte-ordering conventions in multi-byte memory words—Little-Endian (least significant byte first in x86/ARM) vs. Big-Endian (network order)—alongside natural 4-byte/8-byte memory alignment rules.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Binary exploit payloads fail if address pointers or shellcode bytes are reversed; unaligned memory access induces bus lock penalties or hardware alignment check faults (<code>#AC</code>).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.2.4</span>
+                            <h3 class="module-title">Microcode Engine &amp; Processor Control Units</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> An internal hardware translation engine inside CISC processors (x86) that decomposes complex architectural instructions into sequences of primitive hardware micro-operations ($\mu\text{ops}$) stored in on-die Microcode ROM.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> CPU manufacturers issue cryptographically signed microcode patches to mitigate hardware vulnerabilities (Spectre, Downfall, Meltdown) in field-deployed silicon without physical chip replacement.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.2.5</span>
+                            <h3 class="module-title">Vector Architectures &amp; SIMD Acceleration (AVX-512, NEON, SVE)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Single Instruction, Multiple Data (SIMD) execution units with wide 128-bit, 256-bit, and 512-bit registers engineered to execute high-throughput parallel data processing on floating-point and cryptographic arrays.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Vector execution units introduce microarchitectural leakage channels (e.g., Downfall / Gather Data Sampling), where speculative execution on vector <code>GATHER</code> instructions leaks stale cross-process register data.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 2.3 -->
+        <section class="domain-section domain-3" id="domain-3">
+            <div class="domain-header">
+                <h2 class="domain-title">2.3 CPU Pipelining &amp; High-Performance Microarchitecture</h2>
+                <span class="domain-count">6 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.3.1</span>
+                            <h3 class="module-title">Instruction Execution Pipeline (Classic 5-Stage)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Partitioning instruction processing into discrete sequential stages (Fetch, Decode, Execute, Memory, Writeback), allowing up to five instructions to execute concurrently across different hardware functional units.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Pipeline execution overlaps create instruction cycle timing variations; attackers measure execution latency deltas to infer cryptographic secret data in constant-time algorithms.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.3.2</span>
+                            <h3 class="module-title">Pipeline Hazards &amp; Forwarding Networks</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Microarchitectural stalls resulting from Structural hazards (hardware contention), Data hazards (RAW, WAR, WAW dependencies), and Control hazards (branch jumps), resolved via data forwarding bypass paths or pipeline bubbles.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Forwarding network race conditions and pipeline stall delays expose side-channel timing artifacts; analyzing stall frequency reveals memory access patterns inside victim cryptographic processes.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.3.3</span>
+                            <h3 class="module-title">Superscalar Execution &amp; Register Renaming</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Parallel multi-issue microarchitectures that map a small set of architectural registers to a larger pool of physical registers via Register Alias Tables (RAT), eliminating false Write-After-Read (WAR) and Write-After-Write (WAW) hazards.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Physical register file entries can retain transient stale data from prior security contexts, susceptible to speculative microarchitectural data sampling (MDS) before physical register clearing.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.3.4</span>
+                            <h3 class="module-title">Branch Prediction &amp; Branch Target Buffers (BTB)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Hardware speculative prediction engines using 2-bit saturating counters, TAGE multi-history tables, and Branch Target Buffers (BTB) to predict the outcome and target address of conditional jump instructions in advance.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Poisoning BTB cache states allows attackers to mistrain the CPU into speculatively jumping to arbitrary unauthorized code gadgets (Spectre-V2 Branch Target Injection).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.3.5</span>
+                            <h3 class="module-title">Out-of-Order Execution (OoO) &amp; Speculation</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Dynamically reordering instruction streams via Reservation Stations and Reorder Buffers (ROB) to execute operations as soon as operands are ready, retiring architectural state in-order and rolling back speculative errors.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The foundational hardware performance mechanism underlying transient execution attacks (Spectre, Meltdown); discarded speculative execution paths leave physical side-channel traces in CPU caches.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.3.6</span>
+                            <h3 class="module-title">Simultaneous Multithreading (SMT / Hyper-Threading)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Microarchitectural hardware slicing that presents multiple logical CPU cores to the OS while sharing underlying physical execution pipelines, ALUs, and L1/L2 cache resources across co-located sibling threads.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Cross-thread side-channel exploitation (PortSmash, SMoTherSpectre); a malicious unprivileged thread running on a sibling logical core measures ALU port contention to extract private keys in real time.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 2.4 -->
+        <section class="domain-section domain-4" id="domain-4">
+            <div class="domain-header">
+                <h2 class="domain-title">2.4 Memory Hierarchy, Interconnects &amp; CPU Caches</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.4.1</span>
+                            <h3 class="module-title">Cache Architecture (L1I/L1D, L2, L3 / LLC)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Multi-tier on-die SRAM memory pools organized into fixed 64-byte Cache Lines with Tag, Index, and Offset bit fields designed to bridge the nanosecond latency gap between CPU cores and main DRAM memory.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The ~1ns cache hit vs. ~60ns DRAM cache miss latency delta is the physical timing oracle utilized by microarchitectural side-channel attacks to reconstruct secret memory data.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.4.2</span>
+                            <h3 class="module-title">Cache Placement &amp; Replacement Policies (Set-Associative, LRU)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Mathematical algorithms determining which cache set an address maps to ($N$-way set-associativity) and which cache line is evicted (Least Recently Used LRU, Pseudo-LRU) when a set reaches full capacity.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Exploited in eviction-based cache attacks (Prime+Probe); attackers prime target cache sets with probe lines and measure victim eviction patterns to track private key operations.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.4.3</span>
+                            <h3 class="module-title">Cache Coherence Protocols (MESI, MOESI)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Hardware finite state machines (Modified, Exclusive, Shared, Invalid, Owner) operating across snooping buses or directory fabrics to ensure multi-core processors maintain a consistent view of shared physical memory.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Inter-core cache invalidation requests and coherence snooping traffic across on-chip interconnects leak shared memory access patterns to unprivileged observer cores.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.4.4</span>
+                            <h3 class="module-title">Memory Management Unit (MMU) &amp; Hardware TLBs</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Dedicated hardware multi-level page table walkers and Translation Lookaside Buffer (TLB) associative caches that accelerate virtual-to-physical address translation directly in silicon.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> TLB eviction timing side-channels (TLBleed) bypass cache-isolation defenses; speculative MMU page-table walking without immediate privilege faulting enabled the original Meltdown exploit.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.4.5</span>
+                            <h3 class="module-title">System Interconnects &amp; Bus Fabrics (PCIe, CXL, AXI, Crossbars)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> High-bandwidth point-to-point packetized buses (PCI Express, Compute Express Link CXL, ARM AXI) and on-chip crossbar switches connecting CPU cores to GPUs, accelerators, and system RAM.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Direct Memory Access (DMA) attack surfaces; malicious PCIe hardware devices can bypass CPU access controls to read/write physical kernel memory unless strict IOMMU access policies are enforced.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 2.5 -->
+        <section class="domain-section domain-5" id="domain-5">
+            <div class="domain-header">
+                <h2 class="domain-title">2.5 Hardware Security Primitives &amp; Silicon Roots of Trust</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.5.1</span>
+                            <h3 class="module-title">Hardware Root of Trust (HRoT) &amp; eFuses</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Immutable on-die silicon Mask ROM containing factory initial boot code, paired with microscopic One-Time Programmable (OTP) physical electronic fuses that store public key hashes and security lifecycle states.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Anchors the cryptographic chain of trust for Secure Boot; prevents firmware rollback attacks and locks JTAG debug interfaces once production devices leave the assembly facility.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.5.2</span>
+                            <h3 class="module-title">Hardware Security Modules (HSM) &amp; Secure Elements (SE)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Physically isolated, tamper-resistant cryptographic coprocessors (Apple Secure Enclave SEP, Google Titan M2, discrete TPM 2.0) with dedicated cryptographic accelerators, internal SRAM, and active physical sensor shielding.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Generates and stores private cryptographic keys isolated from the main host OS; handles biometric authentication and disk encryption key unlocking.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.5.3</span>
+                            <h3 class="module-title">Trusted Execution Environments (ARM TrustZone, Intel SGX, AMD SEV)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Hardware architectural privilege extensions that partition the processor into Secure and Non-Secure states (TrustZone) or dynamically encrypt RAM pages (AMD SEV / Intel SGX enclaves) to protect memory from a compromised host kernel.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Enables confidential computing in untrusted cloud environments; vulnerable to enclave side-channel extraction (SGX-Pore, SGAxe) via unmitigated cache timing leaks.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.5.4</span>
+                            <h3 class="module-title">Hardware Control-Flow Integrity (Intel CET, ARM PAC &amp; BTI)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Silicon-enforced execution integrity mechanisms, including hardware Shadow Stacks (Intel CET) and cryptographic Pointer Authentication Codes (ARM PAC) that validate return addresses and indirect jump targets in hardware.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Hardware-level mitigation against Return-Oriented Programming (ROP) and Jump-Oriented Programming (JOP) attacks, rendering traditional memory corruption control-flow hijacking inert.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.5.5</span>
+                            <h3 class="module-title">Hardware Memory Tagging (ARM MTE) &amp; Capabilities (CHERI)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Silicon-level memory safety extensions that attach 4-bit metadata tags to 16-byte memory granules, validating pointer tags against allocated memory tags on every load and store instruction at hardware wire speed.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Eliminates entire classes of memory vulnerabilities (Use-After-Free, out-of-bounds spatial overflows) directly in silicon with negligible software execution overhead.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 2.6 -->
+        <section class="domain-section domain-6" id="domain-6">
+            <div class="domain-header">
+                <h2 class="domain-title">2.6 Microarchitectural Attacks &amp; Silicon Exploitation</h2>
+                <span class="domain-count">6 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.6.1</span>
+                            <h3 class="module-title">Spectre (Speculative Execution / Branch Target Exploitation)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Inducing CPU branch predictors (BTB / PHT) to speculatively execute unauthorized code paths beyond bounds checks (Spectre-V1) or target indirect branch targets (Spectre-V2), recovering secret data via cache timing side-channels.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Breaks process boundaries, virtual machine isolation, and browser sandboxes; allows JavaScript in a browser tab to read cross-origin passwords and cryptographic keys from memory.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.6.2</span>
+                            <h3 class="module-title">Meltdown (Rogue Data Cache Load)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Exploiting microarchitectural race conditions where out-of-order execution loads kernel memory into L1 data caches before the CPU's architectural privilege check completes and raises a page fault exception.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Allowed unprivileged standard user applications to dump entire physical kernel memory at megabytes per second; required Kernel Page Table Isolation (KPTI) operating system redesign.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.6.3</span>
+                            <h3 class="module-title">Speculative Store Bypass &amp; RSB Exploits (Retbleed / Spectre-V4)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Exploiting CPU memory disambiguation logic (Store-to-Load Forwarding bypasses in Spectre-V4) and Return Stack Buffer (RSB) underflows during deep call trees to hijack speculative return addresses.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Defeats software Retpoline mitigations; forces the CPU to speculatively execute unauthorized return gadgets across kernel and hypervisor security boundaries.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.6.4</span>
+                            <h3 class="module-title">Transient Execution Buffer Sampling (MDS, Downfall, Inception)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Leaking transient, uncommitted data residing inside internal microarchitectural buffers (Line Fill Buffers LFB, Load/Store Queues, Vector Register Files) across logical sibling threads and virtual machines.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Exploits like ZombieLoad, RIDL, and Downfall allow unprivileged adversaries to sniff secret encryption keys and TLS master secrets across multi-tenant cloud hypervisors.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.6.5</span>
+                            <h3 class="module-title">Rowhammer (DRAM Disturbance Bit-Flipping)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Repeatedly opening and closing specific physical memory rows (wordlines) in modern dense dynamic RAM (DRAM), causing electromagnetic cross-talk that leaks electrical charge and flips bits in adjacent unaccessed rows.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Pure hardware-induced memory corruption; flips bits in kernel Page Table Entries (PTEs) or RSA modulus keys to achieve arbitrary kernel read/write without software bugs.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">2.6.6</span>
+                            <h3 class="module-title">Precision Cache-Timing Attack Primitives (Flush+Reload, Prime+Probe)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> High-precision CPU cycle counting methodologies using <code>RDTSC/RDTSCP</code> instructions to measure nanosecond memory access latency, determining whether target memory addresses reside in cache or DRAM.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The universal measurement oracle powering microarchitectural exploitation; enables non-invasive reconstruction of AES S-boxes and RSA private keys from shared crypto libraries.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bottom Navigation / Back to Blueprint -->
+        <div class="back-nav">
+            <a href="/" class="btn-back">&larr; Back to 9-Layer Master Blueprint</a>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">HEXDEF SYSTEMS ARCHITECTURE TAXONOMY</span>
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
