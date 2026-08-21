@@ -10,6 +10,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
     <style>
+        /* Header Layer Badge */
+        .header-layer-badge {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 800;
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            padding: 0.25rem 0.7rem;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            vertical-align: middle;
+            margin-right: 0.65rem;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
         /* Layer Hero & Header Typography */
         .layer-hero-box {
             padding: 1.25rem 0 1.25rem 0;
@@ -27,25 +44,20 @@
 
         .kicker-badge {
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 800;
-            padding: 0.3rem 0.75rem;
-            border-radius: 5px;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
             letter-spacing: 0.05em;
-            background: linear-gradient(135deg, #0284c7, #0369a1);
+            background: #475569;
             color: #ffffff;
-            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
         }
 
         .kicker-tier {
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-weight: 700;
-            color: #0284c7;
-            background: rgba(2, 132, 199, 0.08);
-            border: 1px solid rgba(2, 132, 199, 0.25);
-            padding: 0.3rem 0.75rem;
-            border-radius: 5px;
+            color: var(--text-secondary);
             letter-spacing: 0.04em;
             text-transform: uppercase;
         }
@@ -381,7 +393,7 @@
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
             <div class="terminal-prompt">user@hexdef:~$ architecture --layer 01 --index physical-silicon</div>
-            <h1>Layer 01: Physical, Analog &amp; Silicon</h1>
+            <h1><span class="header-layer-badge">LAYER 01</span> Physical, Analog &amp; Silicon</h1>
         </div>
     </header>
 
