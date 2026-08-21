@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 01: Physical, Analog & Silicon | Master Curriculum</title>
+    <meta name="description" content="Master Index of Semiconductor Physics, Analog Power Delivery, RF Wireless Physics, Cyber-Physical SCADA, Embedded Hardware & Silicon Side-Channel Security.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        /* Layer Index Specific Styles */
+        .layer-header-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-pill {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .pill-layer {
+            background: rgba(71, 85, 105, 0.12);
+            color: #475569;
+            border: 1px solid rgba(71, 85, 105, 0.25);
+        }
+
+        .pill-stats {
+            background: rgba(5, 150, 105, 0.08);
+            color: var(--terminal-green);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        /* Domain Jump Nav */
+        .domain-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .domain-nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            background: rgba(248, 250, 252, 0.8);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .domain-nav-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* Domain Container & Module Cards */
+        .domain-section {
+            margin-bottom: 3rem;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .domain-count {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .module-card:hover {
+            border-color: rgba(71, 85, 105, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            transform: translateY(-1px);
+        }
+
+        .module-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .module-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .module-id {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #475569;
+        }
+
+        .module-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .rigor-badge {
+            font-family: var(--font-mono);
+            font-size: 0.70rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+        }
+
+        .rigor-bs { background: rgba(5, 150, 105, 0.1); color: #059669; border: 1px solid rgba(5, 150, 105, 0.2); }
+        .rigor-ms { background: rgba(37, 99, 235, 0.1); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.2); }
+        .rigor-phd { background: rgba(225, 29, 72, 0.1); color: #e11d48; border: 1px solid rgba(225, 29, 72, 0.2); }
+
+        .module-desc {
+            font-size: 0.90rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin: 0 0 0.65rem 0;
+        }
+
+        .module-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .module-app {
+            font-size: 0.86rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            background: rgba(248, 250, 252, 0.9);
+            border-left: 3px solid #475569;
+            padding: 0.6rem 0.85rem;
+            border-radius: 0 4px 4px 0;
+            margin: 0;
+        }
+
+        .module-app strong {
+            color: #475569;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: inline-block;
+            margin-right: 0.35rem;
+        }
+
+        .back-nav {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-back {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(142, 68, 173, 0.08);
+            border: 1px solid rgba(142, 68, 173, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link active">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering_cs/">Computer Science</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 01 --index physical-silicon</div>
+            <h1>Layer 01 // Physical, Analog &amp; Silicon</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="layer-header-meta">
+            <span class="meta-pill pill-layer">[ LAYER 01 // MACHINE SUBSTRATE ]</span>
+            <span class="meta-pill pill-stats">6 CORE DOMAINS • 31 TECHNICAL MODULES</span>
+        </div>
+
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+            The physical ground truth of all computing. Layer 01 spans the atomic behavior of semiconductor doping and lithography, continuous analog voltages and power delivery, radio frequency electromagnetics, industrial cyber-physical automation (OT/SCADA), board-level bus tapping, and silicon side-channel exploitation.
+        </p>
+
+        <!-- Quick Jump Navigation -->
+        <nav class="domain-nav" aria-label="Domain Quick Navigation">
+            <a href="#domain-1" class="domain-nav-link">1.1 Silicon Physics (4)</a>
+            <a href="#domain-2" class="domain-nav-link">1.2 Analog &amp; Power (4)</a>
+            <a href="#domain-3" class="domain-nav-link">1.3 RF &amp; Telecom (5)</a>
+            <a href="#domain-4" class="domain-nav-link">1.4 Cyber-Physical &amp; OT (5)</a>
+            <a href="#domain-5" class="domain-nav-link">1.5 Board-Level &amp; Debug (5)</a>
+            <a href="#domain-6" class="domain-nav-link">1.6 Silicon Security &amp; Side-Channels (8)</a>
+        </nav>
+
+        <!-- DOMAIN 1.1 -->
+        <section class="domain-section" id="domain-1">
+            <div class="domain-header">
+                <h2 class="domain-title">1.1 Semiconductor Physics &amp; Silicon Fabrication</h2>
+                <span class="domain-count">4 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.1.1</span>
+                            <h3 class="module-title">Semiconductor Doping &amp; PN Junctions</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Introducing controlled impurities (P-type trivalent or N-type pentavalent atoms) into monocrystalline silicon lattices to establish depletion regions and unidirectional current-conducting diodes.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The atomic foundation of every discrete transistor; microscopic dopant density fluctuations create silicon process variation utilized in hardware root-of-trust authentication.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.1.2</span>
+                            <h3 class="module-title">MOSFETs, FinFETs &amp; Gate-All-Around (GAAFETs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Field-Effect Transistor architectures where gate electric fields modulate source-to-drain channel conduction, transitioning from planar gates to 3D vertical fins and horizontally stacked nanosheets at sub-3nm nodes.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The fundamental nanoscale switch of microprocessors; susceptible to source-to-drain quantum tunneling leakage, parasitic capacitance, and threshold voltage degradation under physical stress.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.1.3</span>
+                            <h3 class="module-title">CMOS Fabrication &amp; Lithography (EUV)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Complementary Metal-Oxide-Semiconductor manufacturing processes utilizing 13.5nm Extreme Ultraviolet (EUV) photolithography, high-vacuum deposition, and atomic layer etching to pattern billions of transistors on silicon wafers.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The global strategic supply-chain chokepoint (ASML/TSMC/Intel); targeted by advanced persistent threats for mask-level design theft and foundry-level hardware supply-chain interdiction.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.1.4</span>
+                            <h3 class="module-title">Silicon Aging, Electromigration &amp; Wearout</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Long-term physical degradation mechanisms where momentum transfer from high-density electron flow physically displaces metallic atoms in on-chip interconnect wires, alongside Hot Carrier Injection (HCI) and Time-Dependent Dielectric Breakdown (TDDB).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Intentional over-volting and thermal-cycling attacks can artificially accelerate electromigration wearout to permanently brick security coprocessors or force persistent latch-up faults.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 1.2 -->
+        <section class="domain-section" id="domain-2">
+            <div class="domain-header">
+                <h2 class="domain-title">1.2 Analog Electronics, Signals &amp; Power Systems</h2>
+                <span class="domain-count">4 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.2.1</span>
+                            <h3 class="module-title">Analog-to-Digital (ADC) &amp; Digital-to-Analog (DAC) Converters</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Mixed-signal quantization interfaces that discretize continuous real-world analog physical voltages into binary values via Successive Approximation (SAR) or Delta-Sigma architectures governed by the Nyquist-Shannon theorem.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The bridge between physical sensor instrumentation and CPU telemetry; feeding high-frequency analog bias or intentional out-of-band signals can induce aliasing and deceive ADC inputs prior to software filtering.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.2.2</span>
+                            <h3 class="module-title">Power Delivery Networks (PDNs) &amp; Voltage Regulators (PMICs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Multi-stage power distribution circuitry (decoupling capacitors, bulk inductors, and Power Management ICs) engineered to supply low-impedance, ripple-free direct-current voltage across dynamic processor workload transients.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Primary target for hardware voltage glitching; using low-impedance MOSFET shunts (crowbar circuits) to short the VDD rail for nanoseconds forces the CPU to skip instruction execution cycles.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.2.3</span>
+                            <h3 class="module-title">Analog Filtering &amp; Operational Amplifiers (Op-Amps)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> High-gain differential voltage amplifier circuits paired with active RC networks to isolate desired frequency bands and reject common-mode electromagnetic noise on analog sensor lines.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Poorly shielded Op-Amp front-ends can be driven into rail saturation or induced oscillation via resonant acoustic waves (ultrasonic MEMS jamming) or focused microwave RF radiation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.2.4</span>
+                            <h3 class="module-title">Clock Generation, Crystal Oscillators &amp; PLLs</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Resonant piezoelectric quartz crystals paired with on-chip Phase-Locked Loops (PLLs) to synthesize stable, high-frequency square-wave master clock signals distributed across low-skew clock trees.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Clock-glitching exploits inject double clock edges or momentary phase shifts to cause setup-time violations in CPU flip-flops, bypassing cryptographic validation branches.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 1.3 -->
+        <section class="domain-section" id="domain-3">
+            <div class="domain-header">
+                <h2 class="domain-title">1.3 Radio Frequency (RF), Wireless Physics &amp; Telecommunications</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.3.1</span>
+                            <h3 class="module-title">Software-Defined Radio (SDR)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Radio architectures where analog modulation, mixing, and demodulation are performed in software code via high-speed In-phase/Quadrature (I/Q) digital signal processing on wideband transceivers (HackRF, USRP, RTL-SDR).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Enables arbitrary transmission and interception across 1MHz to 6GHz; fundamental for auditing custom proprietary wireless protocols and sniffing unencrypted telemetry.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.3.2</span>
+                            <h3 class="module-title">RF Replay Attacks &amp; Signal Jamming</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Capturing raw RF emissions over the air to replay them without cryptographic modification, or broadcasting high-power destructive interference to degrade receiver Signal-to-Noise Ratios (SNR) below demodulation thresholds.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Bypassing fixed-code gate systems, exploiting rolling-code keyless entry systems via simultaneous jamming and selective capture (Rolljam), and denying drone C2 wireless links.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.3.3</span>
+                            <h3 class="module-title">Short-Range Wireless Standards (RFID, NFC, Zigbee, BLE)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Near-field magnetic induction and low-power 2.4GHz / sub-GHz physical layer protocols operating over constrained distances for access tokens, sensory telemetry, and mesh networking.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Cloning unauthenticated 125kHz badge IDs (Proxmark), eavesdropping on unencrypted BLE advertising packets, and injecting unauthorized Zigbee home automation commands.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.3.4</span>
+                            <h3 class="module-title">GPS / GNSS Spoofing &amp; Meaconing</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Transmitting synthesized or delayed satellite RF signals with slightly higher power than legitimate space-vehicle signals to force receivers into calculating inaccurate pseudo-ranges and timestamps.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Hijacking autonomous marine/aerial navigation systems, inducing false geographic boundary triggers, and desynchronizing financial networks that rely on GNSS Stratum-1 time servers.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.3.5</span>
+                            <h3 class="module-title">Cellular Layer 1 &amp; IMSI Catchers (Stingrays)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Rogue Base Transceiver Stations (BTS) operating on licensed cellular bands that broadcast unauthenticated control-channel beacons, forcing mobile devices to connect and disclose hardware identities.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Physical geolocation tracking via International Mobile Subscriber Identity (IMSI) capture, cryptographic cipher-downgrade attacks (forcing 2G A5/0 null encryption), and over-the-air call/SMS interception.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 1.4 -->
+        <section class="domain-section" id="domain-4">
+            <div class="domain-header">
+                <h2 class="domain-title">1.4 Cyber-Physical Systems (CPS) &amp; Industrial Automation (OT/SCADA)</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.4.1</span>
+                            <h3 class="module-title">Programmable Logic Controllers (PLCs) &amp; RTUs</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Industrial embedded microcomputers executing deterministic scan cycles (Input &rarr; Logic &rarr; Output) to read continuous 4–20mA sensory current loops and drive high-voltage relays, motors, and hydraulic actuators.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The primary physical execution target in critical infrastructure attacks (Stuxnet, Industroyer); rewriting PLC ladder logic directly forces kinetic physical damage to turbines and centrifuges.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.4.2</span>
+                            <h3 class="module-title">SCADA &amp; Human-Machine Interfaces (HMIs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Centralized supervisory control stations and graphical operator panels that poll remote telemetry tags and display operational metrics to control-room engineers.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Adversaries exploit HMI software to present falsified "normal" process measurements to human operators while secretly driving physical processes beyond safe operating thresholds in the background.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.4.3</span>
+                            <h3 class="module-title">The Purdue Model (ISA-99 / IEC 62443 Segmentation)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> A hierarchical architectural framework segmenting industrial automation into strict defensive tiers from Level 0 (physical sensors/actuators) through Level 3 (site operations) to Level 5 (enterprise IT) via Industrial DMZs (IDMZs).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Designing unidirectional data diodes and firewall conduits to ensure a compromised corporate network (Level 4/5) cannot pivot into safety-critical control networks (Level 1/2).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.4.4</span>
+                            <h3 class="module-title">Legacy Industrial &amp; Fieldbus Protocols (Modbus, DNP3, CAN Bus)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Unauthenticated, cleartext serial and fieldbus communication standards designed in the 1970s–1980s for deterministic, low-overhead communication across industrial plant floors and automotive wiring harnesses.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Lack of cryptographic integrity allows attackers who gain physical access to copper wire buses to perform instant command injection, register overwrites, and CAN bus arbitration hijacking.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.4.5</span>
+                            <h3 class="module-title">Safety Instrumented Systems (SIS &amp; Emergency Shutdown)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Dedicated, physically segregated control loops built with Triple Modular Redundancy (TMR) engineered to execute emergency shutdowns before physical overpressure, explosion, or toxic release occurs.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The highest-consequence target in cyber warfare (e.g., Triton/Trisis malware); designed to disable physical emergency fail-safes so secondary destructive attacks succeed without automated interruption.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 1.5 -->
+        <section class="domain-section" id="domain-5">
+            <div class="domain-header">
+                <h2 class="domain-title">1.5 Board-Level Hardware &amp; Embedded Interfaces</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.5.1</span>
+                            <h3 class="module-title">Hardware Debug Interfaces (UART, JTAG, SWD)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Standardized physical test points and boundary-scan protocols (IEEE 1149.1 JTAG, ARM Serial Wire Debug) engineered for post-silicon validation, in-circuit programming, and hardware-level emulation.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Solder-probing unprotected debug pins allows direct extraction of CPU registers, halt-state control, password verification bypasses, and root shell access on embedded Linux devices.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.5.2</span>
+                            <h3 class="module-title">Serial Bus Sniffing (SPI, I2C, I3C)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Low-pin-count synchronous chip-to-chip serial communications protocols connecting microcontrollers to peripheral sensors, crypto co-processors, and external flash memory.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Attaching logic analyzer probes directly onto PCB copper traces enables passive capture of cryptographic keys, sensor readings, and raw bootloader images transmitted during power-on sequencing.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.5.3</span>
+                            <h3 class="module-title">Non-Volatile Memory Extraction (EEPROM / Flash Dumping)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> In-circuit or desoldered extraction of persistent storage ICs (SPI NOR flash, parallel NAND with Out-Of-Band spare areas, eMMC, and UFS chips) using hardware programmers.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Dumping unencrypted firmware binaries directly from hardware for static reverse engineering, hardcoded credential recovery, and binary vulnerability discovery.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.5.4</span>
+                            <h3 class="module-title">Logic Analyzers &amp; Digital Storage Oscilloscopes</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Essential electrical bench instruments that sample multi-channel digital logic states and analog voltage waveforms at gigasample-per-second rates with customizable trigger conditions.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Reverse engineering unknown proprietary pinouts, measuring glitch timing offsets with sub-nanosecond precision, and visualizing protocol timing violations.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.5.5</span>
+                            <h3 class="module-title">Hardware Root-of-Trust, OTP eFuses &amp; Boot ROM</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Immutable on-die silicon Mask ROM containing factory initial boot code, paired with microscopic One-Time Programmable (OTP) physical electronic fuses that store public key hashes and security state flags.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Anchors the cryptographic chain of trust for secure boot; prevents firmware rollback attacks and locks JTAG debug access once production devices leave the factory floor.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 1.6 -->
+        <section class="domain-section" id="domain-6">
+            <div class="domain-header">
+                <h2 class="domain-title">1.6 Silicon-Level Security &amp; Physical Side-Channels</h2>
+                <span class="domain-count">8 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.1</span>
+                            <h3 class="module-title">Differential &amp; Correlation Power Analysis (DPA / CPA)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Statistical cryptanalysis measuring instantaneous power consumption across thousands of cryptographic operations, correlating micro-volt fluctuations to Hamming weight and Hamming distance leakage models.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Recovering 128-bit and 256-bit AES secret keys from smart cards and secure elements without attacking the mathematical algorithms or breaking mathematical encryption.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.2</span>
+                            <h3 class="module-title">Electromagnetic (EM) Side-Channel Analysis</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Capturing spatial and temporal electromagnetic emissions radiating from on-chip ALU data paths and memory buses using near-field magnetic loops and low-noise preamplifiers.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Non-invasive cryptographic key extraction and instruction-flow reconstruction through chip encapsulation without requiring direct electrical contact with power rails.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.3</span>
+                            <h3 class="module-title">Voltage &amp; Clock Fault Injection (Glitching)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Intentionally disturbing CPU operating parameters for precise nanosecond windows to induce single-cycle computational bit flips in execution registers or program counters.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Forcing instruction decoders to corrupt branch evaluations (flipping <code>BEQ</code> to <code>NOP</code>) to bypass password verification and signature validation routines.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.4</span>
+                            <h3 class="module-title">Laser Fault Injection (LFI) &amp; Optical Probing</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Focusing pulsed 1064nm infrared laser beams through the backside silicon substrate of a thinned chip to induce localized photoelectric carrier generation in specific logic transistors.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Microscopic, targeted single-bit flips in protected SRAM registers and hardware state machines; utilized by national labs to extract hardware crypto keys and defeat physical shields.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.5</span>
+                            <h3 class="module-title">Physically Unclonable Functions (PUFs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Exploiting unrepeatable atomic manufacturing tolerances (SRAM uninitialized state bias, ring oscillator gate delay variations) to generate unique, reproducible digital keys from silicon physics.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Generating volatile cryptographic keys on demand that vanish instantly upon power-off, neutralizing physical memory extraction and chip cloning attacks.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.6</span>
+                            <h3 class="module-title">TEMPEST &amp; Van Eck Phreaking</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Reconstructing readable video displays, keyboard strokes, or network traffic by capturing compromising unintentional electromagnetic radiation leaking through cables, monitors, and chassis.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Remote physical surveillance across walls and open space; requires military-standard TEMPEST zoning (MIL-STD-461), optical isolation, and Faraday enclosures.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.7</span>
+                            <h3 class="module-title">Hardware Trojans &amp; ASIC Supply-Chain Tampering</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Malicious modifications introduced into integrated circuit layout masks or dopant patterns during third-party fabrication that remain dormant until triggered by rare digital or physical conditions.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Stealth silicon backdoors capable of disabling hardware cryptographic security modules, leaking keys over side-channels, or inducing catastrophic hardware latch-ups on demand.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">1.6.8</span>
+                            <h3 class="module-title">IC Decapsulation, Fuming Nitric Acid &amp; Microprobing</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Chemical dissolution of plastic epoxy packaging using fuming nitric and sulfuric acids to expose raw silicon dies, followed by placing sub-micron tungsten needles directly on internal bus wires under a Scanning Electron Microscope (SEM).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Direct non-software bus sniffing of on-chip unencrypted communications between CPU cores and internal cryptographic memory; defeating physical active security mesh shields.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bottom Navigation / Back to Blueprint -->
+        <div class="back-nav">
+            <a href="/" class="btn-back">&larr; Back to 9-Layer Master Blueprint</a>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">HEXDEF SYSTEMS ARCHITECTURE TAXONOMY</span>
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
