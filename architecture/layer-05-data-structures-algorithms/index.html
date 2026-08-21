@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 05: Data Structures & Algorithms | Master Curriculum</title>
+    <meta name="description" content="Master Index of Computational Complexity, Asymptotics, Balanced Search Trees, Graph Theory, Network Flows, Dynamic Programming & Probabilistic Sketches.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        /* Header Layer Badge */
+        .header-layer-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.3rem 0.75rem;
+            border-radius: 5px;
+            border: 1px solid #1e293b;
+            vertical-align: middle;
+            margin-right: 0.65rem;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+        }
+
+        /* Layer Hero & Header Typography */
+        .layer-hero-box {
+            padding: 1.5rem 0 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .layer-page-subtitle {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 860px;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .layer-stats-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+        }
+
+        .stat-val {
+            font-weight: 800;
+        }
+
+        .stat-lbl {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            color: var(--border);
+        }
+
+        /* 6 Signature Domain Color Systems for Layer 05 */
+        .domain-1 {
+            --domain-color: #8b5cf6;
+            --domain-bg: rgba(139, 92, 246, 0.05);
+            --domain-border: rgba(139, 92, 246, 0.25);
+            --domain-glow: rgba(139, 92, 246, 0.12);
+        }
+        .domain-2 {
+            --domain-color: #059669;
+            --domain-bg: rgba(5, 150, 105, 0.05);
+            --domain-border: rgba(5, 150, 105, 0.25);
+            --domain-glow: rgba(5, 150, 105, 0.12);
+        }
+        .domain-3 {
+            --domain-color: #0284c7;
+            --domain-bg: rgba(2, 132, 199, 0.05);
+            --domain-border: rgba(2, 132, 199, 0.25);
+            --domain-glow: rgba(2, 132, 199, 0.12);
+        }
+        .domain-4 {
+            --domain-color: #d97706;
+            --domain-bg: rgba(217, 119, 6, 0.05);
+            --domain-border: rgba(217, 119, 6, 0.25);
+            --domain-glow: rgba(217, 119, 6, 0.12);
+        }
+        .domain-5 {
+            --domain-color: #ea580c;
+            --domain-bg: rgba(234, 88, 12, 0.05);
+            --domain-border: rgba(234, 88, 12, 0.25);
+            --domain-glow: rgba(234, 88, 12, 0.12);
+        }
+        .domain-6 {
+            --domain-color: #e11d48;
+            --domain-bg: rgba(225, 29, 72, 0.05);
+            --domain-border: rgba(225, 29, 72, 0.25);
+            --domain-glow: rgba(225, 29, 72, 0.12);
+        }
+
+        /* Domain Jump Nav */
+        .domain-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            padding: 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .domain-nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .domain-nav-link.nav-d1 { color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3); }
+        .domain-nav-link.nav-d1:hover { background: #8b5cf6; color: #ffffff; border-color: #8b5cf6; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d2 { color: #059669; border-color: rgba(5, 150, 105, 0.3); }
+        .domain-nav-link.nav-d2:hover { background: #059669; color: #ffffff; border-color: #059669; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d3 { color: #0284c7; border-color: rgba(2, 132, 199, 0.3); }
+        .domain-nav-link.nav-d3:hover { background: #0284c7; color: #ffffff; border-color: #0284c7; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d4 { color: #d97706; border-color: rgba(217, 119, 6, 0.3); }
+        .domain-nav-link.nav-d4:hover { background: #d97706; color: #ffffff; border-color: #d97706; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d5 { color: #ea580c; border-color: rgba(234, 88, 12, 0.3); }
+        .domain-nav-link.nav-d5:hover { background: #ea580c; color: #ffffff; border-color: #ea580c; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d6 { color: #e11d48; border-color: rgba(225, 29, 72, 0.3); }
+        .domain-nav-link.nav-d6:hover { background: #e11d48; color: #ffffff; border-color: #e11d48; transform: translateY(-1px); }
+
+        /* Domain Container & Module Cards */
+        .domain-section {
+            margin-bottom: 3.25rem;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--domain-bg);
+            border: 1px solid var(--domain-border);
+            border-left: 4px solid var(--domain-color);
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-title {
+            font-size: 1.20rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .domain-count {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--domain-color);
+            background: #ffffff;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid var(--domain-border);
+        }
+
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .domain-section .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .domain-section .module-card:hover {
+            border-color: var(--domain-color);
+            box-shadow: 0 6px 18px var(--domain-glow);
+            transform: translateY(-2px);
+        }
+
+        .module-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .module-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .domain-section .module-id {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--domain-color);
+        }
+
+        .module-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .rigor-badge {
+            font-family: var(--font-mono);
+            font-size: 0.70rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+        }
+
+        .rigor-bs { background: rgba(5, 150, 105, 0.1); color: #059669; border: 1px solid rgba(5, 150, 105, 0.25); }
+        .rigor-ms { background: rgba(37, 99, 235, 0.1); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.25); }
+        .rigor-phd { background: rgba(225, 29, 72, 0.1); color: #e11d48; border: 1px solid rgba(225, 29, 72, 0.25); }
+
+        .module-desc {
+            font-size: 0.90rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin: 0 0 0.65rem 0;
+        }
+
+        .module-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .domain-section .module-app {
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            background: var(--domain-bg);
+            border-left: 3px solid var(--domain-color);
+            padding: 0.65rem 0.95rem;
+            border-radius: 0 6px 6px 0;
+            margin: 0;
+        }
+
+        .domain-section .module-app strong {
+            color: var(--domain-color);
+            font-weight: 800;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: inline-block;
+            margin-right: 0.35rem;
+        }
+
+        .back-nav {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-back {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(142, 68, 173, 0.08);
+            border: 1px solid rgba(142, 68, 173, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering_cs/">Computer Science</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 05 --index data-structures-algorithms</div>
+            <h1><span class="header-layer-badge">LAYER 05</span> Data Structures &amp; Algorithms</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="layer-hero-box">
+            <p class="layer-page-subtitle">
+                The mathematical and algorithmic foundation of computer science. Master curriculum spanning asymptotic Big-O analysis, NP-completeness reductions, cache-oblivious data structures, self-balancing search trees (AVL, Red-Black), graph shortest paths and network flows (Dijkstra, Dinic's), dynamic programming paradigms, exact string searching (KMP, Aho-Corasick), and streaming probabilistic sketches (Bloom filters, HyperLogLog).
+            </p>
+            <div class="layer-stats-strip">
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #8b5cf6;">6</span>
+                    <span class="stat-lbl">Core Domains</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #059669;">30</span>
+                    <span class="stat-lbl">Technical Modules</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #0284c7;">100%</span>
+                    <span class="stat-lbl">Algorithmic Ground Truth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Jump Navigation -->
+        <nav class="domain-nav" aria-label="Domain Quick Navigation">
+            <a href="#domain-1" class="domain-nav-link nav-d1">5.1 Complexity &amp; Asymptotics (5)</a>
+            <a href="#domain-2" class="domain-nav-link nav-d2">5.2 Linear &amp; Associative (5)</a>
+            <a href="#domain-3" class="domain-nav-link nav-d3">5.3 Trees &amp; Hierarchies (5)</a>
+            <a href="#domain-4" class="domain-nav-link nav-d4">5.4 Graph Theory &amp; Flows (5)</a>
+            <a href="#domain-5" class="domain-nav-link nav-d5">5.5 Paradigms &amp; DP (5)</a>
+            <a href="#domain-6" class="domain-nav-link nav-d6">5.6 Strings &amp; Streaming (5)</a>
+        </nav>
+
+        <!-- DOMAIN 5.1 -->
+        <section class="domain-section domain-1" id="domain-1">
+            <div class="domain-header">
+                <h2 class="domain-title">5.1 Asymptotic Analysis, Complexity &amp; Recurrences</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.1.1</span>
+                            <h3 class="module-title">Asymptotic Notations ($O, \Omega, \Theta$) &amp; Recurrences</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Formal mathematical upper bounds ($O$), lower bounds ($\Omega$), and tight bounds ($\Theta$) describing algorithm growth rates, solving divide-and-conquer recurrences via the Master Theorem and Akra-Bazzi method.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Formally proving that production system routines do not degrade into polynomial or exponential bottlenecks as inputs scale to billions of records.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.1.2</span>
+                            <h3 class="module-title">Amortized Analysis (Aggregate, Accounting &amp; Potential Methods)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Performance evaluation techniques averaging operation costs over an arbitrary sequence of $n$ operations, establishing that occasional expensive operations (e.g., dynamic array growth) result in $O(1)$ average cost.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Designing real-time and kernel data structures that guarantee consistent average throughput without introducing unpredicted tail-latency spikes.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.1.3</span>
+                            <h3 class="module-title">Computational Complexity Classes ($P, NP, NP\text{-Complete}, NP\text{-Hard}$)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> The formal categorization of decision problems by computational resource bounds: deterministic polynomial time ($P$), nondeterministic polynomial verification ($NP$), and the hardest problems in $NP$ ($NP$-Complete).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The mathematical foundation of modern asymmetric cryptography (RSA, ECC), which relies on the computational intractability of factoring and discrete logarithms.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.1.4</span>
+                            <h3 class="module-title">Polynomial-Time Reductions &amp; Karp's 21 NP-Complete Problems</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Transformation mappings ($A \le_p B$) converting instances of known intractable problems (3-SAT, Vertex Cover, Clique, Subset Sum) into target problem instances in polynomial time.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Proving that a security constraint validation or scheduling problem is $NP$-Complete, directing systems architects to adopt approximation algorithms instead of brute-force search.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.1.5</span>
+                            <h3 class="module-title">Space-Time Trade-offs &amp; Cache-Oblivious Algorithms</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Algorithmic strategies trading memory footprints for runtime execution gains, designed to asymptotically optimize cache line transfers across all memory hierarchy levels without tuning for hardware cache sizes.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Deployed in high-frequency trading matching engines and cache-resident matrix operations to eliminate CPU cache misses and minimize timing side-channels.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 5.2 -->
+        <section class="domain-section domain-2" id="domain-2">
+            <div class="domain-header">
+                <h2 class="domain-title">5.2 Linear &amp; In-Memory Associative Structures</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.2.1</span>
+                            <h3 class="module-title">Dynamic Arrays, Vectors &amp; Amortized Resizing</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Contiguous, indexed memory buffers providing $O(1)$ random access, automatically allocating geometric capacity expansions (typically $1.5\times$ or $2\times$) upon buffer exhaustion.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The standard high-throughput container across modern language standard libraries (`std::vector`, `ArrayList`), maximally leveraging hardware CPU prefetching.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.2.2</span>
+                            <h3 class="module-title">Linked Lists, Unrolled Lists &amp; Skip Lists</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Node-pointer sequential structures ranging from singly/doubly linked lists to multi-level probabilistic Skip Lists that achieve $O(\log n)$ search and insertion without complex tree rotations.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Skip Lists power in-memory ordered key-value databases (Redis Sorted Sets) and LevelDB/RocksDB MemTable ingestion engines.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.2.3</span>
+                            <h3 class="module-title">Stacks, Queues, Deques &amp; Circular Ring Buffers</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Abstract sequential structures enforcing LIFO (Stack) and FIFO (Queue) access models, backed by fixed-size circular ring buffers utilizing bitwise mask modulo arithmetic for wrap-around.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Powers high-speed lockless ring buffers in Linux kernel network drivers (e.g., AF_XDP) and CPU execution call stacks.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.2.4</span>
+                            <h3 class="module-title">Hash Tables &amp; Collision Resolution (Chaining, Linear Probing, Cuckoo)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Constant-time ($O(1)$) associative mapping structures hashing keys to array slots, resolving collisions via separate chaining, open-addressing (Linear/Quadratic probing), or multi-table Cuckoo displacement.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Algorithmic Complexity Attacks (Hash-DoS); feeding engineered hash-collision strings degrades lookup performance from $O(1)$ to worst-case $O(n)$, exhausting web server CPUs.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.2.5</span>
+                            <h3 class="module-title">Disjoint-Set / Union-Find (Path Compression &amp; Rank Heuristics)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Forest-based data structures tracking partition sets, achieving near-constant amortized time $\alpha(n)$ per operation using Path Compression and Union-by-Rank optimizations.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Dynamic network reachability verification, graph cycle detection, and running Kruskal's Minimum Spanning Tree algorithm in telecommunications routing.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 5.3 -->
+        <section class="domain-section domain-3" id="domain-3">
+            <div class="domain-header">
+                <h2 class="domain-title">5.3 Hierarchical Indexing, Balanced Trees &amp; Heaps</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.3.1</span>
+                            <h3 class="module-title">Self-Balancing Search Trees (AVL, Red-Black &amp; Splay Trees)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Binary search trees that perform tree rotations to bound height to $O(\log n)$, strictly balancing height factors (AVL) or enforcing color-invariants (Red-Black) and self-adjusting recency (Splay).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Linux kernel process scheduling (CFS virtual runtime red-black trees), virtual memory VMA tracking, and associative standard library maps.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.3.2</span>
+                            <h3 class="module-title">Heaps &amp; Priority Queues (Binary, D-ary, Fibonacci Heaps)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Complete tree-based structures maintaining the heap property (parent $\le$ child for min-heap), delivering $O(1)$ extreme-element lookups and $O(\log n)$ extraction, with Fibonacci heaps supporting $O(1)$ amortized decrease-key.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Packet scheduling algorithms (Weighted Fair Queueing), OS timer management, and shortest-path graph optimization (Dijkstra).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.3.3</span>
+                            <h3 class="module-title">Tries, Radix Trees &amp; Compressed Patricia Tries</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Ordered tree data structures where keys are decomposed into character or bit-level prefixes along path edges rather than stored whole, compressed into Radix/Patricia tries by merging single-child paths.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Internet router IP routing tables (Longest Prefix Match LPM), search autocomplete systems, and Ethereum Merkle-Patricia state storage.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.3.4</span>
+                            <h3 class="module-title">Segment Trees &amp; Fenwick Trees (Binary Indexed Trees - BIT)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Array-backed logarithmic tree structures computing dynamic range aggregation queries (sum, minimum, GCD) and point/range updates in $O(\log n)$ time with Lazy Propagation.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> High-frequency financial order book telemetry aggregation and real-time streaming anomaly detection.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.3.5</span>
+                            <h3 class="module-title">Spatial Trees (K-D Trees, Quadtrees, Octrees, R-Trees)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Geometric space-partitioning structures recursively subdividing multi-dimensional coordinate spaces into Cartesian hyperplanes, quadrants (2D), octants (3D), or hierarchical bounding boxes (R-Trees).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Geospatial database indexing (PostGIS), autonomous vehicle LiDAR point-cloud collision detection, and nearest-neighbor machine learning searches.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 5.4 -->
+        <section class="domain-section domain-4" id="domain-4">
+            <div class="domain-header">
+                <h2 class="domain-title">5.4 Graph Theory &amp; Network Routing Algorithms</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.4.1</span>
+                            <h3 class="module-title">Graph Representations (Adjacency Matrix, List, CSR)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> In-memory structural encodings of vertices and edges: 2D dense arrays (Matrix), pointer arrays (Adjacency List), or Compressed Sparse Row (CSR) buffers for high-density graph analytics.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> CSR formats optimize GPU parallel graph processing (CUDA) and map large-scale social network and botnet infrastructure topologies.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.4.2</span>
+                            <h3 class="module-title">Graph Traversal &amp; Structural Connectivity (BFS, DFS, Tarjan's SCC)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Systematic graph exploration computing unweighted shortest paths (BFS), cycle presence and backtrack search (DFS), linear dependency ordering (Topological Sort), and Strongly Connected Components (Tarjan's/Kosaraju's).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Linux package manager dependency resolution, compiler dead-code elimination, and mapping cyber-threat actor command-and-control rings.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.4.3</span>
+                            <h3 class="module-title">Single-Source &amp; All-Pairs Shortest Paths (Dijkstra, A*, Bellman-Ford, Floyd-Warshall)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Optimization algorithms determining minimal weight paths using priority queues (Dijkstra), heuristic-directed search (A*), negative weight cycles (Bellman-Ford), or dynamic programming matrices (Floyd-Warshall).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Autonomous vehicle pathfinding, internet core routing protocols (OSPF, IS-IS), and network latency minimization.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.4.4</span>
+                            <h3 class="module-title">Minimum Spanning Trees (Kruskal's with Union-Find &amp; Prim's)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Greedy graph algorithms computing the minimum total edge weight required to connect all vertices without cycles, using edge sorting with Union-Find (Kruskal's) or priority queues (Prim's).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Optimizing physical telecommunications fiber routing, electric power grid design, and hierarchical cluster analysis in data science.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.4.5</span>
+                            <h3 class="module-title">Network Flow &amp; Cut Theorems (Ford-Fulkerson, Edmonds-Karp, Dinic's)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Algorithmic formulations calculating maximum throughput capacity from source to sink in directed networks via augmenting paths and layered residual networks (Dinic's $O(V^2 E)$), dual to the Minimum Cut theorem.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Internet transit bottleneck analysis, image segmentation in computer vision, and bipartite matching for large-scale dispatch systems.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 5.5 -->
+        <section class="domain-section domain-5" id="domain-5">
+            <div class="domain-header">
+                <h2 class="domain-title">5.5 Algorithmic Paradigms &amp; Optimization Strategies</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.5.1</span>
+                            <h3 class="module-title">Divide and Conquer (MergeSort, QuickSort, Quickselect, Karatsuba)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Decomposing complex problems into independent sub-problems of identical type, solving recursively, and recombining solutions (MergeSort, QuickSort, Quickselect for $O(n)$ medians, and Karatsuba multiplication).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Accelerates large-integer cryptographic arithmetic in RSA/ECC operations and forms the basis of high-speed database sorting algorithms.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.5.2</span>
+                            <h3 class="module-title">Dynamic Programming (Memoization, Tabulation, Knapsack, LCS)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Optimization paradigm breaking problems into overlapping sub-problems and optimal substructures, caching intermediate state tables (Top-Down Memoization vs Bottom-Up Tabulation) to eliminate redundant computation.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> DNA bioinformatics alignment (Needleman-Wunsch), text diffing algorithms (Git diff), and calculating Levenshtein cryptographic password edit distance.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.5.3</span>
+                            <h3 class="module-title">Greedy Optimization (Huffman Coding, Activity Selection, Fractional Knapsack)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Algorithmic strategy selecting locally optimal choices at each decision stage to achieve a verified global optimum, proven correct via the Greedy-Choice property and Matroid theory.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Lossless entropy data compression codecs (ZIP, DEFLATE, JPEG Huffman tables) and real-time CPU task dispatchers.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.5.4</span>
+                            <h3 class="module-title">Backtracking &amp; Branch-and-Bound (Constraint Satisfaction, SAT Solvers)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Systematic state-space exploration algorithms that incrementally build candidate solutions, aggressively pruning subtrees upon constraint violation (Backtracking) or lower/upper bound exclusion (Branch-and-Bound).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Boolean Satisfiability Solvers (SAT/SMT) used in hardware verification, cryptographic cryptanalysis, and automated software vulnerability exploit generation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.5.5</span>
+                            <h3 class="module-title">Computational Geometry (Convex Hulls, Graham Scan, Sweepline)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Geometric algorithms processing spatial coordinates, computing minimum bounding boundaries (Graham Scan $O(n \log n)$ Convex Hull) and line segment intersections via Bentley-Ottmann Sweepline algorithms.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Spatial geofencing security verification, VLSI circuit mask verification, and collision detection in robotics.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 5.6 -->
+        <section class="domain-section domain-6" id="domain-6">
+            <div class="domain-header">
+                <h2 class="domain-title">5.6 String Matching, Suffix Structures &amp; Streaming Sketches</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.6.1</span>
+                            <h3 class="module-title">Exact &amp; Multi-Pattern String Matching (KMP, Boyer-Moore, Aho-Corasick)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Linear-time string searching algorithms using failure functions (Knuth-Morris-Pratt), bad-character/good-suffix skips (Boyer-Moore), or finite state automata tries (Aho-Corasick) to match multiple patterns in a single pass.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Network intrusion detection engines (Snort, Suricata) and antivirus scanners matching thousands of malware signatures against live network packets.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.6.2</span>
+                            <h3 class="module-title">Suffix Arrays, Suffix Automata &amp; Burrows-Wheeler Transform (BWT)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Compact lexicographically sorted arrays of text suffixes and reversible permutation transforms (BWT) that group repeated characters together for high-efficiency FM-indexing.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Whole-genome bioinformatics databases (BLAST) and modern data compression utilities (`bzip2`).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.6.3</span>
+                            <h3 class="module-title">Probabilistic Set Membership &amp; Filters (Bloom Filters, Cuckoo Filters)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Space-efficient probabilistic bit-vector structures determining set membership with zero false negatives and mathematically bounded false positive rates, supporting item deletions (Cuckoo Filters).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Eliminates unnecessary disk I/O in distributed databases (Cassandra, RocksDB), malicious URL checking in Google Chrome, and malicious cryptocurrency transaction filtering.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.6.4</span>
+                            <h3 class="module-title">Streaming Cardinality &amp; Frequency Sketches (HyperLogLog, Count-Min)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Streaming sketch algorithms approximating distinct element cardinality over billions of data streams using leading zero bit distributions (HyperLogLog) or tracking heavy-hitter frequencies (Count-Min Sketch) in constant memory.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Real-time DDoS traffic rate limiting, tracking unique visitors across globally distributed edge CDNs, and telemetry stream aggregation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">5.6.5</span>
+                            <h3 class="module-title">Locality-Sensitive Hashing (LSH, MinHash, SimHash) &amp; Nearest Neighbor</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Probabilistic dimensional reduction hashing techniques where hash collisions are maximized for similar items under Jaccard, Cosine, or Euclidean distance metrics.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Detecting duplicate malware sample variants (SSDEEP fuzzy hashing), large-scale document copyright infringement detection, and vector database similarity search.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bottom Navigation / Back to Blueprint -->
+        <div class="back-nav">
+            <a href="/" class="btn-back">&larr; Back to 9-Layer Master Blueprint</a>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">HEXDEF SYSTEMS ARCHITECTURE TAXONOMY</span>
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
