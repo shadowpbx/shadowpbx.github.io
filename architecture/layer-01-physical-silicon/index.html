@@ -10,35 +10,88 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
     <style>
-        /* Layer Index Specific Styles */
-        .layer-header-meta {
+        /* Layer Hero & Header Typography */
+        .layer-hero-box {
+            padding: 1.75rem 0 1rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .layer-kicker-row {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
         }
 
-        .meta-pill {
+        .kicker-badge {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            background: #475569;
+            color: #ffffff;
+        }
+
+        .kicker-tier {
             font-family: var(--font-mono);
             font-size: 0.76rem;
             font-weight: 700;
-            padding: 0.25rem 0.65rem;
-            border-radius: 4px;
+            color: var(--text-secondary);
             letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
 
-        .pill-layer {
-            background: rgba(71, 85, 105, 0.12);
-            color: #475569;
-            border: 1px solid rgba(71, 85, 105, 0.25);
+        .layer-page-title {
+            font-size: 2.35rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 0 0 0.75rem 0;
         }
 
-        .pill-stats {
-            background: rgba(5, 150, 105, 0.08);
-            color: var(--terminal-green);
-            border: 1px solid rgba(5, 150, 105, 0.2);
+        .layer-page-subtitle {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 860px;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .layer-stats-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.80rem;
+        }
+
+        .stat-val {
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .stat-lbl {
+            color: var(--text-secondary);
+        }
+
+        .stat-divider {
+            color: var(--border);
         }
 
         /* Domain Jump Nav */
@@ -271,20 +324,38 @@
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
             <div class="terminal-prompt">user@hexdef:~$ architecture --layer 01 --index physical-silicon</div>
-            <h1>Layer 01 // Physical, Analog &amp; Silicon</h1>
+            <h1>Physical, Analog &amp; Silicon</h1>
         </div>
     </header>
 
     <div class="container">
         
-        <div class="layer-header-meta">
-            <span class="meta-pill pill-layer">[ LAYER 01 // MACHINE SUBSTRATE ]</span>
-            <span class="meta-pill pill-stats">6 CORE DOMAINS • 31 TECHNICAL MODULES</span>
+        <div class="layer-hero-box">
+            <div class="layer-kicker-row">
+                <span class="kicker-badge">LAYER 01</span>
+                <span class="kicker-tier">Tier I &bull; Silicon, Architecture &amp; Substrate</span>
+            </div>
+            <h2 class="layer-page-title">Physical, Analog &amp; Silicon</h2>
+            <p class="layer-page-subtitle">
+                The physical ground truth of all computing systems. Master curriculum spanning semiconductor solid-state physics, lithography, analog power delivery, RF electromagnetics, industrial cyber-physical automation (OT/SCADA), board-level interfaces, and physical side-channel cryptanalysis.
+            </p>
+            <div class="layer-stats-strip">
+                <div class="stat-item">
+                    <span class="stat-val">6</span>
+                    <span class="stat-lbl">Core Domains</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val">31</span>
+                    <span class="stat-lbl">Technical Modules</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val">100%</span>
+                    <span class="stat-lbl">Physical Ground Truth</span>
+                </div>
+            </div>
         </div>
-
-        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
-            The physical ground truth of all computing. Layer 01 spans the atomic behavior of semiconductor doping and lithography, continuous analog voltages and power delivery, radio frequency electromagnetics, industrial cyber-physical automation (OT/SCADA), board-level bus tapping, and silicon side-channel exploitation.
-        </p>
 
         <!-- Quick Jump Navigation -->
         <nav class="domain-nav" aria-label="Domain Quick Navigation">
