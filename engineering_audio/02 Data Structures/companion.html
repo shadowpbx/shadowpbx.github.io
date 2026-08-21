@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algorithmic Foundations &amp; Complexity Study Companion</title>
-  <meta name="description" content="Study companion notes for Algorithmic Foundations &amp; Complexity. Built with multi-theme comfort support and dynamic markdown rendering.">
+  <title>Data Structures &amp; Memory Architectures Study Companion</title>
+  <meta name="description" content="Study companion notes for Data Structures &amp; Memory Architectures. Built with multi-theme comfort support and dynamic markdown rendering.">
 
   <!-- Outfit & Material Icons Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -446,7 +446,7 @@
         </div>
       </div>
       <h1>Written Study Companion</h1>
-      <p>Explore computer science algorithms, time/space complexities, data structures, and practical engineering applications.</p>
+      <p>Explore computer science data structures, memory layouts, time/space complexities, and software engineering applications.</p>
     </header>
 
     <main style="display: flex; flex-direction: column; gap: 1.5rem;">
@@ -455,7 +455,7 @@
       <section class="card">
         <h2>
           <span class="material-icons-round">auto_stories</span>
-          Algorithmic Foundations &amp; Complexity Reference
+          Data Structures &amp; Memory Architectures Reference
         </h2>
         
         <div id="notes-content" class="markdown-body">
@@ -469,7 +469,7 @@
     </main>
 
     <footer>
-      <p>Algorithmic Foundations &amp; Complexity Study Companion Suite • Built with dynamic markdown &amp; KaTeX rendering</p>
+      <p>Data Structures &amp; Memory Architectures Study Companion Suite • Built with dynamic markdown &amp; KaTeX rendering</p>
     </footer>
 
   </div>
@@ -479,7 +479,7 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <script src="notes.js?v=20260819_1"></script>
+  <script src="notes.js?v=20260821_1"></script>
   <script>
     async function loadNotes() {
       marked.setOptions({
@@ -535,7 +535,7 @@
     const themeButtons = document.querySelectorAll('.theme-btn');
     
     // Load stored theme or default to dark
-    const savedTheme = localStorage.getItem('algorithms_study_companion_theme') || 'dark';
+    const savedTheme = localStorage.getItem('datastructures_study_companion_theme') || 'dark';
     setTheme(savedTheme);
 
     themeButtons.forEach(btn => {
@@ -557,7 +557,7 @@
         }
       });
       
-      localStorage.setItem('algorithms_study_companion_theme', theme);
+      localStorage.setItem('datastructures_study_companion_theme', theme);
     }
 
     window.addEventListener('DOMContentLoaded', () => {

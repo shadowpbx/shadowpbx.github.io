@@ -1,6 +1,6 @@
-# Master Index of Algorithms — Definitive Study Guide
+# Algorithmic Foundations & Complexity — Definitive Study Guide
 
-Welcome to the **Master Index of Algorithms Study Guide**. This comprehensive reference breaks down the foundational and advanced algorithms in computer science across 11 core domains—from sorting primitives and graph routing to dynamic programming, cryptography, probabilistic streaming, distributed consensus, and quantum computing.
+Welcome to the **Algorithmic Foundations & Complexity Study Guide**. This comprehensive reference breaks down the foundational and advanced algorithms in computer science across 11 core domains—from sorting primitives and graph routing to dynamic programming, cryptography, probabilistic streaming, distributed consensus, and quantum computing.
 
 ---
 
