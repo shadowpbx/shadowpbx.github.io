@@ -79,12 +79,18 @@
             font-family: var(--font-mono);
             font-size: 0.75rem;
             font-weight: 700;
-            padding: 0.25rem 0.6rem;
+            padding: 0.35rem 0;
             border-radius: 4px;
             letter-spacing: 0.05em;
             flex-shrink: 0;
-            min-width: 42px;
+            width: 46px;
+            min-width: 46px;
+            max-width: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .layer-content {
@@ -115,13 +121,22 @@
             font-family: var(--font-mono);
             font-size: 0.75rem;
             font-weight: 700;
-            padding: 0.35rem 0.75rem;
+            padding: 0.4rem 0.5rem;
             border-radius: 4px;
             white-space: nowrap;
             flex-shrink: 0;
             margin-left: 1rem;
             border: 1px solid transparent;
             transition: all 0.2s ease;
+            width: 140px;
+            min-width: 140px;
+            max-width: 140px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
+            letter-spacing: 0.02em;
         }
 
         /* Distinct Layer Accent Colors (Top-Down) */
@@ -241,7 +256,7 @@
             <div class="master-stack-container">
 
                 <!-- LAYER 9: HUMAN WETWARE & GRC -->
-                <a href="/cybersecurity_audio/02%20Social%20Engineering/" class="layer-item layer-l9" title="Explore Human Wetware &amp; Social Engineering Suites">
+                <div class="layer-item layer-l9" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L9</div>
                         <div class="layer-content">
@@ -249,11 +264,11 @@
                             <span class="layer-desc">Social Engineering • Cognitive Biases • OSINT Pretexting • NIST / ISO Frameworks • Security Culture</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 🎧 SOCIAL ENG ]</span>
-                </a>
+                    <span class="layer-action">HUMAN &amp; GRC</span>
+                </div>
 
                 <!-- LAYER 8: THEORY & CRYPTOGRAPHY -->
-                <a href="/cybersecurity_curriculum/" class="layer-item layer-l8" title="Explore Theoretical Cryptography &amp; Mathematics">
+                <div class="layer-item layer-l8" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L8</div>
                         <div class="layer-content">
@@ -261,11 +276,11 @@
                             <span class="layer-desc">Complexity Classes (P vs NP) • Asymmetric Cryptography • Post-Quantum (LWE) • AI / ML Alignment</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 🛡️ CRYPTOGRAPHY ]</span>
-                </a>
+                    <span class="layer-action">CRYPTOGRAPHY</span>
+                </div>
 
                 <!-- LAYER 7: NETWORKS & DISTRIBUTED SYSTEMS -->
-                <a href="/engineering_cs/" class="layer-item layer-l7" title="Explore Distributed Systems &amp; Networking">
+                <div class="layer-item layer-l7" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L7</div>
                         <div class="layer-content">
@@ -273,11 +288,11 @@
                             <span class="layer-desc">Distributed Consensus (Raft / Paxos) • BGP Routing • TCP/IP Protocol Stack • Cloud VPCs &amp; Scaling</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 🌐 DISTRIBUTED ]</span>
-                </a>
+                    <span class="layer-action">DISTRIBUTED</span>
+                </div>
 
                 <!-- LAYER 6: STORAGE ENGINES & DATABASES -->
-                <a href="/engineering_cs/" class="layer-item layer-l6" title="Explore Storage Engines &amp; Database Internals">
+                <div class="layer-item layer-l6" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L6</div>
                         <div class="layer-content">
@@ -285,11 +300,11 @@
                             <span class="layer-desc">LSM-Trees (RocksDB) • B+ Trees • Write-Ahead Logs (WAL) • MVCC Concurrency • ACID Integrity</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 💽 STORAGE ]</span>
-                </a>
+                    <span class="layer-action">DATABASES</span>
+                </div>
 
                 <!-- LAYER 5: DATA STRUCTURES & ALGORITHMS -->
-                <a href="/engineering_audio/01%20Algorithms/" class="layer-item layer-l5" title="Launch the Master Index of Algorithms Audio Player">
+                <div class="layer-item layer-l5" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L5</div>
                         <div class="layer-content">
@@ -297,11 +312,11 @@
                             <span class="layer-desc">Divide-and-Conquer • Graph Traversals (Dijkstra, A*) • Dynamic Programming • Asymptotic Big-O</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 🎧 ALGORITHMS ]</span>
-                </a>
+                    <span class="layer-action">ALGORITHMS</span>
+                </div>
 
                 <!-- LAYER 4: COMPILERS, LANGUAGES & RUNTIMES -->
-                <a href="/engineering_cs/" class="layer-item layer-l4" title="Explore Compilers &amp; Language Runtimes">
+                <div class="layer-item layer-l4" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L4</div>
                         <div class="layer-content">
@@ -309,11 +324,11 @@
                             <span class="layer-desc">Lexing &amp; ASTs • LLVM Intermediate Representation • JIT Compilers (V8/JVM) • Type Systems &amp; GC</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ ⚙️ COMPILERS ]</span>
-                </a>
+                    <span class="layer-action">COMPILERS</span>
+                </div>
 
                 <!-- LAYER 3: OPERATING SYSTEMS & CONCURRENCY -->
-                <a href="/cybersecurity_curriculum/" class="layer-item layer-l3" title="Explore OS &amp; Kernel Architecture">
+                <div class="layer-item layer-l3" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L3</div>
                         <div class="layer-content">
@@ -321,11 +336,11 @@
                             <span class="layer-desc">Linux Kernel Internals • Virtual Memory Paging • System Calls • Mutexes/Semaphores • eBPF</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 🐧 OS &amp; KERNELS ]</span>
-                </a>
+                    <span class="layer-action">OS &amp; KERNELS</span>
+                </div>
 
                 <!-- LAYER 2: DIGITAL LOGIC & MICROARCHITECTURE -->
-                <a href="/engineering_cs/" class="layer-item layer-l2" title="Explore CPU Pipelines &amp; Microarchitecture">
+                <div class="layer-item layer-l2" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L2</div>
                         <div class="layer-content">
@@ -333,11 +348,11 @@
                             <span class="layer-desc">CPU Pipelines • Register Sets (x86/ARM/RISC-V) • Cache Hierarchy • Speculative Execution (Spectre)</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ ⚡ ARCHITECTURE ]</span>
-                </a>
+                    <span class="layer-action">ARCHITECTURE</span>
+                </div>
 
                 <!-- LAYER 1: PHYSICAL, ANALOG & SILICON -->
-                <a href="/cybersecurity_audio/01%20Kali%20Linux%20Tools/" class="layer-item layer-l1" title="Explore Physical Security, RF &amp; Hardware Tools">
+                <div class="layer-item layer-l1" style="cursor: default;">
                     <div class="layer-left">
                         <div class="layer-badge">L1</div>
                         <div class="layer-content">
@@ -345,8 +360,8 @@
                             <span class="layer-desc">Semiconductor Physics • RF Transceivers • Side-Channel Power Analysis (DPA) • SCADA / ICS Hardware</span>
                         </div>
                     </div>
-                    <span class="layer-action">[ 📡 SILICON &amp; RF ]</span>
-                </a>
+                    <span class="layer-action">SILICON &amp; RF</span>
+                </div>
 
             </div>
         </section>
