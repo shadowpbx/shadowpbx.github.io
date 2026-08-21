@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 04: Compilers, Languages & Runtimes | Master Curriculum</title>
+    <meta name="description" content="Master Index of Compiler Engineering, Lexing, AST Parsers, SSA Form, LLVM IR, Linkers, JIT Tiered VMs, Memory Safety Models & Binary Decompilers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        /* Header Layer Badge */
+        .header-layer-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.3rem 0.75rem;
+            border-radius: 5px;
+            border: 1px solid #1e293b;
+            vertical-align: middle;
+            margin-right: 0.65rem;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+        }
+
+        /* Layer Hero & Header Typography */
+        .layer-hero-box {
+            padding: 1.5rem 0 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .layer-page-subtitle {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 860px;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .layer-stats-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+        }
+
+        .stat-val {
+            font-weight: 800;
+        }
+
+        .stat-lbl {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            color: var(--border);
+        }
+
+        /* 6 Signature Domain Color Systems for Layer 04 */
+        .domain-1 {
+            --domain-color: #d97706;
+            --domain-bg: rgba(217, 119, 6, 0.05);
+            --domain-border: rgba(217, 119, 6, 0.25);
+            --domain-glow: rgba(217, 119, 6, 0.12);
+        }
+        .domain-2 {
+            --domain-color: #8b5cf6;
+            --domain-bg: rgba(139, 92, 246, 0.05);
+            --domain-border: rgba(139, 92, 246, 0.25);
+            --domain-glow: rgba(139, 92, 246, 0.12);
+        }
+        .domain-3 {
+            --domain-color: #059669;
+            --domain-bg: rgba(5, 150, 105, 0.05);
+            --domain-border: rgba(5, 150, 105, 0.25);
+            --domain-glow: rgba(5, 150, 105, 0.12);
+        }
+        .domain-4 {
+            --domain-color: #ea580c;
+            --domain-bg: rgba(234, 88, 12, 0.05);
+            --domain-border: rgba(234, 88, 12, 0.25);
+            --domain-glow: rgba(234, 88, 12, 0.12);
+        }
+        .domain-5 {
+            --domain-color: #2563eb;
+            --domain-bg: rgba(37, 99, 235, 0.05);
+            --domain-border: rgba(37, 99, 235, 0.25);
+            --domain-glow: rgba(37, 99, 235, 0.12);
+        }
+        .domain-6 {
+            --domain-color: #e11d48;
+            --domain-bg: rgba(225, 29, 72, 0.05);
+            --domain-border: rgba(225, 29, 72, 0.25);
+            --domain-glow: rgba(225, 29, 72, 0.12);
+        }
+
+        /* Domain Jump Nav */
+        .domain-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            padding: 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .domain-nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .domain-nav-link.nav-d1 { color: #d97706; border-color: rgba(217, 119, 6, 0.3); }
+        .domain-nav-link.nav-d1:hover { background: #d97706; color: #ffffff; border-color: #d97706; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d2 { color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3); }
+        .domain-nav-link.nav-d2:hover { background: #8b5cf6; color: #ffffff; border-color: #8b5cf6; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d3 { color: #059669; border-color: rgba(5, 150, 105, 0.3); }
+        .domain-nav-link.nav-d3:hover { background: #059669; color: #ffffff; border-color: #059669; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d4 { color: #ea580c; border-color: rgba(234, 88, 12, 0.3); }
+        .domain-nav-link.nav-d4:hover { background: #ea580c; color: #ffffff; border-color: #ea580c; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d5 { color: #2563eb; border-color: rgba(37, 99, 235, 0.3); }
+        .domain-nav-link.nav-d5:hover { background: #2563eb; color: #ffffff; border-color: #2563eb; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d6 { color: #e11d48; border-color: rgba(225, 29, 72, 0.3); }
+        .domain-nav-link.nav-d6:hover { background: #e11d48; color: #ffffff; border-color: #e11d48; transform: translateY(-1px); }
+
+        /* Domain Container & Module Cards */
+        .domain-section {
+            margin-bottom: 3.25rem;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--domain-bg);
+            border: 1px solid var(--domain-border);
+            border-left: 4px solid var(--domain-color);
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-title {
+            font-size: 1.20rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .domain-count {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--domain-color);
+            background: #ffffff;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid var(--domain-border);
+        }
+
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .domain-section .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .domain-section .module-card:hover {
+            border-color: var(--domain-color);
+            box-shadow: 0 6px 18px var(--domain-glow);
+            transform: translateY(-2px);
+        }
+
+        .module-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .module-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .domain-section .module-id {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--domain-color);
+        }
+
+        .module-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .rigor-badge {
+            font-family: var(--font-mono);
+            font-size: 0.70rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+        }
+
+        .rigor-bs { background: rgba(5, 150, 105, 0.1); color: #059669; border: 1px solid rgba(5, 150, 105, 0.25); }
+        .rigor-ms { background: rgba(37, 99, 235, 0.1); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.25); }
+        .rigor-phd { background: rgba(225, 29, 72, 0.1); color: #e11d48; border: 1px solid rgba(225, 29, 72, 0.25); }
+
+        .module-desc {
+            font-size: 0.90rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin: 0 0 0.65rem 0;
+        }
+
+        .module-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .domain-section .module-app {
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            background: var(--domain-bg);
+            border-left: 3px solid var(--domain-color);
+            padding: 0.65rem 0.95rem;
+            border-radius: 0 6px 6px 0;
+            margin: 0;
+        }
+
+        .domain-section .module-app strong {
+            color: var(--domain-color);
+            font-weight: 800;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: inline-block;
+            margin-right: 0.35rem;
+        }
+
+        .back-nav {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-back {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(142, 68, 173, 0.08);
+            border: 1px solid rgba(142, 68, 173, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering_cs/">Computer Science</a>
+                        <a href="/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 04 --index compilers-languages-runtimes</div>
+            <h1><span class="header-layer-badge">LAYER 04</span> Compilers, Languages &amp; Runtimes</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="layer-hero-box">
+            <p class="layer-page-subtitle">
+                The critical translation and execution bridge between human-readable source code and low-level machine execution. Master curriculum spanning lexical analysis, context-free grammars, SSA intermediate representations, LLVM optimization pipelines, binary toolchains (ELF/PE, GOT/PLT), JIT tiered virtual machines (V8, JVM, Wasm), compile-time memory safety (Rust ownership), and program analysis tooling (ASan, AFL++ fuzzing, Z3 SMT, Ghidra decompilation).
+            </p>
+            <div class="layer-stats-strip">
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #d97706;">6</span>
+                    <span class="stat-lbl">Core Domains</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #8b5cf6;">30</span>
+                    <span class="stat-lbl">Technical Modules</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #059669;">100%</span>
+                    <span class="stat-lbl">Translation &amp; Runtime Ground Truth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Jump Navigation -->
+        <nav class="domain-nav" aria-label="Domain Quick Navigation">
+            <a href="#domain-1" class="domain-nav-link nav-d1">4.1 Frontend &amp; Parsing (5)</a>
+            <a href="#domain-2" class="domain-nav-link nav-d2">4.2 SSA &amp; LLVM IR (5)</a>
+            <a href="#domain-3" class="domain-nav-link nav-d3">4.3 Toolchains &amp; Linkers (5)</a>
+            <a href="#domain-4" class="domain-nav-link nav-d4">4.4 JIT Engines &amp; VMs (5)</a>
+            <a href="#domain-5" class="domain-nav-link nav-d5">4.5 Memory Safety (5)</a>
+            <a href="#domain-6" class="domain-nav-link nav-d6">4.6 Sanitizers &amp; Decompilation (5)</a>
+        </nav>
+
+        <!-- DOMAIN 4.1 -->
+        <section class="domain-section domain-1" id="domain-1">
+            <div class="domain-header">
+                <h2 class="domain-title">4.1 Frontend Compiler Engineering &amp; Syntax Analysis</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.1.1</span>
+                            <h3 class="module-title">Lexical Analysis, Tokenization &amp; Finite Automata (DFA/NFA)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> The initial compiler phase that scans raw source character streams and converts them into discrete lexical tokens (keywords, identifiers, literals) using regular expressions and Deterministic Finite Automata (DFA).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Lexer ambiguities and Unicode normalization issues allow source code obfuscation; integer literal parsing overflows can lead to unexpected constant truncation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.1.2</span>
+                            <h3 class="module-title">Context-Free Grammars &amp; Parsers (LL(k), LR(k), Pratt Parsing)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Algorithmic syntax engines that validate token streams against formal Backus-Naur Form (BNF) grammars, using top-down recursive descent, bottom-up shift-reduce (LR/LALR), or Pratt operator precedence parsing.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Parser differential vulnerabilities (e.g., mismatches between WAF parsers and backend language parsers) allow HTTP request smuggling and payload concealment.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.1.3</span>
+                            <h3 class="module-title">Abstract Syntax Trees (AST), CST &amp; Symbol Tables</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Hierarchical tree structures representing source semantics stripped of syntax trivia, coupled with scoped Symbol Tables tracking variable bindings, types, and function signatures across scopes.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Static Application Security Testing (SAST) tools (Semgrep, CodeQL) query AST nodes to identify SQL injection, command execution, and hardcoded credentials before build time.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.1.4</span>
+                            <h3 class="module-title">Semantic Analysis, Type Checking &amp; Type Systems (Hindley-Milner)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Compile-time verification enforcing language semantic invariants, type deduction via unification algorithms (Hindley-Milner), and subtyping variance rules (covariance, contravariance).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Type confusion bugs in languages with dynamic casts allow attackers to treat arbitrary integer values as memory pointers, bypassing language boundaries.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.1.5</span>
+                            <h3 class="module-title">Trojan Source &amp; Compiler Parser Differential Exploits</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Exploiting Unicode bidirectional (Bidi) override control characters (e.g., <code>U+202E</code>) and homoglyphs to visually disguise malicious logic as comments or benign expressions during code review.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Stealth supply-chain attacks that pass human code reviews and linters undetected while compiling into backdoored binary logic.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 4.2 -->
+        <section class="domain-section domain-2" id="domain-2">
+            <div class="domain-header">
+                <h2 class="domain-title">4.2 Intermediate Representations (IR) &amp; Static Program Analysis</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.2.1</span>
+                            <h3 class="module-title">Static Single Assignment (SSA Form) &amp; Control Flow Graphs (CFG)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> An intermediate representation property where every variable is assigned exactly once, placing $\phi$-functions at basic block join points across the Control Flow Graph (CFG).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Simplifies data reachability analysis, enabling static verification algorithms to prove that untrusted input cannot reach sensitive execution sinks without sanitization.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.2.2</span>
+                            <h3 class="module-title">The LLVM Modular Infrastructure &amp; LLVM IR Pass Pipelines</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> A universal modular compiler framework decoupling language frontends (Clang, <code>rustc</code>, Swift) from hardware backends via strongly typed, infinite-register three-address LLVM Bitcode.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Writing custom LLVM <code>Pass</code> plugins to implement automated code obfuscation (OLLVM: control-flow flattening), automated software sanitizers, and compile-time taint tracking.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.2.3</span>
+                            <h3 class="module-title">Data-Flow &amp; Pointer/Alias Analysis (Andersen's, Steensgaard's)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Algorithmic static analysis calculating points-to sets for pointers (Inclusion-based Andersen's vs Unification-based Steensgaard's), determining whether two pointer references can alias the same memory location.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Accurate alias analysis is required to verify memory safety, detect potential Use-After-Free conditions, and validate cryptographic constant-time execution guarantees.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.2.4</span>
+                            <h3 class="module-title">Compiler Optimization Passes (Inlining, DCE, Loop Vectorization)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> IR transformations designed to optimize performance, including Function Inlining, Loop-Invariant Code Motion (LICM), Common Subexpression Elimination (CSE), and Dead Code Elimination (DCE).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Dead Code Elimination can aggressively strip <code>memset()</code> calls intended to sanitize secret keys from memory, requiring secure zeroing primitives (<code>explicit_bzero</code>).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.2.5</span>
+                            <h3 class="module-title">Undefined Behavior (UB) &amp; Optimizer Security Hazards</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Non-standardized execution behaviors in C/C++ (signed overflow, null dereference, strict aliasing violations); optimizing compilers assume UB is unreachable and aggressively optimize away surrounding safety checks.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> If a developer checks a pointer for null *after* dereferencing it, the optimizer eliminates the null check, introducing remote kernel panics or exploitable memory conditions.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 4.3 -->
+        <section class="domain-section domain-3" id="domain-3">
+            <div class="domain-header">
+                <h2 class="domain-title">4.3 Code Generation, Binary Toolchains &amp; Linkers</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.3.1</span>
+                            <h3 class="module-title">Register Allocation (Graph Coloring) &amp; Instruction Selection</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Backend compiler stage mapping an infinite set of virtual IR registers to finite physical hardware registers via Kempe interference graph coloring, managing register spills to stack frames.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> High register pressure causes excessive stack spilling, increasing binary memory access latency and expanding the attack surface for stack-based memory corruption.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.3.2</span>
+                            <h3 class="module-title">Linkers, Relocations &amp; Symbol Resolution (Static vs. Dynamic Linking)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Toolchain utilities (<code>ld</code>, <code>lld</code>, <code>mold</code>) combining relocatable object files (<code>.o</code>), resolving symbol references, and patching memory addresses statically at link-time or dynamically at runtime via <code>ld.so</code>.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Dynamic linking creates DLL Hijacking and <code>LD_PRELOAD</code> injection attack vectors, allowing unprivileged users to force privileged binaries to load malicious shared objects.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.3.3</span>
+                            <h3 class="module-title">The Global Offset Table (GOT) &amp; Procedure Linkage Table (PLT)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Memory indirection structures used by dynamic linkers to resolve function addresses in shared libraries at runtime for Position-Independent Executables (PIE), supporting lazy and eager binding.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The target of classic "GOT Overwrite" attacks; overwriting a function pointer in the GOT redirects subsequent library invocations to attacker-controlled shellcode.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.3.4</span>
+                            <h3 class="module-title">Binary Container Formats &amp; Metadata (ELF, PE, Mach-O, DWARF)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Standardized binary container structures (Executable and Linkable Format ELF for Linux, Portable Executable PE for Windows) defining program headers (<code>PT_LOAD</code>, <code>PT_GNU_STACK</code>), section headers (<code>.text</code>, <code>.data</code>, <code>.rodata</code>), and DWARF debug info.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Malware authors manipulate PE/ELF headers and section flags (e.g., setting <code>PT_GNU_STACK</code> to executable) to execute unpacked shellcode directly from data sections.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.3.5</span>
+                            <h3 class="module-title">Binary Hardening Compiler Flags (Full RELRO, Stack Clash, FORTIFY_SOURCE)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Toolchain security flags: Full RELRO (<code>-Wl,-z,relro,-z,now</code>) making the GOT completely read-only, <code>-fstack-clash-protection</code> to prevent stack-heap collisions, and <code>-D_FORTIFY_SOURCE=3</code> for compile-time buffer checks.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Essential binary hardening pipeline; Full RELRO completely neutralizes GOT overwrite exploits by write-protecting the relocation table after initialization.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 4.4 -->
+        <section class="domain-section domain-4" id="domain-4">
+            <div class="domain-header">
+                <h2 class="domain-title">4.4 Managed Runtimes, Virtual Machines &amp; JIT Engines</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.4.1</span>
+                            <h3 class="module-title">Bytecode Virtual Machines (JVM, V8, Python VM, WebAssembly / Wasm)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Abstract execution environments interpreting intermediate bytecode instructions via stack-based (JVM, Wasm) or register-based (LuaJIT) dispatch loops across platform architectures.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> WebAssembly provides near-native execution speed inside web browsers within a memory-isolated linear sandbox, powering cloud edge compute microVMs.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.4.2</span>
+                            <h3 class="module-title">Just-In-Time (JIT) Tiered Compilation (V8 TurboFan, JVM HotSpot)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Multi-tier execution engines that initially interpret bytecode, profile hot code paths, and speculatively compile them into native machine code (V8 Ignition &rarr; TurboFan / JVM C1 &rarr; C2), deoptimizing back upon type divergence.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> JIT runtimes require memory regions to be writable and executable, making JIT memory management a primary target for browser exploitation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.4.3</span>
+                            <h3 class="module-title">JIT Exploitation Mechanics (JIT Spraying, Type Confusion &amp; Sea-of-Nodes)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Weaponizing JIT compiler optimizer bugs (e.g., Sea-of-Nodes graph reduction flaws in V8) to induce type confusion or spraying numeric constants that compile into executable shellcode opcodes.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The standard mechanism for achieving full Remote Code Execution (RCE) and browser sandbox escapes in modern web browsers (Chrome, Safari, Firefox).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.4.4</span>
+                            <h3 class="module-title">Runtime Concurrency Models (Async/Await Event Loops, Go M:N Goroutines)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Language runtime concurrency abstractions, ranging from single-threaded non-blocking event loops (Node.js <code>libuv</code>) to $M:N$ green-thread work-stealing schedulers (Go runtime) and Actor mailboxes (Erlang).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Event-loop starvation induces Denial of Service; concurrent goroutines accessing shared maps without mutex synchronization trigger runtime race crashes.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.4.5</span>
+                            <h3 class="module-title">Foreign Function Interfaces (FFI: CTypes, JNI, Rust FFI) &amp; Safety Bypasses</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Programmatic interfaces enabling high-level managed languages (Python, Java, Node.js) to call native compiled C/C++ or Rust functions directly via platform ABIs.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> FFI bridges bypass language-level memory safety sandboxes; native memory corruption in underlying C libraries directly compromises the host managed runtime.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 4.5 -->
+        <section class="domain-section domain-5" id="domain-5">
+            <div class="domain-header">
+                <h2 class="domain-title">4.5 Memory Safety Models &amp; Garbage Collection</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.5.1</span>
+                            <h3 class="module-title">Automated Garbage Collection (Mark-and-Sweep, Generational, Tracing)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Dynamic memory management engines that automatically track heap allocations via tri-color graph tracing, segregating objects into Young and Old generations to reclaim memory without manual developer intervention.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Prevents manual memory deallocation bugs (Use-After-Free, Double Free), but introduces non-deterministic Stop-The-World pause latency unsuitable for hard real-time systems.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.5.2</span>
+                            <h3 class="module-title">Deterministic Reference Counting &amp; Cycle Detection (ARC, std::shared_ptr)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Immediate heap deallocation upon reference count reduction to zero, deployed in Swift (Automatic Reference Counting ARC) and C++ (<code>std::shared_ptr</code>) with weak references to break reference cycles.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Unresolved circular references lead to permanent heap memory leaks, which can be weaponized to exhaust system RAM and cause denial-of-service crashes.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.5.3</span>
+                            <h3 class="module-title">Compile-Time Ownership &amp; Lifetime Systems (Rust Borrow Checker)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Static compile-time memory analysis based on Affine Type Systems enforcing single ownership, exclusive mutable borrowing ($W \oplus R$), and static variable lifetimes (<code>'a</code>).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Mathematically eliminates memory corruption (Use-After-Free, buffer overflows) and data races at compile time with zero runtime garbage-collection performance overhead.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.5.4</span>
+                            <h3 class="module-title">Memory-Safe Systems Languages (Zig, Swift, Go vs. C/C++)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Modern language designs incorporating bounds-checked memory slices, explicit error return types (<code>Result&lt;T, E&gt;</code>), and deterministic defer statements to replace legacy C/C++ idioms.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Adopting memory-safe languages directly eliminates over 70% of systemic vulnerabilities in operating system kernels and web browsers.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.5.5</span>
+                            <h3 class="module-title">Language-Level Sandbox Escapes &amp; Unsafe Code Invariants</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Language escape hatches (<code>unsafe</code> blocks in Rust, Java <code>sun.misc.Unsafe</code>) allowing raw pointer manipulation, memory transmutation, and bypassing compiler invariant checks.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Invariant violations inside <code>unsafe</code> blocks undermine the safety guarantees of surrounding safe code, re-introducing memory corruption vulnerabilities into secure applications.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 4.6 -->
+        <section class="domain-section domain-6" id="domain-6">
+            <div class="domain-header">
+                <h2 class="domain-title">4.6 Program Analysis, Sanitizers &amp; Binary Decompilation</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.6.1</span>
+                            <h3 class="module-title">Compiler Sanitizers &amp; Shadow Memory (ASan, TSan, MSan, UBSan)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Compiler instrumentation passes that inject shadow memory tracking (1:8 address mapping in AddressSanitizer) and poison redzones around allocations to detect out-of-bounds access and data races at runtime.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The standard instrumentation layer used during security audits and fuzzing campaigns to instantly catch and diagnose memory corruption bugs.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.6.2</span>
+                            <h3 class="module-title">Coverage-Guided Dynamic Fuzzing (AFL++, libFuzzer, SanitizerCoverage)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Evolutionary fuzzing engines that use compiler-injected branch-coverage feedback counters (<code>-fsanitize-coverage=trace-pc-guard</code>) and genetic mutations to explore edge transitions across complex input spaces.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The primary automated technique for discovering critical zero-day vulnerabilities in network parsers, crypto libraries, and OS kernels.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.6.3</span>
+                            <h3 class="module-title">Static &amp; Symbolic Execution Engines (Abstract Interpretation, Z3 SMT)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Formal program analysis engines that treat inputs as symbolic mathematical variables ($\alpha, \beta$), accumulating path constraints across control flow to solve for target crash conditions via SMT solvers (Z3).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Automated exploit generation (e.g., using the <code>angr</code> framework) and solving complex password/checksum constraints without brute force.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.6.4</span>
+                            <h3 class="module-title">Disassembly Engines, IL Lifting &amp; Decompilers (Ghidra, IDA, Binary Ninja)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Binary analysis tools that disassemble raw machine opcodes, lift instructions into structured Intermediate Languages (Ghidra P-Code, Binary Ninja MLIL), and decompile logic back into high-level C pseudocode.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Essential for reverse engineering proprietary binaries, auditing closed-source IoT firmware, and analyzing advanced nation-state malware.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">4.6.5</span>
+                            <h3 class="module-title">Formal Program Verification &amp; Theorem Proving (Coq, Lean, F*)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Mathematical formal specification frameworks based on the Curry-Howard correspondence, writing interactive proofs to mathematically verify that compilers (CompCert) and cryptographic primitives (HACL*) contain zero functional or security flaws.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Generates provably secure, bug-free cryptographic code used in high-assurance aerospace, military, and financial infrastructure.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bottom Navigation / Back to Blueprint -->
+        <div class="back-nav">
+            <a href="/" class="btn-back">&larr; Back to 9-Layer Master Blueprint</a>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">HEXDEF SYSTEMS ARCHITECTURE TAXONOMY</span>
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
