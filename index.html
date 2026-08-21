@@ -48,6 +48,52 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
         }
 
+        .flow-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+            background: rgba(142, 68, 173, 0.05);
+            border: 1px solid rgba(142, 68, 173, 0.18);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            margin-top: 0.6rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .flow-breadcrumb .flow-arrow {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .tier-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--text-secondary);
+            padding: 0.5rem 0.25rem 0.15rem 0.25rem;
+            border-bottom: 1px dashed var(--border);
+            margin-bottom: 0.15rem;
+            text-transform: uppercase;
+        }
+
+        .tier-header span:first-child {
+            color: var(--accent);
+        }
+
         .layer-item {
             display: flex;
             align-items: center;
@@ -247,120 +293,155 @@
         <section class="blueprint-section">
             <div class="blueprint-header-box">
                 <div class="blueprint-title-wrap">
-                    <span class="section-label" style="margin-bottom: 0;">Master Systems Architecture &amp; Security Taxonomy</span>
-                    <h2>The 9-Layer Engineering &amp; Security Blueprint</h2>
-                    <p class="blueprint-subtitle">Unified Full-Stack Taxonomy Bridging Physics, Silicon, Software, Networks, Mathematics &amp; Human Wetware</p>
+                    <span class="section-label" style="margin-bottom: 0;">Unified Systems Architecture &amp; Security Taxonomy</span>
+                    <h2>The 9-Layer Master Computing &amp; Security Blueprint</h2>
+                    <p class="blueprint-subtitle">A Unified Full-Stack Taxonomy from Semiconductor Physics to Distributed Consensus &amp; Cognitive Wetware</p>
+                    <div class="flow-breadcrumb">
+                        <span>Physical &amp; Silicon</span>
+                        <span class="flow-arrow">&rarr;</span>
+                        <span>Microarch &amp; Kernels</span>
+                        <span class="flow-arrow">&rarr;</span>
+                        <span>Compilers &amp; Algorithms</span>
+                        <span class="flow-arrow">&rarr;</span>
+                        <span>Storage &amp; Distributed</span>
+                        <span class="flow-arrow">&rarr;</span>
+                        <span>Theory &amp; Wetware</span>
+                    </div>
                 </div>
             </div>
 
             <div class="master-stack-container">
 
-                <!-- LAYER 9: HUMAN WETWARE & GRC -->
-                <div class="layer-item layer-l9" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L9</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Human Wetware, Policy &amp; GRC</span>
-                            <span class="layer-desc">Social Engineering • Cognitive Biases • OSINT Pretexting • NIST / ISO Frameworks • Security Culture</span>
-                        </div>
+                <!-- TIER III: FRONTIERS, SCALE & HUMAN WETWARE -->
+                <div class="tier-group">
+                    <div class="tier-header">
+                        <span>Tier III // Frontiers, Scale &amp; Society</span>
+                        <span>Layers 07 – 09</span>
                     </div>
-                    <span class="layer-action">HUMAN &amp; GRC</span>
+
+                    <!-- LAYER 9: HUMAN WETWARE & GRC -->
+                    <div class="layer-item layer-l9" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L9</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Human Wetware, Policy &amp; GRC</span>
+                                <span class="layer-desc">Social Engineering • Cognitive Biases • OSINT Pretexting • NIST / ISO Frameworks • Security Culture</span>
+                            </div>
+                        </div>
+                        <span class="layer-action">HUMAN &amp; GRC</span>
+                    </div>
+
+                    <!-- LAYER 8: THEORY & CRYPTOGRAPHY -->
+                    <div class="layer-item layer-l8" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L8</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Theory, Cryptography &amp; Frontiers</span>
+                                <span class="layer-desc">Complexity Classes (P vs NP) • Asymmetric Cryptography • Post-Quantum (LWE) • AI / ML Alignment</span>
+                            </div>
+                        </div>
+                        <span class="layer-action">CRYPTOGRAPHY</span>
+                    </div>
+
+                    <!-- LAYER 7: NETWORKS & DISTRIBUTED SYSTEMS -->
+                    <div class="layer-item layer-l7" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L7</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Networks &amp; Distributed Systems</span>
+                                <span class="layer-desc">Distributed Consensus (Raft / Paxos) • BGP Routing • TCP/IP Protocol Stack • Cloud VPCs &amp; Scaling</span>
+                            </div>
+                        </div>
+                        <span class="layer-action">DISTRIBUTED</span>
+                    </div>
                 </div>
 
-                <!-- LAYER 8: THEORY & CRYPTOGRAPHY -->
-                <div class="layer-item layer-l8" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L8</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Theory, Cryptography &amp; Frontiers</span>
-                            <span class="layer-desc">Complexity Classes (P vs NP) • Asymmetric Cryptography • Post-Quantum (LWE) • AI / ML Alignment</span>
-                        </div>
+                <!-- TIER II: COMPUTATION, RUNTIMES & STORAGE -->
+                <div class="tier-group">
+                    <div class="tier-header">
+                        <span>Tier II // Computation, Runtimes &amp; Storage</span>
+                        <span>Layers 04 – 06</span>
                     </div>
-                    <span class="layer-action">CRYPTOGRAPHY</span>
+
+                    <!-- LAYER 6: STORAGE ENGINES & DATABASES -->
+                    <div class="layer-item layer-l6" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L6</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Storage Engines &amp; Databases</span>
+                                <span class="layer-desc">LSM-Trees (RocksDB) • B+ Trees • Write-Ahead Logs (WAL) • MVCC Concurrency • ACID Integrity</span>
+                            </div>
+                        </div>
+                        <span class="layer-action">DATABASES</span>
+                    </div>
+
+                    <!-- LAYER 5: DATA STRUCTURES & ALGORITHMS -->
+                    <div class="layer-item layer-l5" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L5</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Data Structures &amp; Algorithms</span>
+                                <span class="layer-desc">Divide-and-Conquer • Graph Traversals (Dijkstra, A*) • Dynamic Programming • Asymptotic Big-O</span>
+                            </div>
+                        </div>
+                        <span class="layer-action">ALGORITHMS</span>
+                    </div>
+
+                    <!-- LAYER 4: COMPILERS, LANGUAGES & RUNTIMES -->
+                    <div class="layer-item layer-l4" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L4</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Compilers, Languages &amp; Runtimes</span>
+                                <span class="layer-desc">Lexing &amp; ASTs • LLVM Intermediate Representation • JIT Compilers (V8/JVM) • Type Systems &amp; GC</span>
+                            </div>
+                        </div>
+                        <span class="layer-action">COMPILERS</span>
+                    </div>
                 </div>
 
-                <!-- LAYER 7: NETWORKS & DISTRIBUTED SYSTEMS -->
-                <div class="layer-item layer-l7" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L7</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Networks &amp; Distributed Systems</span>
-                            <span class="layer-desc">Distributed Consensus (Raft / Paxos) • BGP Routing • TCP/IP Protocol Stack • Cloud VPCs &amp; Scaling</span>
-                        </div>
+                <!-- TIER I: SILICON, ARCHITECTURE & OS SUBSTRATE -->
+                <div class="tier-group">
+                    <div class="tier-header">
+                        <span>Tier I // Silicon, Architecture &amp; Substrate</span>
+                        <span>Layers 01 – 03</span>
                     </div>
-                    <span class="layer-action">DISTRIBUTED</span>
-                </div>
 
-                <!-- LAYER 6: STORAGE ENGINES & DATABASES -->
-                <div class="layer-item layer-l6" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L6</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Storage Engines &amp; Databases</span>
-                            <span class="layer-desc">LSM-Trees (RocksDB) • B+ Trees • Write-Ahead Logs (WAL) • MVCC Concurrency • ACID Integrity</span>
+                    <!-- LAYER 3: OPERATING SYSTEMS & CONCURRENCY -->
+                    <div class="layer-item layer-l3" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L3</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Operating Systems &amp; Concurrency</span>
+                                <span class="layer-desc">Linux Kernel Internals • Virtual Memory Paging • System Calls • Mutexes/Semaphores • eBPF</span>
+                            </div>
                         </div>
+                        <span class="layer-action">OS &amp; KERNELS</span>
                     </div>
-                    <span class="layer-action">DATABASES</span>
-                </div>
 
-                <!-- LAYER 5: DATA STRUCTURES & ALGORITHMS -->
-                <div class="layer-item layer-l5" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L5</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Data Structures &amp; Algorithms</span>
-                            <span class="layer-desc">Divide-and-Conquer • Graph Traversals (Dijkstra, A*) • Dynamic Programming • Asymptotic Big-O</span>
+                    <!-- LAYER 2: DIGITAL LOGIC & MICROARCHITECTURE -->
+                    <div class="layer-item layer-l2" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L2</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Digital Logic &amp; Microarchitecture</span>
+                                <span class="layer-desc">CPU Pipelines • Register Sets (x86/ARM/RISC-V) • Cache Hierarchy • Speculative Execution (Spectre)</span>
+                            </div>
                         </div>
+                        <span class="layer-action">ARCHITECTURE</span>
                     </div>
-                    <span class="layer-action">ALGORITHMS</span>
-                </div>
 
-                <!-- LAYER 4: COMPILERS, LANGUAGES & RUNTIMES -->
-                <div class="layer-item layer-l4" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L4</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Compilers, Languages &amp; Runtimes</span>
-                            <span class="layer-desc">Lexing &amp; ASTs • LLVM Intermediate Representation • JIT Compilers (V8/JVM) • Type Systems &amp; GC</span>
+                    <!-- LAYER 1: PHYSICAL, ANALOG & SILICON -->
+                    <div class="layer-item layer-l1" style="cursor: default;">
+                        <div class="layer-left">
+                            <div class="layer-badge">L1</div>
+                            <div class="layer-content">
+                                <span class="layer-name">Physical, Analog &amp; Silicon</span>
+                                <span class="layer-desc">Semiconductor Physics • RF Transceivers • Side-Channel Power Analysis (DPA) • SCADA / ICS Hardware</span>
+                            </div>
                         </div>
+                        <span class="layer-action">SILICON &amp; RF</span>
                     </div>
-                    <span class="layer-action">COMPILERS</span>
-                </div>
-
-                <!-- LAYER 3: OPERATING SYSTEMS & CONCURRENCY -->
-                <div class="layer-item layer-l3" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L3</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Operating Systems &amp; Concurrency</span>
-                            <span class="layer-desc">Linux Kernel Internals • Virtual Memory Paging • System Calls • Mutexes/Semaphores • eBPF</span>
-                        </div>
-                    </div>
-                    <span class="layer-action">OS &amp; KERNELS</span>
-                </div>
-
-                <!-- LAYER 2: DIGITAL LOGIC & MICROARCHITECTURE -->
-                <div class="layer-item layer-l2" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L2</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Digital Logic &amp; Microarchitecture</span>
-                            <span class="layer-desc">CPU Pipelines • Register Sets (x86/ARM/RISC-V) • Cache Hierarchy • Speculative Execution (Spectre)</span>
-                        </div>
-                    </div>
-                    <span class="layer-action">ARCHITECTURE</span>
-                </div>
-
-                <!-- LAYER 1: PHYSICAL, ANALOG & SILICON -->
-                <div class="layer-item layer-l1" style="cursor: default;">
-                    <div class="layer-left">
-                        <div class="layer-badge">L1</div>
-                        <div class="layer-content">
-                            <span class="layer-name">Physical, Analog &amp; Silicon</span>
-                            <span class="layer-desc">Semiconductor Physics • RF Transceivers • Side-Channel Power Analysis (DPA) • SCADA / ICS Hardware</span>
-                        </div>
-                    </div>
-                    <span class="layer-action">SILICON &amp; RF</span>
                 </div>
 
             </div>
