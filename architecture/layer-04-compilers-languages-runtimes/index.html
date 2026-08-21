@@ -364,7 +364,7 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 04 --index compilers-languages-runtimes</div>
+            <div class="terminal-prompt">user@hexdef:~|&psi;&rang; = &alpha;|0&rang; + &beta;|1&rang; architecture --layer 04 --index compilers-languages-runtimes</div>
             <h1><span class="header-layer-badge">LAYER 04</span> Compilers, Languages &amp; Runtimes</h1>
         </div>
     </header>
@@ -490,7 +490,7 @@
                         </div>
                         <span class="rigor-badge rigor-ms">MS - Advanced</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> An intermediate representation property where every variable is assigned exactly once, placing $\phi$-functions at basic block join points across the Control Flow Graph (CFG).</p>
+                    <p class="module-desc"><strong>Definition:</strong> An intermediate representation property where every variable is assigned exactly once, placing &phi;-functions at basic block join points across the Control Flow Graph (CFG).</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Simplifies data reachability analysis, enabling static verification algorithms to prove that untrusted input cannot reach sensitive execution sinks without sanitization.</p>
                 </div>
 
@@ -668,7 +668,7 @@
                         </div>
                         <span class="rigor-badge rigor-bs">BS/MS - Core</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> Language runtime concurrency abstractions, ranging from single-threaded non-blocking event loops (Node.js <code>libuv</code>) to $M:N$ green-thread work-stealing schedulers (Go runtime) and Actor mailboxes (Erlang).</p>
+                    <p class="module-desc"><strong>Definition:</strong> Language runtime concurrency abstractions, ranging from single-threaded non-blocking event loops (Node.js <code>libuv</code>) to M:N green-thread work-stealing schedulers (Go runtime) and Actor mailboxes (Erlang).</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Event-loop starvation induces Denial of Service; concurrent goroutines accessing shared maps without mutex synchronization trigger runtime race crashes.</p>
                 </div>
 
@@ -727,7 +727,7 @@
                         </div>
                         <span class="rigor-badge rigor-ms">BS/MS - Core</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> Static compile-time memory analysis based on Affine Type Systems enforcing single ownership, exclusive mutable borrowing ($W \oplus R$), and static variable lifetimes (<code>'a</code>).</p>
+                    <p class="module-desc"><strong>Definition:</strong> Static compile-time memory analysis based on Affine Type Systems enforcing single ownership, exclusive mutable borrowing (W &oplus; R), and static variable lifetimes (<code>'a</code>).</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Mathematically eliminates memory corruption (Use-After-Free, buffer overflows) and data races at compile time with zero runtime garbage-collection performance overhead.</p>
                 </div>
 
@@ -798,7 +798,7 @@
                         </div>
                         <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> Formal program analysis engines that treat inputs as symbolic mathematical variables ($\alpha, \beta$), accumulating path constraints across control flow to solve for target crash conditions via SMT solvers (Z3).</p>
+                    <p class="module-desc"><strong>Definition:</strong> Formal program analysis engines that treat inputs as symbolic mathematical variables (|&psi;&rang; = &alpha;|0&rang; + &beta;|1&rang;\alpha, \beta|&psi;&rang; = &alpha;|0&rang; + &beta;|1&rang;), accumulating path constraints across control flow to solve for target crash conditions via SMT solvers (Z3).</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Automated exploit generation (e.g., using the <code>angr</code> framework) and solving complex password/checksum constraints without brute force.</p>
                 </div>
 

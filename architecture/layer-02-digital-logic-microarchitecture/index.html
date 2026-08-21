@@ -364,7 +364,7 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 02 --index digital-logic-microarchitecture</div>
+            <div class="terminal-prompt">user@hexdef:~|&psi;&rang; = &alpha;|0&rang; + &beta;|1&rang; architecture --layer 02 --index digital-logic-microarchitecture</div>
             <h1><span class="header-layer-badge">LAYER 02</span> Digital Logic &amp; Microarchitecture</h1>
         </div>
     </header>
@@ -443,7 +443,7 @@
                         </div>
                         <span class="rigor-badge rigor-bs">BS - Core</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> Bistable multivibrator circuits (D flip-flops, SR latches) governed by strict setup ($t_{\text{setup}}$) and hold ($t_{\text{hold}}$) timing constraints that store state synchronously on master clock transitions.</p>
+                    <p class="module-desc"><strong>Definition:</strong> Bistable multivibrator circuits (D flip-flops, SR latches) governed by strict setup (t<sub>setup</sub>) and hold (t<sub>hold</sub>) timing constraints that store state synchronously on master clock transitions.</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Building CPU register files and pipeline stage boundaries; setup-time violations induced via clock-glitching cause flip-flops to enter metastable states, skipping security branch checks.</p>
                 </div>
 
@@ -526,7 +526,7 @@
                         </div>
                         <span class="rigor-badge rigor-ms">MS - Advanced</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> An internal hardware translation engine inside CISC processors (x86) that decomposes complex architectural instructions into sequences of primitive hardware micro-operations ($\mu\text{ops}$) stored in on-die Microcode ROM.</p>
+                    <p class="module-desc"><strong>Definition:</strong> An internal hardware translation engine inside CISC processors (x86) that decomposes complex architectural instructions into sequences of primitive hardware micro-operations (&mu;ops) stored in on-die Microcode ROM.</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> CPU manufacturers issue cryptographically signed microcode patches to mitigate hardware vulnerabilities (Spectre, Downfall, Meltdown) in field-deployed silicon without physical chip replacement.</p>
                 </div>
 
@@ -656,7 +656,7 @@
                         </div>
                         <span class="rigor-badge rigor-ms">BS/MS - Core</span>
                     </div>
-                    <p class="module-desc"><strong>Definition:</strong> Mathematical algorithms determining which cache set an address maps to ($N$-way set-associativity) and which cache line is evicted (Least Recently Used LRU, Pseudo-LRU) when a set reaches full capacity.</p>
+                    <p class="module-desc"><strong>Definition:</strong> Mathematical algorithms determining which cache set an address maps to (N-way set-associativity) and which cache line is evicted (Least Recently Used LRU, Pseudo-LRU) when a set reaches full capacity.</p>
                     <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Exploited in eviction-based cache attacks (Prime+Probe); attackers prime target cache sets with probe lines and measure victim eviction patterns to track private key operations.</p>
                 </div>
 
