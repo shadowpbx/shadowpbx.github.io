@@ -8,6 +8,184 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
+    <style>
+        /* 9-Layer Master Architecture Blueprint Styles */
+        .blueprint-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .blueprint-header-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .blueprint-title-wrap h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0.25rem 0 0 0;
+            letter-spacing: -0.01em;
+        }
+
+        .blueprint-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin: 0.2rem 0 0 0;
+        }
+
+        .master-stack-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        .layer-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            background: rgba(248, 250, 252, 0.8);
+            border: 1px solid var(--border);
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: inherit;
+        }
+
+        .layer-item:hover {
+            transform: translateX(4px);
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.1);
+        }
+
+        .layer-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .layer-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+            min-width: 42px;
+            text-align: center;
+        }
+
+        .layer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            min-width: 0;
+        }
+
+        .layer-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .layer-desc {
+            font-size: 0.80rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .layer-action {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        /* Distinct Layer Accent Colors (Top-Down) */
+        /* L9: Human Wetware */
+        .layer-l9 .layer-badge { background: rgba(225, 29, 72, 0.12); color: #e11d48; }
+        .layer-l9:hover { border-color: #e11d48; }
+        .layer-l9 .layer-action { background: rgba(225, 29, 72, 0.08); color: #e11d48; border-color: rgba(225, 29, 72, 0.25); }
+
+        /* L8: Theory & Crypto */
+        .layer-l8 .layer-badge { background: rgba(147, 51, 234, 0.12); color: #9333ea; }
+        .layer-l8:hover { border-color: #9333ea; }
+        .layer-l8 .layer-action { background: rgba(147, 51, 234, 0.08); color: #9333ea; border-color: rgba(147, 51, 234, 0.25); }
+
+        /* L7: Networks & Distributed */
+        .layer-l7 .layer-badge { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+        .layer-l7:hover { border-color: #2563eb; }
+        .layer-l7 .layer-action { background: rgba(37, 99, 235, 0.08); color: #2563eb; border-color: rgba(37, 99, 235, 0.25); }
+
+        /* L6: Storage & DBs */
+        .layer-l6 .layer-badge { background: rgba(13, 148, 136, 0.12); color: #0d9488; }
+        .layer-l6:hover { border-color: #0d9488; }
+        .layer-l6 .layer-action { background: rgba(13, 148, 136, 0.08); color: #0d9488; border-color: rgba(13, 148, 136, 0.25); }
+
+        /* L5: Algorithms */
+        .layer-l5 .layer-badge { background: rgba(142, 68, 173, 0.12); color: #8e44ad; }
+        .layer-l5:hover { border-color: #8e44ad; }
+        .layer-l5 .layer-action { background: rgba(142, 68, 173, 0.12); color: #8e44ad; border-color: rgba(142, 68, 173, 0.35); }
+
+        /* L4: Compilers & Runtimes */
+        .layer-l4 .layer-badge { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+        .layer-l4:hover { border-color: #d97706; }
+        .layer-l4 .layer-action { background: rgba(217, 119, 6, 0.08); color: #d97706; border-color: rgba(217, 119, 6, 0.25); }
+
+        /* L3: OS & Kernels */
+        .layer-l3 .layer-badge { background: rgba(5, 150, 105, 0.12); color: #059669; }
+        .layer-l3:hover { border-color: #059669; }
+        .layer-l3 .layer-action { background: rgba(5, 150, 105, 0.08); color: #059669; border-color: rgba(5, 150, 105, 0.25); }
+
+        /* L2: Digital Architecture */
+        .layer-l2 .layer-badge { background: rgba(79, 70, 229, 0.12); color: #4f46e5; }
+        .layer-l2:hover { border-color: #4f46e5; }
+        .layer-l2 .layer-action { background: rgba(79, 70, 229, 0.08); color: #4f46e5; border-color: rgba(79, 70, 229, 0.25); }
+
+        /* L1: Physical & Silicon */
+        .layer-l1 .layer-badge { background: rgba(71, 85, 105, 0.12); color: #475569; }
+        .layer-l1:hover { border-color: #475569; }
+        .layer-l1 .layer-action { background: rgba(71, 85, 105, 0.08); color: #475569; border-color: rgba(71, 85, 105, 0.25); }
+
+        @media (max-width: 768px) {
+            .layer-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+            .layer-action {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .layer-name, .layer-desc {
+                white-space: normal;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -41,14 +219,140 @@
                         <a href="/academics/coursework.html">Coursework</a>
                     </div>
                 </div>
-<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ portal --show-dashboard</div>
+            <div class="terminal-prompt">user@hexdef:~$ architecture --visualize --full-stack</div>
         </div>
     </header>
 
     <div class="container">
+        
+        <!-- 9-LAYER MASTER SYSTEMS ARCHITECTURE BLUEPRINT -->
+        <section class="blueprint-section">
+            <div class="blueprint-header-box">
+                <div class="blueprint-title-wrap">
+                    <span class="section-label" style="margin-bottom: 0;">00 // Master Systems Architecture</span>
+                    <h2>The 9-Layer Engineering &amp; Security Blueprint</h2>
+                    <p class="blueprint-subtitle">Unified Full-Stack Taxonomy Bridging Physics, Silicon, Software, Networks, Mathematics &amp; Human Wetware</p>
+                </div>
+            </div>
+
+            <div class="master-stack-container">
+
+                <!-- LAYER 9: HUMAN WETWARE & GRC -->
+                <a href="/cybersecurity_audio/02%20Social%20Engineering/" class="layer-item layer-l9" title="Explore Human Wetware & Social Engineering Suites">
+                    <div class="layer-left">
+                        <div class="layer-badge">L9</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Human Wetware, Policy &amp; GRC</span>
+                            <span class="layer-desc">Social Engineering • Cognitive Biases • OSINT Pretexting • NIST / ISO Frameworks • Security Culture</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 🎧 SUITE 06 ]</span>
+                </a>
+
+                <!-- LAYER 8: THEORY & CRYPTOGRAPHY -->
+                <a href="/cybersecurity_curriculum/" class="layer-item layer-l8" title="Explore Theoretical Cryptography & Mathematics">
+                    <div class="layer-left">
+                        <div class="layer-badge">L8</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Theory, Cryptography &amp; Frontiers</span>
+                            <span class="layer-desc">Complexity Classes (P vs NP) • Asymmetric Cryptography • Post-Quantum (LWE) • AI / ML Alignment</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 🛡️ CRYPTO ]</span>
+                </a>
+
+                <!-- LAYER 7: NETWORKS & DISTRIBUTED SYSTEMS -->
+                <a href="/engineering_cs/" class="layer-item layer-l7" title="Explore Distributed Systems & Networking">
+                    <div class="layer-left">
+                        <div class="layer-badge">L7</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Networks &amp; Distributed Systems</span>
+                            <span class="layer-desc">Distributed Consensus (Raft / Paxos) • BGP Routing • TCP/IP Protocol Stack • Cloud VPCs &amp; Scaling</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 🌐 CS HUB ]</span>
+                </a>
+
+                <!-- LAYER 6: STORAGE ENGINES & DATABASES -->
+                <a href="/engineering_cs/" class="layer-item layer-l6" title="Explore Storage Engines & Database Internals">
+                    <div class="layer-left">
+                        <div class="layer-badge">L6</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Storage Engines &amp; Databases</span>
+                            <span class="layer-desc">LSM-Trees (RocksDB) • B+ Trees • Write-Ahead Logs (WAL) • MVCC Concurrency • ACID Integrity</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 💽 STORAGE ]</span>
+                </a>
+
+                <!-- LAYER 5: DATA STRUCTURES & ALGORITHMS -->
+                <a href="/engineering_audio/01%20Algorithms/" class="layer-item layer-l5" title="Launch the Master Index of Algorithms Audio Player">
+                    <div class="layer-left">
+                        <div class="layer-badge">L5</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Data Structures &amp; Algorithms</span>
+                            <span class="layer-desc">Divide-and-Conquer • Graph Traversals (Dijkstra, A*) • Dynamic Programming • Asymptotic Big-O</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 🎧 SUITE 01 ]</span>
+                </a>
+
+                <!-- LAYER 4: COMPILERS, LANGUAGES & RUNTIMES -->
+                <a href="/engineering_cs/" class="layer-item layer-l4" title="Explore Compilers & Language Runtimes">
+                    <div class="layer-left">
+                        <div class="layer-badge">L4</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Compilers, Languages &amp; Runtimes</span>
+                            <span class="layer-desc">Lexing &amp; ASTs • LLVM Intermediate Representation • JIT Compilers (V8/JVM) • Type Systems &amp; GC</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ ⚙️ RUNTIMES ]</span>
+                </a>
+
+                <!-- LAYER 3: OPERATING SYSTEMS & CONCURRENCY -->
+                <a href="/cybersecurity_curriculum/" class="layer-item layer-l3" title="Explore OS & Kernel Architecture">
+                    <div class="layer-left">
+                        <div class="layer-badge">L3</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Operating Systems &amp; Concurrency</span>
+                            <span class="layer-desc">Linux Kernel Internals • Virtual Memory Paging • System Calls • Mutexes/Semaphores • eBPF</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 🐧 KERNELS ]</span>
+                </a>
+
+                <!-- LAYER 2: DIGITAL LOGIC & MICROARCHITECTURE -->
+                <a href="/engineering_cs/" class="layer-item layer-l2" title="Explore CPU Pipelines & Microarchitecture">
+                    <div class="layer-left">
+                        <div class="layer-badge">L2</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Digital Logic &amp; Microarchitecture</span>
+                            <span class="layer-desc">CPU Pipelines • Register Sets (x86/ARM/RISC-V) • Cache Hierarchy • Speculative Execution (Spectre)</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ ⚡ SILICON ]</span>
+                </a>
+
+                <!-- LAYER 1: PHYSICAL, ANALOG & SILICON -->
+                <a href="/cybersecurity_audio/01%20Kali%20Linux%20Tools/" class="layer-item layer-l1" title="Explore Physical Security, RF & Hardware Tools">
+                    <div class="layer-left">
+                        <div class="layer-badge">L1</div>
+                        <div class="layer-content">
+                            <span class="layer-name">Physical, Analog &amp; Silicon</span>
+                            <span class="layer-desc">Semiconductor Physics • RF Transceivers • Side-Channel Power Analysis (DPA) • SCADA / ICS Hardware</span>
+                        </div>
+                    </div>
+                    <span class="layer-action">[ 📡 HARDWARE ]</span>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- SECTION 01: CORE PORTAL NAVIGATION -->
+        <span class="section-label">01 // Portals &amp; Workstations</span>
         <div class="study-cards-grid">
             
             <!-- Card 1: Cybersecurity -->
@@ -56,7 +360,7 @@
                 <div>
                     <h3>01 // Cybersecurity</h3>
                     <div class="study-card-title">Cybersecurity Portal</div>
-                    <p class="study-card-desc">Red Teaming projects, vulnerability research, and security credentials.</p>
+                    <p class="study-card-desc">Red Teaming projects, vulnerability research, defensive architectures, and security credentials.</p>
                 </div>
                 <div class="study-card-meta">VIEW SECURITY PORTAL &rarr;</div>
             </a>
@@ -64,8 +368,8 @@
             <!-- Card 2: Tools & Scripts -->
             <a href="/cybersecurity_tools/" class="study-card">
                 <div>
-                    <h3>02 // Tools & Scripts</h3>
-                    <div class="study-card-title">Security & Dev Tools</div>
+                    <h3>02 // Tools &amp; Scripts</h3>
+                    <div class="study-card-title">Security &amp; Dev Tools</div>
                     <p class="study-card-desc">Custom Python payloads, automated bash logs, network scanners, and system utilities.</p>
                 </div>
                 <div class="study-card-meta">VIEW TOOLS &rarr;</div>
@@ -75,17 +379,17 @@
             <a href="/academics/" class="study-card">
                 <div>
                     <h3>03 // Academics</h3>
-                    <div class="study-card-title">Academics & CLEPs</div>
+                    <div class="study-card-title">Academics &amp; CLEPs</div>
                     <p class="study-card-desc">Introductory Sociology, Principles of Macroeconomics, American Government study logs, and coursework.</p>
                 </div>
                 <div class="study-card-meta">VIEW ACADEMICS &rarr;</div>
             </a>
 
             <!-- Card 4: Engineering & Systems -->
-            <a href="/engineering_articles/" class="study-card">
+            <a href="/engineering_cs/" class="study-card">
                 <div>
                     <h3>04 // Engineering</h3>
-                    <div class="study-card-title">Engineering & Systems</div>
+                    <div class="study-card-title">Engineering &amp; Systems</div>
                     <p class="study-card-desc">Computer science algorithms, embedded systems, Linux kernel architecture, and technical guides.</p>
                 </div>
                 <div class="study-card-meta">VIEW ENGINEERING &rarr;</div>
