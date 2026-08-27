@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Technical Audio Repository | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        .audio-catalog-container {
+            max-width: 900px;
+            margin: 2.5rem auto 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .catalog-hero {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .hero-left h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 0.35rem 0;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-left p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .stat-badge {
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.5rem 0.85rem;
+            text-align: center;
+        }
+
+        .stat-badge .stat-num {
+            font-family: var(--font-mono);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .stat-badge .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        .domain-section {
+            margin-bottom: 3rem;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-title {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .domain-count {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .catalog-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .suite-row {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .suite-row:hover {
+            border-color: var(--accent);
+            transform: translateX(4px);
+            box-shadow: 0 4px 14px rgba(142, 68, 173, 0.08);
+        }
+
+        .suite-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            min-width: 0;
+            flex-grow: 1;
+        }
+
+        .suite-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.55rem;
+            border-radius: 4px;
+            flex-shrink: 0;
+            letter-spacing: 0.03em;
+        }
+
+        .tag-cyber {
+            background: rgba(225, 29, 72, 0.1);
+            color: #e11d48;
+        }
+
+        .tag-eng {
+            background: rgba(37, 99, 235, 0.1);
+            color: #2563eb;
+        }
+
+        .suite-meta {
+            min-width: 0;
+        }
+
+        .suite-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .suite-sub {
+            font-size: 0.825rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+        }
+
+        .suite-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-shrink: 0;
+        }
+
+        .btn-launch {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.45rem 0.85rem;
+            border-radius: 4px;
+            background: var(--accent);
+            color: #ffffff !important;
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-launch:hover {
+            background: #7d3c98;
+            border-color: #7d3c98;
+        }
+
+        .btn-notes {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.45rem 0.75rem;
+            border-radius: 4px;
+            background: var(--bg-header);
+            color: var(--text-secondary) !important;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-notes:hover {
+            background: #ffffff;
+            border-color: var(--text-primary);
+            color: var(--text-primary) !important;
+        }
+
+        @media (max-width: 768px) {
+            .suite-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .suite-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .btn-launch, .btn-notes {
+                flex: 1;
+                text-align: center;
+            }
+            .hero-stats {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .stat-badge {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools &amp; Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles &amp; Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools &amp; Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ audio --catalog --all</div>
+            <h1>Master Technical Audio Repository</h1>
+        </div>
+    </header>
+
+    <div class="audio-catalog-container">
+        
+        <!-- Summary Stats Banner -->
+        <div class="catalog-hero">
+            <div class="hero-left">
+                <h2>Unified Listening Stations</h2>
+                <p>Complete multi-suite audio lectures with full companion notes &amp; KaTeX rendering.</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-badge">
+                    <span class="stat-num">11</span>
+                    <span class="stat-label">Suites</span>
+                </div>
+                <div class="stat-badge">
+                    <span class="stat-num">1,840+</span>
+                    <span class="stat-label">Modules</span>
+                </div>
+                <div class="stat-badge">
+                    <span class="stat-num">240h+</span>
+                    <span class="stat-label">Audio</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CYBERSECURITY AUDIO SUITES -->
+        <section class="domain-section">
+            <div class="domain-header">
+                <div class="domain-title">
+                    <span>🛡️ CYBERSECURITY AUDIO SUITES</span>
+                </div>
+                <span class="domain-count">9 SUITES • 1,560+ MODULES</span>
+            </div>
+
+            <div class="catalog-grid">
+                <!-- Suite 01 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 01</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Cybersecurity Master Curriculum</div>
+                            <div class="suite-sub">
+                                <span>397 Modules</span> &bull; <span>98h 26m</span> &bull; <span>35 Chapters</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/Cybersecurity_Concise/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/Cybersecurity_Concise/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 02 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 02</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Cyber Attacks &amp; Exploits</div>
+                            <div class="suite-sub">
+                                <span>71 Modules</span> &bull; <span>11h 05m</span> &bull; <span>Offensive Vectors</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/Cybersecurity_Badstuff/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/Cybersecurity_Badstuff/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 03 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 03</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">CompTIA A+ Core 2 (220-1202)</div>
+                            <div class="suite-sub">
+                                <span>744 Modules</span> &bull; <span>82h 51m</span> &bull; <span>OS &amp; Security Exam</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/05%20Comptia%20A+%20Core%202/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/05%20Comptia%20A+%20Core%202/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 04 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 04</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Cybersecurity Foundations</div>
+                            <div class="suite-sub">
+                                <span>55 Modules</span> &bull; <span>6h 51m</span> &bull; <span>Core Bedrock</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/Cybersecurity%20Foundations/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/Cybersecurity%20Foundations/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 05 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 05</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Kali Linux Security Tools</div>
+                            <div class="suite-sub">
+                                <span>229 Modules</span> &bull; <span>27h 13m</span> &bull; <span>Tool Reference</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/01%20Kali%20Linux%20Tools/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/01%20Kali%20Linux%20Tools/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 06 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 06</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Social Engineering &amp; Pretexting</div>
+                            <div class="suite-sub">
+                                <span>49 Modules</span> &bull; <span>6h 04m</span> &bull; <span>Human Infiltration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/02%20Social%20Engineering/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/02%20Social%20Engineering/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 07 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 07</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Hacking Human Wetware History</div>
+                            <div class="suite-sub">
+                                <span>50 Modules</span> &bull; <span>7h 06m</span> &bull; <span>Historical Heists</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/03%20Hacking%20Human%20Wetware%20History/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/03%20Hacking%20Human%20Wetware%20History/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 08 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 08</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Scammer Psychology &amp; Sociology</div>
+                            <div class="suite-sub">
+                                <span>46 Modules</span> &bull; <span>5h 32m</span> &bull; <span>Cognitive Exploits</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/04%20Scammer%20Psychology%20&amp;%20Sociology/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/04%20Scammer%20Psychology%20&amp;%20Sociology/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- Suite 09 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-cyber">SUITE 09</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">CompTIA A+ Core 1 (220-1201)</div>
+                            <div class="suite-sub">
+                                <span>301 Modules</span> &bull; <span>14h 31m</span> &bull; <span>Hardware &amp; Network Exam</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/cybersecurity/cybersecurity_audio/06%20CompTia%20A+%20Core%201/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/cybersecurity/cybersecurity_audio/06%20CompTia%20A+%20Core%201/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SYSTEMS ENGINEERING & CS AUDIO SUITES -->
+        <section class="domain-section">
+            <div class="domain-header">
+                <div class="domain-title">
+                    <span>⚙️ SYSTEMS ENGINEERING &amp; COMPUTER SCIENCE</span>
+                </div>
+                <span class="domain-count">2 SUITES • 79 MODULES</span>
+            </div>
+
+            <div class="catalog-grid">
+                <!-- CS Suite 01 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-eng">SUITE 01</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Algorithmic Foundations &amp; Complexity</div>
+                            <div class="suite-sub">
+                                <span>55 Modules</span> &bull; <span>6h 19m</span> &bull; <span>Algorithms &amp; Asymptotics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/engineering/engineering_audio/01%20Algorithms/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/engineering/engineering_audio/01%20Algorithms/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+
+                <!-- CS Suite 02 -->
+                <div class="suite-row">
+                    <div class="suite-left">
+                        <span class="suite-tag tag-eng">SUITE 02</span>
+                        <div class="suite-meta">
+                            <div class="suite-name">Data Structures &amp; Memory Architectures</div>
+                            <div class="suite-sub">
+                                <span>24 Modules</span> &bull; <span>2h 50m</span> &bull; <span>Trees, Heaps &amp; Caches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="suite-actions">
+                        <a href="/engineering/engineering_audio/02%20Data%20Structures/index.html" class="btn-launch">🎧 Player</a>
+                        <a href="/engineering/engineering_audio/02%20Data%20Structures/companion.html" class="btn-notes">📖 Notes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
