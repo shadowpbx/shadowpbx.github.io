@@ -1160,6 +1160,7 @@
     let currentTrackIndex = 0;
     let targetLoopLimit = 1;      // How many times each track should be played before moving to the next
     let currentLoopIteration = 1;  // Tracks current iteration count of the track
+    let currentPlaybackRate = 1.0; // Persisted playback speed across tracks  // Tracks current iteration count of the track
     let isPlaying = false;
     let loopTimeoutId = null;      // Handles track looping restarts
     let lastEndedTime = 0;         // Debounce guard for ended events
@@ -1341,7 +1342,9 @@
         if (storedSpeed !== null) {
           const parsedSpeed = parseFloat(storedSpeed);
           if (!isNaN(parsedSpeed) && parsedSpeed >= 0.5 && parsedSpeed <= 3.0) {
-            audio.playbackRate = parsedSpeed;
+            currentPlaybackRate = parsedSpeed;
+            audio.playbackRate = currentPlaybackRate;
+            audio.defaultPlaybackRate = currentPlaybackRate;
           }
         }
         updateSpeedUI();
@@ -1377,7 +1380,7 @@
         localStorage.setItem(getStorageKey('loop_limit'), targetLoopLimit === Infinity ? 'Infinity' : targetLoopLimit);
         localStorage.setItem(getStorageKey('loop_iteration'), currentLoopIteration);
         localStorage.setItem(getStorageKey('time'), audio.currentTime);
-        localStorage.setItem(getStorageKey('speed'), audio.playbackRate);
+        localStorage.setItem(getStorageKey('speed'), currentPlaybackRate);
       } catch (err) {
         Log.error("Error storing playback state", err);
       }
@@ -1718,8 +1721,9 @@
       nowPlayingTitle.textContent = cleanTitle;
       nowPlayingSubtitle.textContent = `Track ${index + 1} of ${tracks.length}`;
       
-      // Speed restoration
-      audio.playbackRate = 1.0;
+      // Maintain user-selected playback speed across all tracks
+      audio.playbackRate = currentPlaybackRate;
+      audio.defaultPlaybackRate = currentPlaybackRate;
 
       // Re-render the playlist highlight
       renderPlaylist();
@@ -1891,7 +1895,7 @@
       const btn = document.getElementById('btnSpeedCycle');
       if (!label || !btn) return;
 
-      const currentRate = audio.playbackRate || 1.0;
+      const currentRate = currentPlaybackRate || 1.0;
       const formattedRate = (currentRate === 1.0) ? '1.0x' : `${Number(currentRate.toFixed(1))}x`;
       label.textContent = formattedRate;
 
@@ -1906,12 +1910,14 @@
 
     // Single-click cycle speed handler: 1.0x -> 1.1x -> 1.2x -> 0.8x -> 0.9x -> 1.0x
     function cycleSpeedMode() {
-      const currentRate = Number((audio.playbackRate || 1.0).toFixed(1));
+      const currentRate = Number(currentPlaybackRate.toFixed(1));
       let currentIndex = SPEED_MODES.findIndex(r => Math.abs(r - currentRate) < 0.01);
       const nextIndex = (currentIndex === -1) ? 0 : (currentIndex + 1) % SPEED_MODES.length;
       const newSpeed = SPEED_MODES[nextIndex];
       
-      audio.playbackRate = newSpeed;
+      currentPlaybackRate = newSpeed;
+      audio.playbackRate = currentPlaybackRate;
+      audio.defaultPlaybackRate = currentPlaybackRate;
       updateSpeedUI();
       savePlaybackState();
       Log.info(`Playback speed updated to ${newSpeed}x`);
@@ -2017,6 +2023,8 @@
     audio.addEventListener('loadedmetadata', () => {
       timeline.max = audio.duration;
       timeTotal.textContent = formatTime(audio.duration);
+      audio.playbackRate = currentPlaybackRate;
+      audio.defaultPlaybackRate = currentPlaybackRate;
     });
 
     // Handle track endings and the custom loop logic requested
@@ -2072,7 +2080,9 @@
       btnSpeedCycle.addEventListener('click', cycleSpeedMode);
       btnSpeedCycle.addEventListener('dblclick', (e) => {
         e.preventDefault();
+        currentPlaybackRate = 1.0;
         audio.playbackRate = 1.0;
+        audio.defaultPlaybackRate = 1.0;
         updateSpeedUI();
         savePlaybackState();
         Log.info('Playback speed reset to 1.0x (Normal)');
