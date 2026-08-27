@@ -189,7 +189,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@shadowpbx: ~/academics/{folder_lowercase}$ cat README.md</div>
+            <div class="terminal-prompt">user@hexdef: ~/academics/{folder_lowercase} $ cat README.md</div>
             <h1>{title}</h1>
         </div>
     </header>
@@ -358,19 +358,20 @@ def compile_standard_section(folder_path, folder_name, config):
                 folder_base = os.path.basename(folder_name)
                 if folder_base == "cybersecurity_curriculum":
                     if chapter_num_val != "99":
-                        terminal_prompt_str = f"user@hexdef:~$ study --chapter {chapter_num_val} --read"
+                        chap_padded = chapter_num_val.zfill(2)
+                        terminal_prompt_str = f"user@hexdef: ~/cybersecurity/curriculum $ cat chap-{chap_padded}.md"
                     else:
-                        terminal_prompt_str = f"user@hexdef:~$ study --index {slug} --read"
+                        terminal_prompt_str = f"user@hexdef: ~/cybersecurity/curriculum $ cat {slug}.md"
                 elif folder_base == "engineering_cs":
-                    terminal_prompt_str = f"user@hexdef:~$ cs --index {slug} --read"
+                    terminal_prompt_str = f"user@hexdef: ~/engineering/cs $ cat {slug}.md"
                 elif folder_base == "engineering_articles":
-                    terminal_prompt_str = f"user@hexdef:~$ engineering --article {slug} --read"
+                    terminal_prompt_str = f"user@hexdef: ~/engineering/articles $ cat {slug}.md"
                 elif folder_base == "engineering_tools":
-                    terminal_prompt_str = f"user@hexdef:~$ engineering --tool {slug}"
-                elif folder_base == "engineering_audio":
-                    terminal_prompt_str = f"user@hexdef:~$ audio --engineering --listen"
+                    terminal_prompt_str = f"user@hexdef: ~/engineering/tools $ cat {slug}.md"
+                elif folder_base == "cybersecurity":
+                    terminal_prompt_str = f"user@hexdef: ~/cybersecurity/posts $ cat {slug}.md"
                 else:
-                    terminal_prompt_str = f"user@hexdef:~$ cat {fn}"
+                    terminal_prompt_str = f"user@hexdef: ~/{folder_name} $ cat {fn}"
                 
                 # Replace content in templates
                 post_html = template_content.replace("{{ title }}", title)\
