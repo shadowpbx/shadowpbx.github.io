@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Tools & Utilities | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ engineering --list-tools</div>
+            <h1>General Tools & Utilities</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <span class="section-label">General Tools, Helper Scripts & Software Utilities</span>
+        <div class="post-list" id="general-tools-posts">
+            <!-- POSTS_START -->
+            <a href="calendar.html" class="post-entry">
+                    <h3>USPS Yellow SDO Calendar</h3>
+                    <p class="post-summary">Interactive USPS Yellow SDO schedule calendar tool for calculating and viewing scheduled days off.</p>
+                    <div class="post-meta">
+                        <span class="meta-tag">CALENDAR</span>
+                    </div>
+                </a>
+            <!-- POSTS_END -->
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

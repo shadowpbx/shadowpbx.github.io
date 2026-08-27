@@ -14,16 +14,16 @@ logging.basicConfig(
 # Configuration map for all monorepo sections
 FOLDER_CONFIGS = {
     "cybersecurity": {"type": "standard", "default_tag": "PENTEST"},
-    "cybersecurity_certifications": {"type": "standard", "default_tag": "CERT"},
-    "cybersecurity_curriculum": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
-    "cybersecurity_study_modules": {"type": "standard", "default_tag": "MODULES"},
-    "cybersecurity_audio": {"type": "standard", "default_tag": "AUDIO"},
-    "cybersecurity_tools": {"type": "tools"},
+    "cybersecurity/cybersecurity_certifications": {"type": "standard", "default_tag": "CERT"},
+    "cybersecurity/cybersecurity_curriculum": {"type": "standard", "default_tag": "STUDY", "layout": "featured"},
+    "cybersecurity/cybersecurity_study_modules": {"type": "standard", "default_tag": "MODULES"},
+    "cybersecurity/cybersecurity_audio": {"type": "standard", "default_tag": "AUDIO"},
+    "cybersecurity/cybersecurity_tools": {"type": "tools"},
     "engineering": {"type": "standard", "default_tag": "ENGINEERING"},
-    "engineering_cs": {"type": "standard", "default_tag": "ALGORITHMS"},
-    "engineering_audio": {"type": "standard", "default_tag": "AUDIO"},
-    "engineering_articles": {"type": "standard", "default_tag": "ENGINEERING"},
-    "engineering_tools": {"type": "standard", "default_tag": "UTILITIES"},
+    "engineering/engineering_cs": {"type": "standard", "default_tag": "ALGORITHMS"},
+    "engineering/engineering_audio": {"type": "standard", "default_tag": "AUDIO"},
+    "engineering/engineering_articles": {"type": "standard", "default_tag": "ENGINEERING"},
+    "engineering/engineering_tools": {"type": "standard", "default_tag": "UTILITIES"},
     "academics": {"type": "academics_readmes"}
 }
 
@@ -164,20 +164,20 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                 <div class="dropdown">
                     <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
-                        <a href="/cybersecurity_audio/">Audio Tutorials</a>
-                        <a href="/cybersecurity_tools/">Tools & Scripts</a>
-                        <a href="/cybersecurity_certifications/">Certifications</a>
-                        <a href="/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
-                        <a href="/cybersecurity_study_modules/">Study Modules</a>
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
                     <div class="dropdown-menu">
-                        <a href="/engineering_audio/">Audio Tutorials</a>
-                        <a href="/engineering_cs/">Computer Science</a>
-                        <a href="/engineering_articles/">Articles & Guides</a>
-                        <a href="/engineering_tools/">Tools & Utilities</a>
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">
@@ -355,18 +355,19 @@ def compile_standard_section(folder_path, folder_name, config):
                 slug = slug.replace("master-index-of-", "").replace("-master-index", "").replace("the-", "")
                 slug = re.sub(r'^-+|-+$', '', slug)
                 
-                if folder_name == "cybersecurity_curriculum":
+                folder_base = os.path.basename(folder_name)
+                if folder_base == "cybersecurity_curriculum":
                     if chapter_num_val != "99":
                         terminal_prompt_str = f"user@hexdef:~$ study --chapter {chapter_num_val} --read"
                     else:
                         terminal_prompt_str = f"user@hexdef:~$ study --index {slug} --read"
-                elif folder_name == "engineering_cs":
+                elif folder_base == "engineering_cs":
                     terminal_prompt_str = f"user@hexdef:~$ cs --index {slug} --read"
-                elif folder_name == "engineering_articles":
+                elif folder_base == "engineering_articles":
                     terminal_prompt_str = f"user@hexdef:~$ engineering --article {slug} --read"
-                elif folder_name == "engineering_tools":
+                elif folder_base == "engineering_tools":
                     terminal_prompt_str = f"user@hexdef:~$ engineering --tool {slug}"
-                elif folder_name == "engineering_audio":
+                elif folder_base == "engineering_audio":
                     terminal_prompt_str = f"user@hexdef:~$ audio --engineering --listen"
                 else:
                     terminal_prompt_str = f"user@hexdef:~$ cat {fn}"
@@ -391,7 +392,8 @@ def compile_standard_section(folder_path, folder_name, config):
             })
             
     # Sort posts & prepare HTML items
-    if folder_name == "cybersecurity_curriculum":
+    folder_base = os.path.basename(folder_name)
+    if folder_base == "cybersecurity_curriculum":
         chapter_posts = [p for p in compiled_posts if p['chapter_num'] != "99"]
         chapter_posts.sort(key=lambda x: x['chapter_num'])
         ref_posts = [p for p in compiled_posts if p['chapter_num'] == "99"]
@@ -444,7 +446,7 @@ def compile_standard_section(folder_path, folder_name, config):
                 </a>"""
             posts_list_html.append(entry)
         
-        if not posts_list_html and folder_name == "engineering_cs":
+        if not posts_list_html and folder_base == "engineering_cs":
             joined_posts = '            <div style="color: var(--text-secondary); font-style: italic; font-size: 0.95rem; padding: 0.75rem 0;">Additional deep dive modules and computational guides in development.</div>'
         else:
             joined_posts = "\n".join(posts_list_html)

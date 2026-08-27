@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 06: Storage Engines & Databases | Master Curriculum</title>
+    <meta name="description" content="Master Index of Storage Engine Architectures, NVMe I/O, B+ Trees, LSM-Trees, Write-Ahead Logging, ARIES Recovery, MVCC, Sharding & Database Security.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        /* Header Layer Badge */
+        .header-layer-badge {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.3rem 0.75rem;
+            border-radius: 5px;
+            border: 1px solid #1e293b;
+            vertical-align: middle;
+            margin-right: 0.65rem;
+            display: inline-block;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
+        }
+
+        /* Layer Hero & Header Typography */
+        .layer-hero-box {
+            padding: 1.5rem 0 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .layer-page-subtitle {
+            font-size: 1.02rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 860px;
+            margin: 0 0 1.25rem 0;
+        }
+
+        .layer-stats-strip {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+        }
+
+        .stat-val {
+            font-weight: 800;
+        }
+
+        .stat-lbl {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .stat-divider {
+            color: var(--border);
+        }
+
+        /* 6 Signature Domain Color Systems for Layer 06 */
+        .domain-1 {
+            --domain-color: #059669;
+            --domain-bg: rgba(5, 150, 105, 0.05);
+            --domain-border: rgba(5, 150, 105, 0.25);
+            --domain-glow: rgba(5, 150, 105, 0.12);
+        }
+        .domain-2 {
+            --domain-color: #0284c7;
+            --domain-bg: rgba(2, 132, 199, 0.05);
+            --domain-border: rgba(2, 132, 199, 0.25);
+            --domain-glow: rgba(2, 132, 199, 0.12);
+        }
+        .domain-3 {
+            --domain-color: #d97706;
+            --domain-bg: rgba(217, 119, 6, 0.05);
+            --domain-border: rgba(217, 119, 6, 0.25);
+            --domain-glow: rgba(217, 119, 6, 0.12);
+        }
+        .domain-4 {
+            --domain-color: #8b5cf6;
+            --domain-bg: rgba(139, 92, 246, 0.05);
+            --domain-border: rgba(139, 92, 246, 0.25);
+            --domain-glow: rgba(139, 92, 246, 0.12);
+        }
+        .domain-5 {
+            --domain-color: #ea580c;
+            --domain-bg: rgba(234, 88, 12, 0.05);
+            --domain-border: rgba(234, 88, 12, 0.25);
+            --domain-glow: rgba(234, 88, 12, 0.12);
+        }
+        .domain-6 {
+            --domain-color: #e11d48;
+            --domain-bg: rgba(225, 29, 72, 0.05);
+            --domain-border: rgba(225, 29, 72, 0.25);
+            --domain-glow: rgba(225, 29, 72, 0.12);
+        }
+
+        /* Domain Jump Nav */
+        .domain-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+            padding: 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .domain-nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .domain-nav-link.nav-d1 { color: #059669; border-color: rgba(5, 150, 105, 0.3); }
+        .domain-nav-link.nav-d1:hover { background: #059669; color: #ffffff; border-color: #059669; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d2 { color: #0284c7; border-color: rgba(2, 132, 199, 0.3); }
+        .domain-nav-link.nav-d2:hover { background: #0284c7; color: #ffffff; border-color: #0284c7; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d3 { color: #d97706; border-color: rgba(217, 119, 6, 0.3); }
+        .domain-nav-link.nav-d3:hover { background: #d97706; color: #ffffff; border-color: #d97706; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d4 { color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3); }
+        .domain-nav-link.nav-d4:hover { background: #8b5cf6; color: #ffffff; border-color: #8b5cf6; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d5 { color: #ea580c; border-color: rgba(234, 88, 12, 0.3); }
+        .domain-nav-link.nav-d5:hover { background: #ea580c; color: #ffffff; border-color: #ea580c; transform: translateY(-1px); }
+
+        .domain-nav-link.nav-d6 { color: #e11d48; border-color: rgba(225, 29, 72, 0.3); }
+        .domain-nav-link.nav-d6:hover { background: #e11d48; color: #ffffff; border-color: #e11d48; transform: translateY(-1px); }
+
+        /* Domain Container & Module Cards */
+        .domain-section {
+            margin-bottom: 3.25rem;
+        }
+
+        .domain-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding: 0.85rem 1.25rem;
+            background: var(--domain-bg);
+            border: 1px solid var(--domain-border);
+            border-left: 4px solid var(--domain-color);
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-title {
+            font-size: 1.20rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .domain-count {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--domain-color);
+            background: #ffffff;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid var(--domain-border);
+        }
+
+        .modules-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .domain-section .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .domain-section .module-card:hover {
+            border-color: var(--domain-color);
+            box-shadow: 0 6px 18px var(--domain-glow);
+            transform: translateY(-2px);
+        }
+
+        .module-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .module-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .domain-section .module-id {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--domain-color);
+        }
+
+        .module-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .rigor-badge {
+            font-family: var(--font-mono);
+            font-size: 0.70rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            letter-spacing: 0.03em;
+        }
+
+        .rigor-bs { background: rgba(5, 150, 105, 0.1); color: #059669; border: 1px solid rgba(5, 150, 105, 0.25); }
+        .rigor-ms { background: rgba(37, 99, 235, 0.1); color: #2563eb; border: 1px solid rgba(37, 99, 235, 0.25); }
+        .rigor-phd { background: rgba(225, 29, 72, 0.1); color: #e11d48; border: 1px solid rgba(225, 29, 72, 0.25); }
+
+        .module-desc {
+            font-size: 0.90rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            margin: 0 0 0.65rem 0;
+        }
+
+        .module-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .domain-section .module-app {
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
+            background: var(--domain-bg);
+            border-left: 3px solid var(--domain-color);
+            padding: 0.65rem 0.95rem;
+            border-radius: 0 6px 6px 0;
+            margin: 0;
+        }
+
+        .domain-section .module-app strong {
+            color: var(--domain-color);
+            font-weight: 800;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: inline-block;
+            margin-right: 0.35rem;
+        }
+
+        .back-nav {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-back {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: rgba(142, 68, 173, 0.08);
+            border: 1px solid rgba(142, 68, 173, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-back:hover {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ architecture --layer 06 --index storage-engines-databases</div>
+            <h1><span class="header-layer-badge">LAYER 06</span> Storage Engines &amp; Databases</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="layer-hero-box">
+            <p class="layer-page-subtitle">
+                The foundational data persistence and transaction integrity layer of computing systems. Master curriculum spanning NVMe storage I/O subsystems, B+ Tree and LSM-Tree indexing, Write-Ahead Logging (WAL) and ARIES crash recovery, Multi-Version Concurrency Control (MVCC), distributed replication and horizontal sharding, vector similarity search (HNSW), and SQL query security.
+            </p>
+            <div class="layer-stats-strip">
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #059669;">6</span>
+                    <span class="stat-lbl">Core Domains</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #0284c7;">30</span>
+                    <span class="stat-lbl">Technical Modules</span>
+                </div>
+                <span class="stat-divider">&bull;</span>
+                <div class="stat-item">
+                    <span class="stat-val" style="color: #d97706;">100%</span>
+                    <span class="stat-lbl">Persistence &amp; ACID Ground Truth</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Jump Navigation -->
+        <nav class="domain-nav" aria-label="Domain Quick Navigation">
+            <a href="#domain-1" class="domain-nav-link nav-d1">6.1 Disk I/O &amp; NVMe (5)</a>
+            <a href="#domain-2" class="domain-nav-link nav-d2">6.2 B+ &amp; LSM Indexing (5)</a>
+            <a href="#domain-3" class="domain-nav-link nav-d3">6.3 Durability &amp; ARIES (5)</a>
+            <a href="#domain-4" class="domain-nav-link nav-d4">6.4 Concurrency &amp; MVCC (5)</a>
+            <a href="#domain-5" class="domain-nav-link nav-d5">6.5 Distributed Data &amp; Sharding (5)</a>
+            <a href="#domain-6" class="domain-nav-link nav-d6">6.6 Query Optimizers &amp; SQLi (5)</a>
+        </nav>
+
+        <!-- DOMAIN 6.1 -->
+        <section class="domain-section domain-1" id="domain-1">
+            <div class="domain-header">
+                <h2 class="domain-title">6.1 Disk I/O, Storage Hardware &amp; Block Subsystems</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.1.1</span>
+                            <h3 class="module-title">Non-Volatile Storage Tiers (NVMe, SSDs, FTL Wear-Leveling)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Physical non-volatile storage media architectures, where Solid-State Drives (SSDs) utilize a Flash Translation Layer (FTL) to manage NAND flash wear-leveling, garbage collection, and block-erase constraints.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> High-performance storage engines align write buffers to physical SSD page boundaries (4KB/8KB) to eliminate write amplification and prevent flash endurance degradation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.1.2</span>
+                            <h3 class="module-title">Kernel Page Cache, Dirty Page Writeback &amp; <code>fsync()</code> Semantics</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> OS memory caching that buffers disk I/O in system RAM, requiring explicit synchronous flush system calls (<code>fsync()</code>, <code>fdatasync()</code>) to enforce durability barriers to non-volatile physical storage.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Misconfigured or omitted <code>fsync</code> calls lead to silent database corruption during power outages; transactional durability depends entirely on correct sync barriers.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.1.3</span>
+                            <h3 class="module-title">High-Performance Asynchronous I/O (<code>io_uring</code>, Direct I/O)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Modern Linux kernel asynchronous I/O frameworks using shared submission and completion ring buffers (<code>io_uring</code>) to execute unbuffered Direct I/O (<code>O_DIRECT</code>) without syscall overhead.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Powers next-generation database storage engines (ScyllaDB, RocksDB) to achieve millions of IOPS per server node with predictable microsecond tail latencies.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.1.4</span>
+                            <h3 class="module-title">Storage Volume Encryption (XTS-AES, dm-crypt / LUKS, Hardware SEDs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Transparent block-level disk encryption utilizing XTS-AES cipher mode to secure raw block sectors against physical theft, implemented via Linux `dm-crypt`/LUKS or Self-Encrypting Drives (SEDs).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Mandatory data-at-rest protection requirement across PCI-DSS, HIPAA, and SOC 2 compliance standards, neutralizing physical hardware data theft in data centers.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.1.5</span>
+                            <h3 class="module-title">Flash Memory Wear Amplification &amp; ZNS (Zoned Namespaces)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Advanced NVMe storage paradigms replacing conventional FTLs with Zoned Namespaces (ZNS), requiring software to write sequentially into large contiguous zones matching flash erase blocks.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Eliminates SSD internal overprovisioning and garbage collection pauses, extending cloud SSD lifetime by 3x–5x and securing predictable write latencies.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 6.2 -->
+        <section class="domain-section domain-2" id="domain-2">
+            <div class="domain-header">
+                <h2 class="domain-title">6.2 Storage Engine Indexing &amp; Physical Data Layouts</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.2.1</span>
+                            <h3 class="module-title">B+ Trees &amp; Disk-Page Slotted Architecture</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> N-ary balanced search trees where records are stored exclusively in leaf disk pages, linked sequentially for range queries, organized internally using slotted page formats with slot array headers.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The standard indexing engine of relational databases (PostgreSQL, MySQL InnoDB, SQLite, Oracle), heavily optimized for read-intensive transactional workloads.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.2.2</span>
+                            <h3 class="module-title">Log-Structured Merge-Trees (LSM-Trees: MemTable, SSTables, Compaction)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Write-optimized storage architectures buffering incoming writes in an in-memory MemTable (Skip List) and flushing sequential, immutable Sorted String Tables (SSTables) to disk, periodically merged via Compaction.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The core storage architecture for high-throughput write-heavy NoSQL databases (RocksDB, Cassandra, Bigtable, ClickHouse), maximizing sequential disk write performance.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.2.3</span>
+                            <h3 class="module-title">Columnar Storage Formats (Apache Parquet, ORC, ClickHouse MergeTree)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Physical storage layouts that organize records by columns rather than rows, enabling extreme compression (Run-Length Encoding, Dictionary Encoding, Snappy/ZSTD) and vectorized analytical scans.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Powers analytical data warehouses (Snowflake, BigQuery, ClickHouse), accelerating aggregation queries (`SUM`, `AVG`) across billions of rows by 100x.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.2.4</span>
+                            <h3 class="module-title">Inverted Indexes, Posting Lists &amp; Text Search (Lucene / Elasticsearch)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Text index structures that map individual search terms (tokens) to sorted lists of document IDs (Posting Lists), using delta-encoded bitsets for fast boolean set intersections.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The core technology behind SIEM security analytics (Splunk, Elastic) and search engines, executing sub-millisecond keyword queries over petabytes of log telemetry.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.2.5</span>
+                            <h3 class="module-title">Vector Indexing &amp; Approximate Nearest Neighbor (HNSW, IVF-PQ, pgvector)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Specialized high-dimensional vector search indexes using Hierarchical Navigable Small World (HNSW) graphs and Inverted File Product Quantization (IVF-PQ) to compute vector cosine/L2 similarities.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Powers modern AI vector databases (Pinecone, Qdrant, pgvector, Milvus) for LLM retrieval-augmented generation (RAG) and biometric facial verification.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 6.3 -->
+        <section class="domain-section domain-3" id="domain-3">
+            <div class="domain-header">
+                <h2 class="domain-title">6.3 Transaction Durability, Logging &amp; Crash Recovery</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.3.1</span>
+                            <h3 class="module-title">ACID Transaction Guarantees &amp; Invariant Verification</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> The four foundational transaction guarantees: Atomicity (all-or-nothing), Consistency (state invariant validation), Isolation (concurrency control), and Durability (permanent non-volatile persistence).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Financial ledger systems ensuring funds are neither created nor destroyed during account transfers, guaranteeing invariant validation despite server power loss.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.3.2</span>
+                            <h3 class="module-title">Write-Ahead Logging (WAL) &amp; Append-Only Redo Logs</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> The database durability invariant dictating that modifications to in-memory dirty pages must be persisted sequentially to an append-only disk log *before* the dirty data page is written to disk.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Guarantees instantaneous recovery; upon restart following an unexpected crash, the engine replays the WAL sequence to restore uncommitted memory states.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.3.3</span>
+                            <h3 class="module-title">The ARIES Recovery Algorithm (Analysis, Redo, Undo)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> The standard recovery algorithm executing three sequential passes upon reboot: Analysis (identifies dirty pages and active transactions), Redo (repeating history to restore state), and Undo (rolling back uncommitted transactions).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Implemented in enterprise databases (IBM DB2, Microsoft SQL Server, PostgreSQL) to mathematically guarantee zero data corruption following catastrophic hardware failure.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.3.4</span>
+                            <h3 class="module-title">Copy-on-Write (CoW) &amp; Shadow Paging Engines (LMDB, ZFS, Btrfs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Storage engines that never overwrite existing disk pages in place; updates are written to newly allocated pages and atomically committed by updating a single root pointer.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Eliminates Write-Ahead Logging overhead entirely, delivering instant crash recovery and lock-free concurrent read transactions.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.3.5</span>
+                            <h3 class="module-title">Checkpointing Strategies (Fuzzy Checkpointing, WAL Truncation)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Background processes that flush dirty buffer pool pages to disk asynchronously (Fuzzy Checkpointing), recording the earliest unwritten Log Sequence Number (LSN) to safely truncate historical WAL logs.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Prevents unbounded disk space exhaustion from infinite WAL growth and bounds crash recovery time to seconds rather than hours.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 6.4 -->
+        <section class="domain-section domain-4" id="domain-4">
+            <div class="domain-header">
+                <h2 class="domain-title">6.4 Concurrency Control, Lock Models &amp; Isolation Levels</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.4.1</span>
+                            <h3 class="module-title">ANSI SQL Transaction Isolation Levels &amp; Serializability</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Formal isolation tiers (Read Uncommitted, Read Committed, Repeatable Read, Serializable) defining the degree of transaction isolation and concurrent interleaving permitted by the engine.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Balancing system transaction throughput against data correctness; setting isolation too low introduces financial calculation vulnerabilities; setting it too high causes lock contention.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.4.2</span>
+                            <h3 class="module-title">Concurrency Anomalies (Dirty Reads, Non-Repeatable Reads, Phantom, Write Skew)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Inconsistency anomalies in concurrent transactions: Dirty Reads (reading uncommitted data), Non-Repeatable Reads (values changing mid-transaction), Phantoms (new rows appearing), and Write Skew.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Mitigates race conditions in e-commerce and banking systems, preventing double-spending and inventory overdraft exploits.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.4.3</span>
+                            <h3 class="module-title">Two-Phase Locking (2PL: Strict 2PL, Shared/Exclusive Locks, Deadlock Graphs)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Pessimistic concurrency control requiring transactions to acquire locks during a Growing Phase and release them only during a Shrinking Phase (Strict 2PL holds exclusive locks until commit).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Mathematically guarantees Serializability, backed by background Waits-For graph cycle detection algorithms to resolve transaction deadlocks.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.4.4</span>
+                            <h3 class="module-title">Multi-Version Concurrency Control (MVCC: Snapshot Isolation, Vacuuming)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Optimistic concurrency architecture where row updates create new tuple versions with transaction timestamps (<code>xmin/xmax</code> in PostgreSQL), ensuring readers never block writers and writers never block readers.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Powers modern transactional databases; requires background vacuum workers (PostgreSQL `VACUUM`) to reclaim disk space from dead tuples (MVCC bloat).</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.4.5</span>
+                            <h3 class="module-title">Optimistic Concurrency Control (OCC: Timestamp Ordering, Validation)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Concurrency paradigm executing transactions without locking, validating read/write sets during a commit validation phase to abort and retry if conflicting concurrent writes occurred.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Ideal for read-heavy, low-contention cloud workloads, eliminating locking overhead in in-memory distributed data stores.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 6.5 -->
+        <section class="domain-section domain-5" id="domain-5">
+            <div class="domain-header">
+                <h2 class="domain-title">6.5 Distributed Data, Replication &amp; Sharding Architectures</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.5.1</span>
+                            <h3 class="module-title">Primary-Replica Replication &amp; WAL Streaming (Sync vs. Async, Split-Brain)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> High-availability architectures streaming physical WAL records from primary to standby replicas, balancing synchronous zero-data-loss durability against asynchronous replication performance.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Automates failover during node crashes; prevents split-brain partition anomalies where two nodes simultaneously accept writes.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.5.2</span>
+                            <h3 class="module-title">Change Data Capture (CDC: Debezium, Kafka Event Streaming)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Real-time integration pipelines extracting row-level insert, update, and delete events directly from database WAL logs (Debezium), streaming them to event brokers (Apache Kafka).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Synchronizes distributed caches and search indexes with zero application-level dual-write race conditions, providing immutable audit logging.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.5.3</span>
+                            <h3 class="module-title">Database Sharding, Partitioning Keys &amp; Consistent Hashing</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Architecture</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Horizontal data partitioning distributing table rows across independent physical database clusters based on sharding keys, using Consistent Hashing rings with virtual nodes to minimize rebalancing.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Enables petabyte-scale database scaling; poorly selected sharding keys cause hot-spot bottlenecks and uneven storage distribution.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.5.4</span>
+                            <h3 class="module-title">Distributed Transactions &amp; Two-Phase Commit (2PC vs. Saga Patterns)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Multi-node atomic commit protocols: synchronous Two-Phase Commit (Prepare &rarr; Commit/Abort) vs asynchronous Saga patterns with compensating transactions across microservices.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Guarantees distributed ACID consistency across sharded banks; coordinator crashes in 2PC can cause blocking resource deadlocks.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.5.5</span>
+                            <h3 class="module-title">In-Memory Caching &amp; Cache Invalidation Patterns (Redis, Thundering Herd)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Ephemeral caching layers (Redis, Memcached) utilizing Cache-Aside, Write-Through, and Write-Behind topologies to absorb high-frequency read spikes away from disk engines.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Mitigates Thundering Herd / Cache Stampede denial of service by applying mutex locks or probabilistic early recomputation (XFetch) on key expiry.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DOMAIN 6.6 -->
+        <section class="domain-section domain-6" id="domain-6">
+            <div class="domain-header">
+                <h2 class="domain-title">6.6 Query Optimization, Execution &amp; Database Security</h2>
+                <span class="domain-count">5 Modules</span>
+            </div>
+            <div class="modules-grid">
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.6.1</span>
+                            <h3 class="module-title">Relational Algebra &amp; Cost-Based Query Optimizers (CBO)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-ms">MS - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Query transformation engines translating SQL ASTs into relational algebra trees, utilizing table statistics and histograms to evaluate join orders (Hash Join, Merge Join, Nested Loop) and index scan paths.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Transforms complex SQL queries into optimal execution plans; stale statistics cause the optimizer to select catastrophic full-table scans, causing database CPU starvation.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.6.2</span>
+                            <h3 class="module-title">Vectorized Query Processing (Volcano Iterator vs. Block-Oriented SIMD)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Advanced</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Database execution engines that process data in vectors/blocks of column records simultaneously using CPU SIMD instructions, replacing the classic row-at-a-time Volcano iterator model.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Accelerates analytical data warehouses (DuckDB, ClickHouse, Snowflake), delivering 10x–100x faster query execution speeds with minimal CPU instruction cache misses.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.6.3</span>
+                            <h3 class="module-title">SQL Injection Attack Vectors (Classic, Blind, Second-Order) &amp; Prepared Statements</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Injection vulnerabilities where untrusted input breaks out of SQL data contexts to alter query syntax, mitigated completely by parameterized Prepared Statements.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> The most historically impactful database vulnerability; allows remote attackers to dump confidential tables, bypass authentication, or execute OS commands via database extensions.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.6.4</span>
+                            <h3 class="module-title">Granular Access Control (Role-Based Access Control RBAC, Row-Level Security RLS)</h3>
+                        </div>
+                        <span class="rigor-badge rigor-bs">BS/MS - Core</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Engine-level authorization frameworks enforcing schema permissions (RBAC) and dynamically appending tenant-filtering `WHERE` clauses directly to queries (Row-Level Security RLS).</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> Fundamental for securing multi-tenant SaaS applications; ensures Tenant A cannot query Tenant B's data even if application code contains authorization flaws.</p>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <div class="module-title-wrap">
+                            <span class="module-id">6.6.5</span>
+                            <h3 class="module-title">Tamper-Evident &amp; Cryptographic Database Audit Trails</h3>
+                        </div>
+                        <span class="rigor-badge rigor-phd">MS/PhD - Frontier</span>
+                    </div>
+                    <p class="module-desc"><strong>Definition:</strong> Cryptographically verifiable, append-only database storage engines (immudb, Amazon QLDB) that maintain Merkle tree proofs of state changes to guarantee immutable historical records.</p>
+                    <p class="module-app"><strong>Security &amp; Hardware Application:</strong> High-assurance forensic integrity and regulatory compliance; mathematically proves database records have not been altered even by privileged database administrators.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bottom Navigation / Back to Blueprint -->
+        <div class="back-nav">
+            <a href="/" class="btn-back">&larr; Back to 9-Layer Master Blueprint</a>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-secondary);">HEXDEF SYSTEMS ARCHITECTURE TAXONOMY</span>
+        </div>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

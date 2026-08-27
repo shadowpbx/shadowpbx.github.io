@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science & Computational Foundations | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        .macroview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 1rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .macro-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .macro-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .macro-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .macro-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0.25rem 0 0.5rem 0;
+            line-height: 1.35;
+        }
+
+        .macro-desc {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .macro-purple { border-left: 3px solid #8e44ad; }
+        .macro-purple .macro-badge { background: rgba(142, 68, 173, 0.12); color: #8e44ad; }
+        .macro-purple:hover { border-color: #8e44ad; box-shadow: 0 4px 14px rgba(142, 68, 173, 0.15); }
+
+        .macro-green { border-left: 3px solid #059669; }
+        .macro-green .macro-badge { background: rgba(5, 150, 105, 0.12); color: #059669; }
+        .macro-green:hover { border-color: #059669; box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15); }
+
+        .macro-blue { border-left: 3px solid #2563eb; }
+        .macro-blue .macro-badge { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+        .macro-blue:hover { border-color: #2563eb; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15); }
+
+        .macro-yellow { border-left: 3px solid #d97706; }
+        .macro-yellow .macro-badge { background: rgba(217, 119, 6, 0.12); color: #d97706; }
+        .macro-yellow:hover { border-color: #d97706; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15); }
+
+        .macro-red { border-left: 3px solid #dc2626; }
+        .macro-red .macro-badge { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+        .macro-red:hover { border-color: #dc2626; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.15); }
+
+        .macro-indigo { border-left: 3px solid #4f46e5; }
+        .macro-indigo .macro-badge { background: rgba(79, 70, 229, 0.12); color: #4f46e5; }
+        .macro-indigo:hover { border-color: #4f46e5; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.15); }
+
+        @media (max-width: 900px) {
+            .macroview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link active">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ cs --show-curriculum</div>
+            <h1>Computer Science & Computational Foundations</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECTION 00: MACROVIEW OF COMPUTER SCIENCE -->
+        <section id="macroview" style="margin-bottom: 3.5rem;">
+            <span class="section-label">00 // Macroview of Computer Science: 6 Pillars of Computational Foundations</span>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6;">
+                The holistic discipline of computer science: from foundational divide-and-conquer algorithms and data structures to CPU architecture, operating system kernels, compilers, and distributed consensus networks.
+            </p>
+
+            <div class="macroview-grid">
+                
+                <!-- CARD 1: ALGORITHMS -->
+                <a href="posts/2026-08-18-master-index-of-algorithms.html" class="macro-card macro-purple">
+                    <div>
+                        <div class="macro-badge">ALGORITHMS</div>
+                        <h3 class="macro-title">Algorithms &amp; Complexity</h3>
+                        <p class="macro-desc">Divide-and-conquer, greedy heuristics, dynamic programming, shortest-path graph traversals, Big-O asymptotic analysis, and quantum algorithms.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #8e44ad;">
+                        OPEN ALGORITHMS INDEX &rarr;
+                    </div>
+                </a>
+
+                <!-- CARD 2: DATA STRUCTURES -->
+                <div class="macro-card macro-green" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">DATA STRUCTURES</div>
+                        <h3 class="macro-title">Data Structures &amp; Memory</h3>
+                        <p class="macro-desc">Linear arrays, linked lists, self-balancing BSTs (AVL/Red-Black), B-Trees, heaps, hash tables, tries, and cache-friendly memory layouts.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #059669;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 3: ARCHITECTURE -->
+                <div class="macro-card macro-blue" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">ARCHITECTURE</div>
+                        <h3 class="macro-title">Computer Architecture</h3>
+                        <p class="macro-desc">CPU instruction pipelines, register sets (x86/ARM/RISC-V), memory hierarchy, cache coherence, MMU virtual memory paging, and hardware logic.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #2563eb;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 4: OPERATING SYSTEMS -->
+                <div class="macro-card macro-yellow" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">OPERATING SYSTEMS</div>
+                        <h3 class="macro-title">OS &amp; Concurrency</h3>
+                        <p class="macro-desc">Kernel space vs user space, process scheduling, multithreading, mutexes/semaphores, virtual file systems, interrupt handlers, and syscalls.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #d97706;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 5: COMPILERS -->
+                <div class="macro-card macro-red" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">COMPILERS</div>
+                        <h3 class="macro-title">Compilers &amp; Language Theory</h3>
+                        <p class="macro-desc">Lexical analysis, AST generation, semantic analysis, type systems, intermediate representation (IR), LLVM optimization, and bytecode VMs.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #dc2626;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+                <!-- CARD 6: DISTRIBUTED SYSTEMS -->
+                <div class="macro-card macro-indigo" style="cursor: default;">
+                    <div>
+                        <div class="macro-badge">DISTRIBUTED SYSTEMS</div>
+                        <h3 class="macro-title">Distributed Consensus</h3>
+                        <p class="macro-desc">CAP theorem, leader election, Raft and Paxos consensus, distributed hash tables, RPC protocols, replication, and fault tolerance at scale.</p>
+                    </div>
+                    <div style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #4f46e5;">
+                        [ ROADMAP // IN DEV ]
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 01: STRUCTURED MODULES & ARTICLES -->
+        <section id="cs-modules">
+            <span class="section-label">01 // Articles, Guides & Theoretical Deep Dives</span>
+            <div class="post-list" id="cs-posts">
+                <!-- POSTS_START -->
+            <div style="color: var(--text-secondary); font-style: italic; font-size: 0.95rem; padding: 0.75rem 0;">Additional deep dive modules and computational guides in development.</div>
+            <!-- POSTS_END -->
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

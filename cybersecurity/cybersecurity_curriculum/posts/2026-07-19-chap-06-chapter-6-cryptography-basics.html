@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptography Basics | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .chapter-badge {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background: rgba(142, 68, 173, 0.08);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(142, 68, 173, 0.22);
+        }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+            main h2 {
+                font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
+                margin-top: 2rem !important;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ study --chapter 06 --read</div>
+            <h1>Cryptography Basics</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><ul>
+<li><strong>Cryptographic History &amp; Principles:</strong> Tracing the evolution of secure communications from early substitution ciphers and the Enigma machine to Kerckhoffs's Principle, which dictates that a system's security must reside entirely in the secrecy of the key rather than the algorithm.</li>
+<li><strong>Symmetric Encryption (Block vs. Stream Ciphers):</strong> Securing data using a single shared key, comparing block-by-block processing with continuous stream-based bitwise encryption, and deploying algorithms like AES, DES, and 3DES under various modes (ECB vs. CBC/GCM).</li>
+<li><strong>Asymmetric Encryption (RSA &amp; ECC):</strong> Securing data using mathematically linked key pairs, examining prime factorization mathematics (RSA), utilizing Elliptic Curve Cryptography (ECC) for faster, low-power encryption, and establishing public/private key dynamics.</li>
+<li><strong>Hashing Algorithms (MD5 &amp; SHA-256):</strong> Generating fixed-length cryptographic fingerprints from arbitrary input data to prove integrity, focusing on one-way mathematical processing and resistance to collision attacks.</li>
+<li><strong>Password Cryptography (Salting, Peppering, Bcrypt):</strong> Securing credentials by appending random unique values (Salting) and static secrets (Peppering) before hashing, utilizing computationally expensive algorithms like Bcrypt and PBKDF2 to resist automated dictionary and Rainbow Table cracking attacks.</li>
+<li><strong>Digital Signatures &amp; Non-Repudiation:</strong> Binding a cryptographic identity to a document or transmission using private keys to mathematically prove both the integrity of the data and the authenticity of the sender, ensuring non-repudiation.</li>
+<li><strong>Key Exchange Mathematics (Diffie-Hellman):</strong> Establishing a secure shared symmetric key over a public, unsecure channel using discrete logarithm mathematics, and implementing Perfect Forward Secrecy (PFS) to protect past sessions from future key compromises.</li>
+<li><strong>Public Key Infrastructure (PKI):</strong> Designing the hierarchical trust model that issues and manages digital certificates, organizing Root Certificate Authorities (CAs), Subordinate/Intermediate CAs, and validating structured X.509 certificates.</li>
+<li><strong>Certificate Lifecycles &amp; Revocation:</strong> Managing certificates from creation to decommissioning, processing Certificate Signing Requests (CSRs), tracking expirations, and querying revocation statuses via Certificate Revocation Lists (CRLs) and Online Certificate Status Protocol (OCSP).</li>
+<li><strong>The TLS Handshake Protocol:</strong> Securing web transport step-by-step, negotiating cipher suites, conducting mutual authentication, and exchanging cryptographic keys to protect raw TCP traffic.</li>
+<li><strong>Security for Data States (At Rest, In Transit, In Use):</strong> Securing data across different phases: protecting stored files (At Rest), encrypting data over networks (In Transit), and securing active processing memory using hardware-isolated enclaves (Data in Use / Confidential Computing).</li>
+<li><strong>Steganography:</strong> Concealing sensitive data or malicious payloads within benign media files, including Least Significant Bit (LSB) substitution in images, or hiding streams inside audio and video containers.</li>
+<li><strong>Post-Quantum Cryptography (PQC):</strong> Preparing systems to resist quantum computing threats (such as Shor's Algorithm breaking RSA/ECC) by designing and implementing quantum-resistant mathematical frameworks like lattice-based cryptography.</li>
+<li><strong>FIPS Compliance Standards:</strong> Understanding Federal Information Processing Standards (such as FIPS 140-2 and FIPS 140-3) to validate cryptographic module configurations and align with public sector security mandates.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

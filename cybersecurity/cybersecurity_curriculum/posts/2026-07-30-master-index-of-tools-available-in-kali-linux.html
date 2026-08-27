@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools Available in Kali Linux | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .chapter-badge {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background: rgba(142, 68, 173, 0.08);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(142, 68, 173, 0.22);
+        }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+            main h2 {
+                font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
+                margin-top: 2rem !important;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ study --index tools-available-in-kali-linux --read</div>
+            <h1>Tools Available in Kali Linux</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-left: 4px solid #e11d48; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.6; color: #334155; font-style: italic; font-weight: 500;">
+        <strong>Purpose:</strong> A comprehensive master reference index mapping over 600 pre-installed security tools in Kali Linux—organized directly into its 13 official application categories covering reconnaissance, web analysis, database assessment, password attacks, wireless security, reverse engineering, exploitation, sniffing/spoofing, post-exploitation, digital forensics, reporting, and social engineering.
+    </p>
+</div>
+
+<hr />
+<h2>Part 1: Information Gathering &amp; Vulnerability Analysis</h2>
+<h3>Category 01: Information Gathering (Reconnaissance &amp; OSINT)</h3>
+<p><em>Tools used to map external attack surfaces, discover hosts, perform OSINT, and enumerate protocols.</em></p>
+<h4>A. Network &amp; Port Scanners</h4>
+<ul>
+<li><strong>nmap</strong> — The industry-standard network mapper for host discovery, port scanning, and OS detection.</li>
+<li><strong>masscan</strong> — Asynchronous network scanner capable of scanning the internet in minutes.</li>
+<li><strong>hping3</strong> — Command-line TCP/IP packet assembler/analyzer used for firewall testing and port scanning.</li>
+<li><strong>unicornscan</strong> — Asynchronous network stimulus engine for port gathering and OS fingerprinting.</li>
+<li><strong>netdiscover</strong> — Active/passive ARP reconnaissance tool for discovering live hosts on local networks.</li>
+<li><strong>arp-scan</strong> — Lightweight command-line tool that sends ARP packets to discover IP/MAC addresses.</li>
+<li><strong>fping</strong> — High-performance ping utility that sends ICMP echo requests to multiple hosts simultaneously.</li>
+<li><strong>dmitry</strong> — Deepmagic Information Gathering Tool (Gathers subdomains, emails, uptime, and port scans).</li>
+<li><strong>legion</strong> — Graphical network penetration testing framework based on Qaspire (automates Nmap scans).</li>
+</ul>
+<h4>B. DNS &amp; Subdomain Enumeration</h4>
+<ul>
+<li><strong>amass</strong> — In-depth OWASP tool for DNS mapping and sub-domain discovery using active and passive sources.</li>
+<li><strong>dnsrecon</strong> — Comprehensive DNS enumeration tool for checking zone transfers, reverse lookups, and wildcard records.</li>
+<li><strong>dnsenum</strong> — Perl script that enumerates DNS information and brute-forces subdomains.</li>
+<li><strong>fierce</strong> — Perl script that specifies target domain names and attempts DNS zone transfers and brute-force lookups.</li>
+<li><strong>sublist3r</strong> — Python tool designed to enumerate subdomains using search engines (Google, Yahoo, Bing, Baidu).</li>
+<li><strong>knockpy</strong> — Python tool designed to enumerate subdomains on a target domain through a wordlist.</li>
+<li><strong>pagodo</strong> — Passive Google dorking tool that automates scraping Google search results for vulnerable subdomains.</li>
+<li><strong>dnstracer</strong> — Traces a given domain name to its authoritative hostname servers.</li>
+<li><strong>dnsdict6</strong> — Enumerates IPv6 addresses for a given domain using dictionary lookups.</li>
+</ul>
+<h4>C. OSINT &amp; Email / Social Media Harvesting</h4>
+<ul>
+<li><strong>theHarvester</strong> — Gathers emails, names, subdomains, IPs, and URLs from public search engines and PGP key servers.</li>
+<li><strong>recon-ng</strong> — Full-featured Web Reconnaissance framework with a modular structure similar to Metasploit.</li>
+<li><strong>maltego</strong> — Interactive graphical link-analysis tool for gathering and visualizing intelligence.</li>
+<li><strong>spiderfoot</strong> — OSINT automation tool that queries over 100 public data sources to gather target intelligence.</li>
+<li><strong>metagoofil</strong> — Extracts metadata (author, creation dates, software used) from public documents (PDF, DOCX, XLSX).</li>
+<li><strong>sherlock</strong> — Finds social media accounts across hundreds of platforms using a single username.</li>
+<li><strong>osrframework</strong> — Set of Python libraries for anonymity and Open Source Intelligence gathering.</li>
+</ul>
+<h4>D. Active Directory &amp; SMB/Protocol Enumeration</h4>
+<ul>
+<li><strong>enum4linux</strong> — Tool for enumerating data from Windows and Samba hosts (users, shares, group policies).</li>
+<li><strong>enum4linux-ng</strong> — Modern, refactored C++ and Python replacement for enum4linux.</li>
+<li><strong>smbmap</strong> — SMB share enumeration tool that allows searching across entire domains for accessible drives/files.</li>
+<li><strong>smbclient</strong> — FTP-like client to access and query SMB/CIFS resources on Windows/Linux servers.</li>
+<li><strong>nbtscan</strong> — Scans IP networks for NetBIOS name information.</li>
+<li><strong>crackmapexec / NetExec</strong> — Swiss army knife for Active Directory protocol enumeration (SMB, LDAP, WinRM, SSH).</li>
+<li><strong>onesixtyone</strong> — Fast SNMP scanner designed to brute-force community strings.</li>
+<li><strong>snmpcheck</strong> — Open-source tool designed to enumerate SNMP devices and display system info.</li>
+<li><strong>ldapsearch</strong> — Command-line tool used to open a connection to an LDAP server and query directory data.</li>
+</ul>
+<hr />
+<h3>Category 02: Vulnerability Analysis</h3>
+<p><em>Tools used to identify unpatched software, weak configurations, and protocol security flaws.</em></p>
+<h4>A. General &amp; Web Vulnerability Scanners</h4>
+<ul>
+<li><strong>nikto</strong> — Open-source web server scanner that tests for dangerous files, outdated software, and misconfigurations.</li>
+<li><strong>golismero</strong> — Open-source framework for security testing that unifies outputs from Nikto, Nmap, and OpenVAS.</li>
+<li><strong>lynis</strong> — Security auditing tool for Unix/Linux systems that checks system configurations and hardening levels.</li>
+<li><strong>nmap-nse</strong> — Built-in Nmap scripts specifically written to query and detect thousands of known CVEs.</li>
+</ul>
+<h4>B. Fuzzers &amp; Protocol Auditors</h4>
+<ul>
+<li><strong>sfuzz</strong> — Simple, black-box command-line fuzzer used to discover buffer overflows in network protocols.</li>
+<li><strong>spike</strong> — A fuzzer development framework designed to analyze protocols and find unknown vulnerabilities.</li>
+<li><strong>bed</strong> — Plain-text protocol fuzzer designed to check for buffer overflows, format string bugs, and integer overflows.</li>
+<li><strong>afl++ (American Fuzzy Lop)</strong> — Advanced coverage-guided binary fuzzer for finding security flaws in compiled software.</li>
+</ul>
+<h4>C. Network Infrastructure &amp; VoIP Auditing</h4>
+<ul>
+<li><strong>yersinia</strong> — Network tool designed to framework-test vulnerabilities in Layer 2 protocols (STP, CDP, DTP, DHCP, HSRP).</li>
+<li><strong>cisco-auditing-tool (CAT)</strong> — Specialized scanner to check Cisco routers for weak passwords and vulnerabilities.</li>
+<li><strong>cisco-global-exploiter (CGE)</strong> — Testing tool for assessing vulnerabilities across Cisco network hardware.</li>
+<li><strong>cisco-torch</strong> — Cisco router scanning tool that mass-scans for Telnet, SSH, Web, and SNMP services simultaneously.</li>
+<li><strong>SIPvicious (svmap, svwar, svcrack)</strong> — Suite of tools used to audit SIP/VoIP systems for open extension numbers and weak passwords.</li>
+<li><strong>voiphopper</strong> — Security tool that automates VLAN hopping attacks on VoIP network infrastructure.</li>
+</ul>
+<h4>D. System &amp; Privilege Escalation Checks</h4>
+<ul>
+<li><strong>unix-privesc-check</strong> — Shell script that audits local Unix-like systems for weak file permissions that allow local privilege escalation.</li>
+<li><strong>checksec</strong> — Shell script that checks compiled binaries for security mitigations (ASLR, NX, Stack Canaries, PIE).</li>
+<li><strong>linux-exploit-suggester</strong> — Tool that checks kernel versions against public exploit databases to suggest missing security patches.</li>
+</ul>
+<hr />
+<h2>Part 2: Web Applications &amp; Database Assessment</h2>
+<h3>Category 03: Web Application Analysis</h3>
+<p><em>Tools used to inspect web traffic, scan CMS platforms, brute-force hidden directories, fuzz parameters, and test web logic.</em></p>
+<h4>A. Web Proxies &amp; Interceptors</h4>
+<ul>
+<li><strong>burpsuite</strong> — The industry-standard web proxy for intercepting, modifying, and analyzing HTTP/S traffic in real time.</li>
+<li><strong>zaproxy (OWASP ZAP)</strong> — Free, open-source web application proxy and vulnerability scanner with an automated spider.</li>
+<li><strong>mitmproxy</strong> — Interactive, SSL/TLS-capable intercepting HTTP proxy for command-line users.</li>
+</ul>
+<h4>B. Content Management System (CMS) Scanners</h4>
+<ul>
+<li><strong>wpscan</strong> — Black-box WordPress vulnerability scanner for enumerating plugins, themes, and weak passwords.</li>
+<li><strong>joomscan</strong> — Specialized vulnerability scanner designed to detect flaws and configurations in Joomla CMS installations.</li>
+<li><strong>droopescan</strong> — Plugin and theme scanner for Drupal, Silverstripe, and Joomla platforms.</li>
+<li><strong>cmseek</strong> — Automated CMS detection and exploitation framework supporting over 180 CMS platforms.</li>
+</ul>
+<h4>C. Web Directory &amp; Parameter Brute-Forcers</h4>
+<ul>
+<li><strong>gobuster</strong> — High-speed Go-based tool used to brute-force URIs (directories and files), DNS subdomains, and VHost names.</li>
+<li><strong>ffuf (Fuzz Faster U Fool)</strong> — Extremely fast web fuzzer written in Go for directory discovery and virtual host scanning.</li>
+<li><strong>dirb</strong> — Classic web content scanner that launches dictionary-based attacks against web servers.</li>
+<li><strong>dirbuster</strong> — Graphical multi-threaded Java application designed to brute-force directory and file names.</li>
+<li><strong>wfuzz</strong> — Modular web application fuzzer used to test GET/POST parameters, headers, and hidden form inputs.</li>
+<li><strong>feroxbuster</strong> — Fast, simple, recursive content discovery tool written in Rust.</li>
+<li><strong>dirsearch</strong> — Command-line tool designed to brute-force directories and files in web servers.</li>
+</ul>
+<h4>D. Web Fingerprinting &amp; Crawlers</h4>
+<ul>
+<li><strong>whatweb</strong> — Web scanner that identifies technologies, CMS platforms, embedded scripts, and server configurations.</li>
+<li><strong>httrack</strong> — Offline browser utility that mirrors complete websites to local storage for offline analysis.</li>
+<li><strong>cutycapt</strong> — Command-line utility that captures web page screenshots using WebKit.</li>
+<li><strong>blindelephant</strong> — Web application fingerprinter that determines software versions via static file hashes.</li>
+</ul>
+<h4>E. Specialized Web Vulnerability Tools</h4>
+<ul>
+<li><strong>commix</strong> — Automated command injection testing tool designed to detect and exploit OS command injection flaws.</li>
+<li><strong>wapiti</strong> — Black-box web vulnerability scanner that audits web apps by injecting payloads into forms and parameters.</li>
+<li><strong>weevely</strong> — Stealthy PHP web shell framework that provides a terminal-like connection over HTTP.</li>
+<li><strong>webshells</strong> — A collection of pre-packaged webshells (PHP, ASP, ASPX, JSP) stored in <code>/usr/share/webshells</code>.</li>
+</ul>
+<hr />
+<h3>Category 04: Database Assessment</h3>
+<p><em>Tools dedicated to discovering database services, testing SQL injection vulnerabilities, and extracting backend data.</em></p>
+<h4>A. SQL Injection &amp; Exploitation Frameworks</h4>
+<ul>
+<li><strong>sqlmap</strong> — The world's leading open-source automated tool for detecting and exploiting SQL injection flaws and taking over database servers.</li>
+<li><strong>sqlninja</strong> — SQL injection tool targeted specifically at Microsoft SQL Server backends that use web applications as entry points.</li>
+<li><strong>bbqsql</strong> — Python-based blind SQL injection framework designed to automate custom blind SQLi attacks.</li>
+</ul>
+<h4>B. Database Enumeration &amp; Client Tools</h4>
+<ul>
+<li><strong>hexorbase</strong> — Graphical database client designed to audit, query, and brute-force MySQL, Oracle, PostgreSQL, and SQLite servers.</li>
+<li><strong>odat (Oracle Database Attacking Tool)</strong> — Python script designed to test the security of Oracle Database servers and execute remote commands.</li>
+<li><strong>oscanner</strong> — Java-based Oracle database scanner that conducts SID brute-forcing, password testing, and enumeration.</li>
+<li><strong>tnscmd10g</strong> — Command-line tool used to issue commands directly to Oracle TNS Listener services.</li>
+<li><strong>msqlpscan</strong> — Microsoft SQL Server port scanner and password auditor.</li>
+</ul>
+<hr />
+<h2>Part 3: Password Attacks &amp; Wireless Attacks</h2>
+<h3>Category 05: Password Attacks</h3>
+<p><em>Tools used for offline password hash cracking, online network brute-forcing, wordlist generation, and credential extraction.</em></p>
+<h4>A. Offline Password Crackers &amp; Hash Analyzers</h4>
+<ul>
+<li><strong>john (John the Ripper)</strong> — Legendary multi-engine offline password cracker supporting hundreds of hash and cipher types.</li>
+<li><strong>hashcat</strong> — Advanced, GPU-accelerated password cracking engine capable of processing billions of hashes per second.</li>
+<li><strong>ophcrack</strong> — Windows password cracker based on Rainbow Tables with a graphical interface.</li>
+<li><strong>rainbowcrack</strong> — Implementation of Philippe Oechslin's faster time-memory trade-off technique for cracking hashes.</li>
+<li><strong>hash-identifier</strong> — Software used to identify the specific cryptographic algorithm used to generate a hash string.</li>
+<li><strong>hashid</strong> — Python tool to identify the type of hash based on length and formatting patterns.</li>
+<li><strong>nth (Name That Hash)</strong> — Modern hash identification tool that categorizes hash strings and outputs Hashcat/John flags.</li>
+</ul>
+<h4>B. Online Network Login Brute-Forcers</h4>
+<ul>
+<li><strong>hydra (THC-Hydra)</strong> — High-speed, parallel online login brute-forcer supporting over 50 protocols (SSH, FTP, HTTP, SMB, RDP).</li>
+<li><strong>medusa</strong> — Speedy, parallel, modular online password brute-forcing utility.</li>
+<li><strong>ncrack</strong> — High-speed network authentication cracking tool built by the Nmap project.</li>
+<li><strong>patator</strong> — Multi-threaded, modular brute-forcing tool designed to test various protocols via a unified interface.</li>
+<li><strong>crowbar</strong> — Specialized brute-forcing tool targeted at SSH keys, RDP (NLA), and VNC protocols.</li>
+</ul>
+<h4>C. Wordlist Generators &amp; Manipulators</h4>
+<ul>
+<li><strong>crunch</strong> — Wordlist generator that builds custom dictionary files based on specified character sets and length patterns.</li>
+<li><strong>cewl</strong> — Spidering application that navigates a target website and extracts unique words to create custom wordlists.</li>
+<li><strong>rsmangler</strong> — Takes a wordlist and applies various permutations, alterations, and combinations to expand it.</li>
+<li><strong>statsprocessor</strong> — High-performance wordlist generator based on per-position character statistics.</li>
+<li><strong>wordlists</strong> — A Kali metapackage that provides pre-installed dictionaries (e.g., <code>rockyou.txt</code>, <code>SecLists</code>).</li>
+</ul>
+<h4>D. Local Credential &amp; SAM Extractors</h4>
+<ul>
+<li><strong>chntpw</strong> — Utility used to reset passwords or edit the SAM database on Windows installations directly from a boot disk.</li>
+<li><strong>samdump2</strong> — Tool used to dump Windows NTLM password hashes from the SAM registry hive.</li>
+<li><strong>mimikatz</strong> — Post-exploitation tool stored in Kali to extract plain-text passwords and Kerberos tickets from Windows memory.</li>
+</ul>
+<hr />
+<h3>Category 06: Wireless Attacks</h3>
+<p><em>Tools for auditing Wi-Fi (802.11), Bluetooth, RFID/NFC, and Software Defined Radio (SDR) security.</em></p>
+<h4>A. Wi-Fi (802.11) Auditing Suites</h4>
+<ul>
+<li><strong>aircrack-ng suite</strong> — Complete 802.11 auditing suite:<ul>
+<li><em>airmon-ng:</em> Enables monitor mode on wireless cards.</li>
+<li><em>airodump-ng:</em> Captures raw 802.11 frames and packet handshakes.</li>
+<li><em>aireplay-ng:</em> Generates traffic and injects frames (deauthentication attacks).</li>
+<li><em>aircrack-ng:</em> Cracks WEP and WPA/WPA2-PSK key handshakes.</li>
+</ul>
+</li>
+<li><strong>wifite</strong> — Automated Python script that cycles through wireless attacks on nearby WPA/WPS networks.</li>
+<li><strong>airgeddon</strong> — Multi-use bash script for auditing wireless networks (supports Rogue AP, Evil Twin, and Captive Portals).</li>
+<li><strong>kismet</strong> — Wireless network detector, sniffer, and intrusion detection system for 802.11, Bluetooth, and Zigbee.</li>
+<li><strong>fern-wifi-cracker</strong> — Graphical wireless auditing tool designed to automate WEP, WPA, and WPS attacks.</li>
+<li><strong>cowpatty</strong> — Implementation of an offline dictionary attack against WPA-PSK networks using precomputed PMK tables.</li>
+</ul>
+<h4>B. WPS (Wi-Fi Protected Setup) Exploitation</h4>
+<ul>
+<li><strong>reaver</strong> — Brute-force attack tool designed to exploit WPS PIN flaws and recover WPA/WPA2 passphrases.</li>
+<li><strong>pixiewps</strong> — Tool written in C used to offline brute-force the WPS PIN of vulnerable Access Points (Pixie Dust attack).</li>
+<li><strong>bully</strong> — C-based implementation of the WPS PIN brute-force attack, built as an alternative to Reaver.</li>
+</ul>
+<h4>C. Bluetooth Security Tools</h4>
+<ul>
+<li><strong>btscanner</strong> — Environment scanner that extracts Bluetooth device information without pairing.</li>
+<li><strong>bluelog</strong> — Bluetooth site-survey tool designed to log discoverable devices in the area.</li>
+<li><strong>spooftooph</strong> — Tool designed to spoof Bluetooth device names, classes, and MAC addresses.</li>
+<li><strong>crackle</strong> — Tool that decrypts BLE (Bluetooth Low Energy) encryption and captures pairing keys.</li>
+<li><strong>ubertooth-specan</strong> — Spectrum analyzer utilities used alongside Ubertooth One hardware.</li>
+</ul>
+<h4>D. RFID, NFC, &amp; Software Defined Radio (SDR)</h4>
+<ul>
+<li><strong>proxmark3</strong> — Client software for communicating with Proxmark3 hardware to clone, read, and emulate RFID/NFC tags.</li>
+<li><strong>mfcuk (Mifare Classic Universal Toolkit)</strong> — Offline key recovery tool for Mifare Classic RFID cards.</li>
+<li><strong>mfoc (Mifare Classic Offline Cracker)</strong> — Fast key recovery tool for Mifare Classic cards when at least one key is known.</li>
+<li><strong>gqrx-sdr</strong> — Open-source Software Defined Radio receiver powered by GNU Radio and Qt.</li>
+<li><strong>hackrf</strong> — Command-line utilities for managing HackRF One SDR hardware.</li>
+<li><strong>kalibrate-rtl (kal)</strong> — Calculates local GSM base station frequencies to calibrate RTL-SDR dongles.</li>
+</ul>
+<hr />
+<h2>Part 4: Reverse Engineering &amp; Exploitation Tools</h2>
+<h3>Category 07: Reverse Engineering</h3>
+<p><em>Tools used to decompile, disassemble, debug, and analyze binary executables, firmware, and mobile packages.</em></p>
+<h4>A. Disassemblers &amp; Decompilers</h4>
+<ul>
+<li><strong>ghidra</strong> — NSA-developed open-source software reverse engineering suite featuring a full-featured disassembler, decompiler, and scriptable analyzer.</li>
+<li><strong>radare2 (r2)</strong> — UNIX-like command-line reverse engineering framework for disassembling, patching, and analyzing binaries.</li>
+<li><strong>iaito (formerly Cutter)</strong> — Official GUI frontend for the radare2 reverse engineering framework.</li>
+<li><strong>bytecode-viewer</strong> — Java reverse engineering suite containing multiple decompilers (FernFlower, CFR, Procyon) and a bytecode editor.</li>
+<li><strong>plasma</strong> — Interactive disassembler for x86, x64, ARM, and MIPS binaries that generates pseudo-code.</li>
+</ul>
+<h4>B. Debuggers &amp; Dynamic Tracers</h4>
+<ul>
+<li><strong>gdb (GNU Debugger)</strong> — The standard Linux command-line debugger for x86, x64, and ARM binaries.</li>
+<li><strong>edb-debugger</strong> — Cross-platform 32-bit and 64-bit GUI debugger designed for Linux binaries.</li>
+<li><strong>ollydbg</strong> — 32-bit assembler level analyzing debugger for Windows executables (runs via Wine on Kali).</li>
+<li><strong>strace</strong> — System call tracer that monitors and records interactions between a binary and the Linux kernel.</li>
+<li><strong>ltrace</strong> — Library call tracer that tracks dynamic library calls made by a binary during execution.</li>
+<li><strong>frida</strong> — Dynamic code instrumentation toolkit used to hook functions, inject scripts, and inspect binary execution in real time.</li>
+</ul>
+<h4>C. Mobile App Reversing (Android &amp; iOS)</h4>
+<ul>
+<li><strong>apktool</strong> — Tool for reverse engineering 3rd-party, closed, binary Android apps (decodes resources to nearly original form and rebuilds them).</li>
+<li><strong>dex2jar</strong> — Translates Android <code>.dex</code> (Dalvik Executable) files into standard Java <code>.jar</code> files for analysis in JD-GUI.</li>
+<li><strong>androguard</strong> — Python tool to analyze, decompile, and inspect Android application packages (<code>.apk</code>).</li>
+<li><strong>jadx</strong> — Command-line and GUI decompiler that converts Android DEX and APK files into readable Java source code.</li>
+</ul>
+<h4>D. Binary Diffing &amp; Analysis</h4>
+<ul>
+<li><strong>diaphora</strong> — Open-source binary diffing tool used to compare two binary files to locate code changes, patches, or compiler differences.</li>
+<li><strong>checksec</strong> — Script used to verify security properties of compiled binaries (ASLR, NX, Stack Canaries, PIE, RELRO).</li>
+</ul>
+<hr />
+<h3>Category 08: Exploitation Tools</h3>
+<p><em>Frameworks, databases, and software designed to launch payloads and validate security vulnerabilities.</em></p>
+<h4>A. Exploitation Frameworks</h4>
+<ul>
+<li><strong>metasploit-framework (<code>msfconsole</code>)</strong> — The world's most popular penetration testing framework containing thousands of exploits, payloads, encoders, and post-exploitation modules.</li>
+<li><strong>armitage</strong> — Graphical cyber attack management tool for Metasploit that visualizes targets and automates exploitation.</li>
+<li><strong>routersploit</strong> — Open-source exploitation framework targeted specifically at embedded devices, home routers, and IoT hardware.</li>
+</ul>
+<h4>B. Exploitation Utilities &amp; Databases</h4>
+<ul>
+<li><strong>searchsploit</strong> — Command-line utility for searching the complete offline archive of Exploit-DB (<code>/usr/share/exploitdb</code>).</li>
+<li><strong>shellnoob</strong> — Shellcode writing toolkit designed to generate, disassemble, assemble, and test custom shellcode.</li>
+<li><strong>msfvenom</strong> — Payload generation and encoding utility (part of the Metasploit suite) used to build custom reverse shells and executables.</li>
+</ul>
+<h4>C. Browser &amp; Client-Side Exploitation</h4>
+<ul>
+<li><strong>beef-xss (Browser Exploitation Framework)</strong> — Powerful penetration testing tool focused on client-side browser hooks and executing exploits within hooked web sessions.</li>
+<li><strong>social-engineer-toolkit (SET)</strong> — Custom vector generator designed to automate social engineering, malicious USB/file creation, and credential harvesting.</li>
+</ul>
+<hr />
+<h2>Part 5: Sniffing, Spoofing, &amp; Post Exploitation</h2>
+<h3>Category 09: Sniffing &amp; Spoofing</h3>
+<p><em>Tools used to intercept network packets, manipulate Layer 2/3 routing, spoof host identities, and execute Man-in-the-Middle (MitM) attacks.</em></p>
+<h4>A. Network Packet Sniffers &amp; Analyzers</h4>
+<ul>
+<li><strong>wireshark</strong> — The world's most widely used graphical packet analyzer for dissecting network protocols.</li>
+<li><strong>tshark</strong> — Terminal-based version of Wireshark for capturing and filtering network traffic from the command line.</li>
+<li><strong>tcpdump</strong> — Classic, lightweight command-line packet analyzer for capturing and analyzing IP packets.</li>
+<li><strong>netsniff-ng</strong> — High-performance Linux network sniffer toolkit that utilizes zero-copy packet sockets.</li>
+<li><strong>dsniff</strong> — Suite of tools for network auditing and password sniffing across various protocols (FTP, HTTP, IMAP, NFS).</li>
+<li><strong>driftnet</strong> — Graphical sniffer that monitors network traffic and extracts/displays captured JPEG and GIF images.</li>
+</ul>
+<h4>B. Man-in-the-Middle (MitM) &amp; Spoofing Frameworks</h4>
+<ul>
+<li><strong>bettercap</strong> — Modern, powerful, and modular framework for network reconnaissance, MitM, ARP/DNS spoofing, and wireless auditing.</li>
+<li><strong>ettercap</strong> — Comprehensive suite for Man-in-the-Middle attacks on LAN networks supporting active and passive dissection.</li>
+<li><strong>mitmproxy</strong> — Interactive intercepting HTTP/HTTPS proxy used to inspect and modify web traffic on the fly.</li>
+<li><strong>responder</strong> — LLMNR, NBT-NS, and mDNS poisoner used to capture NetNTLM hashes and relay authentication on Windows networks.</li>
+<li><strong>dnschef</strong> — Highly configurable DNS proxy tool designed for penetration testers to forge DNS responses.</li>
+<li><strong>sslsplit</strong> — Transparent SSL/TLS interception tool used to perform Man-in-the-Middle attacks against encrypted network connections.</li>
+<li><strong>macchanger</strong> — Utility to view, randomize, or temporarily spoof network interface MAC addresses.</li>
+<li><strong>arpspoof</strong> — Tool (part of the dsniff package) that sends forged ARP responses to redirect network traffic through the attacker host.</li>
+</ul>
+<hr />
+<h3>Category 10: Post Exploitation</h3>
+<p><em>Tools used after gaining initial access to move laterally, escalate privileges, dump credentials, and tunnel traffic.</em></p>
+<h4>A. Active Directory &amp; Lateral Movement</h4>
+<ul>
+<li><strong>impacket</strong> — Collection of Python classes for working with network protocols, featuring tools for remote command execution and credential extraction:<ul>
+<li><code>psexec.py</code> / <code>wmiexec.py</code> / <code>smbexec.py</code> — Command execution utilities over SMB/WMI.</li>
+<li><code>secretsdump.py</code> — Remote dumping of NTDS.dit, SAM, and LSA secrets.</li>
+<li><code>atexec.py</code> — Command execution via Task Scheduler service.</li>
+</ul>
+</li>
+<li><strong>evil-winrm</strong> — The ultimate shell client for accessing and managing Windows hosts via WinRM (Windows Remote Management).</li>
+<li><strong>bloodhound</strong> — Active Directory mapping tool that visualizes domain relationships, permissions, and attack paths (<code>bloodhound-python</code> ingestor included).</li>
+<li><strong>crackmapexec / netexec</strong> — Swiss army knife for automating Active Directory auditing, credential spraying, and remote code execution across SMB, LDAP, and WinRM.</li>
+<li><strong>kerbrute</strong> — Tool used to perform Kerberos pre-authentication brute-forcing and user enumeration without triggering account lockouts.</li>
+</ul>
+<h4>B. Credential Dumping &amp; Local Password Extraction</h4>
+<ul>
+<li><strong>mimikatz</strong> — Legendary post-exploitation tool built to dump plain-text passwords, NTLM hashes, and Kerberos tickets directly from Windows memory (LSASS).</li>
+<li><strong>lazagne</strong> — Post-exploitation script used to retrieve passwords stored locally inside browsers, email clients, databases, and Wi-Fi profiles.</li>
+<li><strong>samdump2</strong> — Command-line tool used to extract Windows NTLM password hashes from offline SAM registry hives.</li>
+<li><strong>chntpw</strong> — Utility to reset user passwords or clear local administrator flags in Windows SAM databases.</li>
+</ul>
+<h4>C. Tunneling, Pivoting, &amp; Proxying</h4>
+<ul>
+<li><strong>chisel</strong> — Fast TCP/UDP tunnel transport tool over HTTP, secured via SSH, used to pivot through firewalls.</li>
+<li><strong>proxychains-ng</strong> — Tool that forces any TCP connection made by a command-line program to follow a chain of proxies (SOCKS4/SOCKS5/HTTP).</li>
+<li><strong>ligolo-ng</strong> — Advanced, user-space tunneling tool that establishes TUN interfaces to easily pivot into internal networks.</li>
+<li><strong>socat</strong> — Multipurpose relay tool that establishes two bidirectional byte streams and transfers data between them.</li>
+<li><strong>iodine</strong> — Tunneling tool that allows routing IPv4 traffic through a DNS server (DNS tunneling for egress).</li>
+<li><strong>ptunnel</strong> — Utility that tunnels IP packets over ICMP echo request/reply packets (ping tunneling).</li>
+</ul>
+<hr />
+<h2>Part 6: Forensics, Reporting, &amp; Social Engineering</h2>
+<h3>Category 11: Forensics</h3>
+<p><em>Tools used to capture memory, image hard drives, recover deleted files, inspect firmware, and analyze digital evidence.</em></p>
+<h4>A. Disk Imaging &amp; File System Forensics</h4>
+<ul>
+<li><strong>autopsy</strong> — Graphical interface for The Sleuth Kit (TSK), providing a full digital forensics platform for disk analysis, file recovery, and timeline creation.</li>
+<li><strong>sleuthkit</strong> — Collection of command-line tools (<code>fls</code>, <code>mmls</code>, <code>icat</code>, <code>fsstat</code>) used to analyze volume and file system structures in disk images.</li>
+<li><strong>guymager</strong> — Fast, user-friendly graphical forensic imager for creating Bit-Stream raw (<code>.dd</code>) or Expert Witness Format (<code>.E01</code>) evidence images.</li>
+<li><strong>dcfldd</strong> — Enhanced version of the standard <code>dd</code> imaging command, featuring on-the-fly hashing (MD5/SHA256) and progress indicators for forensic acquisition.</li>
+<li><strong>ewf-tools</strong> — Suite of utilities for reading, writing, and acquiring Expert Witness Compression Format (<code>.E01</code>) forensic images.</li>
+</ul>
+<h4>B. Memory Forensics</h4>
+<ul>
+<li><strong>volatility3</strong> — The leading open-source memory forensics framework for extracting processes, network sockets, DLLs, and passwords from volatile RAM dumps.</li>
+<li><strong>winpmem</strong> — Open-source acquisition tool used to dump volatile memory (RAM) from live Windows systems.</li>
+</ul>
+<h4>C. File Carving &amp; Data Recovery</h4>
+<ul>
+<li><strong>foremost</strong> — Console program that recovers (carves) lost files based on their headers, footers, and internal data structures.</li>
+<li><strong>scalpel</strong> — Fast, file-carving tool derived from Foremost, optimized for low-memory usage and multi-threading.</li>
+<li><strong>magicrescue</strong> — Scans block devices for file magic bytes and extracts specified file types using external helper applications.</li>
+<li><strong>testdisk</strong> — Powerful data recovery software designed to help recover lost partition tables and fix unbootable disks.</li>
+<li><strong>photorec</strong> — File data recovery software designed to recover lost images, documents, and archives from damaged storage media.</li>
+</ul>
+<h4>D. Document, Firmware, &amp; Artifact Analysis</h4>
+<ul>
+<li><strong>binwalk</strong> — Tool designed for analyzing, reverse engineering, and extracting executable code and files embedded inside firmware images.</li>
+<li><strong>bulk_extractor</strong> — High-speed feature extraction tool that scans drive images for structured data (emails, credit card numbers, URLs, and EXIF data) without parsing the file system.</li>
+<li><strong>pdf-parser &amp; pdfid</strong> — Didier Stevens' Python utilities used to inspect, extract elements from, and analyze suspicious or malicious PDF files.</li>
+<li><strong>exiftool</strong> — Library and utility for reading, writing, and editing file metadata across hundreds of image, video, and document formats.</li>
+<li><strong>chkrootkit &amp; rkhunter</strong> — Local scanner tools that inspect Linux systems for known rootkits, backdoors, and suspicious system modifications.</li>
+</ul>
+<hr />
+<h3>Category 12: Reporting Tools</h3>
+<p><em>Tools used to aggregate findings, document security assessments, and build professional client reports.</em></p>
+<ul>
+<li><strong>faraday</strong> — Integrated collaborative environment that aggregates outputs from terminal tools (Nmap, Burp, Metasploit) into a centralized dashboard for real-time team reporting.</li>
+<li><strong>dradis</strong> — Open-source collaboration and reporting workspace for security teams, automating report generation into Word and PDF templates.</li>
+<li><strong>cherrytree</strong> — Hierarchical note-taking application featuring rich text formatting, syntax highlighting, and password protection, widely used for penetration test note-keeping.</li>
+</ul>
+<hr />
+<h3>Category 13: Social Engineering Tools</h3>
+<p><em>Frameworks designed to conduct social engineering campaigns, simulate phishing, and build malicious payloads.</em></p>
+<ul>
+<li><strong>social-engineer-toolkit (SET)</strong> — Comprehensive framework built by TrustedSec to generate social engineering attacks, fake credential-harvesting web clones, malicious USBs, and spear-phishing campaigns.</li>
+<li><strong>king-phisher</strong> — Enterprise-grade phishing campaign simulator used to assess user awareness and simulate real-world email threats.</li>
+<li><strong>gophish</strong> — Open-source phishing framework designed to easily execute and track simulated phishing campaigns across organizations.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

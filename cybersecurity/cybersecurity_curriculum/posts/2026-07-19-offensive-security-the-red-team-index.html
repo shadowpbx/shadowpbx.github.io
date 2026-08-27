@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offensive Security: The Red Team Index | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --bg-page: #fcfcfd; --accent: #8e44ad; --text-primary: #0f172a; --text-secondary: #2c3e50; --border: #e2e8f0;
+            --font-main: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+        }
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        body { background-color: var(--bg-page); color: var(--text-primary); font-family: var(--font-main); margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+        header { margin-bottom: 4rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+        .back-link { font-family: var(--font-mono); font-size: 0.85rem; text-decoration: none; color: var(--accent); font-weight: 700; display: inline-block; margin-bottom: 2rem; }
+        h1 { font-family: var(--font-main); font-size: 2.5rem; margin: 0; font-weight: 700; letter-spacing: -0.03em; }
+        .chapter-badge {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            background: rgba(142, 68, 173, 0.08);
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(142, 68, 173, 0.22);
+        }
+        .post-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem; }
+        main { font-size: 1.15rem; color: var(--text-primary); }
+        main > *:first-child { margin-top: 0 !important; }
+        main h2 { font-family: var(--font-main); color: var(--text-primary); margin-top: 3rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.02em; }
+        
+        /* TECHNICAL INLINE CODE (Professional Indigo-Purple) */
+        :not(pre) > code {
+            font-family: var(--font-mono) !important;
+            background-color: #f5f3ff !important; /* Very Light Purple Background */
+            color: #4338ca !important; /* Deep Professional Indigo-Purple Text */
+            padding: 0.2rem 0.4rem !important;
+            border-radius: 6px !important;
+            font-size: 0.85em !important;
+            font-weight: 700 !important;
+            border: 1px solid #e0e7ff !important;
+            white-space: nowrap !important;
+            text-decoration: none !important;
+        }
+
+        /* CODE BLOCKS */
+        pre[class*="language-"] { background: #1e293b !important; padding: 1.5rem !important; border-radius: 12px !important; margin: 2rem 0 !important; border: 1px solid #334155 !important; }
+        code[class*="language-"] { font-family: var(--font-mono) !important; font-size: 0.95rem !important; text-shadow: none !important; text-decoration: none !important; }
+        
+        /* TABLES */
+        main table { width: 100%; border-collapse: collapse; margin: 4rem 0; font-size: 1.05rem; }
+        main th { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary); padding: 1rem; border-bottom: 2px solid var(--text-primary); text-align: left; }
+        main td { padding: 1.25rem 1rem; border-bottom: 1px solid #cbd5e1; color: var(--text-secondary); }
+        main tr:nth-child(even) td { background-color: #f1f5f9; }
+        main tr:last-child td { border-bottom: none; }
+        main td:first-child { font-weight: 600; color: var(--text-primary); }
+        main td code { font-size: 0.85em !important; background: #e2e8f0 !important; border: none !important; }
+
+        footer { margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; }
+    
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem 3rem 1rem;
+            }
+            .back-link {
+                margin-bottom: 1rem;
+            }
+            header {
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+            h1 {
+                font-size: clamp(1.5rem, 5.5vw, 2.2rem) !important;
+                line-height: 1.3;
+            }
+            main {
+                font-size: 1.05rem;
+            }
+            main h2 {
+                font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
+                margin-top: 2rem !important;
+            }
+        }
+    
+        
+        
+        /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar IE/Edge */
+            padding-right: 1rem;
+            margin-right: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb-left::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .breadcrumb-left a, .breadcrumb-right a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .breadcrumb-left a:hover, .breadcrumb-right a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        
+
+        
+
+        
+
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link active">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/coursework.html">Coursework</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef:~$ study --index offensive-security-red-team-index --read</div>
+            <h1>Offensive Security: The Red Team Index</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><h2>1. Web Application &amp; API Security</h2>
+<ul>
+<li><strong>Advanced Injection</strong> — Passing command variables to web inputs (SQLi, NoSQLi, OS Command, LDAP) to manipulate backend query outcomes.</li>
+<li><strong>Cross-Site Scripting (XSS)</strong> — Injecting malicious scripts (Reflected, Stored, DOM-based) to hijack client-side browser sessions.</li>
+<li><strong>Cross-Site Request Forgery (CSRF)</strong> — Forcing an authenticated browser to execute unauthorized, state-changing commands on a trusted app.</li>
+<li><strong>Server-Side Request Forgery (SSRF)</strong> — Abusing server logic to coerce the hosting application into querying internal-only network resources.</li>
+<li><strong>Broken Authentication &amp; Session Management</strong> — Exploiting flaws in session handling (fixation, hijacking) to bypass login portals.</li>
+<li><strong>IDOR / BOLA</strong> — Bypassing authorization checks to access or modify records of other users via direct database object parameters.</li>
+<li><strong>XML External Entity (XXE) Processing</strong> — Submitting malicious XML inputs to read local system files or perform SSRF port scans.</li>
+<li><strong>Insecure Deserialization</strong> — Passing modified objects to an application's deserializer to achieve Remote Code Execution (RCE).</li>
+<li><strong>Path / Directory Traversal</strong> — Navigating outside the designated web-root directory to expose protected local operating system files.</li>
+<li><strong>Mobile App Decompiling &amp; Reversing</strong> — Unpacking system packages (JADX, Apktool, Ghidra, Hopper) to examine proprietary logic and keys.</li>
+<li><strong>Mobile Manifest &amp; Configuration Analysis</strong> — Inspecting platform-specific config files (<code>AndroidManifest.xml</code> / <code>Info.plist</code>) for leaks.</li>
+<li><strong>Runtime Hooking (Frida &amp; Objection)</strong> — Overriding compiled mobile code execution in real-time to alter system variables and flow [1].</li>
+<li><strong>Mobile Security Control Bypasses</strong> — Bypassing standard device checks including SSL Pinning, root/jailbreak checks, and emulators [1].</li>
+<li><strong>Mobile IPC &amp; Local Storage Exploitation</strong> — Extracting insecurely cached local databases or hijacking internal communication lines.</li>
+</ul>
+<h2>2. Network Layer &amp; Infrastructure Security</h2>
+<ul>
+<li><strong>Spoofing &amp; Poisoning</strong> — Poisoning local resolving protocols (ARP, DNS, IP, LLMNR/NBT-NS/mDNS) to redirect client traffic.</li>
+<li><strong>On-Path / Man-in-the-Middle (MitM)</strong> — Placing intermediate interceptors in the transit line to execute SSL/TLS stripping and session hijacking.</li>
+<li><strong>Layer 2 Vulnerabilities</strong> — Manipulating localized network switch logic (VLAN hopping, MAC flooding, and DHCP starvation).</li>
+<li><strong>Routing &amp; Gateway Attacks</strong> — Altering routing protocols (BGP hijacking, route poisoning) and compromising boundary appliances.</li>
+<li><strong>Denial of Service (DoS / DDoS)</strong> — Disrupting target asset availability using volumetric traffic, protocol exploits, or app-layer exhaustion.</li>
+<li><strong>Perimeter Appliance Exploitation</strong> — Pointing exploits at external-facing boundary appliances such as legacy VPNs, firewalls, and routers.</li>
+</ul>
+<h2>3. Host, OS, &amp; Memory-Level Security</h2>
+<ul>
+<li><strong>Memory Corruption</strong> — Exploiting low-level software vulnerabilities (stack/heap buffer overflows, use-after-free, integer overflows).</li>
+<li><strong>OS Mitigations Bypass</strong> — Overcoming operating system protections (ASLR, DEP/NX, stack canaries) to execute functional exploits.</li>
+<li><strong>Debugger-Based Binary Analysis</strong> — Examining raw instruction execution and control flow inside runtime debuggers (x64dbg, GDB).</li>
+<li><strong>Local Privilege Escalation</strong> — Elevating standard user access on local hosts via token manipulation, service DACL abuse, or kernel exploits.</li>
+<li><strong>Living off the Land (LotL)</strong> — Running system commands using built-in, trusted administrative utilities (PowerShell, WMI, bash).</li>
+<li><strong>Fileless Malware</strong> — Executing adversarial routines and scripts entirely in dynamic system memory to avoid writing files to disk.</li>
+</ul>
+<h2>4. Identity, Authentication, &amp; Cryptography</h2>
+<ul>
+<li><strong>Credential Attacks</strong> — Harvesting and guessing authentication portals using systematic brute force, credential stuffing, or password spraying.</li>
+<li><strong>Active Directory Core Exploitation</strong> — Extracting and forging authentication tickets (Kerberoasting, AS-REP roasting, Golden/Silver Tickets).</li>
+<li><strong>Active Directory Trusts &amp; Certificate Abuse</strong> — Escalating privileges via ADCS templates (ESC1-13), delegation (RBCD), or Shadow Credentials.</li>
+<li><strong>Active Directory Policy &amp; Control Manipulation</strong> — Tweaking GPOs, manipulating security ACLs/ACEs, and crossing forest trust limits.</li>
+<li><strong>Lateral Movement</strong> — Navigating between internal domain endpoints via Pass-the-Hash (PtH), Pass-the-Ticket (PtT), or Overpass-the-Hash.</li>
+<li><strong>Cryptographic Downgrade Attacks</strong> — Forcing transport or protocol handshakes to select legacy, cryptographically broken standards.</li>
+<li><strong>Cryptographic Weaknesses</strong> — Target analysis of flawed protocol logic, hash pattern collisions, or weak Pseudo-Random Number Generators.</li>
+</ul>
+<h2>5. Supply Chain, Cloud, &amp; DevOps Security</h2>
+<ul>
+<li><strong>Cloud Privilege Escalation</strong> — Exploiting overly permissive IAM policies or querying accessible virtual metadata endpoints (IMDSv2).</li>
+<li><strong>Cloud Misconfigurations</strong> — Discovering publicly exposed cloud infrastructure storage (S3 buckets, Azure blobs) or Entra ID tenants.</li>
+<li><strong>Container Breakouts</strong> — Escaping isolated container configurations (Docker, LXC) to access the underlying host OS kernel.</li>
+<li><strong>Kubernetes Cluster Compromise</strong> — Attacking vulnerable control planes, exposing service tokens, or exploiting misconfigured API servers.</li>
+<li><strong>Dependency Confusion &amp; Typosquatting</strong> — Registering matching public packages to trick build pipelines into downloading malicious dependencies.</li>
+<li><strong>Compromised Update Mechanisms</strong> — Injecting malicious payloads directly into legitimate software updates distributed downstream.</li>
+</ul>
+<h2>6. Hardware &amp; Physical Security</h2>
+<ul>
+<li><strong>Physical Red Teaming</strong> — Bypassing physical lock assemblies via manual picking, shimming, bypassing, and under-door tool operations.</li>
+<li><strong>RFID &amp; Badge Cloning</strong> — Reading, copy-cloning, and replaying physical building access badge signals (Proxmark3, Flipper Zero).</li>
+<li><strong>Rogue Devices</strong> — Deploying unauthorized hardware modules (malicious access points, hardware keyloggers) to bridge physical and digital networks.</li>
+<li><strong>Evil Maid Attacks</strong> — Physical tampering of unattended corporate endpoints to implant software backdoors or physical keyloggers.</li>
+<li><strong>Side-Channel Attacks</strong> — Recording hardware execution traits (cache timing patterns, power consumption) to extract cryptographic keys.</li>
+<li><strong>Firmware/Microcode Exploits</strong> — Achieving system boot-level persistence using specialized implants (UEFI/BIOS rootkits).</li>
+</ul>
+<h2>7. Human Element (Social Engineering)</h2>
+<ul>
+<li><strong>Phishing &amp; Multi-Channel Engineering</strong> — Tricking users into surrendering credentials (via Spear-phishing, Whaling, Vishing, and Smishing).</li>
+<li><strong>Baiting Campaigns</strong> — Leaving compromised physical delivery hardware (such as Rubber Ducky or O.MG cables) in public areas to be found.</li>
+<li><strong>Tailgating &amp; Piggybacking</strong> — Following authorized staff past building entry checkpoints to bypass physical access controls.</li>
+</ul>
+<h2>8. Red Team Infrastructure, Evasion, &amp; Methodology</h2>
+<ul>
+<li><strong>Advanced OSINT Automation</strong> — Gathering raw intelligence at scale from public datasets and target search platforms (Shodan, Censys, Maltego).</li>
+<li><strong>Credential Leak Parsing</strong> — Analyzing and sorting publicly leaked credentials to locate target account passwords without active scanning.</li>
+<li><strong>Red Team Infrastructure Design</strong> — Building scalable multi-tiered delivery configurations using IaC/automation tools (Terraform, Ansible).</li>
+<li><strong>C2 Customization &amp; Malleable Profiles</strong> — Customizing traffic beacons to mimic legitimate network traffic signatures (such as normal HTTP or DoH requests).</li>
+<li><strong>Covert Communications</strong> — Tunneling egress traffic through trusted third-party cloud services (Domain Fronting, CDNs, Slack/Graph APIs).</li>
+<li><strong>Smart Traffic Filtering</strong> — Utilizing smart reverse proxy rules to filter and redirect defensive incident response scanners to dummy sites.</li>
+<li><strong>Custom Loader Development</strong> — Compiling custom execution frameworks (C, C++, Rust, Go) utilizing string encryption to hinder detection.</li>
+<li><strong>AMSI &amp; ETW Bypasses</strong> — Patching local monitoring interfaces and event tracing providers in memory to blind host defenders [2].</li>
+<li><strong>User-Mode API Hooking Evasion</strong> — Circumventing EDR runtime hooks inside memory by executing commands via direct or indirect syscalls.</li>
+<li><strong>Process Injection</strong> — Injecting malicious execution payloads into legitimate, running host system threads (Reflective DLL, Process Hollowing).</li>
+<li><strong>OT/ICS Protocol Manipulation</strong> — Crossing Purdue model layers and manipulating legacy operational networks (Modbus, Siemens S7, DNP3, PLCs).</li>
+<li><strong>AI Red Teaming</strong> — Attacking integrated machine learning models (Prompt Injection, insecure output handling, data poisoning, model weight extraction).</li>
+<li><strong>Adversary Emulation &amp; CTI</strong> — Consuming Threat Intel reports to model attack campaigns using automation frameworks (Caldera, Prelude).</li>
+<li><strong>OPSEC &amp; Data Staging</strong> — Securely consolidating, compressing, and encrypting corporate staging targets prior to egress.</li>
+<li><strong>Covert Exfiltration Channels</strong> — Smuggling target files out of networks via DNS tunnels, ICMP packets, or trusted cloud SaaS platform uploads.</li>
+<li><strong>Report Writing &amp; Executive Summaries</strong> — Translating findings into risk metrics (CVSS, DREAD, FAIR) and executive risk business impact.</li>
+<li><strong>Purple Teaming</strong> — Conducting structured walk-throughs of attack steps alongside the blue team to cross-verify detection visibility.</li>
+<li><strong>Detection Engineering</strong> — Engineering custom rulesets (YARA, Snort, Sigma) to detect indicators of compromise identified during tests.</li>
+</ul></main>
+        <footer>&copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY</footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

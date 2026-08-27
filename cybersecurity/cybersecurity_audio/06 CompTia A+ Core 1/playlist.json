@@ -1,0 +1,1211 @@
+{
+  "title": "CompTIA A+ Core 1",
+  "subtitle": "220-1201 Complete Course & Study Audio",
+  "baseUrl": "https://audio.hexdef.com/A%2B220-1201/",
+  "tracks": [
+    {
+      "file": "1.1.1 Mobile Device Battery.mp3",
+      "duration": 177.4
+    },
+    {
+      "file": "1.1.2 Mobile Device Keyboard and Keys.mp3",
+      "duration": 167.4
+    },
+    {
+      "file": "1.1.3 Mobile Device Random-Access Memory (RAM).mp3",
+      "duration": 180.1
+    },
+    {
+      "file": "1.1.4 Mobile Device Hard Disk Drive (HDD) and Solid-State Drive (SSD).mp3",
+      "duration": 193.8
+    },
+    {
+      "file": "1.1.5 Mobile Device Wireless Cards.mp3",
+      "duration": 164.7
+    },
+    {
+      "file": "1.1.6 Physical Privacy and Security Components - Biometrics.mp3",
+      "duration": 145.1
+    },
+    {
+      "file": "1.1.7 Physical Privacy and Security Components - Near-Field Scanner Features.mp3",
+      "duration": 152.9
+    },
+    {
+      "file": "1.1.8 Wi-Fi Antenna Connector and Placement.mp3",
+      "duration": 165.7
+    },
+    {
+      "file": "1.1.9 Mobile Device Camera and Webcam.mp3",
+      "duration": 174.6
+    },
+    {
+      "file": "1.1.10 Mobile Device Microphone.mp3",
+      "duration": 174.4
+    },
+    {
+      "file": "1.2.1 Connection Methods - USB, USB-C, microUSB, miniUSB.mp3",
+      "duration": 155.6
+    },
+    {
+      "file": "1.2.2 Connection Methods - Lightning.mp3",
+      "duration": 150.4
+    },
+    {
+      "file": "1.2.3 Connection Methods - Near-field communication (NFC).mp3",
+      "duration": 158.5
+    },
+    {
+      "file": "1.2.4 Connection Methods - Bluetooth.mp3",
+      "duration": 168.5
+    },
+    {
+      "file": "1.2.5 Connection Methods - Tethering and Hotspot.mp3",
+      "duration": 193.1
+    },
+    {
+      "file": "1.2.6 Accessories - Stylus.mp3",
+      "duration": 183.3
+    },
+    {
+      "file": "1.2.7 Accessories - Headsets.mp3",
+      "duration": 194.0
+    },
+    {
+      "file": "1.2.8 Accessories - Speakers.mp3",
+      "duration": 179.7
+    },
+    {
+      "file": "1.2.9 Accessories - Webcam.mp3",
+      "duration": 189.2
+    },
+    {
+      "file": "1.2.10 Mobile Docking Station.mp3",
+      "duration": 175.9
+    },
+    {
+      "file": "1.2.11 Mobile Port Replicator.mp3",
+      "duration": 170.6
+    },
+    {
+      "file": "1.2.12 Trackpad, Drawing Pad, and Track Points.mp3",
+      "duration": 180.9
+    },
+    {
+      "file": "1.3.1 Wireless Cellular Data Networks - 3G, 4G, 5G.mp3",
+      "duration": 196.0
+    },
+    {
+      "file": "1.3.2 Wireless Cellular Data Networks - Hotspot.mp3",
+      "duration": 210.0
+    },
+    {
+      "file": "1.3.3 Wireless Cellular Data Networks - Wi-Fi.mp3",
+      "duration": 179.2
+    },
+    {
+      "file": "1.3.4 Wireless Cellular Data Networks - SIM and eSIM.mp3",
+      "duration": 181.5
+    },
+    {
+      "file": "1.3.5 Bluetooth Configuration - Enable Bluetooth.mp3",
+      "duration": 183.6
+    },
+    {
+      "file": "1.3.6 Bluetooth Configuration - Enable Pairing.mp3",
+      "duration": 175.3
+    },
+    {
+      "file": "1.3.7 Bluetooth Configuration - Find a Device for Pairing.mp3",
+      "duration": 177.8
+    },
+    {
+      "file": "1.3.8 Bluetooth Configuration - Enter the Appropriate PIN Code.mp3",
+      "duration": 178.9
+    },
+    {
+      "file": "1.3.9 Bluetooth Configuration - Test Connectivity.mp3",
+      "duration": 155.8
+    },
+    {
+      "file": "1.3.10 Location Services - GPS Services.mp3",
+      "duration": 154.0
+    },
+    {
+      "file": "1.3.11 Location Services - Cellular Location Services.mp3",
+      "duration": 157.3
+    },
+    {
+      "file": "1.3.12 MDM Device Configurations - Corporate.mp3",
+      "duration": 167.9
+    },
+    {
+      "file": "1.3.13 MDM Device Configurations - Bring Your Own Device (BYOD).mp3",
+      "duration": 170.6
+    },
+    {
+      "file": "1.3.14 MDM Policy Enforcement.mp3",
+      "duration": 160.3
+    },
+    {
+      "file": "1.3.15 MDM Corporate Applications.mp3",
+      "duration": 165.4
+    },
+    {
+      "file": "1.3.16 Mobile Device Synchronization - Recognizing Data Caps.mp3",
+      "duration": 171.1
+    },
+    {
+      "file": "1.3.17 Mobile Device Synchronization - Calendar.mp3",
+      "duration": 171.5
+    },
+    {
+      "file": "1.3.18 Mobile Device Synchronization - Contacts.mp3",
+      "duration": 172.8
+    },
+    {
+      "file": "1.3.19 Mobile Device Synchronization - Business Applications (Mail, Cloud Storage).mp3",
+      "duration": 152.1
+    },
+    {
+      "file": "2.1.1 Ports and Protocols - 20-21 File Transfer Protocol (FTP).mp3",
+      "duration": 145.2
+    },
+    {
+      "file": "2.1.2 Ports and Protocols - 22 Secure Shell (SSH).mp3",
+      "duration": 127.0
+    },
+    {
+      "file": "2.1.3 Ports and Protocols - 23 Telnet.mp3",
+      "duration": 132.2
+    },
+    {
+      "file": "2.1.4 Ports and Protocols - 25 Simple Mail Transfer Protocol (SMTP).mp3",
+      "duration": 139.0
+    },
+    {
+      "file": "2.1.5 Ports and Protocols - 53 Domain Name System (DNS).mp3",
+      "duration": 139.0
+    },
+    {
+      "file": "2.1.6 Ports and Protocols - 67 and 68 Dynamic Host Configuration Protocol (DHCP).mp3",
+      "duration": 156.9
+    },
+    {
+      "file": "2.1.7 Ports and Protocols - 80 Hypertext Transfer Protocol (HTTP).mp3",
+      "duration": 149.6
+    },
+    {
+      "file": "2.1.8 Ports and Protocols - 110 Post Office Protocol 3 (POP3).mp3",
+      "duration": 152.0
+    },
+    {
+      "file": "2.1.9 Ports and Protocols - 143 Internet Mail Access Protocol (IMAP).mp3",
+      "duration": 164.7
+    },
+    {
+      "file": "2.1.10 Ports and Protocols - 137-139 NetBIOS and NetBT.mp3",
+      "duration": 148.6
+    },
+    {
+      "file": "2.1.11 Ports and Protocols - 389 Lightweight Directory Access Protocol (LDAP).mp3",
+      "duration": 150.4
+    },
+    {
+      "file": "2.1.12 Ports and Protocols - 443 Hypertext Transfer Protocol Secure (HTTPS).mp3",
+      "duration": 154.9
+    },
+    {
+      "file": "2.1.13 Ports and Protocols - 445 Server Message Block (SMB) and CIFS.mp3",
+      "duration": 151.1
+    },
+    {
+      "file": "2.1.14 Ports and Protocols - 3389 Remote Desktop Protocol (RDP).mp3",
+      "duration": 150.4
+    },
+    {
+      "file": "2.1.15 TCP vs UDP Protocols.mp3",
+      "duration": 177.6
+    },
+    {
+      "file": "2.2.1 Wireless Frequencies - 2.4GHz.mp3",
+      "duration": 168.8
+    },
+    {
+      "file": "2.2.2 Wireless Frequencies - 5GHz.mp3",
+      "duration": 163.3
+    },
+    {
+      "file": "2.2.3 Wireless Frequencies - 6GHz.mp3",
+      "duration": 177.4
+    },
+    {
+      "file": "2.2.4 Wireless Channels - Regulations.mp3",
+      "duration": 175.2
+    },
+    {
+      "file": "2.2.5 Wireless Channels - Channel Selection Widths.mp3",
+      "duration": 139.7
+    },
+    {
+      "file": "2.2.6 Wireless Channels - Channel Selection Frequencies.mp3",
+      "duration": 162.9
+    },
+    {
+      "file": "2.2.7 Wireless Channels - Channel Selection Bands.mp3",
+      "duration": 181.2
+    },
+    {
+      "file": "2.2.8 Wireless Technologies - Bluetooth.mp3",
+      "duration": 164.9
+    },
+    {
+      "file": "2.2.9 Wireless Technologies - 802.11 Standards.mp3",
+      "duration": 205.7
+    },
+    {
+      "file": "2.2.10 Wireless Technologies - NFC.mp3",
+      "duration": 175.0
+    },
+    {
+      "file": "2.2.11 Wireless Technologies - RFID.mp3",
+      "duration": 176.8
+    },
+    {
+      "file": "2.3.1 Server Roles - DNS.mp3",
+      "duration": 169.4
+    },
+    {
+      "file": "2.3.2 Server Roles - DHCP.mp3",
+      "duration": 174.3
+    },
+    {
+      "file": "2.3.3 Server Roles - Fileshare.mp3",
+      "duration": 175.0
+    },
+    {
+      "file": "2.3.4 Server Roles - Print Servers.mp3",
+      "duration": 153.9
+    },
+    {
+      "file": "2.3.5 Server Roles - Mail Servers.mp3",
+      "duration": 146.4
+    },
+    {
+      "file": "2.3.6 Server Roles - Syslog.mp3",
+      "duration": 159.6
+    },
+    {
+      "file": "2.3.7 Server Roles - Web Servers.mp3",
+      "duration": 162.3
+    },
+    {
+      "file": "2.3.8 Server Roles - AAA (Authentication Authorization and Accounting).mp3",
+      "duration": 155.2
+    },
+    {
+      "file": "2.3.9 Server Roles - Database Servers.mp3",
+      "duration": 157.9
+    },
+    {
+      "file": "2.3.10 Server Roles - NTP.mp3",
+      "duration": 166.6
+    },
+    {
+      "file": "2.3.11 Internet Appliances - Spam Gateways.mp3",
+      "duration": 162.0
+    },
+    {
+      "file": "2.3.12 Internet Appliances - UTM (Unified Threat Management).mp3",
+      "duration": 180.4
+    },
+    {
+      "file": "2.3.13 Internet Appliances - Load Balancers.mp3",
+      "duration": 174.1
+    },
+    {
+      "file": "2.3.14 Internet Appliances - Proxy Servers.mp3",
+      "duration": 146.2
+    },
+    {
+      "file": "2.3.15 Legacy and Embedded Systems - SCADA.mp3",
+      "duration": 159.4
+    },
+    {
+      "file": "2.3.16 IoT Devices (Internet of Things).mp3",
+      "duration": 161.2
+    },
+    {
+      "file": "2.4.1 DNS Concepts - A Records.mp3",
+      "duration": 172.0
+    },
+    {
+      "file": "2.4.2 DNS Concepts - AAAA Records.mp3",
+      "duration": 173.9
+    },
+    {
+      "file": "2.4.3 DNS Concepts - CNAME Records.mp3",
+      "duration": 164.9
+    },
+    {
+      "file": "2.4.4 DNS Concepts - MX Records.mp3",
+      "duration": 164.1
+    },
+    {
+      "file": "2.4.5 DNS Concepts - TXT Records Spam Management (DKIM).mp3",
+      "duration": 173.9
+    },
+    {
+      "file": "2.4.6 DNS Concepts - TXT Records Spam Management (SPF).mp3",
+      "duration": 174.1
+    },
+    {
+      "file": "2.4.7 DNS Concepts - TXT Records Spam Management (DMARC).mp3",
+      "duration": 178.3
+    },
+    {
+      "file": "2.4.8 DHCP Concepts - Leases.mp3",
+      "duration": 142.8
+    },
+    {
+      "file": "2.4.9 DHCP Concepts - Reservations.mp3",
+      "duration": 167.3
+    },
+    {
+      "file": "2.4.10 DHCP Concepts - Scope.mp3",
+      "duration": 165.4
+    },
+    {
+      "file": "2.4.11 DHCP Concepts - Exclusions.mp3",
+      "duration": 175.5
+    },
+    {
+      "file": "2.4.12 Virtual LAN (VLAN).mp3",
+      "duration": 171.9
+    },
+    {
+      "file": "2.4.13 Virtual Private Network (VPN).mp3",
+      "duration": 176.9
+    },
+    {
+      "file": "2.5.1 Networking Hardware - Routers.mp3",
+      "duration": 164.0
+    },
+    {
+      "file": "2.5.2 Networking Hardware - Switches (Managed).mp3",
+      "duration": 156.8
+    },
+    {
+      "file": "2.5.3 Networking Hardware - Switches (Unmanaged).mp3",
+      "duration": 162.2
+    },
+    {
+      "file": "2.5.4 Networking Hardware - Access Points.mp3",
+      "duration": 170.7
+    },
+    {
+      "file": "2.5.5 Networking Hardware - Patch Panel.mp3",
+      "duration": 146.5
+    },
+    {
+      "file": "2.5.6 Networking Hardware - Firewall.mp3",
+      "duration": 162.4
+    },
+    {
+      "file": "2.5.7 Networking Hardware - PoE Injectors.mp3",
+      "duration": 159.5
+    },
+    {
+      "file": "2.5.8 Networking Hardware - PoE Switch.mp3",
+      "duration": 160.4
+    },
+    {
+      "file": "2.5.9 Networking Hardware - PoE Standards.mp3",
+      "duration": 180.8
+    },
+    {
+      "file": "2.5.10 Networking Hardware - Cable Modem.mp3",
+      "duration": 161.6
+    },
+    {
+      "file": "2.5.11 Networking Hardware - DSL Modem.mp3",
+      "duration": 167.4
+    },
+    {
+      "file": "2.5.12 Networking Hardware - Optical Network Terminal (ONT).mp3",
+      "duration": 169.3
+    },
+    {
+      "file": "2.5.13 Networking Hardware - NIC and MAC Addresses.mp3",
+      "duration": 177.8
+    },
+    {
+      "file": "2.6.1 IP Addressing - IPv4 Private Addresses.mp3",
+      "duration": 214.1
+    },
+    {
+      "file": "2.6.2 IP Addressing - IPv4 Public Addresses.mp3",
+      "duration": 153.5
+    },
+    {
+      "file": "2.6.3 IP Addressing - IPv4 Loopback.mp3",
+      "duration": 154.7
+    },
+    {
+      "file": "2.6.3 IP Addressing - IPv6 Addresses.mp3",
+      "duration": 184.0
+    },
+    {
+      "file": "2.6.4 IP Addressing - APIPA.mp3",
+      "duration": 165.6
+    },
+    {
+      "file": "2.6.5 IP Addressing - Static.mp3",
+      "duration": 165.8
+    },
+    {
+      "file": "2.6.6 IP Addressing - Dynamic.mp3",
+      "duration": 160.6
+    },
+    {
+      "file": "2.6.7 IP Addressing - IPv6 Link-Local.mp3",
+      "duration": 172.4
+    },
+    {
+      "file": "2.6.7 IP Addressing - Subnet Mask.mp3",
+      "duration": 171.1
+    },
+    {
+      "file": "2.6.8 IP Addressing - Gateway.mp3",
+      "duration": 156.4
+    },
+    {
+      "file": "2.6.8 IP Addressing - SLAAC.mp3",
+      "duration": 177.2
+    },
+    {
+      "file": "2.6.9 IP Addressing - Dual Stack.mp3",
+      "duration": 194.2
+    },
+    {
+      "file": "2.6.10 IP Addressing - Virtual IP.mp3",
+      "duration": 184.2
+    },
+    {
+      "file": "2.7.1 Internet Connection Types - Satellite.mp3",
+      "duration": 178.3
+    },
+    {
+      "file": "2.7.2 Internet Connection Types - Fiber.mp3",
+      "duration": 152.5
+    },
+    {
+      "file": "2.7.3 Internet Connection Types - Cable.mp3",
+      "duration": 155.5
+    },
+    {
+      "file": "2.7.4 Internet Connection Types - DSL.mp3",
+      "duration": 162.6
+    },
+    {
+      "file": "2.7.5 Internet Connection Types - Cellular.mp3",
+      "duration": 163.5
+    },
+    {
+      "file": "2.7.6 Internet Connection Types - WISP.mp3",
+      "duration": 159.4
+    },
+    {
+      "file": "2.7.7 Network Types - LAN.mp3",
+      "duration": 139.3
+    },
+    {
+      "file": "2.7.8 Network Types - WAN.mp3",
+      "duration": 144.6
+    },
+    {
+      "file": "2.7.9 Network Types - PAN.mp3",
+      "duration": 151.6
+    },
+    {
+      "file": "2.7.10 Network Types - MAN.mp3",
+      "duration": 152.2
+    },
+    {
+      "file": "2.7.11 Network Types - SAN.mp3",
+      "duration": 171.5
+    },
+    {
+      "file": "2.7.12 Network Types - WLAN.mp3",
+      "duration": 170.2
+    },
+    {
+      "file": "2.8.1 Networking Tools - Crimper.mp3",
+      "duration": 157.7
+    },
+    {
+      "file": "2.8.2 Networking Tools - Cable Stripper.mp3",
+      "duration": 161.0
+    },
+    {
+      "file": "2.8.3 Networking Tools - Wi-Fi Analyzer.mp3",
+      "duration": 164.1
+    },
+    {
+      "file": "2.8.4 Networking Tools - Toner Probe.mp3",
+      "duration": 160.6
+    },
+    {
+      "file": "2.8.5 Networking Tools - Punchdown Tool.mp3",
+      "duration": 164.0
+    },
+    {
+      "file": "2.8.6 Networking Tools - Cable Tester.mp3",
+      "duration": 165.8
+    },
+    {
+      "file": "2.8.7 Networking Tools - Loopback Plug.mp3",
+      "duration": 161.8
+    },
+    {
+      "file": "2.8.8 Networking Tools - Network Tap.mp3",
+      "duration": 167.0
+    },
+    {
+      "file": "3.1.1 Display Types - LCD (IPS, TN, VA).mp3",
+      "duration": 164.9
+    },
+    {
+      "file": "3.1.2 Display Types - OLED.mp3",
+      "duration": 171.4
+    },
+    {
+      "file": "3.1.3 Display Types - Mini-LED.mp3",
+      "duration": 179.8
+    },
+    {
+      "file": "3.1.4 Display Components - Touch Screen and Digitizer.mp3",
+      "duration": 175.2
+    },
+    {
+      "file": "3.1.5 Display Components - Inverter.mp3",
+      "duration": 177.1
+    },
+    {
+      "file": "3.1.6 Display Attributes - Pixel Density.mp3",
+      "duration": 182.5
+    },
+    {
+      "file": "3.1.7 Display Attributes - Refresh Rates.mp3",
+      "duration": 195.2
+    },
+    {
+      "file": "3.1.8 Display Attributes - Screen Resolution.mp3",
+      "duration": 209.1
+    },
+    {
+      "file": "3.1.9 Display Attributes - Color Gamut.mp3",
+      "duration": 186.0
+    },
+    {
+      "file": "3.2.1 Network Cables Copper - Categories (T568A and T568B).mp3",
+      "duration": 187.8
+    },
+    {
+      "file": "3.2.2 Network Cables Copper - Coaxial.mp3",
+      "duration": 167.9
+    },
+    {
+      "file": "3.2.3 Network Cables Copper - Shielded Twisted Pair (Direct Burial).mp3",
+      "duration": 180.3
+    },
+    {
+      "file": "3.2.4 Network Cables Copper - Unshielded Twisted Pair.mp3",
+      "duration": 182.7
+    },
+    {
+      "file": "3.2.5 Network Cables - Plenum-Rated.mp3",
+      "duration": 174.8
+    },
+    {
+      "file": "3.2.6 Network Cables Optical - Single-Mode.mp3",
+      "duration": 174.3
+    },
+    {
+      "file": "3.2.7 Network Cables Optical - Multimode.mp3",
+      "duration": 171.5
+    },
+    {
+      "file": "3.2.8 Peripheral Cables - USB 2.0.mp3",
+      "duration": 176.1
+    },
+    {
+      "file": "3.2.9 Peripheral Cables - USB 3.0 and USB-C.mp3",
+      "duration": 192.2
+    },
+    {
+      "file": "3.2.10 Peripheral Cables - Serial (DB9).mp3",
+      "duration": 171.7
+    },
+    {
+      "file": "3.2.11 Peripheral Cables - Thunderbolt.mp3",
+      "duration": 176.6
+    },
+    {
+      "file": "3.2.12 Video Cables - HDMI.mp3",
+      "duration": 173.7
+    },
+    {
+      "file": "3.2.13 Video Cables - DisplayPort.mp3",
+      "duration": 176.7
+    },
+    {
+      "file": "3.2.14 Video Cables - DVI.mp3",
+      "duration": 177.2
+    },
+    {
+      "file": "3.2.15 Video Cables - VGA.mp3",
+      "duration": 164.2
+    },
+    {
+      "file": "3.2.16 Hard Drive Cables - SATA and eSATA.mp3",
+      "duration": 172.2
+    },
+    {
+      "file": "3.2.17 Connector Types - RJ11 and RJ45.mp3",
+      "duration": 163.9
+    },
+    {
+      "file": "3.2.18 Connector Types - F-Type.mp3",
+      "duration": 174.8
+    },
+    {
+      "file": "3.2.19 Connector Types - Optical ST, SC, LC.mp3",
+      "duration": 184.4
+    },
+    {
+      "file": "3.2.20 Connector Types - Punchdown Block.mp3",
+      "duration": 177.4
+    },
+    {
+      "file": "3.2.21 Connector Types - MicroUSB, MiniUSB, Lightning.mp3",
+      "duration": 177.1
+    },
+    {
+      "file": "3.2.22 Connector Types - Molex.mp3",
+      "duration": 166.1
+    },
+    {
+      "file": "3.3.1 RAM Form Factors - SODIMM and DIMM.mp3",
+      "duration": 163.5
+    },
+    {
+      "file": "3.3.2 RAM Types - DDR Iterations.mp3",
+      "duration": 191.2
+    },
+    {
+      "file": "3.3.3 RAM Attributes - ECC vs Non-ECC.mp3",
+      "duration": 179.0
+    },
+    {
+      "file": "3.3.4 RAM Configurations - Channels.mp3",
+      "duration": 177.7
+    },
+    {
+      "file": "3.4.1 Hard Drives - Spindle Speeds.mp3",
+      "duration": 188.0
+    },
+    {
+      "file": "3.4.2 Hard Drives - Form Factors 2.5-inch and 3.5-inch.mp3",
+      "duration": 191.7
+    },
+    {
+      "file": "3.4.3 Solid-State Drives - Interfaces (NVMe, SATA, PCIe, SAS).mp3",
+      "duration": 194.7
+    },
+    {
+      "file": "3.4.4 Solid-State Drives - Form Factors (M.2, mSATA).mp3",
+      "duration": 175.5
+    },
+    {
+      "file": "3.4.5 Drive Configurations - RAID 0, 1, 5, 6, 10.mp3",
+      "duration": 190.4
+    },
+    {
+      "file": "3.4.6 Removable Storage - Flash Drives.mp3",
+      "duration": 165.5
+    },
+    {
+      "file": "3.4.7 Removable Storage - Memory Cards.mp3",
+      "duration": 179.1
+    },
+    {
+      "file": "3.4.8 Storage Devices - Optical Drives.mp3",
+      "duration": 182.4
+    },
+    {
+      "file": "3.5.1 Motherboard Form Factors - ATX, microATX, ITX.mp3",
+      "duration": 187.7
+    },
+    {
+      "file": "3.5.2 Motherboard Connectors - PCI and PCIe.mp3",
+      "duration": 182.1
+    },
+    {
+      "file": "3.5.3 Motherboard Connectors - Power, SATA, eSATA.mp3",
+      "duration": 196.2
+    },
+    {
+      "file": "3.5.4 Motherboard Connectors - Headers and M.2.mp3",
+      "duration": 195.5
+    },
+    {
+      "file": "3.5.5 Motherboard Compatibility - CPU Socket Types (AMD, Intel, Multisocket).mp3",
+      "duration": 211.9
+    },
+    {
+      "file": "3.5.6 BIOSUEFI Settings - Boot Options.mp3",
+      "duration": 159.5
+    },
+    {
+      "file": "3.5.7 BIOSUEFI Settings - USB Permissions.mp3",
+      "duration": 178.1
+    },
+    {
+      "file": "3.5.8 BIOSUEFI Settings - TPM Security Features and HSM.mp3",
+      "duration": 188.4
+    },
+    {
+      "file": "3.5.9 BIOSUEFI Settings - Fan Considerations and Temperature Monitoring.mp3",
+      "duration": 173.0
+    },
+    {
+      "file": "3.5.10 BIOSUEFI Settings - Secure Boot.mp3",
+      "duration": 192.7
+    },
+    {
+      "file": "3.5.11 BIOSUEFI Settings - Boot Password and BIOS Password.mp3",
+      "duration": 170.5
+    },
+    {
+      "file": "3.5.12 CPU Architecture - x86, x64, ARM.mp3",
+      "duration": 210.2
+    },
+    {
+      "file": "3.5.13 CPU Architecture - Core Configurations.mp3",
+      "duration": 198.7
+    },
+    {
+      "file": "3.5.14 Expansion Cards - Sound, Video, Capture, Network.mp3",
+      "duration": 210.1
+    },
+    {
+      "file": "3.5.15 Hardware Cooling - Fans and Heat Sink.mp3",
+      "duration": 186.8
+    },
+    {
+      "file": "3.5.16 Hardware Cooling - Thermal Paste, Pads, and Liquid.mp3",
+      "duration": 170.1
+    },
+    {
+      "file": "3.6.1 Power Supply - Input 110-120 VAC vs 220-240 VAC.mp3",
+      "duration": 177.6
+    },
+    {
+      "file": "3.6.2 Power Supply - Output 3.3V, 5V, 12V.mp3",
+      "duration": 185.3
+    },
+    {
+      "file": "3.6.3 Power Supply - 20+4 Pin Motherboard Connector.mp3",
+      "duration": 185.7
+    },
+    {
+      "file": "3.6.4 Power Supply - Redundant and Modular.mp3",
+      "duration": 179.6
+    },
+    {
+      "file": "3.6.5 Power Supply - Wattage Rating and Energy Efficiency.mp3",
+      "duration": 203.6
+    },
+    {
+      "file": "3.7.1 Printers - Properly Unbox Device and Set-up Location.mp3",
+      "duration": 188.2
+    },
+    {
+      "file": "3.7.2 Printers - Use Appropriate Drivers (PCL vs Postscript).mp3",
+      "duration": 199.3
+    },
+    {
+      "file": "3.7.3 Printers - Firmware Updates.mp3",
+      "duration": 173.3
+    },
+    {
+      "file": "3.7.4 Printers - Device Connectivity (USB, Ethernet, Wireless).mp3",
+      "duration": 187.5
+    },
+    {
+      "file": "3.7.5 Printers - Public and Shared Devices (Share, Print Server).mp3",
+      "duration": 172.8
+    },
+    {
+      "file": "3.7.6 Printers - Configuration Settings (Duplex, Orientation, Tray, Quality).mp3",
+      "duration": 191.4
+    },
+    {
+      "file": "3.7.7 Printers - Security (User Auth, Badging, Audit Logs, Secured Prints).mp3",
+      "duration": 175.8
+    },
+    {
+      "file": "3.7.8 Printers - Network Scan Services (Email, SMB, Cloud).mp3",
+      "duration": 188.0
+    },
+    {
+      "file": "3.7.9 Printers - ADF and Flatbed Scanner.mp3",
+      "duration": 177.0
+    },
+    {
+      "file": "3.8.1 Printer Maintenance Laser - Replace Toner, Maintenance Kit, Calibrate, Clean.mp3",
+      "duration": 194.1
+    },
+    {
+      "file": "3.8.2 Printer Maintenance Inkjet - Cartridge, Printhead, Roller, Feeder.mp3",
+      "duration": 177.0
+    },
+    {
+      "file": "3.8.3 Printer Maintenance Inkjet - Clean Printheads, Calibrate, Clear Jams.mp3",
+      "duration": 181.9
+    },
+    {
+      "file": "3.8.4 Printer Maintenance Thermal - Feed Assembly, Paper, Cleaning Element.mp3",
+      "duration": 187.0
+    },
+    {
+      "file": "3.8.5 Printer Maintenance Impact - Multipart Paper, Ribbon, Printhead.mp3",
+      "duration": 192.3
+    },
+    {
+      "file": "4.1.1 Purpose of Virtual Machines - Sandbox.mp3",
+      "duration": 166.3
+    },
+    {
+      "file": "4.1.2 Purpose of Virtual Machines - Test Development.mp3",
+      "duration": 184.7
+    },
+    {
+      "file": "4.1.3 Purpose of Virtual Machines - Application Virtualization Legacy Software.mp3",
+      "duration": 184.1
+    },
+    {
+      "file": "4.1.4 Purpose of Virtual Machines - Application Virtualization Cross-Platform.mp3",
+      "duration": 181.2
+    },
+    {
+      "file": "4.1.5 VM Requirements - Security, Network, Storage.mp3",
+      "duration": 190.7
+    },
+    {
+      "file": "4.1.6 Desktop Virtualization - Virtual Desktop Infrastructure (VDI).mp3",
+      "duration": 171.5
+    },
+    {
+      "file": "4.1.7 Virtualization Concepts - Containers.mp3",
+      "duration": 183.2
+    },
+    {
+      "file": "4.1.8 Virtualization Concepts - Type 1 Hypervisor.mp3",
+      "duration": 173.6
+    },
+    {
+      "file": "4.1.9 Virtualization Concepts - Type 2 Hypervisor.mp3",
+      "duration": 171.7
+    },
+    {
+      "file": "4.2.1 Common Cloud Models - Private Cloud.mp3",
+      "duration": 166.5
+    },
+    {
+      "file": "4.2.2 Common Cloud Models - Public Cloud.mp3",
+      "duration": 159.5
+    },
+    {
+      "file": "4.2.3 Common Cloud Models - Hybrid Cloud.mp3",
+      "duration": 173.4
+    },
+    {
+      "file": "4.2.4 Common Cloud Models - Community Cloud.mp3",
+      "duration": 166.3
+    },
+    {
+      "file": "4.2.5 Common Cloud Models - IaaS, SaaS, PaaS.mp3",
+      "duration": 178.3
+    },
+    {
+      "file": "4.2.6 Cloud Characteristics - Shared vs Dedicated Resources.mp3",
+      "duration": 189.4
+    },
+    {
+      "file": "4.2.7 Cloud Characteristics - Metered Utilization (Ingress and Egress).mp3",
+      "duration": 184.2
+    },
+    {
+      "file": "4.2.8 Cloud Characteristics - Elasticity.mp3",
+      "duration": 188.8
+    },
+    {
+      "file": "4.2.9 Cloud Characteristics - Availability.mp3",
+      "duration": 190.1
+    },
+    {
+      "file": "4.2.10 Cloud Characteristics - File Synchronization.mp3",
+      "duration": 175.6
+    },
+    {
+      "file": "4.2.11 Cloud Characteristics - Multitenancy.mp3",
+      "duration": 190.8
+    },
+    {
+      "file": "5.1.1 Troubleshoot Core - POST Beeps.mp3",
+      "duration": 159.9
+    },
+    {
+      "file": "5.1.2 Troubleshoot Core - Proprietary Crash Screens.mp3",
+      "duration": 172.4
+    },
+    {
+      "file": "5.1.3 Troubleshoot Core - Blank Screen and No Power.mp3",
+      "duration": 176.6
+    },
+    {
+      "file": "5.1.4 Troubleshoot Core - Sluggish Performance.mp3",
+      "duration": 198.8
+    },
+    {
+      "file": "5.1.5 Troubleshoot Core - Overheating and Burning Smell.mp3",
+      "duration": 169.2
+    },
+    {
+      "file": "5.1.6 Troubleshoot Core - Random Shutdown.mp3",
+      "duration": 186.5
+    },
+    {
+      "file": "5.1.7 Troubleshoot Core - Application Crashes.mp3",
+      "duration": 181.0
+    },
+    {
+      "file": "5.1.8 Troubleshoot Core - Unusual Noise.mp3",
+      "duration": 168.4
+    },
+    {
+      "file": "5.1.9 Troubleshoot Core - Capacitor Swelling.mp3",
+      "duration": 183.5
+    },
+    {
+      "file": "5.1.10 Troubleshoot Core - Inaccurate System Date and Time.mp3",
+      "duration": 199.0
+    },
+    {
+      "file": "5.2.1 Troubleshoot Drives - LED Status Indicators.mp3",
+      "duration": 162.2
+    },
+    {
+      "file": "5.2.2 Troubleshoot Drives - Grinding and Clicking Noises.mp3",
+      "duration": 172.4
+    },
+    {
+      "file": "5.2.3 Troubleshoot Drives - Bootable Device Not Found.mp3",
+      "duration": 173.5
+    },
+    {
+      "file": "5.2.4 Troubleshoot Drives - Data Loss and Corruption.mp3",
+      "duration": 173.7
+    },
+    {
+      "file": "5.2.5 Troubleshoot Drives - RAID Failure and Array Missing.mp3",
+      "duration": 180.9
+    },
+    {
+      "file": "5.2.6 Troubleshoot Drives - SMART Failure.mp3",
+      "duration": 164.7
+    },
+    {
+      "file": "5.2.7 Troubleshoot Drives - Extended ReadWrite Times and Low IOPS.mp3",
+      "duration": 189.0
+    },
+    {
+      "file": "5.2.8 Troubleshoot Drives - Missing Drives in OS.mp3",
+      "duration": 165.9
+    },
+    {
+      "file": "5.2.9 Troubleshoot Drives - Audible Alarms.mp3",
+      "duration": 172.3
+    },
+    {
+      "file": "5.3.1 Troubleshoot Display - Incorrect Input Source.mp3",
+      "duration": 167.0
+    },
+    {
+      "file": "5.3.2 Troubleshoot Display - Physical Cabling Issues.mp3",
+      "duration": 162.6
+    },
+    {
+      "file": "5.3.3 Troubleshoot Display - Burnt-Out Bulb.mp3",
+      "duration": 153.1
+    },
+    {
+      "file": "5.3.4 Troubleshoot Display - Fuzzy Image.mp3",
+      "duration": 178.4
+    },
+    {
+      "file": "5.3.5 Troubleshoot Display - Display Burn-In and Dead Pixels.mp3",
+      "duration": 171.2
+    },
+    {
+      "file": "5.3.6 Troubleshoot Display - Flashing Screen.mp3",
+      "duration": 184.6
+    },
+    {
+      "file": "5.3.7 Troubleshoot Display - Incorrect Color Display.mp3",
+      "duration": 185.4
+    },
+    {
+      "file": "5.3.8 Troubleshoot Display - Audio Issues.mp3",
+      "duration": 160.2
+    },
+    {
+      "file": "5.3.9 Troubleshoot Display - Dim Image.mp3",
+      "duration": 169.0
+    },
+    {
+      "file": "5.3.10 Troubleshoot Display - Intermittent Projector Shutdown.mp3",
+      "duration": 175.4
+    },
+    {
+      "file": "5.3.11 Troubleshoot Display - Sizing and Distorted Image.mp3",
+      "duration": 179.5
+    },
+    {
+      "file": "5.4.1 Troubleshoot Mobile - Poor Battery Health and Swollen Battery.mp3",
+      "duration": 169.7
+    },
+    {
+      "file": "5.4.2 Troubleshoot Mobile - Broken Screen and Digitizer Issues.mp3",
+      "duration": 176.5
+    },
+    {
+      "file": "5.4.3 Troubleshoot Mobile - Improper Charging and Damaged Ports.mp3",
+      "duration": 170.2
+    },
+    {
+      "file": "5.4.4 Troubleshoot Mobile - Poor Connectivity.mp3",
+      "duration": 183.6
+    },
+    {
+      "file": "5.4.5 Troubleshoot Mobile - Liquid Damage.mp3",
+      "duration": 189.2
+    },
+    {
+      "file": "5.4.6 Troubleshoot Mobile - Overheating.mp3",
+      "duration": 186.0
+    },
+    {
+      "file": "5.4.7 Troubleshoot Mobile - Malware.mp3",
+      "duration": 183.9
+    },
+    {
+      "file": "5.4.8 Troubleshoot Mobile - Cursor Drift and Touch Calibration.mp3",
+      "duration": 186.5
+    },
+    {
+      "file": "5.4.9 Troubleshoot Mobile - Unable to Install New Applications.mp3",
+      "duration": 179.3
+    },
+    {
+      "file": "5.4.10 Troubleshoot Mobile - Stylus Does Not Work.mp3",
+      "duration": 184.8
+    },
+    {
+      "file": "5.4.11 Troubleshoot Mobile - Degraded Performance.mp3",
+      "duration": 184.4
+    },
+    {
+      "file": "5.5.1 Troubleshoot Network - Intermittent Wireless Connectivity.mp3",
+      "duration": 190.2
+    },
+    {
+      "file": "5.5.2 Troubleshoot Network - Slow Network Speeds and Limited Connectivity.mp3",
+      "duration": 183.4
+    },
+    {
+      "file": "5.5.3 Troubleshoot Network - Jitter and High Latency.mp3",
+      "duration": 198.6
+    },
+    {
+      "file": "5.5.4 Troubleshoot Network - Poor VoIP Quality.mp3",
+      "duration": 190.8
+    },
+    {
+      "file": "5.5.5 Troubleshoot Network - Port Flapping.mp3",
+      "duration": 180.9
+    },
+    {
+      "file": "5.5.6 Troubleshoot Network - External Interference.mp3",
+      "duration": 195.0
+    },
+    {
+      "file": "5.5.7 Troubleshoot Network - Authentication Failures.mp3",
+      "duration": 179.4
+    },
+    {
+      "file": "5.5.8 Troubleshoot Network - Intermittent Internet Connectivity.mp3",
+      "duration": 186.4
+    },
+    {
+      "file": "5.6.1 Troubleshoot Printer - Lines Down the Printed Pages.mp3",
+      "duration": 180.4
+    },
+    {
+      "file": "5.6.2 Troubleshoot Printer - Garbled Print and Speckling.mp3",
+      "duration": 183.1
+    },
+    {
+      "file": "5.6.3 Troubleshoot Printer - Paper Jams and Not Feeding.mp3",
+      "duration": 165.9
+    },
+    {
+      "file": "5.6.4 Troubleshoot Printer - Faded Prints.mp3",
+      "duration": 174.9
+    },
+    {
+      "file": "5.6.5 Troubleshoot Printer - Multiple Prints Pending and Frozen Queue.mp3",
+      "duration": 173.5
+    },
+    {
+      "file": "5.6.6 Troubleshoot Printer - Multipage Misfeed.mp3",
+      "duration": 172.6
+    },
+    {
+      "file": "5.6.7 Troubleshoot Printer - DoubleEcho Images on the Print.mp3",
+      "duration": 167.5
+    },
+    {
+      "file": "5.6.8 Troubleshoot Printer - Grinding Noise.mp3",
+      "duration": 178.9
+    },
+    {
+      "file": "5.6.9 Troubleshoot Printer - Finishing Issues (Staple Jams, Hole Punch).mp3",
+      "duration": 189.8
+    },
+    {
+      "file": "5.6.10 Troubleshoot Printer - Incorrect Page Orientation.mp3",
+      "duration": 192.9
+    },
+    {
+      "file": "5.6.11 Troubleshoot Printer - Tray Not Recognized.mp3",
+      "duration": 191.7
+    },
+    {
+      "file": "5.6.12 Troubleshoot Printer - Connectivity Issues.mp3",
+      "duration": 196.6
+    }
+  ]
+}
