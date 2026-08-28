@@ -290,6 +290,15 @@
             color: var(--text-primary) !important;
         }
 
+        .btn-notes.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+            border-style: dashed;
+            background: transparent;
+            color: var(--text-secondary) !important;
+        }
+
         @media (max-width: 768px) {
             .suite-row {
                 flex-direction: column;
@@ -615,6 +624,7 @@
                     </div>
                     <div class="suite-actions">
                         <a href="/academics/academics_audio/01%20American%20Government/index.html" class="btn-launch">🎧 Player</a>
+                        <span class="btn-notes disabled" title="Companion notes not available">📖 Notes</span>
                     </div>
                 </div>
 
