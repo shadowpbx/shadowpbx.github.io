@@ -49,24 +49,39 @@
         }
 
         .flow-breadcrumb {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 0.45rem;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
             font-family: var(--font-mono);
-            font-size: 0.76rem;
+            font-size: clamp(0.7rem, 1.6vw, 0.78rem);
             color: var(--text-secondary);
-            background: rgba(142, 68, 173, 0.05);
-            border: 1px solid rgba(142, 68, 173, 0.18);
-            padding: 0.35rem 0.75rem;
-            border-radius: 4px;
-            margin-top: 0.6rem;
+            background: rgba(142, 68, 173, 0.04);
+            border: 1px solid rgba(142, 68, 173, 0.16);
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            margin-top: 0.75rem;
             margin-bottom: 0.25rem;
+            white-space: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .flow-breadcrumb::-webkit-scrollbar {
+            display: none;
         }
 
         .flow-breadcrumb .flow-arrow {
             color: var(--accent);
             font-weight: 700;
+            padding: 0 0.2rem;
+            opacity: 0.85;
+        }
+
+        .flow-breadcrumb span {
+            flex-shrink: 0;
         }
 
         .tier-group {
