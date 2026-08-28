@@ -183,6 +183,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                 <div class="dropdown">
                     <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
                     <div class="dropdown-menu">
+                        <a href="/academics/academics_audio/">Audio Tutorials</a>
                         <a href="/academics/coursework.html">Coursework</a>
                     </div>
                 </div>
@@ -627,11 +628,16 @@ def compile_tools_section(folder_path):
 
 def compile_academics_readmes(folder_path):
     """Specialized compiler for Academics course README files."""
-    folders = ["sociology", "macroeconomics", "macroeconomics_graphs", "american_government"]
+    targets = [
+        ("academics_audio/01 American Government", "american_government", "American Government"),
+        ("academics_audio/02 Macroeconomics", "macroeconomics", "Macroeconomics"),
+        ("academics_audio/03 Sociology", "sociology", "Sociology"),
+        ("macroeconomics_graphs", "macroeconomics_graphs", "Macroeconomics Graphs")
+    ]
     print("Compiling README.md files into HTML...")
     
-    for folder in folders:
-        sub_folder_path = os.path.join(folder_path, folder)
+    for sub_rel, folder_key, title in targets:
+        sub_folder_path = os.path.join(folder_path, sub_rel)
         readme_path = os.path.join(sub_folder_path, "README.md")
         dest_html = os.path.join(sub_folder_path, "readme.html")
         
@@ -647,9 +653,9 @@ def compile_academics_readmes(folder_path):
                     md_content = parts[2]
                     
             parsed_html = markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
-            clean_title = folder.replace("_", " ").title()
             
-            html_page = ACADEMICS_README_TEMPLATE.replace("{title}", clean_title).replace("{body}", parsed_html).replace("{folder_lowercase}", folder)
+            prompt_path = f"~/academics/{folder_key}"
+            html_page = ACADEMICS_README_TEMPLATE.replace("{title}", title).replace("{body}", parsed_html).replace("{folder_lowercase}", folder_key)
             with open(dest_html, "w", encoding="utf-8") as f:
                 f.write(html_page)
             print("-> Generated.")

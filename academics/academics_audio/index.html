@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Audio Tutorials & Study Suites | Tanvir Hussain</title>
+    <title>Academics Audio Tutorials &amp; Study Suites | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -73,13 +73,14 @@
 
         .audio-card-actions {
             display: flex;
+            gap: 0.75rem;
             padding-top: 1.25rem;
             border-top: 1px solid var(--border);
         }
 
         .btn-audio-primary {
             display: inline-flex;
-            width: 100%;
+            flex: 1;
             align-items: center;
             justify-content: center;
             background: rgba(142, 68, 173, 0.08);
@@ -102,6 +103,29 @@
             color: #ffffff !important;
             border-color: var(--accent);
             box-shadow: 0 4px 12px rgba(142, 68, 173, 0.25);
+        }
+
+        .btn-audio-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-header);
+            color: var(--text-secondary) !important;
+            border: 1px solid var(--border);
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-audio-secondary:hover {
+            background: #ffffff;
+            border-color: var(--text-primary);
+            color: var(--text-primary) !important;
         }
 
         .audio-suites-grid {
@@ -129,23 +153,23 @@
                     <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
                     <div class="dropdown-menu">
                         <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
-                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools &amp; Scripts</a>
                         <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
                         <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
                         <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/engineering/" class="nav-link active">[ ENGINEERING ]</a>
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
                     <div class="dropdown-menu">
                         <a href="/engineering/engineering_audio/">Audio Tutorials</a>
                         <a href="/engineering/engineering_cs/">Computer Science</a>
-                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
-                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                        <a href="/engineering/engineering_articles/">Articles &amp; Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools &amp; Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
                     <div class="dropdown-menu">
                         <a href="/academics/academics_audio/">Audio Tutorials</a>
                         <a href="/academics/coursework.html">Coursework</a>
@@ -154,58 +178,70 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ audio --engineering --list-suites</div>
-            <h1>Engineering Audio Workstation</h1>
+            <div class="terminal-prompt">user@hexdef:~$ audio --academics --list-suites</div>
+            <h1>Academics Audio Tutorials</h1>
         </div>
     </header>
 
     <div class="container">
-        <div class="study-suites-section">
-            <span class="section-label">00 // Featured Engineering Audio Suites</span>
-            <div class="audio-suites-grid">
-
-                <!-- Suite 01: Algorithmic Foundations & Complexity Audio -->
-                <div class="audio-suite-card">
-                    <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 01 ]</span>
-                        <span class="audio-suite-count">55 MODULES • 6h 19m</span>
-                    </div>
-                    <div class="audio-card-body">
-                        <h2 class="audio-card-title">Algorithmic Foundations &amp; Complexity</h2>
-                        <p class="audio-card-desc">55 comprehensive audio masterclasses covering 11 fundamental computer science domains: sorting, graph traversals, dynamic programming, string parsing, computational geometry, cryptography, streaming sketches, machine learning, distributed consensus, and quantum algorithms.</p>
-                    </div>
-                    <div class="audio-card-actions">
-                        <a href="01%20Algorithms/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                    </div>
+        
+        <span class="section-label">01 // Academic &amp; Examination Prep Suites</span>
+        <div class="audio-suites-grid">
+            
+            <!-- SUITE 01: American Government -->
+            <div class="audio-suite-card">
+                <div class="audio-card-header">
+                    <span class="audio-suite-num">[ SUITE 01 ]</span>
+                    <span class="audio-suite-count">24 Modules &bull; 4h 30m</span>
                 </div>
-
-                <!-- Suite 02: Data Structures & Memory Architectures Audio -->
-                <div class="audio-suite-card">
-                    <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 02 ]</span>
-                        <span class="audio-suite-count">24 MODULES • 2h 50m</span>
-                    </div>
-                    <div class="audio-card-body">
-                        <h2 class="audio-card-title">Data Structures &amp; Memory Architectures</h2>
-                        <p class="audio-card-desc">24 comprehensive audio masterclasses covering 6 fundamental data structure domains: linear buffers & lists, associative hash tables, self-balancing search trees & heaps, graph representations, spatial & prefix trees, and probabilistic streaming structures.</p>
-                    </div>
-                    <div class="audio-card-actions">
-                        <a href="02%20Data%20Structures/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                    </div>
+                <div class="audio-card-body">
+                    <h3 class="audio-card-title">American Government</h3>
+                    <p class="audio-card-desc">Constitutional principles, federalism, institutional branches (Congress, Presidency, Judiciary), civil liberties, and public policy frameworks.</p>
+                </div>
+                <div class="audio-card-actions">
+                    <a href="01%20American%20Government/index.html" class="btn-audio-primary">&gt;&gt; LAUNCH PLAYER</a>
+                    <a href="01%20American%20Government/readme.html" class="btn-audio-secondary">README</a>
                 </div>
             </div>
-        </div>
 
-        <span class="section-label">01 // Audio Guides & Technical Walkthroughs</span>
-        
-        <div class="post-list" id="dynamic-posts">
-            <!-- POSTS_START -->
+            <!-- SUITE 02: Principles of Macroeconomics -->
+            <div class="audio-suite-card">
+                <div class="audio-card-header">
+                    <span class="audio-suite-num">[ SUITE 02 ]</span>
+                    <span class="audio-suite-count">28 Modules &bull; 3h 45m</span>
+                </div>
+                <div class="audio-card-body">
+                    <h3 class="audio-card-title">Principles of Macroeconomics</h3>
+                    <p class="audio-card-desc">Supply and demand dynamics, GDP accounting, aggregate demand/supply modeling, fiscal/monetary policy, inflation, and international trade.</p>
+                </div>
+                <div class="audio-card-actions">
+                    <a href="02%20Macroeconomics/index.html" class="btn-audio-primary">&gt;&gt; LAUNCH PLAYER</a>
+                    <a href="02%20Macroeconomics/companion.html" class="btn-audio-secondary">COMPANION</a>
+                    <a href="02%20Macroeconomics/readme.html" class="btn-audio-secondary">README</a>
+                </div>
+            </div>
 
-            <!-- POSTS_END -->
+            <!-- SUITE 03: Introductory Sociology -->
+            <div class="audio-suite-card">
+                <div class="audio-card-header">
+                    <span class="audio-suite-num">[ SUITE 03 ]</span>
+                    <span class="audio-suite-count">28 Modules &bull; 3h 50m</span>
+                </div>
+                <div class="audio-card-body">
+                    <h3 class="audio-card-title">Introductory Sociology</h3>
+                    <p class="audio-card-desc">Sociological theories (Functionalism, Conflict, Symbolic Interactionism), social institutions, socialization, deviance, and global stratification.</p>
+                </div>
+                <div class="audio-card-actions">
+                    <a href="03%20Sociology/index.html" class="btn-audio-primary">&gt;&gt; LAUNCH PLAYER</a>
+                    <a href="03%20Sociology/companion.html" class="btn-audio-secondary">COMPANION</a>
+                    <a href="03%20Sociology/readme.html" class="btn-audio-secondary">README</a>
+                </div>
+            </div>
+
         </div>
 
         <footer>
-            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
         </footer>
     </div>
 
