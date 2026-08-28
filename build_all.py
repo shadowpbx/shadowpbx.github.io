@@ -184,7 +184,6 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                     <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
                     <div class="dropdown-menu">
                         <a href="/academics/academics_audio/">Audio Tutorials</a>
-                        <a href="/academics/macroeconomics_graphs/">Interactive Graph Labs</a>
                     </div>
                 </div>
 <a href="/resume/" class="nav-link">[ RESUME ]</a>
