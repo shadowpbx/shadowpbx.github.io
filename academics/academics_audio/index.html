@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics Audio Tutorials &amp; Study Suites | Tanvir Hussain</title>
+    <title>Academics Audio Tutorials | Tanvir Hussain</title>
+    <!-- Importing Google Fonts: Inter for readability, JetBrains Mono for technical look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -73,14 +74,13 @@
 
         .audio-card-actions {
             display: flex;
-            gap: 0.75rem;
             padding-top: 1.25rem;
             border-top: 1px solid var(--border);
         }
 
         .btn-audio-primary {
             display: inline-flex;
-            flex: 1;
+            width: 100%;
             align-items: center;
             justify-content: center;
             background: rgba(142, 68, 173, 0.08);
@@ -99,46 +99,11 @@
         }
 
         .btn-audio-primary:hover {
-            background: var(--accent);
+            background: #8e44ad;
             color: #ffffff !important;
-            border-color: var(--accent);
-            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.25);
-        }
-
-        .btn-audio-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-header);
-            color: var(--text-secondary) !important;
-            border: 1px solid var(--border);
-            font-family: var(--font-mono);
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 0.75rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .btn-audio-secondary:hover {
-            background: #ffffff;
-            border-color: var(--text-primary);
-            color: var(--text-primary) !important;
-        }
-
-        .audio-suites-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .audio-suites-grid {
-                grid-template-columns: 1fr;
-            }
+            border-color: #8e44ad;
+            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.2);
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -185,59 +150,57 @@
 
     <div class="container">
         
-        <span class="section-label">01 // Academic &amp; Examination Prep Suites</span>
-        <div class="audio-suites-grid">
-            
-            <!-- SUITE 01: American Government -->
-            <div class="audio-suite-card">
-                <div class="audio-card-header">
-                    <span class="audio-suite-num">[ SUITE 01 ]</span>
-                    <span class="audio-suite-count">24 Modules &bull; 4h 30m</span>
+        <!-- Featured Audio Study Suites -->
+        <div style="margin-bottom: 3rem;">
+            <span class="section-label">Academic &amp; Examination Prep Suites</span>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+                
+                <!-- American Government -->
+                <div class="audio-suite-card">
+                    <div class="audio-card-header">
+                        <span class="audio-suite-num">[ SUITE 01 ]</span>
+                        <span class="audio-suite-count">24 MODULES • 4h 30m</span>
+                    </div>
+                    <div class="audio-card-body">
+                        <h2 class="audio-card-title">American Government</h2>
+                        <p class="audio-card-desc">Constitutional principles, federalism, institutional branches (Congress, Presidency, Judiciary), civil liberties, and public policy frameworks.</p>
+                    </div>
+                    <div class="audio-card-actions">
+                        <a href="01%20American%20Government/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
+                    </div>
                 </div>
-                <div class="audio-card-body">
-                    <h3 class="audio-card-title">American Government</h3>
-                    <p class="audio-card-desc">Constitutional principles, federalism, institutional branches (Congress, Presidency, Judiciary), civil liberties, and public policy frameworks.</p>
-                </div>
-                <div class="audio-card-actions">
-                    <a href="01%20American%20Government/index.html" class="btn-audio-primary">&gt;&gt; LAUNCH PLAYER</a>
-                    <a href="01%20American%20Government/readme.html" class="btn-audio-secondary">README</a>
-                </div>
-            </div>
 
-            <!-- SUITE 02: Principles of Macroeconomics -->
-            <div class="audio-suite-card">
-                <div class="audio-card-header">
-                    <span class="audio-suite-num">[ SUITE 02 ]</span>
-                    <span class="audio-suite-count">28 Modules &bull; 3h 45m</span>
+                <!-- Principles of Macroeconomics -->
+                <div class="audio-suite-card">
+                    <div class="audio-card-header">
+                        <span class="audio-suite-num">[ SUITE 02 ]</span>
+                        <span class="audio-suite-count">28 MODULES • 3h 45m</span>
+                    </div>
+                    <div class="audio-card-body">
+                        <h2 class="audio-card-title">Principles of Macroeconomics</h2>
+                        <p class="audio-card-desc">Supply and demand dynamics, GDP accounting, aggregate demand/supply modeling, fiscal/monetary policy, inflation, and international trade.</p>
+                    </div>
+                    <div class="audio-card-actions">
+                        <a href="02%20Macroeconomics/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
+                    </div>
                 </div>
-                <div class="audio-card-body">
-                    <h3 class="audio-card-title">Principles of Macroeconomics</h3>
-                    <p class="audio-card-desc">Supply and demand dynamics, GDP accounting, aggregate demand/supply modeling, fiscal/monetary policy, inflation, and international trade.</p>
-                </div>
-                <div class="audio-card-actions">
-                    <a href="02%20Macroeconomics/index.html" class="btn-audio-primary">&gt;&gt; LAUNCH PLAYER</a>
-                    <a href="02%20Macroeconomics/companion.html" class="btn-audio-secondary">COMPANION</a>
-                    <a href="02%20Macroeconomics/readme.html" class="btn-audio-secondary">README</a>
-                </div>
-            </div>
 
-            <!-- SUITE 03: Introductory Sociology -->
-            <div class="audio-suite-card">
-                <div class="audio-card-header">
-                    <span class="audio-suite-num">[ SUITE 03 ]</span>
-                    <span class="audio-suite-count">28 Modules &bull; 3h 50m</span>
+                <!-- Introductory Sociology -->
+                <div class="audio-suite-card">
+                    <div class="audio-card-header">
+                        <span class="audio-suite-num">[ SUITE 03 ]</span>
+                        <span class="audio-suite-count">28 MODULES • 3h 50m</span>
+                    </div>
+                    <div class="audio-card-body">
+                        <h2 class="audio-card-title">Introductory Sociology</h2>
+                        <p class="audio-card-desc">Sociological theories (Functionalism, Conflict, Symbolic Interactionism), social institutions, socialization, deviance, and global stratification.</p>
+                    </div>
+                    <div class="audio-card-actions">
+                        <a href="03%20Sociology/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
+                    </div>
                 </div>
-                <div class="audio-card-body">
-                    <h3 class="audio-card-title">Introductory Sociology</h3>
-                    <p class="audio-card-desc">Sociological theories (Functionalism, Conflict, Symbolic Interactionism), social institutions, socialization, deviance, and global stratification.</p>
-                </div>
-                <div class="audio-card-actions">
-                    <a href="03%20Sociology/index.html" class="btn-audio-primary">&gt;&gt; LAUNCH PLAYER</a>
-                    <a href="03%20Sociology/companion.html" class="btn-audio-secondary">COMPANION</a>
-                    <a href="03%20Sociology/readme.html" class="btn-audio-secondary">README</a>
-                </div>
-            </div>
 
+            </div>
         </div>
 
         <footer>
