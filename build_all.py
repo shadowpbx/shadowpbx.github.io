@@ -373,6 +373,8 @@ def compile_standard_section(folder_path, folder_name, config):
                 elif folder_base == "academics_curriculum":
                     if "cybersecurity" in slug:
                         short_name = "cybersecurity-syllabus.md"
+                    elif "electrical" in slug or "electronic" in slug or "eee" in slug:
+                        short_name = "eee-syllabus.md"
                     elif "cs" in slug:
                         short_name = "cs-syllabus.md"
                     else:
@@ -439,13 +441,16 @@ def compile_standard_section(folder_path, folder_name, config):
         posts_list_html = []
         for post in feed_posts:
             tag_name = post.get('tag', 'CURRICULUM')
+            title_upper = post['title'].upper()
             card_class = "macro-card macro-accent"
-            if "CYBERSECURITY" in post['title'].upper() or "SECURITY" in post['title'].upper():
+            if "CYBERSECURITY" in title_upper or "SECURITY" in title_upper:
                 card_class = "macro-card macro-blue"
+            elif "ELECTRICAL" in title_upper or "ELECTRONIC" in title_upper:
+                card_class = "macro-card macro-yellow"
+            elif "COMPUTER" in title_upper or "SYSTEMS" in title_upper:
+                card_class = "macro-card macro-accent"
             elif "FOUNDATION" in tag_name.upper():
                 card_class = "macro-card macro-foundation"
-            elif "ENGINEERING" in tag_name.upper():
-                card_class = "macro-card macro-accent"
             
             entry = f"""            <a href="{post['url']}" class="{card_class}">
                 <div>
