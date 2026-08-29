@@ -3,11 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academics & Overview | Tanvir Hussain</title>
+    <title>{title} | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-family: var(--font-main);
+        }
+
+        .post-container h1, .post-container h2, .post-container h3, .post-container h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .post-container p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-container a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .post-container a:hover {
+            text-decoration: underline;
+        }
+
+        .post-container pre {
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            padding: 1.25rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            margin: 1.5rem 0;
+        }
+
+        .post-container code {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            background: rgba(142, 68, 173, 0.08);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .post-container pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -42,32 +100,19 @@
                         <a href="/academics/academics_curriculum/">Academic Curriculum</a>
                     </div>
                 </div>
-<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ academics --show-overview</div>
-            <h1>Academic Overview</h1>
+            <div class="terminal-prompt">user@hexdef:~/academics/curriculum$ cat {filename}</div>
+            <h1>{title}</h1>
         </div>
     </header>
 
-    <div class="container">
+    <div class="post-container">
+        <a href="../" style="display: inline-block; margin-bottom: 2rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; text-decoration: none; font-weight: 700;">&larr; Back to Academic Curriculum</a>
+        {content}
         
-        <span class="section-label">Academic Profile</span>
-        <div class="study-card" style="min-height: auto; padding: 2rem; margin-bottom: 2rem; margin-top: 1rem;">
-            <p style="margin-top: 0; font-size: 1.1rem; line-height: 1.8;">
-                Currently pursuing an <strong>Associate in Science (A.S.) in Computer Information Systems (Cyber Defense Concentration)</strong> at <strong>Hudson Valley Community College (HVCC)</strong>.
-            </p>
-            <div style="margin-top: 1.5rem; border-top: 1px dashed var(--border); padding-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
-                <a href="/academics/academics_audio/" style="color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; text-decoration: none; display: inline-block;">
-                    AUDIO TUTORIALS &rarr;
-                </a>
-                <a href="/academics/academics_curriculum/" style="color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; font-weight: 700; text-decoration: none; display: inline-block;">
-                    ACADEMIC CURRICULUM &rarr;
-                </a>
-            </div>
-        </div>
-
-        <footer>
+        <footer style="margin-top: 5rem;">
             &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
         </footer>
     </div>

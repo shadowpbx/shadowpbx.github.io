@@ -24,6 +24,7 @@ FOLDER_CONFIGS = {
     "engineering/engineering_audio": {"type": "standard", "default_tag": "AUDIO"},
     "engineering/engineering_articles": {"type": "standard", "default_tag": "ENGINEERING"},
     "engineering/engineering_tools": {"type": "standard", "default_tag": "UTILITIES"},
+    "academics/academics_curriculum": {"type": "standard", "default_tag": "CURRICULUM"},
     "academics": {"type": "academics_readmes"}
 }
 
@@ -184,6 +185,7 @@ ACADEMICS_README_TEMPLATE = """<!DOCTYPE html>
                     <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
                     <div class="dropdown-menu">
                         <a href="/academics/academics_audio/">Audio Tutorials</a>
+                        <a href="/academics/academics_curriculum/">Academic Curriculum</a>
                     </div>
                 </div>
 <a href="/resume/" class="nav-link">[ RESUME ]</a>
