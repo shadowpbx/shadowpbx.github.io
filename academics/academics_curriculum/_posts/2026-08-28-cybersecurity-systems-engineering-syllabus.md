@@ -241,7 +241,7 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 * **Compliance Mapping:** Explain how to map technical audit findings to specific NIST SP 800-53 controls.
 
 ### 9.4 Public Sector & Federal Navigation
-* **Certifications:** Obtain **CompTIA Security+** (Minimum baseline for DoD 8570), followed by **CySA+**, **BICP**, or **CISSP**.
+* **Certifications:** Obtain **CompTIA Security+** (Minimum baseline for DoD 8570), followed by **CySA+**, **GCIH / CEH**, or **CISSP**.
 * **Federal Resume:** 3-5 pages via USAJOBS Resume Builder. Map every bullet point to required KSAs (Knowledge, Skills, and Abilities).
 * **NYS ITS:** Submit applications via the NY HELPS direct-hiring portal and take Civil Service continuous recruitment exams.
 * **Security Clearances:** Maintain clean finances, zero drug use, and a clean criminal background for the SF-86 (Secret/Top Secret) clearance process.
