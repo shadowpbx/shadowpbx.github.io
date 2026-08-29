@@ -3,12 +3,12 @@ title: "Computer Science & Systems Engineering Syllabus"
 date: 2026-08-28
 tag: "CURRICULUM"
 category: "Computer Science"
-summary: "The definitive chronological master syllabus, taking students from basic programming logic through C++ memory management, enterprise cloud, system design, and the rigorous interview playbook."
+summary: "Complete roadmap covering programming fundamentals, low-level systems, distributed cloud architecture, and technical interviews."
 ---
 
 # COMPUTER SCIENCE & SYSTEMS ENGINEERING SYLLABUS
 
-A unified, chronological master syllabus designed to transform absolute beginners into highly capable engineers. This curriculum bridges the gap from writing your first script to mastering low-level C++ memory, architecting cloud systems, and executing at Tier-1 industry and public sector engineering levels.
+A complete, chronological roadmap designed to take engineers from programming fundamentals and low-level systems to distributed cloud architecture and technical interviews.
 
 ---
 
