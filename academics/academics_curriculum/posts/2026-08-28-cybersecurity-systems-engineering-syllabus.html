@@ -213,12 +213,13 @@
 <hr />
 <h2>MODULE 1: IT &amp; Systems Bedrock (The Foundation)</h2>
 <p><strong>Focus:</strong> Mastering the foundational protocols, operating systems, and scripting languages that govern all modern networks and computers.</p>
-<h3>1.1 Core Networking Protocols</h3>
+<h3>1.1 Core Networking &amp; Email Protocols</h3>
 <ul>
 <li><strong>OSI &amp; TCP/IP Models:</strong> Deep dive into all 7 layers and data encapsulation.</li>
 <li><strong>TCP vs. UDP:</strong> 3-way handshake (<code>SYN</code>, <code>SYN-ACK</code>, <code>ACK</code>), connection teardown (<code>FIN</code>/<code>RST</code>), and state transitions.</li>
 <li><strong>IP Addressing &amp; Routing:</strong> IPv4/IPv6 subnetting, CIDR notation, NAT/PAT, BGP, OSPF, and routing tables.</li>
 <li><strong>Domain Name System (DNS):</strong> Recursive vs. Iterative queries, record types (<code>A</code>, <code>AAAA</code>, <code>MX</code>, <code>TXT</code>, <code>SRV</code>, <code>CNAME</code>), and DNS over HTTPS (DoH) / DNS over TLS (DoT).</li>
+<li><strong>Email Authentication &amp; Domain Trust:</strong> Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM), DMARC policy enforcement, and MTA-STS.</li>
 <li><strong>Web Protocols:</strong> HTTP/1.1 vs. HTTP/2 vs. HTTP/3 (QUIC), HTTP request/response headers, status codes, and methods.</li>
 <li><strong>Encryption in Transit:</strong> TLS 1.2/1.3 handshakes, cipher suites, Server Name Indication (SNI), and Perfect Forward Secrecy (PFS).</li>
 <li><strong>Layer 2 Infrastructure:</strong> ARP, MAC addressing, VLANs, 802.1Q tagging, and Spanning Tree Protocol (STP).</li>
@@ -231,6 +232,7 @@
 <li><strong>Process Management:</strong> Process trees, <code>fork</code>, <code>exec</code>, IPC, signals, zombie, and orphan processes.</li>
 <li><strong>Memory &amp; Storage:</strong> Virtual memory, paging, swapping, and file system hierarchies (VFS, <code>/proc</code>, <code>/sys</code>, <code>/dev</code>).</li>
 <li><strong>Initialization &amp; Containers:</strong> Boot process (UEFI, GRUB, <code>initrd</code>, <code>systemd</code>), Linux namespaces, and Control Groups (<code>cgroups</code>).</li>
+<li><strong>eBPF Architecture:</strong> Extended Berkeley Packet Filter foundations for kernel observability, tracing, and dynamic packet filtering.</li>
 <li><strong>Network Stack &amp; Security:</strong> Packet filtering (<code>iptables</code>, <code>nftables</code>, <code>ufw</code>), Pluggable Authentication Modules (<code>PAM</code>), and Bash text processing (<code>awk</code>, <code>sed</code>, <code>grep</code>, regex).</li>
 </ul>
 <h3>1.3 Windows &amp; Active Directory Architecture</h3>
@@ -252,11 +254,12 @@
 </ul>
 <hr />
 <h2>MODULE 2: Cryptography &amp; Identity Architecture</h2>
-<p><strong>Focus:</strong> The mathematical foundation of confidentiality, integrity, non-repudiation, and modern enterprise identity access control.</p>
-<h3>2.1 Cryptographic Primitives</h3>
+<p><strong>Focus:</strong> The mathematical foundation of confidentiality, integrity, non-repudiation, post-quantum resilience, and modern enterprise identity access control.</p>
+<h3>2.1 Cryptographic Primitives &amp; Post-Quantum Standards</h3>
 <ul>
 <li><strong>Symmetric Encryption:</strong> Block ciphers (AES-128/256 with ECB, CBC, and GCM authenticated modes), Stream ciphers (ChaCha20-Poly1305).</li>
 <li><strong>Asymmetric Encryption:</strong> RSA, Elliptic Curve Cryptography (ECC, ECDSA, Ed25519), and Diffie-Hellman Key Exchange (ECDHE).</li>
+<li><strong>Post-Quantum Cryptography (PQC):</strong> Quantum threats to asymmetric crypto, NIST PQC Standards (<strong>FIPS 203 ML-KEM/Kyber</strong>, <strong>FIPS 204 ML-DSA/Dilithium</strong>, <strong>FIPS 205 SLH-DSA/SPHINCS+</strong>), and hybrid classical-PQC key exchange.</li>
 <li><strong>Cryptographic Hashing:</strong> SHA-256, SHA-3, legacy collision vulnerabilities (MD5, SHA-1), and Message Authentication Codes (HMAC).</li>
 <li><strong>Password Storage:</strong> Slow hashing algorithms (Argon2id, bcrypt, PBKDF2), Cryptographic Salting, and Peppering.</li>
 <li><strong>Digital Signatures:</strong> Signature generation, verification, and non-repudiation guarantees.</li>
@@ -270,7 +273,7 @@
 <ul>
 <li><strong>Access Control Models:</strong> Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC), Mandatory Access Control (MAC), and Discretionary Access Control (DAC).</li>
 <li><strong>Modern Identity Protocols:</strong> OAuth 2.0 (Authorization Code Grant with PKCE, Client Credentials), SAML 2.0, and OpenID Connect (OIDC).</li>
-<li><strong>Multi-Factor Authentication (MFA):</strong> FIDO2/WebAuthn hardware keys, Passkeys, TOTP/HOTP algorithms, and Single Sign-On (SSO) architecture.</li>
+<li><strong>Multi-Factor Authentication (MFA):</strong> FIDO2/WebAuthn hardware keys, Passkeys, TOTP/HOTP algorithms, Single Sign-On (SSO), and mitigating MFA fatigue (push bombing) / Session Token Theft (Infostealers).</li>
 <li><strong>Zero Trust Architecture:</strong> Core principles of NIST SP 800-207 (<em>"Never trust, always verify"</em>, micro-segmentation, continuous authentication).</li>
 </ul>
 <hr />
@@ -305,10 +308,11 @@
 </ul>
 <hr />
 <h2>MODULE 4: Defensive Engineering &amp; Incident Response</h2>
-<p><strong>Focus:</strong> Real-time threat detection, security telemetry analysis, digital forensics, and malware reverse engineering.</p>
-<h3>4.1 Security Operations &amp; Threat Detection</h3>
+<p><strong>Focus:</strong> Real-time threat detection, Cyber Threat Intelligence (CTI), security telemetry analysis, digital forensics, and malware reverse engineering.</p>
+<h3>4.1 Security Operations &amp; Threat Intelligence (CTI)</h3>
 <ul>
 <li><strong>SIEM &amp; Log Pipelines:</strong> Log aggregation, parsing, and correlation rule engineering (Splunk, ELK Stack, Wazuh).</li>
+<li><strong>Cyber Threat Intelligence (CTI):</strong> The Diamond Model of Intrusion Analysis, STIX/TAXII threat feeds, Traffic Light Protocol (TLP), and MITRE ATT&amp;CK adversary profiling.</li>
 <li><strong>Network Detection:</strong> Intrusion Detection &amp; Prevention Systems (Snort, Suricata, Zeek) and writing custom signature rules.</li>
 <li><strong>Endpoint Telemetry:</strong> Endpoint Detection &amp; Response (EDR), Extended Detection &amp; Response (XDR), and behavioral evasion detection.</li>
 <li><strong>Detection Engineering:</strong> Writing YARA rules for file identification and Sigma rules for SIEM-agnostic log detection.</li>
@@ -336,7 +340,7 @@
 </ul>
 <hr />
 <h2>MODULE 5: Cloud, Infrastructure, &amp; DevSecOps</h2>
-<p><strong>Focus:</strong> Hardening modern distributed infrastructure across public cloud environments, container orchestration, and automated CI/CD pipelines.</p>
+<p><strong>Focus:</strong> Hardening modern distributed infrastructure across public cloud environments, container orchestration, eBPF runtime defense, and automated CI/CD pipelines.</p>
 <h3>5.1 Cloud Security Architecture</h3>
 <ul>
 <li><strong>Shared Responsibility Model:</strong> Security boundaries across IaaS, PaaS, and SaaS.</li>
@@ -344,10 +348,11 @@
 <li><strong>Azure Security:</strong> Microsoft Entra ID, Managed Identities, Network Security Groups (NSG), Azure Key Vault, and Defender for Cloud.</li>
 <li><strong>GCP Security:</strong> Service Accounts, Workload Identity Federation, IAM Conditions, and VPC Service Controls.</li>
 </ul>
-<h3>5.2 Container &amp; Kubernetes (K8s) Security</h3>
+<h3>5.2 Container, Kubernetes (K8s), &amp; eBPF Security</h3>
 <ul>
 <li><strong>Docker Security:</strong> Linux kernel capabilities (<code>cap-drop</code>), rootless container execution, <code>cgroups</code> isolation, and container image vulnerability scanning (<code>Trivy</code>).</li>
 <li><strong>Kubernetes Hardening:</strong> K8s RBAC, Network Policies, Pod Security Standards (Privileged vs. Baseline vs. Restricted), Kubelet API security, and Secrets management.</li>
+<li><strong>eBPF Runtime Defense:</strong> Kernel-level observability, real-time threat prevention, and network security policies using <strong>Cilium</strong>, <strong>Falco</strong>, and <strong>Tetragon</strong>.</li>
 </ul>
 <h3>5.3 Infrastructure as Code (IaC) &amp; DevSecOps</h3>
 <ul>
@@ -359,7 +364,7 @@
 </ul>
 <hr />
 <h2>MODULE 6: AI Security &amp; Hardware Integrity</h2>
-<p><strong>Focus:</strong> Securing modern Artificial Intelligence models and low-level hardware root-of-trust architectures.</p>
+<p><strong>Focus:</strong> Securing modern Artificial Intelligence models, prompt boundaries, and low-level hardware root-of-trust architectures.</p>
 <h3>6.1 Artificial Intelligence &amp; LLM Security (OWASP Top 10 for LLMs)</h3>
 <ul>
 <li><strong>Prompt Injection:</strong> Direct prompt overrides and Indirect prompt injection via untrusted data sources.</li>
@@ -375,8 +380,8 @@
 <li><strong>Physical &amp; Side-Channel Attacks:</strong> Cold boot attacks, memory dumping, timing analysis, and power analysis overview.</li>
 </ul>
 <hr />
-<h2>MODULE 7: Governance, Risk, &amp; Public Sector Compliance</h2>
-<p><strong>Focus:</strong> Enterprise risk management, federal compliance frameworks, and government cybersecurity mandates.</p>
+<h2>MODULE 7: Governance, Risk, &amp; Critical Infrastructure</h2>
+<p><strong>Focus:</strong> Enterprise risk management, federal compliance frameworks, industrial control systems (ICS/SCADA), and government cybersecurity mandates.</p>
 <h3>7.1 Frameworks &amp; Industry Standards</h3>
 <ul>
 <li><strong>NIST Cybersecurity Framework (CSF 2.0):</strong> The 6 Core Functions — <em>Govern, Identify, Protect, Detect, Respond, Recover</em>.</li>
@@ -392,6 +397,12 @@
 <li><strong>FIPS 140-3:</strong> Cryptographic module validation standards.</li>
 <li><strong>Privacy &amp; Industry Regulations:</strong> HIPAA (healthcare data), PCI-DSS (payment cards), and GDPR (privacy rights).</li>
 <li><strong>DoD 8140 / 8570 Manual:</strong> Mandatory baseline certification requirements for federal cybersecurity roles.</li>
+</ul>
+<h3>7.3 Operational Technology (OT) &amp; ICS/SCADA Security</h3>
+<ul>
+<li><strong>The Purdue Model:</strong> Industrial automation architecture across Levels 0 through 5 (Sensors to Enterprise IT).</li>
+<li><strong>Industrial Protocols:</strong> Security limitations of Modbus, DNP3, and EtherNet/IP.</li>
+<li><strong>Critical Infrastructure Defense:</strong> Air-gapped network design, unidirectional security gateways (data diodes), and defending against nation-state grid sabotage.</li>
 </ul>
 <hr />
 <h2>MODULE 8: The Applied Home Lab &amp; Proof of Work</h2>

@@ -21,11 +21,12 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 
 **Focus:** Mastering the foundational protocols, operating systems, and scripting languages that govern all modern networks and computers.
 
-### 1.1 Core Networking Protocols
+### 1.1 Core Networking & Email Protocols
 * **OSI & TCP/IP Models:** Deep dive into all 7 layers and data encapsulation.
 * **TCP vs. UDP:** 3-way handshake (`SYN`, `SYN-ACK`, `ACK`), connection teardown (`FIN`/`RST`), and state transitions.
 * **IP Addressing & Routing:** IPv4/IPv6 subnetting, CIDR notation, NAT/PAT, BGP, OSPF, and routing tables.
 * **Domain Name System (DNS):** Recursive vs. Iterative queries, record types (`A`, `AAAA`, `MX`, `TXT`, `SRV`, `CNAME`), and DNS over HTTPS (DoH) / DNS over TLS (DoT).
+* **Email Authentication & Domain Trust:** Sender Policy Framework (SPF), DomainKeys Identified Mail (DKIM), DMARC policy enforcement, and MTA-STS.
 * **Web Protocols:** HTTP/1.1 vs. HTTP/2 vs. HTTP/3 (QUIC), HTTP request/response headers, status codes, and methods.
 * **Encryption in Transit:** TLS 1.2/1.3 handshakes, cipher suites, Server Name Indication (SNI), and Perfect Forward Secrecy (PFS).
 * **Layer 2 Infrastructure:** ARP, MAC addressing, VLANs, 802.1Q tagging, and Spanning Tree Protocol (STP).
@@ -37,6 +38,7 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 * **Process Management:** Process trees, `fork`, `exec`, IPC, signals, zombie, and orphan processes.
 * **Memory & Storage:** Virtual memory, paging, swapping, and file system hierarchies (VFS, `/proc`, `/sys`, `/dev`).
 * **Initialization & Containers:** Boot process (UEFI, GRUB, `initrd`, `systemd`), Linux namespaces, and Control Groups (`cgroups`).
+* **eBPF Architecture:** Extended Berkeley Packet Filter foundations for kernel observability, tracing, and dynamic packet filtering.
 * **Network Stack & Security:** Packet filtering (`iptables`, `nftables`, `ufw`), Pluggable Authentication Modules (`PAM`), and Bash text processing (`awk`, `sed`, `grep`, regex).
 
 ### 1.3 Windows & Active Directory Architecture
@@ -58,11 +60,12 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 
 ## MODULE 2: Cryptography & Identity Architecture
 
-**Focus:** The mathematical foundation of confidentiality, integrity, non-repudiation, and modern enterprise identity access control.
+**Focus:** The mathematical foundation of confidentiality, integrity, non-repudiation, post-quantum resilience, and modern enterprise identity access control.
 
-### 2.1 Cryptographic Primitives
+### 2.1 Cryptographic Primitives & Post-Quantum Standards
 * **Symmetric Encryption:** Block ciphers (AES-128/256 with ECB, CBC, and GCM authenticated modes), Stream ciphers (ChaCha20-Poly1305).
 * **Asymmetric Encryption:** RSA, Elliptic Curve Cryptography (ECC, ECDSA, Ed25519), and Diffie-Hellman Key Exchange (ECDHE).
+* **Post-Quantum Cryptography (PQC):** Quantum threats to asymmetric crypto, NIST PQC Standards (**FIPS 203 ML-KEM/Kyber**, **FIPS 204 ML-DSA/Dilithium**, **FIPS 205 SLH-DSA/SPHINCS+**), and hybrid classical-PQC key exchange.
 * **Cryptographic Hashing:** SHA-256, SHA-3, legacy collision vulnerabilities (MD5, SHA-1), and Message Authentication Codes (HMAC).
 * **Password Storage:** Slow hashing algorithms (Argon2id, bcrypt, PBKDF2), Cryptographic Salting, and Peppering.
 * **Digital Signatures:** Signature generation, verification, and non-repudiation guarantees.
@@ -74,7 +77,7 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 ### 2.3 Identity & Access Management (IAM)
 * **Access Control Models:** Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC), Mandatory Access Control (MAC), and Discretionary Access Control (DAC).
 * **Modern Identity Protocols:** OAuth 2.0 (Authorization Code Grant with PKCE, Client Credentials), SAML 2.0, and OpenID Connect (OIDC).
-* **Multi-Factor Authentication (MFA):** FIDO2/WebAuthn hardware keys, Passkeys, TOTP/HOTP algorithms, and Single Sign-On (SSO) architecture.
+* **Multi-Factor Authentication (MFA):** FIDO2/WebAuthn hardware keys, Passkeys, TOTP/HOTP algorithms, Single Sign-On (SSO), and mitigating MFA fatigue (push bombing) / Session Token Theft (Infostealers).
 * **Zero Trust Architecture:** Core principles of NIST SP 800-207 (*"Never trust, always verify"*, micro-segmentation, continuous authentication).
 
 ---
@@ -110,10 +113,11 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 
 ## MODULE 4: Defensive Engineering & Incident Response
 
-**Focus:** Real-time threat detection, security telemetry analysis, digital forensics, and malware reverse engineering.
+**Focus:** Real-time threat detection, Cyber Threat Intelligence (CTI), security telemetry analysis, digital forensics, and malware reverse engineering.
 
-### 4.1 Security Operations & Threat Detection
+### 4.1 Security Operations & Threat Intelligence (CTI)
 * **SIEM & Log Pipelines:** Log aggregation, parsing, and correlation rule engineering (Splunk, ELK Stack, Wazuh).
+* **Cyber Threat Intelligence (CTI):** The Diamond Model of Intrusion Analysis, STIX/TAXII threat feeds, Traffic Light Protocol (TLP), and MITRE ATT&CK adversary profiling.
 * **Network Detection:** Intrusion Detection & Prevention Systems (Snort, Suricata, Zeek) and writing custom signature rules.
 * **Endpoint Telemetry:** Endpoint Detection & Response (EDR), Extended Detection & Response (XDR), and behavioral evasion detection.
 * **Detection Engineering:** Writing YARA rules for file identification and Sigma rules for SIEM-agnostic log detection.
@@ -140,7 +144,7 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 
 ## MODULE 5: Cloud, Infrastructure, & DevSecOps
 
-**Focus:** Hardening modern distributed infrastructure across public cloud environments, container orchestration, and automated CI/CD pipelines.
+**Focus:** Hardening modern distributed infrastructure across public cloud environments, container orchestration, eBPF runtime defense, and automated CI/CD pipelines.
 
 ### 5.1 Cloud Security Architecture
 * **Shared Responsibility Model:** Security boundaries across IaaS, PaaS, and SaaS.
@@ -148,9 +152,10 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 * **Azure Security:** Microsoft Entra ID, Managed Identities, Network Security Groups (NSG), Azure Key Vault, and Defender for Cloud.
 * **GCP Security:** Service Accounts, Workload Identity Federation, IAM Conditions, and VPC Service Controls.
 
-### 5.2 Container & Kubernetes (K8s) Security
+### 5.2 Container, Kubernetes (K8s), & eBPF Security
 * **Docker Security:** Linux kernel capabilities (`cap-drop`), rootless container execution, `cgroups` isolation, and container image vulnerability scanning (`Trivy`).
 * **Kubernetes Hardening:** K8s RBAC, Network Policies, Pod Security Standards (Privileged vs. Baseline vs. Restricted), Kubelet API security, and Secrets management.
+* **eBPF Runtime Defense:** Kernel-level observability, real-time threat prevention, and network security policies using **Cilium**, **Falco**, and **Tetragon**.
 
 ### 5.3 Infrastructure as Code (IaC) & DevSecOps
 * **Static Code & Template Scanning:** Terraform and CloudFormation security auditing (`Checkov`, `tfsec`).
@@ -163,7 +168,7 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 
 ## MODULE 6: AI Security & Hardware Integrity
 
-**Focus:** Securing modern Artificial Intelligence models and low-level hardware root-of-trust architectures.
+**Focus:** Securing modern Artificial Intelligence models, prompt boundaries, and low-level hardware root-of-trust architectures.
 
 ### 6.1 Artificial Intelligence & LLM Security (OWASP Top 10 for LLMs)
 * **Prompt Injection:** Direct prompt overrides and Indirect prompt injection via untrusted data sources.
@@ -179,9 +184,9 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 
 ---
 
-## MODULE 7: Governance, Risk, & Public Sector Compliance
+## MODULE 7: Governance, Risk, & Critical Infrastructure
 
-**Focus:** Enterprise risk management, federal compliance frameworks, and government cybersecurity mandates.
+**Focus:** Enterprise risk management, federal compliance frameworks, industrial control systems (ICS/SCADA), and government cybersecurity mandates.
 
 ### 7.1 Frameworks & Industry Standards
 * **NIST Cybersecurity Framework (CSF 2.0):** The 6 Core Functions — *Govern, Identify, Protect, Detect, Respond, Recover*.
@@ -196,6 +201,11 @@ summary: "Complete roadmap covering networking fundamentals, cryptography, offen
 * **FIPS 140-3:** Cryptographic module validation standards.
 * **Privacy & Industry Regulations:** HIPAA (healthcare data), PCI-DSS (payment cards), and GDPR (privacy rights).
 * **DoD 8140 / 8570 Manual:** Mandatory baseline certification requirements for federal cybersecurity roles.
+
+### 7.3 Operational Technology (OT) & ICS/SCADA Security
+* **The Purdue Model:** Industrial automation architecture across Levels 0 through 5 (Sensors to Enterprise IT).
+* **Industrial Protocols:** Security limitations of Modbus, DNP3, and EtherNet/IP.
+* **Critical Infrastructure Defense:** Air-gapped network design, unidirectional security gateways (data diodes), and defending against nation-state grid sabotage.
 
 ---
 
