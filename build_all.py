@@ -449,9 +449,6 @@ def compile_standard_section(folder_path, folder_name, config):
                     <h3 class="macro-title">{post['title']}</h3>
                     <p class="macro-desc">{post['summary']}</p>
                 </div>
-                <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: {action_color};">
-                    OPEN MASTER SYLLABUS &rarr;
-                </div>
             </a>"""
             posts_list_html.append(entry)
         joined_posts = "\n".join(posts_list_html)
