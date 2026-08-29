@@ -57,7 +57,7 @@ body {
     color: var(--terminal-green);
     margin-top: 0.25rem;
     margin-bottom: 1.15rem;
-    font-size: 0.825rem;
+    font-size: clamp(0.72rem, 2.8vw, 0.825rem);
     font-weight: 600;
     letter-spacing: -0.01em;
     display: inline-flex;
@@ -429,6 +429,12 @@ footer {
     main h2 {
         font-size: clamp(1.2rem, 4vw, 1.45rem) !important;
         margin-top: 2rem !important;
+    }
+
+    .terminal-prompt {
+        font-size: 0.72rem;
+        padding: 0.2rem 0.5rem;
+        margin-bottom: 0.85rem;
     }
 
     .container {

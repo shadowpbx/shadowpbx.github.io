@@ -371,7 +371,8 @@ def compile_standard_section(folder_path, folder_name, config):
                 elif folder_base == "engineering_tools":
                     terminal_prompt_str = f"user@hexdef: ~/engineering/tools $ cat {slug}.md"
                 elif folder_base == "academics_curriculum":
-                    terminal_prompt_str = f"user@hexdef: ~/academics/curriculum $ cat {slug}.md"
+                    short_name = "cs-syllabus.md" if "cs" in slug or "syllabus" in slug else f"{slug}.md"
+                    terminal_prompt_str = f"user@hexdef: ~/academics/curriculum $ cat {short_name}"
                 elif folder_base == "cybersecurity":
                     terminal_prompt_str = f"user@hexdef: ~/cybersecurity/posts $ cat {slug}.md"
                 else:
