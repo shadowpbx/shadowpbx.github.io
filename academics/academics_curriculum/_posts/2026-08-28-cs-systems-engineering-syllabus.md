@@ -11,7 +11,7 @@ summary: "Complete roadmap covering programming fundamentals, low-level systems,
         <span>⚡ Roadmap Specification</span>
     </div>
     <p style="margin: 0; font-size: 1.05rem; line-height: 1.65; color: var(--text-primary); font-weight: 500;">
-        A complete, chronological roadmap designed to take engineers from <span style="color: #059669; font-weight: 600;">programming fundamentals</span> and <span style="color: #2563eb; font-weight: 600;">low-level systems</span> to <span style="color: #8e44ad; font-weight: 600;">distributed cloud architecture</span> and <span style="color: #e11d48; font-weight: 600;">technical interviews</span>.
+        A complete, chronological roadmap designed to take engineers from <strong>programming fundamentals</strong> and <strong>low-level systems</strong> to <strong>distributed cloud architecture</strong> and <strong>technical interviews</strong>.
     </p>
 </div>
 
