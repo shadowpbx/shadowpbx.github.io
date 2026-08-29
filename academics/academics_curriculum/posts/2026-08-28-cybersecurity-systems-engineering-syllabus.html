@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity & Systems Defense Syllabus | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        .breadcrumb-nav {
+            margin-bottom: 2rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .breadcrumb-current {
+            color: var(--text-secondary);
+        }
+
+        main {
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        main h1, main h2, main h3, main h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        main h1 {
+            font-size: 1.85rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        main h2 {
+            font-size: 1.45rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.35rem;
+        }
+
+        main h3 {
+            font-size: 1.2rem;
+        }
+
+        main p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        main ul, main ol {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-left: 1.75rem;
+        }
+
+        main li {
+            margin-bottom: 0.5rem;
+            font-size: 1.02rem;
+        }
+
+        main blockquote {
+            border-left: 4px solid var(--accent);
+            background: rgba(142, 68, 173, 0.04);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        main table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        main th, main td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        main th {
+            background: var(--bg-header);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        main pre {
+            background: var(--bg-header) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 8px !important;
+            padding: 1.25rem !important;
+            margin: 1.75rem 0 !important;
+            overflow-x: auto !important;
+        }
+
+        main code {
+            font-family: var(--font-mono) !important;
+            font-size: 0.9em !important;
+            background: rgba(142, 68, 173, 0.08);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        main pre code {
+            background: transparent !important;
+            color: inherit !important;
+            padding: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/academics_audio/">Audio Tutorials</a>
+                        <a href="/academics/academics_curriculum/">Academic Curriculum</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef: ~/academics/curriculum $ cat cybersecurity-syllabus.md</div>
+            <h1>Cybersecurity & Systems Defense Syllabus</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <main><div style="background: linear-gradient(135deg, rgba(225, 29, 72, 0.05) 0%, rgba(37, 99, 235, 0.05) 50%, rgba(142, 68, 173, 0.05) 100%); border: 1px solid rgba(225, 29, 72, 0.2); border-left: 5px solid #e11d48; padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; box-shadow: 0 4px 14px rgba(225, 29, 72, 0.05);">
+    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #e11d48; letter-spacing: 0.06em; text-transform: uppercase;">
+        <span>⚡ Roadmap Specification</span>
+    </div>
+    <p style="margin: 0; font-size: 1.05rem; line-height: 1.65; color: var(--text-primary); font-weight: 500;">
+        A complete, chronological roadmap designed to take engineers from <strong>networking fundamentals</strong> and <strong>operating system internals</strong> to <strong>offensive exploitation</strong>, <strong>defensive engineering</strong>, <strong>cloud security</strong>, and <strong>technical interviews</strong>.
+    </p>
+</div>
+
+<hr />
+<h2>MODULE 1: IT &amp; Systems Bedrock (The Foundation)</h2>
+<p><strong>Focus:</strong> Mastering the foundational protocols, operating systems, and scripting languages that govern all modern networks and computers.</p>
+<h3>1.1 Core Networking Protocols</h3>
+<ul>
+<li><strong>OSI &amp; TCP/IP Models:</strong> Deep dive into all 7 layers and data encapsulation.</li>
+<li><strong>TCP vs. UDP:</strong> 3-way handshake (<code>SYN</code>, <code>SYN-ACK</code>, <code>ACK</code>), connection teardown (<code>FIN</code>/<code>RST</code>), and state transitions.</li>
+<li><strong>IP Addressing &amp; Routing:</strong> IPv4/IPv6 subnetting, CIDR notation, NAT/PAT, BGP, OSPF, and routing tables.</li>
+<li><strong>Domain Name System (DNS):</strong> Recursive vs. Iterative queries, record types (<code>A</code>, <code>AAAA</code>, <code>MX</code>, <code>TXT</code>, <code>SRV</code>, <code>CNAME</code>), and DNS over HTTPS (DoH) / DNS over TLS (DoT).</li>
+<li><strong>Web Protocols:</strong> HTTP/1.1 vs. HTTP/2 vs. HTTP/3 (QUIC), HTTP request/response headers, status codes, and methods.</li>
+<li><strong>Encryption in Transit:</strong> TLS 1.2/1.3 handshakes, cipher suites, Server Name Indication (SNI), and Perfect Forward Secrecy (PFS).</li>
+<li><strong>Layer 2 Infrastructure:</strong> ARP, MAC addressing, VLANs, 802.1Q tagging, and Spanning Tree Protocol (STP).</li>
+<li><strong>Secure Tunnels &amp; Edge Routing:</strong> IPSec (AH, ESP, IKEv2, Transport vs. Tunnel modes), Layer 4 vs. Layer 7 Load Balancers, and Reverse Proxies.</li>
+</ul>
+<h3>1.2 Linux Operating System Internals</h3>
+<ul>
+<li><strong>Architecture:</strong> Kernel space vs. User space separation and system calls (<code>syscalls</code>).</li>
+<li><strong>Permissions &amp; Access:</strong> Discretionary file permissions (<code>chmod</code>, <code>chown</code>), SUID, SGID, and Sticky Bits.</li>
+<li><strong>Process Management:</strong> Process trees, <code>fork</code>, <code>exec</code>, IPC, signals, zombie, and orphan processes.</li>
+<li><strong>Memory &amp; Storage:</strong> Virtual memory, paging, swapping, and file system hierarchies (VFS, <code>/proc</code>, <code>/sys</code>, <code>/dev</code>).</li>
+<li><strong>Initialization &amp; Containers:</strong> Boot process (UEFI, GRUB, <code>initrd</code>, <code>systemd</code>), Linux namespaces, and Control Groups (<code>cgroups</code>).</li>
+<li><strong>Network Stack &amp; Security:</strong> Packet filtering (<code>iptables</code>, <code>nftables</code>, <code>ufw</code>), Pluggable Authentication Modules (<code>PAM</code>), and Bash text processing (<code>awk</code>, <code>sed</code>, <code>grep</code>, regex).</li>
+</ul>
+<h3>1.3 Windows &amp; Active Directory Architecture</h3>
+<ul>
+<li><strong>System Internals:</strong> Windows Registry structure (<code>HKLM</code>, <code>HKCU</code>, <code>SAM</code>, <code>SYSTEM</code>), Windows Services, and Access Control Lists (ACLs, ACEs, SIDs).</li>
+<li><strong>Active Directory (AD):</strong> Domains, Trees, Forests, Global Catalogs, Domain Controllers (DC), and Trust Relationships.</li>
+<li><strong>Group Policy &amp; Management:</strong> Group Policy Objects (GPO), Windows Management Instrumentation (WMI), and PowerShell Remoting (WinRM).</li>
+<li><strong>Enterprise Authentication:</strong> NTLMv2 challenge-response, Kerberos authentication lifecycle (TGT, TGS, PAC, KDC).</li>
+<li><strong>Telemetry &amp; Logging:</strong> Windows Security Event Logs, Sysmon configuration, and Event Tracing for Windows (ETW).</li>
+<li><strong>PowerShell Security:</strong> Scripting automation, Execution Policies, Constrained Language Mode (CLM), and Script Block Logging.</li>
+</ul>
+<h3>1.4 Programming &amp; Scripting for Security</h3>
+<ul>
+<li><strong>Python for Security:</strong> Socket programming, network scanning (<code>scapy</code>), HTTP interaction (<code>requests</code>, <code>beautifulsoup</code>), and security automation.</li>
+<li><strong>C/C++ Systems Programming:</strong> Pointers, manual memory allocation, compilation pipelines, linkers, and calling conventions.</li>
+<li><strong>Go for Tooling:</strong> Goroutines, channels, cross-compilation for cross-platform binary development.</li>
+<li><strong>SQL Querying:</strong> Relational queries, schema design, subqueries, and database indexing.</li>
+<li><strong>Core Data Structures &amp; Algorithms:</strong> Arrays, Hash Maps, Linked Lists, Trees, Stacks, Queues, Graphs, BFS/DFS, Binary Search, and Big-O Space/Time complexity.</li>
+</ul>
+<hr />
+<h2>MODULE 2: Cryptography &amp; Identity Architecture</h2>
+<p><strong>Focus:</strong> The mathematical foundation of confidentiality, integrity, non-repudiation, and modern enterprise identity access control.</p>
+<h3>2.1 Cryptographic Primitives</h3>
+<ul>
+<li><strong>Symmetric Encryption:</strong> Block ciphers (AES-128/256 with ECB, CBC, and GCM authenticated modes), Stream ciphers (ChaCha20-Poly1305).</li>
+<li><strong>Asymmetric Encryption:</strong> RSA, Elliptic Curve Cryptography (ECC, ECDSA, Ed25519), and Diffie-Hellman Key Exchange (ECDHE).</li>
+<li><strong>Cryptographic Hashing:</strong> SHA-256, SHA-3, legacy collision vulnerabilities (MD5, SHA-1), and Message Authentication Codes (HMAC).</li>
+<li><strong>Password Storage:</strong> Slow hashing algorithms (Argon2id, bcrypt, PBKDF2), Cryptographic Salting, and Peppering.</li>
+<li><strong>Digital Signatures:</strong> Signature generation, verification, and non-repudiation guarantees.</li>
+</ul>
+<h3>2.2 Public Key Infrastructure (PKI)</h3>
+<ul>
+<li><strong>Trust Hierarchies:</strong> Root Certificate Authorities (CA), Intermediate CAs, Certificate Signing Requests (CSR), and X.509 format.</li>
+<li><strong>Certificate Lifecycle:</strong> Revocation mechanisms (CRLs, OCSP, OCSP Stapling) and Certificate Transparency (CT) logs.</li>
+</ul>
+<h3>2.3 Identity &amp; Access Management (IAM)</h3>
+<ul>
+<li><strong>Access Control Models:</strong> Role-Based Access Control (RBAC), Attribute-Based Access Control (ABAC), Mandatory Access Control (MAC), and Discretionary Access Control (DAC).</li>
+<li><strong>Modern Identity Protocols:</strong> OAuth 2.0 (Authorization Code Grant with PKCE, Client Credentials), SAML 2.0, and OpenID Connect (OIDC).</li>
+<li><strong>Multi-Factor Authentication (MFA):</strong> FIDO2/WebAuthn hardware keys, Passkeys, TOTP/HOTP algorithms, and Single Sign-On (SSO) architecture.</li>
+<li><strong>Zero Trust Architecture:</strong> Core principles of NIST SP 800-207 (<em>"Never trust, always verify"</em>, micro-segmentation, continuous authentication).</li>
+</ul>
+<hr />
+<h2>MODULE 3: Offensive Security &amp; Adversary Emulation</h2>
+<p><strong>Focus:</strong> Understanding attacker methodologies, vulnerability discovery, active exploitation, and post-exploitation persistence.</p>
+<h3>3.1 Web Application Security (OWASP Top 10)</h3>
+<ul>
+<li><strong>Injection Attacks:</strong> SQL Injection (In-band, Blind, Error-based, Time-based), Command Injection, and XML External Entity (XXE).</li>
+<li><strong>Cross-Site Exploitation:</strong> Cross-Site Scripting (Stored, Reflected, DOM XSS) and Cross-Site Request Forgery (CSRF with SameSite cookie bypasses).</li>
+<li><strong>Access Control Flaws:</strong> Insecure Direct Object References (IDOR), Broken Object Level Authorization (BOLA), and Server-Side Request Forgery (SSRF).</li>
+<li><strong>File &amp; API Flaws:</strong> Path Traversal, Local/Remote File Inclusion (LFI/RFI), CORS misconfigurations, and REST/GraphQL API vulnerabilities.</li>
+<li><strong>Token Vulnerabilities:</strong> JSON Web Token (JWT) exploitation (algorithm confusion, weak HMAC secrets, <code>none</code> algorithm).</li>
+</ul>
+<h3>3.2 Network &amp; Infrastructure Exploitation</h3>
+<ul>
+<li><strong>Man-in-the-Middle (MitM):</strong> ARP spoofing, DNS cache poisoning, DHCP starvation, and SSL/TLS stripping.</li>
+<li><strong>Denial of Service (DoS/DDoS):</strong> SYN floods, UDP amplification, NTP/DNS reflection, and application-layer Slowloris attacks.</li>
+<li><strong>Wireless Attacks:</strong> WPA2/WPA3 4-way handshake capture, Evil Twin rogue APs, and deauthentication attacks.</li>
+</ul>
+<h3>3.3 Active Directory Domain Dominance</h3>
+<ul>
+<li><strong>Credential Access:</strong> LLMNR/NBT-NS Poisoning (<code>Responder</code>), AS-REP Roasting, and Kerberoasting.</li>
+<li><strong>Lateral Movement:</strong> Pass-the-Hash (PtH), Pass-the-Ticket (PtT), Overpass-the-Hash, and WinRM exploitation.</li>
+<li><strong>Domain Persistence:</strong> Golden Tickets (krbtgt compromise), Silver Tickets, Skeleton Key, DCSync attacks, and DCShadow.</li>
+<li><strong>Graph-Based Attack Paths:</strong> BloodHound/SharpHound mapping, unconstrained delegation, and ACL abuse.</li>
+</ul>
+<h3>3.4 Low-Level Systems &amp; Binary Exploitation</h3>
+<ul>
+<li><strong>Stack Exploitation:</strong> Classic stack-based Buffer Overflows, register control (<code>EIP</code>/<code>RIP</code>), shellcode injection, and NOP sleds.</li>
+<li><strong>Advanced Memory Corruption:</strong> Heap exploitation (Use-After-Free, Double Free), Integer Overflows/Underflows, and Format String bugs.</li>
+<li><strong>Mitigations &amp; Bypasses:</strong> ASLR (Address Space Layout Randomization), DEP/NX (Data Execution Prevention), Stack Canaries, and Return-Oriented Programming (ROP chains).</li>
+</ul>
+<hr />
+<h2>MODULE 4: Defensive Engineering &amp; Incident Response</h2>
+<p><strong>Focus:</strong> Real-time threat detection, security telemetry analysis, digital forensics, and malware reverse engineering.</p>
+<h3>4.1 Security Operations &amp; Threat Detection</h3>
+<ul>
+<li><strong>SIEM &amp; Log Pipelines:</strong> Log aggregation, parsing, and correlation rule engineering (Splunk, ELK Stack, Wazuh).</li>
+<li><strong>Network Detection:</strong> Intrusion Detection &amp; Prevention Systems (Snort, Suricata, Zeek) and writing custom signature rules.</li>
+<li><strong>Endpoint Telemetry:</strong> Endpoint Detection &amp; Response (EDR), Extended Detection &amp; Response (XDR), and behavioral evasion detection.</li>
+<li><strong>Detection Engineering:</strong> Writing YARA rules for file identification and Sigma rules for SIEM-agnostic log detection.</li>
+</ul>
+<h3>4.2 Incident Response (NIST SP 800-61 Lifecycle)</h3>
+<ol>
+<li><strong>Preparation:</strong> Playbooks, communication plans, and logging baselines.</li>
+<li><strong>Detection &amp; Analysis:</strong> Alert triage, scope determination, and IOC extraction.</li>
+<li><strong>Containment:</strong> Network isolation, credential revocation, and process termination.</li>
+<li><strong>Eradication:</strong> Artifact removal, root-cause patching, and malware elimination.</li>
+<li><strong>Recovery:</strong> Safe restoration of production services from clean backups.</li>
+<li><strong>Lessons Learned:</strong> Root-cause analysis (RCA) and post-incident reporting.</li>
+</ol>
+<h3>4.3 Digital Forensics &amp; Investigation</h3>
+<ul>
+<li><strong>Disk Forensics:</strong> Forensic disk imaging (<code>dd</code>, FTK Imager), file carving, and NTFS filesystem artifacts (MFT, Prefetch, Amcache, Shimcache, Shellbags, USN Journal).</li>
+<li><strong>Memory Forensics:</strong> Volatility framework, process injection detection (process hollowing), driver analysis, and rootkit identification.</li>
+<li><strong>Network Forensics:</strong> Deep PCAP packet inspection (Wireshark, <code>tcpdump</code>), stream reassembly, and malware payload extraction.</li>
+</ul>
+<h3>4.4 Malware Analysis &amp; Reverse Engineering</h3>
+<ul>
+<li><strong>Static Analysis:</strong> PE file header analysis, string extraction, import/export table hashing (ImpHash), and Ghidra / IDA Pro disassembly.</li>
+<li><strong>Dynamic Analysis:</strong> Automated sandboxing (Cuckoo), behavioral analysis, API hooking, and system activity monitoring (<code>Procmon</code>, <code>Regshot</code>).</li>
+<li><strong>Anti-Analysis Techniques:</strong> Code packing, XOR/AES payload obfuscation, anti-debugging, and VM-detection evasion.</li>
+</ul>
+<hr />
+<h2>MODULE 5: Cloud, Infrastructure, &amp; DevSecOps</h2>
+<p><strong>Focus:</strong> Hardening modern distributed infrastructure across public cloud environments, container orchestration, and automated CI/CD pipelines.</p>
+<h3>5.1 Cloud Security Architecture</h3>
+<ul>
+<li><strong>Shared Responsibility Model:</strong> Security boundaries across IaaS, PaaS, and SaaS.</li>
+<li><strong>AWS Security:</strong> IAM policies, roles, permission boundaries, AWS CloudTrail, VPC Flow Logs, GuardDuty, S3 bucket security, and AWS KMS.</li>
+<li><strong>Azure Security:</strong> Microsoft Entra ID, Managed Identities, Network Security Groups (NSG), Azure Key Vault, and Defender for Cloud.</li>
+<li><strong>GCP Security:</strong> Service Accounts, Workload Identity Federation, IAM Conditions, and VPC Service Controls.</li>
+</ul>
+<h3>5.2 Container &amp; Kubernetes (K8s) Security</h3>
+<ul>
+<li><strong>Docker Security:</strong> Linux kernel capabilities (<code>cap-drop</code>), rootless container execution, <code>cgroups</code> isolation, and container image vulnerability scanning (<code>Trivy</code>).</li>
+<li><strong>Kubernetes Hardening:</strong> K8s RBAC, Network Policies, Pod Security Standards (Privileged vs. Baseline vs. Restricted), Kubelet API security, and Secrets management.</li>
+</ul>
+<h3>5.3 Infrastructure as Code (IaC) &amp; DevSecOps</h3>
+<ul>
+<li><strong>Static Code &amp; Template Scanning:</strong> Terraform and CloudFormation security auditing (<code>Checkov</code>, <code>tfsec</code>).</li>
+<li><strong>CI/CD Pipeline Hardening:</strong> Securing GitHub Actions / GitLab CI workflows, runner security, and preventing pipeline poison attacks.</li>
+<li><strong>Software Supply Chain Security:</strong> Software Composition Analysis (SCA), generating Software Bills of Materials (SBOM), and signed releases.</li>
+<li><strong>Automated Security Testing:</strong> Static Application Security Testing (SAST via <code>Semgrep</code>) vs. Dynamic Application Security Testing (DAST via <code>OWASP ZAP</code>).</li>
+<li><strong>Secrets Management:</strong> Centralized secrets storage, dynamic rotation, and audit trails using HashiCorp Vault.</li>
+</ul>
+<hr />
+<h2>MODULE 6: AI Security &amp; Hardware Integrity</h2>
+<p><strong>Focus:</strong> Securing modern Artificial Intelligence models and low-level hardware root-of-trust architectures.</p>
+<h3>6.1 Artificial Intelligence &amp; LLM Security (OWASP Top 10 for LLMs)</h3>
+<ul>
+<li><strong>Prompt Injection:</strong> Direct prompt overrides and Indirect prompt injection via untrusted data sources.</li>
+<li><strong>Insecure Output Handling:</strong> Preventing downstream XSS, SQLi, and RCE through unvalidated model outputs.</li>
+<li><strong>Training Data Poisoning:</strong> Detecting and preventing malicious manipulation of training datasets and fine-tuning pipelines.</li>
+<li><strong>Model Extraction &amp; Denial of Service:</strong> Defending against model inversion, weight stealing, and compute-heavy resource exhaustion.</li>
+<li><strong>Securing AI Pipelines:</strong> Sandboxing code generation tools, securing vector databases (<code>pgvector</code>, Pinecone), and encrypting embedding storage.</li>
+</ul>
+<h3>6.2 Hardware Root of Trust &amp; Firmware Security</h3>
+<ul>
+<li><strong>Secure Boot Lifecycle:</strong> Hardware Root of Trust (RoT), UEFI/BIOS firmware integrity, and cryptographic code signing verification.</li>
+<li><strong>Hardware Cryptographic Processors:</strong> Trusted Platform Module (TPM 2.0), Apple Secure Enclave, and ARM TrustZone architectures.</li>
+<li><strong>Physical &amp; Side-Channel Attacks:</strong> Cold boot attacks, memory dumping, timing analysis, and power analysis overview.</li>
+</ul>
+<hr />
+<h2>MODULE 7: Governance, Risk, &amp; Public Sector Compliance</h2>
+<p><strong>Focus:</strong> Enterprise risk management, federal compliance frameworks, and government cybersecurity mandates.</p>
+<h3>7.1 Frameworks &amp; Industry Standards</h3>
+<ul>
+<li><strong>NIST Cybersecurity Framework (CSF 2.0):</strong> The 6 Core Functions — <em>Govern, Identify, Protect, Detect, Respond, Recover</em>.</li>
+<li><strong>NIST SP 800-53 Rev 5:</strong> Catalog of security and privacy controls for federal information systems.</li>
+<li><strong>NIST SP 800-37 (Risk Management Framework - RMF):</strong> The 6 RMF Steps — <em>Categorize, Select, Implement, Assess, Authorize, Monitor</em>.</li>
+<li><strong>Threat Modeling Frameworks:</strong> MITRE ATT&amp;CK enterprise matrix, Cyber Kill Chain, and STRIDE threat modeling.</li>
+<li><strong>CIS Controls:</strong> The 18 Critical Security Controls for prioritized cyber defense.</li>
+</ul>
+<h3>7.2 Federal &amp; State Regulations</h3>
+<ul>
+<li><strong>FISMA:</strong> Federal Information Security Modernization Act compliance and system security plans (SSP).</li>
+<li><strong>FedRAMP:</strong> Cloud security authorization for federal agency deployments (Low, Moderate, High impact levels).</li>
+<li><strong>FIPS 140-3:</strong> Cryptographic module validation standards.</li>
+<li><strong>Privacy &amp; Industry Regulations:</strong> HIPAA (healthcare data), PCI-DSS (payment cards), and GDPR (privacy rights).</li>
+<li><strong>DoD 8140 / 8570 Manual:</strong> Mandatory baseline certification requirements for federal cybersecurity roles.</li>
+</ul>
+<hr />
+<h2>MODULE 8: The Applied Home Lab &amp; Proof of Work</h2>
+<p><strong>Focus:</strong> Three tangible engineering labs that demonstrate undeniable hands-on proficiency to hiring managers.</p>
+<h3>8.1 Lab 1: Enterprise Active Directory &amp; Threat Emulation Lab</h3>
+<ul>
+<li>Deploy a multi-node Active Directory domain (Domain Controller + Windows Workstations + Linux Server) on Proxmox or VirtualBox.</li>
+<li>Forward all Windows Event Logs and Sysmon telemetry into a centralized <strong>Splunk</strong> or <strong>Wazuh SIEM</strong>.</li>
+<li>Execute Red Team attacks (Kerberoasting, Pass-the-Hash) from a Kali Linux box and write custom Blue Team detection alerts.</li>
+</ul>
+<h3>8.2 Lab 2: Cloud-Native DevSecOps Pipeline</h3>
+<ul>
+<li>Build a fully automated GitHub Actions CI/CD pipeline deploying a containerized microservice to AWS/GCP.</li>
+<li>Integrate automated security gates: <code>Semgrep</code> (SAST), <code>Trivy</code> (Container Scanning), <code>Checkov</code> (Terraform IaC), and <code>HashiCorp Vault</code> for dynamic secrets.</li>
+</ul>
+<h3>8.3 Lab 3: Digital Forensics &amp; Incident Response Case Study</h3>
+<ul>
+<li>Capture and analyze a real-world memory dump and network capture (PCAP) from an infected host.</li>
+<li>Extract malicious payloads using <strong>Wireshark</strong>, identify injected processes using <strong>Volatility</strong>, and write a professional incident report with IOCs and YARA rules.</li>
+</ul>
+<hr />
+<h2>MODULE 9: THE CYBERSECURITY INTERVIEW PLAYBOOK</h2>
+<p><strong>Focus:</strong> Technical problem-solving formulas, scenario walkthroughs, and bureaucratic hiring protocols.</p>
+<h3>9.1 Technical Coding &amp; Scripting Rounds</h3>
+<ul>
+<li><strong>Language:</strong> Use Python for rapid scripting and algorithmic interview questions.</li>
+<li><strong>Key Focus Areas:</strong> Log parsing, socket communication, payload decoding (Base64, Hex), string manipulation, and graph traversal.</li>
+</ul>
+<h3>9.2 Security System Design (The PEDALS Method)</h3>
+<ul>
+<li><strong>P - Process:</strong> Clarify business requirements, threat model, and regulatory constraints.</li>
+<li><strong>E - Estimate:</strong> Estimate data throughput, log volume, and request rate.</li>
+<li><strong>D - Design API &amp; Auth:</strong> Specify authentication flows (OAuth/OIDC/mTLS) and token validation.</li>
+<li><strong>A - Architecture:</strong> Diagram components, reverse proxies, WAFs, and network zoning.</li>
+<li><strong>L - Look at Threat Model:</strong> Apply STRIDE to identify vulnerabilities in every component.</li>
+<li><strong>S - Scale &amp; Monitor:</strong> Configure SIEM logging, rate limiting, KMS key rotation, and disaster recovery.</li>
+<li><strong>Classic Blueprints:</strong> Designing a global SSO architecture, Key Management Service (KMS), zero-trust remote access proxy, and DDoS mitigation platform.</li>
+</ul>
+<h3>9.3 Scenario-Based Walkthroughs</h3>
+<ul>
+<li><strong>Incident Triage:</strong> Explain step-by-step containment when a SIEM alerts for a suspected ransomware execution or domain compromise.</li>
+<li><strong>Architecture Review:</strong> Identify security flaws in a presented infrastructure diagram (open S3 buckets, unencrypted databases, missing egress controls).</li>
+<li><strong>Compliance Mapping:</strong> Explain how to map technical audit findings to specific NIST SP 800-53 controls.</li>
+</ul>
+<h3>9.4 Public Sector &amp; Federal Navigation</h3>
+<ul>
+<li><strong>Certifications:</strong> Obtain <strong>CompTIA Security+</strong> (Minimum baseline for DoD 8570), followed by <strong>CySA+</strong>, <strong>BICP</strong>, or <strong>CISSP</strong>.</li>
+<li><strong>Federal Resume:</strong> 3-5 pages via USAJOBS Resume Builder. Map every bullet point to required KSAs (Knowledge, Skills, and Abilities).</li>
+<li><strong>NYS ITS:</strong> Submit applications via the NY HELPS direct-hiring portal and take Civil Service continuous recruitment exams.</li>
+<li><strong>Security Clearances:</strong> Maintain clean finances, zero drug use, and a clean criminal background for the SF-86 (Secret/Top Secret) clearance process.</li>
+</ul>
+<hr />
+<h2>THE 3 DAILY EXECUTION RULES</h2>
+<p><em>(To enforce this curriculum without burning out)</em></p>
+<ol>
+<li><strong>Build in the Lab Daily:</strong> Theory without hands-on packet captures, SIEM logs, and terminal commands is useless. Spend 50% of your time in your virtual lab.</li>
+<li><strong>Analyze Real CVEs:</strong> Read official CVE writeups and vendor post-mortems daily. Understand exactly how real vulnerabilities were discovered and patched.</li>
+<li><strong>Practice Out-Loud Threat Modeling:</strong> When looking at any website or cloud service, practice articulating its threat model out loud. Communication and structured reasoning are the primary signals evaluated by senior interviewers.</li>
+</ol></main>
+        <footer style="margin-top: 5rem;">
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.querySelector('main') || document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

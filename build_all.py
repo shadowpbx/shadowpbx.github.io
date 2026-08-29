@@ -371,7 +371,12 @@ def compile_standard_section(folder_path, folder_name, config):
                 elif folder_base == "engineering_tools":
                     terminal_prompt_str = f"user@hexdef: ~/engineering/tools $ cat {slug}.md"
                 elif folder_base == "academics_curriculum":
-                    short_name = "cs-syllabus.md" if "cs" in slug or "syllabus" in slug else f"{slug}.md"
+                    if "cybersecurity" in slug:
+                        short_name = "cybersecurity-syllabus.md"
+                    elif "cs" in slug:
+                        short_name = "cs-syllabus.md"
+                    else:
+                        short_name = f"{slug}.md"
                     terminal_prompt_str = f"user@hexdef: ~/academics/curriculum $ cat {short_name}"
                 elif folder_base == "cybersecurity":
                     terminal_prompt_str = f"user@hexdef: ~/cybersecurity/posts $ cat {slug}.md"
@@ -435,13 +440,12 @@ def compile_standard_section(folder_path, folder_name, config):
         for post in feed_posts:
             tag_name = post.get('tag', 'CURRICULUM')
             card_class = "macro-card macro-accent"
-            action_color = "#e11d48"
-            if "FOUNDATION" in tag_name.upper():
-                card_class = "macro-card macro-foundation"
-                action_color = "#059669"
-            elif "ENGINEERING" in tag_name.upper() or "SYSTEMS" in tag_name.upper():
+            if "CYBERSECURITY" in post['title'].upper() or "SECURITY" in post['title'].upper():
                 card_class = "macro-card macro-blue"
-                action_color = "#2563eb"
+            elif "FOUNDATION" in tag_name.upper():
+                card_class = "macro-card macro-foundation"
+            elif "ENGINEERING" in tag_name.upper():
+                card_class = "macro-card macro-accent"
             
             entry = f"""            <a href="{post['url']}" class="{card_class}">
                 <div>
