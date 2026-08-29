@@ -432,13 +432,26 @@ def compile_standard_section(folder_path, folder_name, config):
         feed_posts.sort(key=lambda x: x['date'], reverse=True)
         posts_list_html = []
         for post in feed_posts:
-            entry = f'''            <a href="{post['url']}" class="curriculum-card">
+            tag_name = post.get('tag', 'CURRICULUM')
+            card_class = "macro-card macro-accent"
+            action_color = "#e11d48"
+            if "FOUNDATION" in tag_name.upper():
+                card_class = "macro-card macro-foundation"
+                action_color = "#059669"
+            elif "ENGINEERING" in tag_name.upper() or "SYSTEMS" in tag_name.upper():
+                card_class = "macro-card macro-blue"
+                action_color = "#2563eb"
+            
+            entry = f"""            <a href="{post['url']}" class="{card_class}">
                 <div>
-                    <div class="curriculum-card-num">{post['tag']}</div>
-                    <div class="curriculum-card-title">{post['title']}</div>
-                    <p class="curriculum-card-desc">{post['summary']}</p>
+                    <div class="macro-badge">{tag_name}</div>
+                    <h3 class="macro-title">{post['title']}</h3>
+                    <p class="macro-desc">{post['summary']}</p>
                 </div>
-            </a>'''
+                <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: {action_color};">
+                    OPEN MASTER SYLLABUS &rarr;
+                </div>
+            </a>"""
             posts_list_html.append(entry)
         joined_posts = "\n".join(posts_list_html)
     else:
