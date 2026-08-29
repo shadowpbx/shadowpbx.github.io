@@ -3,67 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} | Tanvir Hussain</title>
+    <title>{{ title }} | Tanvir Hussain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <style>
-        .post-container {
-            max-width: 800px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
+        .breadcrumb-nav {
+            margin-bottom: 2rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .breadcrumb-current {
+            color: var(--text-secondary);
+        }
+
+        main {
+            font-family: var(--font-main);
             color: var(--text-primary);
             line-height: 1.8;
-            font-family: var(--font-main);
         }
 
-        .post-container h1, .post-container h2, .post-container h3, .post-container h4 {
+        main h1, main h2, main h3, main h4 {
             color: var(--text-primary);
             font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
-        .post-container p {
+        main h1 {
+            font-size: 1.85rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        main h2 {
+            font-size: 1.45rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.35rem;
+        }
+
+        main h3 {
+            font-size: 1.2rem;
+        }
+
+        main p {
             color: var(--text-secondary);
             font-size: 1.05rem;
             margin-bottom: 1.5rem;
         }
 
-        .post-container a {
-            color: var(--accent);
-            text-decoration: none;
+        main ul, main ol {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-left: 1.75rem;
         }
 
-        .post-container a:hover {
-            text-decoration: underline;
+        main li {
+            margin-bottom: 0.5rem;
+            font-size: 1.02rem;
         }
 
-        .post-container pre {
-            background: var(--bg-header);
-            border: 1px solid var(--border);
-            padding: 1.25rem;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
+        main blockquote {
+            border-left: 4px solid var(--accent);
+            background: rgba(142, 68, 173, 0.04);
+            padding: 1rem 1.5rem;
             margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
         }
 
-        .post-container code {
+        main table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        main th, main td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        main th {
+            background: var(--bg-header);
             font-family: var(--font-mono);
-            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        main pre {
+            background: var(--bg-header) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 8px !important;
+            padding: 1.25rem !important;
+            margin: 1.75rem 0 !important;
+            overflow-x: auto !important;
+        }
+
+        main code {
+            font-family: var(--font-mono) !important;
+            font-size: 0.9em !important;
             background: rgba(142, 68, 173, 0.08);
             color: var(--accent);
             padding: 2px 6px;
             border-radius: 4px;
         }
 
-        .post-container pre code {
-            background: transparent;
-            color: inherit;
-            padding: 0;
+        main pre code {
+            background: transparent !important;
+            color: inherit !important;
+            padding: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
@@ -103,20 +195,27 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~/academics/curriculum$ cat {filename}</div>
-            <h1>{title}</h1>
+            <div class="terminal-prompt">{{ terminal_prompt }}</div>
+            <h1>{{ title }}</h1>
         </div>
     </header>
 
-    <div class="post-container">
-        <a href="../" style="display: inline-block; margin-bottom: 2rem; color: var(--accent); font-family: var(--font-mono); font-size: 0.9rem; text-decoration: none; font-weight: 700;">&larr; Back to Academic Curriculum</a>
-        {content}
-        
+    <div class="container">
+        <div class="breadcrumb-nav">
+            <a href="/academics/academics_curriculum/">&larr; Back to Academic Curriculum</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{ title }}</span>
+        </div>
+        <main>{{ content }}</main>
         <footer style="margin-top: 5rem;">
             &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
         </footer>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.querySelector('main') || document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navContainer = document.querySelector('.nav-container');
