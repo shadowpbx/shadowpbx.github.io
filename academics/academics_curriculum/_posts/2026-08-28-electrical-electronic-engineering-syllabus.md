@@ -19,7 +19,7 @@ summary: "Complete roadmap covering circuit theory, semiconductor physics, digit
 
 ## MODULE 1: Circuit Analysis & Electrical Bedrock
 
-**Focus:** Establishing mathematical and physical mastery over electrical charge, voltage, current, power, and passive component behavior.
+**Focus:** Establishing mathematical and physical mastery over electrical charge, voltage, current, power, passive component behavior, and SPICE circuit simulation.
 
 ### 1.1 Direct Current (DC) Fundamentals
 * **Fundamental Laws:** Charge ($Q$), Current ($I$), Voltage ($V$), and Power ($P = IV = I^2R = V^2/R$).
@@ -38,6 +38,11 @@ summary: "Complete roadmap covering circuit theory, semiconductor physics, digit
 * **Phasors & Complex Impedance:** Converting to the frequency domain ($j\omega$), capacitive impedance ($Z_C = \frac{1}{j\omega C}$), inductive impedance ($Z_L = j\omega L$).
 * **AC Power Calculations:** Real power ($P$, Watts), Reactive power ($Q$, VAR), Apparent power ($S$, VA), and Power Factor ($\cos\theta$).
 * **Resonance & Quality Factor:** Series and parallel RLC resonant circuits, resonant frequency ($\omega_0 = \frac{1}{\sqrt{LC}}$), bandwidth, and $Q$-factor.
+
+### 1.4 SPICE Circuit Simulation & Verification
+* **Simulation Tools:** Industry modeling workflows using **LTspice**, **ngspice**, or **PSpice**.
+* **Analysis Directives:** DC operating point (`.op`), DC voltage/current sweep (`.dc`), Transient time-domain response (`.tran`), and AC frequency sweeps (`.ac`).
+* **Statistical Modeling:** Monte Carlo tolerance analysis (component parameter variations) and temperature sensitivity sweeping.
 
 ---
 
@@ -164,20 +169,26 @@ summary: "Complete roadmap covering circuit theory, semiconductor physics, digit
 
 ---
 
-## MODULE 8: Power Electronics, RF, & Electromagnetics
+## MODULE 8: Power Electronics, Battery Systems, & RF Engineering
 
-**Focus:** Efficient high-power energy conversion, motor driving, and high-frequency wireless electromagnetic wave propagation.
+**Focus:** High-power energy conversion, Battery Management Systems (BMS), motor control, and high-frequency wireless electromagnetic wave propagation.
 
-### 8.1 Power Electronics & Voltage Regulation
-* **Linear Regulators:** Low-Dropout (LDO) regulators, power dissipation ($P_{diss} = (V_{in} - V_{out})I_{load}$), thermal resistance ($\theta_{JA}$), heat-sinking calculations.
-* **Switch-Mode Power Supplies (SMPS):** Buck converters (step-down), Boost converters (step-up), Buck-Boost topologies.
-* **Inductor & Capacitor Selection:** Ripple current, Equivalent Series Resistance (ESR), switching frequency tradeoffs (MOSFET gate charge vs. magnetic core loss), and closed-loop feedback stability.
-* **Motor Control:** Driving DC motors, Stepper motors, and Brushless DC (BLDC) motors using H-Bridges, MOSFET gate drivers, and Field-Oriented Control (FOC).
+### 8.1 Power Electronics, Battery Management, & Thermal Systems
+* **Linear Regulators:** Low-Dropout (LDO) regulators, power dissipation ($P_{diss} = (V_{in} - V_{out})I_{load}$), thermal resistance ($\theta_{JA}, \theta_{JC}$), heat-sink sizing.
+* **Switch-Mode Power Supplies (SMPS):** Buck converters (step-down), Boost converters (step-up), Buck-Boost topologies, and synchronous rectification (replacing freewheeling diodes with low-$R_{DS(on)}$ MOSFETs for $>95\%$ efficiency).
+* **Battery Management Systems (BMS):** Lithium-Ion / LFP chemistry, cell monitoring, active vs. passive cell balancing, over/under-voltage cutoffs, Coulomb counting, and State-of-Charge (SoC) / State-of-Health (SoH) algorithms.
+* **Thermal Design & Heat Dissipation:** Thermal relief vias, ground plane copper heat spreading, junction temperature limits ($T_J$), and thermal throttling circuits.
+* **Motor Control:** Driving DC motors, Stepper motors, and Brushless DC (BLDC) motors using 3-phase inverter bridges, MOSFET gate drivers, and Field-Oriented Control (FOC).
 
 ### 8.2 Electromagnetics & RF Engineering
 * **Transmission Lines:** Characteristic impedance ($Z_0 = \sqrt{L/C}$), wave propagation velocity, reflection coefficient ($\Gamma$), Voltage Standing Wave Ratio (VSWR).
 * **Smith Charts & Impedance Matching:** $L$-networks, quarter-wave transformers, and tuning stubs for maximum power transfer.
 * **Antenna Principles:** Dipoles, patch antennas, radiation patterns, gain ($dBi$), directivity, polarization, and Link Budget calculations.
+
+### 8.3 The Three Flagship Hardware Projects (Proof of Work)
+1. **Project 1 (Embedded Systems & 4-Layer PCB):** A custom **ARM Cortex-M (STM32) IoT Telemetry Board** designed from scratch in KiCad, featuring USB-C Power Delivery, I2C/SPI sensor arrays, low-power sleep modes, and a 4-layer controlled-impedance PCB layout.
+2. **Project 2 (FPGA & Digital Signal Processing):** A **Real-Time Verilog Audio Synthesizer or Video Pipeline** synthesized on a Xilinx Artix-7 FPGA, featuring I2S audio DAC communication, clock domain crossing (CDC), and verified with self-checking testbenches.
+3. **Project 3 (Power Electronics & Closed-Loop Control):** A high-efficiency **Synchronous Buck Converter (12V to 3.3V/5A)** with closed-loop voltage feedback, current-mode control, thermal dissipation simulation in LTspice, and $>95\%$ measured conversion efficiency.
 
 ---
 

@@ -212,7 +212,7 @@
 
 <hr />
 <h2>MODULE 1: Circuit Analysis &amp; Electrical Bedrock</h2>
-<p><strong>Focus:</strong> Establishing mathematical and physical mastery over electrical charge, voltage, current, power, and passive component behavior.</p>
+<p><strong>Focus:</strong> Establishing mathematical and physical mastery over electrical charge, voltage, current, power, passive component behavior, and SPICE circuit simulation.</p>
 <h3>1.1 Direct Current (DC) Fundamentals</h3>
 <ul>
 <li><strong>Fundamental Laws:</strong> Charge ($Q$), Current ($I$), Voltage ($V$), and Power ($P = IV = I^2R = V^2/R$).</li>
@@ -233,6 +233,12 @@
 <li><strong>Phasors &amp; Complex Impedance:</strong> Converting to the frequency domain ($j\omega$), capacitive impedance ($Z_C = \frac{1}{j\omega C}$), inductive impedance ($Z_L = j\omega L$).</li>
 <li><strong>AC Power Calculations:</strong> Real power ($P$, Watts), Reactive power ($Q$, VAR), Apparent power ($S$, VA), and Power Factor ($\cos\theta$).</li>
 <li><strong>Resonance &amp; Quality Factor:</strong> Series and parallel RLC resonant circuits, resonant frequency ($\omega_0 = \frac{1}{\sqrt{LC}}$), bandwidth, and $Q$-factor.</li>
+</ul>
+<h3>1.4 SPICE Circuit Simulation &amp; Verification</h3>
+<ul>
+<li><strong>Simulation Tools:</strong> Industry modeling workflows using <strong>LTspice</strong>, <strong>ngspice</strong>, or <strong>PSpice</strong>.</li>
+<li><strong>Analysis Directives:</strong> DC operating point (<code>.op</code>), DC voltage/current sweep (<code>.dc</code>), Transient time-domain response (<code>.tran</code>), and AC frequency sweeps (<code>.ac</code>).</li>
+<li><strong>Statistical Modeling:</strong> Monte Carlo tolerance analysis (component parameter variations) and temperature sensitivity sweeping.</li>
 </ul>
 <hr />
 <h2>MODULE 2: Semiconductor Physics &amp; Analog Electronics</h2>
@@ -355,14 +361,15 @@
 <li><strong>Design for Manufacturing (DFM/DFA):</strong> Trace width/spacing clearance, annular rings, solder mask dam, drill sizes, pick-and-place files, and Gerber generation.</li>
 </ul>
 <hr />
-<h2>MODULE 8: Power Electronics, RF, &amp; Electromagnetics</h2>
-<p><strong>Focus:</strong> Efficient high-power energy conversion, motor driving, and high-frequency wireless electromagnetic wave propagation.</p>
-<h3>8.1 Power Electronics &amp; Voltage Regulation</h3>
+<h2>MODULE 8: Power Electronics, Battery Systems, &amp; RF Engineering</h2>
+<p><strong>Focus:</strong> High-power energy conversion, Battery Management Systems (BMS), motor control, and high-frequency wireless electromagnetic wave propagation.</p>
+<h3>8.1 Power Electronics, Battery Management, &amp; Thermal Systems</h3>
 <ul>
-<li><strong>Linear Regulators:</strong> Low-Dropout (LDO) regulators, power dissipation ($P_{diss} = (V_{in} - V_{out})I_{load}$), thermal resistance ($\theta_{JA}$), heat-sinking calculations.</li>
-<li><strong>Switch-Mode Power Supplies (SMPS):</strong> Buck converters (step-down), Boost converters (step-up), Buck-Boost topologies.</li>
-<li><strong>Inductor &amp; Capacitor Selection:</strong> Ripple current, Equivalent Series Resistance (ESR), switching frequency tradeoffs (MOSFET gate charge vs. magnetic core loss), and closed-loop feedback stability.</li>
-<li><strong>Motor Control:</strong> Driving DC motors, Stepper motors, and Brushless DC (BLDC) motors using H-Bridges, MOSFET gate drivers, and Field-Oriented Control (FOC).</li>
+<li><strong>Linear Regulators:</strong> Low-Dropout (LDO) regulators, power dissipation ($P_{diss} = (V_{in} - V_{out})I_{load}$), thermal resistance ($\theta_{JA}, \theta_{JC}$), heat-sink sizing.</li>
+<li><strong>Switch-Mode Power Supplies (SMPS):</strong> Buck converters (step-down), Boost converters (step-up), Buck-Boost topologies, and synchronous rectification (replacing freewheeling diodes with low-$R_{DS(on)}$ MOSFETs for $&gt;95\%$ efficiency).</li>
+<li><strong>Battery Management Systems (BMS):</strong> Lithium-Ion / LFP chemistry, cell monitoring, active vs. passive cell balancing, over/under-voltage cutoffs, Coulomb counting, and State-of-Charge (SoC) / State-of-Health (SoH) algorithms.</li>
+<li><strong>Thermal Design &amp; Heat Dissipation:</strong> Thermal relief vias, ground plane copper heat spreading, junction temperature limits ($T_J$), and thermal throttling circuits.</li>
+<li><strong>Motor Control:</strong> Driving DC motors, Stepper motors, and Brushless DC (BLDC) motors using 3-phase inverter bridges, MOSFET gate drivers, and Field-Oriented Control (FOC).</li>
 </ul>
 <h3>8.2 Electromagnetics &amp; RF Engineering</h3>
 <ul>
@@ -370,6 +377,12 @@
 <li><strong>Smith Charts &amp; Impedance Matching:</strong> $L$-networks, quarter-wave transformers, and tuning stubs for maximum power transfer.</li>
 <li><strong>Antenna Principles:</strong> Dipoles, patch antennas, radiation patterns, gain ($dBi$), directivity, polarization, and Link Budget calculations.</li>
 </ul>
+<h3>8.3 The Three Flagship Hardware Projects (Proof of Work)</h3>
+<ol>
+<li><strong>Project 1 (Embedded Systems &amp; 4-Layer PCB):</strong> A custom <strong>ARM Cortex-M (STM32) IoT Telemetry Board</strong> designed from scratch in KiCad, featuring USB-C Power Delivery, I2C/SPI sensor arrays, low-power sleep modes, and a 4-layer controlled-impedance PCB layout.</li>
+<li><strong>Project 2 (FPGA &amp; Digital Signal Processing):</strong> A <strong>Real-Time Verilog Audio Synthesizer or Video Pipeline</strong> synthesized on a Xilinx Artix-7 FPGA, featuring I2S audio DAC communication, clock domain crossing (CDC), and verified with self-checking testbenches.</li>
+<li><strong>Project 3 (Power Electronics &amp; Closed-Loop Control):</strong> A high-efficiency <strong>Synchronous Buck Converter (12V to 3.3V/5A)</strong> with closed-loop voltage feedback, current-mode control, thermal dissipation simulation in LTspice, and $&gt;95\%$ measured conversion efficiency.</li>
+</ol>
 <hr />
 <h2>MODULE 9: THE HARDWARE ENGINEERING INTERVIEW PLAYBOOK</h2>
 <p><strong>Focus:</strong> Passing Tier-1 hardware whiteboarding rounds, bench testing examinations, and public sector engineering licensure.</p>
