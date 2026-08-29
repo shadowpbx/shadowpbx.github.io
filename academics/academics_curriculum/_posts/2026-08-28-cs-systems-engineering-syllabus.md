@@ -6,8 +6,6 @@ category: "Computer Science"
 summary: "Complete roadmap covering programming fundamentals, low-level systems, distributed cloud architecture, and technical interviews."
 ---
 
-# COMPUTER SCIENCE & SYSTEMS ENGINEERING SYLLABUS
-
 A complete, chronological roadmap designed to take engineers from programming fundamentals and low-level systems to distributed cloud architecture and technical interviews.
 
 ---
