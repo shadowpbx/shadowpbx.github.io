@@ -209,8 +209,8 @@
         <main><h1>MASTER INDEX: ZERO TO ELITE SOFTWARE ENGINEER</h1>
 <p>A unified, end-to-end master syllabus integrating every detail, topic, project architecture, interview formula, and daily rule for software engineering and systems mastery.</p>
 <hr />
-<h2>MODULE 1: Low-Level Systems &amp; Hardware (The Tesla &amp; Apple Core)</h2>
-<p><strong>Focus:</strong> Memory management, concurrency, and understanding how computers actually work.</p>
+<h2>MODULE 1: Low-Level Systems, Hardware, &amp; Version Control</h2>
+<p><strong>Focus:</strong> Memory management, concurrency, version control, and understanding how computers actually work.</p>
 <h3>1.1 Low-Level Language Mastery</h3>
 <ul>
 <li><strong>Master C and C++ (C++17/20).</strong></li>
@@ -232,7 +232,13 @@
 <li>Multithreading (Mutexes, Semaphores, Locks, Condition Variables, Atomics).</li>
 <li>Concurrency hazards (Deadlocks, Race Conditions, Starvation).</li>
 </ul>
-<h3>1.4 Mathematics &amp; Foundational Texts</h3>
+<h3>1.4 Enterprise Version Control (Git)</h3>
+<ul>
+<li><strong>Git Internals:</strong> Directed Acyclic Graphs (DAG), blobs, trees, commits.</li>
+<li><strong>Branching Strategies:</strong> GitFlow vs. Trunk-Based Development.</li>
+<li><strong>Advanced Operations:</strong> Interactive rebasing (<code>git rebase -i</code>), resolving merge conflicts, <code>git cherry-pick</code>, and binary-search debugging (<code>git bisect</code>).</li>
+</ul>
+<h3>1.5 Mathematics &amp; Foundational Texts</h3>
 <ul>
 <li><strong>Discrete Math:</strong> Logic, sets, combinatorics for algorithm complexity.</li>
 <li><strong>Linear Algebra:</strong> Matrices, vectors (Mandatory for Tesla Autopilot, Apple Metal, AI).</li>
@@ -311,8 +317,8 @@
 <li><strong>Time Target:</strong> Solve random "Mediums" in $&lt; \mathbf{25\text{ mins}}$, "Hards" in $&lt; \mathbf{45\text{ mins}}$.</li>
 </ul>
 <hr />
-<h2>MODULE 4: Enterprise, Cloud, &amp; Security (NYS ITS, Federal, Microsoft)</h2>
-<p><strong>Focus:</strong> The technology stack that runs government databases, enterprise web apps, and secure systems.</p>
+<h2>MODULE 4: Enterprise, Cloud, AI, &amp; Security</h2>
+<p><strong>Focus:</strong> The technology stack that runs AI systems, government databases, enterprise web apps, and secure platforms.</p>
 <h3>4.1 Enterprise Languages &amp; Frameworks</h3>
 <ul>
 <li>Master <strong>Java (Spring Boot)</strong> OR <strong>C# (.NET Core)</strong>.</li>
@@ -325,15 +331,25 @@
 <li>ACID properties, Transactions, Normalization (1NF, 2NF, 3NF).</li>
 <li>NoSQL vs SQL (MongoDB/Cassandra vs PostgreSQL/MySQL).</li>
 </ul>
-<h3>4.3 Networking, DevOps &amp; Cloud</h3>
+<h3>4.3 Networking, Web, &amp; The Client Bridge</h3>
 <ul>
 <li>OSI Model &amp; TCP/IP.</li>
 <li>HTTP/HTTPS, RESTful API Design, JWT Authentication.</li>
-<li>Testing: TDD, Unit Testing (JUnit/xUnit), Mocking (Mockito/Moq).</li>
+<li><strong>The Client Bridge:</strong> Understanding Client-Side vs. Server-Side Rendering (CSR vs. SSR), WebSockets vs. Server-Sent Events (SSE), and basic React/DOM architecture for end-to-end system context.</li>
+</ul>
+<h3>4.4 DevOps &amp; Cloud Infrastructure</h3>
+<ul>
+<li>Testing: TDD, Unit Testing (JUnit/xUnit), Mocking (Mockito/Moq), and E2E Testing concepts.</li>
 <li>Containerization: Docker containerization &amp; Kubernetes (K8s) basics.</li>
 <li>CI/CD Pipelines (GitHub Actions / Jenkins), AWS/Azure basics.</li>
 </ul>
-<h3>4.4 Government Cybersecurity Requirements</h3>
+<h3>4.5 Applied Artificial Intelligence</h3>
+<ul>
+<li>Large Language Model (LLM) API integrations and structured prompting.</li>
+<li>Vector Databases (Pinecone, Milvus, <code>pgvector</code>).</li>
+<li>Architecting Retrieval-Augmented Generation (RAG) pipelines for enterprise data.</li>
+</ul>
+<h3>4.6 Government Cybersecurity Requirements</h3>
 <ul>
 <li>OWASP Top 10 (Mitigating SQLi, XSS, CSRF, Access Control).</li>
 <li>Cryptography (Symmetric vs. Asymmetric, Hashing vs. Encryption).</li>
@@ -360,7 +376,14 @@
 <li>Read: <em>Grokking the System Design Interview</em>.</li>
 <li>Watch: ByteByteGo (Alex Xu) for architecture breakdowns.</li>
 </ul>
-<h3>5.3 System Design Blueprint Practice</h3>
+<h3>5.3 Observability, Monitoring, &amp; Telemetry</h3>
+<ul>
+<li><strong>Metrics, Logs, and Traces:</strong> The three pillars of observability.</li>
+<li><strong>Monitoring:</strong> Prometheus &amp; Grafana for system health and alerting.</li>
+<li><strong>Centralized Logging:</strong> The ELK Stack (Elasticsearch, Logstash, Kibana).</li>
+<li><strong>Distributed Tracing:</strong> Jaeger and OpenTelemetry for tracking requests across microservices.</li>
+</ul>
+<h3>5.4 System Design Blueprint Practice</h3>
 <ul>
 <li>Design a Key-Value Store.</li>
 <li>Design a Rate Limiter.</li>

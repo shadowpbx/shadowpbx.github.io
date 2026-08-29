@@ -12,9 +12,9 @@ A unified, end-to-end master syllabus integrating every detail, topic, project a
 
 ---
 
-## MODULE 1: Low-Level Systems & Hardware (The Tesla & Apple Core)
+## MODULE 1: Low-Level Systems, Hardware, & Version Control
 
-**Focus:** Memory management, concurrency, and understanding how computers actually work.
+**Focus:** Memory management, concurrency, version control, and understanding how computers actually work.
 
 ### 1.1 Low-Level Language Mastery
 * **Master C and C++ (C++17/20).**
@@ -34,7 +34,12 @@ A unified, end-to-end master syllabus integrating every detail, topic, project a
 * Multithreading (Mutexes, Semaphores, Locks, Condition Variables, Atomics).
 * Concurrency hazards (Deadlocks, Race Conditions, Starvation).
 
-### 1.4 Mathematics & Foundational Texts
+### 1.4 Enterprise Version Control (Git)
+* **Git Internals:** Directed Acyclic Graphs (DAG), blobs, trees, commits.
+* **Branching Strategies:** GitFlow vs. Trunk-Based Development.
+* **Advanced Operations:** Interactive rebasing (`git rebase -i`), resolving merge conflicts, `git cherry-pick`, and binary-search debugging (`git bisect`).
+
+### 1.5 Mathematics & Foundational Texts
 * **Discrete Math:** Logic, sets, combinatorics for algorithm complexity.
 * **Linear Algebra:** Matrices, vectors (Mandatory for Tesla Autopilot, Apple Metal, AI).
 * **Foundational Text:** Read *Computer Systems: A Programmer's Perspective (CS:APP)* (Crucial for Tesla/Apple hardware understanding).
@@ -109,9 +114,9 @@ A unified, end-to-end master syllabus integrating every detail, topic, project a
 
 ---
 
-## MODULE 4: Enterprise, Cloud, & Security (NYS ITS, Federal, Microsoft)
+## MODULE 4: Enterprise, Cloud, AI, & Security
 
-**Focus:** The technology stack that runs government databases, enterprise web apps, and secure systems.
+**Focus:** The technology stack that runs AI systems, government databases, enterprise web apps, and secure platforms.
 
 ### 4.1 Enterprise Languages & Frameworks
 * Master **Java (Spring Boot)** OR **C# (.NET Core)**.
@@ -123,14 +128,22 @@ A unified, end-to-end master syllabus integrating every detail, topic, project a
 * ACID properties, Transactions, Normalization (1NF, 2NF, 3NF).
 * NoSQL vs SQL (MongoDB/Cassandra vs PostgreSQL/MySQL).
 
-### 4.3 Networking, DevOps & Cloud
+### 4.3 Networking, Web, & The Client Bridge
 * OSI Model & TCP/IP.
 * HTTP/HTTPS, RESTful API Design, JWT Authentication.
-* Testing: TDD, Unit Testing (JUnit/xUnit), Mocking (Mockito/Moq).
+* **The Client Bridge:** Understanding Client-Side vs. Server-Side Rendering (CSR vs. SSR), WebSockets vs. Server-Sent Events (SSE), and basic React/DOM architecture for end-to-end system context.
+
+### 4.4 DevOps & Cloud Infrastructure
+* Testing: TDD, Unit Testing (JUnit/xUnit), Mocking (Mockito/Moq), and E2E Testing concepts.
 * Containerization: Docker containerization & Kubernetes (K8s) basics.
 * CI/CD Pipelines (GitHub Actions / Jenkins), AWS/Azure basics.
 
-### 4.4 Government Cybersecurity Requirements
+### 4.5 Applied Artificial Intelligence
+* Large Language Model (LLM) API integrations and structured prompting.
+* Vector Databases (Pinecone, Milvus, `pgvector`).
+* Architecting Retrieval-Augmented Generation (RAG) pipelines for enterprise data.
+
+### 4.6 Government Cybersecurity Requirements
 * OWASP Top 10 (Mitigating SQLi, XSS, CSRF, Access Control).
 * Cryptography (Symmetric vs. Asymmetric, Hashing vs. Encryption).
 * **Mandatory Milestone:** Obtain **CompTIA Security+ Certification** (DoD 8570 Requirement for Federal / Defense jobs).
@@ -157,7 +170,13 @@ A unified, end-to-end master syllabus integrating every detail, topic, project a
   * Read: *Grokking the System Design Interview*.
   * Watch: ByteByteGo (Alex Xu) for architecture breakdowns.
 
-### 5.3 System Design Blueprint Practice
+### 5.3 Observability, Monitoring, & Telemetry
+* **Metrics, Logs, and Traces:** The three pillars of observability.
+* **Monitoring:** Prometheus & Grafana for system health and alerting.
+* **Centralized Logging:** The ELK Stack (Elasticsearch, Logstash, Kibana).
+* **Distributed Tracing:** Jaeger and OpenTelemetry for tracking requests across microservices.
+
+### 5.4 System Design Blueprint Practice
 * Design a Key-Value Store.
 * Design a Rate Limiter.
 * Design a Global Chat App (WhatsApp).
