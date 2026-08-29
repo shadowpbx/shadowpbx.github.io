@@ -207,51 +207,93 @@
             <span class="breadcrumb-current">Zero to Hero: Computer Science & Systems Engineering Master Syllabus</span>
         </div>
         <main><h1>MASTER INDEX: ZERO TO ELITE SOFTWARE ENGINEER</h1>
-<p>A unified, end-to-end master syllabus integrating every exhaustive detail—combining foundational OS toolkits, advanced algorithmic paradigms, enterprise-grade system design, applied AI, the three pillar projects, and exact interview execution formulas.</p>
+<p>A unified, chronological master syllabus designed for absolute beginners. This curriculum bridges the gap from writing your first line of code to mastering low-level C++ memory, architecting distributed cloud systems, and executing at the Tier-1 Big Tech and Government engineering levels.</p>
 <hr />
-<h2>MODULE 1: The Engineer's Toolkit &amp; Foundations</h2>
-<p><strong>Focus:</strong> The fundamental tools, mathematics, and environments required before writing production code.</p>
-<h3>1.1 Command Line &amp; OS Survival</h3>
+<h2>MODULE 1: The True Zero (Introduction to Programming &amp; Logic)</h2>
+<p><strong>Focus:</strong> Writing your first lines of code and understanding basic computational logic without being overwhelmed by hardware or memory management.</p>
+<h3>1.1 The Beginner's Language</h3>
 <ul>
-<li><strong>Linux/POSIX Environments:</strong> Permissions, file descriptors, <code>grep</code>, <code>awk</code>, <code>sed</code>, piping.</li>
-<li><strong>Automation:</strong> Bash/Shell scripting for task automation.</li>
+<li><strong>Python 3:</strong> Setup and environment configuration.</li>
+<li>Variables, strict vs. dynamic typing, and primitive data types (Integers, Floats, Booleans, Strings).</li>
+<li>Basic arithmetic and string manipulation.</li>
 </ul>
-<h3>1.2 Enterprise Version Control (Git)</h3>
+<h3>1.2 Control Flow &amp; Logic</h3>
 <ul>
-<li><strong>Git Internals:</strong> Directed Acyclic Graphs (DAG), blobs, trees, commits.</li>
-<li><strong>Branching Strategies:</strong> GitFlow vs. Trunk-Based Development.</li>
-<li><strong>Advanced Operations:</strong> Interactive rebasing (<code>git rebase -i</code>), resolving merge conflicts, <code>git cherry-pick</code>, and binary-search debugging (<code>git bisect</code>).</li>
+<li>Conditional statements (<code>if</code>, <code>elif</code>, <code>else</code>).</li>
+<li>Boolean logic (<code>AND</code>, <code>OR</code>, <code>NOT</code>).</li>
+<li>Iteration and Loops (<code>for</code> loops, <code>while</code> loops, breaking and continuing).</li>
 </ul>
-<h3>1.3 Mathematics for Elite Tech</h3>
+<h3>1.3 Functions &amp; Modularity</h3>
 <ul>
-<li><strong>Discrete Math:</strong> Logic, sets, combinatorics for algorithm complexity.</li>
-<li><strong>Linear Algebra:</strong> Matrices, vectors (Mandatory for Tesla Autopilot, Apple Metal, AI).</li>
-</ul>
-<h3>1.4 The Foundational Texts</h3>
-<ul>
-<li><strong>Read:</strong> <em>Computer Systems: A Programmer's Perspective (CS:APP)</em> (Crucial for Tesla/Apple hardware understanding).</li>
+<li>Defining functions and understanding variable scope (Global vs. Local).</li>
+<li>Parameters, arguments, and return statements.</li>
+<li>Error handling and basic exception catching (<code>try</code>/<code>except</code>).</li>
 </ul>
 <hr />
-<h2>MODULE 2: Low-Level Systems &amp; Hardware (The Tesla &amp; Apple Core)</h2>
-<p><strong>Focus:</strong> Memory management, concurrency, and understanding how computers actually work.</p>
-<h3>2.1 Low-Level Language Mastery</h3>
+<h2>MODULE 2: Object-Oriented Design &amp; Core Data Structures</h2>
+<p><strong>Focus:</strong> Learning how to organize code securely and store data efficiently in memory.</p>
+<h3>2.1 Object-Oriented Programming (OOP)</h3>
 <ul>
-<li><strong>Master C and C++ (C++17/20).</strong></li>
-<li>Pointers, references, double pointers.</li>
-<li>Memory allocation (Stack vs. Heap, <code>malloc</code>/<code>free</code>, <code>new</code>/<code>delete</code>).</li>
-<li>C++ Standard Template Library (STL) and Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>, RAII).</li>
+<li><strong>Classes and Objects:</strong> Instantiation and constructors.</li>
+<li><strong>The 4 Pillars:</strong> Inheritance, Abstraction, Polymorphism, and Encapsulation.</li>
+<li>Static methods vs. Instance methods.</li>
 </ul>
-<h3>2.2 Build Systems &amp; Tooling</h3>
+<h3>2.2 Linear Data Structures</h3>
 <ul>
-<li>Compilers (GCC, Clang) and Build automation (Makefiles, CMake).</li>
+<li><strong>Arrays &amp; Lists:</strong> Static vs. Dynamic arrays, indexing, and slicing.</li>
+<li><strong>Strings:</strong> Immutability and Encodings (ASCII, UTF-8).</li>
+<li><strong>Linked Lists:</strong> Singly, Doubly, and Circular linked lists.</li>
+<li><strong>Stacks &amp; Queues:</strong> Stacks (LIFO), Queues (FIFO), and Double-ended Queues (Deques).</li>
 </ul>
-<h3>2.3 Computer Architecture Basics</h3>
+<h3>2.3 Hashing &amp; Maps</h3>
+<ul>
+<li><strong>Dictionaries/Hash Maps:</strong> Key-value pairs and fast lookups.</li>
+<li><strong>Hash Sets:</strong> Enforcing uniqueness.</li>
+<li>Basic collision theory (understanding why hashes collide).</li>
+</ul>
+<hr />
+<h2>MODULE 3: "Under the Hood" (Hardware, C++, &amp; Memory)</h2>
+<p><strong>Focus:</strong> Ripping away Python's safety net to learn how memory, processors, and manual allocation actually work.</p>
+<h3>3.1 Computer Architecture Basics</h3>
 <ul>
 <li>Bits, bytes, and binary/hexadecimal math.</li>
 <li>Bitwise manipulation (<code>AND</code>, <code>OR</code>, <code>XOR</code>, <code>NOT</code>, Bit Shifting, Masks).</li>
 <li>CPU architecture (Registers, L1/L2/L3 Caches, RAM, SIMD).</li>
 </ul>
-<h3>2.4 Operating Systems &amp; Concurrency</h3>
+<h3>3.2 Low-Level Language Mastery</h3>
+<ul>
+<li><strong>Master C and C++ (C++17/20).</strong></li>
+<li>Pointers, references, and double pointers.</li>
+<li>Passing by value vs. passing by reference.</li>
+</ul>
+<h3>3.3 Manual Memory Management</h3>
+<ul>
+<li>Memory allocation (Stack vs. Heap).</li>
+<li>Manual allocation (<code>malloc</code>/<code>free</code> in C, <code>new</code>/<code>delete</code> in C++).</li>
+<li>Identifying and preventing Memory Leaks and Segmentation Faults.</li>
+</ul>
+<h3>3.4 Modern C++ Paragdigms</h3>
+<ul>
+<li>C++ Standard Template Library (STL).</li>
+<li>Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>, <code>std::weak_ptr</code>).</li>
+<li>Resource Acquisition Is Initialization (RAII).</li>
+</ul>
+<hr />
+<h2>MODULE 4: Operating Systems, Linux, &amp; Version Control</h2>
+<p><strong>Focus:</strong> The professional engineering environment, concurrent execution, and version history.</p>
+<h3>4.1 Command Line &amp; OS Survival</h3>
+<ul>
+<li><strong>Linux/POSIX Environments:</strong> Virtual file systems, permissions (chmod), file descriptors.</li>
+<li><strong>Text Processing:</strong> <code>grep</code>, <code>awk</code>, <code>sed</code>, and piping (<code>|</code>).</li>
+<li><strong>Automation:</strong> Bash/Shell scripting for task automation.</li>
+</ul>
+<h3>4.2 Enterprise Version Control (Git)</h3>
+<ul>
+<li><strong>Git Internals:</strong> Directed Acyclic Graphs (DAG), blobs, trees, commits.</li>
+<li><strong>Branching Strategies:</strong> GitFlow vs. Trunk-Based Development.</li>
+<li><strong>Advanced Operations:</strong> Interactive rebasing (<code>git rebase -i</code>), resolving merge conflicts, <code>git cherry-pick</code>, and binary-search debugging (<code>git bisect</code>).</li>
+</ul>
+<h3>4.3 Operating Systems &amp; Concurrency</h3>
 <ul>
 <li>Processes vs. Threads.</li>
 <li>Virtual Memory &amp; Paging.</li>
@@ -259,80 +301,71 @@
 <li>Concurrency hazards (Deadlocks, Race Conditions, Starvation).</li>
 </ul>
 <hr />
-<h2>MODULE 3: Data Structures &amp; Algorithms (The Big Tech Engine)</h2>
+<h2>MODULE 5: Advanced Algorithms &amp; The Interview Grind</h2>
 <p><strong>Focus:</strong> The step-by-step logic required to pass Google, Microsoft, and Apple LeetCode rounds.</p>
-<h3>3.1 The Interview Language</h3>
+<h3>5.1 Algorithmic Analysis</h3>
 <ul>
-<li>Learn <strong>Python</strong> exclusively for whiteboard/LeetCode interviews (Fastest syntax, built-in data structures).</li>
+<li>Time and Space Complexity (Big-O, Big-$\Theta$, Big-$\Omega$).</li>
+<li>Master Theorem for divide-and-conquer recurrences.</li>
 </ul>
-<h3>3.2 Core Data Structures</h3>
+<h3>5.2 Trees &amp; Graphs</h3>
 <ul>
-<li><strong>Linear:</strong> Arrays (Static/Dynamic), Strings (Immutability, ASCII/UTF-8), Linked Lists (Singly, Doubly, Circular), Stacks (LIFO), Queues (FIFO, Deques).</li>
-<li><strong>Hashing:</strong> Hash Tables, Hash Sets, Hash functions, Load Factors, Collision resolution (Chaining, Linear Probing).</li>
-<li><strong>Trees &amp; Heaps:</strong> BST, AVL, Red-Black, Tries (Prefix Trees), Heaps (Min/Max, Priority Queues).</li>
-<li><strong>Graphs:</strong> Adjacency Matrix/List, Directed/Undirected, Weighted, DAGs.</li>
+<li>Binary Trees and Binary Search Trees (BST).</li>
+<li>Self-Balancing Trees (AVL, Red-Black).</li>
+<li>Tries (Prefix Trees) and Heaps (Min/Max, Priority Queues).</li>
+<li>Graphs (Adjacency Matrix, Adjacency List, Directed, Undirected, Weighted, DAGs).</li>
 </ul>
-<h3>3.3 Algorithmic Analysis &amp; Sorting</h3>
+<h3>5.3 Core Algorithmic Paradigms</h3>
 <ul>
-<li>Time &amp; Space Complexity (Big-O, Big-$\Theta$, Big-$\Omega$), Master Theorem.</li>
-<li>Binary Search (Iterative, Recursive, Search Space reduction).</li>
-<li>Sorting (Insertion, Selection, Bubble, Merge, Quick, Heap, Counting, Radix).</li>
-</ul>
-<h3>3.4 Core Algorithmic Paradigms</h3>
-<ul>
+<li><strong>Searching &amp; Sorting:</strong> Binary Search, Merge Sort, Quick Sort, Radix Sort.</li>
 <li><strong>Two Pointers:</strong> Opposite ends, sliding window (fixed and dynamic).</li>
-<li><strong>Greedy Algorithms:</strong> Local optimums for global optimums (e.g., Interval scheduling).</li>
+<li><strong>Greedy Algorithms:</strong> Local optimums for global optimums.</li>
 <li><strong>Divide &amp; Conquer:</strong> Breaking problems into independent subproblems.</li>
 <li><strong>Backtracking:</strong> Exploring all paths (Permutations, Combinations, Subsets, N-Queens).</li>
-<li><strong>Dynamic Programming (DP):</strong> Top-Down (Memoization) vs. Bottom-Up (Tabulation), 1D DP, 2D DP, DP on Strings/Grids/Trees.</li>
 </ul>
-<h3>3.5 Advanced &amp; Graph Algorithms</h3>
+<h3>5.4 Advanced Algorithms</h3>
 <ul>
-<li><strong>Graph Traversal:</strong> BFS, DFS, Topological Sort, A* Search.</li>
-<li><strong>Shortest Path &amp; MST:</strong> Dijkstra, Bellman-Ford, Floyd-Warshall, Prim’s, Kruskal’s.</li>
-<li><strong>Advanced "Hard" Concepts:</strong> Disjoint Set (Union-Find) with Path Compression, String Matching (KMP, Rabin-Karp), Segment Trees.</li>
+<li><strong>Dynamic Programming (DP):</strong> Top-Down (Memoization) vs. Bottom-Up (Tabulation), 1D DP, 2D DP.</li>
+<li><strong>Graph Traversal:</strong> BFS, DFS, Topological Sort.</li>
+<li><strong>Shortest Path &amp; MST:</strong> Dijkstra, Bellman-Ford, Prim’s, Kruskal’s.</li>
+<li><strong>Advanced "Hard" Concepts:</strong> Disjoint Set (Union-Find), String Matching (KMP, Rabin-Karp).</li>
 </ul>
-<h3>3.6 The LeetCode Grind &amp; Metrics</h3>
+<h3>5.5 The LeetCode Grind &amp; Metrics</h3>
 <ul>
+<li><strong>Interview Language:</strong> Utilize Python exclusively for whiteboard interviews.</li>
 <li><strong>Curriculum:</strong> Complete the Blind 75 $\rightarrow$ NeetCode 150 $\rightarrow$ Total goal: 400+ problems.</li>
 <li><strong>Time Target:</strong> Solve random "Mediums" in $&lt; \mathbf{25\text{ mins}}$, "Hards" in $&lt; \mathbf{45\text{ mins}}$.</li>
 </ul>
 <hr />
-<h2>MODULE 4: Enterprise, Cloud, &amp; Security (Microsoft, NYS ITS, Federal)</h2>
+<h2>MODULE 6: Enterprise Engineering, Databases, &amp; Web</h2>
 <p><strong>Focus:</strong> The technology stack that runs government databases, enterprise web apps, and secure systems.</p>
-<h3>4.1 Enterprise Software Development</h3>
+<h3>6.1 Enterprise Software Development</h3>
 <ul>
 <li>Master <strong>Java (Spring Boot)</strong> OR <strong>C# (.NET Core)</strong>.</li>
-<li>Object-Oriented Design (Inheritance, Abstraction, Polymorphism, Encapsulation, SOLID principles, Design Patterns).</li>
+<li>Object-Oriented Design (SOLID principles, GoF Design Patterns).</li>
 </ul>
-<h3>4.2 Database Mastery (Relational &amp; NoSQL)</h3>
+<h3>6.2 Database Mastery (Relational &amp; NoSQL)</h3>
 <ul>
 <li>SQL CRUD, Joins, Aggregations, Subqueries, Window Functions, Indexing, B-Trees, Execution Plans.</li>
 <li>ACID properties, Normalization (1NF, 2NF, 3NF).</li>
 <li>NoSQL vs SQL (MongoDB/Cassandra vs PostgreSQL/MySQL).</li>
 </ul>
-<h3>4.3 Networking, Web, &amp; The Client Bridge</h3>
+<h3>6.3 Networking, Web, &amp; The Client Bridge</h3>
 <ul>
 <li>OSI Model &amp; TCP/IP.</li>
 <li>HTTP/HTTPS, RESTful API Design, JWT Authentication.</li>
 <li><strong>The Client Bridge:</strong> Understanding Client-Side vs. Server-Side Rendering (CSR vs. SSR), WebSockets vs. Server-Sent Events (SSE), and basic React/DOM architecture.</li>
 </ul>
-<h3>4.4 Testing, DevOps, &amp; Cloud</h3>
+<h3>6.4 Testing, DevOps, &amp; Cybersecurity</h3>
 <ul>
-<li>Testing: TDD, Unit Testing (JUnit/xUnit), Mocking (Mockito/Moq), E2E concepts.</li>
-<li>Containerization: Docker containerization &amp; Kubernetes (K8s) basics.</li>
-<li>CI/CD Pipelines (GitHub Actions/Jenkins), AWS/Azure basics.</li>
-</ul>
-<h3>4.5 Government Cybersecurity Mandates</h3>
-<ul>
-<li>OWASP Top 10 (Mitigating SQLi, XSS, CSRF, Access Control).</li>
-<li>Cryptography (Symmetric vs. Asymmetric, Hashing vs. Encryption).</li>
+<li><strong>Testing &amp; Cloud:</strong> TDD, Unit Testing (JUnit/xUnit), Docker containerization, Kubernetes (K8s) basics, CI/CD Pipelines (GitHub Actions/Jenkins).</li>
+<li><strong>Government Cybersecurity Mandates:</strong> OWASP Top 10 (Mitigating SQLi, XSS, CSRF, Access Control), Cryptography (Hashing vs. Encryption).</li>
 <li><strong>Mandatory Certification:</strong> Obtain <strong>CompTIA Security+</strong> (DoD 8570 Requirement).</li>
 </ul>
 <hr />
-<h2>MODULE 5: System Design &amp; Observability (Scaling for Millions)</h2>
-<p><strong>Focus:</strong> Architecture rounds for Microsoft, Google, and Apple L4/L5 roles.</p>
-<h3>5.1 Distributed Systems Core</h3>
+<h2>MODULE 7: System Design &amp; Artificial Intelligence</h2>
+<p><strong>Focus:</strong> Architecting for millions of users and integrating modern AI into enterprise backends.</p>
+<h3>7.1 Distributed Systems Core</h3>
 <ul>
 <li>Vertical vs. Horizontal Scaling.</li>
 <li>Load Balancing (Layer 4 vs. Layer 7, Consistent Hashing).</li>
@@ -340,76 +373,60 @@
 <li>Database Scaling (Replication, Sharding, Partitioning).</li>
 <li>CAP Theorem and PACELC Theorem.</li>
 </ul>
-<h3>5.2 Modern Architecture Components</h3>
+<h3>7.2 Modern Architecture &amp; Observability</h3>
 <ul>
-<li>Microservices vs. Monoliths.</li>
-<li>Message Queues &amp; Event Streaming (Kafka, RabbitMQ).</li>
-<li>Content Delivery Networks (CDNs).</li>
+<li>Microservices vs. Monoliths, Message Queues &amp; Event Streaming (Kafka, RabbitMQ).</li>
+<li><strong>Metrics, Logs, and Traces:</strong> Prometheus &amp; Grafana, The ELK Stack, Jaeger Distributed Tracing.</li>
 </ul>
-<h3>5.3 Observability, Monitoring, &amp; Telemetry</h3>
+<h3>7.3 Applied Artificial Intelligence</h3>
 <ul>
-<li><strong>Metrics, Logs, and Traces:</strong> The three pillars of observability.</li>
-<li><strong>Monitoring:</strong> Prometheus &amp; Grafana for system health and alerting.</li>
-<li><strong>Centralized Logging:</strong> The ELK Stack (Elasticsearch, Logstash, Kibana).</li>
-<li><strong>Distributed Tracing:</strong> Jaeger and OpenTelemetry.</li>
+<li>Large Language Model (LLM) API integrations and prompt engineering.</li>
+<li>Vector Databases (Pinecone, Milvus, <code>pgvector</code>).</li>
+<li>Architecting Retrieval-Augmented Generation (RAG) pipelines for semantic search.</li>
 </ul>
-<h3>5.4 The System Design Texts &amp; Practice</h3>
+<h3>7.4 The System Design Texts &amp; Practice</h3>
 <ul>
 <li><strong>Read:</strong> <em>Designing Data-Intensive Applications</em> by Martin Kleppmann (The industry Bible).</li>
-<li><strong>Read:</strong> <em>Grokking the System Design Interview</em>.</li>
 <li><strong>Watch:</strong> ByteByteGo (Alex Xu) for architecture breakdowns.</li>
 <li><strong>Practice Blueprints:</strong> Design YouTube, WhatsApp, Uber, Rate Limiters, and Key-Value Stores.</li>
 </ul>
 <hr />
-<h2>MODULE 6: Applied Artificial Intelligence (The Modern Edge)</h2>
-<p><strong>Focus:</strong> Integrating LLMs and Vector Search into enterprise backend architectures.</p>
-<h3>6.1 AI &amp; LLM Integrations</h3>
-<ul>
-<li>Large Language Model (LLM) API integrations.</li>
-<li>Structured prompt engineering and context-window management.</li>
-</ul>
-<h3>6.2 Modern Data Infrastructure</h3>
-<ul>
-<li>Vector Databases (Pinecone, Milvus, <code>pgvector</code>).</li>
-<li>Architecting Retrieval-Augmented Generation (RAG) pipelines for semantic search.</li>
-</ul>
-<hr />
-<h2>MODULE 7: The "Proof of Work" Portfolio</h2>
+<h2>MODULE 8: The "Proof of Work" Portfolio</h2>
 <p><strong>Focus:</strong> Three undeniable projects that force recruiters to call you.</p>
-<h3>7.1 Open Source Contributions (The Ultimate Resume Booster)</h3>
+<h3>8.1 Open Source Contributions (The Ultimate Resume Booster)</h3>
 <ul>
 <li>Submit pull requests to major repos (Linux, Mozilla, Microsoft open-source tools) to prove you can navigate massive, real-world codebases.</li>
 </ul>
-<h3>7.2 The Three Pillar Projects</h3>
+<h3>8.2 The Three Pillar Projects</h3>
 <ol>
 <li><strong>Project 1 (Tesla / Apple Core):</strong> Multi-threaded C++ Web Server/Physics Engine (Manual memory, CMake, Unit Tests).</li>
-<li><strong>Project 2 (Microsoft / Google):</strong> Distributed Key-Value Store (Python/Go, Redis, Docker, GitHub Actions).</li>
+<li><strong>Project 2 (Microsoft / Google):</strong> Distributed Key-Value Store (Python/Go, Redis, Docker, Kafka).</li>
 <li><strong>Project 3 (NYS ITS / Federal):</strong> Enterprise RBAC Inventory System (Java/C#, SQL, strict OWASP security).</li>
 </ol>
-<h3>7.3 Resume Structuring</h3>
+<h3>8.3 Resume Structuring</h3>
 <ul>
 <li><strong>Private Sector Tech Resume:</strong> 1 page maximum. Use the XYZ Format: <em>"Accomplished [X] as measured by [Y], by doing [Z]."</em></li>
 </ul>
 <hr />
-<h2>MODULE 8: THE INTERVIEW EXECUTION PLAYBOOK</h2>
+<h2>MODULE 9: THE INTERVIEW EXECUTION PLAYBOOK</h2>
 <p><strong>Focus:</strong> How to legally and technically pass the gauntlet for each specific entity.</p>
-<h3>8.1 Live Mock Interviewing</h3>
+<h3>9.1 Live Mock Interviewing</h3>
 <ul>
 <li><strong>Resource:</strong> Use Pramp.com or Interviewing.io for live, blind mock interviews with strangers.</li>
 <li><strong>Metric:</strong> You are ready when you pass <strong>3 consecutive mock interviews with a "Strong Hire" rating</strong>.</li>
 </ul>
-<h3>8.2 Problem Solving Formulas</h3>
+<h3>9.2 Problem Solving Formulas</h3>
 <ul>
 <li><strong>Coding: UMPIRE</strong> (Understand, Match, Plan, Implement, Review, Evaluate).</li>
 <li><strong>System Design: PEDALS</strong> (Process, Estimate, Design API, Architecture, Look at DB, Scale).</li>
 <li><strong>Hardware/Systems:</strong> Expect whiteboarding without an IDE. Draw memory diagrams (Stack down, Heap up). Articulate how OS threads will lock/unlock your data structures.</li>
 </ul>
-<h3>8.3 Behavioral (STAR Method)</h3>
+<h3>9.3 Behavioral (STAR Method)</h3>
 <ul>
 <li>Prepare 7-10 stories: Situation, Task, Action, Result.</li>
 <li><strong>Align with:</strong> Google (<em>Googliness/Data</em>), Apple (<em>Privacy/Product</em>), Tesla (<em>First-principles/Grit</em>), Microsoft (<em>Growth Mindset/Empathy</em>).</li>
 </ul>
-<h3>8.4 Government Navigation (USAJOBS &amp; Civil Service)</h3>
+<h3>9.4 Government Navigation (USAJOBS &amp; Civil Service)</h3>
 <ul>
 <li><strong>Federal Resume:</strong> 3-5 pages via USAJOBS Resume Builder. 100% exact keyword mapping of KSAs. List exact hours, credits, and GS grades.</li>
 <li><strong>NYS ITS:</strong> Take NYS Civil Service Continuous Recruitment Exams and apply to NY HELPS portal.</li>
