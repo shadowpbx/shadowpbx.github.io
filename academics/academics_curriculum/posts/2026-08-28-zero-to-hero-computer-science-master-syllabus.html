@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero to Hero: Computer Science & Systems Engineering Master Syllabus | Tanvir Hussain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <style>
+        .breadcrumb-nav {
+            margin-bottom: 2rem;
+            padding: 0.6rem 1rem;
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .breadcrumb-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .breadcrumb-current {
+            color: var(--text-secondary);
+        }
+
+        main {
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        main h1, main h2, main h3, main h4 {
+            color: var(--text-primary);
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        main h1 {
+            font-size: 1.85rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        main h2 {
+            font-size: 1.45rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.35rem;
+        }
+
+        main h3 {
+            font-size: 1.2rem;
+        }
+
+        main p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        main ul, main ol {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            padding-left: 1.75rem;
+        }
+
+        main li {
+            margin-bottom: 0.5rem;
+            font-size: 1.02rem;
+        }
+
+        main blockquote {
+            border-left: 4px solid var(--accent);
+            background: rgba(142, 68, 173, 0.04);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        main table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        main th, main td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        main th {
+            background: var(--bg-header);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        main pre {
+            background: var(--bg-header) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 8px !important;
+            padding: 1.25rem !important;
+            margin: 1.75rem 0 !important;
+            overflow-x: auto !important;
+        }
+
+        main code {
+            font-family: var(--font-mono) !important;
+            font-size: 0.9em !important;
+            background: rgba(142, 68, 173, 0.08);
+            color: var(--accent);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        main pre code {
+            background: transparent !important;
+            color: inherit !important;
+            padding: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/academics_audio/">Audio Tutorials</a>
+                        <a href="/academics/academics_curriculum/">Academic Curriculum</a>
+                    </div>
+                </div>
+                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef: ~/academics/curriculum $ cat zero-to-hero-computer-science-master-syllabus.md</div>
+            <h1>Zero to Hero: Computer Science & Systems Engineering Master Syllabus</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="breadcrumb-nav">
+            <a href="/academics/academics_curriculum/">&larr; Back to Academic Curriculum</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Zero to Hero: Computer Science & Systems Engineering Master Syllabus</span>
+        </div>
+        <main><h1>MASTER INDEX: ZERO TO ELITE SOFTWARE ENGINEER</h1>
+<p>A unified, end-to-end master syllabus integrating every detail, topic, project architecture, interview formula, and daily rule for software engineering and systems mastery.</p>
+<hr />
+<h2>MODULE 1: Low-Level Systems &amp; Hardware (The Tesla &amp; Apple Core)</h2>
+<p><strong>Focus:</strong> Memory management, concurrency, and understanding how computers actually work.</p>
+<h3>1.1 Low-Level Language Mastery</h3>
+<ul>
+<li><strong>Master C and C++ (C++17/20).</strong></li>
+<li>Pointers, references, double pointers.</li>
+<li>Memory allocation (Stack vs. Heap, <code>malloc</code>/<code>free</code>, <code>new</code>/<code>delete</code>).</li>
+<li>C++ Standard Template Library (STL) and Smart Pointers (<code>std::unique_ptr</code>, <code>std::shared_ptr</code>, RAII).</li>
+<li>Build Systems &amp; Tooling: Compilers (GCC, Clang) and Build automation (Makefiles, CMake).</li>
+</ul>
+<h3>1.2 Computer Architecture Basics</h3>
+<ul>
+<li>Bits, bytes, and binary/hexadecimal math.</li>
+<li>Bitwise manipulation (<code>AND</code>, <code>OR</code>, <code>XOR</code>, <code>NOT</code>, Bit Shifting, Masks).</li>
+<li>CPU architecture (Registers, L1/L2/L3 Cache, RAM, SIMD).</li>
+</ul>
+<h3>1.3 Operating Systems &amp; Concurrency</h3>
+<ul>
+<li>Processes vs. Threads.</li>
+<li>Virtual Memory &amp; Paging.</li>
+<li>Multithreading (Mutexes, Semaphores, Locks, Condition Variables, Atomics).</li>
+<li>Concurrency hazards (Deadlocks, Race Conditions, Starvation).</li>
+</ul>
+<h3>1.4 Mathematics &amp; Foundational Texts</h3>
+<ul>
+<li><strong>Discrete Math:</strong> Logic, sets, combinatorics for algorithm complexity.</li>
+<li><strong>Linear Algebra:</strong> Matrices, vectors (Mandatory for Tesla Autopilot, Apple Metal, AI).</li>
+<li><strong>Foundational Text:</strong> Read <em>Computer Systems: A Programmer's Perspective (CS:APP)</em> (Crucial for Tesla/Apple hardware understanding).</li>
+</ul>
+<hr />
+<h2>MODULE 2: Data Structures (The Building Blocks)</h2>
+<p><strong>Focus:</strong> The foundational vessels used to store and organize data.</p>
+<h3>2.1 Linear Data Structures</h3>
+<ul>
+<li><strong>Arrays:</strong> Static vs. Dynamic.</li>
+<li><strong>Strings:</strong> Immutability, Encodings (ASCII, UTF-8).</li>
+<li><strong>Linked Lists:</strong> Singly, Doubly, Circular, Fast/Slow pointers (Floyd's Cycle Detection).</li>
+<li><strong>Stacks &amp; Queues:</strong> Stacks (LIFO), Queues (FIFO), Double-ended Queues (Deques).</li>
+</ul>
+<h3>2.2 Hashing &amp; Maps</h3>
+<ul>
+<li>Hash Tables and Hash Sets.</li>
+<li>Hash functions, Load Factors.</li>
+<li>Collision resolution (Chaining, Open Addressing / Linear Probing).</li>
+</ul>
+<h3>2.3 Trees &amp; Graphs</h3>
+<ul>
+<li>Binary Trees and Binary Search Trees (BST).</li>
+<li>Self-Balancing Trees (AVL, Red-Black — conceptual understanding).</li>
+<li>Tries (Prefix Trees).</li>
+<li>Heaps (Min-Heap, Max-Heap, Priority Queues).</li>
+<li>Graphs (Adjacency Matrix, Adjacency List, Directed, Undirected, Weighted, DAGs).</li>
+</ul>
+<hr />
+<h2>MODULE 3: Algorithms &amp; Paradigms (The Big Tech Engine)</h2>
+<p><strong>Focus:</strong> The step-by-step logic required to pass Google, Microsoft, and Apple LeetCode rounds.</p>
+<h3>3.1 Algorithmic Analysis</h3>
+<ul>
+<li>Time and Space Complexity (Big-O, Big-$\Theta$, Big-$\Omega$).</li>
+<li>Master Theorem for divide-and-conquer recurrences.</li>
+</ul>
+<h3>3.2 Sorting &amp; Searching</h3>
+<ul>
+<li><strong>Binary Search:</strong> Iterative, Recursive, Search Space reduction.</li>
+<li><strong>Sorting Basics:</strong> Insertion Sort, Selection Sort, Bubble Sort.</li>
+<li><strong>Advanced Sorting:</strong> Merge Sort, Quick Sort, Heap Sort.</li>
+<li><strong>Linear Time Sorting:</strong> Counting Sort, Radix Sort.</li>
+</ul>
+<h3>3.3 Core Algorithmic Paradigms</h3>
+<ul>
+<li><strong>Two Pointers:</strong> Opposite ends, sliding window (fixed and dynamic).</li>
+<li><strong>Greedy Algorithms:</strong> Local optimums for global optimums (e.g., Interval scheduling).</li>
+<li><strong>Divide &amp; Conquer:</strong> Breaking problems into independent subproblems.</li>
+<li><strong>Backtracking:</strong> Exploring all paths (Permutations, Combinations, Subsets, N-Queens).</li>
+</ul>
+<h3>3.4 Dynamic Programming (DP)</h3>
+<ul>
+<li>Top-Down (Memoization) vs. Bottom-Up (Tabulation).</li>
+<li>1D DP (Fibonacci, Climbing Stairs).</li>
+<li>2D DP (0/1 Knapsack, Longest Common Subsequence).</li>
+<li>DP on Strings, Grids, and Trees.</li>
+</ul>
+<h3>3.5 Graph Algorithms</h3>
+<ul>
+<li><strong>Traversal:</strong> Breadth-First Search (BFS) &amp; Depth-First Search (DFS).</li>
+<li><strong>Shortest Path:</strong> Dijkstra’s Algorithm, Bellman-Ford, Floyd-Warshall.</li>
+<li><strong>Minimum Spanning Tree:</strong> Prim’s and Kruskal’s algorithms.</li>
+<li><strong>Advanced:</strong> Topological Sort, A* Search.</li>
+</ul>
+<h3>3.6 Advanced Algorithms (For Google/Microsoft "Hard" Questions)</h3>
+<ul>
+<li>Disjoint Set (Union-Find) with Path Compression and Rank.</li>
+<li>String Matching Algorithms (KMP, Rabin-Karp).</li>
+<li>Trie traversals and Segment Trees.</li>
+</ul>
+<h3>3.7 The LeetCode Grind &amp; Target Metrics</h3>
+<ul>
+<li><strong>Interview Language:</strong> Learn Python exclusively for whiteboard/LeetCode interviews (Fastest syntax, built-in data structures).</li>
+<li><strong>Curriculum:</strong> Complete the Blind 75 $\rightarrow$ NeetCode 150 $\rightarrow$ Total goal: 400+ problems.</li>
+<li><strong>Time Target:</strong> Solve random "Mediums" in $&lt; \mathbf{25\text{ mins}}$, "Hards" in $&lt; \mathbf{45\text{ mins}}$.</li>
+</ul>
+<hr />
+<h2>MODULE 4: Enterprise, Cloud, &amp; Security (NYS ITS, Federal, Microsoft)</h2>
+<p><strong>Focus:</strong> The technology stack that runs government databases, enterprise web apps, and secure systems.</p>
+<h3>4.1 Enterprise Languages &amp; Frameworks</h3>
+<ul>
+<li>Master <strong>Java (Spring Boot)</strong> OR <strong>C# (.NET Core)</strong>.</li>
+<li>Object-Oriented Design (Inheritance, Abstraction, Polymorphism, Encapsulation, SOLID principles, Design Patterns).</li>
+</ul>
+<h3>4.2 Database Mastery (Relational &amp; NoSQL)</h3>
+<ul>
+<li>SQL CRUD, Joins, Aggregations, Subqueries, Window Functions.</li>
+<li>Database Internals (B-Trees, Indexing, Execution Plans).</li>
+<li>ACID properties, Transactions, Normalization (1NF, 2NF, 3NF).</li>
+<li>NoSQL vs SQL (MongoDB/Cassandra vs PostgreSQL/MySQL).</li>
+</ul>
+<h3>4.3 Networking, DevOps &amp; Cloud</h3>
+<ul>
+<li>OSI Model &amp; TCP/IP.</li>
+<li>HTTP/HTTPS, RESTful API Design, JWT Authentication.</li>
+<li>Testing: TDD, Unit Testing (JUnit/xUnit), Mocking (Mockito/Moq).</li>
+<li>Containerization: Docker containerization &amp; Kubernetes (K8s) basics.</li>
+<li>CI/CD Pipelines (GitHub Actions / Jenkins), AWS/Azure basics.</li>
+</ul>
+<h3>4.4 Government Cybersecurity Requirements</h3>
+<ul>
+<li>OWASP Top 10 (Mitigating SQLi, XSS, CSRF, Access Control).</li>
+<li>Cryptography (Symmetric vs. Asymmetric, Hashing vs. Encryption).</li>
+<li><strong>Mandatory Milestone:</strong> Obtain <strong>CompTIA Security+ Certification</strong> (DoD 8570 Requirement for Federal / Defense jobs).</li>
+</ul>
+<hr />
+<h2>MODULE 5: System Design (Scaling for Millions of Users)</h2>
+<p><strong>Focus:</strong> Architecture rounds for Microsoft, Google, and Apple L4/L5 roles.</p>
+<h3>5.1 Distributed Systems Core</h3>
+<ul>
+<li>Vertical vs. Horizontal Scaling.</li>
+<li>Load Balancing (Layer 4 vs. Layer 7, Consistent Hashing).</li>
+<li>Caching Strategies (Write-through, Write-back, LRU, Redis / Memcached).</li>
+<li>Database Scaling (Replication, Sharding, Partitioning).</li>
+<li>CAP Theorem and PACELC Theorem.</li>
+</ul>
+<h3>5.2 Modern Architecture Components</h3>
+<ul>
+<li>Microservices vs. Monoliths.</li>
+<li>Message Queues &amp; Event Streaming (Kafka, RabbitMQ).</li>
+<li>Content Delivery Networks (CDNs).</li>
+<li><strong>System Design Texts &amp; Resources:</strong></li>
+<li>Read: <em>Designing Data-Intensive Applications</em> by Martin Kleppmann (The industry Bible).</li>
+<li>Read: <em>Grokking the System Design Interview</em>.</li>
+<li>Watch: ByteByteGo (Alex Xu) for architecture breakdowns.</li>
+</ul>
+<h3>5.3 System Design Blueprint Practice</h3>
+<ul>
+<li>Design a Key-Value Store.</li>
+<li>Design a Rate Limiter.</li>
+<li>Design a Global Chat App (WhatsApp).</li>
+<li>Design a Video Streaming Platform (YouTube).</li>
+<li>Design a Ride-Sharing Dispatch Service (Uber).</li>
+</ul>
+<hr />
+<h2>MODULE 6: The "Proof of Work" Portfolio</h2>
+<p><strong>Focus:</strong> Three undeniable projects that force recruiters to call you.</p>
+<h3>6.1 Open Source Contributions (The Ultimate Resume Booster)</h3>
+<ul>
+<li>Submit pull requests to major open-source repos (Linux, Mozilla, Microsoft open-source tools) to prove you can navigate massive, real-world codebases.</li>
+</ul>
+<h3>6.2 The Three Pillar Projects</h3>
+<ol>
+<li><strong>Project 1 (Tesla / Apple Core):</strong> Build a multi-threaded C++ web server from scratch or a 2D physics engine. <em>(Proves manual memory, CMake, and hardware-level competence).</em></li>
+<li><strong>Project 2 (Microsoft / Google):</strong> Build a distributed, scalable system (e.g., URL shortener or Distributed Key-Value store with Go/Python backend, Redis cache, Docker, and Kafka queue). <em>(Proves algorithm and scale competence).</em></li>
+<li><strong>Project 3 (NYS ITS / Federal):</strong> Build an Enterprise Role-Based Access Control (RBAC) Inventory System using C#/.NET or Java/Spring Boot, SQL Server, and complete OWASP security compliance. <em>(Proves enterprise and data security competence).</em></li>
+</ol>
+<h3>6.3 Resume Structuring</h3>
+<ul>
+<li><strong>Private Sector Tech Resume:</strong> 1 page maximum.</li>
+<li><strong>XYZ Format:</strong> Structure every bullet: <em>"Accomplished [X] as measured by [Y], by doing [Z]."</em></li>
+</ul>
+<hr />
+<h2>MODULE 7: THE INTERVIEW EXECUTION PLAYBOOK</h2>
+<p><strong>Focus:</strong> How to legally and technically pass the gauntlet for each specific entity.</p>
+<h3>7.1 The Coding Interview Formula (Google, Apple, Microsoft)</h3>
+<ul>
+<li><strong>Live Mock Interviewing:</strong> Use <em>Pramp.com</em> or <em>Interviewing.io</em> for live blind mock interviews.<br />
+<em>Metric:</em> You are ready when you pass <strong>3 consecutive mock interviews with a "Strong Hire" rating</strong>.</li>
+<li><strong>The 5-Step Execution Formula (UMPIRE):</strong></li>
+<li><strong>Step 1: Clarify.</strong> Never write code immediately. Repeat the question, ask about edge cases (empty inputs, negative numbers, constraints).</li>
+<li><strong>Step 2: Brute Force.</strong> State the naive solution aloud to secure a baseline.</li>
+<li><strong>Step 3: Optimize.</strong> Propose data structures/algorithms to improve Time/Space complexity. Agree on the approach with the interviewer.</li>
+<li><strong>Step 4: Code.</strong> Write clean, modular Python/C++ code. Use descriptive variable names.</li>
+<li><strong>Step 5: Dry Run.</strong> Walk through your code line-by-line with a test case to catch your own bugs before they do.</li>
+</ul>
+<h3>7.2 The Hardware/Systems Interview Formula (Tesla, Apple Core)</h3>
+<ul>
+<li>Expect whiteboarding without an IDE.</li>
+<li>Expect questions like: <em>"What happens in memory when you hit the power button?"</em> or <em>"Implement malloc."</em></li>
+<li>Draw memory diagrams (Stack growing down, Heap growing up).</li>
+<li>Verbally articulate how OS threads will lock and unlock your data structures.</li>
+</ul>
+<h3>7.3 The Behavioral Interview Formula (STAR Method)</h3>
+<ul>
+<li>Format answers: <strong>Situation</strong> (Context), <strong>Task</strong> (The problem), <strong>Action</strong> (What YOU did, not the team), <strong>Result</strong> (Quantifiable metric of success). Prepare 7–10 stories.</li>
+<li><strong>Google Focus:</strong> <em>"Googliness"</em> — handling ambiguity, backing decisions with data, blameless post-mortems.</li>
+<li><strong>Microsoft Focus:</strong> <em>"Growth Mindset"</em> — stories of failing, taking feedback, and learning.</li>
+<li><strong>Apple Focus:</strong> Extreme product obsession, saying "no" to bad features, valuing design and privacy.</li>
+<li><strong>Tesla Focus:</strong> <em>"Hardcore"</em> — stories of working under extreme pressure, bypassing bureaucracy, and solving impossible problems through first principles.</li>
+</ul>
+<h3>7.4 The Government Hiring Gauntlet (USAJOBS &amp; NYS ITS)</h3>
+<ul>
+<li><strong>The Federal Resume:</strong> Must be 3–5 pages. Unlike private sector (1-page), federal resumes must explicitly list salary, hours worked per week, and mirror the exact keywords in the "KSAs" (Knowledge, Skills, Abilities) section of the USAJOBS posting. Use the USAJOBS Resume Builder.</li>
+<li><strong>NYS ITS Civil Service:</strong> Take and pass New York State Civil Service Examinations for IT/Programming roles. Check the NYS Civil Service portal for the exam schedule, or apply to <strong>NY HELPS</strong> postings (which bypass exams temporarily).</li>
+<li><strong>Security Clearances (Federal / DoD):</strong> You will undergo an SF-86 background check:</li>
+<li>Do not lie.</li>
+<li>Cease all use of federally illicit substances (including marijuana) permanently.</li>
+<li>Pay off any accounts in collections.</li>
+<li>Maintain a clean criminal record. Any red flags will immediately disqualify you from DoD/FBI/NSA tech roles regardless of coding skill.</li>
+</ul>
+<hr />
+<h2>THE 3 DAILY EXECUTION RULES</h2>
+<p><em>(To enforce this curriculum without burning out)</em></p>
+<ol>
+<li><strong>Code Every Day:</strong> Consistency over cramming. 1.5 hours daily is 100x better than 10 hours on a Sunday.</li>
+<li><strong>Read Documentation:</strong> Stop relying on YouTube tutorials. Read the official Python, Java, or C++ documentation. This is the difference between a junior and a senior engineer.</li>
+<li><strong>Talk Out Loud:</strong> When solving LeetCode or designing systems alone in your room, explain your thoughts out loud as if an interviewer is watching you. Communication is 50% of the interview grade at Google.</li>
+</ol></main>
+        <footer style="margin-top: 5rem;">
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.querySelector('main') || document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
