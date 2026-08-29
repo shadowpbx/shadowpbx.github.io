@@ -427,6 +427,20 @@ def compile_standard_section(folder_path, folder_name, config):
                 </li>"""
             ref_list_html.append(ref_entry)
         joined_ref = "\n".join(ref_list_html)
+    elif folder_base == "academics_curriculum":
+        feed_posts = [p for p in compiled_posts if not p.get("is_macroview")]
+        feed_posts.sort(key=lambda x: x['date'], reverse=True)
+        posts_list_html = []
+        for post in feed_posts:
+            entry = f'''            <a href="{post['url']}" class="curriculum-card">
+                <div>
+                    <div class="curriculum-card-num">{post['tag']}</div>
+                    <div class="curriculum-card-title">{post['title']}</div>
+                    <p class="curriculum-card-desc">{post['summary']}</p>
+                </div>
+            </a>'''
+            posts_list_html.append(entry)
+        joined_posts = "\n".join(posts_list_html)
     else:
         feed_posts = [p for p in compiled_posts if not p.get("is_macroview")]
         feed_posts.sort(key=lambda x: x['date'], reverse=True)

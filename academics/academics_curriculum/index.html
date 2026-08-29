@@ -8,6 +8,77 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
+
+    <style>
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .curriculum-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.75rem 1.1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.85rem;
+            transition: all 0.2s ease;
+        }
+
+        .curriculum-card:hover {
+            border-color: var(--accent);
+            transform: translateX(2px);
+            background: rgba(225, 29, 72, 0.02);
+        }
+
+        .curriculum-card > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .curriculum-card-num {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .curriculum-card-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .curriculum-card-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+            .curriculum-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -53,15 +124,15 @@
     <div class="container">
         
         <span class="section-label">Academic Curriculum &amp; Study Modules</span>
-        <div class="post-list" id="curriculum-posts">
+        <div class="curriculum-grid" id="curriculum-posts">
             <!-- POSTS_START -->
-            <a href="posts/2026-08-28-zero-to-hero-computer-science-master-syllabus.html" class="post-entry">
-                    <h3>Zero to Hero: Computer Science & Systems Engineering Master Syllabus</h3>
-                    <p class="post-summary">The definitive chronological master syllabus, taking students from basic programming logic through C++ memory management, enterprise cloud, system design, and the FAANG interview playbook.</p>
-                    <div class="post-meta">
-                        <span class="meta-tag">CURRICULUM</span>
-                    </div>
-                </a>
+            <a href="posts/2026-08-28-zero-to-hero-computer-science-master-syllabus.html" class="curriculum-card">
+                <div>
+                    <div class="curriculum-card-num">CURRICULUM</div>
+                    <div class="curriculum-card-title">Zero to Hero: Computer Science & Systems Engineering Master Syllabus</div>
+                    <p class="curriculum-card-desc">The definitive chronological master syllabus, taking students from basic programming logic through C++ memory management, enterprise cloud, system design, and the rigorous interview playbook.</p>
+                </div>
+            </a>
             <!-- POSTS_END -->
         </div>
 
