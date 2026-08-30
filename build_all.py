@@ -669,6 +669,7 @@ def compile_academics_readmes(folder_path):
         ("academics_audio/01 American Government", "american_government", "American Government"),
         ("academics_audio/02 Macroeconomics", "macroeconomics", "Macroeconomics"),
         ("academics_audio/03 Sociology", "sociology", "Sociology"),
+        ("academics_audio/04 CISS 100", "ciss100", "CISS 100: Introduction to Computing"),
         ("macroeconomics_graphs", "macroeconomics_graphs", "Macroeconomics Graphs")
     ]
     print("Compiling README.md files into HTML...")

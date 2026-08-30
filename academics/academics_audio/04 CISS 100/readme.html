@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CISS 100: Introduction to Computing Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        .readme-container {
+            max-width: 750px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            font-family: var(--font-main);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+        
+        .readme-container h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .readme-container h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+        
+        .readme-container h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .readme-container hr {
+            border: 0;
+            height: 1px;
+            background: var(--border);
+            margin: 2.5rem 0;
+        }
+        
+        .readme-container ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .readme-container ul li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .readme-container pre {
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+        
+        pre {
+            margin: 0;
+        }
+        
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+        
+        .readme-container :not(pre) > code {
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+        
+        .readme-container a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .readme-container a:hover {
+            text-decoration: underline;
+        }
+    
+        /* Fix mobile horizontal scrolling overflow issues */
+        body {
+            overflow-x: hidden;
+        }
+        
+        pre[class*="language-"] {
+            overflow-x: auto !important;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-nav {
+                padding: 0.5rem 0.75rem;
+            }
+            :not(pre) > code {
+                white-space: normal !important;
+                word-break: break-all !important;
+            }
+            main table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="terminal-header">
+        <div class="header-container">
+            <button id="mobile-menu-btn" class="mobile-menu-toggle">[ ☰ menu --list ]</button>
+            <nav class="nav-container">
+                <a href="/" class="nav-link">[ HOME ]</a>
+                <div class="dropdown">
+                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/">Tools & Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/">Computer Science</a>
+                        <a href="/engineering/engineering_articles/">Articles & Guides</a>
+                        <a href="/engineering/engineering_tools/">Tools & Utilities</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="/academics/" class="nav-link active">[ ACADEMICS ]</a>
+                    <div class="dropdown-menu">
+                        <a href="/academics/academics_audio/">Audio Tutorials</a>
+                        <a href="/academics/academics_curriculum/">Academic Curriculum</a>
+                    </div>
+                </div>
+<a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
+            </nav>
+            <div class="terminal-prompt">user@hexdef: ~/academics/ciss100 $ cat README.md</div>
+            <h1>CISS 100: Introduction to Computing</h1>
+        </div>
+    </header>
+
+    <div class="readme-container">
+        <h1>CISS 100: Introduction to Computing Audio Player &amp; Companion Suite</h1>
+<ul>
+<li><strong>Live Player Website</strong>: <a href="https://hvcc.hexdef.com/ciss100/">https://hvcc.hexdef.com/ciss100/</a></li>
+<li><strong>Written Study Companion</strong>: Access the <code>companion.html</code> page directly at <a href="https://hvcc.hexdef.com/ciss100/companion.html">https://hvcc.hexdef.com/ciss100/companion.html</a>.</li>
+</ul>
+<p>A premium, mobile-responsive, dark-themed HTML5 audio player and companion study suite designed for <strong>CISS 100 (Introduction to Computing &amp; Information Sciences)</strong> at Hudson Valley Community College (HVCC). It features custom track looping, streamlined 5-speed control with persistent rates across tracks, weekly module chapter grouping, timeline scrubbing, and auto-resuming playback.</p>
+<hr />
+<h2>🌟 Key Features</h2>
+<ul>
+<li>📱 <strong>Mobile-First Responsive Design</strong>: Glassmorphic dark-mode interface powered by system-sans typography (<code>Outfit</code>) and Material Round Icons.</li>
+<li>🎛️ <strong>Symmetrical 5-Button Circular Transport Bar</strong>: Clean, hardware-inspired 5-circle transport bar (<code>[ ⏱️ Speed ]</code> <code>[ |◀ Prev ]</code> <code>[ ▶ Play ]</code> <code>[ Next ▶| ]</code> <code>[ 🔁¹ Loop ]</code>) maximizing vertical screen space.</li>
+<li>🔁 <strong>Precision SVG Circular Track Looping</strong>: Repeat each lecture track multiple times (<code>1</code> → <code>2</code> → <code>3</code> → <code>∞</code> → <code>1</code>) before automatically transitioning to the next track—ideal for reinforcement learning.</li>
+<li>⚡ <strong>Streamlined 5-Speed High-Impact Control</strong>: Instant single-tap cycling through the 5 core study speeds (<code>1.0x</code> → <code>1.1x</code> → <code>1.2x</code> → <code>0.8x</code> → <code>0.9x</code> → <code>1.0x</code>) with double-click reset shortcut. Selected speed persists seamlessly across all track changes.</li>
+<li>📚 <strong>16-Week Module Chapter Grouping</strong>: Automatically categorizes all 64 tracks across 16 weekly modules with collapsible headers and total playtime counters.</li>
+<li>💾 <strong>Smart Auto-Resume &amp; Namespace Isolation</strong>: Automatically persists your current track, loop iteration count, playback speed, and timeline position with dynamic local storage isolation for multi-tab playback.</li>
+<li>🔒 <strong>Lock Screen MediaSession Control</strong>: Full integration with the HTML5 browser <strong>Media Session API</strong> to play, pause, seek, and skip tracks directly from phone lock screens or notification panels.</li>
+<li>📖 <strong>Written Study Companion</strong>: Access full markdown study notes and definitions in a dedicated dashboard (<code>companion.html</code>) with multi-theme support (Dark Comfort, Warm Sepia, Light Paper, Auto).</li>
+<li>☁️ <strong>Cloudflare R2 Storage Integration</strong>: Stream audio files directly from a public Cloudflare R2 bucket (<code>https://hvcc.hexdef.com/ciss100/</code>) to keep the repository lightweight.</li>
+<li>🔄 <strong>Re-usable Course Engine</strong>: The entire suite is course-agnostic—update <code>about.txt</code> and <code>notes.md</code> to reuse the player for any other audio course.</li>
+</ul>
+<hr />
+<h2>🏗️ Project Architecture &amp; Data Flow</h2>
+<pre><code class="language-mermaid">graph TD
+    A[&quot;about.txt: Metadata Config&quot;] --&gt;|Title &amp; Subtitle| D[&quot;generate_playlist.py&quot;]
+    B[&quot;Audio Files / Cloudflare R2&quot;] --&gt;|Scan &amp; Extract Duration| D
+    D --&gt;|Compile &amp; Generate| E[&quot;playlist.js / playlist.json&quot;]
+    E --&gt;|Read Track Index &amp; Meta| F[&quot;index.html: Main Audio Player&quot;]
+    F --&gt;|Links Settings UI to| G[&quot;companion.html: Written Companion&quot;]
+    H[&quot;notes.md: Markdown Study Guide&quot;] --&gt;|Load Asynchronously| G
+</code></pre>
+<h3>1. Main Audio Player (<code>index.html</code>)</h3>
+<p>The core audio dashboard encapsulating the HTML5 audio engine, weekly module accordion rendering, search filter, and MediaSession lock screen integration.</p>
+<h3>2. Written Study Companion (<code>companion.html</code>)</h3>
+<p>The study reference dashboard utilizing <code>marked.js</code> to render <code>notes.md</code> into formatted HTML with theme switching.</p>
+<h3>3. Study Notes (<code>notes.md</code>)</h3>
+<p>The complete Markdown study guide covering all 16 CISS 100 Modules:
+1. <strong>Week 01</strong>: Foundations of Computing, Architecture &amp; Linux (LM1)
+2. <strong>Week 02</strong>: Hardware Architecture &amp; Silicon Engineering (LM2)
+3. <strong>Week 03</strong>: Storage Architectures &amp; File Systems (LM3)
+4. <strong>Week 04</strong>: Input/Output Architecture &amp; Stream Redirection (LM4)
+5. <strong>Week 05</strong>: Operating Systems &amp; Access Control (LM5)
+6. <strong>Week 06</strong>: Application Software &amp; Process Management (LM6)
+7. <strong>Week 07</strong>: Computer Networking &amp; The OSI Model (LM7)
+8. <strong>Week 08</strong>: The Internet Architecture &amp; SysAdmin Variables (LM8)
+9. <strong>Week 09</strong>: Relational Databases, SQL &amp; Ubuntu Desktop VM (LM9)
+10. <strong>Week 10</strong>: Cybersecurity, Cryptography &amp; User Administration (LM10)
+11. <strong>Week 11</strong>: Systems Analysis, SDLC &amp; Cron Automation (LM11)
+12. <strong>Week 12</strong>: Programming Logic, Shell Scripting &amp; Cloud/Containers (LM12)
+13. <strong>Week 13</strong>: Computer Ethics, Cyber Law &amp; Emergent Tech (LM13)
+14. <strong>Week 14</strong>: Final Project - LAMP Stack &amp; WordPress Deployment
+15. <strong>Week 15</strong>: Final Deliverables, Project Defense &amp; Linux OS Final Exam
+16. <strong>Week 16</strong>: Semester Conclusion &amp; Degree Works Registrar Audit</p>
+<h3>4. Playlist Compiler (<code>generate_playlist.py</code>)</h3>
+<p>A Python CLI utility that scans local folders or remote URLs, extracts track durations via <code>ffprobe</code>, parses <code>about.txt</code>, and generates <code>playlist.json</code> and <code>playlist.js</code>.</p>
+<hr />
+<h2>📂 File Directory</h2>
+<ul>
+<li><strong><code>index.html</code></strong>: Core audio player web app.</li>
+<li><strong><code>companion.html</code></strong>: Written study companion rendering markdown notes.</li>
+<li><strong><code>notes.md</code></strong>: Markdown study notes source file.</li>
+<li><strong><code>about.txt</code></strong>: Course title and subtitle configuration file.</li>
+<li><strong><code>generate_playlist.py</code></strong>: Python CLI playlist generator tool.</li>
+<li><strong><code>playlist.json</code> &amp; <code>playlist.js</code></strong>: Compiled playlist catalogs containing track metadata and base URLs.</li>
+</ul>
+<hr />
+<h2>🚀 Setup &amp; Usage Guide</h2>
+<h3>1. Configure Course Metadata (<code>about.txt</code>)</h3>
+<p>Set your course title and subtitle:</p>
+<pre><code class="language-txt">Title: CISS 100: Introduction to Computing
+Sub Title: Hudson Valley Community College • Complete Course Audio Suite
+</code></pre>
+<h3>2. Generate Playlist Catalogs</h3>
+<p>Run <code>generate_playlist.py</code> to scan your local audio files and bind them to your Cloudflare R2 base URL:</p>
+<pre><code class="language-bash">python3 generate_playlist.py -d &quot;Audio&quot; -b &quot;https://hvcc.hexdef.com/ciss100/&quot;
+</code></pre>
+<hr />
+<h2>🛠 Local Development &amp; Server Setup</h2>
+<p>Web browsers enforce CORS security restrictions that prevent fetching local <code>notes.md</code> and <code>playlist.json</code> when opening <code>.html</code> files directly via <code>file://</code>.</p>
+<p>To run locally:
+1. Start the local Python HTTP web server:
+   <code>bash
+   python3 -m http.server 8000</code>
+2. Navigate to:
+   * <strong>Main Audio Player</strong>: <a href="http://localhost:8000/index.html">http://localhost:8000/index.html</a>
+   * <strong>Written Companion</strong>: <a href="http://localhost:8000/companion.html">http://localhost:8000/companion.html</a></p>
+        
+        <footer style="margin-top: 5rem;">
+            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS & SECURITY
+        </footer>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navContainer = document.querySelector('.nav-container');
+        
+        menuBtn.addEventListener('click', () => {
+            const isExpanded = menuBtn.classList.toggle('expanded');
+            if (isExpanded) {
+                menuBtn.textContent = '[ ✕ close ]';
+                navContainer.classList.add('show');
+            } else {
+                menuBtn.textContent = '[ ☰ menu --list ]';
+                navContainer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

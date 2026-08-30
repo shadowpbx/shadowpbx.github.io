@@ -13,19 +13,64 @@
         .audio-suite-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 8px;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
         }
 
         .audio-suite-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.08);
+            transform: translateY(-3px);
         }
+
+        /* Color Disciplines - Hybrid Left Bar + Glowing Hover */
+        .card-violet {
+            border-left: 4px solid #8b5cf6;
+        }
+        .card-violet:hover {
+            border-color: #8b5cf6;
+            border-top-color: #a78bfa;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(139, 92, 246, 0.18);
+        }
+        .card-violet .audio-tag { color: #8b5cf6; }
+
+        .card-red {
+            border-left: 4px solid #e11d48;
+        }
+        .card-red:hover {
+            border-color: #e11d48;
+            border-top-color: #fb7185;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(225, 29, 72, 0.18);
+        }
+        .card-red .audio-tag { color: #e11d48; }
+
+        .card-blue {
+            border-left: 4px solid #2563eb;
+        }
+        .card-blue:hover {
+            border-color: #2563eb;
+            border-top-color: #60a5fa;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(37, 99, 235, 0.18);
+        }
+        .card-blue .audio-tag { color: #2563eb; }
+
+        .card-amber {
+            border-left: 4px solid #d97706;
+        }
+        .card-amber:hover {
+            border-color: #d97706;
+            border-top-color: #fbbf24;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(217, 119, 6, 0.18);
+        }
+        .card-amber .audio-tag { color: #d97706; }
 
         .audio-card-header {
             display: flex;
@@ -37,9 +82,9 @@
             font-weight: 700;
         }
 
-        .audio-suite-num {
-            color: var(--accent);
+        .audio-tag {
             letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .audio-suite-count {
@@ -52,7 +97,6 @@
 
         .audio-card-body {
             flex-grow: 1;
-            margin-bottom: 1.5rem;
         }
 
         .audio-card-title {
@@ -63,6 +107,11 @@
             line-height: 1.3;
             border-bottom: none !important;
             padding-bottom: 0 !important;
+            transition: color 0.2s ease;
+        }
+
+        .audio-suite-card:hover .audio-card-title {
+            color: var(--text-primary);
         }
 
         .audio-card-desc {
@@ -70,40 +119,6 @@
             font-size: 0.92rem;
             line-height: 1.55;
             margin: 0;
-        }
-
-        .audio-card-actions {
-            display: flex;
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .btn-audio-primary {
-            display: inline-flex;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            background: rgba(142, 68, 173, 0.08);
-            color: #6b21a8 !important;
-            border: 1px solid rgba(142, 68, 173, 0.3);
-            font-family: var(--font-mono);
-            font-size: 0.82rem;
-            font-weight: 700;
-            padding: 0.75rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            text-align: center;
-            letter-spacing: 0.03em;
-            white-space: nowrap;
-        }
-
-        .btn-audio-primary:hover {
-            background: #8e44ad;
-            color: #ffffff !important;
-            border-color: #8e44ad;
-            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.2);
-            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -143,62 +158,64 @@
                 <a href="/resume/" class="nav-link">[ RESUME ]</a>
                 <a href="https://github.com/shadowpbx" class="nav-link" target="_blank">[ GITHUB ]</a>
             </nav>
-            <div class="terminal-prompt">user@hexdef:~$ audio --academics --list-suites</div>
+            <div class="terminal-prompt">user@hexdef:~$ audio --academics --list</div>
             <h1>Academics Audio Tutorials</h1>
         </div>
     </header>
 
     <div class="container">
         
-        <!-- Featured Audio Study Suites -->
-        <div style="margin-bottom: 3rem;">
-            <span class="section-label">Academic &amp; Examination Prep Suites</span>
+        <!-- Audio Study Suites Grid -->
+        <div style="margin-bottom: 3.5rem;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
                 
-                <!-- American Government -->
-                <div class="audio-suite-card">
+                <!-- CISS 100: Introduction to Computing -->
+                <a href="04%20CISS%20100/index.html" class="audio-suite-card card-violet">
                     <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 01 ]</span>
+                        <span class="audio-tag">[ CISS 100 ]</span>
+                        <span class="audio-suite-count">63 MODULES • 11h 33m</span>
+                    </div>
+                    <div class="audio-card-body">
+                        <h2 class="audio-card-title">CISS 100: Introduction to Computing</h2>
+                        <p class="audio-card-desc">Complete lecture and laboratory audio suite covering computer architectures, Linux systems, networking, databases, and programming.</p>
+                    </div>
+                </a>
+
+                <!-- American Government -->
+                <a href="01%20American%20Government/index.html" class="audio-suite-card card-red">
+                    <div class="audio-card-header">
+                        <span class="audio-tag">[ POL 101 ]</span>
                         <span class="audio-suite-count">24 MODULES • 4h 30m</span>
                     </div>
                     <div class="audio-card-body">
                         <h2 class="audio-card-title">American Government</h2>
                         <p class="audio-card-desc">Complete study guide and CLEP exam prep covering American government, federal institutions, and constitutional principles.</p>
                     </div>
-                    <div class="audio-card-actions">
-                        <a href="01%20American%20Government/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                    </div>
-                </div>
+                </a>
 
                 <!-- Principles of Macroeconomics -->
-                <div class="audio-suite-card">
+                <a href="02%20Macroeconomics/index.html" class="audio-suite-card card-blue">
                     <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 02 ]</span>
+                        <span class="audio-tag">[ ECON 101 ]</span>
                         <span class="audio-suite-count">28 MODULES • 3h 45m</span>
                     </div>
                     <div class="audio-card-body">
                         <h2 class="audio-card-title">Principles of Macroeconomics</h2>
                         <p class="audio-card-desc">Complete study guide and CLEP exam prep covering macroeconomic principles, policy frameworks, and economic models.</p>
                     </div>
-                    <div class="audio-card-actions">
-                        <a href="02%20Macroeconomics/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                    </div>
-                </div>
+                </a>
 
                 <!-- Introductory Sociology -->
-                <div class="audio-suite-card">
+                <a href="03%20Sociology/index.html" class="audio-suite-card card-amber">
                     <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 03 ]</span>
+                        <span class="audio-tag">[ SOC 101 ]</span>
                         <span class="audio-suite-count">28 MODULES • 3h 50m</span>
                     </div>
                     <div class="audio-card-body">
                         <h2 class="audio-card-title">Introductory Sociology</h2>
                         <p class="audio-card-desc">Complete study guide and CLEP exam prep covering foundational sociology theories, culture, and social institutions.</p>
                     </div>
-                    <div class="audio-card-actions">
-                        <a href="03%20Sociology/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                    </div>
-                </div>
+                </a>
 
             </div>
         </div>
