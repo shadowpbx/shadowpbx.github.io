@@ -1,0 +1,543 @@
+{
+  "title": "Command Line Masterclass",
+  "subtitle": "Windows CMD • PowerShell • Linux & macOS • Run Consoles • Scripting",
+  "baseUrl": "https://engineering.hexdef.com/commands/",
+  "tracks": [
+    {
+      "file": "1.1 Windows Navigation - cd.mp3",
+      "duration": 245.4
+    },
+    {
+      "file": "1.2 Windows Navigation - dir.mp3",
+      "duration": 261.1
+    },
+    {
+      "file": "1.3 Windows Navigation - mkdir and md.mp3",
+      "duration": 244.1
+    },
+    {
+      "file": "1.4 Windows Navigation - rmdir and rd.mp3",
+      "duration": 228.6
+    },
+    {
+      "file": "1.5 Windows Navigation - copy.mp3",
+      "duration": 244.8
+    },
+    {
+      "file": "1.6 Windows Navigation - move.mp3",
+      "duration": 224.6
+    },
+    {
+      "file": "1.7 Windows Navigation - del.mp3",
+      "duration": 224.5
+    },
+    {
+      "file": "1.8 Windows Navigation - robocopy.mp3",
+      "duration": 248.3
+    },
+    {
+      "file": "1.9 Windows Navigation - tree.mp3",
+      "duration": 222.5
+    },
+    {
+      "file": "1.10 Windows Navigation - xcopy.mp3",
+      "duration": 221.4
+    },
+    {
+      "file": "1.11 Windows Navigation - cls.mp3",
+      "duration": 203.6
+    },
+    {
+      "file": "1.12 Windows System Repair - sfc.mp3",
+      "duration": 259.6
+    },
+    {
+      "file": "1.13 Windows System Repair - dism.mp3",
+      "duration": 244.3
+    },
+    {
+      "file": "1.14 Windows System Repair - chkdsk.mp3",
+      "duration": 248.8
+    },
+    {
+      "file": "1.15 Windows System Repair - bootrec.mp3",
+      "duration": 240.9
+    },
+    {
+      "file": "1.16 Windows Process Management - tasklist.mp3",
+      "duration": 236.5
+    },
+    {
+      "file": "1.17 Windows Process Management - taskkill.mp3",
+      "duration": 243.6
+    },
+    {
+      "file": "1.18 Windows System Management - shutdown.mp3",
+      "duration": 230.6
+    },
+    {
+      "file": "1.19 Windows System Management - systeminfo.mp3",
+      "duration": 243.5
+    },
+    {
+      "file": "1.20 Windows Diagnostics - msinfo32.mp3",
+      "duration": 244.8
+    },
+    {
+      "file": "1.21 Windows Diagnostics - dxdiag.mp3",
+      "duration": 265.5
+    },
+    {
+      "file": "1.22 Windows Diagnostics - msconfig.mp3",
+      "duration": 237.6
+    },
+    {
+      "file": "1.23 Windows Power Management - powercfg.mp3",
+      "duration": 237.4
+    },
+    {
+      "file": "1.24 Windows Disk Management - format.mp3",
+      "duration": 241.7
+    },
+    {
+      "file": "1.25 Windows Networking - hostname.mp3",
+      "duration": 209.0
+    },
+    {
+      "file": "1.26 Windows Networking - ping.mp3",
+      "duration": 259.9
+    },
+    {
+      "file": "1.27 Windows Networking - ipconfig.mp3",
+      "duration": 247.4
+    },
+    {
+      "file": "1.28 Windows Networking - tracert.mp3",
+      "duration": 238.7
+    },
+    {
+      "file": "1.29 Windows Networking - pathping.mp3",
+      "duration": 228.5
+    },
+    {
+      "file": "1.30 Windows Networking - netstat.mp3",
+      "duration": 252.6
+    },
+    {
+      "file": "1.31 Windows Networking - nslookup.mp3",
+      "duration": 271.1
+    },
+    {
+      "file": "1.32 Windows Networking - arp.mp3",
+      "duration": 250.6
+    },
+    {
+      "file": "1.33 Windows Networking - net use.mp3",
+      "duration": 262.2
+    },
+    {
+      "file": "1.34 Windows Networking - net user.mp3",
+      "duration": 232.2
+    },
+    {
+      "file": "1.35 Windows Networking - net share and net view.mp3",
+      "duration": 221.7
+    },
+    {
+      "file": "1.36 Windows Administration - gpupdate.mp3",
+      "duration": 231.0
+    },
+    {
+      "file": "1.37 Windows Administration - gpresult.mp3",
+      "duration": 227.2
+    },
+    {
+      "file": "1.38 Windows Disk Management - diskpart.mp3",
+      "duration": 209.1
+    },
+    {
+      "file": "1.39 Windows Registry - reg.mp3",
+      "duration": 261.6
+    },
+    {
+      "file": "1.40 Windows Help System - slash question mark.mp3",
+      "duration": 223.8
+    },
+    {
+      "file": "2.1 PowerShell Process Management - Get-Process.mp3",
+      "duration": 257.4
+    },
+    {
+      "file": "2.2 PowerShell Process Management - Stop-Process.mp3",
+      "duration": 250.2
+    },
+    {
+      "file": "2.3 PowerShell Service Management - Get-Service.mp3",
+      "duration": 216.6
+    },
+    {
+      "file": "2.4 PowerShell Service Management - Restart-Service.mp3",
+      "duration": 234.6
+    },
+    {
+      "file": "2.5 PowerShell Service Management - Start-Service and Stop-Service.mp3",
+      "duration": 231.3
+    },
+    {
+      "file": "2.6 PowerShell Networking - Test-NetConnection.mp3",
+      "duration": 262.1
+    },
+    {
+      "file": "2.7 PowerShell Web Transfer - Invoke-WebRequest.mp3",
+      "duration": 276.1
+    },
+    {
+      "file": "2.8 PowerShell Security - Set-ExecutionPolicy.mp3",
+      "duration": 262.8
+    },
+    {
+      "file": "2.9 PowerShell Hardware Inventory - Get-CimInstance.mp3",
+      "duration": 259.3
+    },
+    {
+      "file": "2.10 PowerShell Help System - Get-Help.mp3",
+      "duration": 246.0
+    },
+    {
+      "file": "3.1 Linux Navigation - pwd.mp3",
+      "duration": 257.2
+    },
+    {
+      "file": "3.2 Linux Navigation - ls.mp3",
+      "duration": 241.4
+    },
+    {
+      "file": "3.3 Linux Navigation - cd.mp3",
+      "duration": 216.5
+    },
+    {
+      "file": "3.4 Linux Navigation - mkdir.mp3",
+      "duration": 234.4
+    },
+    {
+      "file": "3.5 Linux Navigation - rmdir.mp3",
+      "duration": 219.3
+    },
+    {
+      "file": "3.6 Linux File Management - cp.mp3",
+      "duration": 226.1
+    },
+    {
+      "file": "3.7 Linux File Management - mv.mp3",
+      "duration": 206.7
+    },
+    {
+      "file": "3.8 Linux File Management - rm.mp3",
+      "duration": 210.2
+    },
+    {
+      "file": "3.9 Linux File Management - touch.mp3",
+      "duration": 198.4
+    },
+    {
+      "file": "3.10 Linux File Management - find.mp3",
+      "duration": 220.2
+    },
+    {
+      "file": "3.11 Linux Archive Management - tar.mp3",
+      "duration": 257.2
+    },
+    {
+      "file": "3.12 Linux Terminal - clear.mp3",
+      "duration": 218.5
+    },
+    {
+      "file": "3.13 Linux Text Processing - cat.mp3",
+      "duration": 228.0
+    },
+    {
+      "file": "3.14 Linux Text Processing - less.mp3",
+      "duration": 200.0
+    },
+    {
+      "file": "3.15 Linux Text Processing - tail.mp3",
+      "duration": 224.0
+    },
+    {
+      "file": "3.16 Linux Text Processing - head.mp3",
+      "duration": 207.6
+    },
+    {
+      "file": "3.17 Linux Text Editing - nano.mp3",
+      "duration": 204.2
+    },
+    {
+      "file": "3.18 Linux Text Editing - vim.mp3",
+      "duration": 201.4
+    },
+    {
+      "file": "3.19 Linux Text Searching - grep.mp3",
+      "duration": 196.8
+    },
+    {
+      "file": "3.20 Linux Text Output - echo.mp3",
+      "duration": 195.5
+    },
+    {
+      "file": "3.21 Linux Binary Paths - which and whereis.mp3",
+      "duration": 211.4
+    },
+    {
+      "file": "3.22 Linux System Identity - cat os-release.mp3",
+      "duration": 230.5
+    },
+    {
+      "file": "3.23 Linux User Accounts - cat passwd.mp3",
+      "duration": 240.1
+    },
+    {
+      "file": "3.24 Linux Process Monitoring - top.mp3",
+      "duration": 227.1
+    },
+    {
+      "file": "3.25 Linux Process Monitoring - htop.mp3",
+      "duration": 215.6
+    },
+    {
+      "file": "3.26 Linux Process Management - ps.mp3",
+      "duration": 207.9
+    },
+    {
+      "file": "3.27 Linux Process Termination - kill.mp3",
+      "duration": 222.6
+    },
+    {
+      "file": "3.28 Linux Process Termination - killall.mp3",
+      "duration": 200.8
+    },
+    {
+      "file": "3.29 Linux Service Management - systemctl.mp3",
+      "duration": 231.9
+    },
+    {
+      "file": "3.30 Linux System Logging - journalctl.mp3",
+      "duration": 227.9
+    },
+    {
+      "file": "3.31 Linux Storage Inspection - df.mp3",
+      "duration": 222.6
+    },
+    {
+      "file": "3.32 Linux Storage Inspection - du.mp3",
+      "duration": 207.5
+    },
+    {
+      "file": "3.33 Linux Memory Inspection - free.mp3",
+      "duration": 206.8
+    },
+    {
+      "file": "3.34 Linux Kernel Inspection - uname.mp3",
+      "duration": 218.0
+    },
+    {
+      "file": "3.35 Linux Shell History - history.mp3",
+      "duration": 208.3
+    },
+    {
+      "file": "3.36 Linux System Uptime - uptime.mp3",
+      "duration": 220.8
+    },
+    {
+      "file": "3.37 Linux Low-Level Imaging - dd.mp3",
+      "duration": 233.4
+    },
+    {
+      "file": "3.38 Linux Networking - ping.mp3",
+      "duration": 212.9
+    },
+    {
+      "file": "3.39 Linux Networking - ifconfig.mp3",
+      "duration": 233.7
+    },
+    {
+      "file": "3.40 Linux Networking - ip a.mp3",
+      "duration": 240.6
+    },
+    {
+      "file": "3.41 Linux Networking - traceroute.mp3",
+      "duration": 242.1
+    },
+    {
+      "file": "3.42 Linux Networking - ss.mp3",
+      "duration": 249.7
+    },
+    {
+      "file": "3.43 Linux Wireless - iwconfig.mp3",
+      "duration": 254.8
+    },
+    {
+      "file": "3.44 Linux Web Transfer - curl.mp3",
+      "duration": 252.4
+    },
+    {
+      "file": "3.45 Linux Web Download - wget.mp3",
+      "duration": 241.2
+    },
+    {
+      "file": "3.46 Linux Remote Access - ssh.mp3",
+      "duration": 257.7
+    },
+    {
+      "file": "3.47 Linux DNS Diagnostics - dig.mp3",
+      "duration": 236.0
+    },
+    {
+      "file": "3.48 Linux Privilege Escalation - sudo.mp3",
+      "duration": 238.5
+    },
+    {
+      "file": "3.49 Linux User Switching - su.mp3",
+      "duration": 198.8
+    },
+    {
+      "file": "3.50 Linux Permissions - chmod.mp3",
+      "duration": 258.5
+    },
+    {
+      "file": "3.51 Linux Ownership - chown.mp3",
+      "duration": 244.7
+    },
+    {
+      "file": "3.52 Linux User Passwords - passwd.mp3",
+      "duration": 208.7
+    },
+    {
+      "file": "3.53 Linux User Identity - whoami.mp3",
+      "duration": 205.1
+    },
+    {
+      "file": "3.54 Linux Package Management - apt-get and apt.mp3",
+      "duration": 227.4
+    },
+    {
+      "file": "3.55 Linux Package Management - yum and dnf.mp3",
+      "duration": 203.3
+    },
+    {
+      "file": "3.56 macOS Exclusives - open.mp3",
+      "duration": 195.6
+    },
+    {
+      "file": "3.57 macOS Exclusives - pbcopy and pbpaste.mp3",
+      "duration": 186.8
+    },
+    {
+      "file": "3.58 macOS Networking - networksetup.mp3",
+      "duration": 221.6
+    },
+    {
+      "file": "3.59 Linux Help System - man.mp3",
+      "duration": 198.3
+    },
+    {
+      "file": "3.60 Linux Help System - double dash help.mp3",
+      "duration": 183.9
+    },
+    {
+      "file": "4.1 Command Chaining - Pipe Operator.mp3",
+      "duration": 215.4
+    },
+    {
+      "file": "4.2 Output Redirection - Overwrite Greater-Than Operator.mp3",
+      "duration": 214.5
+    },
+    {
+      "file": "4.3 Output Redirection - Append Double Greater-Than Operator.mp3",
+      "duration": 215.1
+    },
+    {
+      "file": "4.4 Error Redirection - Stderr and Dev Null.mp3",
+      "duration": 209.4
+    },
+    {
+      "file": "4.5 Conditional Execution - Logical AND Operator.mp3",
+      "duration": 216.3
+    },
+    {
+      "file": "4.6 Conditional Execution - Logical OR Operator.mp3",
+      "duration": 198.1
+    },
+    {
+      "file": "4.7 Sequential Execution - Semicolon Operator.mp3",
+      "duration": 202.3
+    },
+    {
+      "file": "5.1 Windows Run Applet - appwiz dot cpl.mp3",
+      "duration": 195.8
+    },
+    {
+      "file": "5.2 Windows Run Applet - ncpa dot cpl.mp3",
+      "duration": 226.7
+    },
+    {
+      "file": "5.3 Windows Run Console - devmgmt dot msc.mp3",
+      "duration": 231.2
+    },
+    {
+      "file": "5.4 Windows Run Console - diskmgmt dot msc.mp3",
+      "duration": 254.4
+    },
+    {
+      "file": "5.5 Windows Run Console - compmgmt dot msc.mp3",
+      "duration": 213.8
+    },
+    {
+      "file": "5.6 Windows Run Console - services dot msc.mp3",
+      "duration": 225.3
+    },
+    {
+      "file": "5.7 Windows Run Console - eventvwr dot msc.mp3",
+      "duration": 231.9
+    },
+    {
+      "file": "5.8 Windows Run Utility - mstsc.mp3",
+      "duration": 230.1
+    },
+    {
+      "file": "5.9 Windows Run Utility - resmon.mp3",
+      "duration": 222.0
+    },
+    {
+      "file": "5.10 Windows Run Utility - regedit.mp3",
+      "duration": 233.8
+    },
+    {
+      "file": "5.11 Windows Run Utility - control.mp3",
+      "duration": 174.2
+    },
+    {
+      "file": "6.1 Scripting Environments - Windows Batch dot bat.mp3",
+      "duration": 227.6
+    },
+    {
+      "file": "6.2 Scripting Environments - PowerShell dot ps1.mp3",
+      "duration": 207.5
+    },
+    {
+      "file": "6.3 Scripting Environments - Shell Script dot sh.mp3",
+      "duration": 226.8
+    },
+    {
+      "file": "6.4 Scripting Environments - Python dot py.mp3",
+      "duration": 222.0
+    },
+    {
+      "file": "6.5 Scripting Environments - VBScript dot vbs.mp3",
+      "duration": 237.1
+    },
+    {
+      "file": "6.6 Scripting Environments - JavaScript dot js.mp3",
+      "duration": 251.4
+    }
+  ]
+}

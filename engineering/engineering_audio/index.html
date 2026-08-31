@@ -12,19 +12,54 @@
         .audio-suite-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 8px;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
         }
 
         .audio-suite-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(142, 68, 173, 0.08);
+            transform: translateY(-3px);
         }
+
+        /* Color Disciplines - Hybrid Left Bar + Glowing Hover */
+        .card-violet {
+            border-left: 4px solid #8b5cf6;
+        }
+        .card-violet:hover {
+            border-color: #8b5cf6;
+            border-top-color: #a78bfa;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(139, 92, 246, 0.18);
+        }
+        .card-violet .audio-suite-num { color: #8b5cf6; }
+
+        .card-blue {
+            border-left: 4px solid #2563eb;
+        }
+        .card-blue:hover {
+            border-color: #2563eb;
+            border-top-color: #60a5fa;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(37, 99, 235, 0.18);
+        }
+        .card-blue .audio-suite-num { color: #2563eb; }
+
+        .card-emerald {
+            border-left: 4px solid #059669;
+        }
+        .card-emerald:hover {
+            border-color: #059669;
+            border-top-color: #34d399;
+            box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.18), 0 0 16px rgba(5, 150, 105, 0.18);
+        }
+        .card-emerald .audio-suite-num { color: #059669; }
 
         .audio-card-header {
             display: flex;
@@ -37,8 +72,8 @@
         }
 
         .audio-suite-num {
-            color: var(--accent);
             letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .audio-suite-count {
@@ -51,7 +86,6 @@
 
         .audio-card-body {
             flex-grow: 1;
-            margin-bottom: 1.5rem;
         }
 
         .audio-card-title {
@@ -62,6 +96,11 @@
             line-height: 1.3;
             border-bottom: none !important;
             padding-bottom: 0 !important;
+            transition: color 0.2s ease;
+        }
+
+        .audio-suite-card:hover .audio-card-title {
+            color: var(--text-primary);
         }
 
         .audio-card-desc {
@@ -71,50 +110,11 @@
             margin: 0;
         }
 
-        .audio-card-actions {
-            display: flex;
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .btn-audio-primary {
-            display: inline-flex;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            background: rgba(142, 68, 173, 0.08);
-            color: #6b21a8 !important;
-            border: 1px solid rgba(142, 68, 173, 0.3);
-            font-family: var(--font-mono);
-            font-size: 0.82rem;
-            font-weight: 700;
-            padding: 0.75rem 1rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            text-align: center;
-            letter-spacing: 0.03em;
-            white-space: nowrap;
-        }
-
-        .btn-audio-primary:hover {
-            background: var(--accent);
-            color: #ffffff !important;
-            border-color: var(--accent);
-            box-shadow: 0 4px 12px rgba(142, 68, 173, 0.25);
-        }
-
         .audio-suites-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.25rem;
             margin-bottom: 3.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .audio-suites-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -164,35 +164,42 @@
             <span class="section-label">00 // Featured Engineering Audio Suites</span>
             <div class="audio-suites-grid">
 
-                <!-- Suite 01: Algorithmic Foundations & Complexity Audio -->
-                <div class="audio-suite-card">
+                <!-- Algorithmic Foundations & Complexity Audio -->
+                <a href="01%20Algorithms/index.html" class="audio-suite-card card-violet">
                     <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 01 ]</span>
+                        <span class="audio-suite-num">[ ALGORITHMS ]</span>
                         <span class="audio-suite-count">55 MODULES • 6h 19m</span>
                     </div>
                     <div class="audio-card-body">
                         <h2 class="audio-card-title">Algorithmic Foundations &amp; Complexity</h2>
                         <p class="audio-card-desc">Explains all major computer science algorithms, complexity analysis, and problem-solving techniques.</p>
                     </div>
-                    <div class="audio-card-actions">
-                        <a href="01%20Algorithms/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
-                    </div>
-                </div>
+                </a>
 
-                <!-- Suite 02: Data Structures & Memory Architectures Audio -->
-                <div class="audio-suite-card">
+                <!-- Data Structures & Memory Architectures Audio -->
+                <a href="02%20Data%20Structures/index.html" class="audio-suite-card card-blue">
                     <div class="audio-card-header">
-                        <span class="audio-suite-num">[ SUITE 02 ]</span>
+                        <span class="audio-suite-num">[ DATA STRUCTURES ]</span>
                         <span class="audio-suite-count">24 MODULES • 2h 50m</span>
                     </div>
                     <div class="audio-card-body">
                         <h2 class="audio-card-title">Data Structures &amp; Memory Architectures</h2>
                         <p class="audio-card-desc">Covers fundamental data structures, memory concepts, and how they work under the hood.</p>
                     </div>
-                    <div class="audio-card-actions">
-                        <a href="02%20Data%20Structures/index.html" class="btn-audio-primary">[ 🎧 LAUNCH PLAYER ]</a>
+                </a>
+
+                <!-- Command Line Masterclass -->
+                <a href="03%20Commands/index.html" class="audio-suite-card card-emerald">
+                    <div class="audio-card-header">
+                        <span class="audio-suite-num">[ COMMAND LINE ]</span>
+                        <span class="audio-suite-count">134 MODULES • 8h 30m</span>
                     </div>
-                </div>
+                    <div class="audio-card-body">
+                        <h2 class="audio-card-title">Command Line Masterclass</h2>
+                        <p class="audio-card-desc">Comprehensive audio guide covering Windows CMD, PowerShell, Linux & macOS POSIX shells, Windows Run consoles, and automation scripting.</p>
+                    </div>
+                </a>
+
             </div>
         </div>
 
