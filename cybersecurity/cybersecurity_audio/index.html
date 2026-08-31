@@ -10,6 +10,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
     <style>
+        /* Stats Overview Header Grid */
+        .stats-overview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .stats-overview-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+        }
+
         .audio-suite-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -208,6 +267,25 @@
 
     <div class="container">
         
+        <!-- Audio Metrics Overview -->
+        <div class="stats-overview-grid">
+            <div class="stat-box">
+                <div class="stat-label">Total Suites</div>
+                <div class="stat-value">9</div>
+                <div class="stat-desc">Curated Knowledge Tracks</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Modules</div>
+                <div class="stat-value">1,942</div>
+                <div class="stat-desc">Audio Lectures &amp; Labs</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Runtime</div>
+                <div class="stat-value">259h 42m</div>
+                <div class="stat-desc">Voice Instruction Audio</div>
+            </div>
+        </div>
+
         <!-- Featured Audio Study Suites -->
         <div style="margin-bottom: 3.5rem;">
             <span class="section-label">Featured Audio Study Suites</span>
