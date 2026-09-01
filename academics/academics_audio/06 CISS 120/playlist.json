@@ -1,0 +1,423 @@
+{
+  "title": "CISS 120: Computer Networking & Communications",
+  "subtitle": "Hudson Valley Community College • Complete Course Audio Suite",
+  "baseUrl": "https://hvcc.hexdef.com/ciss120/",
+  "tracks": [
+    {
+      "file": "1.1 Network Architectures LANs WANs and Topologies.mp3",
+      "duration": 817.9
+    },
+    {
+      "file": "1.2 Network Performance Bandwidth Throughput and Latency.mp3",
+      "duration": 814.2
+    },
+    {
+      "file": "1.3 OSI 7-Layer Model and Layer Interactions.mp3",
+      "duration": 818.6
+    },
+    {
+      "file": "1.4 TCP-IP 4-Layer Protocol Stack vs OSI Comparison.mp3",
+      "duration": 822.4
+    },
+    {
+      "file": "1.5 PDU Encapsulation Headers and Data Payloads.mp3",
+      "duration": 817.3
+    },
+    {
+      "file": "1.6 Copper Cabling UTP STP and RJ-45 Pinouts.mp3",
+      "duration": 820.8
+    },
+    {
+      "file": "1.7 Fiber Optics Single-Mode vs Multi-Mode.mp3",
+      "duration": 808.0
+    },
+    {
+      "file": "1.8 Wireless Media Wi-Fi Standards and Frequencies.mp3",
+      "duration": 828.1
+    },
+    {
+      "file": "1.9 Binary Decimal and Hexadecimal Number Systems.mp3",
+      "duration": 805.4
+    },
+    {
+      "file": "1.10 Module 2 Labs and ITN Quiz 1-3 Review.mp3",
+      "duration": 816.3
+    },
+    {
+      "file": "2.1 Data Link Layer Framing and MAC Sublayers.mp3",
+      "duration": 814.4
+    },
+    {
+      "file": "2.1 Data Link Layer LLC and MAC Sublayer Mechanics.mp3",
+      "duration": 831.7
+    },
+    {
+      "file": "2.2 Ethernet Frame Structure and MAC Address Anatomy.mp3",
+      "duration": 828.5
+    },
+    {
+      "file": "2.2 Media Access Control CSMA-CD vs CSMA-CA.mp3",
+      "duration": 823.4
+    },
+    {
+      "file": "2.3 Ethernet Frame Format and Header Field Mechanics.mp3",
+      "duration": 825.0
+    },
+    {
+      "file": "2.3 Switch Operation CAM Tables and MAC Learning.mp3",
+      "duration": 806.5
+    },
+    {
+      "file": "2.4 Collision Domains vs Broadcast Domains and Microsegmentation.mp3",
+      "duration": 807.4
+    },
+    {
+      "file": "2.4 MAC Addressing Unicast Broadcast and Multicast.mp3",
+      "duration": 828.4
+    },
+    {
+      "file": "2.5 Switch Forwarding and CAM Address Table Learning.mp3",
+      "duration": 809.6
+    },
+    {
+      "file": "2.5 Switch Forwarding Methods Store-and-Forward vs Cut-Through.mp3",
+      "duration": 804.0
+    },
+    {
+      "file": "2.6 Store and Forward vs Cut-Through Switching Modes.mp3",
+      "duration": 796.9
+    },
+    {
+      "file": "2.7 Switch Buffering Auto-MDIX and Duplex Settings.mp3",
+      "duration": 800.2
+    },
+    {
+      "file": "2.8 Module 3 Labs and ITN Quiz 4-7 Review.mp3",
+      "duration": 819.1
+    },
+    {
+      "file": "3.1 Network Layer Roles and Connectionless Service.mp3",
+      "duration": 807.5
+    },
+    {
+      "file": "3.2 IPv4 Header Fields TTL and Fragmentation.mp3",
+      "duration": 815.6
+    },
+    {
+      "file": "3.2 IPv4 Header Fields TTL Protocol and Checksum.mp3",
+      "duration": 824.2
+    },
+    {
+      "file": "3.3 IPv6 Fixed Header Fields and Extension Headers.mp3",
+      "duration": 822.1
+    },
+    {
+      "file": "3.3 IPv6 Header Architecture and Next-Header Chains.mp3",
+      "duration": 813.7
+    },
+    {
+      "file": "3.4 Default Gateways and Host Routing Decisions.mp3",
+      "duration": 806.4
+    },
+    {
+      "file": "3.4 Host Routing Tables and Default Gateways.mp3",
+      "duration": 817.1
+    },
+    {
+      "file": "3.5 Router Forwarding Decisions and Routing Tables.mp3",
+      "duration": 815.5
+    },
+    {
+      "file": "3.5 Router Routing Tables Administrative Distance and Metrics.mp3",
+      "duration": 812.4
+    },
+    {
+      "file": "3.6 Address Resolution Protocol ARP Mechanics.mp3",
+      "duration": 814.8
+    },
+    {
+      "file": "3.6 Static vs Dynamic Routing and Default Routes.mp3",
+      "duration": 813.8
+    },
+    {
+      "file": "3.7 ARP Security Spoofing Poisoning and DAI.mp3",
+      "duration": 821.3
+    },
+    {
+      "file": "3.7 Module 3 Labs and ITN Quiz 4-7 Review.mp3",
+      "duration": 817.7
+    },
+    {
+      "file": "3.8 Module 4 Labs and Network Layer Review.mp3",
+      "duration": 815.1
+    },
+    {
+      "file": "4.1 Cisco IOS Architecture Boot Stages and CLI Modes.mp3",
+      "duration": 822.5
+    },
+    {
+      "file": "4.1 IPv4 Addressing Architecture and Classes.mp3",
+      "duration": 808.3
+    },
+    {
+      "file": "4.2 CLI Navigation Help and Command Shortcuts.mp3",
+      "duration": 815.1
+    },
+    {
+      "file": "4.2 Subnetting Foundations and Fixed-Length Subnet Masks FLSM.mp3",
+      "duration": 818.6
+    },
+    {
+      "file": "4.3 Device Hardening Hostnames Banners and Passwords.mp3",
+      "duration": 819.8
+    },
+    {
+      "file": "4.3 Variable-Length Subnet Masking VLSM and Route Summarization.mp3",
+      "duration": 810.9
+    },
+    {
+      "file": "4.4 Router Interface IP Configuration and Verification.mp3",
+      "duration": 819.6
+    },
+    {
+      "file": "4.4 Subnet Mask Calculations Magic Number Method.mp3",
+      "duration": 804.1
+    },
+    {
+      "file": "4.5 Public vs Private IPv4 Addresses RFC 1918 and NAT.mp3",
+      "duration": 824.0
+    },
+    {
+      "file": "4.5 Switch SVI Management Interface Configuration.mp3",
+      "duration": 822.9
+    },
+    {
+      "file": "4.6 Module 5 Labs and ITN Quiz 8-10 Review.mp3",
+      "duration": 823.2
+    },
+    {
+      "file": "4.6 Special-Use IPv4 Addresses Loopback APIPA and Multicast.mp3",
+      "duration": 823.0
+    },
+    {
+      "file": "4.7 Module 4 Labs and Subnetting Packet Tracer Scenarios.mp3",
+      "duration": 814.5
+    },
+    {
+      "file": "5.1 Cisco IOS CLI Modes Navigation and Help Features.mp3",
+      "duration": 815.5
+    },
+    {
+      "file": "5.1 IPv4 Classes Classless Addressing and CIDR.mp3",
+      "duration": 831.5
+    },
+    {
+      "file": "5.2 Device Identification Banners and Passwords.mp3",
+      "duration": 802.3
+    },
+    {
+      "file": "5.2 Subnetting Mathematics Magic Number and Block Sizes.mp3",
+      "duration": 823.2
+    },
+    {
+      "file": "5.3 Securing Remote Access: SSH vs Telnet and Crypto Keys.mp3",
+      "duration": 828.6
+    },
+    {
+      "file": "5.3 Variable-Length Subnet Masking VLSM Design.mp3",
+      "duration": 807.2
+    },
+    {
+      "file": "5.4 IPv6 Addressing Rules Compression and Representation.mp3",
+      "duration": 839.7
+    },
+    {
+      "file": "5.4 Switch Virtual Interfaces SVIs and Management IP.mp3",
+      "duration": 819.5
+    },
+    {
+      "file": "5.5 IPv6 Types GUA Link-Local and Multicast.mp3",
+      "duration": 829.7
+    },
+    {
+      "file": "5.5 Router Interfaces Dual-Stack IPv4-IPv6 and Loopbacks.mp3",
+      "duration": 828.8
+    },
+    {
+      "file": "5.6 Dynamic IPv6 SLAAC EUI-64 and DHCPv6.mp3",
+      "duration": 834.8
+    },
+    {
+      "file": "5.6 Managing Configuration Files Running-Config vs Startup-Config.mp3",
+      "duration": 814.4
+    },
+    {
+      "file": "5.7 Module 5 Labs and ITN Quiz 8-10 Review.mp3",
+      "duration": 817.8
+    },
+    {
+      "file": "5.7 Module 6 Labs and Subnetting Mastery Review.mp3",
+      "duration": 824.6
+    },
+    {
+      "file": "6.1 Address Resolution Protocol ARP Mechanics.mp3",
+      "duration": 808.0
+    },
+    {
+      "file": "6.1 ICMP Diagnostics Ping and Traceroute Mechanics.mp3",
+      "duration": 826.5
+    },
+    {
+      "file": "6.2 ARP Security Cache Poisoning and Dynamic ARP Inspection DAI.mp3",
+      "duration": 834.8
+    },
+    {
+      "file": "6.2 Transport Layer TCP vs UDP Protocol Comparison.mp3",
+      "duration": 825.0
+    },
+    {
+      "file": "6.3 IPv6 Neighbor Discovery Protocol NDP Architecture.mp3",
+      "duration": 817.6
+    },
+    {
+      "file": "6.3 TCP 3-Way Handshake Flow Control and Windowing.mp3",
+      "duration": 823.7
+    },
+    {
+      "file": "6.4 IPv6 SLAAC EUI-64 and Duplicate Address Detection DAD.mp3",
+      "duration": 840.9
+    },
+    {
+      "file": "6.4 Port Numbers Sockets and Conversation Multiplexing.mp3",
+      "duration": 798.8
+    },
+    {
+      "file": "6.5 ICMPv4 vs ICMPv6 Diagnostic Messaging and Traceroute.mp3",
+      "duration": 824.3
+    },
+    {
+      "file": "6.5 Module 7 Labs and Transport Layer Review.mp3",
+      "duration": 826.0
+    },
+    {
+      "file": "6.6 Module 6 Labs and ITN Quiz 11-13 Review.mp3",
+      "duration": 822.0
+    },
+    {
+      "file": "7.1 Application Layer Protocols DNS DHCP and HTTP.mp3",
+      "duration": 829.4
+    },
+    {
+      "file": "7.1 Transport Layer Protocols Port Multiplexing and Sockets.mp3",
+      "duration": 812.0
+    },
+    {
+      "file": "7.2 Layer 2 Attacks and Switch Port Security Hardening.mp3",
+      "duration": 822.8
+    },
+    {
+      "file": "7.2 TCP Header Architecture and 3-Way Handshake.mp3",
+      "duration": 817.3
+    },
+    {
+      "file": "7.3 Small Network Design and ITN Skills Exam Review.mp3",
+      "duration": 824.0
+    },
+    {
+      "file": "7.3 TCP Reliability Flow Control and Windowing.mp3",
+      "duration": 815.8
+    },
+    {
+      "file": "7.4 UDP Datagram Architecture and Real-Time Voice-Video.mp3",
+      "duration": 814.8
+    },
+    {
+      "file": "7.5 Port Numbers Netstat and Connection Tracking.mp3",
+      "duration": 801.5
+    },
+    {
+      "file": "7.6 Module 7 Labs and ITN Quiz 14-15 Review.mp3",
+      "duration": 822.5
+    },
+    {
+      "file": "8.1 Application Layer Protocols Client-Server vs P2P.mp3",
+      "duration": 816.0
+    },
+    {
+      "file": "8.1 Broadcast Domains VLANs and 802.1Q Tagging.mp3",
+      "duration": 829.3
+    },
+    {
+      "file": "8.2 Domain Name System DNS Resolution and Records.mp3",
+      "duration": 818.6
+    },
+    {
+      "file": "8.2 Dynamic Trunking Protocol DTP and VLAN Configuration.mp3",
+      "duration": 816.6
+    },
+    {
+      "file": "8.3 Dynamic Host Configuration Protocol DHCPv4 DORA Process.mp3",
+      "duration": 822.3
+    },
+    {
+      "file": "8.3 Inter-VLAN Routing Router-on-a-Stick and Layer 3 SVIs.mp3",
+      "duration": 824.7
+    },
+    {
+      "file": "8.4 Modules 11-12 Labs and SRWE Quiz 1-4 Review.mp3",
+      "duration": 827.9
+    },
+    {
+      "file": "8.4 Web and Email Protocols HTTP HTTPS SMTP POP3 IMAP.mp3",
+      "duration": 829.8
+    },
+    {
+      "file": "8.5 File Transfer and Network Management FTP TFTP NTP SNMP.mp3",
+      "duration": 826.6
+    },
+    {
+      "file": "8.6 Module 8 Labs and ITN Practice Final Exam Review.mp3",
+      "duration": 809.8
+    },
+    {
+      "file": "9.1 Redundant Layer 2 Topologies and Broadcast Storms.mp3",
+      "duration": 817.1
+    },
+    {
+      "file": "9.1 VLAN Segmentation Access Ports and Voice VLANs.mp3",
+      "duration": 800.9
+    },
+    {
+      "file": "9.2 802.1Q VLAN Trunking and Dynamic Trunking Protocol DTP.mp3",
+      "duration": 821.5
+    },
+    {
+      "file": "9.2 Spanning Tree Protocol 802.1D and Root Bridge Election.mp3",
+      "duration": 826.3
+    },
+    {
+      "file": "9.3 Inter-VLAN Routing Router-on-a-Stick and Subinterfaces.mp3",
+      "duration": 802.4
+    },
+    {
+      "file": "9.3 STP Port States and Rapid PVST+ 802.1w.mp3",
+      "duration": 832.0
+    },
+    {
+      "file": "9.4 EtherChannel Link Aggregation PAgP and LACP.mp3",
+      "duration": 808.6
+    },
+    {
+      "file": "9.4 Spanning Tree Protocol STP Foundations and Loop Prevention.mp3",
+      "duration": 809.9
+    },
+    {
+      "file": "9.5 CCNA SRWE Skills Exam Part 2 and Final Blueprint.mp3",
+      "duration": 821.7
+    },
+    {
+      "file": "9.5 Final Comprehensive CCNA Practice Exam and Skills Synthesis.mp3",
+      "duration": 815.9
+    }
+  ]
+}

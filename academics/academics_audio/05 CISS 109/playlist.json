@@ -1,0 +1,403 @@
+{
+  "title": "CISS 109: Python Programming",
+  "subtitle": "Hudson Valley Community College • Complete Course Audio Suite",
+  "baseUrl": "https://hvcc.hexdef.com/ciss109/",
+  "tracks": [
+    {
+      "file": "1.1 Python Origins and CPython Architecture.mp3",
+      "duration": 663.1
+    },
+    {
+      "file": "1.2 Python Virtual Machine and Bytecode.mp3",
+      "duration": 634.0
+    },
+    {
+      "file": "1.3 Interactive Shell and Script Execution.mp3",
+      "duration": 595.1
+    },
+    {
+      "file": "1.4 Virtual Environments pip and Project Layout.mp3",
+      "duration": 622.8
+    },
+    {
+      "file": "1.5 Python Error Hierarchy and Tracebacks.mp3",
+      "duration": 543.1
+    },
+    {
+      "file": "1.6 Mod 1 DB and Orientation Review.mp3",
+      "duration": 746.6
+    },
+    {
+      "file": "2.1 Variables Dynamic Typing and Object References.mp3",
+      "duration": 742.4
+    },
+    {
+      "file": "2.2 CPython Heap Allocation and Reference Counting.mp3",
+      "duration": 741.2
+    },
+    {
+      "file": "2.3 Numeric Types and Floating Point Precision.mp3",
+      "duration": 756.5
+    },
+    {
+      "file": "2.4 Arithmetic Operators and Precedence Rules.mp3",
+      "duration": 742.2
+    },
+    {
+      "file": "2.5 Bitwise Operators and Bit Shift Manipulation.mp3",
+      "duration": 739.7
+    },
+    {
+      "file": "2.6 Standard IO and Type Casting Mechanics.mp3",
+      "duration": 740.8
+    },
+    {
+      "file": "2.7 Modern String Formatting with F-Strings.mp3",
+      "duration": 738.8
+    },
+    {
+      "file": "2.8 Math and Random Modules and Assignment 1.mp3",
+      "duration": 729.4
+    },
+    {
+      "file": "3.1 Boolean Logic and Relational Evaluation.mp3",
+      "duration": 737.4
+    },
+    {
+      "file": "3.2 Conditional Statements and Multi-Way Branching.mp3",
+      "duration": 744.6
+    },
+    {
+      "file": "3.3 Logical Operators and Short Circuit Logic.mp3",
+      "duration": 742.6
+    },
+    {
+      "file": "3.4 For Loops Iteration and Range Generation.mp3",
+      "duration": 734.0
+    },
+    {
+      "file": "3.4 While Loops Sentinel Control and Off-By-One Traps.mp3",
+      "duration": 639.5
+    },
+    {
+      "file": "3.5 For Loops, the Range Type, and Sequence Traversal.mp3",
+      "duration": 726.2
+    },
+    {
+      "file": "3.5 While Loops Sentinel Control and Off-By-One Traps.mp3",
+      "duration": 738.5
+    },
+    {
+      "file": "3.6 Break Continue Pass and Loop Else Constructs.mp3",
+      "duration": 743.1
+    },
+    {
+      "file": "3.6 Loop Control Statements: Break, Continue, Pass, and Else.mp3",
+      "duration": 732.0
+    },
+    {
+      "file": "3.7 Sequence Slicing and String Substrings.mp3",
+      "duration": 715.4
+    },
+    {
+      "file": "3.7 Simulation Algorithms and Mod 3 DB Review.mp3",
+      "duration": 735.4
+    },
+    {
+      "file": "3.8 Assignment 2 Problem Solving: Loops, Logic, and Validation.mp3",
+      "duration": 737.6
+    },
+    {
+      "file": "4.1 String Immutability Indexing and Slicing.mp3",
+      "duration": 744.2
+    },
+    {
+      "file": "4.2 String Methods and Text Manipulation.mp3",
+      "duration": 733.8
+    },
+    {
+      "file": "4.3 Unicode UTF-8 and ASCII Byte Encodings.mp3",
+      "duration": 744.7
+    },
+    {
+      "file": "4.4 Number Bases and Radix Conversions.mp3",
+      "duration": 748.3
+    },
+    {
+      "file": "4.5 File IO Streams and Buffer Management.mp3",
+      "duration": 739.8
+    },
+    {
+      "file": "4.6 Context Managers and Pathlib File System Ops.mp3",
+      "duration": 744.2
+    },
+    {
+      "file": "4.6 Structured Data: CSV, JSON, and Serialization.mp3",
+      "duration": 732.5
+    },
+    {
+      "file": "4.7 Assignment 3 Problem Solving: Text Processing and File Parsing.mp3",
+      "duration": 743.3
+    },
+    {
+      "file": "4.7 The OS and Sys Modules and CLI Arguments.mp3",
+      "duration": 744.4
+    },
+    {
+      "file": "4.8 Assignment M2A1 and Quiz 2 Review.mp3",
+      "duration": 744.8
+    },
+    {
+      "file": "5.1 List Architecture and Dynamic Array Mechanics.mp3",
+      "duration": 746.6
+    },
+    {
+      "file": "5.1 Lists Dynamic Arrays and Memory Resizing Strategies.mp3",
+      "duration": 733.2
+    },
+    {
+      "file": "5.2 List Mutation Aliasing and Deep vs Shallow Copy.mp3",
+      "duration": 744.8
+    },
+    {
+      "file": "5.2 Tuples Immutability and Memory Layout.mp3",
+      "duration": 719.0
+    },
+    {
+      "file": "5.3 Dictionaries Hash Tables and Collision Resolution.mp3",
+      "duration": 724.0
+    },
+    {
+      "file": "5.3 List Comprehensions and Functional Syntax.mp3",
+      "duration": 744.6
+    },
+    {
+      "file": "5.4 Sets Frozensets and Mathematical Set Theory.mp3",
+      "duration": 721.4
+    },
+    {
+      "file": "5.4 Tuples Immutability and Sequence Unpacking.mp3",
+      "duration": 734.6
+    },
+    {
+      "file": "5.5 Dictionaries Hash Tables and Key Value Operations.mp3",
+      "duration": 749.7
+    },
+    {
+      "file": "5.5 List Comprehensions Dict Comprehensions and Set Comprehensions.mp3",
+      "duration": 740.8
+    },
+    {
+      "file": "5.6 Dictionary Methods Traversal and Comprehensions.mp3",
+      "duration": 728.4
+    },
+    {
+      "file": "5.6 Shallow vs Deep Copies and the Copy Module.mp3",
+      "duration": 723.5
+    },
+    {
+      "file": "5.7 Advanced Data Structures Collections and Assignment 4.mp3",
+      "duration": 731.4
+    },
+    {
+      "file": "5.7 Sets Hash Sets and Set Operations.mp3",
+      "duration": 744.8
+    },
+    {
+      "file": "5.8 Nested Data Modeling JSON and API Parsing.mp3",
+      "duration": 744.8
+    },
+    {
+      "file": "6.1 Function Architecture and Value Return Mechanics.mp3",
+      "duration": 741.9
+    },
+    {
+      "file": "6.2 Argument Passing Rules and Mutable Default Traps.mp3",
+      "duration": 744.3
+    },
+    {
+      "file": "6.3 Namespaces Variable Scopes and the LEGB Rule.mp3",
+      "duration": 732.9
+    },
+    {
+      "file": "6.3 Variable Length Arguments Args and Kwargs.mp3",
+      "duration": 739.3
+    },
+    {
+      "file": "6.4 Higher-Order Functions Lambdas and Closures.mp3",
+      "duration": 720.5
+    },
+    {
+      "file": "6.4 Variable Scope LEGB Rule and Global Keyword.mp3",
+      "duration": 745.7
+    },
+    {
+      "file": "6.5 Decorator Architecture and Metaprogramming.mp3",
+      "duration": 716.5
+    },
+    {
+      "file": "6.5 First-Class Functions Closures and Lambdas.mp3",
+      "duration": 743.5
+    },
+    {
+      "file": "6.6 Recursion Stack Overflow and Memoization.mp3",
+      "duration": 720.0
+    },
+    {
+      "file": "6.6 Recursive Problem Solving and Stack Frames.mp3",
+      "duration": 738.0
+    },
+    {
+      "file": "6.7 Assignment M3A1 and Quiz 3 Review.mp3",
+      "duration": 746.1
+    },
+    {
+      "file": "6.8 Python Midterm Exam Comprehensive Review.mp3",
+      "duration": 743.5
+    },
+    {
+      "file": "7.1 Turtle Graphics and Vector Geometry.mp3",
+      "duration": 734.0
+    },
+    {
+      "file": "7.2 Algorithmic Complexity Big-O Analysis and Profiling.mp3",
+      "duration": 730.5
+    },
+    {
+      "file": "7.2 Recursive Fractals and Geometry Algorithms.mp3",
+      "duration": 738.2
+    },
+    {
+      "file": "7.3 Defensive Programming Custom Exceptions and Error Strategies.mp3",
+      "duration": 737.4
+    },
+    {
+      "file": "7.3 Digital Images RGB Color and 2D Grids.mp3",
+      "duration": 745.6
+    },
+    {
+      "file": "7.4 Image Transformation and Filter Algorithms.mp3",
+      "duration": 744.6
+    },
+    {
+      "file": "7.4 Midterm Exam Traps and Distractor Analysis.mp3",
+      "duration": 721.7
+    },
+    {
+      "file": "7.5 Midterm Assessment Practice: Practical Problems.mp3",
+      "duration": 724.3
+    },
+    {
+      "file": "8.1 GUI Architecture and Tkinter Event Loops.mp3",
+      "duration": 740.5
+    },
+    {
+      "file": "8.2 Tkinter Widgets Geometry Managers and Grid Layout.mp3",
+      "duration": 735.0
+    },
+    {
+      "file": "8.3 GUI Event Handlers Dialogs and Assignment M4A1.mp3",
+      "duration": 746.8
+    },
+    {
+      "file": "8.4 Canvas Graphics and Coordinate Geometry.mp3",
+      "duration": 719.1
+    },
+    {
+      "file": "8.5 Event Binding Keyboard Mouse and Virtual Events.mp3",
+      "duration": 729.5
+    },
+    {
+      "file": "8.6 MVC Desktop Architecture and Object-Oriented GUIs.mp3",
+      "duration": 734.1
+    },
+    {
+      "file": "8.7 Assignment 4 Problem Solving: GUI Capstone Walkthrough.mp3",
+      "duration": 734.7
+    },
+    {
+      "file": "9.1 Classes Instances Self and Dunder Init.mp3",
+      "duration": 748.2
+    },
+    {
+      "file": "9.1 Object-Oriented Foundations Classes and Instances.mp3",
+      "duration": 746.6
+    },
+    {
+      "file": "9.2 Encapsulation Class vs Instance State.mp3",
+      "duration": 747.3
+    },
+    {
+      "file": "9.2 Encapsulation Private Attributes and Properties.mp3",
+      "duration": 738.9
+    },
+    {
+      "file": "9.3 Operator Overloading and Dunder Methods.mp3",
+      "duration": 748.6
+    },
+    {
+      "file": "9.4 Inheritance Polymorphism and Super Function.mp3",
+      "duration": 736.9
+    },
+    {
+      "file": "9.5 Abstract Base Classes and Polymorphism.mp3",
+      "duration": 736.4
+    },
+    {
+      "file": "9.6 Robust Exception Handling and Custom Classes.mp3",
+      "duration": 749.0
+    },
+    {
+      "file": "9.7 Object Persistence Pickle Shelve and SQLite.mp3",
+      "duration": 737.9
+    },
+    {
+      "file": "9.8 Data Analysis Pandas Matplotlib and Assignment M5A1.mp3",
+      "duration": 758.4
+    },
+    {
+      "file": "10.1 Scientific Python: NumPy Multidimensional Arrays and Vectorization.mp3",
+      "duration": 749.4
+    },
+    {
+      "file": "10.1 Threads GIL and Synchronization Locks.mp3",
+      "duration": 743.2
+    },
+    {
+      "file": "10.2 Data Analysis with Pandas: Series, DataFrames, and Data Cleaning.mp3",
+      "duration": 744.6
+    },
+    {
+      "file": "10.2 Network Socket Programming and Client Server Models.mp3",
+      "duration": 739.1
+    },
+    {
+      "file": "10.3 Data Visualization with Matplotlib and Seaborn.mp3",
+      "duration": 721.6
+    },
+    {
+      "file": "10.3 Web Requests APIs and HTML Parsing.mp3",
+      "duration": 731.7
+    },
+    {
+      "file": "10.4 Assignment 5 Capstone: Analytics, Visualization, and Final Project.mp3",
+      "duration": 745.6
+    },
+    {
+      "file": "10.4 Big-O Complexity Analysis and Scalability.mp3",
+      "duration": 745.3
+    },
+    {
+      "file": "10.5 Final Comprehensive Synthesis and 90 Percent Exemption Roadmap.mp3",
+      "duration": 743.0
+    },
+    {
+      "file": "10.5 Searching and Sorting Algorithm Mechanics.mp3",
+      "duration": 743.1
+    },
+    {
+      "file": "10.6 Final Comprehensive Review and Exemption Guide.mp3",
+      "duration": 759.4
+    }
+  ]
+}
