@@ -1,325 +1,319 @@
-# CISS 109: Python Programming — Master Study Guide
+# CISS 109: Python Programming — Comprehensive Master Study Guide
 
-Welcome to the **CISS 109 (Python Programming) Master Study Guide**. This definitive reference covers the complete undergraduate computer science curriculum at Hudson Valley Community College (HVCC), spanning CPython internals, memory management, algorithmic control flow, functional programming, data structures, GUI event architecture, object-oriented design, scientific analytics, and systems concurrency.
-
----
-
-## 🐍 Module 1: Python Architecture, Virtual Machine & Development Environment
-
-### 1.1 Python Origins & CPython Architecture
-* **CPython Implementation**: The reference implementation of Python written in C. Source code (`.py`) is compiled into intermediate **Bytecode** before execution by the interpreter.
-* **Compilation Pipeline**:
-  $$\text{Source Code (.py)} \xrightarrow{\text{Parser / Compiler}} \text{Abstract Syntax Tree (AST)} \xrightarrow{\text{Code Generator}} \text{Bytecode (.pyc)} \xrightarrow{\text{Evaluation Loop}} \text{Python Virtual Machine (PVM)}$$
-* **Interpreted vs Compiled**: Python is a hybrid bytecode-compiled interpreted language, providing dynamic flexibility while optimizing execution via cached `.pyc` files in `__pycache__/`.
-
-### 1.2 Python Virtual Machine (PVM) & Bytecode
-* **Stack-Based Execution**: The PVM is a stack-based virtual machine evaluating bytecode instructions (e.g., `LOAD_CONST`, `STORE_NAME`, `BINARY_OP`, `CALL_FUNCTION`).
-* **Bytecode Inspection**: Using the standard library `dis` module to disassemble functions into human-readable opcode instructions:
-  ```python
-  import dis
-  dis.dis(lambda a, b: a + b)
-  ```
-
-### 1.3 Interactive Shell & Script Execution
-* **REPL (Read-Eval-Print Loop)**: Interactive shell for real-time expression evaluation, introspection (`dir()`, `help()`, `type()`, `id()`), and rapid prototyping.
-* **Module Execution Guard**:
-  ```python
-  if __name__ == '__main__':
-      # Executes only when script is run directly, not when imported
-      main()
-  ```
-
-### 1.4 Virtual Environments & Package Management
-* **`venv` Module**: Creates isolated Python runtime environments preventing global package dependency conflicts:
-  * `python3 -m venv .venv`
-  * `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\activate` (Windows)
-* **`pip` Package Installer**: `pip install -r requirements.txt`, `pip freeze > requirements.txt`.
-
-### 1.5 Python Error Hierarchy & Tracebacks
-* **Exception Inheritance Tree**: All standard exceptions inherit from `BaseException` $\rightarrow$ `Exception`.
-  * `SyntaxError`: Caught at parse time before execution begins.
-  * `TypeError`: Operation applied to an object of inappropriate type.
-  * `ValueError`: Inappropriate value received with correct type.
-  * `IndexError` & `KeyError`: Sequence out-of-range or missing dictionary mapping.
-  * `NameError` & `AttributeError`: Unbound variable or missing object attribute.
+Welcome to the **CISS 109 (Python Programming) Master Study Companion**. This guide encompasses the complete 13-module computer science and Python software engineering curriculum at Hudson Valley Community College (HVCC), spanning algorithmic thinking, memory representations, control structures, data structures, recursion, GUI engineering, object-oriented design, data analytics, multithreaded networking, and Big-O algorithmic complexity proofs.
 
 ---
 
-## 🔢 Module 2: Data Types, Memory Allocation, Operators & Arithmetic
+## 💻 Module 01: Introduction to Computer Science & Python Environment
 
-### 2.1 Variables, Dynamic Typing & Object References
-* **Everything is an Object**: In Python, variables are named references (pointers) bound to objects stored on the CPython private heap.
-* **Dynamic vs Strong Typing**:
-  * **Dynamic**: Variable types are determined at runtime during assignment; a variable name can re-bind to different types.
-  * **Strong**: Explicit type conversions are strictly enforced; Python never implicitly converts `'5' + 5` (raises `TypeError`).
+### 1.1–1.2 Algorithms & Information Processing
+* **Definition of an Algorithm**: A step-by-step, finite, unambiguous sequence of instructions that transforms inputs into outputs and terminates (halts) in a finite amount of time.
+* **Information Processing**: Converting raw data into meaningful structured information through algorithmic transformation.
 
-### 2.2 CPython Heap Allocation & Reference Counting
-* **Automatic Memory Management**:
-  * **Reference Counting**: Every object contains an internal `ob_refcnt` header tracking active references. When count reaches zero, memory is freed immediately.
-  * **Generational Cyclic Garbage Collector**: Periodically scans for cyclic references (e.g., Object A references B, B references A) across 3 generations ($G_0, G_1, G_2$).
-* **Object Identity (`id()`) & Equality (`==` vs `is`)**:
-  * `==` checks value equality (calls `__eq__`).
-  * `is` checks reference identity (memory address equality `id(a) == id(b)`).
-  * Integer small-cache optimization: Integers from `-5` to `256` are pre-allocated singletons in CPython.
+### 1.3–1.4 Hardware Architecture & Memory Hierarchy
+* **Von Neumann Architecture**: CPU (Control Unit + Arithmetic Logic Unit) $\leftrightarrow$ Primary Memory (RAM) $\leftrightarrow$ Secondary Storage (SSD/HDD) $\leftrightarrow$ I/O Devices.
+* **Memory Hierarchy**:
+  * **Registers / CPU Cache (L1/L2/L3)**: Picosecond/Nanosecond latency, highest cost, smallest capacity.
+  * **RAM (Random Access Memory)**: Volatile primary memory; bytes individually addressable via binary pointers.
+  * **Secondary Storage**: Non-volatile, persistent block storage.
+* **Bits and Bytes**: $1\text{ Byte} = 8\text{ bits}$ ($2^8 = 256$ distinct values: `0` to `255`).
 
-### 2.3 Numeric Types & Floating-Point Precision
-* **Integers (`int`)**: Arbitrary precision integers (no 32-bit or 64-bit overflow limit; memory grows dynamically).
-* **Floats (`float`)**: 64-bit IEEE 754 double-precision floating-point numbers (53 bits significand, $\approx 15\text{–}17$ decimal digits precision).
-  * Binary float representation error: `0.1 + 0.2 != 0.3` ($\approx 0.30000000000000004$).
-  * Solution for financial calculations: `from decimal import Decimal`.
+### 1.5–1.7 Software & Language Translators
+* **Software Ecosystem**: Operating Systems (manage hardware resources, processes, file systems) vs. Application Software (end-user utilities).
+* **Language Hierarchy**: Machine Code (`0101`) $\rightarrow$ Assembly Language (Mnemonics like `MOV`, `ADD`) $\rightarrow$ High-Level Compiled/Interpreted Languages.
+* **Compilers vs Interpreters**:
+  * **Compiler**: Translates entire source code into native machine code before execution (faster runtime, produces standalone binary).
+  * **Interpreter**: Translates and executes code statement-by-statement at runtime (interactive, highly portable, dynamic). Python is a hybrid bytecode-compiled interpreted language (`.py` $\rightarrow$ `.pyc` $\rightarrow$ PVM).
 
-### 2.4 & 2.5 Operators & Precedence
-* **Arithmetic**: `+`, `-`, `*`, `/` (float division), `//` (floor division), `%` (modulo), `**` (exponentiation).
-* **Bitwise Operators**: `&` (AND), `|` (OR), `^` (XOR), `~` (NOT / Two's Complement inversion), `<<` (left shift), `>>` (right shift).
-* **Precedence Order**: `()` $\rightarrow$ `**` $\rightarrow$ `~, +x, -x` $\rightarrow$ `*, /, //, %` $\rightarrow$ `+, -` $\rightarrow$ `<<, >>` $\rightarrow$ `&` $\rightarrow$ `^` $\rightarrow$ `|` $\rightarrow$ Relational / Logical.
-
-### 2.6 & 2.7 Standard I/O & F-Strings
-* **`input()` & Type Casting**: `input()` always returns a string (`str`); explicit conversion required (`int(input())`, `float(input())`).
-* **Formatted String Literals (F-Strings)**:
-  ```python
-  name = "Alice"; balance = 12450.789
-  print(f"User: {name:<10} | Balance: ${balance:,.2f}")
-  # Output: User: Alice      | Balance: $12,450.79
-  ```
+### 1.8–1.12 Python Fundamentals & Error Diagnosis
+* **REPL (Read-Eval-Print Loop)**: Interactive shell for real-time testing and immediate arithmetic evaluation.
+* **I/O Functions**:
+  * `print(*objects, sep=' ', end='\n')`: Outputs string representations to standard output.
+  * `input(prompt)`: Pauses execution and captures user keystrokes as a string (`str`). Explicit conversion required (`int()`, `float()`).
+* **Error Classification**:
+  * **Syntax Error**: Grammatical violation caught at parse time before code executes (e.g., missing colon `:`).
+  * **Runtime Exception**: Fatal condition occurring during execution (e.g., `ZeroDivisionError`, `ValueError`, `TypeError`).
+  * **Logic Bug**: Program executes to completion without errors but produces mathematically or logically incorrect results.
 
 ---
 
-## 🔀 Module 3: Control Flow, Boolean Logic, Loops & Sequence Traversal
+## 🔢 Module 02: Software Development Lifecycle, Variables, Data Types & Arithmetic
 
-### 3.1 & 3.2 Boolean Logic & Multi-Way Branching
-* **Truthy vs Falsy Values**:
-  * **Falsy**: `False`, `None`, `0`, `0.0`, `""`, `[]`, `()`, `{}`, `set()`.
-  * **Truthy**: Any non-zero number, non-empty sequence or collection.
-* **Control Structures**: `if`, `elif`, `else` multi-way branching blocks.
+### 2.1 The Software Development Lifecycle (SDLC)
+* **Phases**: Requirements Analysis $\rightarrow$ System & Algorithm Design $\rightarrow$ Implementation (Coding) $\rightarrow$ Testing & Debugging $\rightarrow$ Deployment & Maintenance.
+
+### 2.2–2.6 Variables, Identifiers & Data Types
+* **Identifier Naming Rules**: Must begin with a letter or underscore (`_`); can contain alphanumeric characters and underscores; case-sensitive; cannot be Python keywords (`if`, `for`, `class`, `def`).
+* **Python Comments**: `#` for inline/header comments; triple quotes `'''` / `"""` for docstrings.
+* **Primitive Types**:
+  * **`int`**: Arbitrary-precision unbounded integer.
+  * **`float`**: 64-bit IEEE 754 double precision (53-bit significand, $\approx 15\text{–}17$ decimal digits).
+  * **`str`**: Immutable sequence of Unicode characters.
+  * **`bool`**: `True` or `False`.
+* **Character Encodings**: `ord('A') = 65`, `chr(65) = 'A'`.
+
+### 2.7–2.13 Arithmetic Operators, Math Module & String Formatting
+* **Operators & Precedence (PEMDAS)**:
+  * `**` (Exponentiation) $\rightarrow$ `~, +x, -x` (Unary) $\rightarrow$ `*, /, //, %` (Multiplication, True Division, Floor Division, Modulo) $\rightarrow$ `+, -` (Addition, Subtraction).
+* **Built-in Math**: `abs(x)`, `round(x, n)`, `min(a, b)`, `max(a, b)`.
+* **The `math` Module**: `math.sqrt(x)`, `math.ceil(x)`, `math.floor(x)`, `math.pi`, `math.e`, `math.sin(rad)`.
+* **String Formatting**:
+  * `%` Operator: `"%10s has $%0.2f" % ("Alice", 12450.789)`
+  * F-Strings: `f"{name:<10} has ${balance:,.2f}"`
+
+---
+
+## 🔀 Module 03: Definite Iteration, Selection & Boolean Logic
+
+### 3.1–3.6 Definite Iteration & The `range()` Function
+* **Count-Controlled `for` Loops**: Iterates over sequences produced by `range()`:
+  * `range(stop)`: `0` up to `stop - 1` with step `1`.
+  * `range(start, stop)`: `start` up to `stop - 1` with step `1`.
+  * `range(start, stop, step)`: `start` up to `stop - 1` incrementing/decrementing by `step`.
+* **The Accumulator Pattern**: Initializing a total variable before a loop and accumulating sums or products across iterations (`total += value`).
+* **Tabular Alignment**: Utilizing formatted width specifiers to print aligned multi-column reports.
+
+### 3.7–3.13 Boolean Logic & Selection
+* **Relational Operators**: `==`, `!=`, `<`, `<=`, `>`, `>=`.
+* **Logical Operators**: `and`, `or`, `not`.
+* **Selection Constructs**:
+  * One-Way (`if condition:`).
+  * Two-Way (`if condition: ... else: ...`).
+  * Multi-Way (`if ... elif ... else`).
 * **Short-Circuit Evaluation**:
-  * `A and B`: If `A` is falsy, returns `A` immediately without evaluating `B`.
-  * `A or B`: If `A` is truthy, returns `A` immediately without evaluating `B`.
+  * In `A and B`: If `A` is `False`, `B` is not evaluated.
+  * In `A or B`: If `A` is `True`, `B` is not evaluated.
 
-### 3.4 & 3.5 Loops & Sequence Traversal
-* **`while` Loop**: Condition-driven loop; requires manual sentinel progression to prevent infinite loops.
-* **`for` Loop**: Iterator-driven traversal utilizing Python's Iterator Protocol (`iter()` and `next()`).
-* **The `range()` Type**: Immutable sequence generator of integers (`range(start, stop, step)`). Lazy evaluation with $O(1)$ memory consumption.
-
-### 3.6 Loop Control Statements & The `else` Clause
-* **`break`**: Immediately terminates loop execution.
-* **`continue`**: Skips remainder of current iteration and jumps to next loop cycle.
-* **`pass`**: Syntactic null statement (placeholder).
-* **`for...else` / `while...else`**: The `else` block executes **only if the loop completed normally without encountering a `break`** (useful for search algorithms).
+### 3.14–3.18 Conditional Iteration & Monte Carlo Simulation
+* **`while` Loops**: Condition-controlled loop executing while expression remains `True`.
+* **Sentinel Value**: A special input value (e.g., `-1` or `'quit'`) signaling the end of input processing.
+* **Loop Control**: `break` (terminates loop), `continue` (skips current cycle to next iteration).
+* **Monte Carlo Simulation**: Using pseudo-random number generators (`random.randint(a, b)`, `random.choice(seq)`) to model probabilistic systems.
 
 ---
 
-## 📄 Module 4: Strings, Encodings, File I/O & Structured Serialization
+## 📄 Module 04: Strings, Text Files & File System Operations
 
-### 4.1 & 4.2 String Immutability, Slicing & Methods
-* **Immutability**: Strings cannot be modified in place; all string methods return new string objects.
-* **Sequence Slicing Formula**: `sequence[start:stop:step]` (negative step reverses sequence: `s[::-1]`).
-* **Core String Methods**: `.strip()`, `.split(',')`, `.join(list)`, `.find()`, `.replace()`, `.lower()`, `.upper()`, `.startswith()`, `.isdigit()`.
+### 4.1–4.13 String Mechanics & Methods
+* **Zero-Based & Negative Indexing**: First character `s[0]`, last character `s[-1]`.
+* **Immutability**: String objects cannot be modified in place; operations return new strings.
+* **Slicing**: `s[start:stop:step]` (`s[::-1]` reverses string).
+* **Membership**: `'sub' in text`, `'x' not in text`.
+* **Classification Methods**: `.isdigit()`, `.isalpha()`, `.isalnum()`, `.isspace()`.
+* **Transformation Methods**: `.upper()`, `.lower()`, `.strip()`, `.replace(old, new)`.
+* **Parsing**: `.split(delimiter)` $\rightarrow$ returns list of strings; `'sep'.join(list)` $\rightarrow$ joins elements.
+* **Caesar Cipher Algorithm**: Modular arithmetic shift: $C = (P + k) \pmod{26}$.
 
-### 4.3 Unicode UTF-8 & Byte Encodings
-* **Text (`str`) vs Raw Bytes (`bytes`)**:
-  * `text.encode('utf-8')` converts string characters to UTF-8 encoded byte arrays.
-  * `raw_bytes.decode('utf-8')` decodes byte streams back into Unicode strings.
+### 4.14–4.19 Text Files & `os` Module
+* **Opening Modes**: `'r'` (read), `'w'` (write/truncate), `'a'` (append).
+* **Reading Methods**:
+  * `f.read()`: Reads entire file as single string.
+  * `f.readline()`: Reads next single line including newline `\n`.
+  * `f.readlines()`: Reads all lines into a list of strings.
+  * Direct Line Iteration: `for line in f:` (memory efficient stream).
+* **`os` and `os.path`**: `os.path.exists(p)`, `os.path.isfile(p)`, `os.listdir(dir)`, `os.getcwd()`.
 
-### 4.5 & 4.6 File I/O Streams, Buffering & Context Managers
-* **File Open Modes**: `'r'` (read), `'w'` (truncate & write), `'a'` (append), `'b'` (binary mode), `'+'` (read/write).
-* **Context Manager (`with` Statement)**: Guarantees deterministic resource cleanup (file closure) even when exceptions occur, invoking `__enter__()` and `__exit__()`:
+---
+
+## 🗃️ Module 05: Lists, Tuples, Dictionaries & Frequency Analysis
+
+### 5.1–5.12 Lists & Memory Semantics
+* **List Properties**: Ordered, mutable sequence of heterogeneous object references.
+* **Mutator Methods**: `.append(x)`, `.insert(idx, x)`, `.extend(iterable)`, `.pop([idx])`, `.remove(val)`, `.clear()`.
+* **Sorting**:
+  * `list.sort()`: Mutates list in place, returns `None`.
+  * `sorted(iterable)`: Returns a new sorted list without mutating the original.
+* **Aliasing vs Cloning**:
+  * Aliasing (`b = a`): Both variables reference the identical memory object (`id(a) == id(b)`).
+  * Shallow Copy (`b = a.copy()` or `a[:]`): Duplicates outer collection.
+  * Deep Copy (`import copy; copy.deepcopy(a)`): Recursively duplicates all nested collections.
+* **Equality**: `a == b` checks structural value equivalence; `a is b` checks exact object identity.
+
+### 5.13–5.14 Tuples
+* **Immutable Sequence**: Defined with parentheses `(1, 2, 3)`; cannot be modified after creation.
+* **Packing & Unpacking**: `a, b, *rest = (10, 20, 30, 40, 50)`.
+
+### 5.15–5.20 Dictionaries & Frequency Tables
+* **Hash Table Architecture**: Key-value mappings with $O(1)$ average time complexity. Keys must be immutable (hashable).
+* **Dictionary Operations**: `d[key] = val`, `del d[key]`, `d.pop(key)`.
+* **Views & Safe Access**:
+  * `.keys()`, `.values()`, `.items()`.
+  * `.get(key, default)`: Returns default without raising `KeyError`.
+  * `.setdefault(key, default)`: Sets default if key absent.
+* **Frequency Counting**:
   ```python
-  with open("data.txt", "r", encoding="utf-8") as f:
-      for line in f:
-          process(line.strip())
-  ```
-* **Modern `pathlib`**: Object-oriented filesystem paths (`from pathlib import Path; p = Path('.') / 'logs' / 'app.log'`).
-
-### 4.6 & 4.7 Structured Serialization & CLI Arguments
-* **`json` Module**: `json.dumps()` (object $\rightarrow$ string), `json.loads()` (string $\rightarrow$ object), `json.dump(obj, f)` (write to file), `json.load(f)` (read from file).
-* **`csv` Module**: `csv.reader()`, `csv.DictReader()`, `csv.writer()`, `csv.DictWriter()`.
-* **`sys.argv` & `argparse`**: Command-line arguments (`sys.argv[0]` is script name).
-
----
-
-## 🗃️ Module 5: Collections: Lists, Tuples, Dictionaries, Sets & Comprehensions
-
-### 5.1 & 5.2 Lists & Dynamic Array Mechanics
-* **Dynamic Array Memory Model**: Contiguous block of object pointers with over-allocation resizing strategies ($O(1)$ amortized append, $O(n)$ insertion/deletion at arbitrary index).
-* **Shallow vs Deep Copy**:
-  * **Shallow Copy (`list.copy()`, `l[:]`)**: Creates new outer collection but shares references to nested child objects.
-  * **Deep Copy (`import copy; copy.deepcopy()`)**: Recursively duplicates all nested objects and data structures.
-
-### 5.2 & 5.4 Tuples & Sequence Unpacking
-* **Immutability & Efficiency**: Fixed-size tuple allocations have lower memory overhead than lists; can serve as dictionary keys if all contained elements are hashable.
-* **Tuple Unpacking**: `x, y, *rest = (1, 2, 3, 4, 5)` $\rightarrow$ `x = 1, y = 2, rest = [3, 4, 5]`.
-
-### 5.3 & 5.5 Dictionaries & Hash Tables
-* **Hash Table Architecture**: Python dictionaries use sparse open-addressing hash tables with perturbation-based collision resolution ($O(1)$ average lookup, insertion, deletion).
-* **Key Hashability Requirement**: Keys must implement `__hash__()` and `__eq__()` and remain immutable throughout their lifecycle.
-* **Methods**: `.get(key, default)`, `.items()`, `.keys()`, `.values()`, `.setdefault(key, default)`.
-
-### 5.4 & 5.7 Sets & Mathematical Set Operations
-* **Hash Set**: Unordered collection of unique hashable elements.
-* **Set Operations**: Union (`|`), Intersection (`&`), Difference (`-`), Symmetric Difference (`^`), Subset (`<=`).
-
-### 5.5 Comprehensions Syntax
-* **List Comprehension**: `[x**2 for x in range(10) if x % 2 == 0]`
-* **Dictionary Comprehension**: `{k: v for k, v in zip(keys, values)}`
-* **Set Comprehension**: `{word.lower() for word in text.split()}`
-* **Generator Expression**: `(x**2 for x in range(1000000))` (Memory-efficient lazy streaming).
-
----
-
-## 🧩 Module 6: Functions, Scopes, Closures, Decorators & Recursion
-
-### 6.1 & 6.2 Function Architecture & Argument Rules
-* **First-Class Citizens**: Functions can be passed as arguments, returned from other functions, and stored in data structures.
-* **Parameter Ordering Rules**:
-  $$\text{Positional} \rightarrow \text{Default} \rightarrow \text{*args (Variable Positional)} \rightarrow \text{Keyword-Only} \rightarrow \text{**kwargs (Variable Keyword)}$$
-* **The Mutable Default Argument Trap**: Default arguments are evaluated **once at function definition time**, not at invocation:
-  ```python
-  # WRONG: Shares list across calls
-  def append_to(item, target=[]): ...
-  
-  # CORRECT:
-  def append_to(item, target=None):
-      if target is None:
-          target = []
-      target.append(item)
-      return target
+  counts = {}
+  for word in words:
+      counts[word] = counts.get(word, 0) + 1
   ```
 
-### 6.3 & 6.4 Scopes & The LEGB Rule
-* **Lookup Resolution Hierarchy**:
-  1. **L - Local**: Names assigned inside the executing function.
-  2. **E - Enclosing**: Names in outer enclosing function closures (`nonlocal` keyword).
-  3. **G - Global**: Module-level variables (`global` keyword).
-  4. **B - Built-in**: Preloaded Python builtins (`len`, `range`, `print`).
+---
 
-### 6.5 Decorators & Metaprogramming
-* **Decorator Pattern**: Higher-order function taking a callable, wrapping it with enhanced behavior, and returning the wrapper:
-  ```python
-  import functools, time
-  
-  def timer(func):
-      @functools.wraps(func)
-      def wrapper(*args, **kwargs):
-          start = time.perf_counter()
-          result = func(*args, **kwargs)
-          print(f"{func.__name__} took {time.perf_counter() - start:.6f}s")
-          return result
-      return wrapper
-  ```
+## 🧩 Module 06: Functions, Parameters, Scopes, Recursion & Functional Tools
 
-### 6.6 Recursion & Stack Frames
-* **Call Stack Mechanics**: Every recursive call pushes a new activation record (stack frame) containing local variables and return address onto the call stack.
-* **Base Case & Recursion Ceiling**: Must define a terminating base case to prevent `RecursionError: maximum recursion depth exceeded` (default ceiling: 1000 frames).
+### 6.1–6.8 Function Architecture & Top-Down Design
+* **Function Definition**: `def name(param1, param2): ...` with docstrings `"""Docstring"""`.
+* **Parameter Types**:
+  * Positional arguments, Keyword arguments (`name="Alice"`), Default parameter values (`balance=0.0`).
+* **Return Values**: `return val1, val2` (returns a packed tuple). Omitting `return` implicitly returns `None`.
+* **Main Guard**: `if __name__ == '__main__': main()` ensures script runs only on direct execution.
+
+### 6.9–6.11 Variable Scope & Parameter Passing
+* **LEGB Scope Rule**: Local $\rightarrow$ Enclosing $\rightarrow$ Global $\rightarrow$ Built-in.
+* **`global` Keyword**: Allows modifying global module-level variables inside local function scope.
+* **Pass-by-Object-Reference**: Function receives copy of object reference; mutating a mutable object impacts caller, while re-binding the local identifier does not.
+
+### 6.12–6.16 Recursion & Functional Programming
+* **Recursion Anatomy**:
+  * **Base Case**: Halting condition that returns without recursive calls.
+  * **Recursive Step**: Subdividing problem into smaller self-similar instances towards base case.
+  * **Call Stack**: Pushes stack frame for each call; missing base case causes `RecursionError`.
+* **Functional Tools**:
+  * `lambda x, y: x + y`: Anonymous inline function.
+  * `map(func, iterable)` & `filter(pred, iterable)`.
+  * List Comprehensions: `[f(x) for x in seq if cond(x)]`.
 
 ---
 
-## 🎨 Module 7: Graphics, Vector Geometry, Image Processing & Midterm Synthesis
+## 🎯 Module 07: Midterm Exam Review, MCQ Strategies & Concept Synthesis
 
-### 7.1 & 7.2 Vector Geometry & Turtle Graphics
-* **Cartesian vs Polar Coordinates**: Translating headings ($\theta$) and distances ($r$) into 2D coordinate space ($x = r\cos\theta, y = r\sin\theta$).
-* **Recursive Fractals**: Generating self-similar geometric structures (Sierpinski Triangles, Koch Snowflakes, Fractal Trees) using recursive step reductions.
-
-### 7.3 & 7.4 Digital Image Processing & 2D Grid Algorithms
-* **RGB Color Model**: 24-bit TrueColor ($8\text{ bits per channel: Red, Green, Blue} \in [0, 255]$).
-* **Matrix Manipulations**: 2D array traversals for image transformations:
-  * Grayscale Conversion: $\text{Luminance} = 0.299R + 0.587G + 0.114B$.
-  * Image Inversion: $R' = 255 - R, G' = 255 - G, B' = 255 - B$.
-  * Convolution Filters: $3 \times 3$ kernel matrix multiplication for spatial blurring, sharpening, and Sobel edge detection.
+### 7.1–7.6 Comprehensive Review & Exam Techniques
+* **Core Syntax & Operators**: Mixed-mode arithmetic, floor division with negatives (`-7 // 2 = -4`), string slicing step indexing.
+* **Aliasing Traps**: Mutable default argument bug (`def f(x=[])`), list assignment aliasing.
+* **Scope Tracking**: Differentiating between local identifier masking and global state changes.
+* **Multiple-Choice Elimination**: Eliminating distractors by manual execution tracing, off-by-one verification, and type consistency checks.
 
 ---
 
-## 🖥️ Module 8: Graphical User Interfaces (GUI) & Tkinter Event Loops
+## 🎨 Module 08: Computer Graphics, Turtle Drawing & Digital Image Processing
 
-### 8.1 Tkinter Architecture & The Event Loop
-* **Event-Driven Architecture**: The main application blocks on `root.mainloop()`, intercepting operating system window events, mouse clicks, and keystrokes from an asynchronous event queue.
-* **Root Window & TopLevel**: `tk.Tk()` initializes the master Tcl/Tk interpreter; `tk.Toplevel()` opens secondary dialog windows.
+### 8.1–8.7 Coordinate Systems & Turtle Graphics
+* **Screen Space**: Cartesian coordinate grid $(0, 0)$ at center.
+* **Turtle Methods**:
+  * Movement: `forward(d)`, `backward(d)`, `left(deg)`, `right(deg)`, `goto(x, y)`, `setheading(h)`.
+  * Pen Control: `penup()`, `pendown()`, `pensize(w)`, `pencolor(c)`, `fillcolor(c)`, `begin_fill()`, `end_fill()`.
+* **Recursive Art**: Parameterized recursive drawing of Koch Snowflakes, C-curves, and Sierpinski Triangles.
 
-### 8.2 Tkinter Widgets & Geometry Managers
-* **Core Widgets**: `Label`, `Button`, `Entry` (single-line input), `Text` (multiline editor), `Frame` (container), `Canvas`, `Checkbutton`, `Radiobutton`.
+### 8.8–8.14 Digital Image Processing & 2D Grids
+* **RGB Color Model**: 24-bit TrueColor (Red, Green, Blue $\in [0, 255]$).
+* **2D Grid Traversal**: Nested loops over row $y$ and column $x$.
+* **Algorithms**:
+  * **Grayscale Conversion (Luminance)**: $\text{Luminance} = 0.299R + 0.587G + 0.114B$.
+  * **Black-and-White Thresholding**: If $\text{Luminance} > T$ then $255$ else $0$.
+  * **Color Inversion**: $R' = 255 - R, G' = 255 - G, B' = 255 - B$.
+  * **Spatial Blurring**: Neighborhood $3 \times 3$ kernel pixel averaging.
+  * **Edge Detection**: Spatial gradient thresholding across adjacent pixels.
+
+---
+
+## 🖥️ Module 09: Graphical User Interfaces (GUI) & Event-Driven Tkinter
+
+### 9.1–9.4 Tkinter Architecture & Geometry Managers
+* **Event-Driven Paradigm**: Applications block on `root.mainloop()`, processing events from the OS event queue.
 * **Geometry Managers**:
-  * **`grid(row=r, column=c, sticky="nsew", padx=p, pady=p)`**: The standard tabular layout manager.
-  * **`pack(side=tk.TOP, fill=tk.BOTH, expand=True)`**: Linear flow layout.
-  * **`place(x=px, y=py)`**: Absolute coordinate placement.
+  * **`grid(row=r, column=c, sticky="nsew", padx=p, pady=p)`**: Tabular matrix positioning.
+  * **`pack(side=tk.TOP, fill=tk.BOTH, expand=True)`**: Linear stacking layout.
+  * **`place(x=px, y=py)`**: Exact pixel coordinates.
 
-### 8.5 & 8.6 Event Binding & MVC Architecture
-* **Event Binding**: `widget.bind("<Button-1>", on_click)`, `widget.bind("<Key>", on_keypress)`.
-* **MVC Pattern**: Model (Business logic & data storage) separated cleanly from View (Tkinter UI layout) and Controller (Event callbacks and command handlers).
-
----
-
-## 🏛️ Module 9: Object-Oriented Programming (OOP), Polymorphism & Persistence
-
-### 9.1 & 9.2 Classes, Instances, `self` & Encapsulation
-* **Class vs Instance State**:
-  * **Class Variable**: Shared across all instances of the class.
-  * **Instance Variable**: Bound to a specific instance via `self.attribute`.
-* **Encapsulation & Property Decorators**:
-  ```python
-  class BankAccount:
-      def __init__(self, owner: str, balance: float = 0.0):
-          self.owner = owner
-          self._balance = balance # Protected attribute convention
-          
-      @property
-      def balance(self) -> float:
-          return self._balance
-          
-      @balance.setter
-      def balance(self, value: float):
-          if value < 0:
-              raise ValueError("Balance cannot be negative")
-          self._balance = value
-  ```
-
-### 9.3 Operator Overloading & Dunder Magic Methods
-* `__str__()` (user-friendly string) vs `__repr__()` (unambiguous developer representation).
-* Arithmetic: `__add__()`, `__sub__()`, `__mul__()`, `__truediv__()`.
-* Comparisons: `__eq__()`, `__lt__()`, `__le__()`, `__gt__()`, `__ge__()`.
-* Container Protocol: `__len__()`, `__getitem__()`, `__setitem__()`, `__iter__()`, `__contains__()`.
-
-### 9.4 & 9.5 Inheritance, `super()` & Abstract Base Classes (ABCs)
-* **Method Resolution Order (MRO)**: C3 Linearization algorithm resolving method inheritance paths in multiple inheritance hierarchies (`Class.mro()`).
-* **Abstract Base Classes (`abc.ABC`)**: Enforces interface contracts requiring derived subclasses to implement `@abc.abstractmethod` decorators.
-
-### 9.7 Object Persistence: SQLite & Serialization
-* **`pickle`**: Binary serialization of arbitrary Python object graphs.
-* **`sqlite3`**: Embedded relational database engine for structured transactional persistence (`sqlite3.connect()`, `cursor.execute()`, parameterized SQL queries preventing SQL injection).
+### 9.5–9.15 Tkinter Widgets & Model-View Pattern
+* **Core Widgets**:
+  * `Label`: Text/image display.
+  * `Entry`: Single-line text input field (`.get()`, `.delete()`, `.insert()`).
+  * `Button`: Clickable control with `command=callback` handler.
+  * `Checkbutton` & `Radiobutton`: Bound to `tk.IntVar()` / `tk.StringVar()`.
+  * `Text` & `Scrollbar`: Multi-line editable document area.
+  * `messagebox`: Dialog popups (`showinfo`, `showwarning`, `askyesno`).
+  * `Canvas`: 2D drawing surface (`create_line`, `create_rectangle`, `create_oval`, `create_text`).
+* **Model-View Pattern**: Clean separation between backend state logic and Tkinter presentation widgets.
 
 ---
 
-## 🚀 Module 10: Advanced Systems, Concurrency, Scientific Analytics & Final Capstone
+## 🏛️ Module 10: Object-Oriented Programming (OOP), Classes & Inheritance
 
-### 10.1 Scientific Python: NumPy Vectorization
-* **`ndarray` Architecture**: Contiguous, statically-typed multidimensional memory buffers executing SIMD vectorized operations in compiled C/Fortran routines, bypassing Python loop overhead.
-* **Broadcasting Rules**: Arithmetic operations across arrays of differing shapes by virtual dimension expansion.
+### 10.1–10.9 Classes, Instances & Dunder Methods
+* **Class vs Object**: Class is the blueprint/type; Object is an instance created in memory.
+* **The `__init__` Constructor & `self`**:
+  * `self` binds methods to the active instance memory reference.
+* **Special Dunder (Double Underscore) Methods**:
+  * `__str__()`: Human-readable string representation (used by `print()`).
+  * `__repr__()`: Unambiguous developer representation.
+  * `__len__()`: Returns collection length.
+  * `__eq__()`, `__lt__()`, `__add__()`: Operator overloading for `==`, `<`, `+`.
+* **Class Variables vs Instance Variables**: Class variables are shared across all instances; instance variables are unique per instance (`self.var`).
 
-### 10.2 & 10.3 Data Analysis with Pandas & Visualization
-* **Pandas Core Structures**:
-  * **`Series`**: 1D labeled homogeneous array.
-  * **`DataFrame`**: 2D tabular labeled heterogeneous data structure with row indices and column headers.
-  * **Data Cleaning & Filtering**: `.dropna()`, `.fillna()`, boolean masking (`df[df['age'] > 21]`), `.groupby().agg()`.
-* **Matplotlib & Seaborn**: Figures, subplots, line plots, histograms, scatter plots, and heatmaps.
+### 10.10–10.17 Encapsulation, Inheritance & Polymorphism
+* **Encapsulation**: Private convention prefix `_` or `__` (name mangling); getter accessors and setter mutators.
+* **Inheritance & `super()`**:
+  * Subclass derives attributes/methods from superclass.
+  * `super().__init__(args)` delegates base initialization to parent class.
+* **Method Overriding**: Subclass provides specialized implementation of inherited method.
+* **Polymorphism**: Treating different subclass objects through a uniform common interface.
 
-### 10.1 Threads, The GIL & Network Sockets
-* **Global Interpreter Lock (GIL)**: Mutex preventing multiple native OS threads from executing CPython bytecode simultaneously.
-  * **I/O-Bound Tasks**: Multithreading (`threading` module) excels by releasing GIL during blocking socket/disk I/O.
-  * **CPU-Bound Tasks**: Multiprocessing (`multiprocessing` module) bypasses GIL by spawning distinct OS processes with dedicated memory heaps.
-* **Low-Level Socket Programming**:
-  ```python
-  import socket
-  # TCP Server Socket Setup
-  with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-      s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-      s.bind(('0.0.0.0', 8080))
-      s.listen(5)
-      conn, addr = s.accept()
-      data = conn.recv(1024)
-  ```
+---
 
-### 10.4 Algorithmic Complexity (Big-O) & Algorithms
+## 📊 Module 11: Data Analytics: Statistics, NumPy, Matplotlib & Pandas
+
+### 11.1–11.5 Statistical Computations & NumPy
+* **Descriptive Statistics**: Mean ($\bar{x} = \frac{\sum x}{n}$), Median (middle value of sorted list), Mode (most frequent item), Standard Deviation ($\sigma = \sqrt{\frac{\sum (x - \mu)^2}{N}}$).
+* **NumPy Vectorization**: Contiguous C-array memory buffers executing SIMD arithmetic without Python loop overhead (`np.array()`, vectorized array arithmetic).
+
+### 11.6–11.11 Data Visualization with Matplotlib
+* **Plot Types**: Line plots (`plt.plot`), Bar charts (`plt.bar`), Pie charts (`plt.pie`), Scatter plots (`plt.scatter`), Histograms (`plt.hist`).
+* **Formatting**: `plt.title()`, `plt.xlabel()`, `plt.ylabel()`, `plt.grid()`, `plt.show()`.
+
+### 11.12–11.15 Data Analysis with Pandas
+* **Data Structures**:
+  * **`Series`**: 1D labeled array.
+  * **`DataFrame`**: 2D tabular heterogeneous data table with labeled rows/columns.
+* **Data Ingestion & Filtering**: `pd.read_csv("file.csv")`, slicing with `.loc[]`, `.iloc[]`, boolean masking `df[df['score'] > 90]`.
+* **Data Cleaning**: `df.dropna()`, `df.fillna(value)`, `df.astype()`.
+
+---
+
+## 🧵 Module 12: Concurrency, Multithreading, Sockets & Client-Server Networking
+
+### 12.1–12.8 Operating System Concurrency & Multithreading
+* **Process vs Thread**:
+  * **Process**: Independent execution unit with private address space and heap.
+  * **Thread**: Lightweight execution thread sharing parent process memory heap.
+* **Thread Lifecycle**: New $\rightarrow$ Runnable $\rightarrow$ Blocked/Waiting $\rightarrow$ Terminated.
+* **The `threading` Module**: Spawning threads via `threading.Thread(target=worker, args=(...))` or subclassing and overriding `run()`.
+* **Race Conditions & Synchronization**:
+  * Shared mutable memory access by concurrent threads causes race conditions.
+  * `threading.Lock()` with `acquire()` / `release()` or `with lock:` ensures mutual exclusion (Mutex).
+* **Producer-Consumer**: Thread-safe communication using `queue.Queue`.
+
+### 12.9–12.15 Sockets & Client-Server Network Applications
+* **Socket Fundamentals**: Endpoint for network communication bound to IP Address + Port number.
+* **TCP Socket Pipeline**:
+  * **Server**: `socket(AF_INET, SOCK_STREAM)` $\rightarrow$ `bind((ip, port))` $\rightarrow$ `listen(backlog)` $\rightarrow$ `conn, addr = accept()` $\rightarrow$ `recv(bytes)` / `sendall(data)`.
+  * **Client**: `socket()` $\rightarrow$ `connect((ip, port))` $\rightarrow$ `sendall(data)` $\rightarrow$ `recv(bytes)` $\rightarrow$ `close()`.
+* **Concurrent Server Architecture**: Main server thread listens on listening socket and spawns dedicated client worker threads upon `accept()`.
+
+---
+
+## ⚡ Module 13: Algorithmic Complexity, Big-O Analysis, Searching & Sorting
+
+### 13.1–13.8 Measuring Efficiency & Big-O Notation
+* **Benchmarking Limitations**: Wall-clock measurement (`time.time()`) fluctuates due to CPU load, OS interrupts, and hardware specs.
+* **Instruction Counting**: Measuring dominant basic operations as a mathematical function of input size $N$.
+* **Big-O Definition**: $f(N) = O(g(N))$ if there exist constants $c > 0$ and $N_0 \ge 1$ such that $|f(N)| \le c |g(N)|$ for all $N \ge N_0$.
 * **Complexity Hierarchy**:
-  $$O(1) < O(\log n) < O(n) < O(n \log n) < O(n^2) < O(2^n) < O(n!)$$
-* **Searching & Sorting**:
-  * **Binary Search**: $O(\log n)$ time on sorted arrays.
-  * **Quicksort & Mergesort**: $O(n \log n)$ divide-and-conquer sorting.
-  * **Bubble / Insertion Sort**: $O(n^2)$ quadratic sorting.
+  $$O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)$$
+* **Space Complexity**: Memory overhead required as a function of $N$.
+
+### 13.9–13.19 Searching & Sorting Algorithms
+| Algorithm | Best Case Time | Average Case Time | Worst Case Time | Space Complexity | Mechanics & Characteristics |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Linear Search** | $O(1)$ | $O(N)$ | $O(N)$ | $O(1)$ | Sequential scan; works on unsorted lists |
+| **Binary Search** | $O(1)$ | $O(\log N)$ | $O(\log N)$ | $O(1)$ | Divide-and-conquer; requires sorted list |
+| **Selection Sort** | $O(N^2)$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | Finds minimum element and swaps into place |
+| **Bubble Sort** | $O(N)$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | Swaps adjacent pairs; early exit with flag |
+| **Insertion Sort** | $O(N)$ | $O(N^2)$ | $O(N^2)$ | $O(1)$ | Shifts elements right; highly adaptive for sorted data |
+| **Quicksort** | $O(N \log N)$ | $O(N \log N)$ | $O(N^2)$ | $O(\log N)$ | Pivot partitioning; worst case on sorted pivot |
+| **Merge Sort** | $O(N \log N)$ | $O(N \log N)$ | $O(N \log N)$ | $O(N)$ | Guaranteed $O(N \log N)$ recursive merge; extra memory |
+
+### 13.20–13.22 Exponential Complexity & Dynamic Programming
+* **Recursive Fibonacci**: $T(N) = T(N-1) + T(N-2) = O(2^N)$ exponential time due to redundant overlapping subproblems.
+* **Iterative / Memoization Optimization**: Reduces Fibonacci to $O(N)$ linear time and $O(1)$ space by caching previous states.
+* **Final Comprehensive Synthesis**: Complete master integration of all 13 modules for the HVCC Python examination.

@@ -3,7 +3,7 @@
 * **Live Player Website**: [https://hvcc.hexdef.com/ciss120/](https://hvcc.hexdef.com/ciss120/)
 * **Written Study Companion**: Access the `companion.html` page directly at [https://hvcc.hexdef.com/ciss120/companion.html](https://hvcc.hexdef.com/ciss120/companion.html).
 
-A premium, mobile-responsive, dark-themed HTML5 audio player and companion study suite designed for **CISS 120 (Computer Networking & Communications / Cisco CCNA ITN & SRWE)** at Hudson Valley Community College (HVCC). It features custom track looping, streamlined 5-speed control with persistent rates across tracks, module chapter grouping, timeline scrubbing, and auto-resuming playback.
+A premium, mobile-responsive, dark-themed HTML5 audio player and companion study suite designed for **CISS 120 (Computer Networking & Communications / Cisco CCNA ITN)** at Hudson Valley Community College (HVCC). It features custom track looping, streamlined 5-speed control with persistent rates across tracks, 17-module chapter grouping, timeline scrubbing, and auto-resuming playback across all 126 course audio lectures.
 
 ---
 
@@ -13,7 +13,7 @@ A premium, mobile-responsive, dark-themed HTML5 audio player and companion study
 * 🎛️ **Symmetrical 5-Button Circular Transport Bar**: Clean, hardware-inspired 5-circle transport bar (`[ ⏱️ Speed ]` `[ |◀ Prev ]` `[ ▶ Play ]` `[ Next ▶| ]` `[ 🔁¹ Loop ]`) maximizing vertical screen space.
 * 🔁 **Precision SVG Circular Track Looping**: Repeat each lecture track multiple times (`1` → `2` → `3` → `∞` → `1`) before automatically transitioning to the next track—ideal for reinforcement learning.
 * ⚡ **Streamlined 5-Speed High-Impact Control**: Instant single-tap cycling through the 5 core study speeds (`1.0x` → `1.1x` → `1.2x` → `0.8x` → `0.9x` → `1.0x`) with double-click reset shortcut. Selected speed persists seamlessly across all track changes.
-* 📚 **9-Module Chapter Grouping**: Automatically categorizes all 104 tracks across 9 core networking and Cisco CCNA modules with collapsible headers and total playtime counters.
+* 📚 **17-Module Chapter Grouping**: Categorizes all 126 tracks across 17 official Cisco CCNA Introduction to Networks modules with collapsible headers and total playtime counters.
 * 💾 **Smart Auto-Resume & Namespace Isolation**: Automatically persists your current track, loop iteration count, playback speed, and timeline position with dynamic local storage isolation for multi-tab playback.
 * 🔒 **Lock Screen MediaSession Control**: Full integration with the HTML5 browser **Media Session API** to play, pause, seek, and skip tracks directly from phone lock screens or notification panels.
 * 📖 **Written Study Companion**: Access full markdown study notes and definitions in a dedicated dashboard (`companion.html`) with multi-theme support (Dark Comfort, Warm Sepia, Light Paper, Auto).
@@ -35,22 +35,30 @@ graph TD
 ```
 
 ### 1. Main Audio Player (`index.html`)
-The core audio dashboard encapsulating the HTML5 audio engine, module accordion rendering, search filter, and MediaSession lock screen integration.
+The core audio dashboard encapsulating the HTML5 audio engine, 17-module accordion rendering, search filter, and MediaSession lock screen integration.
 
 ### 2. Written Study Companion (`companion.html`)
 The study reference dashboard utilizing `marked.js` to render `notes.md` into formatted HTML with theme switching.
 
 ### 3. Study Notes (`notes.md`)
-The complete Markdown study guide covering all 9 CISS 120 Modules:
-1. **Module 01**: Network Architecture, Physical Layer, Media & Number Systems (10 tracks)
-2. **Module 02**: Data Link Layer, Ethernet Framing, Switch Learning & Microsegmentation (13 tracks)
-3. **Module 03**: Network Layer, IPv4/IPv6 Headers, Routing Tables & ARP (14 tracks)
-4. **Module 04**: Cisco IOS CLI, Device Hardening & Subnetting Calculations (13 tracks)
-5. **Module 05**: IPv4/IPv6 Addressing Schemes, VLSM, CIDR & Remote Access Security (14 tracks)
-6. **Module 06**: Address Resolution, ICMP Diagnostics & Transport Layer Protocols (11 tracks)
-7. **Module 07**: TCP/UDP Mechanics, Sockets, Layer 2 Security & Small Network Design (9 tracks)
-8. **Module 08**: Application Layer Services (DNS/DHCP/Web) & VLAN Trunking (10 tracks)
-9. **Module 09**: Redundant Topologies, Spanning Tree (STP), EtherChannel & CCNA Synthesis (10 tracks)
+The complete Markdown study guide covering all 17 CISS 120 (Cisco CCNA ITN) Modules:
+1. **Module 01**: Networking Today (11 tracks)
+2. **Module 02**: Basic Switch and End Device Configuration (10 tracks)
+3. **Module 03**: Protocols and Models (9 tracks)
+4. **Module 04**: Physical Layer (8 tracks)
+5. **Module 05**: Number Systems (4 tracks)
+6. **Module 06**: Data Link Layer (5 tracks)
+7. **Module 07**: Ethernet Switching (6 tracks)
+8. **Module 08**: Network Layer (7 tracks)
+9. **Module 09**: Address Resolution (5 tracks)
+10. **Module 10**: Basic Router Configuration (5 tracks)
+11. **Module 11**: IPv4 Addressing & Subnetting (11 tracks)
+12. **Module 12**: IPv6 Addressing (10 tracks)
+13. **Module 13**: ICMP (4 tracks)
+14. **Module 14**: Transport Layer (9 tracks)
+15. **Module 15**: Application Layer (7 tracks)
+16. **Module 16**: Network Security Fundamentals (6 tracks)
+17. **Module 17**: Build a Small Network & Troubleshooting (9 tracks)
 
 ### 4. Playlist Compiler (`generate_playlist.py`)
 A Python CLI utility that scans local folders or remote URLs, extracts track durations via `ffprobe`, parses `about.txt`, and generates `playlist.json` and `playlist.js`.

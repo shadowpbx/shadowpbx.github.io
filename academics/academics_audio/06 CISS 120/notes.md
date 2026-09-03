@@ -1,184 +1,233 @@
 # CISS 120: Computer Networking & Communications — Master Study Guide
+### Official Cisco Certified Network Associate (CCNA ITN v7.02) Curriculum
 
-Welcome to the **CISS 120 (Computer Networking & Communications / Cisco CCNA ITN & SRWE) Master Study Guide**. This comprehensive reference covers all 9 modules spanning physical transmission media, data link switching, IPv4/IPv6 subnetting, Cisco IOS CLI configuration, routing protocols, transport mechanics, application services, VLANs, Spanning Tree Protocol (STP), and EtherChannel link aggregation.
+Welcome to the **CISS 120 (Computer Networking & Communications / Cisco CCNA: Introduction to Networks) Master Study Guide**. This definitive reference covers all 17 official modules spanning network architecture, Cisco IOS configuration, protocol models, transmission media, number systems, Ethernet switching, IPv4/IPv6 subnetting, ICMP diagnostics, transport layer protocols, application services, network security, and structured troubleshooting.
 
 ---
 
-## 🌐 Module 01: Network Architecture, Physical Layer, Media & Number Systems
+## 🌐 Module 01: Networking Today
 
-### 1.1 Network Topologies & Performance Metrics
+### 1.1–1.5 Network Components, Representations & Topologies
+* **Network Infrastructure Components**:
+  * **End Devices (Hosts)**: Clients, servers, workstations, VoIP phones, security cameras.
+  * **Intermediary Devices**: Switches, wireless access points, routers, multilayer switches, next-generation firewalls.
+  * **Media**: Copper cabling (electrical pulses), fiber-optic cabling (light pulses), wireless radio frequencies (electromagnetic waves).
+* **Network Representations**:
+  * **Physical Topology Diagram**: Identifies physical location of devices, rack locations, and cable installation paths.
+  * **Logical Topology Diagram**: Identifies ports, IP addressing schemes, subnet groupings, and routing paths.
 * **Network Classifications**:
-  * **LAN (Local Area Network)**: High-speed, low-latency infrastructure spanning a single geographic site.
-  * **WAN (Wide Area Network)**: Interconnects geographically dispersed LANs across service provider networks.
-* **Topologies**: Physical vs. Logical topologies; Star, Extended Star, Mesh (full redundancy $N(N-1)/2$ links), and Partial Mesh.
-* **Performance Metrics**:
-  * **Bandwidth**: Theoretical capacity of a medium (bps, Mbps, Gbps).
-  * **Throughput**: Actual transfer rate of usable data over a given period.
-  * **Goodput**: Usable application-level data throughput ($\text{Throughput} - \text{Protocol Overhead}$).
-  * **Latency**: End-to-end delay (Propagation + Transmission + Queuing + Processing).
+  * **LAN (Local Area Network)**: High-speed, low-latency infrastructure across a single building or campus.
+  * **WAN (Wide Area Network)**: Interconnects geographically dispersed LANs across telecommunication providers.
+  * **The Internet**: Global mesh of interconnected autonomous systems (networks of networks).
 
-### 1.3 & 1.4 OSI 7-Layer Model vs 4-Layer TCP/IP Protocol Stack
-| OSI Layer | Layer Name | TCP/IP Layer | PDU (Protocol Data Unit) | Core Addressing & Protocols |
-| :---: | :--- | :---: | :---: | :--- |
-| **7** | Application | Application | Data | HTTP, HTTPS, DNS, DHCP, SSH, SMTP |
-| **6** | Presentation | Application | Data | TLS/SSL, Data formatting, Compression |
-| **5** | Session | Application | Data | Session establishment, RPC |
-| **4** | Transport | Transport | Segment (TCP) / Datagram (UDP) | Port numbers (TCP/UDP, Flow control) |
-| **3** | Network | Internet | Packet | IP Addresses (IPv4, IPv6, ICMP, OSPF) |
-| **2** | Data Link | Network Access | Frame | MAC Addresses (Ethernet 802.3, Wi-Fi 802.11) |
-| **1** | Physical | Network Access | Bits | Electrical voltages, Light pulses, RF waves |
-
-### 1.5 Protocol Encapsulation & Decapsulation
-* **Encapsulation (Top $\rightarrow$ Bottom)**: Data $\rightarrow$ Add Transport Header ($\text{Segment}$) $\rightarrow$ Add Network Header ($\text{Packet}$) $\rightarrow$ Add Data Link Header & Trailer ($\text{Frame}$) $\rightarrow$ Encode into Physical Signals ($\text{Bits}$).
-* **Decapsulation (Bottom $\rightarrow$ Top)**: Stripping headers at each peer layer upon receipt.
-
-### 1.6–1.8 Physical Transmission Media
-* **Copper (UTP/STP)**:
-  * Cat 5e (1 Gbps @ 100m, 100 MHz), Cat 6 (1 Gbps @ 100m / 10 Gbps @ 55m, 250 MHz), Cat 6a (10 Gbps @ 100m, 500 MHz).
-  * **T568A Pinout**: White/Green, Green, White/Orange, Blue, White/Blue, Orange, White/Brown, Brown.
-  * **T568B Pinout**: White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown.
-* **Fiber Optics**:
-  * **Single-Mode Fiber (SMF)**: Yellow jacket, 9µm core, Laser light source, long haul ($10\text{–}40\text{+ km}$).
-  * **Multimode Fiber (MMF)**: Aqua/Orange jacket, 50/62.5µm core, LED/VCSEL light source, modal dispersion limit ($\le 550\text{m}$).
-* **Wireless Standards**: 802.11b (11 Mbps, 2.4 GHz), 802.11g (54 Mbps, 2.4 GHz), 802.11n (600 Mbps, 2.4/5 GHz), 802.11ac (6.9 Gbps, 5 GHz), 802.11ax / Wi-Fi 6 (9.6 Gbps, 2.4/5/6 GHz, OFDMA).
-
-### 1.9 Number Systems & Binary Conversion
-* $1\text{ Byte} = 8\text{ bits}$ (Range: `0` to `255`).
-* Positional weights: `128, 64, 32, 16, 8, 4, 2, 1`.
-* Hexadecimal: Base 16 (`0–9`, `A–F`). Each hex character represents 4 binary bits (a nibble). Example: `0xC0 = 1100 0000_2 = 192_{10}`.
+### 1.6–1.9 Reliable Networks, Trends & Security
+* **Network Architecture Pillars**:
+  * **Fault Tolerance**: Redundant physical links and dynamic rerouting prevent single points of failure.
+  * **Scalability**: Seamless expansion without degrading existing user performance.
+  * **Quality of Service (QoS)**: Prioritizes delay-sensitive traffic (voice/video) over bulk data transfers.
+  * **Security**: Confidentiality, Integrity, and Availability (CIA Triad).
+* **Technology Trends**: BYOD (Bring Your Own Device), Cloud Computing, Virtualization, and SDN (Software-Defined Networking).
 
 ---
 
-## ⚡ Module 02: Data Link Layer, Ethernet Framing, Switch Learning & Microsegmentation
+## 💻 Module 02: Basic Switch and End Device Configuration
 
-### 2.1 Data Link Layer Sublayers & Media Access Control
-* **IEEE 802 Sublayers**:
-  * **Logical Link Control (LLC - 802.2)**: Communicates with upper Network Layer; multiplexes network protocols.
-  * **Media Access Control (MAC - 802.3/802.11)**: Encapsulates data into frames; handles physical hardware addressing and media access rules.
-* **Media Access Control Methods**:
-  * **CSMA/CD (Carrier Sense Multiple Access with Collision Detection)**: Half-duplex Ethernet; listen before transmitting; if collision detected, send jam signal and execute backoff algorithm.
-  * **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)**: Wireless 802.11; utilizes Request to Send (RTS) / Clear to Send (CTS) handshake.
+### 2.1–2.3 Cisco IOS Access & Hierarchical Modes
+* **Out-of-Band vs In-Band Management**:
+  * **Console Port**: Out-of-band physical cable connection used for initial headless setup or disaster recovery.
+  * **SSH (Secure Shell - Port 22)**: Secure, encrypted in-band CLI remote access.
+  * **Telnet (Port 23)**: Insecure plaintext remote access (strictly prohibited in production).
+* **Cisco IOS Command Modes**:
+  * **User EXEC Mode (`Switch>`)**: Basic monitoring. Elevate with `enable`.
+  * **Privileged EXEC Mode (`Switch#`)**: Detailed verification, debug, restart, file management. Enter configuration with `configure terminal`.
+  * **Global Configuration Mode (`Switch(config)#`)**: System-wide parameters.
+  * **Sub-Configuration Modes**: Interface (`(config-if)#`), Line (`(config-line)#`), VLAN (`(config-vlan)#`).
 
-### 2.2 & 2.3 Ethernet Frame Structure & MAC Addressing
-* **Ethernet II Frame Format**:
-  $$\text{Preamble (7B)} \mid \text{SFD (1B)} \mid \text{Dest MAC (6B)} \mid \text{Source MAC (6B)} \mid \text{Type/Length (2B)} \mid \text{Payload (46–1500B)} \mid \text{FCS/CRC (4B)}$$
-* **MAC Address Anatomy (48-bit / 6 Bytes)**:
-  * First 24 bits: **OUI (Organizationally Unique Identifier)** assigned by IEEE to vendor.
-  * Last 24 bits: Vendor-assigned unique device identifier.
-* **Transmission Types**:
-  * **Unicast**: Destination MAC unique to a single NIC.
-  * **Broadcast**: `FF:FF:FF:FF:FF:FF` (all hosts on broadcast domain).
-  * **Multicast**: `01:00:5E:xx:xx:xx` (IPv4) or `33:33:xx:xx:xx:xx` (IPv6).
-
-### 2.4–2.7 Switch Forwarding & CAM Tables
-* **Content Addressable Memory (CAM) Table Learning**:
-  1. Switch inspects **Source MAC** of incoming frame $\rightarrow$ Records MAC and Ingress Port in CAM table (resets 300s aging timer).
-  2. Switch inspects **Destination MAC**:
-     * If MAC is in CAM table $\rightarrow$ Forward out specific port only (**Forwarding / Filtering**).
-     * If MAC is unknown or broadcast $\rightarrow$ Floods frame out all ports except ingress port (**Unknown Unicast Flooding**).
-* **Collision vs Broadcast Domains**:
-  * Switches break up **Collision Domains** on every single port (Microsegmentation / Full Duplex).
-  * Switches maintain a single shared **Broadcast Domain** (broken up only by Routers or VLANs).
-* **Switch Forwarding Modes**:
-  * **Store-and-Forward**: Buffers entire frame; verifies FCS CRC checksum before forwarding (highest error-free integrity; required for QoS).
-  * **Cut-Through**:
-    * *Fast-Forward*: Forwards immediately after reading 6-byte Destination MAC (lowest latency; may forward corrupted runts).
-    * *Fragment-Free*: Forwards after reading first 64 bytes (filters out collision fragments).
-* **Auto-MDIX**: Automatically detects cable type (Straight-Through vs Crossover) and configures internal pin signaling.
-
----
-
-## 🧭 Module 03: Network Layer, IPv4/IPv6 Headers, Routing Tables & ARP
-
-### 3.1 & 3.2 Network Layer & IPv4 Header Architecture
-* **Connectionless, Best-Effort, Media-Independent**: The Network Layer delivers packets without prior connection negotiation, without intrinsic delivery guarantees, and irrespective of physical link media.
-* **IPv4 Header Fields (20–60 Bytes)**:
-  * **Version (4 bits)**: `0100` (IPv4).
-  * **IHL (4 bits)**: Internet Header Length in 32-bit words (minimum value 5 = 20 bytes).
-  * **DSCP / ToS (8 bits)**: Quality of Service traffic classification.
-  * **Total Length (16 bits)**: Total packet size (header + data) in bytes.
-  * **Identification, Flags, Fragment Offset (32 bits)**: Packet fragmentation handling (Flags: `DF` Don't Fragment, `MF` More Fragments).
-  * **Time to Live (TTL - 8 bits)**: Loop prevention counter; decremented by 1 at each router hop; packet dropped with ICMP Time Exceeded when $\text{TTL} = 0$.
-  * **Protocol (8 bits)**: Next-layer protocol (`1 = ICMP`, `6 = TCP`, `17 = UDP`, `89 = OSPF`).
-  * **Header Checksum (16 bits)**: Error detection on IPv4 header only (recomputed at every hop).
-  * **Source & Destination IPv4 Addresses (32 bits each)**.
-
-### 3.3 IPv6 Fixed Header Architecture
-* **Simplified 40-Byte Fixed Header**: Eliminates variable fields, checksums, and in-transit router fragmentation.
-* **Fields**: Version (`0110`), Traffic Class (QoS), Flow Label (20-bit packet stream tag), Payload Length, **Next Header** (replaces Protocol field; points to next extension header or upper-layer protocol), **Hop Limit** (replaces TTL), Source IPv6 (128 bits), Destination IPv6 (128 bits).
-
-### 3.4 & 3.5 Host & Router Routing Decisions
-* **Host Routing Logic**:
-  1. Itself: `127.0.0.1` (IPv4) or `::1` (IPv6).
-  2. Local Host (same subnet): ARP/NDP lookup $\rightarrow$ Direct Layer 2 delivery.
-  3. Remote Host (different subnet): Forward frame to **Default Gateway** router interface MAC address.
-* **Router Routing Table Fields**:
-  * **Route Source Code**: `C` (Connected), `S` (Static), `O` (OSPF), `D` (EIGRP), `*` (Candidate Default).
-  * **Destination Network & Prefix Length**.
-  * **Administrative Distance (AD)**: Trustworthiness metric ($0 = \text{Connected}, 1 = \text{Static}, 90 = \text{EIGRP}, 110 = \text{OSPF}$).
-  * **Metric**: Cost or composite metric to reach destination.
-  * **Next-Hop IP Address** and **Egress Interface**.
-
-### 3.6 & 3.7 Address Resolution Protocol (ARP)
-* **ARP Operation**: Resolves known IPv4 address to unknown Layer 2 MAC address.
-  * **ARP Request**: Broadcast frame (`FF:FF:FF:FF:FF:FF`) sent out all switch ports: *"Who has IP 192.168.1.50? Tell 192.168.1.1"*.
-  * **ARP Reply**: Unicast frame sent directly back to requester with physical MAC.
-* **ARP Security & Dynamic ARP Inspection (DAI)**:
-  * **ARP Poisoning / Spoofing**: Attacker sends gratuitous ARP replies associating default gateway IP with attacker's MAC (Man-in-the-Middle).
-  * **DAI Mitigation**: Switch inspects ARP packets against trusted DHCP Snooping binding table, dropping invalid ARP packets on untrusted ports.
-
----
-
-## 🛠️ Module 04: Cisco IOS CLI, Device Hardening & Subnetting Calculations
-
-### 4.1 & 4.2 Cisco IOS CLI Modes & Navigation
-* **Hierarchical Command Modes**:
-  * **User EXEC Mode (`Router>`)**: Basic monitoring and diagnostics. Command to elevate: `enable`.
-  * **Privileged EXEC Mode (`Router#`)**: Full configuration inspection, debug, reload, file system operations. Command: `configure terminal`.
-  * **Global Configuration Mode (`Router(config)#`)**: System-wide configuration commands.
-  * **Specific Config Modes**:
-    * Interface: `Router(config-if)#`
-    * Line: `Router(config-line)#`
-    * Router Routing: `Router(config-router)#`
-* **CLI Navigation Shortcuts**: `Tab` (auto-complete), `?` (contextual help), `Ctrl+A` (start of line), `Ctrl+E` (end of line), `Ctrl+Z` or `end` (return directly to Privileged EXEC).
-
-### 4.3 Device Hardening & Initial Configuration
+### 2.4–2.8 Device Hardening & Management IP
 ```cisco
-Router(config)# hostname R1
-R1(config)# enable secret Cisco123!
-R1(config)# service password-encryption
-R1(config)# banner motd # AUTHORIZED ACCESS ONLY #
-R1(config)# line console 0
-R1(config-line)# password ConsolePass!
-R1(config-line)# login
-R1(config-line)# logging synchronous
-R1(config-line)# exec-timeout 5 0
-R1(config-line)# exit
+Switch(config)# hostname S1
+S1(config)# enable secret CiscoEnPass123!
+S1(config)# service password-encryption
+S1(config)# banner motd # AUTHORIZED ACCESS ONLY - VIOLATORS WILL BE PROSECUTED #
+S1(config)# line console 0
+S1(config-line)# password ConsolePass123!
+S1(config-line)# login
+S1(config-line)# logging synchronous
+S1(config-line)# exit
+S1(config)# line vty 0 15
+S1(config-line)# password VtyPass123!
+S1(config-line)# login
+S1(config-line)# exit
+S1(config)# interface vlan 1
+S1(config-if)# ip address 192.168.1.2 255.255.255.0
+S1(config-if)# no shutdown
+S1(config-if)# exit
+S1(config)# ip default-gateway 192.168.1.1
+S1(config)# exit
+S1# copy running-config startup-config
 ```
 
-### 4.4 & 4.5 Interface Configuration & SVI
-* **Router Physical Interface**:
-  ```cisco
-  R1(config)# interface GigabitEthernet0/0/0
-  R1(config-if)# description LAN Gateway
-  R1(config-if)# ip address 192.168.1.1 255.255.255.0
-  R1(config-if)# no shutdown
-  ```
-* **Switch Virtual Interface (SVI - Management IP)**:
-  ```cisco
-  S1(config)# interface vlan 1
-  S1(config-if)# ip address 192.168.1.2 255.255.255.0
-  S1(config-if)# no shutdown
-  S1(config)# ip default-gateway 192.168.1.1
-  ```
+---
 
-### 4.2 & 4.4 Subnetting Mathematics & The Magic Number Method
-* **Magic Number Formula**: $\text{Magic Number} = 256 - \text{Interesting Octet Subnet Mask}$.
-  * The Magic Number defines the **block size (increment)** between subnet network addresses.
-  * Number of Subnets created: $2^s$ (where $s$ is borrowed subnet bits).
-  * Number of Usable Hosts per Subnet: $2^h - 2$ (where $h$ is remaining host bits; subtract 2 for Network ID and Broadcast ID).
-* **Reference Subnet Table**:
-  | CIDR | Subnet Mask | Magic Number (Block Size) | Total IPs | Usable Hosts ($2^h - 2$) |
+## 📐 Module 03: Protocols and Models
+
+### 3.1–3.4 Communication Rules & Standards Organizations
+* **Rules of Communication**: Message Encoding, Message Formatting and Encapsulation, Message Size, Message Timing (Flow Control, Response Timeout, Access Method), Message Delivery Options (Unicast, Multicast, Broadcast).
+* **Standards Bodies**: **IEEE** (Ethernet 802.3, Wi-Fi 802.11), **IETF** (RFC standards for TCP/IP), **ISO** (OSI reference model), **IANA/ICANN** (IP and port allocations).
+
+### 3.5–3.7 OSI 7-Layer Model vs TCP/IP 4-Layer Stack
+| OSI Model | TCP/IP Model | Protocol Data Unit (PDU) | Core Protocols & Addressing |
+| :---: | :---: | :---: | :--- |
+| **7. Application** | Application | Data | HTTP, HTTPS, DNS, DHCP, SSH, FTP |
+| **6. Presentation** | Application | Data | TLS/SSL, Data Compression, MIME |
+| **5. Session** | Application | Data | RPC, Session management |
+| **4. Transport** | Transport | Segment (TCP) / Datagram (UDP) | Port numbers (`0–65535`), Flow control |
+| **3. Network** | Internet | Packet | IPv4 / IPv6 addresses, ICMP, OSPF |
+| **2. Data Link** | Network Access | Frame | Source & Destination MAC addresses |
+| **1. Physical** | Network Access | Bits | Electrical voltages, light pulses, RF waves |
+
+* **Encapsulation (Top-Down)**: Application Data $\rightarrow$ Transport Header + Data ($\text{Segment}$) $\rightarrow$ Network Header + Segment ($\text{Packet}$) $\rightarrow$ Data Link Header + Packet + FCS ($\text{Frame}$) $\rightarrow$ Physical Encoding ($\text{Bits}$).
+
+---
+
+## 🔌 Module 04: Physical Layer
+
+### 4.1–4.4 Physical Layer Media & Copper Cabling
+* **Performance Metrics**:
+  * **Bandwidth**: Theoretical capacity of the medium (bps).
+  * **Throughput**: Actual measure of data transfer over a given time period.
+  * **Goodput**: Usable application data throughput ($\text{Throughput} - \text{Overhead}$).
+* **Copper Characteristics**: Susceptible to EMI (Electromagnetic Interference), RFI, and Crosstalk (mitigated by opposing twist rates).
+* **UTP Categories**: Cat 5e (1 Gbps @ 100m), Cat 6 (1 Gbps @ 100m / 10 Gbps @ 55m), Cat 6a (10 Gbps @ 100m).
+* **Wiring Standards**:
+  * **T568A**: White/Green, Green, White/Orange, Blue, White/Blue, Orange, White/Brown, Brown.
+  * **T568B**: White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown.
+  * **Straight-Through**: T568B to T568B (Connects unlike devices: PC to Switch, Router to Switch).
+  * **Crossover**: T568A to T568B (Connects like devices: Switch to Switch, Router to PC; largely obsoleted by Auto-MDIX).
+
+### 4.5–4.6 Fiber-Optic & Wireless Media
+* **Single-Mode Fiber (SMF)**: Small 9µm glass core, Laser light, yellow jacket, long haul ($10\text{–}40\text{+ km}$). Zero modal dispersion.
+* **Multimode Fiber (MMF)**: Larger 50/62.5µm core, LED light, aqua/orange jacket, short reach ($\le 550\text{m}$). Subject to modal dispersion.
+* **Wireless Standards (IEEE 802.11)**:
+  * 802.11n (2.4/5 GHz, 600 Mbps), 802.11ac (5 GHz, 6.9 Gbps), 802.11ax / Wi-Fi 6 (2.4/5/6 GHz, 9.6 Gbps, OFDMA).
+
+---
+
+## 🔢 Module 05: Number Systems
+
+### 5.1–5.2 Binary and Hexadecimal Conversions
+* **Binary (Base 2)**: 8-bit octet values: `128, 64, 32, 16, 8, 4, 2, 1`.
+  * Convert Decimal `192` $\rightarrow 128 + 64 = 11000000_2$.
+* **Hexadecimal (Base 16)**: `0–9` and `A=10, B=11, C=12, D=13, E=14, F=15`.
+  * Each hex digit represents a 4-bit nibble.
+  * Example: `0x2C = 0010 1100_2 = 32 + 8 + 4 = 44_{10}`.
+
+---
+
+## 🔗 Module 06: Data Link Layer
+
+### 6.1–6.3 Sublayers & Media Access Control
+* **IEEE 802 Data Link Sublayers**:
+  * **LLC (802.2 - Logical Link Control)**: Communicates with Network Layer; multiplexes protocol types in software.
+  * **MAC (802.3/802.11 - Media Access Control)**: Hardware-integrated frame encapsulation and physical media access.
+* **Media Access Control Methods**:
+  * **CSMA/CD (Carrier Sense Multiple Access with Collision Detection)**: Half-duplex wired Ethernet. Transmit $\rightarrow$ detect collision $\rightarrow$ jam signal $\rightarrow$ random exponential backoff.
+  * **CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)**: 802.11 Wireless. Request to Send (RTS) / Clear to Send (CTS) channel reservation.
+* **Frame Fields**: Header (Frame start flag, Source/Dest MAC, Type) + Payload + Trailer (FCS / CRC-32 checksum error check).
+
+---
+
+## ⚡ Module 07: Ethernet Switching
+
+### 7.1–7.4 Ethernet Framing, MAC Tables & Switching Modes
+* **Ethernet II Frame Structure**:
+  $$\text{Preamble (7B)} \mid \text{SFD (1B)} \mid \text{Dest MAC (6B)} \mid \text{Source MAC (6B)} \mid \text{EtherType (2B)} \mid \text{Payload (46–1500B)} \mid \text{FCS (4B)}$$
+* **MAC Address Structure (48-bit / 12 Hex digits)**:
+  * First 24 bits: **OUI (Organizationally Unique Identifier)** assigned to hardware vendor by IEEE.
+  * Last 24 bits: Vendor-assigned unique device serial ID.
+* **Switch CAM Address Table Operation**:
+  1. **Learn**: Reads **Source MAC** on ingress frame $\rightarrow$ logs MAC and port into CAM table (resets 300s aging timer).
+  2. **Forward / Filter**: Reads **Destination MAC**:
+     * If MAC is in table $\rightarrow$ forward out specific port only.
+     * If MAC is unknown or broadcast $\rightarrow$ flood out all ports except ingress port (**Unknown Unicast Flooding**).
+* **Switching Forwarding Methods**:
+  * **Store-and-Forward**: Buffers entire frame; computes FCS CRC error check before forwarding. Required for QoS.
+  * **Cut-Through**:
+    * *Fast-Forward*: Forwards immediately after reading 6-byte Destination MAC (lowest latency).
+    * *Fragment-Free*: Forwards after reading first 64 bytes (filters out collision runts).
+* **Auto-MDIX**: Automatically detects whether connected cable is straight-through or crossover and configures internal pins.
+
+---
+
+## 🧭 Module 08: Network Layer
+
+### 8.1–8.5 IPv4 and IPv6 Packet Header Architecture
+* **IPv4 Header Fields (20–60 Bytes)**:
+  * Version (`4`), IHL, DSCP, Total Length, Identification, Flags (DF/MF), Fragment Offset, **Time to Live (TTL)** (loop prevention hop counter; drops with ICMP Time Exceeded when 0), **Protocol** (`1 = ICMP`, `6 = TCP`, `17 = UDP`, `89 = OSPF`), Header Checksum, Source & Destination IPv4.
+* **IPv6 Fixed 40-Byte Header**:
+  * Version (`6`), Traffic Class, Flow Label, Payload Length, **Next Header** (replaces Protocol field; chains extension headers), **Hop Limit** (replaces TTL), Source & Destination 128-bit IPv6.
+* **Host Routing Decisions**:
+  * Local host $\rightarrow$ ARP / NDP direct delivery.
+  * Remote host $\rightarrow$ Forward to Default Gateway router interface.
+* **Routing Table Sources**:
+  * `C` (Connected - $\text{AD}=0$), `S` (Static - $\text{AD}=1$), `O` (OSPF - $\text{AD}=110$), `D` (EIGRP - $\text{AD}=90$), `*` (Default route `0.0.0.0/0`).
+
+---
+
+## 🔍 Module 09: Address Resolution
+
+### 9.1–9.3 ARP Operation & IPv6 Neighbor Discovery
+* **Address Resolution Protocol (ARP)**:
+  * **ARP Request**: Broadcast frame (`FF:FF:FF:FF:FF:FF`) asking: *"Who has IP 192.168.1.50? Tell 192.168.1.1"*.
+  * **ARP Reply**: Unicast frame from owner containing its physical MAC address.
+  * Inspect table: `show ip arp` (Cisco IOS) or `arp -a` (Windows/Linux).
+* **ARP Poisoning / Spoofing**: Attacker sends fake gratuitous ARP replies to redirect traffic through attacker's device (MitM). Mitigated by **Dynamic ARP Inspection (DAI)** on switches.
+* **IPv6 Neighbor Discovery Protocol (NDP)**:
+  * Replaces ARP using ICMPv6 messages.
+  * **Neighbor Solicitation (NS - Type 135)** & **Neighbor Advertisement (NA - Type 136)**: Layer 2 address resolution and **Duplicate Address Detection (DAD)**.
+  * **Router Solicitation (RS - Type 133)** & **Router Advertisement (RA - Type 134)**: Dynamic default gateway and prefix discovery.
+
+---
+
+## 🛠️ Module 10: Basic Router Configuration
+
+### 10.1–10.3 Configuring Router Interfaces & Gateways
+```cisco
+Router(config)# hostname R1
+R1(config)# enable secret CiscoRouterPass123!
+R1(config)# interface GigabitEthernet0/0/0
+R1(config-if)# description LAN Gateway Interface
+R1(config-if)# ip address 192.168.10.1 255.255.255.0
+R1(config-if)# ipv6 address 2001:db8:acad:10::1/64
+R1(config-if)# ipv6 address fe80::1 link-local
+R1(config-if)# no shutdown
+R1(config-if)# exit
+R1(config)# ipv6 unicast-routing
+```
+* **Verification**: `show ip interface brief`, `show ipv6 interface brief`, `show ip route`, `show interfaces`.
+
+---
+
+## 🔢 Module 11: IPv4 Addressing & Subnetting
+
+### 11.1–11.4 IPv4 Addressing Structure & Address Types
+* **Structure**: 32 bits divided into Network and Host portions defined by Subnet Mask / Prefix (CIDR).
+* **Special IPv4 Address Scopes**:
+  * **RFC 1918 Private Ranges**:
+    * Class A: `10.0.0.0/8` (`10.0.0.0` – `10.255.255.255`)
+    * Class B: `172.16.0.0/12` (`172.16.0.0` – `172.31.255.255`)
+    * Class C: `192.168.0.0/16` (`192.168.0.0` – `192.168.255.255`)
+  * **Loopback**: `127.0.0.0/8` (`127.0.0.1`)
+  * **APIPA (Link-Local)**: `169.254.0.0/16` (DHCP failure)
+  * **Multicast (Class D)**: `224.0.0.0/4`
+
+### 11.5–11.9 Subnetting Calculations & VLSM
+* **Formulas**:
+  * Subnets Created: $2^s$ (where $s$ is borrowed subnet bits).
+  * Usable Hosts per Subnet: $2^h - 2$ (where $h$ is remaining host bits; subtract 2 for Network ID and Broadcast ID).
+  * **Magic Number**: $256 - \text{Interesting Octet Subnet Mask}$ (defines the step/increment between subnets).
+* **Reference Table**:
+  | Prefix | Subnet Mask | Magic Number | Total IPs | Usable Hosts ($2^h - 2$) |
   | :---: | :--- | :---: | :---: | :---: |
   | `/24` | `255.255.255.0` | 256 | 256 | 254 |
   | `/25` | `255.255.255.128` | 128 | 128 | 126 |
@@ -186,174 +235,96 @@ R1(config-line)# exit
   | `/27` | `255.255.255.224` | 32 | 32 | 30 |
   | `/28` | `255.255.255.240` | 16 | 16 | 14 |
   | `/29` | `255.255.255.248` | 8 | 8 | 6 |
-  | `/30` | `255.255.255.252` | 4 | 4 | 2 (Point-to-Point WAN) |
+  | `/30` | `255.255.255.252` | 4 | 4 | 2 (Point-to-point serial/WAN) |
+* **VLSM (Variable-Length Subnet Masking)**: Subnetting a subnet based on exact host needs. Always allocate largest subnets first, progressing down to `/30` WAN links.
 
 ---
 
-## 🔢 Module 05: IPv4/IPv6 Addressing Schemes, VLSM, CIDR & Remote Access Security
+## 🌐 Module 12: IPv6 Addressing
 
-### 5.1 & 5.2 IPv4 Addressing Categories
-* **RFC 1918 Private IPv4 Ranges**:
-  * **Class A**: `10.0.0.0` – `10.255.255.255` (`10.0.0.0/8`)
-  * **Class B**: `172.16.0.0` – `172.31.255.255` (`172.16.0.0/12`)
-  * **Class C**: `192.168.0.0` – `192.168.255.255` (`192.168.0.0/16`)
-* **Special-Use IPv4 Addresses**:
-  * **Loopback**: `127.0.0.0/8` (`127.0.0.1`)
-  * **APIPA (Link-Local)**: `169.254.0.0/16` (assigned when DHCP fails)
-  * **Multicast (Class D)**: `224.0.0.0` – `239.255.255.255`
-
-### 5.3 Variable-Length Subnet Masking (VLSM)
-* **VLSM Strategy**: Subnetting an already subnetted address space based on individual host requirements.
-  * **Rule**: Always allocate subnets starting with the **largest host requirement first**, working down to the smallest (WAN link `/30`s last) to prevent address space fragmentation.
-
-### 5.4–5.6 IPv6 Addressing Architecture
-* **Structure**: 128 bits written as 8 quartets (hextets) of 4 hexadecimal digits separated by colons.
+### 12.1–12.4 IPv6 Architecture & Address Types
+* **Structure**: 128 bits represented as 8 hextets of 4 hexadecimal characters.
 * **Compression Rules**:
   1. *Omit Leading Zeros*: `01ab` $\rightarrow$ `1ab`, `0000` $\rightarrow$ `0`.
-  2. *Double Colon (`::`)*: Replaces a contiguous string of all-zero hextets once per address.
-* **IPv6 Unicast Scope Types**:
+  2. *Double Colon (`::`)*: Compresses a single contiguous block of all-zero hextets once per address.
+* **Unicast Types**:
   * **Global Unicast Address (GUA)**: `2000::/3` (Globally routable public address).
-  * **Link-Local Address (LLA)**: `fe80::/10` (Locally routable on immediate segment only; used for neighbor discovery and next-hop routing).
-  * **Unique Local Address (ULA)**: `fc00::/7` (IPv6 private addresses).
-* **Dynamic IPv6 Configuration**:
-  * **SLAAC (Stateless Address Autoconfiguration)**: Host receives prefix from Router Advertisement (RA); generates 64-bit Interface ID via **EUI-64** (splits 48-bit MAC in half, inserts `FF:FE`, inverts 7th U/L bit) or random generation.
-  * **Stateful DHCPv6**: DHCP server leases IPv6 address and DNS servers.
+  * **Link-Local Address (LLA)**: `fe80::/10` (Mandatory on every IPv6 interface; used for local segment next-hop routing).
+  * **Loopback**: `::1/128`.
+  * **Unique Local Address (ULA)**: `fc00::/7` (Private IPv6 address).
 
-### 5.3 Securing Remote Access with SSH
-```cisco
-R1(config)# ip domain-name hvcc.edu
-R1(config)# crypto key generate rsa modulus 2048
-R1(config)# username admin privilege 15 secret AdminPass123!
-R1(config)# ip ssh version 2
-R1(config)# line vty 0 4
-R1(config-line)# transport input ssh
-R1(config-line)# login local
-```
+### 12.5–12.8 Dynamic IPv6 Assignment & Subnetting
+* **SLAAC (Stateless Address Autoconfiguration)**:
+  * Host acquires prefix from Router Advertisement (RA).
+  * Generates 64-bit Interface ID using **EUI-64** (splits 48-bit MAC in half, inserts `FF:FE`, and flips 7th Universal/Local bit) or random generation.
+* **DHCPv6**:
+  * Stateless DHCPv6: SLAAC for IP + DHCPv6 for DNS server.
+  * Stateful DHCPv6: DHCPv6 leases entire IP and DNS.
+* **IPv6 Subnetting Standard**: Standard allocation `/48` Global Routing Prefix + 16-bit Subnet ID (`65,536` subnets) + `/64` Interface ID.
 
 ---
 
-## 🔄 Module 06: Address Resolution, ICMP Diagnostics & Transport Layer Protocols
+## 📡 Module 13: ICMP
 
-### 6.1 & 6.2 ICMP Diagnostics & Error Messaging
-* **ICMPv4 & ICMPv6 Roles**: Diagnostic messaging and operational feedback.
-  * **Echo Request (Type 8 / ICMPv6 Type 128)** & **Echo Reply (Type 0 / ICMPv6 Type 129)** $\rightarrow$ `ping`.
-  * **Destination Unreachable (Type 3)**: Code 0 (Net), Code 1 (Host), Code 3 (Port).
-  * **Time Exceeded (Type 11 / Code 0)**: Generated when router drops packet with $\text{TTL} = 0 \rightarrow$ used by `traceroute`.
+### 13.1–13.2 ICMPv4 & ICMPv6 Diagnostic Messaging
+* **ICMP Messages**:
+  * **Echo Request (Type 8 / v6 Type 128)** & **Echo Reply (Type 0 / v6 Type 129)** $\rightarrow$ Tested by `ping`.
+  * **Destination Unreachable (Type 3)**: Code 0 (Net), Code 1 (Host), Code 3 (Port unreachable).
+  * **Time Exceeded (Type 11 / Code 0)**: Generated when router drops packet with $\text{TTL} = 0 \rightarrow$ Used by `traceroute` to map hop-by-hop paths.
 
-### 6.3 & 6.4 IPv6 Neighbor Discovery Protocol (NDP)
-* Replaces IPv4 ARP, ICMP Router Discovery, and ICMP Redirects using ICMPv6 messages:
-  * **Router Solicitation (RS - Type 133)** & **Router Advertisement (RA - Type 134)**: Discovers local default gateway and SLAAC network prefix.
-  * **Neighbor Solicitation (NS - Type 135)** & **Neighbor Advertisement (NA - Type 136)**: Layer 2 address resolution and **Duplicate Address Detection (DAD)**.
+---
 
-### 6.2–6.4 Transport Layer: TCP vs UDP
+## 🚚 Module 14: Transport Layer
+
+### 14.1–14.7 TCP vs UDP Mechanics
+* **Transport Role**: Multiplexes application data conversations via port numbers (`0–65535`).
+* **Port Ranges**: Well-Known (`0–1023`), Registered (`1024–49151`), Dynamic/Private Ephemeral (`49152–65535`).
+* **Socket Pair**: Source IP:Port $\leftrightarrow$ Destination IP:Port.
 * **TCP (Transmission Control Protocol)**:
   * Connection-oriented 3-way handshake (`SYN` $\rightarrow$ `SYN-ACK` $\rightarrow$ `ACK`).
-  * Reliable data delivery with sequence numbering and positive acknowledgments.
-  * **Sliding Window Flow Control**: Dynamic buffer windowing adjusting throughput based on receiver capacity.
   * Connection termination: 4-way handshake (`FIN` $\rightarrow$ `ACK` $\rightarrow$ `FIN` $\rightarrow$ `ACK`).
+  * Reliable data delivery via sequence numbering, positive acknowledgments, and retransmissions.
+  * Sliding Window Flow Control: Dynamically scales byte window to prevent receiver buffer overflow.
 * **UDP (User Datagram Protocol)**:
   * Connectionless, lightweight 8-byte header (Source Port, Dest Port, Length, Checksum).
-  * Unreliable best-effort delivery with zero retransmission latency (VoIP, Video streaming, DNS, DHCP).
-* **Port Numbers & Sockets**:
-  * **Socket Pair**: Source IP + Source Port $\leftrightarrow$ Destination IP + Destination Port.
-  * Port Ranges: Well-Known (`0–1023`), Registered (`1024–49151`), Dynamic/Private Ephemeral (`49152–65535`).
+  * Best-effort delivery with zero retransmission latency (VoIP, Video streaming, DNS, DHCP).
 
 ---
 
-## 🔒 Module 07: TCP/UDP Mechanics, Sockets, Layer 2 Security & Small Network Design
+## 🌍 Module 15: Application Layer
 
-### 7.2 Layer 2 Attack Vectors & Port Security
-* **Layer 2 Vulnerabilities**:
-  * **MAC Address Table Flooding**: Attacker floods switch with thousands of bogus source MACs to fill CAM table, turning switch into a hub (**Fail-Open** mode allowing packet sniffing).
-  * **VLAN Hopping**: Double-tagging 802.1Q frames or abusing DTP autotrunking.
-  * **DHCP Starvation & Rogue DHCP**: Exhausting DHCP pool and deploying rogue default gateway.
-* **Switchport Port Security Hardening**:
-  ```cisco
-  S1(config)# interface FastEthernet0/1
-  S1(config-if)# switchport mode access
-  S1(config-if)# switchport port-security
-  S1(config-if)# switchport port-security maximum 2
-  S1(config-if)# switchport port-security mac-address sticky
-  S1(config-if)# switchport port-security violation shutdown
-  ```
-* **Violation Modes**:
-  * **`protect`**: Drops frames from unauthorized MACs; does not increment counter or log syslog.
-  * **`restrict`**: Drops frames; increments violation counter; generates SNMP/syslog alert.
-  * **`shutdown`**: Immediately puts port into `err-disabled` state; generates syslog; requires `shutdown` then `no shutdown` to recover.
-
----
-
-## 🏷️ Module 08: Application Layer Services & VLAN Trunking
-
-### 8.1 & 8.2 Application Layer Protocols
-* **DNS (UDP/TCP 53)**: Resolves FQDNs to IPs (`A`, `AAAA`, `CNAME`, `MX`, `NS`, `PTR`).
-* **DHCPv4 (UDP 67/68)**: 4-step **DORA** broadcast process:
+### 15.1–15.5 Application Layer Protocols & Services
+* **DNS (Domain Name System - UDP/TCP 53)**: Resolves hostnames to IP addresses.
+  * Records: `A` (IPv4), `AAAA` (IPv6), `CNAME` (Alias), `MX` (Mail Exchange), `NS` (Name Server), `PTR` (Reverse lookup).
+* **DHCPv4 (UDP 67 Server / 68 Client)**: 4-step **DORA** broadcast lease process:
   1. **Discover**: Client broadcast (`0.0.0.0:68` $\rightarrow$ `255.255.255.255:67`).
-  2. **Offer**: Server unicast/broadcast offering IP lease.
-  3. **Request**: Client broadcast accepting specific server offer.
-  4. **Acknowledge**: Server unicast/broadcast finalizing lease parameters.
-* **Web & Mail Protocols**:
-  * HTTP (`80`) vs HTTPS (`443` via TLS 1.3).
-  * SMTP (`25/587` - Sending mail), POP3 (`110/995` - Downloading mail), IMAP (`143/993` - Synchronizing mail folders).
-* **File & Management**: FTP (`20/21`), TFTP (`69`), NTP (`123`), SNMP (`161/162`).
-
-### 8.1 & 8.2 VLANs & 802.1Q Trunking
-* **VLAN Benefits**: Security segmentation, broadcast domain containment, organizational grouping.
-* **IEEE 802.1Q Tagging**: Inserts 4-byte Tag Protocol Identifier (TPID) and 12-bit VLAN ID (VID range: `1–4094`) into Ethernet header.
-* **Cisco Trunk Configuration**:
-  ```cisco
-  S1(config)# vlan 10
-  S1(config-vlan)# name Engineering
-  S1(config)# interface GigabitEthernet0/1
-  S1(config-if)# switchport mode trunk
-  S1(config-if)# switchport trunk native vlan 99
-  S1(config-if)# switchport trunk allowed vlan 10,20,99
-  ```
-* **Dynamic Trunking Protocol (DTP)**: Cisco proprietary negotiation (`switchport nonegotiate` disables DTP to prevent VLAN hopping).
-
-### 8.3 Inter-VLAN Routing: Router-on-a-Stick
-```cisco
-R1(config)# interface GigabitEthernet0/0/1
-R1(config-if)# no shutdown
-R1(config)# interface GigabitEthernet0/0/1.10
-R1(config-subif)# encapsulation dot1Q 10
-R1(config-subif)# ip address 192.168.10.1 255.255.255.0
-R1(config)# interface GigabitEthernet0/0/1.20
-R1(config-subif)# encapsulation dot1Q 20
-R1(config-subif)# ip address 192.168.20.1 255.255.255.0
-```
+  2. **Offer**: Server offers IP lease parameters.
+  3. **Request**: Client broadcasts acceptance of specific server offer.
+  4. **Acknowledge**: Server finalizes lease binding.
+* **Web & Email Protocols**:
+  * HTTP (`80`) vs HTTPS (`443` with TLS encryption).
+  * SMTP (`25/587` - Sending mail), POP3 (`110/995` - Downloading mail), IMAP (`143/993` - Synchronizing mail folders across multiple clients).
+* **File Sharing**: FTP (`20/21`), TFTP (`69`), SMB (`445`).
 
 ---
 
-## 🌲 Module 09: Redundant Topologies, Spanning Tree (STP), EtherChannel & CCNA Synthesis
+## 🔒 Module 16: Network Security Fundamentals
 
-### 9.1–9.3 Spanning Tree Protocol (STP - IEEE 802.1D / 802.1w)
-* **Layer 2 Loop Problems**: Broadcast Storms (exponential duplication of frames), Multiple Frame Transmission, CAM Table Instability.
-* **Root Bridge Election**:
-  * Bridge ID (BID): **Priority** (default 32768) + **Extended System ID** (VLAN ID) + **MAC Address**.
-  * Switch with the **lowest numerical Bridge ID** becomes Root Bridge.
-* **STP Port Roles**:
-  * **Root Port (RP)**: One per non-root switch; lowest root path cost towards root bridge.
-  * **Designated Port (DP)**: One per segment; forwards traffic (all ports on Root Bridge are DPs).
-  * **Non-Designated / Alternate Port**: In blocking/discarding state to prevent loops.
-* **Rapid PVST+ (802.1w)**:
-  * Port States: **Discarding**, **Learning**, **Forwarding**.
-  * PortFast: Configured on access ports connected to end hosts; immediately transitions port from Discarding to Forwarding, bypassing listening/learning delays.
-  * BPDU Guard: Shuts down port (`err-disabled`) if a BPDU is received on a PortFast-enabled interface.
+### 16.1–16.4 Threats, Attack Types & Mitigations
+* **Threat Categories**: Malware (Viruses, Worms, Trojans), Reconnaissance (Ping sweeps, Nmap port scans), Access Attacks (Brute-force passwords, Trust exploitation, MitM), DoS/DDoS (SYN flood, UDP amplification).
+* **Defense-in-Depth**: Firewalls, Intrusion Prevention Systems (IPS), AAA authentication, VPN tunnels, Endpoint antivirus.
+* **Device Hardening**: Strong administrative passwords, configure SSH with 2048-bit RSA keys (`crypto key generate rsa`), disable unused ports and interfaces, encrypt plaintext passwords (`service password-encryption`).
 
-### 9.4 EtherChannel Link Aggregation (PAgP & LACP)
-* **Purpose**: Bundles up to 8 parallel physical Ethernet links into a single logical channel group, increasing bandwidth while preventing STP from blocking redundant links.
-* **Protocols**:
-  * **PAgP (Cisco Proprietary)**: Modes: `Auto` (passive) and `Desirable` (active).
-  * **LACP (IEEE 802.3ad Open Standard)**: Modes: `Passive` and `Active`.
-* **Cisco LACP Configuration**:
-  ```cisco
-  S1(config)# interface range GigabitEthernet0/1 - 2
-  S1(config-if-range)# channel-group 1 mode active
-  S1(config)# interface port-channel 1
-  S1(config-if)# switchport mode trunk
-  S1(config-if)# switchport trunk allowed vlan 10,20,99
-  ```
+---
 
-### 9.5 CCNA Synthesis & Comprehensive Blueprint
-* End-to-end integration: Subnet design $\rightarrow$ Cisco IOS device hardening $\rightarrow$ Access & Voice VLANs $\rightarrow$ 802.1Q Trunks $\rightarrow$ EtherChannel aggregation $\rightarrow$ Rapid PVST+ loop prevention $\rightarrow$ Inter-VLAN routing $\rightarrow$ Secure SSH remote management.
+## 🛠️ Module 17: Build a Small Network & Troubleshooting
+
+### 17.1–17.7 Small Network Design & Structured Troubleshooting
+* **Small Network Design**: Redundant links, scalable hierarchical addressing, QoS traffic prioritization for VoIP/Video.
+* **Troubleshooting Methodologies**:
+  * **Top-Down**: Starts at Application layer down to Physical.
+  * **Bottom-Up**: Starts with physical cabling, link lights, Layer 2 duplex, up to Application.
+  * **Divide-and-Conquer**: Pings default gateway from middle Network Layer to determine direction.
+* **Core Verification Commands**:
+  * Cisco IOS: `ping`, `traceroute`, `show ip interface brief`, `show ip route`, `show running-config`, `show mac address-table`, `show cdp neighbors`.
+  * Host CLI: `ipconfig /all`, `ipconfig /flushdns`, `ping`, `tracert`, `netstat -ano`, `nslookup`, `arp -a`.
