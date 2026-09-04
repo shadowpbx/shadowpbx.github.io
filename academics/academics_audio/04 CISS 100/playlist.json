@@ -1,263 +1,575 @@
 {
-  "title": "CISS 100: Introduction to Computing",
+  "title": "CISS 100: Introduction to Computing & Information Sciences",
   "subtitle": "Hudson Valley Community College • Complete Course Audio Suite",
   "baseUrl": "https://hvcc.hexdef.com/ciss100/",
   "tracks": [
     {
-      "file": "1.1 Birth of Digital Computing.mp3",
-      "duration": 655.7
+      "file": "1.1 Course Orientation, Syllabus Policies, and Submission Protocols.mp3",
+      "duration": 683.4
     },
     {
-      "file": "1.2 Von Neumann Architecture.mp3",
-      "duration": 678.0
+      "file": "1.2 The Principle of Abstraction in Computer Science.mp3",
+      "duration": 740.0
     },
     {
-      "file": "1.3 Number Systems Binary and Hexadecimal.mp3",
-      "duration": 711.0
+      "file": "1.3 The DIKW Pyramid and Data Typing Architecture.mp3",
+      "duration": 657.9
     },
     {
-      "file": "1.4 The Linux Philosophy and OS Rings.mp3",
-      "duration": 706.4
+      "file": "1.4 Core Computing Operations Across Three Structural Levels.mp3",
+      "duration": 658.8
     },
     {
-      "file": "1.5 Linux Lab 1 and DB1 Classmate Introductions.mp3",
-      "duration": 563.5
+      "file": "1.5 The Five Hardware Generations and The Quantum Exam Trap.mp3",
+      "duration": 811.6
     },
     {
-      "file": "1.6 Faculty Email Protocols, Submission Deadlines, and Academic Integrity.mp3",
-      "duration": 495.0
+      "file": "1.6 The Business-IT-Society Triangle and Disruption Dynamics.mp3",
+      "duration": 649.6
     },
     {
-      "file": "2.1 Inside the CPU Fetch Decode Execute.mp3",
-      "duration": 650.9
+      "file": "1.7 Embedded Computing, Attack Surfaces, and Physical Security.mp3",
+      "duration": 612.7
     },
     {
-      "file": "2.2 The Memory Hierarchy Registers to RAM.mp3",
-      "duration": 651.8
+      "file": "1.8 Client-Server Architecture, Thin Clients, and HVCC ACE VDI.mp3",
+      "duration": 698.4
     },
     {
-      "file": "2.3 Motherboards Chipsets and System Buses.mp3",
-      "duration": 706.5
+      "file": "1.9 Core Architectural Distinctions: Storage vs Memory, Internet vs Web.mp3",
+      "duration": 696.5
     },
     {
-      "file": "2.4 Linux Lab 2 SSH and AcadNX Navigation.mp3",
-      "duration": 691.6
+      "file": "1.10 Technology Acceleration, Digital Divide, and Algorithmic Search.mp3",
+      "duration": 647.6
     },
     {
-      "file": "3.1 Magnetic HDDs vs NAND Flash SSDs.mp3",
-      "duration": 780.3
+      "file": "1.11 Linux Operating System Philosophy and Linux Lab 1 Practice.mp3",
+      "duration": 692.4
     },
     {
-      "file": "3.2 File Systems Inodes and Ext4.mp3",
-      "duration": 695.5
+      "file": "1.12 Module 1 Synthesis, Exam Traps, and Quiz 1 Mastery.mp3",
+      "duration": 727.5
     },
     {
-      "file": "3.3 RAID Arrays and Enterprise Resilience.mp3",
-      "duration": 704.8
+      "file": "2.1 CPU Micro-Architecture: The Control Unit, ALU, and Registers.mp3",
+      "duration": 622.8
     },
     {
-      "file": "3.4 Linux Lab 3 File Ops and Wildcards.mp3",
-      "duration": 658.5
+      "file": "2.2 The Machine Cycle: Fetch, Decode, Execute, and Store.mp3",
+      "duration": 570.6
     },
     {
-      "file": "4.1 IO Interfaces USB Thunderbolt and MMIO.mp3",
-      "duration": 677.4
+      "file": "2.3 Clock Speed, Multi-Core Processing, and Hyper-Threading.mp3",
+      "duration": 692.7
     },
     {
-      "file": "4.2 UNIX Standard Streams and Pipelines.mp3",
-      "duration": 680.0
+      "file": "2.4 The Memory Hierarchy: Registers, L1, L2, L3 Cache, and RAM.mp3",
+      "duration": 694.6
     },
     {
-      "file": "4.3 Linux Lab 4 Redirection and Grep.mp3",
-      "duration": 575.8
+      "file": "2.5 Motherboard Architecture, Chipsets, and System Buses.mp3",
+      "duration": 626.2
     },
     {
-      "file": "5.1 OS Kernels Monolithic vs Microkernel.mp3",
-      "duration": 655.3
+      "file": "2.6 Instruction Set Architectures: RISC versus CISC.mp3",
+      "duration": 601.6
     },
     {
-      "file": "5.2 Virtual Memory Paging and Protection.mp3",
-      "duration": 694.4
+      "file": "2.7 Number Systems: Binary, Decimal, Hexadecimal, and ASCII Encoding.mp3",
+      "duration": 1261.3
     },
     {
-      "file": "5.3 Linux Lab 5 File Permissions and Access Control.mp3",
-      "duration": 621.0
+      "file": "2.8 Cooling Systems, Power Supplies, and Hardware Maintenance.mp3",
+      "duration": 1015.7
     },
     {
-      "file": "6.1 Compilers Interpreters and Runtimes.mp3",
-      "duration": 678.6
+      "file": "2.9 Linux Lab 2 Walkthrough: Remote SSH and AcadNX Traversal.mp3",
+      "duration": 1092.3
     },
     {
-      "file": "6.2 Open Source Licensing and DB6 Systems.mp3",
-      "duration": 596.0
+      "file": "2.10 Module 2 Synthesis, Hardware Calculations, and Quiz 2 Mastery.mp3",
+      "duration": 1053.5
     },
     {
-      "file": "6.3 Linux Process Lifecycle and Signals.mp3",
-      "duration": 778.4
+      "file": "3.1 Magnetic Storage Physics: Platters, Tracks, Sectors, and HAMR.mp3",
+      "duration": 868.3
     },
     {
-      "file": "6.4 Linux Lab 6 Process Monitoring.mp3",
-      "duration": 596.7
+      "file": "3.2 Solid-State Storage: NAND Flash, Wear Leveling, and NVMe.mp3",
+      "duration": 903.9
     },
     {
-      "file": "7.1 OSI 7 Layer Model vs TCP IP Stack.mp3",
-      "duration": 691.8
+      "file": "3.3 Optical and Enterprise Storage: CD, DVD, Blu-Ray, NAS, and SAN.mp3",
+      "duration": 849.0
     },
     {
-      "file": "7.2 Network Topologies Switches and Routers.mp3",
-      "duration": 746.6
+      "file": "3.4 File System Architecture: Inodes, Ext4, NTFS, and FAT32.mp3",
+      "duration": 893.3
     },
     {
-      "file": "7.3 Transport Protocols TCP vs UDP.mp3",
-      "duration": 712.0
+      "file": "3.5 Enterprise RAID Arrays: RAID 0, 1, 5, 6, and 10 Calculations.mp3",
+      "duration": 911.0
     },
     {
-      "file": "7.4 Linux Lab 7 Network Diagnostics.mp3",
-      "duration": 580.2
+      "file": "3.6 Cloud Storage Architecture and The 3-2-1 Backup Strategy.mp3",
+      "duration": 780.9
     },
     {
-      "file": "8.1 Global Internet Architecture DNS and BGP.mp3",
-      "duration": 751.5
+      "file": "3.7 Linux Lab 3 Walkthrough: File Operations and Wildcard Expansion.mp3",
+      "duration": 833.6
     },
     {
-      "file": "8.2 Web Protocols HTTP HTTPS TLS and DB8 Privacy.mp3",
+      "file": "3.8 Module 3 Synthesis, Storage Mathematics, and Quiz 3 Mastery.mp3",
+      "duration": 893.8
+    },
+    {
+      "file": "4.1 Input Technologies: Keyboards, Pointing Devices, and Biometrics.mp3",
+      "duration": 986.2
+    },
+    {
+      "file": "4.2 Display Technologies: LCD, OLED, MicroLED, and GPU Pipelines.mp3",
+      "duration": 899.4
+    },
+    {
+      "file": "4.3 Audio, Sensors, IoT Inputs, and 3D Printing Mechanics.mp3",
+      "duration": 885.8
+    },
+    {
+      "file": "4.4 Port Interfaces and IO Architectures: USB-C, Thunderbolt, and DMA.mp3",
+      "duration": 899.8
+    },
+    {
+      "file": "4.5 UNIX Standard Streams: stdin, stdout, and stderr.mp3",
+      "duration": 660.7
+    },
+    {
+      "file": "4.6 Stream Redirection Mechanics and Pipeline Chaining.mp3",
+      "duration": 735.6
+    },
+    {
+      "file": "4.7 Linux Lab 4 Walkthrough: Redirection, Pipelines, and Grep Filtering.mp3",
+      "duration": 729.8
+    },
+    {
+      "file": "4.8 Module 4 Synthesis, Stream Tracing, and Quiz 4 Mastery.mp3",
+      "duration": 973.3
+    },
+    {
+      "file": "5.1 Operating System Core Roles and Privilege Protection Rings.mp3",
+      "duration": 801.1
+    },
+    {
+      "file": "5.2 Kernel Architectures: Monolithic, Microkernel, and Hybrid.mp3",
+      "duration": 853.7
+    },
+    {
+      "file": "5.3 Process Management: States, Context Switching, and Schedulers.mp3",
+      "duration": 1072.1
+    },
+    {
+      "file": "5.4 Virtual Memory Architecture: Paging, MMU, and Page Tables.mp3",
+      "duration": 910.0
+    },
+    {
+      "file": "5.5 Memory Shortcomings: Page Faults, Swapping, and Thrashing.mp3",
+      "duration": 886.9
+    },
+    {
+      "file": "5.6 Linux File Permissions: The Bitmask Model and Octal Calculations.mp3",
+      "duration": 802.7
+    },
+    {
+      "file": "5.7 Advanced Permissions: SUID, SGID, and The Sticky Bit.mp3",
+      "duration": 899.6
+    },
+    {
+      "file": "5.8 Linux Lab 5 Walkthrough: Permissions, Chmod, Chown, and Access Control.mp3",
+      "duration": 929.0
+    },
+    {
+      "file": "5.9 Module 5 Synthesis, Virtual Memory Proofs, and Quiz 5 Mastery.mp3",
+      "duration": 912.3
+    },
+    {
+      "file": "6.1 Software Engineering Foundations: Compilers, Interpreters, and JIT.mp3",
+      "duration": 812.7
+    },
+    {
+      "file": "6.2 Open Source Licensing Models: GPL, BSD, MIT, and Proprietary EULAs.mp3",
+      "duration": 836.1
+    },
+    {
+      "file": "6.3 Linux Process Hierarchy: Init, Systemd, Fork, and Exec.mp3",
+      "duration": 734.2
+    },
+    {
+      "file": "6.4 Process Anomalies: Zombie Processes, Orphan Processes, and Daemons.mp3",
+      "duration": 761.1
+    },
+    {
+      "file": "6.5 UNIX Signals: SIGHUP, SIGINT, SIGQUIT, SIGKILL, and SIGTERM.mp3",
+      "duration": 767.0
+    },
+    {
+      "file": "6.6 Linux Lab 6 Walkthrough: Process Monitoring, Top, and Job Control.mp3",
+      "duration": 813.4
+    },
+    {
+      "file": "6.7 Module 6 Synthesis, Signal State Tracing, and Quiz 6 Mastery.mp3",
+      "duration": 752.3
+    },
+    {
+      "file": "7.1 Network Topologies, Classifications, and Transmission Media.mp3",
+      "duration": 970.4
+    },
+    {
+      "file": "7.2 Network Hardware Infrastructure: NICs, Switches, Routers, and Gateways.mp3",
+      "duration": 852.0
+    },
+    {
+      "file": "7.3 The OSI 7-Layer Reference Model Architecture.mp3",
+      "duration": 886.7
+    },
+    {
+      "file": "7.4 Protocol Data Units, Encapsulation, and Decapsulation.mp3",
+      "duration": 865.5
+    },
+    {
+      "file": "7.5 The TCP-IP 4-Layer Model and Protocol Mapping.mp3",
+      "duration": 822.9
+    },
+    {
+      "file": "7.6 IPv4 Addressing, Subnetting, and CIDR Notation.mp3",
+      "duration": 953.5
+    },
+    {
+      "file": "7.7 IPv6 Addressing Architecture and Migration Mechanisms.mp3",
+      "duration": 885.3
+    },
+    {
+      "file": "7.8 Transport Protocols: TCP Three-Way Handshake versus UDP.mp3",
+      "duration": 815.8
+    },
+    {
+      "file": "7.9 Linux Lab 7 Walkthrough: Network Diagnostics and CLI Tools.mp3",
+      "duration": 916.3
+    },
+    {
+      "file": "7.10 Module 7 Synthesis, Subnet Calculations, and Quiz 7 Mastery.mp3",
+      "duration": 963.9
+    },
+    {
+      "file": "8.1 Global Internet Architecture: ARPANET, Tier 1 ISPs, and IXPs.mp3",
+      "duration": 1027.0
+    },
+    {
+      "file": "8.2 The Domain Name System: Hierarchy, Root Servers, and Resolution.mp3",
+      "duration": 1025.9
+    },
+    {
+      "file": "8.3 Web Protocols: HTTP Evolution, HTTPS, and TLS 1.3 Handshake.mp3",
+      "duration": 1005.7
+    },
+    {
+      "file": "8.4 3-Tier Web Architecture with DBMS Core and REST APIs.mp3",
+      "duration": 836.0
+    },
+    {
+      "file": "8.5 Web State Management: Cookies, Sessions, and Privacy Risks.mp3",
+      "duration": 786.9
+    },
+    {
+      "file": "8.6 Linux Shell Environment: Local Variables versus Environment Variables.mp3",
+      "duration": 722.2
+    },
+    {
+      "file": "8.7 Path Resolution Mechanics and Command Execution Order.mp3",
+      "duration": 773.0
+    },
+    {
+      "file": "8.8 Shell Startup Scripts: bashrc, bash_profile, and Custom Aliases.mp3",
       "duration": 763.5
     },
     {
-      "file": "8.3 Environment Variables and Path Manipulation.mp3",
-      "duration": 650.4
+      "file": "8.9 Linux Lab 8 Walkthrough: Environment Variables and Shell Customization.mp3",
+      "duration": 774.3
     },
     {
-      "file": "8.4 Linux Lab 8 Environment Variables and Startup Scripts.mp3",
-      "duration": 570.2
+      "file": "8.10 Module 8 Synthesis, DNS Tracing, and Quiz 8 Mastery.mp3",
+      "duration": 850.6
     },
     {
-      "file": "9.1 Relational Databases SQL and Normalization.mp3",
-      "duration": 684.0
+      "file": "9.1 File-Based Data Storage Limitations versus Modern DBMS.mp3",
+      "duration": 725.6
     },
     {
-      "file": "9.2 ACID Compliance vs NoSQL Architectures.mp3",
-      "duration": 695.2
+      "file": "9.2 Edgar F. Codd's Relational Model: Relations, Tuples, and Attributes.mp3",
+      "duration": 765.2
     },
     {
-      "file": "9.3 Linux Stream Text Processing cut awk and sed.mp3",
-      "duration": 680.0
+      "file": "9.3 Relational Keys and Integrity Constraints.mp3",
+      "duration": 683.5
     },
     {
-      "file": "9.4 Linux Lab 9 Text Processing and RegEx.mp3",
-      "duration": 550.2
+      "file": "9.4 Database Normalization: 1NF, 2NF, and 3NF Proofs.mp3",
+      "duration": 759.3
     },
     {
-      "file": "9.5 DB9 Ubuntu VM Desktop Installation, Software Center, and Hash Verification.mp3",
-      "duration": 619.1
+      "file": "9.5 ACID Transaction Properties and OS Shortcomings.mp3",
+      "duration": 825.6
     },
     {
-      "file": "10.1 CIA Triad and Cyber Threat Modeling.mp3",
-      "duration": 707.4
-    },
-    {
-      "file": "10.2 Applied Cryptography Ciphers and Hashes.mp3",
+      "file": "9.6 SQL Foundations: DDL Schema Definition and DML Querying.mp3",
       "duration": 763.6
     },
     {
-      "file": "10.3 Linux User and Group Security Architecture.mp3",
-      "duration": 706.4
+      "file": "9.7 Relational DBMS versus NoSQL Document and Key-Value Stores.mp3",
+      "duration": 780.4
     },
     {
-      "file": "10.4 Linux Lab 10 User Account Management.mp3",
-      "duration": 575.8
+      "file": "9.8 Linux Stream Text Processing: Cut, Awk, and Sed Mechanics.mp3",
+      "duration": 659.1
     },
     {
-      "file": "11.1 SDLC Waterfall vs Agile Methodologies.mp3",
-      "duration": 702.9
+      "file": "9.9 Regular Expression Syntax for Terminal Power Users.mp3",
+      "duration": 736.7
     },
     {
-      "file": "11.2 Feasibility TELOS and Requirements Modeling.mp3",
-      "duration": 672.6
+      "file": "9.10 Linux Lab 9 Walkthrough: Advanced Log Parsing and Filter Pipelines.mp3",
+      "duration": 826.1
     },
     {
-      "file": "11.3 Linux Automation with the Cron Daemon.mp3",
-      "duration": 693.7
+      "file": "9.11 DB9 Walkthrough: Ubuntu VM Installation and Hash Verification.mp3",
+      "duration": 783.2
     },
     {
-      "file": "11.4 Linux Lab 11 Bash Script and Crontab.mp3",
-      "duration": 621.0
+      "file": "9.12 Module 9 Synthesis, Normalization Proofs, and Quiz 9 Mastery.mp3",
+      "duration": 826.2
     },
     {
-      "file": "12.1 Foundations of Logic and Algorithms.mp3",
-      "duration": 678.5
+      "file": "10.1 The CIA Triad and Enterprise Cyber Threat Modeling.mp3",
+      "duration": 804.8
     },
     {
-      "file": "12.2 Bash Scripting Shebang Variables and Tests.mp3",
+      "file": "10.2 Malware Taxonomies: Viruses, Worms, Trojans, Ransomware, and Rootkits.mp3",
+      "duration": 802.4
+    },
+    {
+      "file": "10.3 Social Engineering Vectors and Attack Methodologies.mp3",
+      "duration": 775.4
+    },
+    {
+      "file": "10.4 Applied Cryptography: Symmetric Encryption versus Asymmetric Encryption.mp3",
+      "duration": 769.6
+    },
+    {
+      "file": "10.5 Cryptographic Hash Functions, MACs, and Digital Signatures.mp3",
+      "duration": 774.9
+    },
+    {
+      "file": "10.6 Public Key Infrastructure, Digital Certificates, and CAs.mp3",
+      "duration": 705.9
+    },
+    {
+      "file": "10.7 Linux Security Architecture: passwd, shadow, and Salted Hashes.mp3",
+      "duration": 742.7
+    },
+    {
+      "file": "10.8 Group Management and Sudoers Administrative Governance.mp3",
+      "duration": 754.7
+    },
+    {
+      "file": "10.9 Linux Lab 10 Walkthrough: User and Group Account Administration.mp3",
+      "duration": 1100.9
+    },
+    {
+      "file": "10.10 Module 10 Synthesis, Cryptographic Scenarios, and Quiz 10 Mastery.mp3",
+      "duration": 992.0
+    },
+    {
+      "file": "11.1 Systems Development Lifecycle: Planning, Analysis, Design, Implementation, Maintenance.mp3",
+      "duration": 1000.5
+    },
+    {
+      "file": "11.2 SDLC Methodologies: Waterfall Model versus Agile and Scrum.mp3",
+      "duration": 872.3
+    },
+    {
+      "file": "11.3 TELOS Feasibility Framework and Cost-Benefit ROI Analysis.mp3",
+      "duration": 846.6
+    },
+    {
+      "file": "11.4 Systems Modeling: DFDs, Use Case Diagrams, and System Flowcharts.mp3",
+      "duration": 766.0
+    },
+    {
+      "file": "11.5 System Conversion Strategies: Direct Cutover, Parallel, Pilot, Phased.mp3",
+      "duration": 828.9
+    },
+    {
+      "file": "11.6 Linux Automation: The Cron Daemon and Scheduling Architecture.mp3",
+      "duration": 739.6
+    },
+    {
+      "file": "11.7 Crontab Syntax Mastery: The Five-Field Time Model.mp3",
       "duration": 679.4
     },
     {
-      "file": "12.3 Advanced Scripting Functions and String Ops.mp3",
-      "duration": 713.7
+      "file": "11.8 Automated Script Execution, Output Redirection, and Cron Debugging.mp3",
+      "duration": 831.5
     },
     {
-      "file": "12.4 Cloud Computing Virtualization and Containers.mp3",
-      "duration": 745.0
+      "file": "11.9 Linux Lab 11 Walkthrough: Bash Backup Automation and Crontab Scheduling.mp3",
+      "duration": 930.7
     },
     {
-      "file": "13.1 Ethical Frameworks, Stockholder vs Stakeholder, and ACM Code of Ethics.mp3",
-      "duration": 659.7
+      "file": "11.10 Module 11 Synthesis, Crontab Time Calculations, and Quiz 11 Mastery.mp3",
+      "duration": 817.2
     },
     {
-      "file": "13.2 Cyber Law, Intellectual Property, and Applied Ethical Hacking.mp3",
-      "duration": 637.3
+      "file": "12.1 Algorithmic Thinking, Pseudocode, and Flowchart Conventions.mp3",
+      "duration": 817.0
     },
     {
-      "file": "13.3 Emergent Tech DB Part 1 AI, Predictive Analytics, and Algorithmic Bias.mp3",
-      "duration": 611.6
+      "file": "12.2 Fundamental Control Structures: Sequence, Selection, and Iteration.mp3",
+      "duration": 719.0
     },
     {
-      "file": "13.4 Emergent Tech DB Part 2 Quantum Computing, Neuromorphic Chips, and Tech Evaluation.mp3",
-      "duration": 562.2
+      "file": "12.3 Boolean Logic, Truth Tables, and Complex Conditionals.mp3",
+      "duration": 668.9
     },
     {
-      "file": "13.5 Emergent Tech DB Part 3 Blockchain, Robotics, and Green Computing.mp3",
-      "duration": 577.6
+      "file": "12.4 Bash Scripting Foundations: The Shebang, Variables, and Exit Codes.mp3",
+      "duration": 715.0
     },
     {
-      "file": "14.1 Enterprise Linux Server and LAMP Stack Architecture.mp3",
-      "duration": 656.9
+      "file": "12.5 Positional Parameters and Shell Argument Handling.mp3",
+      "duration": 688.3
     },
     {
-      "file": "14.2 MySQL Database Provisioning and User Grants.mp3",
-      "duration": 651.3
+      "file": "12.6 Bash Conditional Execution: Test Commands and Comparisons.mp3",
+      "duration": 710.7
     },
     {
-      "file": "14.3 WordPress CMS Installation and Security Hardening.mp3",
-      "duration": 737.4
+      "file": "12.7 Bash Loop Constructs: For Loops, While Loops, and Until Loops.mp3",
+      "duration": 718.1
     },
     {
-      "file": "14.4 Kali Linux Security Auditing and Penetration Testing.mp3",
-      "duration": 766.5
+      "file": "12.8 Modular Bash: Functions, Local Scope, and Arithmetic Expansion.mp3",
+      "duration": 775.2
     },
     {
-      "file": "15.1 Final Project Verification and Proof Walkthrough.mp3",
-      "duration": 628.3
+      "file": "12.9 Cloud Service Models: IaaS, PaaS, SaaS, and Cloud Deployment Models.mp3",
+      "duration": 813.0
     },
     {
-      "file": "15.2 Final Project Ethics Defense and CMS Governance.mp3",
-      "duration": 598.4
+      "file": "12.10 Virtualization versus Containerization: Hypervisors and Docker.mp3",
+      "duration": 804.0
     },
     {
-      "file": "15.3 Linux OS Comprehensive Command Matrix.mp3",
-      "duration": 783.7
+      "file": "12.11 Module 12 Synthesis, Script Tracing, and Quiz 12 Mastery.mp3",
+      "duration": 1029.6
     },
     {
-      "file": "15.4 Mastering Final Exam Questions and Concepts.mp3",
-      "duration": 701.7
+      "file": "13.1 Philosophical Ethics: Deontology, Utilitarianism, and Virtue Ethics.mp3",
+      "duration": 805.1
     },
     {
-      "file": "16.1 Final Grade Verification and GPA Audit Protocol.mp3",
-      "duration": 543.8
+      "file": "13.2 Corporate Governance: Friedman Stockholder versus Freeman Stakeholder Theory.mp3",
+      "duration": 830.6
     },
     {
-      "file": "16.2 Degree Works Sync 47 Credits and Spring 2027.mp3",
-      "duration": 589.1
+      "file": "13.3 Professional Codes of Ethics: ACM and IEEE Standards.mp3",
+      "duration": 816.9
+    },
+    {
+      "file": "13.4 Intellectual Property Law: Copyright, Patents, Trademarks, and Trade Secrets.mp3",
+      "duration": 722.2
+    },
+    {
+      "file": "13.5 Fair Use Doctrine, Software Piracy, and Digital Rights Management.mp3",
+      "duration": 741.9
+    },
+    {
+      "file": "13.6 Cyber Law and Legislation: CFAA, GDPR, CCPA, and Electronic Privacy.mp3",
+      "duration": 811.4
+    },
+    {
+      "file": "13.7 Applied Ethical Hacking: Penetration Testing Boundaries and Rules of Engagement.mp3",
+      "duration": 856.7
+    },
+    {
+      "file": "13.8 Emergent Tech DB13 Part 1: AI, Algorithmic Bias, and Predictive Justice.mp3",
+      "duration": 764.3
+    },
+    {
+      "file": "13.9 Emergent Tech DB13 Part 2: Quantum Computing, Superposition, and Post-Quantum Cryptography.mp3",
+      "duration": 800.3
+    },
+    {
+      "file": "13.10 Emergent Tech DB13 Part 3: Neuromorphic Chips, Blockchain, and Green Computing.mp3",
+      "duration": 774.8
+    },
+    {
+      "file": "13.11 Module 13 Synthesis, Legal Scenario Analysis, and Quiz 13 Mastery.mp3",
+      "duration": 1139.9
+    },
+    {
+      "file": "14.1 Enterprise Linux Server Architecture and Service Management.mp3",
+      "duration": 1005.2
+    },
+    {
+      "file": "14.2 The LAMP Stack Architecture: Linux, Apache, MySQL, PHP.mp3",
+      "duration": 1018.8
+    },
+    {
+      "file": "14.3 MySQL Database Provisioning, User Privileges, and Grants.mp3",
+      "duration": 955.0
+    },
+    {
+      "file": "14.4 WordPress CMS Deployment and File Permissions Hardening.mp3",
+      "duration": 952.5
+    },
+    {
+      "file": "14.5 Kali Linux Security Auditing Suite and Methodology.mp3",
+      "duration": 843.7
+    },
+    {
+      "file": "14.6 Security Auditing Tools: Nmap, Nikto, and Wireshark Inspection.mp3",
+      "duration": 924.8
+    },
+    {
+      "file": "14.7 Module 14 Synthesis, LAMP Troubleshooting, and Capstone Setup.mp3",
+      "duration": 1034.1
+    },
+    {
+      "file": "15.1 Final Capstone Project Architecture and Verification Protocol.mp3",
+      "duration": 889.4
+    },
+    {
+      "file": "15.2 Final Project Ethics Defense, Web Governance, and ADA Accessibility.mp3",
+      "duration": 1000.1
+    },
+    {
+      "file": "15.3 Comprehensive Linux Command Master Matrix: Labs 1 through 11.mp3",
+      "duration": 1169.5
+    },
+    {
+      "file": "15.4 CISS 100 Final Exam Comprehensive Review and Strategy.mp3",
+      "duration": 1240.2
+    },
+    {
+      "file": "16.1 Final Grade Verification, Weighted Categories, and GPA Audit.mp3",
+      "duration": 835.5
+    },
+    {
+      "file": "16.2 HVCC Degree Works Synchronization and Academic Transfer Planning.mp3",
+      "duration": 860.1
+    },
+    {
+      "file": "16.3 Professional Horizons: CS Certifications and Career Roadmaps.mp3",
+      "duration": 807.1
     }
   ]
 }
