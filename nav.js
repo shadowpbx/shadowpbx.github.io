@@ -329,11 +329,29 @@
         document.documentElement.classList.remove('drawer-open');
     }
 
+    // 6. Dynamic Active Link Highlighting
+    function highlightActiveNavLink() {
+        var path = (window.location.pathname || '/').toLowerCase();
+        var links = document.querySelectorAll('.topbar-nav .nav-link');
+        links.forEach(function(link) {
+            var href = (link.getAttribute('href') || '').toLowerCase();
+            if (!href) return;
+            if (href !== '/' && path.startsWith(href)) {
+                link.classList.add('active');
+            } else if (href === '/' && (path === '/' || path === '/index.html')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
     // Attach listeners on DOMContentLoaded
     function onReady() {
         handleLocalhost();
         ensureDrawer();
         ensureSettings();
+        highlightActiveNavLink();
 
         // Bind all potential toggle buttons (new topbar button or legacy mobile menu button)
         var toggleBtns = document.querySelectorAll('#hexdef-menu-btn, #mobile-menu-btn, .mobile-drawer-toggle');
