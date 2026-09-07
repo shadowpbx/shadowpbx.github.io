@@ -379,6 +379,41 @@
                 white-space: normal;
             }
         }
+
+        /* Dark Mode Overrides for Blueprint & Banners */
+        [data-theme="dark"] .master-stack-container {
+            background: var(--bg-card) !important;
+            border-color: var(--border) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45) !important;
+        }
+
+        [data-theme="dark"] .layer-item {
+            background: rgba(14, 21, 36, 0.85) !important;
+            border-color: var(--border) !important;
+        }
+
+        [data-theme="dark"] .layer-item:hover {
+            background: #141c2e !important;
+            border-color: var(--border) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        [data-theme="dark"] .audio-master-banner {
+            background: linear-gradient(135deg, #101827 0%, #161a2e 100%) !important;
+            border-color: var(--border) !important;
+            border-left: 4px solid var(--accent) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        [data-theme="dark"] .audio-banner-icon-box {
+            background: rgba(168, 85, 247, 0.12) !important;
+            border-color: rgba(168, 85, 247, 0.3) !important;
+        }
+
+        [data-theme="dark"] .terminal-header {
+            background: linear-gradient(to bottom, var(--bg-card) 0%, var(--bg-header) 100%) !important;
+            border-color: var(--border) !important;
+        }
     </style>
 </head>
 <body>
@@ -391,53 +426,87 @@
                 <a href="/" class="topbar-brand" title="HexDef — Systems & Security Architecture">
                     <span class="topbar-brand-icon">🛡️</span>
                     <span class="topbar-brand-title">HexDef</span>
-                    <span class="topbar-brand-badge">SYS // DEF</span>
                 </a>
             </div>
             <nav class="topbar-nav">
-                <a href="/" class="nav-link active">[ HOME ]</a>
                 <div class="dropdown">
-                    <a href="/cybersecurity/" class="nav-link">[ CYBERSECURITY ]</a>
+                    <a href="/cybersecurity/" class="nav-link">
+                        Cybersecurity
+                        <svg class="nav-chevron" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
                     <div class="dropdown-menu">
-                        <a href="/cybersecurity/cybersecurity_audio/">Audio Tutorials</a>
-                        <a href="/cybersecurity/cybersecurity_tools/">Tools &amp; Scripts</a>
-                        <a href="/cybersecurity/cybersecurity_certifications/">Certifications</a>
-                        <a href="/cybersecurity/cybersecurity_curriculum/">Cybersecurity Curriculum</a>
-                        <a href="/cybersecurity/cybersecurity_study_modules/">Study Modules</a>
+                        <a href="/cybersecurity/cybersecurity_audio/"><span class="dropdown-item-icon">🎧</span> Audio Tutorials</a>
+                        <a href="/cybersecurity/cybersecurity_tools/"><span class="dropdown-item-icon">🛠️</span> Tools &amp; Scripts</a>
+                        <a href="/cybersecurity/cybersecurity_certifications/"><span class="dropdown-item-icon">📜</span> Certifications</a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/"><span class="dropdown-item-icon">📚</span> Cybersecurity Curriculum</a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/"><span class="dropdown-item-icon">🔬</span> Study Modules</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/engineering/" class="nav-link">[ ENGINEERING ]</a>
+                    <a href="/engineering/" class="nav-link">
+                        Engineering
+                        <svg class="nav-chevron" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
                     <div class="dropdown-menu">
-                        <a href="https://hexlean.com" target="_blank" rel="noopener" class="hexlean-dropdown-link" title="HexLean Interactive Learning & IDE">⚡ HexLean Platform ↗</a>
-                        <a href="/engineering/engineering_audio/">Audio Tutorials</a>
-                        <a href="/engineering/engineering_cs/">Computer Science</a>
-                        <a href="/engineering/engineering_articles/">Articles &amp; Guides</a>
-                        <a href="/engineering/engineering_tools/">Tools &amp; Utilities</a>
+                        <a href="https://hexlean.com" target="_blank" rel="noopener" class="hexlean-dropdown-link" title="HexLean Interactive Learning & IDE"><span class="dropdown-item-icon">⚡</span> HexLean Platform ↗</a>
+                        <a href="/engineering/engineering_audio/"><span class="dropdown-item-icon">🎧</span> Audio Tutorials</a>
+                        <a href="/engineering/engineering_cs/"><span class="dropdown-item-icon">💻</span> Computer Science</a>
+                        <a href="/engineering/engineering_articles/"><span class="dropdown-item-icon">📑</span> Articles &amp; Guides</a>
+                        <a href="/engineering/engineering_tools/"><span class="dropdown-item-icon">⚙️</span> Tools &amp; Utilities</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="/academics/" class="nav-link">[ ACADEMICS ]</a>
+                    <a href="/academics/" class="nav-link">
+                        Academics
+                        <svg class="nav-chevron" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </a>
                     <div class="dropdown-menu">
-                        <a href="/academics/academics_audio/">Audio Tutorials</a>
-                        <a href="/academics/academics_curriculum/">Academic Curriculum</a>
+                        <a href="/academics/academics_audio/"><span class="dropdown-item-icon">🎧</span> Audio Tutorials</a>
+                        <a href="/academics/academics_curriculum/"><span class="dropdown-item-icon">🎓</span> Academic Curriculum</a>
                     </div>
                 </div>
-                <a href="https://hexlean.com" class="nav-link nav-link-hexlean" target="_blank" rel="noopener" title="HexLean — Interactive Technical Education by Tanvir Hussain">[ ⚡ HEXLEAN ↗ ]</a>
-                <a href="/resume/" class="nav-link">[ RESUME ]</a>
+                <a href="https://hexlean.com" class="nav-link nav-link-hexlean" target="_blank" rel="noopener" title="HexLean — Interactive Technical Education by Tanvir Hussain">
+                    <svg class="hexlean-bolt-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    <span>HexLean</span>
+                    <svg class="hexlean-ext-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+                <a href="/resume/" class="nav-link">Resume</a>
+                <a href="https://github.com/shadowpbx" target="_blank" rel="noopener" class="nav-link" title="GitHub Repository">GitHub ↗</a>
             </nav>
             <div class="topbar-right">
-                <button id="theme-toggle-btn" class="topbar-btn topbar-theme-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">[ ◐ ]</button>
-                <a href="https://github.com/shadowpbx" target="_blank" rel="noopener" class="topbar-btn topbar-github-btn" title="GitHub Repository">[ GITHUB ]</a>
+                <button id="settings-btn" class="topbar-btn topbar-settings-btn" aria-label="System Preferences" aria-haspopup="true" aria-expanded="false" title="Preferences">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
 
-    <div class="terminal-header homepage-header">
-        <div class="header-container">
-            <div class="terminal-prompt">user@hexdef:~$ architecture --visualize --full-stack</div>
+    <!-- Settings Popover -->
+    <div id="settings-popover" class="settings-popover" role="dialog" aria-label="System Preferences">
+        <div class="popover-header">
+            <span class="popover-title">// PREFERENCES</span>
+            <button id="popover-close-btn" class="popover-close-btn" aria-label="Close Settings">✕</button>
+        </div>
+        <div class="popover-group">
+            <div class="popover-label">Theme Mode</div>
+            <div class="theme-options">
+                <button class="theme-opt-btn" data-set-theme="light" type="button">☀️ Light</button>
+                <button class="theme-opt-btn" data-set-theme="dark" type="button">🌙 Dark</button>
+            </div>
+        </div>
+        <div class="popover-footer">
+            HexDef Systems &amp; Architecture
         </div>
     </div>
+
 
     <div class="container">
         
