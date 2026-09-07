@@ -589,14 +589,9 @@ html.drawer-open, body.drawer-open {
     color: #ef4444;
 }
 
-.drawer-terminal-bar {
-    padding: 0.5rem 1.25rem;
-    background: var(--bg-header);
-    border-bottom: 1px solid var(--border);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--terminal-green);
-    font-weight: 600;
+.drawer-terminal-bar,
+.drawer-prompt {
+    display: none !important;
 }
 
 .drawer-body {

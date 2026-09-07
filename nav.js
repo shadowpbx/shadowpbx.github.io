@@ -116,9 +116,6 @@
                     </a>
                     <button id="drawer-close-btn" class="drawer-close-btn" aria-label="Close navigation">[ ✕ ]</button>
                 </div>
-                <div class="drawer-terminal-bar">
-                    <span class="drawer-prompt">user@hexdef:~$ tree --nav</span>
-                </div>
                 <div class="drawer-body">
                     <div class="drawer-group">
                         <span class="drawer-group-label">// MAIN PORTALS</span>
