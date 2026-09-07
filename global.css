@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
+
 :root {
     --bg-page: #fcfcfd;
     --bg-header: #f8fafc;
@@ -7,6 +9,7 @@
     --text-secondary: #2c3e50;
     --border: #e2e8f0;
     --terminal-green: #059669;
+    --font-display: 'Geist', var(--font-main);
     --font-main: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --topbar-bg: rgba(252, 252, 253, 0.94);
@@ -71,11 +74,13 @@ body {
 }
 
 h1 {
-    font-family: var(--font-main);
+    font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 2.5rem);
     margin: 0;
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
 }
 
 h1 a {
@@ -85,6 +90,21 @@ h1 a {
 
 h1 a:hover {
     color: var(--accent);
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
 }
 
 .back-link {
@@ -1352,12 +1372,14 @@ footer {
 
     .terminal-header h1 {
         font-size: clamp(1.4rem, 5vw, 2.2rem);
-        line-height: 1.3;
+        line-height: 1.18;
+        text-wrap: balance;
     }
 
     h2 {
         font-size: clamp(1.2rem, 3.8vw, 1.6rem);
-        line-height: 1.35;
+        line-height: 1.25;
+        text-wrap: balance;
         padding-top: 0.75rem !important;
         padding-bottom: 0.75rem !important;
     }
