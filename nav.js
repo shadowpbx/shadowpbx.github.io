@@ -168,13 +168,15 @@
                         <a href="/resume/" class="drawer-link"><span class="drawer-icon">📄</span> Resume</a>
                     </div>
 
-                    <!-- Featured HexLean Banner Card -->
-                    <div class="drawer-featured-card">
-                        <div class="drawer-featured-tag">INTERACTIVE EDUCATION</div>
-                        <div class="drawer-featured-title">⚡ HexLean Platform ↗</div>
+                    <!-- Featured HexLean Banner Card (Entire Card Clickable) -->
+                    <a href="https://hexlean.com" target="_blank" rel="noopener" class="drawer-featured-card" title="Launch HexLean Platform">
+                        <div class="drawer-featured-top">
+                            <span class="drawer-featured-tag">INTERACTIVE EDUCATION</span>
+                            <span class="drawer-featured-arrow">↗</span>
+                        </div>
+                        <div class="drawer-featured-title">⚡ HexLean Platform</div>
                         <p class="drawer-featured-desc">In-depth zero-bloat programming textbooks with interactive in-browser sandboxes.</p>
-                        <a href="https://hexlean.com" target="_blank" rel="noopener" class="drawer-featured-btn">Launch HexLean ↗</a>
-                    </div>
+                    </a>
 
                     <div class="drawer-group">
                         <span class="drawer-group-label">// ACTIONS &amp; PREFERENCES</span>

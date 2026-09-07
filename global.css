@@ -720,13 +720,36 @@ html.drawer-open, body.drawer-open {
     font-weight: 700 !important;
 }
 
-/* Featured Card in Drawer */
+/* Featured Card in Drawer (Interactive Launcher Card) */
 .drawer-featured-card {
+    display: block;
+    text-decoration: none;
     background: rgba(13, 148, 136, 0.08);
     border: 1px solid rgba(13, 148, 136, 0.25);
     border-radius: 8px;
-    padding: 0.85rem;
+    padding: 0.9rem 1rem;
     margin-top: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.drawer-featured-card:hover {
+    background: rgba(13, 148, 136, 0.14);
+    border-color: #0d9488;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.18);
+}
+
+.drawer-featured-card:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15);
+}
+
+.drawer-featured-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.35rem;
 }
 
 .drawer-featured-tag {
@@ -734,40 +757,34 @@ html.drawer-open, body.drawer-open {
     font-size: 0.62rem;
     font-weight: 700;
     color: #0d9488;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
+    letter-spacing: 0.06em;
+}
+
+.drawer-featured-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0d9488;
+    transition: transform 0.2s ease;
+}
+
+.drawer-featured-card:hover .drawer-featured-arrow {
+    transform: translate(2px, -2px);
 }
 
 .drawer-featured-title {
-    font-family: var(--font-main);
-    font-size: 0.92rem;
+    font-family: var(--font-display, var(--font-main));
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.35rem;
 }
 
 .drawer-featured-desc {
     font-size: 0.78rem;
     color: var(--text-secondary);
-    line-height: 1.4;
-    margin-bottom: 0.65rem;
-}
-
-.drawer-featured-btn {
-    display: inline-block;
-    background: #0d9488;
-    color: #ffffff !important;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s ease;
-}
-
-.drawer-featured-btn:hover {
-    background: #0f766e;
+    line-height: 1.45;
+    margin-bottom: 0;
 }
 
 /* Theme button in drawer */
