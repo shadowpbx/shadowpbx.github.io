@@ -12,7 +12,137 @@
     <link rel="apple-touch-icon" href="/assets/shield.svg">
     <script src="/nav.js"></script>
     <style>
-        /* 9-Layer Master Architecture Blueprint Styles */
+        /* ==========================================================================
+           Executive Architecture Hero Section
+           ========================================================================== */
+        .executive-hero {
+            margin-top: 1rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .hero-eyebrow-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.15rem;
+        }
+
+        .hero-eyebrow-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--terminal-green);
+            background: rgba(5, 150, 105, 0.08);
+            border: 1px solid rgba(5, 150, 105, 0.28);
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+        }
+
+        .status-indicator {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--terminal-green);
+            box-shadow: 0 0 8px var(--terminal-green);
+            display: inline-block;
+            animation: statusPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.45; transform: scale(0.85); }
+        }
+
+        .hero-curation-tag {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        .hero-main-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.2vw, 3.1rem);
+            font-weight: 700;
+            line-height: 1.14;
+            letter-spacing: -0.038em;
+            color: var(--text-primary);
+            margin: 0 0 1rem 0;
+            text-wrap: balance;
+        }
+
+        .hero-main-title em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-family: var(--font-main);
+            font-size: clamp(0.96rem, 1.35vw, 1.08rem);
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 880px;
+            margin: 0 0 1.75rem 0;
+        }
+
+        .hero-metrics-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+        }
+
+        .hero-metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .metric-val {
+            font-family: var(--font-mono);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .metric-lbl {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+        }
+
+        .metric-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border);
+        }
+
+        /* ==========================================================================
+           9-Layer Master Architecture Blueprint Styles
+           ========================================================================== */
         .blueprint-section {
             margin-bottom: 3.5rem;
         }
@@ -35,16 +165,17 @@
 
         .blueprint-title-wrap h2 {
             font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 600;
+            font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+            font-weight: 700;
             color: var(--text-primary);
-            margin: 0.25rem 0 0 0;
-            letter-spacing: -0.025em;
+            margin: 0.35rem 0 0.25rem 0;
+            letter-spacing: -0.03em;
         }
 
         .blueprint-subtitle {
-            font-size: 0.88rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
+            line-height: 1.5;
             margin: 0.2rem 0 0 0;
         }
 
@@ -72,15 +203,15 @@
 
         .tier-header {
             display: flex;
-            align-items: baseline;
+            align-items: center;
             justify-content: space-between;
             font-family: var(--font-mono);
-            font-size: 0.90rem;
+            font-size: 0.88rem;
             font-weight: 700;
-            letter-spacing: 0.03em;
-            padding: 0.75rem 0.5rem 0.35rem 0.5rem;
-            border-bottom: 1px dashed var(--border);
-            margin-bottom: 0.35rem;
+            letter-spacing: 0.04em;
+            padding: 0.85rem 0.65rem 0.5rem 0.65rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0.4rem;
             text-transform: uppercase;
         }
 
@@ -90,11 +221,14 @@
         }
 
         .tier-header span:last-child {
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             color: var(--text-secondary);
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.05em;
-            opacity: 0.8;
+            background: rgba(148, 163, 184, 0.1);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
         }
 
         .layer-item {
@@ -367,7 +501,602 @@
             }
         }
 
+        /* ==========================================================================
+           Desktop Chromatic Layer Hovers & Micro-Interactions
+           ========================================================================== */
+        @media (min-width: 769px) {
+            .layer-item {
+                transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .layer-item:hover {
+                transform: translateX(6px);
+                background: #ffffff;
+            }
+            /* L9: Human Wetware */
+            .layer-l9:hover {
+                border-color: #e11d48 !important;
+                box-shadow: 0 6px 20px rgba(225, 29, 72, 0.14) !important;
+            }
+            .layer-l9:hover .layer-action {
+                background: #e11d48 !important;
+                color: #ffffff !important;
+                border-color: #e11d48 !important;
+            }
+            /* L8: Theory & Crypto */
+            .layer-l8:hover {
+                border-color: #9333ea !important;
+                box-shadow: 0 6px 20px rgba(147, 51, 234, 0.14) !important;
+            }
+            .layer-l8:hover .layer-action {
+                background: #9333ea !important;
+                color: #ffffff !important;
+                border-color: #9333ea !important;
+            }
+            /* L7: Networks & Distributed */
+            .layer-l7:hover {
+                border-color: #2563eb !important;
+                box-shadow: 0 6px 20px rgba(37, 99, 235, 0.14) !important;
+            }
+            .layer-l7:hover .layer-action {
+                background: #2563eb !important;
+                color: #ffffff !important;
+                border-color: #2563eb !important;
+            }
+            /* L6: Storage & DBs */
+            .layer-l6:hover {
+                border-color: #0d9488 !important;
+                box-shadow: 0 6px 20px rgba(13, 148, 136, 0.14) !important;
+            }
+            .layer-l6:hover .layer-action {
+                background: #0d9488 !important;
+                color: #ffffff !important;
+                border-color: #0d9488 !important;
+            }
+            /* L5: Algorithms */
+            .layer-l5:hover {
+                border-color: #8e44ad !important;
+                box-shadow: 0 6px 20px rgba(142, 68, 173, 0.14) !important;
+            }
+            .layer-l5:hover .layer-action {
+                background: #8e44ad !important;
+                color: #ffffff !important;
+                border-color: #8e44ad !important;
+            }
+            /* L4: Compilers & Runtimes */
+            .layer-l4:hover {
+                border-color: #d97706 !important;
+                box-shadow: 0 6px 20px rgba(217, 119, 6, 0.14) !important;
+            }
+            .layer-l4:hover .layer-action {
+                background: #d97706 !important;
+                color: #ffffff !important;
+                border-color: #d97706 !important;
+            }
+            /* L3: OS & Kernels */
+            .layer-l3:hover {
+                border-color: #059669 !important;
+                box-shadow: 0 6px 20px rgba(5, 150, 105, 0.14) !important;
+            }
+            .layer-l3:hover .layer-action {
+                background: #059669 !important;
+                color: #ffffff !important;
+                border-color: #059669 !important;
+            }
+            /* L2: Digital Architecture */
+            .layer-l2:hover {
+                border-color: #4f46e5 !important;
+                box-shadow: 0 6px 20px rgba(79, 70, 229, 0.14) !important;
+            }
+            .layer-l2:hover .layer-action {
+                background: #4f46e5 !important;
+                color: #ffffff !important;
+                border-color: #4f46e5 !important;
+            }
+            /* L1: Physical & Silicon */
+            .layer-l1:hover {
+                border-color: #475569 !important;
+                box-shadow: 0 6px 20px rgba(71, 85, 105, 0.14) !important;
+            }
+            .layer-l1:hover .layer-action {
+                background: #475569 !important;
+                color: #ffffff !important;
+                border-color: #475569 !important;
+            }
+        }
+
+        /* ==========================================================================
+           Domain Hub & Practice Areas Architecture
+           ========================================================================== */
+        .domain-hub-section {
+            margin-bottom: 3.5rem;
+            padding-top: 0.5rem;
+        }
+
+        .domain-hub-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .domain-hub-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            margin: 0.35rem 0 0.25rem 0;
+        }
+
+        .domain-hub-subtitle {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .domain-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .domain-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .domain-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .domain-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .icon-cyber {
+            background: rgba(225, 29, 72, 0.08);
+            border: 1px solid rgba(225, 29, 72, 0.2);
+        }
+
+        .icon-eng {
+            background: rgba(37, 99, 235, 0.08);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .icon-acad {
+            background: rgba(5, 150, 105, 0.08);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .domain-card-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            min-width: 0;
+        }
+
+        .domain-code {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+        }
+
+        .domain-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .domain-title a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .domain-title a:hover {
+            color: var(--accent);
+        }
+
+        .domain-desc {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0 0 1.25rem 0;
+            flex-grow: 1;
+        }
+
+        .domain-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            border-top: 1px solid var(--border);
+            padding-top: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .domain-sublink {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 0.35rem 0.45rem;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .sublink-icon {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            line-height: 1;
+        }
+
+        .sublink-arrow {
+            margin-left: auto;
+            font-family: var(--font-mono);
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: all 0.15s ease;
+        }
+
+        .domain-sublink:hover {
+            background: var(--bg-header);
+            color: var(--text-primary);
+        }
+
+        .domain-sublink:hover .sublink-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .domain-card-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.65rem 1rem;
+            background: var(--bg-header);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .domain-card-action:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           HexLean Interactive Education Ecosystem Banner
+           ========================================================================== */
+        .hexlean-ecosystem-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(13, 148, 136, 0.06) 0%, rgba(45, 212, 191, 0.08) 100%);
+            border: 1px solid rgba(13, 148, 136, 0.28);
+            border-radius: 12px;
+            padding: 1.35rem 1.75rem;
+            text-decoration: none;
+            color: inherit;
+            gap: 1.5rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.05);
+        }
+
+        .hexlean-ecosystem-banner:hover {
+            border-color: #0d9488;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15);
+        }
+
+        .hexlean-eco-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .hexlean-eco-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(13, 148, 136, 0.12);
+            border: 1px solid rgba(13, 148, 136, 0.3);
+            color: #0d9488;
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .hexlean-eco-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            min-width: 0;
+        }
+
+        .hexlean-eco-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .hexlean-eco-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .hexlean-eco-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #0d9488;
+            background: #ffffff;
+            border: 1px solid rgba(13, 148, 136, 0.35);
+            padding: 0.6rem 1.15rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            letter-spacing: 0.03em;
+            transition: all 0.2s ease;
+        }
+
+        .hexlean-ecosystem-banner:hover .hexlean-eco-cta {
+            background: #0d9488;
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           Site Footer Architecture
+           ========================================================================== */
+        .site-footer {
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            padding-top: 3rem;
+            padding-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .footer-top-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .footer-brand-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-logo-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .footer-mission {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0;
+            max-width: 340px;
+        }
+
+        .footer-status-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--terminal-green);
+            background: rgba(5, 150, 105, 0.08);
+            border: 1px solid rgba(5, 150, 105, 0.25);
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            width: fit-content;
+        }
+
+        .footer-status-chip .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--terminal-green);
+            box-shadow: 0 0 6px var(--terminal-green);
+            display: inline-block;
+        }
+
+        .footer-col-title {
+            font-family: var(--font-mono);
+            font-size: 0.74rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .footer-links li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            transition: color 0.15s ease;
+        }
+
+        .footer-links li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-ext-link {
+            font-weight: 600;
+        }
+
+        .footer-theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: 0.35rem 0.65rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: left;
+            width: fit-content;
+        }
+
+        .footer-theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .footer-bottom-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-meta-tag {
+            letter-spacing: 0.06em;
+            opacity: 0.75;
+        }
+
+        /* ==========================================================================
+           Responsive Mobile & Tablet Rules
+           ========================================================================== */
+        @media (max-width: 960px) {
+            .domain-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .footer-top-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            .hexlean-ecosystem-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.25rem;
+            }
+            .hexlean-eco-cta {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 768px) {
+            .executive-hero {
+                margin-top: 0.5rem;
+                margin-bottom: 1.75rem;
+            }
+            .hero-eyebrow-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                margin-bottom: 0.85rem;
+            }
+            .hero-metrics-bar {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.25rem 1rem;
+                padding: 1.1rem 1.25rem;
+            }
+            .metric-divider {
+                display: none;
+            }
+            .metric-val {
+                font-size: 1.25rem;
+            }
             .blueprint-section {
                 margin-bottom: 2.5rem;
             }
@@ -409,6 +1138,9 @@
                 white-space: nowrap;
                 opacity: 0.75;
                 flex-shrink: 0;
+                background: transparent;
+                border: none;
+                padding: 0;
             }
             .layer-item {
                 border: none;
@@ -517,7 +1249,50 @@
             }
         }
 
-        /* Dark Mode Overrides for Blueprint & Banners */
+        @media (max-width: 600px) {
+            .footer-top-grid {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+            }
+            .footer-bottom-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        /* ==========================================================================
+           Dark Mode Overrides for Full Elevation
+           ========================================================================== */
+        [data-theme="dark"] .hero-eyebrow-pill {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.35);
+            color: #34d399;
+        }
+
+        [data-theme="dark"] .status-indicator {
+            background: #34d399;
+            box-shadow: 0 0 10px #34d399;
+        }
+
+        [data-theme="dark"] .hero-metrics-bar {
+            background: rgba(16, 24, 39, 0.75);
+            border-color: var(--border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        [data-theme="dark"] .hero-main-title em {
+            background: linear-gradient(135deg, #c084fc 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        [data-theme="dark"] .tier-header span:last-child {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: var(--border);
+            color: var(--text-secondary);
+        }
+
         [data-theme="dark"] .master-stack-container {
             background: var(--bg-card) !important;
             border-color: var(--border) !important;
@@ -529,10 +1304,46 @@
             border-color: var(--border) !important;
         }
 
-        [data-theme="dark"] .layer-item:hover {
-            background: #141c2e !important;
-            border-color: var(--border) !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+        @media (min-width: 769px) {
+            [data-theme="dark"] .layer-item:hover {
+                background: #141c2e !important;
+            }
+            [data-theme="dark"] .layer-l9:hover {
+                border-color: rgba(225, 29, 72, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(225, 29, 72, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l8:hover {
+                border-color: rgba(147, 51, 234, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(147, 51, 234, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l7:hover {
+                border-color: rgba(37, 99, 235, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(37, 99, 235, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l6:hover {
+                border-color: rgba(13, 148, 136, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(13, 148, 136, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l5:hover {
+                border-color: rgba(168, 85, 247, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(168, 85, 247, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l4:hover {
+                border-color: rgba(217, 119, 6, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(217, 119, 6, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l3:hover {
+                border-color: rgba(16, 185, 129, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(16, 185, 129, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l2:hover {
+                border-color: rgba(99, 102, 241, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(99, 102, 241, 0.25) !important;
+            }
+            [data-theme="dark"] .layer-l1:hover {
+                border-color: rgba(148, 163, 184, 0.75) !important;
+                box-shadow: 0 6px 24px rgba(148, 163, 184, 0.25) !important;
+            }
         }
 
         [data-theme="dark"] .audio-master-banner {
@@ -545,6 +1356,59 @@
         [data-theme="dark"] .audio-banner-icon-box {
             background: rgba(168, 85, 247, 0.12) !important;
             border-color: rgba(168, 85, 247, 0.3) !important;
+        }
+
+        [data-theme="dark"] .domain-card {
+            background: rgba(16, 24, 39, 0.75);
+            border-color: var(--border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .domain-card:hover {
+            border-color: var(--accent);
+        }
+
+        [data-theme="dark"] .domain-sublink:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        [data-theme="dark"] .domain-card-action {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        [data-theme="dark"] .domain-card-action:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .hexlean-ecosystem-banner {
+            background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%);
+            border-color: rgba(13, 148, 136, 0.3);
+        }
+
+        [data-theme="dark"] .hexlean-eco-cta {
+            background: rgba(13, 148, 136, 0.15);
+            color: #2dd4bf;
+            border-color: rgba(45, 212, 191, 0.35);
+        }
+
+        [data-theme="dark"] .hexlean-ecosystem-banner:hover .hexlean-eco-cta {
+            background: #0d9488;
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .footer-status-chip {
+            background: rgba(16, 185, 129, 0.12);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #34d399;
+        }
+
+        [data-theme="dark"] .footer-status-chip .status-dot {
+            background: #34d399;
+            box-shadow: 0 0 8px #34d399;
         }
 
         [data-theme="dark"] .terminal-header {
@@ -646,6 +1510,44 @@
 
     <div class="container">
         
+        <!-- Executive Architecture Hero Section -->
+        <section class="executive-hero">
+            <div class="hero-eyebrow-wrap">
+                <span class="hero-eyebrow-pill">
+                    <span class="status-indicator"></span>
+                    SYSTEMS &amp; SECURITY ARCHITECTURE // PUBLIC REFERENCE
+                </span>
+                <span class="hero-curation-tag">CURATED BY TANVIR HUSSAIN</span>
+            </div>
+            <h1 class="hero-main-title">
+                Full-Stack Systems Architecture, <em>Applied Cryptography</em> &amp; Security Engineering
+            </h1>
+            <p class="hero-description">
+                An authoritative systems knowledge base and unified taxonomy spanning the entire computing continuum—from semiconductor physics and hardware side-channels up through operating system kernels, distributed consensus, and cognitive wetware.
+            </p>
+            <div class="hero-metrics-bar">
+                <div class="hero-metric-item">
+                    <span class="metric-val">9</span>
+                    <span class="metric-lbl">Computing Layers</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="hero-metric-item">
+                    <span class="metric-val">18</span>
+                    <span class="metric-lbl">Audio Suites</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="hero-metric-item">
+                    <span class="metric-val">2,725</span>
+                    <span class="metric-lbl">Curriculum Modules</span>
+                </div>
+                <div class="metric-divider"></div>
+                <div class="hero-metric-item">
+                    <span class="metric-val">355h 31m</span>
+                    <span class="metric-lbl">Technical Audio</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Technical Audio Quick-Launch Banner -->
         <a href="/home/audio/" class="audio-master-banner" title="Open Technical Audio &amp; Lecture Library">
             <div class="audio-banner-left">
@@ -805,8 +1707,230 @@
             </div>
         </section>
 
-        <footer>
-            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
+        <!-- DOMAIN HUBS & CORE PRACTICE AREAS -->
+        <section class="domain-hub-section">
+            <div class="domain-hub-header">
+                <span class="section-label" style="margin-bottom: 0;">Architecture Portals &amp; Practice Areas</span>
+                <h2 class="domain-hub-title">Core Systems Engineering Domains</h2>
+                <p class="domain-hub-subtitle">Explore dedicated deep-dive repositories, specialized toolkits, and structured audio curricula across primary engineering pillars.</p>
+            </div>
+
+            <div class="domain-cards-grid">
+                <!-- DOMAIN 1: CYBERSECURITY & DEFENSE -->
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-card-icon-box icon-cyber">🛡️</div>
+                        <div class="domain-card-meta">
+                            <span class="domain-code">DOM-01 // SECURITY</span>
+                            <h3 class="domain-title"><a href="/cybersecurity/">Cybersecurity &amp; Defense</a></h3>
+                        </div>
+                    </div>
+                    <p class="domain-desc">
+                        Offensive &amp; defensive security engineering, NIST/ISO compliance frameworks, cryptographic implementations, and real-world adversary emulation.
+                    </p>
+                    <div class="domain-links-list">
+                        <a href="/cybersecurity/cybersecurity_audio/" class="domain-sublink">
+                            <span class="sublink-icon">🎧</span> Audio Tutorials <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/cybersecurity/cybersecurity_tools/" class="domain-sublink">
+                            <span class="sublink-icon">🛠️</span> Tools &amp; Scripts <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/cybersecurity/cybersecurity_certifications/" class="domain-sublink">
+                            <span class="sublink-icon">📜</span> Certifications <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/cybersecurity/cybersecurity_curriculum/" class="domain-sublink">
+                            <span class="sublink-icon">📚</span> Defense Curriculum <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                    <a href="/cybersecurity/" class="domain-card-action">ENTER CYBERSECURITY PORTAL &rarr;</a>
+                </div>
+
+                <!-- DOMAIN 2: SYSTEMS & SOFTWARE ENGINEERING -->
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-card-icon-box icon-eng">⚙️</div>
+                        <div class="domain-card-meta">
+                            <span class="domain-code">DOM-02 // SYSTEMS</span>
+                            <h3 class="domain-title"><a href="/engineering/">Systems &amp; Engineering</a></h3>
+                        </div>
+                    </div>
+                    <p class="domain-desc">
+                        Operating system kernels, compiler optimization, distributed consensus (Raft/Paxos), computer microarchitecture, and high-throughput infrastructure.
+                    </p>
+                    <div class="domain-links-list">
+                        <a href="/engineering/engineering_cs/" class="domain-sublink">
+                            <span class="sublink-icon">💻</span> Computer Science <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/engineering/engineering_articles/" class="domain-sublink">
+                            <span class="sublink-icon">📑</span> Articles &amp; Guides <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/engineering/engineering_audio/" class="domain-sublink">
+                            <span class="sublink-icon">🎧</span> Engineering Audio <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/engineering/engineering_tools/" class="domain-sublink">
+                            <span class="sublink-icon">🛠️</span> Utilities &amp; Tools <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                    <a href="/engineering/" class="domain-card-action">ENTER SYSTEMS PORTAL &rarr;</a>
+                </div>
+
+                <!-- DOMAIN 3: ACADEMICS & RESEARCH AUDIO -->
+                <div class="domain-card">
+                    <div class="domain-card-header">
+                        <div class="domain-card-icon-box icon-acad">🎓</div>
+                        <div class="domain-card-meta">
+                            <span class="domain-code">DOM-03 // ACADEMICS</span>
+                            <h3 class="domain-title"><a href="/academics/">Academics &amp; Audio Library</a></h3>
+                        </div>
+                    </div>
+                    <p class="domain-desc">
+                        University-grade computer science curricula, algorithmic study modules, and the complete 18-suite technical audio lecture repository.
+                    </p>
+                    <div class="domain-links-list">
+                        <a href="/home/audio/" class="domain-sublink">
+                            <span class="sublink-icon">🎧</span> Audio Catalog (355h) <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/academics/academics_curriculum/" class="domain-sublink">
+                            <span class="sublink-icon">📚</span> Academic Syllabi <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/cybersecurity/cybersecurity_study_modules/" class="domain-sublink">
+                            <span class="sublink-icon">🔬</span> Study Modules <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                        <a href="/resume/" class="domain-sublink">
+                            <span class="sublink-icon">📄</span> Architect Resume <span class="sublink-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                    <a href="/academics/" class="domain-card-action">ENTER ACADEMICS PORTAL &rarr;</a>
+                </div>
+            </div>
+
+            <!-- HEXLEAN INTERACTIVE EDUCATION ECOSYSTEM BANNER -->
+            <a href="https://hexlean.com" class="hexlean-ecosystem-banner" target="_blank" rel="noopener" title="Open HexLean Interactive Platform">
+                <div class="hexlean-eco-left">
+                    <div class="hexlean-eco-badge">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        <span>HEXLEAN PLATFORM</span>
+                    </div>
+                    <div class="hexlean-eco-info">
+                        <h4 class="hexlean-eco-title">Interactive Technical Education &bull; Zero-Install In-Browser Learning</h4>
+                        <p class="hexlean-eco-desc">Companion interactive learning platform featuring dual-paradigm pedagogy, visual syntax breakdowns, and hands-on execution for C, Bash, Python, and Systems Programming.</p>
+                    </div>
+                </div>
+                <div class="hexlean-eco-cta">
+                    <span>LAUNCH HEXLEAN</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- SITE ARCHITECTURE FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-top-grid">
+                <div class="footer-brand-col">
+                    <a href="/" class="footer-brand" title="HexDef — Systems &amp; Security Architecture">
+                        <span class="footer-logo-box">
+                            <svg class="topbar-brand-svg" width="22" height="22" viewBox="0 0 128 128" aria-hidden="true">
+                                <g>
+                                    <path fill="#B0BEC5" d="M16.77,19.75c-1,0-1.7,0.8-1.7,1.8v0.1c-1.5,25.91,3.03,59.27,24.01,83.52c12.1,14.7,23.91,18.53,24.51,18.73c0,0,0.28,0.09,0.54,0.09s0.57-0.1,0.57-0.1c0.5-0.2,12.48-4.02,24.49-18.72c19.91-24.21,24.01-58.82,24.01-83.52v-0.1c0-1-0.8-1.8-1.7-1.8c-0.3,0-29.11-1-46.01-15.3l0,0c-0.7-0.6-1.7-0.6-2.4,0C45.98,18.65,17.07,19.65,16.77,19.75z"/>
+                                    <path fill="#84B0C1" d="M111.49,19.75c-0.3,0-29.11-1-46.01-15.3C65.08,4.1,64.65,4,64.24,4c-0.03,0-0.07,0-0.11,0v120c0.27-0.01,0.62-0.11,0.62-0.12c0.6-0.25,12.44-4,24.44-18.7c19.91-24.21,24.01-58.82,24.01-83.52v-0.1C113.2,20.55,112.4,19.75,111.49,19.75z"/>
+                                    <path fill="#2F7889" d="M26.33,28.31c-0.82,0-1.02,1.02-1.02,1.74v0.1c0,19.72,3.06,47.4,19,66.71c9.6,11.75,19,14.81,19.41,14.91l0.41,0.1l0.41-0.1c0.41-0.1,9.81-3.17,19.41-14.91c15.94-19.31,19-46.89,19-66.71v-0.1c0-0.82-0.41-1.43-1.23-1.43h0.1c-0.2,0-23.19-0.82-36.67-12.16l0,0c-1.19-0.98-1.94-0.2-1.94-0.2C49.63,27.6,26.64,28.31,26.33,28.31L26.33,28.31z"/>
+                                    <path fill="#C9E3E6" d="M29.18,30.07c-0.76,0-0.94,0.96-0.94,1.64v0.1c0,18.57,2.83,44.65,17.57,62.84c8.88,11.07,17.57,13.95,17.95,14.05l0.38,0.1l0.38-0.1c0.38-0.1,9.07-2.98,17.95-14.05c14.73-18.19,17.57-44.17,17.57-62.84v-0.1c0-0.77-0.38-1.35-1.13-1.35h0.09c-0.19,0-21.44-0.77-33.91-11.45l0,0c-0.94-0.95-1.79-0.19-1.79-0.19C50.72,29.4,29.47,30.07,29.18,30.07L29.18,30.07z"/>
+                                    <path fill="#B0BEC5" d="M98.89,30.36h0.09c-0.19,0-21.44-0.77-33.91-11.45c-0.34-0.34-0.66-0.46-0.94-0.47v90.35l0.38-0.1c0.38-0.1,9.07-2.98,17.95-14.05c14.73-18.19,17.57-44.17,17.57-62.84v-0.1C100.02,30.94,99.65,30.36,98.89,30.36z"/>
+                                    <circle fill="#37474F" cx="70.63" cy="14.44" r="1.93"/>
+                                    <circle fill="#37474F" cx="82.21" cy="19.67" r="1.93"/>
+                                    <circle fill="#37474F" cx="95.01" cy="23.21" r="1.93"/>
+                                    <circle fill="#37474F" cx="108.15" cy="25.14" r="1.93"/>
+                                    <circle fill="#37474F" cx="108.57" cy="36.94" r="1.93"/>
+                                    <circle fill="#37474F" cx="107.02" cy="50.76" r="1.93"/>
+                                    <circle fill="#37474F" cx="64.08" cy="118.11" r="1.93"/>
+                                    <circle fill="#37474F" cx="75.4" cy="112.71" r="1.93"/>
+                                    <circle fill="#37474F" cx="85.74" cy="102.71" r="1.93"/>
+                                    <circle fill="#37474F" cx="93.81" cy="91.27" r="1.93"/>
+                                    <circle fill="#37474F" cx="99.67" cy="79" r="1.93"/>
+                                    <circle fill="#37474F" cx="104.27" cy="64.65" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="70.15" cy="13.8" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="81.73" cy="19.03" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="94.53" cy="22.57" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="107.66" cy="24.5" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="108.09" cy="36.3" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="106.53" cy="50.12" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="63.6" cy="117.47" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="74.92" cy="112.07" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="85.26" cy="102.07" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="93.33" cy="90.63" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="99.19" cy="78.36" r="1.93"/>
+                                    <circle fill="#B9E4EA" cx="103.79" cy="64.01" r="1.93"/>
+                                    <circle fill="#2F7889" cx="57.97" cy="14.44" r="1.93"/>
+                                    <circle fill="#2F7889" cx="46.39" cy="19.67" r="1.93"/>
+                                    <circle fill="#2F7889" cx="33.59" cy="23.21" r="1.93"/>
+                                    <circle fill="#2F7889" cx="20.45" cy="25.14" r="1.93"/>
+                                    <circle fill="#2F7889" cx="20.02" cy="36.94" r="1.93"/>
+                                    <circle fill="#2F7889" cx="21.58" cy="50.76" r="1.93"/>
+                                    <circle fill="#2F7889" cx="53.19" cy="112.71" r="1.93"/>
+                                    <circle fill="#2F7889" cx="42.86" cy="102.71" r="1.93"/>
+                                    <circle fill="#2F7889" cx="34.79" cy="91.27" r="1.93"/>
+                                    <circle fill="#2F7889" cx="28.92" cy="79" r="1.93"/>
+                                    <circle fill="#2F7889" cx="24.33" cy="64.65" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="57.54" cy="13.8" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="45.95" cy="19.03" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="33.16" cy="22.57" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="20.02" cy="24.5" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="19.59" cy="36.3" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="21.15" cy="50.12" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="52.76" cy="112.07" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="42.42" cy="102.07" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="34.36" cy="90.63" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="28.49" cy="78.36" r="1.93"/>
+                                    <circle fill="#EEEEEE" cx="23.89" cy="64.01" r="1.93"/>
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="footer-title">HexDef</span>
+                    </a>
+                    <p class="footer-mission">
+                        Unified systems architecture, applied cryptography, and defensive engineering taxonomy curated by Tanvir Hussain.
+                    </p>
+                    <div class="footer-status-chip">
+                        <span class="status-dot"></span>
+                        <span>SYSTEMS ONLINE // 2026 SPEC</span>
+                    </div>
+                </div>
+
+                <div class="footer-nav-col">
+                    <div class="footer-col-title">Practice Domains</div>
+                    <ul class="footer-links">
+                        <li><a href="/cybersecurity/">Cybersecurity &amp; Defense</a></li>
+                        <li><a href="/engineering/">Systems &amp; Engineering</a></li>
+                        <li><a href="/academics/">Academics &amp; Research</a></li>
+                        <li><a href="/home/audio/">Audio Catalog (18 Suites)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-col">
+                    <div class="footer-col-title">Key Architecture</div>
+                    <ul class="footer-links">
+                        <li><a href="/home/architecture/layer-09-human-wetware-policy-grc/">Layer 09: Wetware &amp; GRC</a></li>
+                        <li><a href="/home/architecture/layer-07-networks-distributed-systems/">Layer 07: Networks &amp; Dist.</a></li>
+                        <li><a href="/home/architecture/layer-03-operating-systems-concurrency/">Layer 03: OS &amp; Kernels</a></li>
+                        <li><a href="/home/architecture/layer-01-physical-silicon/">Layer 01: Physical &amp; Silicon</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav-col">
+                    <div class="footer-col-title">Ecosystem &amp; Meta</div>
+                    <ul class="footer-links">
+                        <li><a href="https://hexlean.com" target="_blank" rel="noopener" class="footer-ext-link">HexLean Education ↗</a></li>
+                        <li><a href="https://github.com/shadowpbx" target="_blank" rel="noopener" class="footer-ext-link">GitHub Repository ↗</a></li>
+                        <li><a href="/resume/">Architect Resume</a></li>
+                        <li><button type="button" class="footer-theme-toggle" id="footer-theme-btn">Switch Theme Mode</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <div class="footer-copy">&copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY ARCHITECTURE</div>
+                <div class="footer-meta-tag">OPEN-ACCESS TECHNICAL REFERENCE // ZERO TRACKING</div>
+            </div>
         </footer>
     </div>
 
@@ -823,6 +1947,27 @@
                     menuBtn.textContent = '[ ☰ menu --list ]';
                     navContainer.classList.remove('show');
                 }
+            });
+        }
+
+        // Footer Theme Switcher
+        const footerThemeBtn = document.getElementById('footer-theme-btn');
+        if (footerThemeBtn) {
+            footerThemeBtn.addEventListener('click', () => {
+                const current = document.documentElement.getAttribute('data-theme') || 'light';
+                const next = current === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', next);
+                try { localStorage.setItem('hexdef_theme', next); } catch(e){}
+                const popoverThemeBtns = document.querySelectorAll('.theme-opt-btn');
+                popoverThemeBtns.forEach(btn => {
+                    if (btn.getAttribute('data-set-theme') === next) {
+                        btn.classList.add('active');
+                        btn.setAttribute('aria-pressed', 'true');
+                    } else {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-pressed', 'false');
+                    }
+                });
             });
         }
 
