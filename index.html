@@ -545,31 +545,48 @@
         }
 
         /* ==========================================================================
-           Domain Hub & Practice Areas Architecture
+           Domain Hub & Practice Areas Architecture (880px Contained Spine)
            ========================================================================== */
         .domain-hub-section {
-            margin-bottom: 3.5rem;
-            padding-top: 0.5rem;
+            max-width: 880px;
+            margin: 0 auto 4.5rem;
+            padding-top: 1rem;
         }
 
         .domain-hub-header {
-            margin-bottom: 1.5rem;
+            text-align: center;
+            margin-bottom: 2.25rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .domain-hub-header .section-label {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin: 0 auto 0.45rem;
+            display: inline-block;
+            font-size: 0.74rem;
+            letter-spacing: 0.12em;
         }
 
         .domain-hub-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-family: var(--font-serif);
+            font-size: clamp(1.85rem, 3.2vw, 2.45rem);
             font-weight: 700;
             color: var(--text-primary);
-            letter-spacing: -0.03em;
-            margin: 0.35rem 0 0.25rem 0;
+            margin: 0.4rem auto 0.65rem;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            text-wrap: balance;
         }
 
         .domain-hub-subtitle {
-            font-size: 0.92rem;
+            font-size: clamp(0.95rem, 1.4vw, 1.05rem);
             color: var(--text-secondary);
-            line-height: 1.5;
-            margin: 0;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 680px;
+            text-wrap: balance;
         }
 
         .domain-cards-grid {
@@ -583,12 +600,13 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1.5rem 1.25rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+            position: relative;
         }
 
         .domain-card:hover {
@@ -611,29 +629,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.35rem;
             flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .domain-card:hover .domain-card-icon-box {
+            transform: scale(1.06);
         }
 
         .icon-cyber {
-            background: rgba(225, 29, 72, 0.08);
-            border: 1px solid rgba(225, 29, 72, 0.2);
+            background: rgba(225, 29, 72, 0.1);
+            border: 1px solid rgba(225, 29, 72, 0.25);
+            color: #f43f5e;
         }
 
         .icon-eng {
-            background: rgba(37, 99, 235, 0.08);
-            border: 1px solid rgba(37, 99, 235, 0.2);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.25);
+            color: #3b82f6;
         }
 
         .icon-acad {
-            background: rgba(5, 150, 105, 0.08);
-            border: 1px solid rgba(5, 150, 105, 0.2);
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid rgba(147, 51, 234, 0.25);
+            color: #a855f7;
+        }
+
+        [data-theme="dark"] .icon-cyber {
+            background: rgba(225, 29, 72, 0.12);
+            border-color: rgba(225, 29, 72, 0.3);
+            color: #fb7185;
+        }
+
+        [data-theme="dark"] .icon-eng {
+            background: rgba(37, 99, 235, 0.12);
+            border-color: rgba(37, 99, 235, 0.3);
+            color: #60a5fa;
+        }
+
+        [data-theme="dark"] .icon-acad {
+            background: rgba(147, 51, 234, 0.12);
+            border-color: rgba(147, 51, 234, 0.3);
+            color: #c084fc;
         }
 
         .domain-card-meta {
             display: flex;
             flex-direction: column;
-            gap: 0.2rem;
+            gap: 0.25rem;
             min-width: 0;
         }
 
@@ -642,15 +685,16 @@
             font-size: 0.68rem;
             font-weight: 700;
             color: var(--accent);
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .domain-title {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
             font-weight: 700;
             line-height: 1.25;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.015em;
             margin: 0;
         }
 
@@ -665,7 +709,7 @@
         }
 
         .domain-desc {
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             color: var(--text-secondary);
             line-height: 1.55;
             margin: 0 0 1.25rem 0;
@@ -684,7 +728,7 @@
         .domain-sublink {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.55rem;
             text-decoration: none;
             color: var(--text-secondary);
             font-size: 0.82rem;
@@ -695,9 +739,15 @@
         }
 
         .sublink-icon {
-            font-size: 0.85rem;
-            opacity: 0.85;
-            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 15px;
+            height: 15px;
+            opacity: 0.7;
+            flex-shrink: 0;
+            color: var(--accent);
+            transition: transform 0.15s ease, opacity 0.15s ease;
         }
 
         .sublink-arrow {
@@ -706,11 +756,18 @@
             opacity: 0;
             transform: translateX(-4px);
             transition: all 0.15s ease;
+            font-size: 0.95rem;
+            line-height: 1;
         }
 
         .domain-sublink:hover {
             background: var(--bg-header);
             color: var(--text-primary);
+        }
+
+        .domain-sublink:hover .sublink-icon {
+            opacity: 1;
+            transform: scale(1.15);
         }
 
         .domain-sublink:hover .sublink-arrow {
@@ -722,18 +779,20 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 0.35rem;
             width: 100%;
-            padding: 0.65rem 1rem;
+            padding: 0.68rem 0.5rem;
             background: var(--bg-header);
             border: 1px solid var(--border);
-            border-radius: 6px;
+            border-radius: 8px;
             font-family: var(--font-mono);
-            font-size: 0.76rem;
+            font-size: 0.71rem;
             font-weight: 700;
             color: var(--text-primary);
             text-decoration: none;
-            letter-spacing: 0.03em;
-            transition: all 0.2s ease;
+            letter-spacing: 0.025em;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
             box-sizing: border-box;
         }
 
@@ -741,6 +800,8 @@
             background: var(--accent);
             border-color: var(--accent);
             color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(147, 51, 234, 0.25);
         }
 
         /* ==========================================================================
@@ -800,12 +861,13 @@
         }
 
         .hexlean-eco-title {
-            font-family: var(--font-display);
-            font-size: 1.05rem;
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--text-primary);
             margin: 0;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
+            text-wrap: balance;
         }
 
         .hexlean-eco-desc {
@@ -915,7 +977,7 @@
         /* ==========================================================================
            Responsive Mobile & Tablet Rules
            ========================================================================== */
-        @media (max-width: 960px) {
+        @media (max-width: 860px) {
             .domain-cards-grid {
                 grid-template-columns: 1fr;
                 gap: 1.25rem;
@@ -1534,7 +1596,7 @@
         <!-- DOMAIN HUBS & CORE PRACTICE AREAS -->
         <section class="domain-hub-section">
             <div class="domain-hub-header">
-                <span class="section-label" style="margin-bottom: 0;">Architecture Portals &amp; Practice Areas</span>
+                <span class="section-label">ARCHITECTURE PORTALS &amp; PRACTICE AREAS</span>
                 <h2 class="domain-hub-title">Core Systems Engineering Domains</h2>
                 <p class="domain-hub-subtitle">Explore dedicated deep-dive repositories, specialized toolkits, and structured audio curricula across primary engineering pillars.</p>
             </div>
@@ -1543,7 +1605,9 @@
                 <!-- DOMAIN 1: CYBERSECURITY & DEFENSE -->
                 <div class="domain-card">
                     <div class="domain-card-header">
-                        <div class="domain-card-icon-box icon-cyber">🛡️</div>
+                        <div class="domain-card-icon-box icon-cyber">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
                         <div class="domain-card-meta">
                             <span class="domain-code">DOM-01 // SECURITY</span>
                             <h3 class="domain-title"><a href="/cybersecurity/">Cybersecurity &amp; Defense</a></h3>
@@ -1554,25 +1618,35 @@
                     </p>
                     <div class="domain-links-list">
                         <a href="/cybersecurity/cybersecurity_audio/" class="domain-sublink">
-                            <span class="sublink-icon">🎧</span> Audio Tutorials <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span>
+                            <span>Audio Tutorials</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/cybersecurity/cybersecurity_tools/" class="domain-sublink">
-                            <span class="sublink-icon">🛠️</span> Tools &amp; Scripts <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></span>
+                            <span>Tools &amp; Scripts</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/cybersecurity/cybersecurity_certifications/" class="domain-sublink">
-                            <span class="sublink-icon">📜</span> Certifications <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>
+                            <span>Certifications</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/cybersecurity/cybersecurity_curriculum/" class="domain-sublink">
-                            <span class="sublink-icon">📚</span> Defense Curriculum <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+                            <span>Defense Curriculum</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                     </div>
-                    <a href="/cybersecurity/" class="domain-card-action">ENTER CYBERSECURITY PORTAL &rarr;</a>
+                    <a href="/cybersecurity/" class="domain-card-action"><span>ENTER CYBERSECURITY PORTAL</span> &rarr;</a>
                 </div>
 
                 <!-- DOMAIN 2: SYSTEMS & SOFTWARE ENGINEERING -->
                 <div class="domain-card">
                     <div class="domain-card-header">
-                        <div class="domain-card-icon-box icon-eng">⚙️</div>
+                        <div class="domain-card-icon-box icon-eng">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                        </div>
                         <div class="domain-card-meta">
                             <span class="domain-code">DOM-02 // SYSTEMS</span>
                             <h3 class="domain-title"><a href="/engineering/">Systems &amp; Engineering</a></h3>
@@ -1583,25 +1657,35 @@
                     </p>
                     <div class="domain-links-list">
                         <a href="/engineering/engineering_cs/" class="domain-sublink">
-                            <span class="sublink-icon">💻</span> Computer Science <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></span>
+                            <span>Computer Science</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/engineering/engineering_articles/" class="domain-sublink">
-                            <span class="sublink-icon">📑</span> Articles &amp; Guides <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
+                            <span>Articles &amp; Guides</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/engineering/engineering_audio/" class="domain-sublink">
-                            <span class="sublink-icon">🎧</span> Engineering Audio <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span>
+                            <span>Engineering Audio</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/engineering/engineering_tools/" class="domain-sublink">
-                            <span class="sublink-icon">🛠️</span> Utilities &amp; Tools <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></span>
+                            <span>Utilities &amp; Tools</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                     </div>
-                    <a href="/engineering/" class="domain-card-action">ENTER SYSTEMS PORTAL &rarr;</a>
+                    <a href="/engineering/" class="domain-card-action"><span>ENTER SYSTEMS PORTAL</span> &rarr;</a>
                 </div>
 
                 <!-- DOMAIN 3: ACADEMICS & RESEARCH AUDIO -->
                 <div class="domain-card">
                     <div class="domain-card-header">
-                        <div class="domain-card-icon-box icon-acad">🎓</div>
+                        <div class="domain-card-icon-box icon-acad">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                        </div>
                         <div class="domain-card-meta">
                             <span class="domain-code">DOM-03 // ACADEMICS</span>
                             <h3 class="domain-title"><a href="/academics/">Academics &amp; Audio Library</a></h3>
@@ -1612,19 +1696,27 @@
                     </p>
                     <div class="domain-links-list">
                         <a href="/home/audio/" class="domain-sublink">
-                            <span class="sublink-icon">🎧</span> Audio Catalog (355h) <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span>
+                            <span>Audio Catalog (355h)</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/academics/academics_curriculum/" class="domain-sublink">
-                            <span class="sublink-icon">📚</span> Academic Syllabi <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>
+                            <span>Academic Syllabi</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/cybersecurity/cybersecurity_study_modules/" class="domain-sublink">
-                            <span class="sublink-icon">🔬</span> Study Modules <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg></span>
+                            <span>Study Modules</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                         <a href="/resume/" class="domain-sublink">
-                            <span class="sublink-icon">📄</span> Architect Resume <span class="sublink-arrow">&rarr;</span>
+                            <span class="sublink-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+                            <span>Architect Resume</span>
+                            <span class="sublink-arrow">&rarr;</span>
                         </a>
                     </div>
-                    <a href="/academics/" class="domain-card-action">ENTER ACADEMICS PORTAL &rarr;</a>
+                    <a href="/academics/" class="domain-card-action"><span>ENTER ACADEMICS PORTAL</span> &rarr;</a>
                 </div>
             </div>
 
