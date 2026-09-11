@@ -1,33 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap');
 
 :root {
-    --bg-page: #fcfcfd;
+    --bg-page: #ffffff;
     --bg-header: #f8fafc;
     --bg-card: #ffffff;
     --accent: #8e44ad;
     --text-primary: #0f172a;
-    --text-secondary: #2c3e50;
+    --text-secondary: #334155;
     --border: #e2e8f0;
     --terminal-green: #059669;
     --font-serif: 'Fraunces', Georgia, serif;
     --font-display: 'Geist', var(--font-main);
     --font-main: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
-    --topbar-bg: rgba(252, 252, 253, 0.94);
+    --topbar-bg: rgba(255, 255, 255, 0.94);
     --topbar-border: #e2e8f0;
     --card-hover-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] {
-    --bg-page: #080c14;
-    --bg-header: #0c121e;
-    --bg-card: #101827;
+    --bg-page: #0b0f17;
+    --bg-header: #0f1626;
+    --bg-card: #111827;
     --accent: #a855f7;
     --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --text-secondary: #cbd5e1;
     --border: #1e293b;
     --terminal-green: #10b981;
-    --topbar-bg: rgba(8, 12, 20, 0.94);
+    --topbar-bg: rgba(11, 15, 23, 0.94);
     --topbar-border: rgba(30, 41, 59, 0.9);
     --card-hover-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.45);
 }
@@ -514,10 +514,11 @@ h3 {
     height: 100dvh;
     background: var(--bg-card);
     border-right: 1px solid var(--border);
-    box-shadow: 6px 0 30px rgba(0, 0, 0, 0.28);
+    box-shadow: none;
     z-index: 2000;
     transform: translateX(-100%);
-    transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+    visibility: hidden;
+    transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.26s;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -525,7 +526,9 @@ h3 {
 }
 
 .hexdef-drawer.open {
+    visibility: visible;
     transform: translateX(0);
+    box-shadow: 6px 0 30px rgba(0, 0, 0, 0.28);
 }
 
 .drawer-backdrop {
