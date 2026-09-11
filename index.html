@@ -898,6 +898,79 @@
             color: #ffffff;
         }
 
+        /* ==========================================================================
+           HexLean-Style Clean Minimal Footer
+           ========================================================================== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            font-family: var(--font-main) !important;
+            font-size: 0.88rem !important;
+            color: var(--text-secondary) !important;
+            letter-spacing: normal !important;
+            text-align: left !important;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .footer-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .footer-author-link {
+            color: var(--text-primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .footer-author-link:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 1.25rem;
+            transition: opacity 0.15s ease;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 2.25rem 0;
+            }
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .footer-links a {
+                margin-left: 0;
+                margin-right: 1.25rem;
+            }
+        }
+
 
         /* ==========================================================================
            Responsive Mobile & Tablet Rules
@@ -1643,11 +1716,19 @@
                 </div>
             </a>
         </section>
-
-        <footer>
-            &copy; 2026 // TANVIR HUSSAIN // SYSTEMS &amp; SECURITY
-        </footer>
     </div>
+
+    <footer>
+        <div class="footer-container footer-content">
+            <div>
+                &copy; 2026 <strong>HexDef</strong> &bull; An open technical systems reference created by <a href="/resume/" class="footer-author-link">Tanvir Hussain</a>.
+            </div>
+            <div class="footer-links">
+                <a href="https://hexlean.com" target="_blank" rel="noopener">hexlean.com</a>
+                <a href="https://github.com/shadowpbx" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
