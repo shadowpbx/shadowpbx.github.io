@@ -805,99 +805,86 @@
         }
 
         /* ==========================================================================
-           HexLean Interactive Education Ecosystem Banner
+           HexLean Companion Platform Outro (Option A: Centered Editorial, Button-Free)
            ========================================================================== */
         .hexlean-ecosystem-banner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, rgba(13, 148, 136, 0.06) 0%, rgba(45, 212, 191, 0.08) 100%);
-            border: 1px solid rgba(13, 148, 136, 0.28);
-            border-radius: 12px;
-            padding: 1.35rem 1.75rem;
+            display: block;
+            text-align: center;
             text-decoration: none;
             color: inherit;
-            gap: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+            border: 1px solid rgba(13, 148, 136, 0.28);
+            border-radius: 14px;
+            padding: 2.25rem 2rem;
+            margin-top: 2.5rem;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 4px 16px rgba(13, 148, 136, 0.05);
+            box-shadow: 0 4px 20px rgba(13, 148, 136, 0.06);
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
         }
 
         .hexlean-ecosystem-banner:hover {
             border-color: #0d9488;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15);
+            box-shadow: 0 8px 30px rgba(13, 148, 136, 0.15);
         }
 
-        .hexlean-eco-left {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            flex: 1 1 auto;
-            min-width: 0;
-        }
-
-        .hexlean-eco-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            background: rgba(13, 148, 136, 0.12);
-            border: 1px solid rgba(13, 148, 136, 0.3);
-            color: #0d9488;
-            padding: 0.4rem 0.75rem;
-            border-radius: 8px;
+        .hexlean-eco-eyebrow {
             font-family: var(--font-mono);
-            font-size: 0.74rem;
+            font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .hexlean-eco-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            min-width: 0;
+            color: #0d9488;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.5rem;
         }
 
         .hexlean-eco-title {
             font-family: var(--font-serif);
-            font-size: 1.15rem;
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
             font-weight: 700;
             color: var(--text-primary);
-            margin: 0;
-            letter-spacing: -0.015em;
+            margin: 0 0 0.55rem 0;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
             text-wrap: balance;
         }
 
         .hexlean-eco-desc {
-            font-size: 0.85rem;
+            font-size: 0.94rem;
             color: var(--text-secondary);
-            line-height: 1.45;
-            margin: 0;
+            line-height: 1.65;
+            margin: 0 auto;
+            max-width: 640px;
+            text-wrap: balance;
         }
 
-        .hexlean-eco-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        .hexlean-eco-link {
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             font-weight: 700;
             color: #0d9488;
-            background: #ffffff;
-            border: 1px solid rgba(13, 148, 136, 0.35);
-            padding: 0.6rem 1.15rem;
-            border-radius: 6px;
-            white-space: nowrap;
-            flex-shrink: 0;
-            letter-spacing: 0.03em;
-            transition: all 0.2s ease;
+            margin-top: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: gap 0.2s ease, color 0.2s ease;
         }
 
-        .hexlean-ecosystem-banner:hover .hexlean-eco-cta {
-            background: #0d9488;
-            color: #ffffff;
+        .hexlean-eco-arrow {
+            transition: transform 0.2s ease;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .hexlean-ecosystem-banner:hover .hexlean-eco-link {
+            gap: 0.65rem;
+        }
+
+        .hexlean-ecosystem-banner:hover .hexlean-eco-arrow {
+            transform: translateX(3px);
         }
 
         /* ==========================================================================
@@ -983,13 +970,11 @@
                 gap: 1.25rem;
             }
             .hexlean-ecosystem-banner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.25rem;
+                padding: 1.75rem 1.25rem;
+                margin-top: 2rem;
             }
-            .hexlean-eco-cta {
-                width: 100%;
-                justify-content: center;
+            .hexlean-eco-desc {
+                font-size: 0.88rem;
             }
         }
 
@@ -1289,19 +1274,22 @@
         }
 
         [data-theme="dark"] .hexlean-ecosystem-banner {
-            background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(15, 23, 42, 0.6) 100%);
-            border-color: rgba(13, 148, 136, 0.3);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.07) 0%, rgba(17, 24, 39, 0.95) 100%) !important;
+            border-color: rgba(52, 211, 153, 0.28) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
         }
 
-        [data-theme="dark"] .hexlean-eco-cta {
-            background: rgba(13, 148, 136, 0.15);
-            color: #2dd4bf;
-            border-color: rgba(45, 212, 191, 0.35);
+        [data-theme="dark"] .hexlean-ecosystem-banner:hover {
+            border-color: #10b981 !important;
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.16) !important;
         }
 
-        [data-theme="dark"] .hexlean-ecosystem-banner:hover .hexlean-eco-cta {
-            background: #0d9488;
-            color: #ffffff;
+        [data-theme="dark"] .hexlean-eco-eyebrow {
+            color: #34d399 !important;
+        }
+
+        [data-theme="dark"] .hexlean-eco-link {
+            color: #34d399 !important;
         }
 
         [data-theme="dark"] .terminal-header {
@@ -1720,21 +1708,14 @@
                 </div>
             </div>
 
-            <!-- HEXLEAN INTERACTIVE EDUCATION ECOSYSTEM BANNER -->
+            <!-- HEXLEAN COMPANION PLATFORM OUTRO (OPTION A: BUTTON-FREE EDITORIAL) -->
             <a href="https://hexlean.com" class="hexlean-ecosystem-banner" target="_blank" rel="noopener" title="Open HexLean Interactive Platform">
-                <div class="hexlean-eco-left">
-                    <div class="hexlean-eco-badge">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                        <span>HEXLEAN PLATFORM</span>
-                    </div>
-                    <div class="hexlean-eco-info">
-                        <h4 class="hexlean-eco-title">Interactive Technical Education &bull; Zero-Install In-Browser Learning</h4>
-                        <p class="hexlean-eco-desc">Companion interactive learning platform featuring dual-paradigm pedagogy, visual syntax breakdowns, and hands-on execution for C, Bash, Python, and Systems Programming.</p>
-                    </div>
-                </div>
-                <div class="hexlean-eco-cta">
-                    <span>LAUNCH HEXLEAN</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                <span class="hexlean-eco-eyebrow">COMPANION INTERACTIVE LABS</span>
+                <h3 class="hexlean-eco-title">From Architecture Theory to Applied Execution</h3>
+                <p class="hexlean-eco-desc">Transition from HexDef&rsquo;s theoretical blueprints to live, in-browser sandboxes&mdash;spanning systems programming, cybersecurity laboratories, and computing fundamentals. Zero install, zero tracking.</p>
+                <div class="hexlean-eco-link">
+                    <span>Explore HexLean Platform</span>
+                    <span class="hexlean-eco-arrow">&rarr;</span>
                 </div>
             </a>
         </section>
