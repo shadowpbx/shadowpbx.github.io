@@ -95,7 +95,7 @@
         }
     }
 
-    var BRAND_SVG_HTML = '<svg class="topbar-brand-svg" width="22" height="22" viewBox="0 0 128 128" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M63 12 L20 28 L20 70 C20 95 44 112 63 118 Z" fill="#0d9488"/><path d="M65 12 L108 28 L108 70 C108 95 84 112 65 118 Z" fill="#10b981"/><path d="M63 12 L20 28 L63 42 Z" fill="#042f2e" fill-opacity="0.35"/><path d="M65 12 L108 28 L65 42 Z" fill="#34d399" fill-opacity="0.35"/><line x1="64" y1="12" x2="64" y2="118" stroke="#34d399" stroke-width="1.2" stroke-linecap="round"/></svg>';
+    var BRAND_SVG_HTML = '<svg class="topbar-brand-svg" width="28" height="28" viewBox="0 0 128 128" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M63 12 L20 28 L20 70 C20 95 44 112 63 118 Z" fill="#0d9488"/><path d="M65 12 L108 28 L108 70 C108 95 84 112 65 118 Z" fill="#10b981"/><path d="M63 12 L20 28 L63 42 Z" fill="#042f2e" fill-opacity="0.35"/><path d="M65 12 L108 28 L65 42 Z" fill="#34d399" fill-opacity="0.35"/><line x1="64" y1="12" x2="64" y2="118" stroke="#34d399" stroke-width="1.2" stroke-linecap="round"/></svg>';
 
     // 4. Mobile Left Drawer Manager
     function ensureDrawer() {

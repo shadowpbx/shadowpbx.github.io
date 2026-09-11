@@ -170,47 +170,47 @@ h3 {
 }
 
 .topbar-brand-icon {
-    width: 36px;
-    height: 36px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(14, 165, 233, 0.08);
-    border: 1px solid rgba(14, 165, 233, 0.28);
-    border-radius: 9px;
-    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.12);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     transition: all 0.22s ease;
     flex-shrink: 0;
 }
 
 .topbar-brand-svg {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     display: block;
     flex-shrink: 0;
-    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 2px 6px rgba(16, 185, 129, 0.22));
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease;
 }
 
 .topbar-brand:hover .topbar-brand-icon {
-    background: rgba(14, 165, 233, 0.18);
-    border-color: rgba(14, 165, 233, 0.55);
-    box-shadow: 0 0 14px rgba(14, 165, 233, 0.35);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .topbar-brand:hover .topbar-brand-svg {
     transform: scale(1.08);
+    filter: drop-shadow(0 2px 12px rgba(16, 185, 129, 0.45));
 }
 
 [data-theme="dark"] .topbar-brand-icon {
-    background: rgba(14, 165, 233, 0.12);
-    border-color: rgba(56, 189, 248, 0.32);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 10px rgba(14, 165, 233, 0.15);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 [data-theme="dark"] .topbar-brand:hover .topbar-brand-icon {
-    background: rgba(14, 165, 233, 0.22);
-    border-color: rgba(56, 189, 248, 0.65);
-    box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .topbar-brand-title {
@@ -573,14 +573,12 @@ html.drawer-open, body.drawer-open {
 }
 
 .drawer-brand-icon {
-    width: 36px;
-    height: 36px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(14, 165, 233, 0.1);
-    border: 1px solid rgba(14, 165, 233, 0.3);
-    border-radius: 8px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
     flex-shrink: 0;
 }
 
