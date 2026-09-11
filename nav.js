@@ -381,14 +381,28 @@
         });
     }
 
-    // 9. Favicon Manager
+    // 9. Favicon Manager (Forces Chrome to invalidate stale cached favicons)
     function ensureFavicon() {
-        if (!document.querySelector('link[rel*="icon"]')) {
+        var existingIcons = document.querySelectorAll('link[rel*="icon"]');
+        if (existingIcons.length === 0) {
             var link = document.createElement('link');
             link.rel = 'icon';
             link.type = 'image/svg+xml';
-            link.href = '/assets/shield.svg';
+            link.href = '/assets/shield.svg?v=2';
             document.head.appendChild(link);
+            
+            var pngLink = document.createElement('link');
+            pngLink.rel = 'icon';
+            pngLink.type = 'image/png';
+            pngLink.sizes = '32x32';
+            pngLink.href = '/assets/favicon-32x32.png?v=2';
+            document.head.appendChild(pngLink);
+        } else {
+            existingIcons.forEach(function(el) {
+                if (el.href && !el.href.includes('?v=')) {
+                    el.href = el.href + '?v=2';
+                }
+            });
         }
     }
 
