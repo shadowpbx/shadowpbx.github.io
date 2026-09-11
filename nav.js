@@ -144,7 +144,6 @@
                             </button>
                             <div class="drawer-accordion-content">
                                 <a href="/engineering/">Overview Dashboard</a>
-                                <a href="https://hexlean.com" target="_blank" rel="noopener" class="drawer-hexlean-link">⚡ HexLean Platform ↗</a>
                                 <a href="/engineering/engineering_audio/">Audio Tutorials</a>
                                 <a href="/engineering/engineering_cs/">Computer Science</a>
                                 <a href="/engineering/engineering_articles/">Articles &amp; Guides</a>
@@ -167,16 +166,6 @@
 
                         <a href="/resume/" class="drawer-link"><span class="drawer-icon">📄</span> Resume</a>
                     </div>
-
-                    <!-- Featured HexLean Banner Card (Entire Card Clickable) -->
-                    <a href="https://hexlean.com" target="_blank" rel="noopener" class="drawer-featured-card" title="Launch HexLean Platform">
-                        <div class="drawer-featured-top">
-                            <span class="drawer-featured-tag">INTERACTIVE EDUCATION</span>
-                            <span class="drawer-featured-arrow">↗</span>
-                        </div>
-                        <div class="drawer-featured-title">⚡ HexLean Platform</div>
-                        <p class="drawer-featured-desc">In-depth zero-bloat programming textbooks with interactive in-browser sandboxes.</p>
-                    </a>
 
                     <div class="drawer-group">
                         <span class="drawer-group-label">// ACTIONS &amp; PREFERENCES</span>
@@ -345,8 +334,46 @@
         });
     }
 
+    // 7. HexLean Topbar Persistent Pill Manager
+    function ensureHexLeanTopbar() {
+        var topbarRight = document.querySelector('.topbar-right');
+        if (topbarRight && !topbarRight.querySelector('.topbar-hexlean-pill')) {
+            var pill = document.createElement('a');
+            pill.href = 'https://hexlean.com';
+            pill.className = 'topbar-hexlean-pill';
+            pill.target = '_blank';
+            pill.rel = 'noopener';
+            pill.title = 'HexLean — Interactive Technical Education by Tanvir Hussain';
+            pill.innerHTML = `
+                <svg class="hexlean-bolt-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                <span class="hexlean-pill-label">HexLean</span>
+                <svg class="hexlean-ext-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            `;
+            var settingsBtn = topbarRight.querySelector('#settings-btn, .topbar-settings-btn');
+            if (settingsBtn) {
+                topbarRight.insertBefore(pill, settingsBtn);
+            } else {
+                topbarRight.appendChild(pill);
+            }
+        }
+
+        // Clean redundant HexLean links from topbar-nav (desktop) and dropdowns
+        document.querySelectorAll('.topbar-nav .nav-link-hexlean').forEach(function(el) {
+            el.remove();
+        });
+        document.querySelectorAll('.dropdown-menu .hexlean-dropdown-link').forEach(function(el) {
+            el.remove();
+        });
+    }
+
     // Attach listeners on DOMContentLoaded
     function onReady() {
+        ensureHexLeanTopbar();
         handleLocalhost();
         ensureDrawer();
         ensureSettings();
