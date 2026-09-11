@@ -6,45 +6,48 @@
     <title>Tanvir Hussain | Security & Systems Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/global.css">
     <link rel="icon" type="image/svg+xml" href="/assets/shield.svg">
     <link rel="apple-touch-icon" href="/assets/shield.svg">
     <script src="/nav.js"></script>
     <style>
         /* ==========================================================================
-           Executive Architecture Hero Section
+           Executive Architecture Hero Section (HexLean Literary Style)
            ========================================================================== */
         .executive-hero {
-            margin-top: 1rem;
-            margin-bottom: 2.25rem;
+            padding: 4.25rem 0 2.5rem;
+            text-align: center;
         }
 
         .hero-main-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4.2vw, 3.1rem);
+            font-family: var(--font-serif);
+            font-size: clamp(2.35rem, 5vw, 3.75rem);
             font-weight: 700;
-            line-height: 1.14;
-            letter-spacing: -0.038em;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
             color: var(--text-primary);
-            margin: 0 0 1rem 0;
+            margin: 0 auto 1.35rem;
+            max-width: 920px;
             text-wrap: balance;
         }
 
         .hero-main-title em {
-            font-style: normal;
-            background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-style: italic;
+            color: var(--accent);
+            font-weight: 400;
+            background: none !important;
+            -webkit-background-clip: initial !important;
+            -webkit-text-fill-color: initial !important;
         }
 
         .hero-description {
             font-family: var(--font-main);
-            font-size: clamp(0.96rem, 1.35vw, 1.08rem);
-            line-height: 1.65;
+            font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+            line-height: 1.68;
             color: var(--text-secondary);
-            max-width: 880px;
-            margin: 0 0 1.75rem 0;
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
         }
 
         .hero-metrics-bar {
@@ -56,13 +59,15 @@
             border-radius: 12px;
             padding: 1.1rem 2rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-            margin-bottom: 2rem;
+            max-width: 860px;
+            margin: 0 auto;
         }
 
         .hero-metric-item {
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
+            text-align: center;
         }
 
         .metric-val {
@@ -328,13 +333,13 @@
             border-left: 4px solid var(--accent);
             border-radius: 12px;
             padding: 1.25rem 1.5rem;
-            margin-bottom: 2.25rem;
+            margin: 1.75rem auto 3.5rem;
             text-decoration: none;
             color: inherit;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 20px rgba(142, 68, 173, 0.08);
             width: 100%;
-            max-width: 100%;
+            max-width: 860px;
             box-sizing: border-box;
             gap: 1.25rem;
             overflow: hidden;
@@ -943,8 +948,12 @@
 
         @media (max-width: 768px) {
             .executive-hero {
-                margin-top: 0.5rem;
-                margin-bottom: 1.75rem;
+                padding: 2.75rem 0 1.5rem;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .audio-master-banner {
+                margin: 1.5rem auto 2.5rem;
             }
             .hero-metrics-bar {
                 display: grid;
@@ -1121,9 +1130,10 @@
         }
 
         [data-theme="dark"] .hero-main-title em {
-            background: linear-gradient(135deg, #c084fc 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #c084fc;
+            background: none !important;
+            -webkit-background-clip: initial !important;
+            -webkit-text-fill-color: initial !important;
         }
 
         [data-theme="dark"] .tier-header span:last-child {
@@ -1341,10 +1351,10 @@
         <!-- Executive Architecture Hero Section -->
         <section class="executive-hero">
             <h1 class="hero-main-title">
-                Full-Stack Systems Architecture, <em>Applied Cryptography</em> &amp; Security Engineering
+                Engineering the Continuum: <em>From Silicon to Society.</em>
             </h1>
             <p class="hero-description">
-                An authoritative systems knowledge base and unified taxonomy spanning the entire computing continuum—from semiconductor physics and hardware side-channels up through operating system kernels, distributed consensus, and cognitive wetware.
+                An exhaustive, open systems taxonomy and architecture reference spanning from semiconductor physics and kernel internals to distributed consensus and cognitive wetware. Zero tracking, zero bloat, pure technical bedrock.
             </p>
             <div class="hero-metrics-bar">
                 <div class="hero-metric-item">
